@@ -1,4 +1,4 @@
-# ac-catalog
+# acnh-collection
 
 ## Project setup
 ```

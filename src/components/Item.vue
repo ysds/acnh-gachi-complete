@@ -60,7 +60,7 @@ export default {
       if (item.variants) {
         image = item.variants[0].image || item.variants[0].storageImage;
       } else if (item.sourceSheet === "Recipes") {
-        image = "/img/PaperRecipe.png";
+        image = "https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png";
       }
       return image;
     },

@@ -1,6 +1,15 @@
 <template>
   <div class="home">
-    <Nav :active="activeFilter.base" @change="onChangeNav" />
+    <div class="search-wrapper">
+      <SearchBox
+        :searchText="searchText"
+        :isSearchMode="isSearchMode"
+        @click="onClickSearchBtn"
+        @input="onInputSearchBox"
+      />
+    </div>
+    <Nav :active="nav" @change="onChangeNav" v-if="!isSearchMode" />
+    <FilterUI :filter="filter" @change="onChangeFilter" v-if="!isSearchMode" />
     <ul class="items" v-if="showItems.length > 0">
       <Item
         v-for="item in showItems"
@@ -15,22 +24,36 @@
 
 <script>
 import items from "../assets/items.json";
-import Item from "../components/Item.vue";
+
 import Nav from "../components/Nav.vue";
+import SearchBox from "../components/SearchBox.vue";
+import FilterUI from "../components/FilterUI.vue";
+import Item from "../components/Item.vue";
+
+const kataToHira = function(string) {
+  return string.replace(/[\u30A1-\u30FA]/g, (ch) =>
+    String.fromCharCode(ch.charCodeAt(0) - 0x60)
+  );
+};
 
 export default {
   name: "Home",
   components: {
-    Item,
     Nav,
+    SearchBox,
+    FilterUI,
+    Item,
   },
   data() {
     return {
       items: items,
       collected: {},
-      activeFilter: {
-        base: null,
+      nav: null,
+      filter: {
+        hiddenCollected: false,
       },
+      isSearchMode: false,
+      searchText: "",
     };
   },
   mounted() {
@@ -39,48 +62,72 @@ export default {
     this.$vlf.getItem("collected").then(function(data) {
       if (data) self.collected = data;
     });
-    this.$vlf.getItem("activeFilter").then(function(data) {
-      if (data) self.activeFilter = data;
+    this.$vlf.getItem("nav").then(function(data) {
+      if (data) self.nav = data;
+    });
+    this.$vlf.getItem("filter").then(function(data) {
+      if (data) self.filter = data;
     });
   },
   computed: {
     showItems: function() {
       return items.filter((item) => {
+        // 検索
+        if (this.isSearchMode) {
+          if (this.searchText === "") {
+            return false;
+          }
+          const hiraDisplayName = kataToHira(item.displayName);
+          return hiraDisplayName.indexOf(kataToHira(this.searchText)) !== -1;
+        }
+        // 所持済みを非表示
+        if (this.filter.hiddenCollected) {
+          if (
+            (this.collected[item.uniqueEntryId] &&
+              this.collected[item.uniqueEntryId].length > 0) ||
+            (this.collected[item.name] &&
+              item.variants &&
+              item.variants.length === this.collected[item.name].length)
+          ) {
+            return false;
+          }
+        }
+
         // 商店家具
-        if (this.activeFilter.base === "housewares") {
+        if (this.nav === "housewares") {
           return (
             item.sourceSheet === "Housewares" && item.catalog == "For sale"
           );
         }
         // 商店小物
-        if (this.activeFilter.base === "miscellaneous") {
+        else if (this.nav === "miscellaneous") {
           return (
             item.sourceSheet === "Miscellaneous" && item.catalog == "For sale"
           );
         }
         // 商店壁掛け
-        if (this.activeFilter.base === "wallmounted") {
+        else if (this.nav === "wallmounted") {
           return (
             item.sourceSheet === "Wall-mounted" && item.catalog == "For sale"
           );
         }
         // 魚模型
-        else if (this.activeFilter.base === "bugmodel") {
+        else if (this.nav === "bugmodel") {
           return item.variants && item.variants[0].source.includes("C.J.");
         }
         // 虫模型
-        else if (this.activeFilter.base === "fishmodel") {
+        else if (this.nav === "fishmodel") {
           return item.variants && item.variants[0].source.includes("Flick");
         }
         // ウェディング
-        else if (this.activeFilter.base === "wedding") {
+        else if (this.nav === "wedding") {
           return (
             item.sourceNotes === "Only available during Wedding Season" &&
             !item.diy
           );
         }
         // ラコスケ
-        else if (this.activeFilter.base === "pascal") {
+        else if (this.nav === "pascal") {
           return (
             (item.series === "mermaid" && !item.variants) ||
             (!item.diy &&
@@ -90,7 +137,7 @@ export default {
           );
         }
         // ローラン
-        else if (this.activeFilter.base === "saharah") {
+        else if (this.nav === "saharah") {
           return item.variants && item.variants[0].source.includes("Saharah");
         }
       });
@@ -102,8 +149,18 @@ export default {
       this.$vlf.setItem("collected", this.collected);
     },
     onChangeNav: function(activeNav) {
-      this.activeFilter.base = activeNav;
-      this.$vlf.setItem("activeFilter", this.activeFilter);
+      this.nav = activeNav;
+      this.$vlf.setItem("nav", this.nav);
+    },
+    onChangeFilter: function(activeFilter) {
+      this.filter = activeFilter;
+      this.$vlf.setItem("filter", this.filter);
+    },
+    onClickSearchBtn: function(isSearchMode) {
+      this.isSearchMode = isSearchMode;
+    },
+    onInputSearchBox: function(text) {
+      this.searchText = text;
     },
   },
 };
@@ -116,5 +173,11 @@ export default {
 .items {
   margin: 0;
   padding: 0;
+}
+.search-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: calc(100vw - 1rem);
 }
 </style>

@@ -79,8 +79,10 @@ export default {
   background-color: transparent;
   outline: none;
   font-weight: bold;
-  border: 0;
-  border-radius: 5px;
+  border-width: 0 0 3px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 2px;
 
   + .nav-item {
     margin-left: 0.5rem;
@@ -88,7 +90,6 @@ export default {
 }
 
 .active {
-  background-color: #42b983;
-  color: #fff;
+  border-bottom-color: #42b983;
 }
 </style>

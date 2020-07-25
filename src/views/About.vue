@@ -1,5 +1,98 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <img class="logo" src="../assets/icons8-love-book-96.png" />
+
+    <h1>あつ森コレクションについて</h1>
+    <p>
+      あつ森コレクションは、あつ森の家具などの取得状況を管理できるウェブアプです。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。
+    </p>
+
+    <h2 style="margin-top: 4rem;">THIRD-PARTIES ASSETS AND DATA</h2>
+    <ul class="thd-list">
+      <li class="thd-list-item">
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://github.com/acdb-team/google-sheets-to-json"
+          >ACNH Item Spreadsheet (JSON format)</a
+        >
+      </li>
+      <li class="thd-list-item">
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://github.com/alexislours/translation-sheet-data"
+          >ACNH Translation sheet (JSON format)</a
+        >
+      </li>
+      <li class="thd-list-item">
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://icons8.com/icons/set/love-book"
+          >Love Book icon</a
+        >
+        icon by
+        <a target="_blank" rel="noopener" href="https://icons8.com">Icons8</a>
+      </li>
+      <li class="thd-list-item">
+        For others, see the Git repository.
+      </li>
+    </ul>
+
+    <div class="links">
+      <a href="https://twitter.com/dmnmd55" style="margin-right: 2rem;">
+        <img src="../assets/Twitter_Logo_Blue.svg" width="60px" height="60px" />
+      </a>
+      <a href="https://github.com/ysds/acnh-collection">
+        <img src="../assets/GitHub-Mark-64px.png" width="40px" height="40px" />
+      </a>
+    </div>
+
+    <footer>
+      <div class="copyright">@ysds 2020</div>
+    </footer>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.about {
+  padding: 0 1.5rem 1rem;
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+}
+
+.thd-list {
+  padding: 0;
+}
+
+.thd-list-item {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.links {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.copyright {
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+</style>

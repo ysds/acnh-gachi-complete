@@ -1,11 +1,11 @@
 const kata2Hira = function(string) {
-  return string.replace(/[\u30A1-\u30FA]/g, (ch) =>
+  return string.replace(/[\u30A1-\u30FA]/g, ch =>
     String.fromCharCode(ch.charCodeAt(0) - 0x60)
   );
 };
 
 const hankaku2Zenkaku = function(string) {
-  return string.replace(/[Ａ-Ｚａ-ｚ０-９]/g, (ch) =>
+  return string.replace(/[Ａ-Ｚａ-ｚ０-９]/g, ch =>
     String.fromCharCode(ch.charCodeAt(0) - 0xfee0)
   );
 };
@@ -25,7 +25,7 @@ export function filterItems(
   isSearchMode,
   searchText
 ) {
-  return items.filter((item) => {
+  return items.filter(item => {
     // 検索
     if (isSearchMode) {
       if (searchText === "") {
@@ -35,14 +35,25 @@ export function filterItems(
       const normalizedSearchText = normalizeText(searchText);
       return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
     }
-    // 所持済みを非表示
-    if (filter.hiddenCollected) {
-      if (
-        (collected[item.uniqueEntryId] &&
-          collected[item.uniqueEntryId] === "0") ||
+    // 所持のみ
+    if (filter.collected === "1") {
+      if (item.uniqueEntryId) {
+        if (!collected[item.uniqueEntryId]) return false;
+      } else if (
+        !collected[item.name] ||
         (collected[item.name] &&
-          item.variants &&
-          item.variants.length === collected[item.name].length)
+          item.variants.length > collected[item.name].length)
+      ) {
+        return false;
+      }
+    }
+    // 未所持のみ
+    else if (filter.collected === "2") {
+      if (item.uniqueEntryId) {
+        if (collected[item.uniqueEntryId]) return false;
+      } else if (
+        collected[item.name] &&
+        item.variants.length === collected[item.name].length
       ) {
         return false;
       }
@@ -205,17 +216,17 @@ export const links = [
     subnavs: [
       {
         id: "housewares",
-        text: "家具",
+        text: "家具"
       },
       {
         id: "housewares-miscellaneous",
-        text: "小物",
+        text: "小物"
       },
       {
         id: "housewares-wallmounted",
-        text: "壁かけ",
-      },
-    ],
+        text: "壁かけ"
+      }
+    ]
   },
   {
     id: "walletc",
@@ -223,17 +234,17 @@ export const links = [
     subnavs: [
       {
         id: "walletc",
-        text: "壁紙",
+        text: "壁紙"
       },
       {
         id: "walletc-floors",
-        text: "床板",
+        text: "床板"
       },
       {
         id: "walletc-rugs",
-        text: "ラグ",
-      },
-    ],
+        text: "ラグ"
+      }
+    ]
   },
   {
     id: "fashion",
@@ -241,65 +252,65 @@ export const links = [
     subnavs: [
       {
         id: "fashion",
-        text: "トップス",
+        text: "トップス"
       },
       {
         id: "fashion-bottoms",
-        text: "ボトムス",
+        text: "ボトムス"
       },
       {
         id: "fashion-dress",
-        text: "ワンピース",
+        text: "ワンピース"
       },
       {
         id: "fashion-headwear",
-        text: "かぶりもの",
+        text: "かぶりもの"
       },
       {
         id: "fashion-accessories",
-        text: "アクセサリー",
+        text: "アクセサリー"
       },
       {
         id: "fashion-socks",
-        text: "くつした",
+        text: "くつした"
       },
       {
         id: "fashion-shoes",
-        text: "くつ",
+        text: "くつ"
       },
       {
         id: "fashion-bags",
-        text: "バッグ",
+        text: "バッグ"
       },
       {
         id: "fashion-umbrellas",
-        text: "かさ",
+        text: "かさ"
       },
       {
         id: "fashion-other",
-        text: "そのほか",
-      },
-    ],
+        text: "そのほか"
+      }
+    ]
   },
   {
     id: "fossils",
-    text: "かせき",
+    text: "かせき"
   },
   {
     id: "music",
-    text: "曲",
+    text: "曲"
   },
   {
     id: "posters",
-    text: "ポスター",
+    text: "ポスター"
   },
   {
     id: "photos",
-    text: "写真",
+    text: "写真"
   },
   {
     id: "recipes",
-    text: "レシピ",
+    text: "レシピ"
   },
   {
     id: "special",
@@ -307,52 +318,52 @@ export const links = [
     subnavs: [
       {
         id: "special",
-        text: "ジャスティン",
+        text: "ジャスティン"
       },
       {
         id: "special-bugmodels",
-        text: "レックス",
+        text: "レックス"
       },
       {
         id: "special-saharah",
-        text: "ローラン",
+        text: "ローラン"
       },
       {
         id: "special-gulliver",
-        text: "ジョニー",
+        text: "ジョニー"
       },
       {
         id: "special-gullivarrr",
-        text: "海賊ジョニー",
+        text: "海賊ジョニー"
       },
       {
         id: "special-labelle",
-        text: "ことの",
+        text: "ことの"
       },
       {
         id: "special-celeste",
-        text: "フーコ",
+        text: "フーコ"
       },
       {
         id: "special-art",
-        text: "つねきち",
+        text: "つねきち"
       },
       {
         id: "special-pascal",
-        text: "ラコスケ",
+        text: "ラコスケ"
       },
       {
         id: "special-easter",
-        text: "イースター",
+        text: "イースター"
       },
       {
         id: "special-wedding",
-        text: "ジューンブライド",
+        text: "ジューンブライド"
       },
       {
         id: "special-snowboy",
-        text: "ゆきだるま",
-      },
-    ],
-  },
+        text: "ゆきだるま"
+      }
+    ]
+  }
 ];

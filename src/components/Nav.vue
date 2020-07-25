@@ -34,12 +34,12 @@ export default {
   name: "Nav",
   props: {
     active: String,
-    links: Array,
+    links: Array
   },
   computed: {
     subnavs: function() {
       if (this.active) {
-        const activeNavObj = this.links.filter((link) => {
+        const activeNavObj = this.links.filter(link => {
           return this.active.includes(link.id);
         });
         if (activeNavObj.length > 0) {
@@ -47,13 +47,13 @@ export default {
         }
       }
       return null;
-    },
+    }
   },
   methods: {
     changeNav(id) {
       this.$emit("change", id);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -74,6 +74,7 @@ export default {
   border-style: solid;
   border-color: transparent;
   border-radius: 2px;
+  touch-action: manipulation;
 
   + .nav-item {
     margin-left: 0.5rem;
@@ -89,36 +90,36 @@ export default {
   display: flex;
   align-items: center;
   max-width: 100%;
-  height: 2.5rem;
+  height: 40px;
   margin-bottom: 1rem;
   overflow: hidden;
 }
 
 .subnav {
   display: flex;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 2rem;
-  margin-bottom: -2.5rem;
+  margin: 0 auto -32px;
+  padding: 2px 0.25rem 35px;
   overflow-x: auto;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
 
 .subnav-item {
-  margin-left: 0.5rem;
-  padding: 4px 0.75rem 3px;
-  background-color: #eee;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  padding: 8px 1.25rem 5px;
+  background-color: #fff;
   outline: none;
   border: 0;
   font-size: 14px;
-  font-weight: 500;
-  border-radius: 6px;
+  font-weight: 700;
+  border: 1px solid #ccc;
+  border-radius: 100px;
 
   &.active {
     color: #fff;
-    background-color: #ff7518;
-    font-weight: bold;
+    background-color: #21bec5;
+    border-color: #21bec5;
   }
 }
 </style>

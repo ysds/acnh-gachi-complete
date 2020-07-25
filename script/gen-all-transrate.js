@@ -13,7 +13,7 @@ for (let i = 0; i < fileList.length; i++) {
   all = all.concat(JSON.parse(content));
 }
 
-all.forEach((translate) => {
+all.forEach(translate => {
   delete translate["version"];
   delete translate.locale["EUen"];
   delete translate.locale["EUde"];

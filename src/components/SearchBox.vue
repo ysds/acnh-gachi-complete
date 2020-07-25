@@ -49,11 +49,11 @@ export default {
     isSearchMode: Boolean,
     searchText: String,
     change: Function,
-    input: Function,
+    input: Function
   },
   data() {
     return {
-      value: this.searchText || "",
+      value: this.searchText || ""
     };
   },
   methods: {
@@ -69,8 +69,8 @@ export default {
     },
     onSearchInput: function(event) {
       this.$emit("input", event.target.value);
-    },
-  },
+    }
+  }
 };
 </script>
 

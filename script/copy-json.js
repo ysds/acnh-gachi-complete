@@ -14,11 +14,11 @@ const allTranslations = JSON.parse(
   fs.readFileSync(`./script/translate-all.json`, "utf8")
 );
 
-content.forEach((item) => {
+content.forEach(item => {
   // Remove pattern variant
   if (item.variants && item.variants[0].variation) {
     let prevVariation = "";
-    const newVariants = item.variants.filter((variant) => {
+    const newVariants = item.variants.filter(variant => {
       const result = prevVariation !== variant.variation;
       prevVariation = variant.variation;
       return result;
@@ -27,7 +27,7 @@ content.forEach((item) => {
   }
 
   // Add displayName
-  const translateObj = allTranslations.filter((obj) => {
+  const translateObj = allTranslations.filter(obj => {
     return obj.locale.USen.toLowerCase() === item.name.toLowerCase();
   });
   if (translateObj.length) {

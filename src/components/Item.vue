@@ -17,6 +17,7 @@
             class="variant-input"
             v-model="collection"
             :value="variant.uniqueEntryId"
+            @change="setCollection"
           />
           <span class="variant-name">
             <template v-if="variant.variation">
@@ -51,44 +52,22 @@ export default {
   props: {
     collected: {
       type: [String, Array],
-      default: "",
+      default: ""
     },
-    item: Object,
+    item: Object
   },
-  computed: {
-    collection: {
-      get() {
-        let result = [];
-        const item = this.item;
-        const collected =
-          typeof this.collected === "string" ? this.collected : "";
-        if (collected !== "") {
-          if (item.uniqueEntryId && collected.length) {
-            return [item.uniqueEntryId];
-          } else if (item.variants) {
-            [].forEach.call(collected, function(s) {
-              result.push(item.variants[parseInt(s, 10)].uniqueEntryId);
-            });
-          }
-        }
-
-        return result;
-      },
-      set(value) {
-        let result = "";
-        if (this.item.uniqueEntryId && value.length > 0) {
-          return "0";
-        } else if (this.item.variants) {
-          this.item.variants.forEach((variant, index) => {
-            if (value.includes(variant.uniqueEntryId)) {
-              result = result + index;
-            }
-          });
-        }
-        this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
-        this.$forceupdate();
-      },
-    },
+  data() {
+    return {
+      collection: []
+    };
+  },
+  mounted() {
+    this.collection = this.getCollection();
+  },
+  watch: {
+    collected: function() {
+      this.collection = this.getCollection();
+    }
   },
   methods: {
     getImage: function(item) {
@@ -103,20 +82,52 @@ export default {
       }
       return image;
     },
+    getCollection: function() {
+      let result = [];
+      const item = this.item;
+      const collected =
+        typeof this.collected === "string" ? this.collected : "";
+      if (collected !== "") {
+        if (item.uniqueEntryId && collected.length) {
+          return [item.uniqueEntryId];
+        } else if (item.variants) {
+          [].forEach.call(collected, function(s) {
+            result.push(item.variants[parseInt(s, 10)].uniqueEntryId);
+          });
+        }
+      }
+
+      return result;
+    },
+    setCollection() {
+      const value = this.collection;
+      let result = "";
+      if (this.item.uniqueEntryId && value.length > 0) {
+        result = "0";
+      } else if (this.item.variants) {
+        this.item.variants.forEach((variant, index) => {
+          if (value.includes(variant.uniqueEntryId)) {
+            result = result + index;
+          }
+        });
+      }
+      this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
+    },
     onChangeAllCheck: function(event) {
       let result = [];
       if (event.target.checked) {
         if (this.item.uniqueEntryId) {
           result = [this.item.uniqueEntryId];
         } else if (this.item.variants) {
-          this.item.variants.forEach((variant) => {
+          this.item.variants.forEach(variant => {
             result.push(variant.uniqueEntryId);
           });
         }
       }
       this.collection = result;
-    },
-  },
+      this.setCollection();
+    }
+  }
 };
 </script>
 
@@ -131,6 +142,7 @@ export default {
 }
 
 .item-img {
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
   margin-right: 0.5rem;

@@ -1,13 +1,16 @@
 <template>
   <div class="filter">
     <label class="filter-check">
-      <input
-        type="checkbox"
-        class="filter-check-input"
-        :checked="filter.hiddenCollected"
-        @change="onChangeHiddenCollected"
-      />
-      <span class="filter-check-label">チェック済みを非表示</span>
+      <input type="radio" class="filter-check-input" v-model="collected" />
+      <span class="filter-check-label">すべて</span>
+    </label>
+    <label class="filter-check">
+      <input type="radio" class="filter-check-input" v-model="collected" />
+      <span class="filter-check-label">所持</span>
+    </label>
+    <label class="filter-check">
+      <input type="radio" class="filter-check-input" v-model="collected" />
+      <span class="filter-check-label">未所持</span>
     </label>
   </div>
 </template>
@@ -19,14 +22,21 @@ export default {
     filter: Object,
   },
   data() {
-    return {};
+    return {
+      sale: this.filter.sale || 0,
+    };
   },
-  methods: {
-    onChangeHiddenCollected: function(event) {
-      this.$emit(
-        "change",
-        Object.assign(this.filter, { hiddenCollected: event.target.checked })
-      );
+  computed: {
+    collected: {
+      get() {
+        return this.filter.collected || 0;
+      },
+      set(value) {
+        this.$emit(
+          "change",
+          Object.assign(this.collected, { collected: value })
+        );
+      },
     },
   },
 };
@@ -36,6 +46,8 @@ export default {
 .filter {
   display: flex;
   justify-content: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .filter-check {

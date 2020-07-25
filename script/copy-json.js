@@ -16,7 +16,7 @@ const allTranslations = JSON.parse(
 
 content.forEach((item) => {
   // Remove pattern variant
-  if (item.variants) {
+  if (item.variants && item.variants[0].variation) {
     let prevVariation = "";
     const newVariants = item.variants.filter((variant) => {
       const result = prevVariation !== variant.variation;
@@ -28,7 +28,7 @@ content.forEach((item) => {
 
   // Add displayName
   const translateObj = allTranslations.filter((obj) => {
-    return obj.locale.USen === item.name;
+    return obj.locale.USen.toLowerCase() === item.name.toLowerCase();
   });
   if (translateObj.length) {
     item.displayName = translateObj[0].locale.JPja;
@@ -47,8 +47,8 @@ content.sort(function(a, b) {
 });
 // アルファベットを日本語の後ろに
 content.sort(function(a, b) {
-  const isAlfabetA = a.displayName.slice(0, 1).match(/[^0-9a-zA-Z]/gi);
-  const isAlfabetB = b.displayName.slice(0, 1).match(/[^0-9a-zA-Z]/gi);
+  const isAlfabetA = a.displayName.slice(0, 1).match(/[^a-zA-Z]/gi);
+  const isAlfabetB = b.displayName.slice(0, 1).match(/[^a-zA-Z]/gi);
   if (!isAlfabetA && isAlfabetB) {
     return 1;
   }

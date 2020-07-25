@@ -8,7 +8,12 @@
         @input="onInputSearchBox"
       />
     </div>
-    <Nav :active="nav" @change="onChangeNav" v-if="!isSearchMode" />
+    <Nav
+      :links="links"
+      :active="nav"
+      @change="onChangeNav"
+      v-if="!isSearchMode"
+    />
     <FilterUI :filter="filter" @change="onChangeFilter" v-if="!isSearchMode" />
     <ul class="items" v-if="showItems.length > 0">
       <Item
@@ -24,17 +29,12 @@
 
 <script>
 import items from "../assets/items.json";
+import { filterItems, links } from "../utils/utils.js";
 
 import Nav from "../components/Nav.vue";
 import SearchBox from "../components/SearchBox.vue";
 import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
-
-const kataToHira = function(string) {
-  return string.replace(/[\u30A1-\u30FA]/g, (ch) =>
-    String.fromCharCode(ch.charCodeAt(0) - 0x60)
-  );
-};
 
 export default {
   name: "Home",
@@ -46,7 +46,6 @@ export default {
   },
   data() {
     return {
-      items: items,
       collected: {},
       nav: null,
       filter: {
@@ -54,6 +53,7 @@ export default {
       },
       isSearchMode: false,
       searchText: "",
+      links: links,
     };
   },
   mounted() {
@@ -71,81 +71,23 @@ export default {
   },
   computed: {
     showItems: function() {
-      return items.filter((item) => {
-        // 検索
-        if (this.isSearchMode) {
-          if (this.searchText === "") {
-            return false;
-          }
-          const hiraDisplayName = kataToHira(item.displayName);
-          return hiraDisplayName.indexOf(kataToHira(this.searchText)) !== -1;
-        }
-        // 所持済みを非表示
-        if (this.filter.hiddenCollected) {
-          if (
-            (this.collected[item.uniqueEntryId] &&
-              this.collected[item.uniqueEntryId].length > 0) ||
-            (this.collected[item.name] &&
-              item.variants &&
-              item.variants.length === this.collected[item.name].length)
-          ) {
-            return false;
-          }
-        }
-
-        // 商店家具
-        if (this.nav === "housewares") {
-          return (
-            item.sourceSheet === "Housewares" && item.catalog == "For sale"
-          );
-        }
-        // 商店小物
-        else if (this.nav === "miscellaneous") {
-          return (
-            item.sourceSheet === "Miscellaneous" && item.catalog == "For sale"
-          );
-        }
-        // 商店壁掛け
-        else if (this.nav === "wallmounted") {
-          return (
-            item.sourceSheet === "Wall-mounted" && item.catalog == "For sale"
-          );
-        }
-        // 魚模型
-        else if (this.nav === "bugmodel") {
-          return item.variants && item.variants[0].source.includes("C.J.");
-        }
-        // 虫模型
-        else if (this.nav === "fishmodel") {
-          return item.variants && item.variants[0].source.includes("Flick");
-        }
-        // ウェディング
-        else if (this.nav === "wedding") {
-          return (
-            item.sourceNotes === "Only available during Wedding Season" &&
-            !item.diy
-          );
-        }
-        // ラコスケ
-        else if (this.nav === "pascal") {
-          return (
-            (item.series === "mermaid" && !item.variants) ||
-            (!item.diy &&
-              item.variants &&
-              item.variants[0].source.includes("Pascal")) ||
-            (item.source && item.source.includes("Pascal"))
-          );
-        }
-        // ローラン
-        else if (this.nav === "saharah") {
-          return item.variants && item.variants[0].source.includes("Saharah");
-        }
-      });
+      return filterItems(
+        items,
+        this.collected,
+        this.nav,
+        this.filter,
+        this.isSearchMode,
+        this.searchText
+      );
     },
   },
   methods: {
     toggleState: function(name, collected) {
-      this.collected[name] = collected;
+      if (collected === "") {
+        delete this.collected[name];
+      } else {
+        this.collected[name] = collected;
+      }
       this.$vlf.setItem("collected", this.collected);
     },
     onChangeNav: function(activeNav) {
@@ -169,6 +111,7 @@ export default {
 <style lang="scss" scoped>
 .home {
   text-align: left;
+  margin-bottom: 4rem;
 }
 .items {
   margin: 0;
@@ -179,5 +122,6 @@ export default {
   right: 0;
   top: 0;
   width: calc(100vw - 1rem);
+  pointer-events: none;
 }
 </style>

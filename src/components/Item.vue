@@ -1,6 +1,6 @@
 <template>
   <li class="item">
-    <img :src="getImage(item)" class="item-img" />
+    <img v-lazy="getImage(item)" class="item-img" />
     <div class="item-center">
       <div class="item-name">{{ item.displayName }}</div>
       <div
@@ -15,15 +15,18 @@
           <input
             type="checkbox"
             class="variant-input"
-            v-model="collect"
+            v-model="collection"
             :value="variant.uniqueEntryId"
-            @change="onChangeCheck(item.name)"
           />
-          <span class="variant-name" v-if="variant.variation">
-            {{ variant.variation }}
+          <span class="variant-name">
+            <template v-if="variant.variation">
+              {{ variant.variation }}
+            </template>
+            <template v-else-if="variant.genuine">本物</template>
+            <template v-else>偽物</template>
           </span>
         </label>
-        <span class="variant-length">{{ item.variants.length }}色</span>
+        <span class="variant-length">{{ item.variants.length }}種</span>
       </div>
     </div>
     <label class="item-check">
@@ -32,8 +35,8 @@
         class="item-check-input"
         :checked="
           item.variants
-            ? item.variants.length === collect.length
-            : collect.length === 1
+            ? item.variants.length === collection.length
+            : collection.length === 1
         "
         :key="item.uniqueEntryId || item.name"
         @change="onChangeAllCheck"
@@ -46,45 +49,72 @@
 export default {
   name: "Item",
   props: {
-    collected: Array,
+    collected: {
+      type: [String, Array],
+      default: "",
+    },
     item: Object,
   },
-  data() {
-    return {
-      collect: this.collected || [],
-    };
+  computed: {
+    collection: {
+      get() {
+        let result = [];
+        const item = this.item;
+        const collected =
+          typeof this.collected === "string" ? this.collected : "";
+        if (collected !== "") {
+          if (item.uniqueEntryId && collected.length) {
+            return [item.uniqueEntryId];
+          } else if (item.variants) {
+            [].forEach.call(collected, function(s) {
+              result.push(item.variants[parseInt(s, 10)].uniqueEntryId);
+            });
+          }
+        }
+
+        return result;
+      },
+      set(value) {
+        let result = "";
+        if (this.item.uniqueEntryId && value.length > 0) {
+          return "0";
+        } else if (this.item.variants) {
+          this.item.variants.forEach((variant, index) => {
+            if (value.includes(variant.uniqueEntryId)) {
+              result = result + index;
+            }
+          });
+        }
+        this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
+        this.$forceupdate();
+      },
+    },
   },
   methods: {
     getImage: function(item) {
       let image = "";
       if (item.variants) {
-        image = item.variants[0].image || item.variants[0].storageImage;
+        image =
+          item.variants[0].image ||
+          item.variants[0].storageImage ||
+          item.variants[0].albumImage;
       } else if (item.sourceSheet === "Recipes") {
         image = "https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png";
       }
       return image;
     },
-    onChangeCheck: function() {
-      this.$emit(
-        "change",
-        this.item.uniqueEntryId || this.item.name,
-        this.collect
-      );
-    },
     onChangeAllCheck: function(event) {
+      let result = [];
       if (event.target.checked) {
-        if (this.item.variants) {
-          this.collect = [];
+        if (this.item.uniqueEntryId) {
+          result = [this.item.uniqueEntryId];
+        } else if (this.item.variants) {
           this.item.variants.forEach((variant) => {
-            this.collect.push(variant.uniqueEntryId);
+            result.push(variant.uniqueEntryId);
           });
-        } else if (this.item.uniqueEntryId) {
-          this.collect.push(this.item.uniqueEntryId);
         }
-      } else {
-        this.collect = [];
       }
-      this.onChangeCheck();
+      this.collection = result;
     },
   },
 };
@@ -94,8 +124,8 @@ export default {
 .item {
   display: flex;
   align-items: center;
-  min-height: 70px;
-  padding: 0.5rem 0.75rem;
+  min-height: 66px;
+  padding: 0.75rem;
   margin: 0;
   border-bottom: 1px solid #eee;
 }

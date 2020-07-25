@@ -6,6 +6,7 @@
         class="search-input"
         :value="value"
         @input="onSearchInput"
+        placeholder="すべてのアイテムから検索"
         ref="input"
       />
     </form>
@@ -82,6 +83,7 @@ export default {
 
 .search-form {
   flex-grow: 1;
+  pointer-events: auto;
 }
 
 .search-input {
@@ -101,5 +103,6 @@ export default {
   padding: 1.5rem;
   border: 0;
   background-color: transparent;
+  pointer-events: auto;
 }
 </style>

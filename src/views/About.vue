@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <img class="logo" src="../assets/icons8-love-book-96.png" />
+    <img class="logo" src="../assets/logo.svg" />
 
     <h1>あつ森コレクションについて</h1>
     <p>
@@ -24,16 +24,6 @@
           href="https://github.com/alexislours/translation-sheet-data"
           >ACNH Translation sheet (JSON format)</a
         >
-      </li>
-      <li class="thd-list-item">
-        <a
-          target="_blank"
-          rel="noopener"
-          href="https://icons8.com/icons/set/love-book"
-          >Love Book icon</a
-        >
-        icon by
-        <a target="_blank" rel="noopener" href="https://icons8.com">Icons8</a>
       </li>
       <li class="thd-list-item">
         For others, see the Git repository.

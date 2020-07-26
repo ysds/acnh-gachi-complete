@@ -26,7 +26,7 @@
         :item="item"
         :collected="collected[item.uniqueEntryId] || collected[item.name]"
         :key="item.name + item.sourceSheet"
-        @change="toggleState"
+        @change="onChangeItemCheck"
       />
     </ul>
     <div class="noitems" v-else-if="!isSearchMode">
@@ -62,34 +62,24 @@ export default {
       },
       isSearchMode: false,
       searchText: "",
-      links: links
+      links: links,
+      showItems: []
     };
   },
-  created() {
+  async mounted() {
     // Load data from localStrage
     const self = this;
-    this.$vlf.getItem("collected").then(function(data) {
-      self.collected = data || {};
-    });
-    this.$vlf.getItem("nav").then(function(data) {
-      self.nav = data || "housewares";
-    });
-    this.$vlf.getItem("filter").then(function(data) {
-      self.filter = data || { collected: "0", sale: "0" };
-    });
+    const [collected, nav, filter] = await Promise.all([
+      self.$vlf.getItem("collected"),
+      self.$vlf.getItem("nav"),
+      self.$vlf.getItem("filter")
+    ]);
+    this.collected = collected;
+    this.nav = nav;
+    this.filter = filter;
+    this.updateList();
   },
   computed: {
-    showItems: function() {
-      return filterItems(
-        items,
-        this.collected,
-        this.nav,
-        this.filter,
-        this.isSearchMode,
-        this.searchText,
-        this.isShowSaleFilter
-      );
-    },
     isShowSaleFilter: function() {
       if (this.nav) {
         const showNavs = ["housewares", "walletc", "fashion"];
@@ -101,7 +91,34 @@ export default {
     }
   },
   methods: {
-    toggleState: function(name, collected) {
+    updateList: function() {
+      const self = this;
+      self.showItems = [];
+      const list = filterItems(
+        items,
+        this.collected,
+        this.nav,
+        this.filter,
+        this.isSearchMode,
+        this.searchText,
+        this.isShowSaleFilter
+      );
+      const ite = (function*() {
+        while (true) {
+          const items = list.splice(0, 100);
+          if (items.length <= 0) break;
+          yield setTimeout(() => {
+            for (let len = items.length, i = 0; i < len; i++) {
+              const item = items[i];
+              self.showItems.push(item);
+            }
+            ite.next();
+          });
+        }
+      })();
+      ite.next();
+    },
+    onChangeItemCheck: function(name, collected) {
       if (collected === "") {
         delete this.collected[name];
       } else {
@@ -112,16 +129,19 @@ export default {
     onChangeNav: function(activeNav) {
       this.nav = activeNav;
       this.$vlf.setItem("nav", this.nav);
+      this.updateList();
     },
     onChangeFilter: function(activeFilter) {
       this.filter = activeFilter;
       this.$vlf.setItem("filter", this.filter);
+      this.updateList();
     },
     onClickSearchBtn: function(isSearchMode) {
       this.isSearchMode = isSearchMode;
     },
     onInputSearchBox: function(text) {
       this.searchText = text;
+      this.updateList();
     }
   }
 };

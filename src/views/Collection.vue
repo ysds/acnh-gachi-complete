@@ -62,8 +62,7 @@ export default {
       },
       isSearchMode: false,
       searchText: "",
-      links: links,
-      showItems: []
+      links: links
     };
   },
   async mounted() {
@@ -77,9 +76,19 @@ export default {
     this.collected = collected;
     this.nav = nav;
     this.filter = filter;
-    this.updateList();
   },
   computed: {
+    showItems: function() {
+      return filterItems(
+        items,
+        this.collected,
+        this.nav,
+        this.filter,
+        this.isSearchMode,
+        this.searchText,
+        this.isShowSaleFilter
+      );
+    },
     isShowSaleFilter: function() {
       if (this.nav) {
         const showNavs = ["housewares", "walletc", "fashion"];
@@ -91,33 +100,6 @@ export default {
     }
   },
   methods: {
-    updateList: function() {
-      const self = this;
-      self.showItems = [];
-      const list = filterItems(
-        items,
-        this.collected,
-        this.nav,
-        this.filter,
-        this.isSearchMode,
-        this.searchText,
-        this.isShowSaleFilter
-      );
-      const ite = (function*() {
-        while (true) {
-          const items = list.splice(0, 100);
-          if (items.length <= 0) break;
-          yield setTimeout(() => {
-            for (let len = items.length, i = 0; i < len; i++) {
-              const item = items[i];
-              self.showItems.push(item);
-            }
-            ite.next();
-          });
-        }
-      })();
-      ite.next();
-    },
     onChangeItemCheck: function(name, collected) {
       if (collected === "") {
         delete this.collected[name];
@@ -129,19 +111,16 @@ export default {
     onChangeNav: function(activeNav) {
       this.nav = activeNav;
       this.$vlf.setItem("nav", this.nav);
-      this.updateList();
     },
     onChangeFilter: function(activeFilter) {
       this.filter = activeFilter;
       this.$vlf.setItem("filter", this.filter);
-      this.updateList();
     },
     onClickSearchBtn: function(isSearchMode) {
       this.isSearchMode = isSearchMode;
     },
     onInputSearchBox: function(text) {
       this.searchText = text;
-      this.updateList();
     }
   }
 };

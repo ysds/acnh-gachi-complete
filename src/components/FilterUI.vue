@@ -40,7 +40,7 @@ export default {
   computed: {
     sale: {
       get() {
-        return this.filter.sale || 0;
+        return this.filter.sale || null;
       },
       set(value) {
         this.$emit("change", Object.assign(this.filter, { sale: value }));
@@ -48,7 +48,7 @@ export default {
     },
     collected: {
       get() {
-        return this.filter.collected || 0;
+        return this.filter.collected || null;
       },
       set(value) {
         this.$emit("change", Object.assign(this.filter, { collected: value }));

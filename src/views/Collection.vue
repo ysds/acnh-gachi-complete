@@ -57,25 +57,25 @@ export default {
       collected: {},
       nav: "",
       filter: {
-        sale: 0,
-        collected: 0
+        sale: null,
+        collected: null
       },
       isSearchMode: false,
       searchText: "",
       links: links
     };
   },
-  mounted() {
+  created() {
     // Load data from localStrage
     const self = this;
     this.$vlf.getItem("collected").then(function(data) {
-      if (data) self.collected = data;
+      self.collected = data || {};
     });
     this.$vlf.getItem("nav").then(function(data) {
-      if (data) self.nav = data;
+      self.nav = data || "housewares";
     });
     this.$vlf.getItem("filter").then(function(data) {
-      if (data) self.filter = data;
+      self.filter = data || { collected: "0", sale: "0" };
     });
   },
   computed: {

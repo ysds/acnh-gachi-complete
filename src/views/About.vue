@@ -4,7 +4,7 @@
 
     <h1>あつ森ガチコンプについて</h1>
     <p>
-      あつ森ガチコンプは、あつ森の家具などの取得状況を管理できるウェブアプです。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。
+      あつ森ガチコンプは、あつ森の家具などの取得状況を管理できるウェブアプリです。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。
     </p>
 
     <h2 style="margin-top: 4rem;">THIRD-PARTIES ASSETS AND DATA</h2>
@@ -23,6 +23,11 @@
           rel="noopener"
           href="https://github.com/alexislours/translation-sheet-data"
           >ACNH Translation sheet (JSON format)</a
+        >
+      </li>
+      <li class="thd-list-item">
+        <a target="_blank" rel="noopener" href="https://acnhcdn.com/"
+          >acnhcdn.com</a
         >
       </li>
       <li class="thd-list-item">

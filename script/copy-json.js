@@ -16,10 +16,10 @@ const allTranslations = JSON.parse(
 
 content.forEach(item => {
   // Remove pattern variant
-  if (item.variants && item.variants[0].variation) {
+  if (item.variants) {
     let prevVariation = "";
     const newVariants = item.variants.filter(variant => {
-      const result = prevVariation !== variant.variation;
+      let result = prevVariation !== variant.variation;
       prevVariation = variant.variation;
       return result;
     });

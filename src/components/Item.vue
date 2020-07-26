@@ -23,8 +23,8 @@
             <template v-if="variant.variation">
               {{ variant.variation }}
             </template>
-            <template v-else-if="variant.genuine">本物</template>
-            <template v-else>偽物</template>
+            <template v-else-if="variant.genuine === true">本物</template>
+            <template v-else-if="variant.genuine === false">偽物</template>
           </span>
         </label>
         <span class="variant-length">{{ item.variants.length }}種</span>

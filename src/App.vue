@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Collection</router-link> |
+      <router-link to="/">あつ森ガチコンプ</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />

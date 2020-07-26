@@ -55,7 +55,7 @@ export function filterItems(
         return false;
     }
     // 所持のみ
-    if (filter.collected === "1") {
+    if (filter && filter.collected === "1") {
       if (item.uniqueEntryId) {
         if (!collected[item.uniqueEntryId]) return false;
       } else if (
@@ -67,7 +67,7 @@ export function filterItems(
       }
     }
     // 未所持のみ
-    else if (filter.collected === "2") {
+    else if (filter && filter.collected === "2") {
       if (item.uniqueEntryId) {
         if (collected[item.uniqueEntryId]) return false;
       } else if (

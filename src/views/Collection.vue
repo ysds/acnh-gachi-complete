@@ -73,9 +73,12 @@ export default {
       self.$vlf.getItem("nav"),
       self.$vlf.getItem("filter")
     ]);
-    this.collected = collected;
-    this.nav = nav;
-    this.filter = filter;
+    this.collected = collected || {};
+    this.nav = nav || "housewares";
+    this.filter = filter || {
+      sale: "0",
+      collected: "0"
+    };
   },
   computed: {
     showItems: function() {

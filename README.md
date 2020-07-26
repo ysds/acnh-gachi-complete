@@ -1,4 +1,4 @@
-# acnh-collection
+# acnh-gachi-complete
 
 ## Project setup
 ```

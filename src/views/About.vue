@@ -34,7 +34,7 @@
       <a href="https://twitter.com/dmnmd55" style="margin-right: 2rem;">
         <img src="../assets/Twitter_Logo_Blue.svg" width="60px" height="60px" />
       </a>
-      <a href="https://github.com/ysds/acnh-collection">
+      <a href="https://github.com/ysds/acnh-gachi-complete">
         <img src="../assets/GitHub-Mark-64px.png" width="40px" height="40px" />
       </a>
     </div>

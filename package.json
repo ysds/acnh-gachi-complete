@@ -33,6 +33,7 @@
     "prettier": "^1.19.1",
     "prettier-eslint": "^11.0.0",
     "sass-loader": "^8.0.2",
+    "vue-analytics": "^5.22.1",
     "vue-template-compiler": "^2.6.11"
   }
 }

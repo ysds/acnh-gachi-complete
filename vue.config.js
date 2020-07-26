@@ -5,7 +5,7 @@ module.exports = {
   pages: {
     index: {
       entry: "src/main.js",
-      title: "あつ森コレクション"
+      title: "あつ森ガチコンプ"
     }
   }
 };

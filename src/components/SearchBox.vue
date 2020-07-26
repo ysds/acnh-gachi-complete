@@ -102,7 +102,7 @@ export default {
   margin-left: auto;
   padding: 1.5rem;
   border: 0;
-  background-color: transparent;
+  background-color: #fff;
   pointer-events: auto;
 }
 </style>

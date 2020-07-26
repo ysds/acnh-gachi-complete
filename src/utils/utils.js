@@ -23,7 +23,8 @@ export function filterItems(
   nav,
   filter,
   isSearchMode,
-  searchText
+  searchText,
+  isShowSaleFilter
 ) {
   return items.filter(item => {
     // 検索
@@ -34,6 +35,24 @@ export function filterItems(
       const normalizedDisplayName = normalizeText(item.displayName);
       const normalizedSearchText = normalizeText(searchText);
       return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
+    }
+    // 商店
+    if (isShowSaleFilter && filter.sale === "0") {
+      if (
+        item.catalog === "Not for sale" ||
+        item.catalog === "Not in catalog" ||
+        item.catalog === false
+      )
+        return false;
+    }
+    // DIY
+    if (isShowSaleFilter && filter.sale === "1") {
+      if (!item.diy) return false;
+    }
+    // その他
+    if (isShowSaleFilter && filter.sale === "2") {
+      if (item.diy || item.catalog === "For sale" || item.catalog === true)
+        return false;
     }
     // 所持のみ
     if (filter.collected === "1") {

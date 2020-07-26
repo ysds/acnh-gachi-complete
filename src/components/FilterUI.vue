@@ -1,18 +1,20 @@
 <template>
   <div class="filters">
-    <!-- <label class="filter">
-      <input type="radio" class="filter-radio" value="0" v-model="sale" />
-      <span class="filter-label">購入可</span>
-    </label>
-    <label class="filter">
-      <input type="radio" class="filter-radio" value="1" v-model="sale" />
-      <span class="filter-label">DIY</span>
-    </label>
-    <label class="filter">
-      <input type="radio" class="filter-radio" value="2" v-model="sale" />
-      <span class="filter-label">他非売品</span>
-    </label>
-    <div class="filter-divider" /> -->
+    <template v-if="showSaleFilter">
+      <label class="filter">
+        <input type="radio" class="filter-radio" value="0" v-model="sale" />
+        <span class="filter-label">商店</span>
+      </label>
+      <label class="filter">
+        <input type="radio" class="filter-radio" value="1" v-model="sale" />
+        <span class="filter-label">DIY</span>
+      </label>
+      <label class="filter">
+        <input type="radio" class="filter-radio" value="2" v-model="sale" />
+        <span class="filter-label">その他</span>
+      </label>
+      <div class="filter-divider" />
+    </template>
     <label class="filter">
       <input type="radio" class="filter-radio" value="0" v-model="collected" />
       <span class="filter-label">すべて</span>
@@ -32,7 +34,8 @@
 export default {
   name: "FilterUI",
   props: {
-    filter: Object
+    filter: Object,
+    showSaleFilter: Boolean
   },
   computed: {
     sale: {

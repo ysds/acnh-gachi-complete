@@ -62,11 +62,13 @@ export default {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: -0.5rem;
   margin-bottom: 0.5rem;
 }
 
 .nav-item {
-  padding: 0 0.25rem;
+  margin-top: 0.5rem;
+  padding: 2px 0;
   background-color: transparent;
   outline: none;
   font-weight: bold;
@@ -88,17 +90,13 @@ export default {
 
 .wrapper {
   display: flex;
-  align-items: center;
-  max-width: 100%;
-  height: 40px;
-  margin-bottom: 1rem;
-  overflow: hidden;
 }
 
 .subnav {
   display: flex;
-  margin: 0 auto -32px;
-  padding: 2px 0.25rem 35px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.5rem;
   overflow-x: auto;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
@@ -107,7 +105,7 @@ export default {
 .subnav-item {
   margin-right: 0.25rem;
   margin-left: 0.25rem;
-  padding: 8px 1.25rem 5px;
+  padding: 8px 1rem 5px;
   background-color: #fff;
   outline: none;
   border: 0;

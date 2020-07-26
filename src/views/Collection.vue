@@ -14,7 +14,12 @@
       @change="onChangeNav"
       v-if="!isSearchMode"
     />
-    <FilterUI :filter="filter" @change="onChangeFilter" v-if="!isSearchMode" />
+    <FilterUI
+      :filter="filter"
+      :showSaleFilter="isShowSaleFilter"
+      @change="onChangeFilter"
+      v-if="!isSearchMode"
+    />
     <ul class="items" v-if="showItems.length > 0">
       <Item
         v-for="item in showItems"
@@ -50,7 +55,7 @@ export default {
   data() {
     return {
       collected: {},
-      nav: null,
+      nav: "",
       filter: {
         sale: 0,
         collected: 0
@@ -81,8 +86,18 @@ export default {
         this.nav,
         this.filter,
         this.isSearchMode,
-        this.searchText
+        this.searchText,
+        this.isShowSaleFilter
       );
+    },
+    isShowSaleFilter: function() {
+      if (this.nav) {
+        const showNavs = ["housewares", "walletc", "fashion"];
+        for (let i = 0; i < showNavs.length; i++) {
+          if (this.nav.indexOf(showNavs[i]) !== -1) return true;
+        }
+      }
+      return false;
     }
   },
   methods: {

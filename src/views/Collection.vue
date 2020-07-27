@@ -94,7 +94,7 @@ export default {
       {
         sale: "0",
         collected: "0",
-        viewMode: "list"
+        viewMode: "tile"
       },
       filter
     );

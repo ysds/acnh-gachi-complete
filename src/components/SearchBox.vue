@@ -83,7 +83,9 @@ export default {
 
 .search-form {
   flex-grow: 1;
+  padding-left: 0.5rem;
   pointer-events: auto;
+  background-color: #fff;
 }
 
 .search-input {
@@ -100,7 +102,10 @@ export default {
 .search-btn {
   flex-shrink: 0;
   margin-left: auto;
-  padding: 1.5rem;
+  width: 64px;
+  height: 64px;
+  text-align: center;
+  line-height: 64px;
   border: 0;
   background-color: #fff;
   pointer-events: auto;

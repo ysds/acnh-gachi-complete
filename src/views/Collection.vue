@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <div class="view-btn-wrapper">
+      <ViewButton :filter="filter" @change="onChangeFilter" />
+    </div>
     <div class="search-wrapper">
       <SearchBox
         :searchText="searchText"
@@ -20,7 +23,11 @@
       @change="onChangeFilter"
       v-if="!isSearchMode"
     />
-    <ul class="items" v-if="showItems.length > 0">
+    <ul
+      class="items"
+      :class="{ tiles: filter.viewMode === 'tile' }"
+      v-if="showItems.length > 0"
+    >
       <Item
         v-for="item in showItems"
         :item="item"
@@ -41,6 +48,7 @@ import items from "../assets/items.json";
 import { filterItems, links } from "../utils/utils.js";
 
 import Nav from "../components/Nav.vue";
+import ViewButton from "../components/ViewButton.vue";
 import SearchBox from "../components/SearchBox.vue";
 import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
@@ -49,6 +57,7 @@ export default {
   name: "Collection",
   components: {
     Nav,
+    ViewButton,
     SearchBox,
     FilterUI,
     Item
@@ -143,6 +152,10 @@ export default {
 .items {
   margin: 0;
   padding: 0;
+
+  &.tiles {
+    text-align: center;
+  }
 }
 
 .noitems {
@@ -152,10 +165,16 @@ export default {
   color: rgba(0, 0, 0, 0.6);
 }
 
+.view-btn-wrapper {
+  position: absolute;
+  right: 76px;
+  top: 4px;
+}
+
 .search-wrapper {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 12px;
+  top: 4px;
   width: calc(100vw - 1rem);
   pointer-events: none;
 }

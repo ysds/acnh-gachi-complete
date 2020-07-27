@@ -31,6 +31,11 @@
         >
       </li>
       <li class="thd-list-item">
+        <a target="_blank" rel="noopener" href="https://icons.getbootstrap.com/"
+          >Bootstrap Icons</a
+        >
+      </li>
+      <li class="thd-list-item">
         For others, see the Git repository.
       </li>
     </ul>
@@ -56,6 +61,7 @@
   max-width: 600px;
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
 }
 
 .logo {

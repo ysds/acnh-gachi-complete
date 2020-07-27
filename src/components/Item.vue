@@ -54,11 +54,39 @@
           v-for="(variant, index) in item.variants"
           :key="variant.uniqueEntryId"
         >
-          <div class="tile-item-name"><template v-if="index === 0">{{item.displayName}}</template></div>
-          <img v-lazy="getVariantTileImage(variant)" class="item-img" />
-          <div class="tile-var-name">{{variant.variation}}</div>
+          <label>
+            <input
+              type="checkbox"
+              class="tile-input"
+              v-model="collection"
+              :value="variant.uniqueEntryId"
+              @change="setCollection"
+            />
+            <div class="tile-item-name">
+              <template v-if="index === 0">{{ item.displayName }}</template>
+            </div>
+            <img class="tile-img" v-lazy="getVariantTileImage(variant)" />
+            <div class="tile-var-name">{{ variant.variation }}</div>
+            <div class="tile-indicator"></div>
+          </label>
         </li>
       </ul>
+      <div class="tile-variants" v-else>
+        <span class="tile-item">
+          <label>
+            <input
+              type="checkbox"
+              class="tile-input"
+              :checked="collection.length === 1"
+              :key="item.uniqueEntryId || item.name"
+              @change="onChangeAllCheck"
+            />
+            <div class="tile-item-name">{{ item.displayName }}</div>
+            <img class="tile-img" v-lazy="getSingeItemImage(item)" />
+            <div class="tile-indicator"></div>
+          </label>
+        </span>
+      </div>
     </template>
   </li>
 </template>
@@ -92,13 +120,18 @@ export default {
       let image = "";
       if (item.variants) {
         image = this.getVariantTileImage(item.variants[0]);
-      } else if (item.sourceSheet === "Recipes") {
-        image = "https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png";
+      } else {
+        image = this.getSingeItemImage(item);
       }
       return image;
     },
     getVariantTileImage: function(variant) {
-      return variant.image || variant.storageImage || variant.albumImage;
+      return variant.image || variant.storageImage || variant.albumImage || "";
+    },
+    getSingeItemImage: function(item) {
+      return item.sourceSheet === "Recipes"
+        ? "https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
+        : "";
     },
     getCollection: function() {
       let result = [];
@@ -150,7 +183,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 // List item
 
 .item {
@@ -166,11 +198,8 @@ export default {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  vertical-align: top;
-
-  .item & {
   margin-right: 0.5rem;
-  }
+  vertical-align: top;
 }
 
 .item-name {
@@ -266,25 +295,70 @@ export default {
 }
 
 .tile-item {
+  position: relative;
   display: inline-block;
   width: 75px;
-  height: 88px;
+  height: 96px;
   text-align: center;
   vertical-align: top;
+
+  &:first-child .tile-indicator {
+    border-left: 1px solid #fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  &:last-child .tile-indicator {
+    border-right: 1px solid #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
 }
 
 .tile-item-name {
   display: block;
-  font-size: 9px;
+  margin-top: 2px;
+  font-size: 10px;
   font-weight: 600;
   height: 1.6rem;
-  overflow: hidden;
 }
 
 .tile-var-name {
   display: block;
   font-size: 9px;
-  height: .8rem;
+  height: 0.8rem;
   overflow: hidden;
+  word-break: keep-all;
+  line-break: strict;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.tile-img {
+  margin-top: -3px;
+  width: 50px;
+  height: 50px;
+  vertical-align: top;
+}
+
+.tile-input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+
+  &:checked ~ .tile-indicator {
+    background-color: #b6ecd4;
+  }
+}
+
+.tile-indicator {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
 }
 </style>

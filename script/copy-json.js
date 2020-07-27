@@ -62,13 +62,6 @@ content.sort(function(a, b) {
   }
   return 0;
 });
-// レシピを最初に
-content.sort(function(a, b) {
-  if (a.sourceSheet === "Recipes" && b.sourceSheet !== "Recipes") {
-    return -1;
-  }
-  return 0;
-});
 
 // Write file
 fs.writeFileSync("./src/assets/items.json", JSON.stringify(content));

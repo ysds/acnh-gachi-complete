@@ -25,7 +25,17 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <div id="message" class="app-message"></div>
     <!-- built files will be auto injected -->
     <script data-ad-client="ca-pub-4967035126929813" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@0/dist/ua-parser.min.js"></script>
+    <script>
+      var parser = new UAParser();
+      var result = parser.getResult()
+      if (result.browser.name === "IE" || result.engine.name === "EdgeHTML") {
+        var app = document.getElementById("message");
+        app.innerHTML = "あつ森ガチコンプはご利用のブラウザには対応していません。Chrome または Safari をご利用ください。"
+      } 
+    </script>
   </body>
 </html>

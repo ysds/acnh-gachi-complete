@@ -1,48 +1,65 @@
 <template>
-  <li class="item">
-    <img v-lazy="getImage(item)" class="item-img" />
-    <div class="item-center">
-      <div class="item-name">{{ item.displayName }}</div>
-      <div
-        class="item-variants"
-        v-if="item.variants && item.variants.length > 1"
-      >
-        <label
-          v-for="variant in item.variants"
-          :key="variant.uniqueEntryId"
-          class="variant"
-        >
-          <input
-            type="checkbox"
-            class="variant-input"
-            v-model="collection"
-            :value="variant.uniqueEntryId"
-            @change="setCollection"
-          />
-          <span class="variant-name">
-            <template v-if="variant.variation">
-              {{ variant.variation }}
-            </template>
-            <template v-else-if="variant.genuine === true">本物</template>
-            <template v-else-if="variant.genuine === false">偽物</template>
-          </span>
-        </label>
-        <span class="variant-length">{{ item.variants.length }}種</span>
+  <li :class="viewMode === 'list' ? 'item' : 'tile'">
+    <template v-if="viewMode === 'list'">
+      <img v-lazy="getImage(item)" class="item-img" />
+      <div class="item-center">
+        <div class="item-name">{{ item.displayName }}</div>
+        <template>
+          <div
+            class="item-variants"
+            v-if="item.variants && item.variants.length > 1"
+          >
+            <label
+              v-for="variant in item.variants"
+              :key="variant.uniqueEntryId"
+              class="variant"
+            >
+              <input
+                type="checkbox"
+                class="variant-input"
+                v-model="collection"
+                :value="variant.uniqueEntryId"
+                @change="setCollection"
+              />
+              <span class="variant-name">
+                <template v-if="variant.variation">
+                  {{ variant.variation }}
+                </template>
+                <template v-else-if="variant.genuine === true">本物</template>
+                <template v-else-if="variant.genuine === false">偽物</template>
+              </span>
+            </label>
+            <span class="variant-length">{{ item.variants.length }}種</span>
+          </div>
+        </template>
       </div>
-    </div>
-    <label class="item-check">
-      <input
-        type="checkbox"
-        class="item-check-input"
-        :checked="
-          item.variants
-            ? item.variants.length === collection.length
-            : collection.length === 1
-        "
-        :key="item.uniqueEntryId || item.name"
-        @change="onChangeAllCheck"
-      />
-    </label>
+      <label class="item-check">
+        <input
+          type="checkbox"
+          class="item-check-input"
+          :checked="
+            item.variants
+              ? item.variants.length === collection.length
+              : collection.length === 1
+          "
+          :key="item.uniqueEntryId || item.name"
+          @change="onChangeAllCheck"
+        />
+      </label>
+    </template>
+    <template v-if="viewMode === 'tile'">
+      <ul class="tile-variants" v-if="item.variants">
+        <li
+          class="tile-item"
+          v-for="(variant, index) in item.variants"
+          :key="variant.uniqueEntryId"
+        >
+          <div class="tile-item-name"><template v-if="index === 0">{{item.displayName}}</template></div>
+          <img v-lazy="getVariantTileImage(variant)" class="item-img" />
+          <div class="tile-var-name">{{variant.variation}}</div>
+        </li>
+      </ul>
+    </template>
   </li>
 </template>
 
@@ -54,7 +71,8 @@ export default {
       type: [String, Array],
       default: ""
     },
-    item: Object
+    item: Object,
+    viewMode: String
   },
   data() {
     return {
@@ -73,14 +91,14 @@ export default {
     getImage: function(item) {
       let image = "";
       if (item.variants) {
-        image =
-          item.variants[0].image ||
-          item.variants[0].storageImage ||
-          item.variants[0].albumImage;
+        image = this.getVariantTileImage(item.variants[0]);
       } else if (item.sourceSheet === "Recipes") {
         image = "https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png";
       }
       return image;
+    },
+    getVariantTileImage: function(variant) {
+      return variant.image || variant.storageImage || variant.albumImage;
     },
     getCollection: function() {
       let result = [];
@@ -132,6 +150,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+// List item
+
 .item {
   display: flex;
   align-items: center;
@@ -145,8 +166,11 @@ export default {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  margin-right: 0.5rem;
   vertical-align: top;
+
+  .item & {
+  margin-right: 0.5rem;
+  }
 }
 
 .item-name {
@@ -210,6 +234,8 @@ export default {
   }
 }
 
+// List variants
+
 .variant-name {
   padding: 2px 4px;
   margin-right: 0.25rem;
@@ -226,5 +252,39 @@ export default {
 .variant-length {
   display: inline-block;
   font-size: 13px;
+}
+
+// Tile
+
+.tile {
+  display: inline;
+}
+
+.tile-variants {
+  display: inline;
+  padding-left: 0;
+}
+
+.tile-item {
+  display: inline-block;
+  width: 75px;
+  height: 88px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.tile-item-name {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  height: 1.6rem;
+  overflow: hidden;
+}
+
+.tile-var-name {
+  display: block;
+  font-size: 9px;
+  height: .8rem;
+  overflow: hidden;
 }
 </style>

@@ -25,6 +25,7 @@
         v-for="item in showItems"
         :item="item"
         :collected="collected[item.uniqueEntryId] || collected[item.name]"
+        :viewMode="filter.viewMode"
         :key="item.name + item.sourceSheet"
         @change="onChangeItemCheck"
       />
@@ -58,7 +59,8 @@ export default {
       nav: "",
       filter: {
         sale: null,
-        collected: null
+        collected: null,
+        viewMode: null
       },
       isSearchMode: false,
       searchText: "",
@@ -75,10 +77,14 @@ export default {
     ]);
     this.collected = collected || {};
     this.nav = nav || "housewares";
-    this.filter = filter || {
-      sale: "0",
-      collected: "0"
-    };
+    this.filter = Object.assign(
+      {
+        sale: "0",
+        collected: "0",
+        viewMode: "list"
+      },
+      filter
+    );
   },
   computed: {
     showItems: function() {

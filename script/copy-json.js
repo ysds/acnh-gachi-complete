@@ -26,6 +26,11 @@ content.forEach(item => {
     item.variants = newVariants;
   }
 
+  // Remove photo variant
+  if (item.sourceSheet === "Photos") {
+    item.variants = item.variants.slice(0, 1);
+  }
+
   // Add displayName
   const translateObj = allTranslations.filter(obj => {
     return obj.locale.USen.toLowerCase() === item.name.toLowerCase();

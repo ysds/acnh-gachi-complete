@@ -39,7 +39,7 @@
           class="item-check-input"
           :checked="
             item.variants
-              ? item.variants.length === collection.length
+              ? item.variants.length <= collection.length
               : collection.length === 1
           "
           :key="item.uniqueEntryId || item.name"

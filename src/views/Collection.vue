@@ -40,6 +40,9 @@
     <div class="noitems" v-else-if="!isSearchMode">
       表示するアイテムがありません。
     </div>
+    <div class="noitems" v-if="isSearchResultOverThreshold">
+      検索結果が 100 件を超えたため、これ以降は省略されました。
+    </div>
   </div>
 </template>
 
@@ -73,7 +76,8 @@ export default {
       },
       isSearchMode: false,
       searchText: "",
-      links: links
+      links: links,
+      isSearchResultOverThreshold: false
     };
   },
   async mounted() {
@@ -97,7 +101,7 @@ export default {
   },
   computed: {
     showItems: function() {
-      return filterItems(
+      let result = filterItems(
         items,
         this.collected,
         this.nav,
@@ -106,6 +110,15 @@ export default {
         this.searchText,
         this.isShowSaleFilter
       );
+      if (this.isSearchMode && result.length > 100) {
+        result = result.slice(0, 99);
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.isSearchResultOverThreshold = true;
+      } else {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.isSearchResultOverThreshold = false;
+      }
+      return result;
     },
     isShowSaleFilter: function() {
       if (this.nav) {
@@ -136,9 +149,13 @@ export default {
     },
     onClickSearchBtn: function(isSearchMode) {
       this.isSearchMode = isSearchMode;
+      this.isSearchResultOverThreshold = false;
     },
     onInputSearchBox: function(text) {
       this.searchText = text;
+      if (text === "") {
+        this.isSearchResultOverThreshold = false;
+      }
     }
   }
 };
@@ -160,6 +177,7 @@ export default {
 
 .noitems {
   margin-top: 3rem;
+  padding: 0 1rem;
   text-align: center;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.6);
@@ -175,7 +193,7 @@ export default {
   position: absolute;
   right: 12px;
   top: 4px;
-  width: calc(100vw - 1rem);
+  left: 12px;
   pointer-events: none;
 }
 </style>

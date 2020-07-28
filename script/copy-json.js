@@ -14,9 +14,15 @@ const allTranslations = JSON.parse(
   fs.readFileSync(`./script/translate-all.json`, "utf8")
 );
 
+// Each items
 content.forEach(item => {
-  // Remove pattern variant
+  // Remove photo variant
+  if (item.sourceSheet === "Photos") {
+    item.variants = item.variants.slice(0, 1);
+  }
+
   if (item.variants) {
+    // Remove pattern variant
     let prevVariation = "";
     const newVariants = item.variants.filter(variant => {
       let result = prevVariation !== variant.variation;
@@ -24,11 +30,24 @@ content.forEach(item => {
       return result;
     });
     item.variants = newVariants;
-  }
 
-  // Remove photo variant
-  if (item.sourceSheet === "Photos") {
-    item.variants = item.variants.slice(0, 1);
+    // Add variants displayName (furniture)
+    let translateObjects = allTranslations.filter(obj => {
+      if (obj.furniture_name) {
+        return obj.furniture_name.toLowerCase() === item.name.toLowerCase();
+      }
+      return false;
+    });
+
+    if (translateObjects.length > 0) {
+      item.variants.forEach((variant, index) => {
+        if (variant.variation && typeof variant.variation === "string") {
+          if (!translateObjects[index]) console.log(item.name);
+          item.variants[index].variationDisplayName =
+            translateObjects[index].locale.JPja;
+        }
+      });
+    }
   }
 
   // Add displayName

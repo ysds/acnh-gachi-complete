@@ -23,7 +23,7 @@
               />
               <span class="variant-name">
                 <template v-if="variant.variation">
-                  {{ variant.variation }}
+                  {{ variant.variationDisplayName || variant.variation }}
                 </template>
                 <template v-else-if="variant.genuine === true">本物</template>
                 <template v-else-if="variant.genuine === false">偽物</template>
@@ -66,7 +66,9 @@
               <template v-if="index === 0">{{ item.displayName }}</template>
             </div>
             <img class="tile-img" v-lazy="getVariantTileImage(variant)" />
-            <div class="tile-var-name">{{ variant.variation }}</div>
+            <div class="tile-var-name">
+              {{ variant.variationDisplayName || variant.variation }}
+            </div>
             <div class="tile-indicator"></div>
           </label>
         </li>
@@ -143,6 +145,8 @@ export default {
           return [item.uniqueEntryId];
         } else if (item.variants) {
           [].forEach.call(collected, function(s) {
+            if (!item.variants[parseInt(s, 10)].uniqueEntryId)
+              console.log(item.variants[parseInt(s, 10)]);
             result.push(item.variants[parseInt(s, 10)].uniqueEntryId);
           });
         }
@@ -321,17 +325,15 @@ export default {
   font-size: 10px;
   font-weight: 600;
   height: 1.6rem;
+  line-height: 1.1;
 }
 
 .tile-var-name {
   display: block;
   font-size: 9px;
-  height: 0.8rem;
+  height: 1.5rem;
+  line-height: 1.2;
   overflow: hidden;
-  word-break: keep-all;
-  line-break: strict;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
 .tile-img {

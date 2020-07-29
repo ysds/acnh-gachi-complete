@@ -24,10 +24,24 @@ content.forEach(item => {
   if (item.variants) {
     // Remove pattern variant
     let prevVariation = "";
-    const newVariants = item.variants.filter(variant => {
-      let result = prevVariation !== variant.variation;
+    let newVariants = item.variants.filter(variant => {
+      const result = prevVariation !== variant.variation;
       prevVariation = variant.variation;
       return result;
+    });
+    item.variants = newVariants;
+
+    // Remove remake variant
+    let prevBodyCustomize = false;
+    newVariants = item.variants.filter(variant => {
+      if (variant.bodyCustomize) {
+        const result = prevBodyCustomize !== variant.bodyCustomize;
+        prevBodyCustomize = true;
+        return result;
+      } else {
+        prevBodyCustomize = false;
+        return true;
+      }
     });
     item.variants = newVariants;
 

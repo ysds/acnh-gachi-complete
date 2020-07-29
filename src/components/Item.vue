@@ -23,7 +23,9 @@
               />
               <span class="variant-name">
                 <template v-if="variant.variation">
-                  {{ variant.variationDisplayName || variant.variation }}
+                  <template v-if="item.variants.length > 1">
+                    {{ variant.variationDisplayName || variant.variation }}
+                  </template>
                 </template>
                 <template v-else-if="variant.genuine === true">本物</template>
                 <template v-else-if="variant.genuine === false">偽物</template>
@@ -67,7 +69,9 @@
             </div>
             <img class="tile-img" v-lazy="getVariantTileImage(variant)" />
             <div class="tile-var-name">
-              {{ variant.variationDisplayName || variant.variation }}
+              <template v-if="item.variants.length > 1">
+                {{ variant.variationDisplayName || variant.variation }}
+              </template>
             </div>
             <div class="tile-indicator"></div>
           </label>

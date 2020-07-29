@@ -112,7 +112,7 @@ export function filterItems(
     }
     // ファッション (Dress)
     else if (nav === "fashion-dress") {
-      return item.sourceSheet === "Dress";
+      return item.sourceSheet === "Dress-Up";
     }
     // ファッション (Headwear)
     else if (nav === "fashion-headwear") {

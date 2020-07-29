@@ -182,6 +182,10 @@ export function filterItems(
     else if (nav === "special-labelle") {
       return item.variants && item.variants[0].source.includes("Labelle");
     }
+    // 来訪者 (シャンク)
+    else if (nav === "special-kicks") {
+      return item.variants && item.variants[0].source.includes("Kicks");
+    }
     // 来訪者 (フーコ)
     else if (nav === "special-celeste") {
       return item.source && item.source.includes("Celeste");
@@ -204,14 +208,24 @@ export function filterItems(
         (item.source && item.source.includes("Pascal"))
       );
     }
-    // 来訪者 (リサとカイゾー)
-    else if (nav === "special-wedding") {
+    // 季節・イベント (魚釣り大会)
+    else if (nav === "season") {
+      return (
+        item.variants && item.variants[0].source.includes("Fishing Tourney")
+      );
+    }
+    // 季節・イベント (虫取り大会)
+    else if (nav === "season-bug") {
+      return item.variants && item.variants[0].source.includes("Bug-Off");
+    }
+    // 季節・イベント (ジューンブライト)
+    else if (nav === "season-wedding") {
       return (
         item.sourceNotes === "Only available during Wedding Season" && !item.diy
       );
     }
-    // 来訪者 (イースター)
-    else if (nav === "special-easter") {
+    // 季節・イベント (イースター)
+    else if (nav === "season-easter") {
       return (
         (!item.diy &&
           item.variants &&
@@ -221,8 +235,8 @@ export function filterItems(
             item.source.includes("Zipper")))
       );
     }
-    // 来訪者 (雪だるま)
-    else if (nav === "special-snowboy") {
+    // 季節・イベント (雪だるま)
+    else if (nav === "season-snowboy") {
       return item.source && item.source.includes("Snowboy");
     }
   });
@@ -333,7 +347,7 @@ export const links = [
   },
   {
     id: "special",
-    text: "来訪者・イベント",
+    text: "来訪者",
     subnavs: [
       {
         id: "special",
@@ -356,10 +370,6 @@ export const links = [
         text: "海賊ジョニー"
       },
       {
-        id: "special-labelle",
-        text: "ことの"
-      },
-      {
         id: "special-celeste",
         text: "フーコ"
       },
@@ -372,15 +382,58 @@ export const links = [
         text: "ラコスケ"
       },
       {
-        id: "special-easter",
+        id: "special-labelle",
+        text: "ことの"
+      },
+      {
+        id: "special-kicks",
+        text: "シャンク"
+      }
+    ]
+  },
+  {
+    id: "season",
+    text: "季節・イベント",
+    subnavs: [
+      {
+        id: "season",
+        // id: "season-fish",
+        text: "魚釣り大会"
+      },
+      {
+        id: "season-bug",
+        text: "虫取り大会"
+      },
+      // {
+      //   id: "season-spring",
+      //   text: "春"
+      // },
+      // {
+      //   id: "season-summer",
+      //   text: "夏"
+      // },
+      // {
+      //   id: "season-autumn",
+      //   text: "秋"
+      // },
+      // {
+      //   id: "season-winter",
+      //   text: "冬"
+      // },
+      // {
+      //   id: "season-sakura",
+      //   text: "さくら"
+      // },
+      {
+        id: "season-easter",
         text: "イースター"
       },
       {
-        id: "special-wedding",
+        id: "season-wedding",
         text: "ジューンブライド"
       },
       {
-        id: "special-snowboy",
+        id: "season-snowboy",
         text: "ゆきだるま"
       }
     ]

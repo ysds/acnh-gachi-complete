@@ -48,7 +48,7 @@
 
 <script>
 import items from "../assets/items.json";
-import { filterItems, links } from "../utils/utils.js";
+import { filterItems, links } from "../utils/nav.js";
 
 import Nav from "../components/Nav.vue";
 import ViewButton from "../components/ViewButton.vue";
@@ -83,12 +83,25 @@ export default {
   async mounted() {
     // Load data from localStrage
     const self = this;
-    const [collected, nav, filter] = await Promise.all([
+    let [collected, nav, filter] = await Promise.all([
       self.$vlf.getItem("collected"),
       self.$vlf.getItem("nav"),
       self.$vlf.getItem("filter")
     ]);
     this.collected = collected || {};
+    // Check defined nav
+    if (nav) {
+      let isDefinedNav = false;
+      links.forEach(link => {
+        if (link.id === nav) isDefinedNav = true;
+        if (link.subnavs) {
+          link.subnavs.forEach(sublink => {
+            if (sublink.id === nav) isDefinedNav = true;
+          });
+        }
+      });
+      if (!isDefinedNav) nav = null;
+    }
     this.nav = nav || "housewares";
     this.filter = Object.assign(
       {

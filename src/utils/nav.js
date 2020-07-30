@@ -208,8 +208,17 @@ export function filterItems(
         (item.source && item.source.includes("Pascal"))
       );
     }
-    // 季節・イベント (魚釣り大会)
+    // 季節・イベント (花火大会)
     else if (nav === "season") {
+      return (
+        item.sourceNotes ===
+          "Only available in August on Sundays, after 7 PM" ||
+        item.sourceNotes === "Only avaliable during a Fireworks Display"
+      );
+    }
+    // 季節・イベント (魚釣り大会)
+    else if (nav === "season-fish") {
+      // else if (nav === "season") {
       return (
         item.variants && item.variants[0].source.includes("Fishing Tourney")
       );
@@ -285,6 +294,10 @@ export function filterItems(
     // 季節・イベント (雪だるま)
     else if (nav === "season-snowboy") {
       return item.source && item.source.includes("Snowboy");
+    }
+    // バージョン 1.4.0
+    else if (nav === "versions") {
+      return item.versionUnlocked === "1.4.0";
     }
   });
 }
@@ -444,7 +457,13 @@ export const links = [
     subnavs: [
       {
         id: "season",
-        // id: "season-fish",
+        // id: "season-fireworks",
+        text: "花火大会",
+        subtext: "8月"
+      },
+      {
+        // id: "season",
+        id: "season-fish",
         text: "魚釣り大会",
         subtext: "1, 4, 7, 10月"
       },
@@ -512,6 +531,16 @@ export const links = [
         id: "season-snowboy",
         text: "ゆきだるま",
         subtext: "12/11〜2/24"
+      }
+    ]
+  },
+  {
+    id: "versions",
+    text: "バージョン",
+    subnavs: [
+      {
+        id: "versions",
+        text: "1.4.0"
       }
     ]
   }

@@ -1,12 +1,14 @@
 const fs = require("fs");
 
 let content = JSON.parse(
-  fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/items.json", "utf8")
+  // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/items.json", "utf8")
+  fs.readFileSync("./json/item-data/items.json", "utf8")
 );
 
 content = content.concat(
   JSON.parse(
-    fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/recipes.json", "utf8")
+    // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/recipes.json", "utf8")
+    fs.readFileSync("./json/item-data/recipes.json", "utf8")
   )
 );
 
@@ -80,6 +82,8 @@ content.forEach(item => {
   } else {
     item.displayName = item.name;
   }
+
+  if (item.displayName === "uchiwa fan") item.displayName = "うちわ";
 });
 
 //

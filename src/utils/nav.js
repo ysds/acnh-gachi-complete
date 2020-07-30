@@ -218,6 +218,49 @@ export function filterItems(
     else if (nav === "season-bug") {
       return item.variants && item.variants[0].source.includes("Bug-Off");
     }
+    // 季節・イベント (はるのわかたけ)
+    else if (nav === "season-spring") {
+      return item.sourceNotes === "Only available during Spring" && !item.diy;
+    }
+    // 季節・イベント (さくら)
+    else if (nav === "season-sakura") {
+      return (
+        item.sourceNotes === "Only available during Cherry-Blossom Season" &&
+        !item.diy
+      );
+    }
+    // 季節・イベント (なつのかいがら)
+    else if (nav === "season-summer") {
+      return item.sourceNotes === "Only available during Summer" && !item.diy;
+    }
+    // 季節・イベント (どんぐり/まつぼっくり)
+    else if (nav === "season-fall") {
+      return item.sourceNotes === "Only available during Fall" && !item.diy;
+    }
+    // 季節・イベント (きのこ)
+    else if (nav === "season-mushroom") {
+      return (
+        item.sourceNotes === "Only available during Mushroom Season" &&
+        !item.diy
+      );
+    }
+    // 季節・イベント (もみじ)
+    else if (nav === "season-maple") {
+      return (
+        item.sourceNotes === "Only available during Maple Leaf Season" &&
+        !item.diy
+      );
+    }
+    // 季節・イベント (ゆきのけっしょう)
+    else if (nav === "season-winter") {
+      return item.sourceNotes === "Only available during Winter" && !item.diy;
+    }
+    // 季節・イベント (オーナメント)
+    else if (nav === "season-festive") {
+      return (
+        item.sourceNotes === "Only available during Festive Season" && !item.diy
+      );
+    }
     // 季節・イベント (ジューンブライト)
     else if (nav === "season-wedding") {
       return (
@@ -234,6 +277,10 @@ export function filterItems(
           (item.sourceNotes === "Only available during Bunny Day" ||
             item.source.includes("Zipper")))
       );
+    }
+    // 季節・イベント (メーデー)
+    else if (nav === "season-mayday") {
+      return item.sourceNotes === "Reward for solving May Day maze";
     }
     // 季節・イベント (雪だるま)
     else if (nav === "season-snowboy") {
@@ -398,43 +445,73 @@ export const links = [
       {
         id: "season",
         // id: "season-fish",
-        text: "魚釣り大会"
+        text: "魚釣り大会",
+        subtext: "1, 4, 7, 10月"
       },
       {
         id: "season-bug",
-        text: "虫取り大会"
+        text: "虫取り大会",
+        subtext: "6, 7, 8, 9月"
       },
-      // {
-      //   id: "season-spring",
-      //   text: "春"
-      // },
-      // {
-      //   id: "season-summer",
-      //   text: "夏"
-      // },
-      // {
-      //   id: "season-autumn",
-      //   text: "秋"
-      // },
-      // {
-      //   id: "season-winter",
-      //   text: "冬"
-      // },
-      // {
-      //   id: "season-sakura",
-      //   text: "さくら"
-      // },
+      {
+        id: "season-spring",
+        text: "はるのわかたけ",
+        subtext: "2/25〜5/31"
+      },
+      {
+        id: "season-sakura",
+        text: "さくらのはなびら",
+        subtext: "4/1〜4/10"
+      },
       {
         id: "season-easter",
-        text: "イースター"
+        text: "イースター",
+        subtext: "4/1〜4/12"
+      },
+      {
+        id: "season-mayday",
+        text: "メーデー",
+        subtext: "5/1〜5/7"
       },
       {
         id: "season-wedding",
-        text: "ジューンブライド"
+        text: "ジューンブライド",
+        subtext: "6/1〜6/30"
+      },
+      {
+        id: "season-summer",
+        text: "なつのかいがら",
+        subtext: "6/1〜8/31"
+      },
+      {
+        id: "season-fall",
+        text: "どんぐり/まつぼっくり",
+        subtext: "9/1〜12/10"
+      },
+      {
+        id: "season-mushroom",
+        text: "キノコ",
+        subtext: "11/1〜11/30"
+      },
+      {
+        id: "season-maple",
+        text: "もみじのはっぱ",
+        subtext: "11/16～11/25"
+      },
+      {
+        id: "season-winter",
+        text: "ゆきのけっしょう",
+        subtext: "12/11〜2/24"
+      },
+      {
+        id: "season-festive",
+        text: "オーナメント",
+        subtext: "12/15〜1/6"
       },
       {
         id: "season-snowboy",
-        text: "ゆきだるま"
+        text: "ゆきだるま",
+        subtext: "12/11〜2/24"
       }
     ]
   }

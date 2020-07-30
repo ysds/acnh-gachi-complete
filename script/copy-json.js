@@ -14,6 +14,13 @@ const allTranslations = JSON.parse(
   fs.readFileSync(`./script/translate-all.json`, "utf8")
 );
 
+content = content.filter(item => {
+  let result = true;
+  // Remove others
+  if (item.sourceSheet === "Other") result = false;
+  return result;
+});
+
 // Each items
 content.forEach(item => {
   // Remove photo variant

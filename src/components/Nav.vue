@@ -23,6 +23,9 @@
           @click="changeNav(subnav.id)"
         >
           {{ subnav.text }}
+          <span class="subnav-subtext" v-if="subnav.subtext">
+            {{ subnav.subtext }}
+          </span>
         </button>
       </nav>
     </div>
@@ -94,10 +97,10 @@ export default {
 
 .subnav {
   display: flex;
-  align-items: center;
   margin: 0 auto;
   padding: 0.5rem;
   overflow-x: auto;
+  line-height: 1;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
@@ -105,7 +108,8 @@ export default {
 .subnav-item {
   margin-right: 0.25rem;
   margin-left: 0.25rem;
-  padding: 8px 1rem 5px;
+  padding: 6px 1rem 3px;
+  min-height: 40px;
   background-color: #fff;
   outline: none;
   border: 0;
@@ -119,5 +123,11 @@ export default {
     background-color: #21bec5;
     border-color: #21bec5;
   }
+}
+
+.subnav-subtext {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
 }
 </style>

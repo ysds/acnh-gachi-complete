@@ -9,6 +9,9 @@ import "./assets/styles.scss";
 
 import App from "./App.vue";
 import router from "./router";
+import store from "./store";
+import Auth from "./utils/auth";
+Auth.init();
 
 Vue.config.productionTip = false;
 Vue.use(Vlf, localforage);
@@ -20,5 +23,6 @@ Vue.use(VueAnalytics, {
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount("#app");

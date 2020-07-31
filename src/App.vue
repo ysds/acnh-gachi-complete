@@ -1,12 +1,20 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">あつ森ガチコンプ</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
   </div>
 </template>
+<script>
+export default {
+  computed: {
+    isLogin() {
+      return this.$store.getters.isLogin;
+    }
+  }
+};
+</script>
 
 <style lang="scss">
 #app {

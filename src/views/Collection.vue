@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="view-btn-wrapper">
+      <LoginButton @click="isOpenLogin = true" />
       <ViewButton :filter="filter" @change="onChangeFilter" />
     </div>
     <div class="search-wrapper">
@@ -27,6 +28,7 @@
       class="items"
       :class="{ tiles: filter.viewMode === 'tile' }"
       v-if="showItems.length > 0"
+      v-show="!isOpenLogin"
     >
       <Item
         v-for="item in showItems"
@@ -43,6 +45,7 @@
     <div class="noitems" v-if="isSearchResultOverThreshold">
       検索結果が 100 件を超えたため、これ以降は省略されました。
     </div>
+    <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
   </div>
 </template>
 
@@ -51,6 +54,8 @@ import items from "../assets/items.json";
 import { filterItems, links } from "../utils/nav.js";
 
 import Nav from "../components/Nav.vue";
+import Login from "../components/Login.vue";
+import LoginButton from "../components/LoginButton.vue";
 import ViewButton from "../components/ViewButton.vue";
 import SearchBox from "../components/SearchBox.vue";
 import FilterUI from "../components/FilterUI.vue";
@@ -60,6 +65,8 @@ export default {
   name: "Collection",
   components: {
     Nav,
+    Login,
+    LoginButton,
     ViewButton,
     SearchBox,
     FilterUI,
@@ -77,7 +84,8 @@ export default {
       isSearchMode: false,
       searchText: "",
       links: links,
-      isSearchResultOverThreshold: false
+      isSearchResultOverThreshold: false,
+      isOpenLogin: false
     };
   },
   async mounted() {

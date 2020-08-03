@@ -2,29 +2,44 @@
   <div class="fls">
     <template v-if="showSaleFilter">
       <label class="fl">
-        <input type="radio" class="fl-radio" value="0" v-model="sale" />
+        <input type="radio" class="fl-radio" value="0" v-model="saleFilter" />
         <span class="fl-label">商店</span>
       </label>
       <label class="fl">
-        <input type="radio" class="fl-radio" value="1" v-model="sale" />
+        <input type="radio" class="fl-radio" value="1" v-model="saleFilter" />
         <span class="fl-label">DIY</span>
       </label>
       <label class="fl">
-        <input type="radio" class="fl-radio" value="2" v-model="sale" />
+        <input type="radio" class="fl-radio" value="2" v-model="saleFilter" />
         <span class="fl-label">その他</span>
       </label>
       <div class="fl-divider" />
     </template>
     <label class="fl">
-      <input type="radio" class="fl-radio" value="0" v-model="collected" />
+      <input
+        type="radio"
+        class="fl-radio"
+        value="0"
+        v-model="collectedFilter"
+      />
       <span class="fl-label">すべて</span>
     </label>
     <label class="fl">
-      <input type="radio" class="fl-radio" value="1" v-model="collected" />
+      <input
+        type="radio"
+        class="fl-radio"
+        value="1"
+        v-model="collectedFilter"
+      />
       <span class="fl-label">所持</span>
     </label>
     <label class="fl">
-      <input type="radio" class="fl-radio" value="2" v-model="collected" />
+      <input
+        type="radio"
+        class="fl-radio"
+        value="2"
+        v-model="collectedFilter"
+      />
       <span class="fl-label">未所持</span>
     </label>
   </div>
@@ -38,20 +53,23 @@ export default {
     showSaleFilter: Boolean
   },
   computed: {
-    sale: {
+    saleFilter: {
       get() {
-        return this.filter.sale || null;
+        return this.filter.saleFilter || null;
       },
       set(value) {
-        this.$emit("change", Object.assign(this.filter, { sale: value }));
+        this.$emit("change", Object.assign(this.filter, { saleFilter: value }));
       }
     },
-    collected: {
+    collectedFilter: {
       get() {
-        return this.filter.collected || null;
+        return this.filter.collectedFilter || null;
       },
       set(value) {
-        this.$emit("change", Object.assign(this.filter, { collected: value }));
+        this.$emit(
+          "change",
+          Object.assign(this.filter, { collectedFilter: value })
+        );
       }
     }
   }

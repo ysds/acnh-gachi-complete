@@ -98,8 +98,8 @@ export default {
       collected: {},
       nav: "",
       filter: {
-        sale: null,
-        collected: null,
+        saleFilter: null,
+        collectedFilter: null,
         viewMode: null
       },
       isSearchMode: false,
@@ -195,19 +195,19 @@ export default {
     this.nav = nav || "housewares";
     this.filter = Object.assign(
       {
-        sale: "0",
-        collected: "0",
+        saleFilter: "0",
+        collectedFilter: "0",
         viewMode: "tile"
       },
       filter
     );
   },
   methods: {
-    onChangeItemCheck: function(name, collected) {
-      if (collected === "") {
+    onChangeItemCheck: function(name, newItemCollected) {
+      if (newItemCollected === "") {
         delete this.collected[name];
       } else {
-        this.collected[name] = collected;
+        this.collected[name] = newItemCollected;
       }
       this.$vlf.setItem("collected", this.collected);
     },

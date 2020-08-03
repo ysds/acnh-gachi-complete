@@ -95,7 +95,6 @@ export default {
   },
   data() {
     return {
-      collected: {},
       nav: "",
       filter: {
         saleFilter: null,
@@ -111,6 +110,9 @@ export default {
   },
   // TODO データ読み込みここまで
   computed: {
+    collected() {
+      return this.$store.getters.collectedData;
+    },
     user() {
       return this.$store.getters.user;
     },
@@ -159,8 +161,9 @@ export default {
           .then(function(doc) {
             if (doc.exists) {
               const collectedValue = doc.data().collected || {};
-              self.collected = JSON.parse(
-                LZString.decompressFromUTF16(collectedValue)
+              self.$store.commit(
+                "collectedDataChange",
+                JSON.parse(LZString.decompressFromUTF16(collectedValue))
               );
             } else {
               // doc.data() will be undefined in this case
@@ -170,7 +173,7 @@ export default {
       }
     }
   },
-  async mounted() {
+  async created() {
     // Load data from localStrage
     const self = this;
     let [collected, nav, filter] = await Promise.all([
@@ -178,7 +181,7 @@ export default {
       self.$vlf.getItem("nav"),
       self.$vlf.getItem("filter")
     ]);
-    this.collected = collected || {};
+    this.$store.commit("collectedDataChange", collected || {});
     // Check defined nav
     if (nav) {
       let isDefinedNav = false;
@@ -204,12 +207,8 @@ export default {
   },
   methods: {
     onChangeItemCheck: function(name, newItemCollected) {
-      if (newItemCollected === "") {
-        delete this.collected[name];
-      } else {
-        this.collected[name] = newItemCollected;
-      }
-      this.$vlf.setItem("collected", this.collected);
+      this.$store.commit("itemCollectedDataChange", { name, newItemCollected });
+      this.$vlf.setItem("collected", this.$store.getters.collectedData);
     },
     onChangeNav: function(activeNav) {
       this.nav = activeNav;

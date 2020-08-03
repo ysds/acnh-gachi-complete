@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     isLogin: null,
-    userData: null
+    collectedData: null
   },
   mutations: {
     authStateChange(state, user) {
@@ -16,8 +16,15 @@ export default new Vuex.Store({
     loginStateChange(state, nextState) {
       state.isLogin = nextState;
     },
-    userDataChange(state, userData) {
-      state.userData = userData;
+    collectedDataChange(state, collectedData) {
+      state.collectedData = collectedData;
+    },
+    itemCollectedDataChange(state, payload) {
+      if (payload.newItemCollected === "") {
+        delete state.collectedData[payload.name];
+      } else {
+        state.collectedData[payload.name] = payload.newItemCollected;
+      }
     }
   },
   getters: {
@@ -27,8 +34,8 @@ export default new Vuex.Store({
     isLogin(state) {
       return state.isLogin;
     },
-    userData(state) {
-      return state.userData;
+    collectedData(state) {
+      return state.collectedData;
     }
   }
 });

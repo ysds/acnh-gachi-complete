@@ -4,7 +4,7 @@ import firebase from "../plugins/firebase";
 export default {
   init() {
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-    firebase.auth().authStateChange(user => {
+    firebase.auth().onAuthStateChanged(user => {
       user = user ? user : {};
       store.commit("authStateChange", user);
       store.commit("loginStateChange", user.uid ? true : false);

@@ -37,7 +37,7 @@ export function filterItems(
       return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
     }
     // 商店
-    if (isShowSaleFilter && filter.sale === "0") {
+    if (isShowSaleFilter && filter.saleFilter === "0") {
       if (
         item.catalog === "Not for sale" ||
         item.catalog === "Not in catalog" ||
@@ -46,16 +46,16 @@ export function filterItems(
         return false;
     }
     // DIY
-    if (isShowSaleFilter && filter.sale === "1") {
+    if (isShowSaleFilter && filter.saleFilter === "1") {
       if (!item.diy) return false;
     }
     // その他
-    if (isShowSaleFilter && filter.sale === "2") {
+    if (isShowSaleFilter && filter.saleFilter === "2") {
       if (item.diy || item.catalog === "For sale" || item.catalog === true)
         return false;
     }
     // 所持のみ
-    if (filter && filter.collected === "1") {
+    if (filter && filter.collectedFilter === "1") {
       if (item.uniqueEntryId) {
         if (!collected[item.uniqueEntryId]) return false;
       } else if (
@@ -67,7 +67,7 @@ export function filterItems(
       }
     }
     // 未所持のみ
-    else if (filter && filter.collected === "2") {
+    else if (filter && filter.collectedFilter === "2") {
       if (item.uniqueEntryId) {
         if (collected[item.uniqueEntryId]) return false;
       } else if (

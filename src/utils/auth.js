@@ -1,20 +1,8 @@
-import firebase from "@firebase/app";
-import "@firebase/auth";
 import store from "../store";
-
-var config = {
-  apiKey: "AIzaSyD-N7qRjygk28zMZ2JSAxROBg_MV8dwe9s",
-  authDomain: "acnh-gachi-complete.firebaseapp.com",
-  databaseURL: "https://acnh-gachi-complete.firebaseio.com",
-  projectId: "acnh-gachi-complete",
-  storageBucket: "acnh-gachi-complete.appspot.com",
-  messagingSenderId: "281864586378",
-  appId: "1:281864586378:web:c362cf8f36675c36c89973"
-};
+import firebase from "../utils/firebase";
 
 export default {
   init() {
-    firebase.initializeApp(config);
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
     firebase.auth().onAuthStateChanged(user => {
       user = user ? user : {};

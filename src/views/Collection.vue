@@ -5,7 +5,7 @@
         <template v-if="isLogin">
           <img :src="user.photoURL" alt="Avatar" class="avatar" />
         </template>
-        <template v-else>
+        <template v-else-if="isLogin === false">
           ログイン
         </template>
       </Button>
@@ -109,61 +109,6 @@ export default {
       isOpenLogin: false
     };
   },
-  async mounted() {
-    // Load data from localStrage
-    const self = this;
-    let [collected, nav, filter] = await Promise.all([
-      self.$vlf.getItem("collected"),
-      self.$vlf.getItem("nav"),
-      self.$vlf.getItem("filter")
-    ]);
-    this.collected = collected || {};
-    // Check defined nav
-    if (nav) {
-      let isDefinedNav = false;
-      links.forEach(link => {
-        if (link.id === nav) isDefinedNav = true;
-        if (link.subnavs) {
-          link.subnavs.forEach(sublink => {
-            if (sublink.id === nav) isDefinedNav = true;
-          });
-        }
-      });
-      if (!isDefinedNav) nav = null;
-    }
-    this.nav = nav || "housewares";
-    this.filter = Object.assign(
-      {
-        sale: "0",
-        collected: "0",
-        viewMode: "tile"
-      },
-      filter
-    );
-  },
-  // TODO データ読み込みここから
-  watch: {
-    user() {
-      // Load from firestore
-      const self = this;
-      if (this.user && this.user.uid) {
-        db.collection("users")
-          .doc(this.user.uid)
-          .get()
-          .then(function(doc) {
-            if (doc.exists) {
-              const collectedValue = doc.data().collected || {};
-              self.collected = JSON.parse(
-                LZString.decompressFromUTF16(collectedValue)
-              );
-            } else {
-              // doc.data() will be undefined in this case
-            }
-          })
-          .catch(function() {});
-      }
-    }
-  },
   // TODO データ読み込みここまで
   computed: {
     user() {
@@ -201,6 +146,61 @@ export default {
       }
       return false;
     }
+  },
+  // TODO データ読み込みここから
+  watch: {
+    user() {
+      // Load from firestore
+      const self = this;
+      if (this.user && this.user.uid) {
+        db.collection("users")
+          .doc(this.user.uid)
+          .get()
+          .then(function(doc) {
+            if (doc.exists) {
+              const collectedValue = doc.data().collected || {};
+              self.collected = JSON.parse(
+                LZString.decompressFromUTF16(collectedValue)
+              );
+            } else {
+              // doc.data() will be undefined in this case
+            }
+          })
+          .catch(function() {});
+      }
+    }
+  },
+  async mounted() {
+    // Load data from localStrage
+    const self = this;
+    let [collected, nav, filter] = await Promise.all([
+      self.$vlf.getItem("collected"),
+      self.$vlf.getItem("nav"),
+      self.$vlf.getItem("filter")
+    ]);
+    this.collected = collected || {};
+    // Check defined nav
+    if (nav) {
+      let isDefinedNav = false;
+      links.forEach(link => {
+        if (link.id === nav) isDefinedNav = true;
+        if (link.subnavs) {
+          link.subnavs.forEach(sublink => {
+            if (sublink.id === nav) isDefinedNav = true;
+          });
+        }
+      });
+      if (!isDefinedNav) nav = null;
+    }
+    this.nav = nav || "housewares";
+    this.filter = Object.assign(
+      {
+        sale: "0",
+        collected: "0",
+        viewMode: "tile"
+      },
+      filter
+    );
   },
   methods: {
     onChangeItemCheck: function(name, collected) {
@@ -273,6 +273,8 @@ export default {
 }
 
 .view-btn-wrapper {
+  display: flex;
+  align-items: center;
   position: absolute;
   right: 12px;
   top: 4px;

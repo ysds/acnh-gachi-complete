@@ -5,3 +5,28 @@
 body {
   overflow-x: hidden;
 }
+
+.flat-btn {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  height: 48px;
+  min-width: 48px;
+  text-align: center;
+  line-height: 48px;
+  background-color: #fff;
+  border: 0;
+  border-radius: 8px;
+  color: #444;
+  font-weight: 700;
+  transition: background-color .3s;
+
+  &.active {
+    background-color: #e3e3e3;
+  }
+
+  > svg {
+    margin-top: -5px;
+  }
+}

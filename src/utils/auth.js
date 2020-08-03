@@ -1,5 +1,5 @@
 import store from "../store";
-import firebase from "../utils/firebase";
+import firebase from "../plugins/firebase";
 
 export default {
   init() {

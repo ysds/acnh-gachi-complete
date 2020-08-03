@@ -1,27 +1,20 @@
 <template>
   <div class="login">
+    <div class="login-header">
+      <h2 class="login-title">ログイン</h2>
+      <div class="close">
+        <CloseButton @click="close" />
+      </div>
+    </div>
     <div class="login-body">
-      <h2 class="title">ログイン</h2>
-      <button type="button" class="search-btn" @click="close">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 50 50"
-        >
-          <path
-            fill="#231F20"
-            d="M9.016 40.837a1.001 1.001 0 001.415-.001l14.292-14.309 14.292 14.309a1 1 0 001.416-1.413L26.153 25.129 40.43 10.836a1 1 0 10-1.415-1.413L24.722 23.732 10.43 9.423a1 1 0 10-1.415 1.413l14.276 14.293L9.015 39.423a1 1 0 00.001 1.414z"
-          />
-        </svg>
-      </button>
-      <div v-if="isLogin" class="navbar-item">
-        <p class="navbar-item">{{ user.displayName }}</p>
+      <template v-if="isLogin">
+        <img :src="user.photoURL" alt="Avatar" class="avatar" />
+        <p>{{ user.displayName }}</p>
         <button type="button" class="btn" @click="logout">
           ログアウト
         </button>
-      </div>
-      <div v-else-if="isLogin === false">
+      </template>
+      <template v-else-if="isLogin === false">
         <button type="button" class="btn btn-google" @click="login('google')">
           <img
             src="../assets/google.svg"
@@ -40,15 +33,19 @@
           />
           Twitter でログイン
         </button>
-      </div>
+      </template>
     </div>
   </div>
 </template>
 <script>
 import Auth from "../utils/auth";
+import CloseButton from "../components/CloseButton";
 
 export default {
   name: "Login",
+  components: {
+    CloseButton
+  },
   computed: {
     user() {
       return this.$store.getters.user;
@@ -78,6 +75,24 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #fff;
+  overflow-y: auto;
+}
+
+.login-header {
+  position: relative;
+  text-align: center;
+  padding: 0.5rem;
+  line-height: 64px;
+
+  > .close {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
+}
+
+.login-title {
+  margin-bottom: 0;
 }
 
 .login-body {
@@ -88,8 +103,11 @@ export default {
   text-align: center;
 }
 
-.title {
-  margin-bottom: 3rem;
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -99,26 +117,12 @@ export default {
   width: 100%;
   max-width: 400px;
   min-height: 50px;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 0 1rem;
   border: 1px solid #ccc;
   border-radius: 1rem;
   background-color: #fff;
   font-weight: 700;
-}
-
-.search-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  flex-shrink: 0;
-  margin-left: auto;
-  width: 64px;
-  height: 64px;
-  text-align: center;
-  line-height: 64px;
-  border: 0;
-  background-color: #fff;
-  pointer-events: auto;
 }
 </style>

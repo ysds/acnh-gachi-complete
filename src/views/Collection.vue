@@ -1,10 +1,27 @@
 <template>
   <div class="home">
-    <div class="view-btn-wrapper">
-      <LoginButton @click="isOpenLogin = true" />
-      <ViewButton :filter="filter" @change="onChangeFilter" />
+    <div class="view-btn-wrapper" v-show="!isSearchMode">
+      <Button @click="isOpenLogin = true">
+        <template v-if="isLogin">
+          <img :src="user.photoURL" alt="Avatar" class="avatar" />
+        </template>
+        <template v-else>
+          ログイン
+        </template>
+      </Button>
+      <Button @click="onChangeView">
+        <template v-if="filter.viewMode !== 'tile'">
+          <img src="../assets/tile.svg" />
+        </template>
+        <template v-else>
+          <img src="../assets/list.svg" />
+        </template>
+      </Button>
+      <Button @click="onClickSearchBtn">
+        <img src="../assets/search.svg" />
+      </Button>
     </div>
-    <div class="search-wrapper">
+    <div class="search-wrapper" v-show="isSearchMode">
       <SearchBox
         :searchText="searchText"
         :isSearchMode="isSearchMode"
@@ -53,13 +70,12 @@
 import LZString from "lz-string";
 
 import items from "../assets/items.json";
-import firebase from "../utils/firebase";
+import firebase from "../plugins/firebase";
 import { filterItems, links } from "../utils/nav.js";
 
 import Nav from "../components/Nav.vue";
 import Login from "../components/Login.vue";
-import LoginButton from "../components/LoginButton.vue";
-import ViewButton from "../components/ViewButton.vue";
+import Button from "../components/Button.vue";
 import SearchBox from "../components/SearchBox.vue";
 import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
@@ -72,8 +88,7 @@ export default {
   components: {
     Nav,
     Login,
-    LoginButton,
-    ViewButton,
+    Button,
     SearchBox,
     FilterUI,
     Item
@@ -154,6 +169,9 @@ export default {
     user() {
       return this.$store.getters.user;
     },
+    isLogin() {
+      return this.$store.getters.isLogin;
+    },
     showItems: function() {
       let result = filterItems(
         items,
@@ -208,12 +226,18 @@ export default {
       }
       // TODO データ保存ここまで
     },
+    onChangeView: function() {
+      const newViewMode = this.filter.viewMode === "tile" ? "list" : "tile";
+      console.log(newViewMode);
+      this.filter = Object.assign({}, this.filter, { viewMode: newViewMode });
+      this.$vlf.setItem("filter", this.filter);
+    },
     onChangeFilter: function(activeFilter) {
       this.filter = activeFilter;
       this.$vlf.setItem("filter", this.filter);
     },
-    onClickSearchBtn: function(isSearchMode) {
-      this.isSearchMode = isSearchMode;
+    onClickSearchBtn: function() {
+      this.isSearchMode = !this.isSearchMode;
       this.isSearchResultOverThreshold = false;
     },
     onInputSearchBox: function(text) {
@@ -250,8 +274,12 @@ export default {
 
 .view-btn-wrapper {
   position: absolute;
-  right: 76px;
+  right: 12px;
   top: 4px;
+
+  > * {
+    margin-left: 4px;
+  }
 }
 
 .search-wrapper {
@@ -259,6 +287,11 @@ export default {
   right: 12px;
   top: 4px;
   left: 12px;
-  pointer-events: none;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 </style>

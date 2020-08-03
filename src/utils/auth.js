@@ -4,10 +4,10 @@ import firebase from "../plugins/firebase";
 export default {
   init() {
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().authStateChange(user => {
       user = user ? user : {};
-      store.commit("onAuthStateChanged", user);
-      store.commit("onLoginStateChanged", user.uid ? true : false);
+      store.commit("authStateChange", user);
+      store.commit("loginStateChange", user.uid ? true : false);
     });
   },
   login(providerName) {
@@ -19,7 +19,7 @@ export default {
   },
   logout() {
     firebase.auth().signOut();
-    store.commit("onAuthStateChanged", {});
-    store.commit("onLoginStateChanged", false);
+    store.commit("authStateChange", {});
+    store.commit("loginStateChange", false);
   }
 };

@@ -5,15 +5,19 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    user: {},
-    isLogin: null
+    user: null,
+    isLogin: null,
+    userData: null
   },
   mutations: {
-    onAuthStateChanged(state, user) {
+    authStateChange(state, user) {
       state.user = user;
     },
-    onLoginStateChanged(state, nextState) {
+    loginStateChange(state, nextState) {
       state.isLogin = nextState;
+    },
+    userDataChange(state, userData) {
+      state.userData = userData;
     }
   },
   getters: {
@@ -22,6 +26,9 @@ export default new Vuex.Store({
     },
     isLogin(state) {
       return state.isLogin;
+    },
+    userData(state) {
+      return state.userData;
     }
   }
 });

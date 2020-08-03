@@ -1,7 +1,9 @@
 <template>
   <div class="about">
+    <div class="close">
+      <CloseButton @click="$router.push('/')" />
+    </div>
     <img class="logo" src="../assets/logo.svg" />
-
     <h1>あつ森ガチコンプについて</h1>
     <p>
       このアプリは、あつ森の家具などの取得状況を管理できるウェブアプリです。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。
@@ -60,6 +62,16 @@
   </div>
 </template>
 
+<script>
+import CloseButton from "../components/CloseButton";
+
+export default {
+  components: {
+    CloseButton
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 .about {
   padding: 0 1.5rem 1rem;
@@ -67,6 +79,12 @@
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
 .logo {

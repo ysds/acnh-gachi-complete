@@ -11,6 +11,7 @@
       >
         {{ link.text }}
       </button>
+      <router-link class="nav-item" to="/about">使い方</router-link>
     </nav>
     <div class="wrapper" v-if="subnavs">
       <nav class="subnav">
@@ -79,6 +80,7 @@ export default {
   border-style: solid;
   border-color: transparent;
   border-radius: 2px;
+  color: #444;
   touch-action: manipulation;
 
   + .nav-item {

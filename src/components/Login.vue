@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="login-body">
-      <template v-if="isLogin">
+      <template v-if="isLogin && user">
         <img :src="user.photoURL" alt="Avatar" class="avatar" />
         <p>{{ user.displayName }}</p>
         <button type="button" class="btn" @click="logout">
@@ -83,12 +83,12 @@ export default {
   text-align: center;
   padding: 0.5rem;
   line-height: 64px;
+}
 
-  > .close {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-  }
+.close {
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
 .login-title {

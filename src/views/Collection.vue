@@ -44,7 +44,7 @@
     <ul
       class="items"
       :class="{ tiles: filter.viewMode === 'tile' }"
-      v-if="showItems.length > 0"
+      v-if="showItems && showItems.length > 0"
       v-show="!isOpenLogin"
     >
       <Item
@@ -56,7 +56,10 @@
         @change="onChangeItemCheck"
       />
     </ul>
-    <div class="noitems" v-else-if="!isSearchMode">
+    <div class="noitems" v-else-if="showItems === null">
+      読み込み中...
+    </div>
+    <div class="noitems" v-else-if="!isSearchMode && showItems.length === 0">
       表示するアイテムがありません。
     </div>
     <div class="noitems" v-if="isSearchResultOverThreshold">
@@ -101,7 +104,9 @@ export default {
         collectedFilter: null,
         viewMode: null
       },
+      showItems: null,
       isSearchMode: false,
+      renderStartDate: null,
       searchText: "",
       links: links,
       isSearchResultOverThreshold: false,
@@ -118,26 +123,6 @@ export default {
     },
     isLogin() {
       return this.$store.getters.isLogin;
-    },
-    showItems: function() {
-      let result = filterItems(
-        items,
-        this.collected,
-        this.nav,
-        this.filter,
-        this.isSearchMode,
-        this.searchText,
-        this.isShowSaleFilter
-      );
-      if (this.isSearchMode && result.length > 100) {
-        result = result.slice(0, 99);
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        this.isSearchResultOverThreshold = true;
-      } else {
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        this.isSearchResultOverThreshold = false;
-      }
-      return result;
     },
     isShowSaleFilter: function() {
       if (this.nav) {
@@ -204,6 +189,7 @@ export default {
       },
       filter
     );
+    this.updateShowItems();
   },
   methods: {
     onChangeItemCheck: function(name, newItemCollected) {
@@ -211,7 +197,9 @@ export default {
       this.$vlf.setItem("collected", this.$store.getters.collectedData);
     },
     onChangeNav: function(activeNav) {
+      if (this.nav === activeNav) return;
       this.nav = activeNav;
+      this.updateShowItems();
       this.$vlf.setItem("nav", this.nav);
       // TODO データ保存ここから
       if (this.user && this.user.uid) {
@@ -227,22 +215,77 @@ export default {
     },
     onChangeView: function() {
       const newViewMode = this.filter.viewMode === "tile" ? "list" : "tile";
-      console.log(newViewMode);
+      if (this.filter.viewMode === newViewMode) return;
       this.filter = Object.assign({}, this.filter, { viewMode: newViewMode });
       this.$vlf.setItem("filter", this.filter);
     },
     onChangeFilter: function(activeFilter) {
       this.filter = activeFilter;
+      this.updateShowItems();
       this.$vlf.setItem("filter", this.filter);
     },
     onClickSearchBtn: function() {
       this.isSearchMode = !this.isSearchMode;
       this.isSearchResultOverThreshold = false;
+      this.updateShowItems();
     },
     onInputSearchBox: function(text) {
       this.searchText = text;
       if (text === "") {
         this.isSearchResultOverThreshold = false;
+      }
+      this.updateShowItems();
+    },
+    updateShowItems: function() {
+      const self = this;
+      self.renderStartDate = new Date().getTime();
+      const renderStartDate = self.renderStartDate;
+
+      let result = filterItems(
+        items,
+        self.collected,
+        self.nav,
+        self.filter,
+        self.isSearchMode,
+        self.searchText,
+        self.isShowSaleFilter
+      );
+      if (result.length < 50) {
+        self.showItems = result;
+        self.isSearchResultOverThreshold = false;
+      } else if (self.isSearchMode && result.length > 100) {
+        result = result.slice(0, 100);
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        self.isSearchResultOverThreshold = true;
+        self.showItems = result;
+      } else {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        self.isSearchResultOverThreshold = false;
+
+        self.showItems = [];
+        for (let i = 0; i < 50; i++) {
+          const item = result[i];
+          self.showItems.push(item);
+        }
+        result.splice(0, 50);
+
+        const showItems = result;
+        const ite = (function*() {
+          while (true) {
+            const items = showItems.splice(0, 50);
+            if (items.length <= 0 || self.renderStartDate > renderStartDate)
+              break;
+            yield setTimeout(() => {
+              if (self.renderStartDate > renderStartDate) return;
+              for (let len = items.length, i = 0; i < len; i++) {
+                const item = items[i];
+                self.showItems.push(item);
+              }
+              ite.next();
+            });
+          }
+        })();
+        ite.next();
       }
     }
   }

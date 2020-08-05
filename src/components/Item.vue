@@ -149,8 +149,7 @@ export default {
           return [item.uniqueEntryId];
         } else if (item.variants) {
           [].forEach.call(collected, function(s) {
-            if (!item.variants[parseInt(s, 10)].uniqueEntryId)
-              result.push(item.variants[parseInt(s, 10)].uniqueEntryId);
+            result.push(item.variants[parseInt(s, 10)].uniqueEntryId);
           });
         }
       }

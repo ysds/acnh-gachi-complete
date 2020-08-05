@@ -24,7 +24,7 @@
           />
           Google でログイン
         </button>
-        <button type="button" class="btn btn-google" @click="login('google')">
+        <button type="button" class="btn btn-google" @click="login('twitter')">
           <img
             src="../assets/Twitter_Logo_Blue.svg"
             width="40px"

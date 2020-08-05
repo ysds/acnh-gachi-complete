@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import localforage from "localforage";
 
 Vue.use(Vuex);
 
@@ -7,7 +8,10 @@ export default new Vuex.Store({
   state: {
     user: null,
     isLogin: null,
-    collectedData: null
+    localCollectedData: null,
+    localLastUpdate: null,
+    cloudCollectedData: null,
+    cloudLastUpdate: null
   },
   mutations: {
     authStateChange(state, user) {
@@ -16,15 +20,34 @@ export default new Vuex.Store({
     loginStateChange(state, nextState) {
       state.isLogin = nextState;
     },
-    collectedDataChange(state, collectedData) {
-      state.collectedData = collectedData;
+    initLocalCollectedData(state, payload) {
+      state.localCollectedData = Object.assign({}, payload.collected);
+      state.localLastUpdate = payload.lastUpdate;
     },
-    itemCollectedDataChange(state, payload) {
+    initCloudCollectedData(state, payload) {
+      state.cloudCollectedData = payload.collected;
+      state.cloudLastUpdate = payload.lastUpdate;
+    },
+    updateLocalCollectedDataByItem(state, payload) {
+      let localCollectedData = state.localCollectedData;
       if (payload.newItemCollected === "") {
-        delete state.collectedData[payload.name];
+        delete localCollectedData[payload.name];
       } else {
-        state.collectedData[payload.name] = payload.newItemCollected;
+        localCollectedData[payload.name] = payload.newItemCollected;
       }
+      state.localCollectedData = Object.assign({}, localCollectedData);
+      localforage.setItem("collected", state.localCollectedData);
+      localforage.setItem("lastUpdate", state.localLastUpdate++);
+    },
+    updateLocalCollectedData(state, payload) {
+      state.localCollectedData = Object.assign({}, payload.collected);
+      state.localLastUpdate = payload.lastUpdate;
+      localforage.setItem("collected", state.localCollectedData);
+      localforage.setItem("lastUpdate", payload.lastUpdate);
+    },
+    updateCloudCollectedData(state, payload) {
+      state.cloudCollectedData = payload.collected;
+      state.cloudLastUpdate = payload.lastUpdate;
     }
   },
   getters: {
@@ -34,8 +57,17 @@ export default new Vuex.Store({
     isLogin(state) {
       return state.isLogin;
     },
-    collectedData(state) {
-      return state.collectedData;
+    localCollectedData(state) {
+      return state.localCollectedData;
+    },
+    cloudCollectedData(state) {
+      return state.cloudCollectedData;
+    },
+    localLastUpdate(state) {
+      return state.localLastUpdate;
+    },
+    cloudLastUpdate(state) {
+      return state.cloudLastUpdate;
     }
   }
 });

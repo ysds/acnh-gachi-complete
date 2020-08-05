@@ -70,10 +70,7 @@
 </template>
 
 <script>
-import LZString from "lz-string";
-
 import items from "../assets/items.json";
-import firebase from "../plugins/firebase";
 import { filterItems, links } from "../utils/nav.js";
 
 import Nav from "../components/Nav.vue";
@@ -82,9 +79,6 @@ import Button from "../components/Button.vue";
 import SearchBox from "../components/SearchBox.vue";
 import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
-
-const db = firebase.firestore();
-db.enablePersistence({ synchronizeTabs: true });
 
 export default {
   name: "Collection",
@@ -113,10 +107,9 @@ export default {
       isOpenLogin: false
     };
   },
-  // TODO データ読み込みここまで
   computed: {
     collected() {
-      return this.$store.getters.collectedData;
+      return this.$store.getters.localCollectedData;
     },
     user() {
       return this.$store.getters.user;
@@ -134,84 +127,52 @@ export default {
       return false;
     }
   },
-  // TODO データ読み込みここから
-  watch: {
-    user() {
-      // Load from firestore
-      const self = this;
-      if (this.user && this.user.uid) {
-        db.collection("users")
-          .doc(this.user.uid)
-          .get()
-          .then(function(doc) {
-            if (doc.exists) {
-              const collectedValue = doc.data().collected || {};
-              self.$store.commit(
-                "collectedDataChange",
-                JSON.parse(LZString.decompressFromUTF16(collectedValue))
-              );
-            } else {
-              // doc.data() will be undefined in this case
-            }
-          })
-          .catch(function() {});
-      }
-    }
-  },
-  async created() {
-    // Load data from localStrage
-    const self = this;
-    let [collected, nav, filter] = await Promise.all([
-      self.$vlf.getItem("collected"),
-      self.$vlf.getItem("nav"),
-      self.$vlf.getItem("filter")
-    ]);
-    this.$store.commit("collectedDataChange", collected || {});
-    // Check defined nav
-    if (nav) {
-      let isDefinedNav = false;
-      links.forEach(link => {
-        if (link.id === nav) isDefinedNav = true;
-        if (link.subnavs) {
-          link.subnavs.forEach(sublink => {
-            if (sublink.id === nav) isDefinedNav = true;
-          });
-        }
-      });
-      if (!isDefinedNav) nav = null;
-    }
-    this.nav = nav || "housewares";
-    this.filter = Object.assign(
-      {
-        saleFilter: "0",
-        collectedFilter: "0",
-        viewMode: "tile"
-      },
-      filter
-    );
+  async mounted() {
+    await this.initNavFilter();
     this.updateShowItems();
   },
   methods: {
+    initNavFilter: async function() {
+      // Load data from localStrage
+      const self = this;
+      let [nav, filter] = await Promise.all([
+        self.$vlf.getItem("nav"),
+        self.$vlf.getItem("filter")
+      ]);
+      // Check defined nav
+      if (nav) {
+        let isDefinedNav = false;
+        links.forEach(link => {
+          if (link.id === nav) isDefinedNav = true;
+          if (link.subnavs) {
+            link.subnavs.forEach(sublink => {
+              if (sublink.id === nav) isDefinedNav = true;
+            });
+          }
+        });
+        if (!isDefinedNav) nav = null;
+      }
+      this.nav = nav || "housewares";
+      this.filter = Object.assign(
+        {
+          saleFilter: "0",
+          collectedFilter: "0",
+          viewMode: "tile"
+        },
+        filter
+      );
+    },
     onChangeItemCheck: function(name, newItemCollected) {
-      this.$store.commit("itemCollectedDataChange", { name, newItemCollected });
-      this.$vlf.setItem("collected", this.$store.getters.collectedData);
+      this.$store.commit("updateLocalCollectedDataByItem", {
+        name,
+        newItemCollected
+      });
     },
     onChangeNav: function(activeNav) {
       if (this.nav === activeNav) return;
       this.nav = activeNav;
       this.updateShowItems();
       this.$vlf.setItem("nav", this.nav);
-      // TODO データ保存ここから
-      if (this.user && this.user.uid) {
-        db.collection("users")
-          .doc(this.user.uid)
-          .set({
-            collected: LZString.compressToUTF16(JSON.stringify(this.collected))
-          })
-          .then(function() {})
-          .catch(function() {});
-      }
-      // TODO データ保存ここまで
     },
     onChangeView: function() {
       const newViewMode = this.filter.viewMode === "tile" ? "list" : "tile";

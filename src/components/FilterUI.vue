@@ -3,7 +3,7 @@
     <template v-if="showSaleFilter">
       <label class="fl">
         <input type="radio" class="fl-radio" value="0" v-model="saleFilter" />
-        <span class="fl-label">商店</span>
+        <span class="fl-label">お店</span>
       </label>
       <label class="fl">
         <input type="radio" class="fl-radio" value="1" v-model="saleFilter" />
@@ -82,11 +82,12 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0.25rem 0 1rem;
+  padding: 0 0 0.875rem;
 }
 
 .fl {
-  margin-bottom: 0;
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
 }
 
 .fl-radio {

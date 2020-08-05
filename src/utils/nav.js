@@ -323,7 +323,7 @@ export const links = [
   },
   {
     id: "walletc",
-    text: "壁紙・床板・ラグ",
+    text: "壁紙/床板/ラグ",
     subnavs: [
       {
         id: "walletc",
@@ -453,7 +453,7 @@ export const links = [
   },
   {
     id: "season",
-    text: "季節・イベント",
+    text: "季節/イベント",
     subnavs: [
       {
         id: "season",

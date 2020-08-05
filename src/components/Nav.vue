@@ -11,7 +11,9 @@
       >
         {{ link.text }}
       </button>
-      <router-link class="nav-item" to="/about">使い方</router-link>
+      <router-link class="nav-item nav-item-about" to="/about">
+        使い方
+      </router-link>
     </nav>
     <div class="wrapper" v-if="subnavs">
       <nav class="subnav">
@@ -67,11 +69,11 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: -0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .nav-item {
-  margin-top: 0.5rem;
+  margin: 0.5rem 0.33rem 0;
   padding: 2px 0;
   background-color: transparent;
   outline: none;
@@ -83,14 +85,14 @@ export default {
   color: #444;
   touch-action: manipulation;
 
-  + .nav-item {
-    margin-left: 0.5rem;
-  }
-
   &.active {
     color: #42b983;
     border-bottom-color: #42b983;
   }
+}
+
+.nav-item-about {
+  color: #ff617c;
 }
 
 .wrapper {

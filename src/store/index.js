@@ -9,9 +9,9 @@ export default new Vuex.Store({
     user: null,
     isLogin: null,
     localCollectedData: null,
-    localLastUpdate: null,
+    localUpdateIndex: null,
     cloudCollectedData: null,
-    cloudLastUpdate: null
+    cloudUpdateIndex: null
   },
   mutations: {
     authStateChange(state, user) {
@@ -22,11 +22,11 @@ export default new Vuex.Store({
     },
     initLocalCollectedData(state, payload) {
       state.localCollectedData = Object.assign({}, payload.collected);
-      state.localLastUpdate = payload.lastUpdate;
+      state.localUpdateIndex = payload.updateIndex;
     },
     initCloudCollectedData(state, payload) {
       state.cloudCollectedData = payload.collected;
-      state.cloudLastUpdate = payload.lastUpdate;
+      state.cloudUpdateIndex = payload.updateIndex;
     },
     updateLocalCollectedDataByItem(state, payload) {
       let localCollectedData = state.localCollectedData;
@@ -37,17 +37,17 @@ export default new Vuex.Store({
       }
       state.localCollectedData = Object.assign({}, localCollectedData);
       localforage.setItem("collected", state.localCollectedData);
-      localforage.setItem("lastUpdate", state.localLastUpdate++);
+      localforage.setItem("updateIndex", state.localUpdateIndex++);
     },
     updateLocalCollectedData(state, payload) {
       state.localCollectedData = Object.assign({}, payload.collected);
-      state.localLastUpdate = payload.lastUpdate;
+      state.localUpdateIndex = payload.updateIndex;
       localforage.setItem("collected", state.localCollectedData);
-      localforage.setItem("lastUpdate", payload.lastUpdate);
+      localforage.setItem("updateIndex", payload.updateIndex);
     },
     updateCloudCollectedData(state, payload) {
       state.cloudCollectedData = payload.collected;
-      state.cloudLastUpdate = payload.lastUpdate;
+      state.cloudUpdateIndex = payload.updateIndex;
     }
   },
   getters: {
@@ -63,11 +63,11 @@ export default new Vuex.Store({
     cloudCollectedData(state) {
       return state.cloudCollectedData;
     },
-    localLastUpdate(state) {
-      return state.localLastUpdate;
+    localUpdateIndex(state) {
+      return state.localUpdateIndex;
     },
-    cloudLastUpdate(state) {
-      return state.cloudLastUpdate;
+    cloudUpdateIndex(state) {
+      return state.cloudUpdateIndex;
     }
   }
 });

@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       cloudSynctimer: null,
-      lastUpdate: null
+      updateIndex: null
     };
   },
   computed: {
@@ -30,21 +30,21 @@ export default {
     localCollected() {
       return this.$store.getters.localCollectedData;
     },
-    localLastUpdate() {
-      return this.$store.getters.localLastUpdate;
+    localUpdateIndex() {
+      return this.$store.getters.localUpdateIndex;
     },
     cloudCollected() {
       return this.$store.getters.cloudCollectedData;
     },
-    cloudLastUpdate() {
-      return this.$store.getters.cloudLastUpdate;
+    cloudUpdateIndex() {
+      return this.$store.getters.cloudUpdateIndex;
     }
   },
   watch: {
     user() {
       this.loadFirebaseData();
     },
-    cloudLastUpdate() {
+    cloudUpdateIndex() {
       this.syncCollectedData();
     }
   },
@@ -52,23 +52,23 @@ export default {
     const self = this;
     await Promise.all([self.loadLocalStorageData()]);
     this.cloudSynctimer = setInterval(function() {
-      if (self.lastUpdate && self.lastUpdate === self.localLastUpdate) {
+      if (self.updateIndex && self.updateIndex === self.localUpdateIndex) {
         self.syncCollectedData();
       } else {
-        self.lastUpdate = self.localLastUpdate;
+        self.updateIndex = self.localUpdateIndex;
       }
     }, 3000);
   },
   methods: {
     loadLocalStorageData: async function() {
       const self = this;
-      let [collected, lastUpdate] = await Promise.all([
+      let [collected, updateIndex] = await Promise.all([
         self.$vlf.getItem("collected"),
-        self.$vlf.getItem("lastUpdate")
+        self.$vlf.getItem("updateIndex")
       ]);
       collected = collected || {};
-      lastUpdate = lastUpdate || 0;
-      self.$store.commit("initLocalCollectedData", { collected, lastUpdate });
+      updateIndex = updateIndex || 0;
+      self.$store.commit("initLocalCollectedData", { collected, updateIndex });
       return self.localCollected;
     },
     loadFirebaseData: function() {
@@ -83,10 +83,10 @@ export default {
               const collected = JSON.parse(
                 LZString.decompressFromUTF16(collectedValue)
               );
-              const lastUpdate = doc.data().lastUpdate || 0;
+              const updateIndex = doc.data().updateIndex || 0;
               self.$store.commit("initCloudCollectedData", {
                 collected,
-                lastUpdate
+                updateIndex
               });
             } else {
               console.log("No data on cloud");
@@ -99,7 +99,7 @@ export default {
     },
     syncCollectedData: function() {
       if (!isEqual(this.localCollected, this.cloudCollected)) {
-        if (this.localLastUpdate > this.cloudLastUpdate) {
+        if (this.localUpdateIndex > this.cloudUpdateIndex) {
           this.updateCloudData();
         } else {
           this.updateLocalData();
@@ -108,27 +108,27 @@ export default {
     },
     updateCloudData: function() {
       if (this.user && this.user.uid) {
-        const lastUpdate = this.localLastUpdate;
+        const updateIndex = this.localUpdateIndex;
         db.collection("users")
           .doc(this.user.uid)
           .set({
             collected: LZString.compressToUTF16(
               JSON.stringify(this.localCollected)
             ),
-            lastUpdate
+            updateIndex
           })
           .then(function() {})
           .catch(function() {});
         this.$store.commit("updateCloudCollectedData", {
           collected: this.localCollected,
-          lastUpdate
+          updateIndex
         });
       }
     },
     updateLocalData: function() {
       this.$store.commit("updateLocalCollectedData", {
         collected: this.cloudCollected,
-        lastUpdate: this.cloudLastUpdate
+        updateIndex: this.cloudUpdateIndex
       });
     }
   }

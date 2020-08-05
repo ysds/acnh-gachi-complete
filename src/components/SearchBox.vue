@@ -1,6 +1,11 @@
 <template>
   <div class="search">
-    <form class="search-form" autocomplete="off" v-show="isSearchMode">
+    <form
+      class="search-form"
+      autocomplete="off"
+      v-show="isSearchMode"
+      @submit.prevent
+    >
       <input
         type="text"
         class="search-input"

@@ -13,6 +13,9 @@
         <button type="button" class="btn" @click="logout">
           ログアウト
         </button>
+        <p class="small">
+          ログアウトするとブラウザに保存されているデータはクリアされます。再度ログインすることで、クラウドからデータを復元できます。
+        </p>
       </template>
       <template v-else-if="isLogin === false">
         <button type="button" class="btn btn-google" @click="login('google')">
@@ -60,6 +63,9 @@ export default {
     },
     logout() {
       Auth.logout();
+      this.$vlf.clear(() => {
+        window.location.reload();
+      });
     },
     close() {
       this.$emit("close");
@@ -124,5 +130,9 @@ export default {
   border-radius: 1rem;
   background-color: #fff;
   font-weight: 700;
+}
+
+.small {
+  font-size: 13px;
 }
 </style>

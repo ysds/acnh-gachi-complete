@@ -51,8 +51,9 @@
         v-for="item in showItems"
         :item="item"
         :collected="collected[item.uniqueEntryId] || collected[item.name]"
-        :viewMode="filter.viewMode"
+        :filter="filter"
         :key="item.name + item.sourceSheet"
+        :renderStartDate="renderStartDate"
         @change="onChangeItemCheck"
       />
     </ul>

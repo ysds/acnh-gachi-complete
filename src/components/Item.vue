@@ -1,6 +1,6 @@
 <template>
-  <li :class="viewMode === 'list' ? 'item' : 'tile'">
-    <template v-if="viewMode === 'list'">
+  <li :class="filter.viewMode === 'list' ? 'item' : 'tile'">
+    <template v-if="filter.viewMode === 'list'">
       <img v-lazy="getImage(item)" class="item-img" />
       <div class="item-center">
         {{ item.displayName }}
@@ -31,15 +31,16 @@
         @click="onClickAllCheck"
       />
     </template>
-    <template v-if="viewMode === 'tile'">
+    <template v-if="filter.viewMode === 'tile'">
       <ul class="tile-variants" v-if="item.variants">
+        <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
         <CheckForTile
-          v-for="(variant, index) in item.variants"
-          :key="variant.uniqueEntryId"
-          :name="index === 0 ? item.displayName : ''"
-          :image="getVariantTileImage(variant)"
+          v-for="(index, i) in filteredCheckIndexes"
+          :key="item.variants[index].uniqueEntryId"
+          :name="i === 0 ? item.displayName : ''"
+          :image="getVariantTileImage(item.variants[index])"
           :value="checks[index]"
-          :variant="variant"
+          :variant="item.variants[index]"
           :variants="item.variants"
           @click="onChangeCheck(index)"
         />
@@ -72,11 +73,13 @@ export default {
       default: ""
     },
     item: Object,
-    viewMode: String
+    filter: Object,
+    renderStartDate: Number
   },
   data() {
     return {
-      checks: {}
+      checks: {},
+      filteredCheckIndexes: null
     };
   },
   computed: {
@@ -99,10 +102,14 @@ export default {
   watch: {
     collected: function() {
       this.checks = this.updateChecks();
+    },
+    renderStartDate: function() {
+      this.filteredCheckIndexes = this.updateFilteredCheckIndexes();
     }
   },
   mounted() {
     this.checks = this.updateChecks();
+    this.filteredCheckIndexes = this.updateFilteredCheckIndexes();
   },
   methods: {
     getImage: function(item) {
@@ -162,6 +169,35 @@ export default {
         }
       }
       this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
+    },
+    updateFilteredCheckIndexes() {
+      let result = [];
+      const collectedFilter = this.filter.collectedFilter;
+      const checks = this.checks;
+
+      Object.keys(checks).forEach(function(key) {
+        if (collectedFilter === "0") {
+          result.push(key);
+        } else if (collectedFilter === "1" && checks[key] === 1) {
+          result.push(key);
+        } else if (collectedFilter === "2" && checks[key] === 2) {
+          result.push(key);
+        } else if (
+          collectedFilter === "3" &&
+          (checks[key] === 1 || checks[key] === 2)
+        ) {
+          result.push(key);
+        } else if (collectedFilter === "4" && checks[key] === 0) {
+          result.push(key);
+        }
+      });
+
+      if (this.item.displayName === "アームのフロアランプ") {
+        console.log(this.checks);
+        console.log(result);
+      }
+
+      return result;
     },
     onChangeCheck: function(index) {
       const currentValue = this.checks[index];

@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="flat-btn"
+    class="dropdown-item"
     @click="onClick"
     @touchstart="onTouchStart"
   >
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "Button",
+  name: "DropdownItem",
   methods: {
     onClick: function() {
       this.$emit("click");
@@ -26,3 +26,18 @@ export default {
   }
 };
 </script>
+<style scoped lang="scss">
+.dropdown-item {
+  padding: 0.5rem;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  text-align: left;
+  transition: background-color 0.15s;
+  white-space: nowrap;
+
+  &.active {
+    background-color: #e3e3e3;
+  }
+}
+</style>

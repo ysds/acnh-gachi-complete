@@ -54,20 +54,46 @@ export function filterItems(
       if (item.diy || item.catalog === "For sale" || item.catalog === true)
         return false;
     }
-    // 所持のみ
+    // 取得のみ
     if (filter && filter.collectedFilter === "1") {
       if (item.uniqueEntryId) {
-        if (!collected[item.uniqueEntryId]) return false;
-      } else if (
-        !collected[item.name] ||
-        (collected[item.name] &&
-          item.variants.length > collected[item.name].length)
-      ) {
-        return false;
+        if (
+          !collected[item.uniqueEntryId] ||
+          !collected[item.uniqueEntryId] === "0"
+        )
+          return false;
+      } else {
+        const collectedData = collected[item.name] || "";
+        const length = (collectedData.match(/[0-9]/g) || []).length;
+        if (length === 0) return false;
       }
     }
-    // 未所持のみ
-    else if (filter && filter.collectedFilter === "2") {
+    // 配布可のみ
+    if (filter && filter.collectedFilter === "2") {
+      if (item.uniqueEntryId) {
+        if (
+          !collected[item.uniqueEntryId] ||
+          !collected[item.uniqueEntryId] === "A"
+        )
+          return false;
+      } else {
+        const collectedData = collected[item.name] || "";
+        const length = (collectedData.match(/[A-J]/g) || []).length;
+        if (length === 0) return false;
+      }
+    }
+    // 取得or配布
+    if (filter && filter.collectedFilter === "3") {
+      if (item.uniqueEntryId) {
+        if (!collected[item.uniqueEntryId]) return false;
+      } else {
+        const collectedData = collected[item.name] || "";
+        const length = (collectedData.match(/[0-9A-J]/g) || []).length;
+        if (length === 0) return false;
+      }
+    }
+    // 未取得
+    else if (filter && filter.collectedFilter === "4") {
       if (item.uniqueEntryId) {
         if (collected[item.uniqueEntryId]) return false;
       } else if (
@@ -77,7 +103,6 @@ export function filterItems(
         return false;
       }
     }
-
     // 家具
     if (nav === "housewares") {
       return item.sourceSheet === "Housewares";

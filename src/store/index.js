@@ -37,7 +37,8 @@ export default new Vuex.Store({
       }
       state.localCollectedData = Object.assign({}, localCollectedData);
       localforage.setItem("collected", state.localCollectedData);
-      localforage.setItem("updateIndex", state.localUpdateIndex++);
+      state.localUpdateIndex++;
+      localforage.setItem("updateIndex", state.localUpdateIndex);
     },
     updateLocalCollectedData(state, payload) {
       state.localCollectedData = Object.assign({}, payload.collected);

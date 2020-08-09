@@ -192,11 +192,6 @@ export default {
         }
       });
 
-      if (this.item.displayName === "アームのフロアランプ") {
-        console.log(this.checks);
-        console.log(result);
-      }
-
       return result;
     },
     onChangeCheck: function(index) {

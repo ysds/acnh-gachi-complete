@@ -12,7 +12,16 @@
     <p>
       あつ森のアイテムコンプを目指すことを目的にしており、素材や消費アイテム、リメイク家具は対象から外しています。
     </p>
-    <h2>タブとチェック状態について</h2>
+    <h2>チェック状態</h2>
+    <div class="section-check">
+      <img class="img" src="../assets/doc_check_status.png" />
+      <div class="check-status">
+        <span class="check-state">未取得</span>
+        <span class="check-state">取得済</span>
+        <span class="check-state">配布可</span>
+      </div>
+    </div>
+    <h2>タブとチェック状態の同期</h2>
     <p>
       同一のアイテムが異なるタブで表示されることがありますが、それぞれのチェック状態は同期しています。例えば、フーコのタブで「アクエリアスのみずがめ」をチェックすると、レシピタブの「アクエリアスのみずがめ」でもチェックが入ります。検索についても同様です。
     </p>
@@ -129,5 +138,36 @@ h2 {
 .copyright {
   margin-top: 1rem;
   margin-bottom: 4rem;
+}
+
+.section-check {
+  max-width: 240px;
+  margin-right: auto;
+  margin-left: auto;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .check-status {
+    display: flex;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .check-state {
+    display: block;
+    width: 80px;
+
+    &:nth-child(2) {
+      color: #42b983;
+    }
+
+    &:nth-child(3) {
+      color: #3790ff;
+    }
+  }
 }
 </style>

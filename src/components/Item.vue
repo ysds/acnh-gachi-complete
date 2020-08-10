@@ -136,7 +136,7 @@ export default {
         typeof this.collected === "string" ? this.collected : "";
 
       // No variants item
-      if (item.uniqueEntryId && collected.length) {
+      if (item.uniqueEntryId) {
         const value = collected === "" ? 0 : collected === "0" ? 1 : 2;
         result[0] = value;
         return Object.assign({}, result);

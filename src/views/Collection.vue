@@ -29,9 +29,9 @@
         @input="onInputSearchBox"
       />
     </div>
-    <div class="message">
+    <!-- <div class="message">
       現在バグがあり、レシピがチェックできない状態です。申し訳ありませんが修正が完了するまでしばらくお待ちください。
-    </div>
+    </div> -->
     <Nav
       :links="links"
       :active="nav"
@@ -53,7 +53,7 @@
       <Item
         v-for="item in showItems"
         :item="item"
-        :collected="collected[item.uniqueEntryId] || collected[item.name]"
+        :collected="getCollected(item)"
         :filter="filter"
         :key="item.name + item.sourceSheet"
         :renderStartDate="renderStartDate"
@@ -200,6 +200,11 @@ export default {
         this.isSearchResultOverThreshold = false;
       }
       this.updateShowItems();
+    },
+    getCollected: function(item) {
+      return item.uniqueEntryId
+        ? this.collected[item.uniqueEntryId]
+        : this.collected[item.name];
     },
     updateShowItems: function() {
       const self = this;

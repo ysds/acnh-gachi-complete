@@ -1,20 +1,22 @@
 <template>
   <div class="wrapper">
     <template v-if="showSaleFilter">
-      <dropdown-menu v-model="openSaleFilter" :interactive="true">
-        <div class="btn-label">取得方法</div>
-        <button class="dropdown-btn" :class="{ active: openSaleFilter }">
-          <span class="tg" v-if="filter.saleFilter === '0'">すべて</span>
-          <span class="tg" v-else-if="filter.saleFilter === '1'">お店</span>
-          <span class="tg" v-else-if="filter.saleFilter === '2'">DIY</span>
-          <span class="tg" v-else-if="filter.saleFilter === '3'">その他</span>
-          <img src="../assets/arrow.svg" alt="" />
-        </button>
-        <div
-          slot="dropdown"
-          class="dropdown-menu"
-          :class="{ hide: !openSaleFilter }"
-        >
+      <popper trigger="clickToToggle" :visible-arrow="false" ref="saleFilter">
+        <div slot="reference" style="position: relative;">
+          <div class="btn-label">取得方法</div>
+          <button
+            type="button"
+            class="dropdown-btn"
+            :class="{ active: openSaleFilter() }"
+          >
+            <span class="tg" v-if="filter.saleFilter === '0'">すべて</span>
+            <span class="tg" v-else-if="filter.saleFilter === '1'">お店</span>
+            <span class="tg" v-else-if="filter.saleFilter === '2'">DIY</span>
+            <span class="tg" v-else-if="filter.saleFilter === '3'">その他</span>
+            <img src="../assets/arrow.svg" alt="" />
+          </button>
+        </div>
+        <div class="dropdown-menu">
           <DropdownItem @click="onClickSaleFilter('0')">
             <span class="tg">すべて</span>
           </DropdownItem>
@@ -28,30 +30,36 @@
             <span class="tg">その他</span>
           </DropdownItem>
         </div>
-      </dropdown-menu>
+      </popper>
       <div class="divider" />
     </template>
-    <dropdown-menu v-model="openCollectedFilter" :interactive="true">
-      <div class="btn-label">チェック状態</div>
-      <button class="dropdown-btn" :class="{ active: openCollectedFilter }">
-        <span class="tg" v-if="filter.collectedFilter === '0'">すべて</span>
-        <span class="tg tg-gr" v-else-if="filter.collectedFilter === '1'"
-          >取得済</span
+    <popper
+      trigger="clickToToggle"
+      :visible-arrow="false"
+      ref="collectedFilter"
+    >
+      <div slot="reference" style="position: relative;">
+        <div class="btn-label">チェック状態</div>
+        <button
+          type="button"
+          class="dropdown-btn"
+          :class="{ active: openCollectedFilter() }"
         >
-        <span class="tg tg-bl" v-else-if="filter.collectedFilter === '2'"
-          >配布可</span
-        >
-        <template v-else-if="filter.collectedFilter === '3'">
-          <span class="tg tg-gr">取</span>＋<span class="tg tg-bl">配</span>
-        </template>
-        <span class="tg" v-else>未取得</span>
-        <img src="../assets/arrow.svg" alt="" />
-      </button>
-      <div
-        slot="dropdown"
-        class="dropdown-menu"
-        :class="{ hide: !openCollectedFilter }"
-      >
+          <span class="tg" v-if="filter.collectedFilter === '0'">すべて</span>
+          <span class="tg tg-gr" v-else-if="filter.collectedFilter === '1'"
+            >取得済</span
+          >
+          <span class="tg tg-bl" v-else-if="filter.collectedFilter === '2'"
+            >配布可</span
+          >
+          <template v-else-if="filter.collectedFilter === '3'">
+            <span class="tg tg-gr">取</span>＋<span class="tg tg-bl">配</span>
+          </template>
+          <span class="tg" v-else>未取得</span>
+          <img src="../assets/arrow.svg" alt="" />
+        </button>
+      </div>
+      <div class="dropdown-menu">
         <DropdownItem @click="onClickCollectedFilter('0')">
           <span class="tg">すべて</span>
         </DropdownItem>
@@ -68,41 +76,80 @@
           <span class="tg">未取得</span>
         </DropdownItem>
       </div>
-    </dropdown-menu>
+    </popper>
+    <div class="divider" />
+    <popper trigger="clickToToggle" :visible-arrow="false" ref="batchOpePopper">
+      <div slot="reference" style="position: relative;">
+        <div class="btn-label">一括操作</div>
+        <button
+          type="button"
+          class="dropdown-btn"
+          :class="{ active: openBatchOpe() }"
+        >
+          <span class="tg">操作...</span>
+          <img src="../assets/arrow.svg" alt="" />
+        </button>
+      </div>
+      <div class="dropdown-menu">
+        <DropdownItem @click="onClickBatchOperation('allCollected')">
+          <span class="tg"
+            >すべて<span class="tg tg-gr">取得済</span>としてチェック</span
+          >
+        </DropdownItem>
+        <DropdownItem @click="onClickBatchOperation('allProvidable')">
+          <span class="tg"
+            >すべて<span class="tg tg-bl">配布可</span>としてチェック</span
+          >
+        </DropdownItem>
+        <DropdownItem @click="onClickBatchOperation('allUncheck')">
+          <span class="tg">すべてのチェックを外す</span>
+        </DropdownItem>
+      </div>
+    </popper>
   </div>
 </template>
 
 <script>
-import DropdownMenu from "@innologica/vue-dropdown-menu";
+import Popper from "vue-popperjs";
 import DropdownItem from "./DropdownItem";
 
 export default {
   name: "FilterUI",
   components: {
-    DropdownMenu,
+    Popper,
     DropdownItem
   },
   props: {
     filter: Object,
     showSaleFilter: Boolean
   },
-  data() {
-    return {
-      openSaleFilter: false,
-      openCollectedFilter: false
-    };
-  },
   methods: {
     onClickSaleFilter: function(value) {
-      this.openSaleFilter = false;
+      this.$refs.saleFilter.doClose();
       this.$emit("change", Object.assign(this.filter, { saleFilter: value }));
     },
     onClickCollectedFilter: function(value) {
-      this.openCollectedFilter = false;
+      this.$refs.collectedFilter.doClose();
       this.$emit(
         "change",
         Object.assign(this.filter, { collectedFilter: value })
       );
+    },
+    onClickBatchOperation: function(value) {
+      this.$refs.batchOpePopper.doClose();
+      if (value) this.$emit("clickBatchAction", value);
+    },
+    openSaleFilter: function() {
+      if (!this.$refs.saleFilter) return false;
+      return this.$refs.saleFilter.showPopper;
+    },
+    openCollectedFilter: function() {
+      if (!this.$refs.collectedFilter) return false;
+      return this.$refs.collectedFilter.showPopper;
+    },
+    openBatchOpe: function() {
+      if (!this.$refs.batchOpePopper) return false;
+      return this.$refs.batchOpePopper.showPopper;
     }
   }
 };
@@ -122,15 +169,9 @@ export default {
   margin-left: 0.25rem;
 }
 
-.dropdown {
-  position: relative;
-  font-size: 14px;
-  margin-top: 6px;
-}
-
 .btn-label {
   position: absolute;
-  top: -6px;
+  top: 0;
   left: 7px;
   z-index: 2;
   background-color: white;
@@ -143,10 +184,12 @@ export default {
   display: inline-flex;
   align-items: center;
   min-width: 70px;
+  margin-top: 6px;
   padding: 0.5rem 0.35rem 0.2rem;
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 14px;
   outline: 0;
 
   &.active {
@@ -174,10 +217,7 @@ export default {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-
-  &.hide {
-    display: none;
-  }
+  font-size: 14px;
 
   .tg {
     padding-right: 0.3rem;

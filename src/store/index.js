@@ -30,10 +30,26 @@ export default new Vuex.Store({
     },
     updateLocalCollectedDataByItem(state, payload) {
       let localCollectedData = state.localCollectedData;
-      if (payload.newItemCollected === "") {
-        delete localCollectedData[payload.name];
+      if (payload.itemCollectedData === "") {
+        delete localCollectedData[payload.itemName];
       } else {
-        localCollectedData[payload.name] = payload.newItemCollected;
+        localCollectedData[payload.itemName] = payload.itemCollectedData;
+      }
+      state.localCollectedData = Object.assign({}, localCollectedData);
+      localforage.setItem("collected", state.localCollectedData);
+      state.localUpdateIndex++;
+      localforage.setItem("updateIndex", state.localUpdateIndex);
+    },
+    updateLocalCollectedDataBatch(state, payload) {
+      let localCollectedData = state.localCollectedData;
+      const items = payload.items;
+      const collectedArray = payload.collectedArray;
+      for (let i = 0; i < items.length; i++) {
+        if (collectedArray[i] === "") {
+          delete localCollectedData[items[i]];
+        } else {
+          localCollectedData[items[i]] = collectedArray[i];
+        }
       }
       state.localCollectedData = Object.assign({}, localCollectedData);
       localforage.setItem("collected", state.localCollectedData);

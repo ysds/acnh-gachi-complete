@@ -42,6 +42,7 @@
       :filter="filter"
       :showSaleFilter="isShowSaleFilter"
       @change="onChangeFilter"
+      @clickBatchAction="onClickItemCheckBatchAction"
       v-if="!isSearchMode"
     />
     <ul
@@ -75,7 +76,7 @@
 </template>
 
 <script>
-import items from "../assets/items.json";
+import itemsJson from "../assets/items.json";
 import { filterItems, links } from "../utils/nav.js";
 
 import Nav from "../components/Nav.vue";
@@ -167,10 +168,47 @@ export default {
         filter
       );
     },
-    onChangeItemCheck: function(name, newItemCollected) {
+    onChangeItemCheck: function(itemName, itemCollectedData) {
       this.$store.commit("updateLocalCollectedDataByItem", {
-        name,
-        newItemCollected
+        itemName,
+        itemCollectedData
+      });
+    },
+    onClickItemCheckBatchAction: function(value) {
+      const confirm = window.confirm(
+        "本当にチェック状態を一括変更してもよろしいですか？"
+      );
+      if (!confirm) return;
+      let items = [];
+      let collectedArray = [];
+      const showItems = this.showItems;
+      for (let i = 0; i < showItems.length; i++) {
+        items.push(showItems[i].uniqueEntryId || showItems[i].name);
+      }
+      for (let i = 0; i < items.length; i++) {
+        if (value === "allCollected") {
+          if (showItems[i].uniqueEntryId) {
+            collectedArray.push("0");
+          } else {
+            collectedArray.push(
+              "0123456789".slice(0, showItems[i].variants.length)
+            );
+          }
+        } else if (value === "allProvidable") {
+          if (showItems[i].uniqueEntryId) {
+            collectedArray.push("A");
+          } else {
+            collectedArray.push(
+              "ABCDEFGHIJ".slice(0, showItems[i].variants.length)
+            );
+          }
+        } else {
+          collectedArray.push("");
+        }
+      }
+      this.$store.commit("updateLocalCollectedDataBatch", {
+        items,
+        collectedArray
       });
     },
     onChangeNav: function(activeNav) {
@@ -213,7 +251,7 @@ export default {
       const renderStartDate = self.renderStartDate;
 
       let result = filterItems(
-        items,
+        itemsJson,
         self.collected,
         self.nav,
         self.filter,
@@ -268,6 +306,7 @@ export default {
   text-align: left;
   margin-bottom: 4rem;
 }
+
 .items {
   margin: 0;
   padding: 0;

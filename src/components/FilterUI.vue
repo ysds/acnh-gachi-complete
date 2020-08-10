@@ -1,22 +1,39 @@
 <template>
-  <div class="fls">
+  <div class="wrapper">
     <template v-if="showSaleFilter">
-      <label class="fl">
-        <input type="radio" class="fl-radio" value="0" v-model="saleFilter" />
-        <span class="fl-label">お店</span>
-      </label>
-      <label class="fl">
-        <input type="radio" class="fl-radio" value="1" v-model="saleFilter" />
-        <span class="fl-label">DIY</span>
-      </label>
-      <label class="fl">
-        <input type="radio" class="fl-radio" value="2" v-model="saleFilter" />
-        <span class="fl-label">その他</span>
-      </label>
-      <div class="fl-divider" />
+      <dropdown-menu v-model="openSaleFilter" :interactive="true">
+        <div class="btn-label">取得方法</div>
+        <button class="dropdown-btn" :class="{ active: openSaleFilter }">
+          <span class="tg" v-if="filter.saleFilter === '0'">すべて</span>
+          <span class="tg" v-else-if="filter.saleFilter === '1'">お店</span>
+          <span class="tg" v-else-if="filter.saleFilter === '2'">DIY</span>
+          <span class="tg" v-else-if="filter.saleFilter === '3'">その他</span>
+          <img src="../assets/arrow.svg" alt="" />
+        </button>
+        <div
+          slot="dropdown"
+          class="dropdown-menu"
+          :class="{ hide: !openSaleFilter }"
+        >
+          <DropdownItem @click="onClickSaleFilter('0')">
+            <span class="tg">すべて</span>
+          </DropdownItem>
+          <DropdownItem @click="onClickSaleFilter('1')">
+            <span class="tg">お店</span>
+          </DropdownItem>
+          <DropdownItem @click="onClickSaleFilter('2')">
+            <span class="tg">DIY</span>
+          </DropdownItem>
+          <DropdownItem @click="onClickSaleFilter('3')">
+            <span class="tg">その他</span>
+          </DropdownItem>
+        </div>
+      </dropdown-menu>
+      <div class="divider" />
     </template>
-    <dropdown-menu v-model="showCollectedFilter" :interactive="true">
-      <button class="dropdown-btn" :class="{ active: showCollectedFilter }">
+    <dropdown-menu v-model="openCollectedFilter" :interactive="true">
+      <div class="btn-label">チェック状態</div>
+      <button class="dropdown-btn" :class="{ active: openCollectedFilter }">
         <span class="tg" v-if="filter.collectedFilter === '0'">すべて</span>
         <span class="tg tg-gr" v-else-if="filter.collectedFilter === '1'"
           >取得済</span
@@ -33,7 +50,7 @@
       <div
         slot="dropdown"
         class="dropdown-menu"
-        :class="{ hide: !showCollectedFilter }"
+        :class="{ hide: !openCollectedFilter }"
       >
         <DropdownItem @click="onClickCollectedFilter('0')">
           <span class="tg">すべて</span>
@@ -71,22 +88,17 @@ export default {
   },
   data() {
     return {
-      showCollectedFilter: false
+      openSaleFilter: false,
+      openCollectedFilter: false
     };
   },
-  computed: {
-    saleFilter: {
-      get() {
-        return this.filter.saleFilter || null;
-      },
-      set(value) {
-        this.$emit("change", Object.assign(this.filter, { saleFilter: value }));
-      }
-    }
-  },
   methods: {
+    onClickSaleFilter: function(value) {
+      this.openSaleFilter = false;
+      this.$emit("change", Object.assign(this.filter, { saleFilter: value }));
+    },
     onClickCollectedFilter: function(value) {
-      this.showCollectedFilter = false;
+      this.openCollectedFilter = false;
       this.$emit(
         "change",
         Object.assign(this.filter, { collectedFilter: value })
@@ -97,7 +109,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.fls {
+.wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,65 +117,40 @@ export default {
   padding: 0 0 0.875rem;
 }
 
-.fl {
-  margin-top: 0.125rem;
-  margin-bottom: 0.125rem;
-}
-
-.fl-radio {
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
-  pointer-events: none;
-  left: 0;
-
-  &:checked ~ .fl-label {
-    background-color: #007bff;
-    color: #fff;
-
-    &:active {
-      background-color: darken(#007bff, 10%);
-    }
-  }
-}
-
-.fl-label {
-  display: inline-block;
-  padding: 5px 10px 4px;
-  margin-right: 0.25rem;
-  border-radius: 100px;
-  background-color: #eee;
-  font-size: 14px;
-  user-select: none;
-  white-space: nowrap;
-
-  &:active {
-    background-color: darken(#eee, 10%);
-  }
-}
-
-.fl-divider {
+.divider {
   margin-right: 0.5rem;
   margin-left: 0.25rem;
-  height: 1rem;
-  border-right: 1px solid #ccc;
 }
 
 .dropdown {
   position: relative;
   font-size: 14px;
+  margin-top: 6px;
+}
+
+.btn-label {
+  position: absolute;
+  top: -6px;
+  left: 7px;
+  z-index: 2;
+  background-color: white;
+  font-size: 10px;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .dropdown-btn {
   display: inline-flex;
   align-items: center;
-  padding: 0.35rem 0.5rem;
+  min-width: 70px;
+  padding: 0.5rem 0.35rem 0.2rem;
   background-color: transparent;
-  border: 0;
+  border: 1px solid #ccc;
   border-radius: 4px;
   outline: 0;
 
   &.active {
-    background-color: #e3e3e3;
+    border-color: #42b983;
 
     img {
       transform: rotate(180deg);
@@ -190,6 +177,10 @@ export default {
 
   &.hide {
     display: none;
+  }
+
+  .tg {
+    padding-right: 0.3rem;
   }
 }
 

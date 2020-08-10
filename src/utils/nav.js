@@ -37,7 +37,7 @@ export function filterItems(
       return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
     }
     // 商店
-    if (isShowSaleFilter && filter.saleFilter === "0") {
+    if (isShowSaleFilter && filter.saleFilter === "1") {
       if (
         item.catalog === "Not for sale" ||
         item.catalog === "Not in catalog" ||
@@ -46,11 +46,11 @@ export function filterItems(
         return false;
     }
     // DIY
-    if (isShowSaleFilter && filter.saleFilter === "1") {
+    if (isShowSaleFilter && filter.saleFilter === "2") {
       if (!item.diy) return false;
     }
     // その他
-    if (isShowSaleFilter && filter.saleFilter === "2") {
+    if (isShowSaleFilter && filter.saleFilter === "3") {
       if (item.diy || item.catalog === "For sale" || item.catalog === true)
         return false;
     }

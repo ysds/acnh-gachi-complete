@@ -76,6 +76,7 @@ export default {
 <style lang="scss" scoped>
 .login {
   position: fixed;
+  z-index: 1100;
   top: 0;
   left: 0;
   width: 100%;

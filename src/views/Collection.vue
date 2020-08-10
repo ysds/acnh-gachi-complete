@@ -29,6 +29,9 @@
         @input="onInputSearchBox"
       />
     </div>
+    <div class="message">
+      現在バグがあり、レシピがチェックできない状態です。申し訳ありませんが修正が完了するまでしばらくお待ちください。
+    </div>
     <Nav
       :links="links"
       :active="nav"
@@ -299,5 +302,12 @@ export default {
   width: 32px;
   height: 32px;
   border-radius: 50%;
+}
+
+.message {
+  background-color: #f44;
+  color: #fff;
+  font-size: 14px;
+  padding: 0.2rem 0.5rem;
 }
 </style>

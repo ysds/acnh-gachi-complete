@@ -55,6 +55,7 @@
         :item="item"
         :collected="getCollected(item)"
         :filter="filter"
+        :isSearchMode="isSearchMode"
         :key="item.name + item.sourceSheet"
         :renderStartDate="renderStartDate"
         @change="onChangeItemCheck"

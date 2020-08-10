@@ -74,6 +74,7 @@ export default {
     },
     item: Object,
     filter: Object,
+    isSearchMode: Boolean,
     renderStartDate: Number
   },
   data() {
@@ -173,10 +174,11 @@ export default {
     updateFilteredCheckIndexes() {
       let result = [];
       const collectedFilter = this.filter.collectedFilter;
+      const isSearchMode = this.isSearchMode;
       const checks = this.checks;
 
       Object.keys(checks).forEach(function(key) {
-        if (collectedFilter === "0") {
+        if (collectedFilter === "0" || isSearchMode) {
           result.push(key);
         } else if (collectedFilter === "1" && checks[key] === 1) {
           result.push(key);

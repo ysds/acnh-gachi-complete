@@ -94,6 +94,67 @@ content.forEach(item => {
 content.sort(function(a, b) {
   return a.displayName.localeCompare(b.displayName);
 });
+
+// 日本語ソート
+function hiraToKana(str) {
+  return str.replace(/[\u3041-\u3096]/g, function(match) {
+    const chr = match.charCodeAt(0) + 0x60;
+    return String.fromCharCode(chr);
+  });
+}
+function daku_conv(str) {
+  str = str.normalize("NFD");
+  str = str.replace(/[\u3099\u309A]/g, "");
+  return str;
+}
+function choon_conv(str) {
+  let a = str.substr(0, 1);
+  for (var i = 1; i < str.length; i++) {
+    let t = str.substr(i, 1);
+    if (t == "ー") {
+      const mae = str.substr(i - 1, 1);
+      if (mae.match(/[アカサタナハマヤラワガザダバパャ]/)) {
+        t = "ア";
+      } else if (mae.match(/[イキシチニヒミリギジヂビピ]/)) {
+        t = "イ";
+      } else if (mae.match(/[ウクスツヌフムユルグズヅブプュ]/)) {
+        t = "ウ";
+      } else if (mae.match(/[エケセテネヘメレゲゼデベペ]/)) {
+        t = "エ";
+      } else if (mae.match(/[オコソトノホモヨロゴゾドボポョ]/)) {
+        t = "オ";
+      }
+    }
+    a += t;
+  }
+
+  return a;
+}
+function conversion(str) {
+  str = choon_conv(str);
+  str = hiraToKana(str);
+  str = daku_conv(str);
+  return str;
+}
+content.sort(function(c, d) {
+  const a = c.displayName;
+  const b = d.displayName;
+  if (a == b) {
+    return 0;
+  }
+  let ca = conversion(a);
+  let cb = conversion(b);
+  if (ca == cb) {
+    ca = a;
+    cb = b;
+  }
+  if (ca > cb) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+
 // アルファベットを日本語の後ろに
 content.sort(function(a, b) {
   const isAlfabetA = a.displayName.slice(0, 1).match(/[^a-zA-Z]/gi);

@@ -21,15 +21,15 @@
           </div>
         </template>
       </div>
-      <button
-        type="button"
-        class="item-check"
-        :class="{
-          'item-check-1': allCheckState === 1,
-          'item-check-2': allCheckState === 2
-        }"
-        @click="onClickAllCheck"
-      />
+      <button type="button" class="item-check-btn" @click="onClickAllCheck">
+        <span
+          class="item-check"
+          :class="{
+            'item-check-1': allCheckState === 1,
+            'item-check-2': allCheckState === 2
+          }"
+        />
+      </button>
     </template>
     <template v-if="filter.viewMode === 'tile'">
       <ul class="tile-variants" v-if="item.variants">
@@ -222,7 +222,7 @@ export default {
   display: flex;
   align-items: center;
   min-height: 66px;
-  padding: 0.75rem;
+  padding: 0 0 0 0.75rem;
   margin: 0;
   border-bottom: 1px solid #eee;
 }
@@ -236,6 +236,8 @@ export default {
 }
 
 .item-center {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
   font-size: 15px;
 }
@@ -252,16 +254,28 @@ export default {
   font-weight: 0;
 }
 
+.item-check-btn {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 1rem 0 0.75rem;
+  margin-left: auto;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+
+  &:focus .item-check {
+    box-shadow: 0 0 0 2px #000;
+    border-color: transparent;
+  }
+}
+
 .item-check {
   display: block;
-  flex-shrink: 0;
   width: 1.75rem;
   height: 1.75rem;
-  padding: 0;
-  margin-right: 0.5rem;
-  margin-bottom: 0;
-  margin-left: auto;
-  background-color: #fff;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

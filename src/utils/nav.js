@@ -105,25 +105,34 @@ export function filterItems(
     }
     // 家具
     if (nav === "housewares") {
-      return item.sourceSheet === "Housewares";
+      return (
+        item.sourceSheet === "Housewares" ||
+        (item.sourceSheet === "Art" && item.category === "Housewares")
+      );
     }
     // 小物
     else if (nav === "housewares-miscellaneous") {
-      return item.sourceSheet === "Miscellaneous";
+      return (
+        item.sourceSheet === "Miscellaneous" ||
+        (item.sourceSheet === "Art" && item.category === "Miscellaneous")
+      );
     }
     // 壁かけ
     else if (nav === "housewares-wallmounted") {
-      return item.sourceSheet === "Wall-mounted";
+      return (
+        item.sourceSheet === "Wall-mounted" ||
+        (item.sourceSheet === "Art" && item.category === "Wall-mounted")
+      );
     }
     // 壁紙
     else if (nav === "walletc") {
       return item.sourceSheet === "Wallpaper";
     }
-    // 壁紙
+    // 床板
     else if (nav === "walletc-floors") {
       return item.sourceSheet === "Floors";
     }
-    // 壁紙
+    // ラグ
     else if (nav === "walletc-rugs") {
       return item.sourceSheet === "Rugs";
     }

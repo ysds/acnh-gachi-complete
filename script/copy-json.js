@@ -113,15 +113,15 @@ function choon_conv(str) {
     let t = str.substr(i, 1);
     if (t == "ー") {
       const mae = str.substr(i - 1, 1);
-      if (mae.match(/[アカサタナハマヤラワガザダバパャ]/)) {
+      if (mae.match(/[アカサタナハマヤラワガザダバパァャ]/)) {
         t = "ア";
-      } else if (mae.match(/[イキシチニヒミリギジヂビピ]/)) {
+      } else if (mae.match(/[イキシチニヒミリギジヂビピィ]/)) {
         t = "イ";
-      } else if (mae.match(/[ウクスツヌフムユルグズヅブプュ]/)) {
+      } else if (mae.match(/[ウクスツヌフムユルグズヅブプゥュ]/)) {
         t = "ウ";
-      } else if (mae.match(/[エケセテネヘメレゲゼデベペ]/)) {
+      } else if (mae.match(/[エケセテネヘメレゲゼデベペェ]/)) {
         t = "エ";
-      } else if (mae.match(/[オコソトノホモヨロゴゾドボポョ]/)) {
+      } else if (mae.match(/[オコソトノホモヨロゴゾドボポォョ]/)) {
         t = "オ";
       }
     }

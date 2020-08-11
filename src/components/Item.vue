@@ -32,7 +32,7 @@
       </button>
     </template>
     <template v-if="filter.viewMode === 'tile'">
-      <ul class="tile-variants" v-if="item.variants">
+      <ul v-if="item.variants" class="tile-variants">
         <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
         <CheckForTile
           v-for="(index, i) in filteredCheckIndexes"
@@ -45,7 +45,7 @@
           @click="onChangeCheck(index)"
         />
       </ul>
-      <ul class="tile-variants" v-else>
+      <ul v-else-if="isShowNoVariantsItem()" class="tile-variants">
         <CheckForTile
           :name="item.displayName"
           :image="getSingeItemImage(item)"
@@ -174,7 +174,7 @@ export default {
     updateFilteredCheckIndexes() {
       let result = [];
       const collectedFilter = this.filter.collectedFilter;
-      const isSearchMode = this.isSearchMode;
+      const isSearchMode = this.isSearchMode || false;
       const checks = this.checks;
 
       Object.keys(checks).forEach(function(key) {
@@ -195,6 +195,26 @@ export default {
       });
 
       return result;
+    },
+    isShowNoVariantsItem: function() {
+      const collectedFilter = this.filter.collectedFilter;
+      const isSearchMode = this.isSearchMode || false;
+      const checks = this.checks;
+
+      if (collectedFilter === "0" || isSearchMode) {
+        return true;
+      } else if (collectedFilter === "1" && checks[0] === 1) {
+        return true;
+      } else if (collectedFilter === "2" && checks[0] === 2) {
+        return true;
+      } else if (
+        collectedFilter === "3" &&
+        (checks[0] === 1 || checks[0] === 2)
+      ) {
+        return true;
+      } else if (collectedFilter === "4" && checks[0] === 0) {
+        return true;
+      }
     },
     onChangeCheck: function(index) {
       const currentValue = this.checks[index];

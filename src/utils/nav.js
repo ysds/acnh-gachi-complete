@@ -198,11 +198,11 @@ export function filterItems(
     }
     // 来訪者 (ジャスティン)
     else if (nav === "special") {
-      return item.variants && item.variants[0].source.includes("Flick");
+      return item.variants && item.variants[0].source.includes("C.J.");
     }
     // 来訪者 (レックス)
     else if (nav === "special-bugmodels") {
-      return item.variants && item.variants[0].source.includes("C.J.");
+      return item.variants && item.variants[0].source.includes("Flick");
     }
     // 来訪者 (つねきち)
     else if (nav === "special-art") {

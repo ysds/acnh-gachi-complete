@@ -286,7 +286,6 @@ export default {
       this.updateCollected();
     },
     showModal: function(event) {
-      console.log(event);
       event.preventDefault();
       this.isShowModal = true;
     },

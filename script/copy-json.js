@@ -1,5 +1,7 @@
 const fs = require("fs");
 
+// Load Json
+
 let content = JSON.parse(
   // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/items.json", "utf8")
   fs.readFileSync("./json/item-data/items.json", "utf8")
@@ -16,9 +18,18 @@ const allTranslations = JSON.parse(
   fs.readFileSync(`./script/translate-all.json`, "utf8")
 );
 
+const sourceTranslation = JSON.parse(
+  fs.readFileSync(`./json/translation-fix-data/source.json`, "utf8")
+);
+
+const sourceNoteTranslation = JSON.parse(
+  fs.readFileSync(`./json/translation-fix-data/sourceNote.json`, "utf8")
+);
+
+// Remove "Other" items
+
 content = content.filter(item => {
   let result = true;
-  // Remove others
   if (item.sourceSheet === "Other") result = false;
   return result;
 });
@@ -84,6 +95,28 @@ content.forEach(item => {
   }
 
   if (item.displayName === "uchiwa fan") item.displayName = "うちわ";
+
+  //
+  // 翻訳
+  //
+
+  // Source
+  if (item.source) {
+    item.sourceJa = [];
+    item.source.forEach(source => {
+      item.sourceJa.push(sourceTranslation[source] || source);
+    });
+  } else if (item.variants && item.variants[0].source) {
+    item.variants[0].sourceJa = [];
+    item.variants[0].source.forEach(source => {
+      item.variants[0].sourceJa.push(sourceTranslation[source] || source);
+    });
+  }
+  // SourceNotes
+  if (item.sourceNotes) {
+    item.sourceNotesJa =
+      sourceNoteTranslation[item.sourceNotes] || item.sourceNotes;
+  }
 });
 
 //

@@ -1,7 +1,9 @@
 <template>
   <li :class="filter.viewMode === 'list' ? 'item' : 'tile'">
     <template v-if="filter.viewMode === 'list'">
-      <img v-lazy="getImage(item)" class="item-img" />
+      <div v-long-press>
+        <img v-lazy="getImage(item)" class="item-img" />
+      </div>
       <div class="item-center">
         {{ item.displayName }}
         <template>
@@ -34,38 +36,79 @@
     <template v-if="filter.viewMode === 'tile'">
       <ul v-if="item.variants" class="tile-variants">
         <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
-        <CheckForTile
+        <li
+          class="t"
           v-for="(index, i) in filteredCheckIndexes"
           :key="item.variants[index].uniqueEntryId"
-          :name="i === 0 ? item.displayName : ''"
-          :image="getVariantTileImage(item.variants[index])"
-          :value="checks[index]"
-          :variant="item.variants[index]"
-          :variants="item.variants"
-          @click="onChangeCheck(index)"
-        />
+          v-long-press
+        >
+          <CheckForTile
+            :name="i === 0 ? item.displayName : ''"
+            :image="getVariantTileImage(item.variants[index])"
+            :value="checks[index]"
+            :variant="item.variants[index]"
+            :variants="item.variants"
+            @click="onChangeCheck(index)"
+          />
+        </li>
       </ul>
       <ul v-else-if="isShowNoVariantsItem()" class="tile-variants">
-        <CheckForTile
-          :name="item.displayName"
-          :image="getSingeItemImage(item)"
-          :value="checks[0]"
-          @click="onClickAllCheck"
-        />
+        <li class="t" v-long-press>
+          <CheckForTile
+            :name="item.displayName"
+            :image="getSingeItemImage(item)"
+            :value="checks[0]"
+            @click="onClickAllCheck"
+          />
+        </li>
       </ul>
     </template>
+    <modal :show="isShowModal" @close="isShowModal = false">
+      <template slot="header">{{ item.displayName }}</template>
+      <div slot="body">
+        <div class="info">
+          <div class="info-label info-1">買値</div>
+          <div class="info-text" v-if="item.buy">{{ getBuy(item.buy) }}</div>
+          <div class="info-text" v-if="item.variants">
+            {{ getBuy(item.variants[0].buy) }}
+          </div>
+        </div>
+        <div class="info">
+          <div class="info-label info-2">売値</div>
+          <div class="info-text" v-if="item.buy">{{ item.sell }}</div>
+          <div class="info-text" v-if="item.variants">
+            {{ item.variants[0].sell }}
+          </div>
+        </div>
+        <div class="info">
+          <div class="info-label info-3">入手</div>
+          <div class="info-text" v-if="item.sourceJa">
+            {{ item.sourceJa.join("、") }}
+          </div>
+          <div class="info-text" v-if="item.variants">
+            {{ item.variants[0].sourceJa.join("、") }}
+          </div>
+        </div>
+        <div class="info" v-if="item.sourceNotesJa">
+          <div class="info-label info-4">入手メモ</div>
+          <div class="info-text">{{ item.sourceNotesJa }}</div>
+        </div>
+      </div>
+    </modal>
   </li>
 </template>
 
 <script>
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
+import Modal from "./Modal";
 
 export default {
   name: "Item",
   components: {
     CheckForList,
-    CheckForTile
+    CheckForTile,
+    Modal
   },
   props: {
     collected: {
@@ -77,10 +120,21 @@ export default {
     isSearchMode: Boolean,
     renderStartDate: Number
   },
+  directives: {
+    "long-press": {
+      bind: function(el, binding, vnode) {
+        el.addEventListener("long-press", vnode.context.showModal);
+      },
+      unbind: function(el, binding, vnode) {
+        el.removeEventListener("long-press", vnode.context.showModal);
+      }
+    }
+  },
   data() {
     return {
       checks: {},
-      filteredCheckIndexes: null
+      filteredCheckIndexes: null,
+      isShowModal: false
     };
   },
   computed: {
@@ -230,6 +284,15 @@ export default {
       });
       this.checks = result;
       this.updateCollected();
+    },
+    showModal: function(event) {
+      console.log(event);
+      event.preventDefault();
+      this.isShowModal = true;
+    },
+    getBuy: function(value) {
+      if (value === -1 || value === null) return "非売品";
+      return value;
     }
   }
 };
@@ -245,6 +308,7 @@ export default {
   padding: 0 0 0 0.75rem;
   margin: 0;
   border-bottom: 1px solid #eee;
+  user-select: none;
 }
 
 .item-img {
@@ -253,6 +317,8 @@ export default {
   height: 40px;
   margin-right: 0.5rem;
   vertical-align: top;
+  pointer-events: none;
+  user-select: none;
 }
 
 .item-center {
@@ -325,5 +391,10 @@ export default {
 .tile-variants {
   display: inline;
   padding-left: 0;
+}
+
+.t {
+  display: inline;
+  user-select: none;
 }
 </style>

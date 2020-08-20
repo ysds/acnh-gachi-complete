@@ -29,6 +29,15 @@
     <p>
       ログインすると、データが自動的にクラウドに保存されるようになります。複数のデバイスでログインすることで、データを連携させることができます。最新のデータをクラウドからダウンロードするにはページを再読み込みする必要があります。複数のデバイスで同時に操作すると、データが意図通りに保存されない可能性があります。
     </p>
+    <h2>アイテム情報</h2>
+    <img
+      class="img"
+      src="../assets/doc_item_info.jpeg"
+      style="max-width: 300px; margin-bottom: 1rem;"
+    />
+    <p>
+      アイテムの画像を長押しすると、アイテムの入手方法などの情報を表示できます。
+    </p>
     <h2>その他</h2>
     <p>
       ご要望、不具合がございましたら Twitter にてご連絡ください。
@@ -140,15 +149,15 @@ h2 {
   margin-bottom: 4rem;
 }
 
+.img {
+  max-width: 100%;
+  height: auto;
+}
+
 .section-check {
   max-width: 240px;
   margin-right: auto;
   margin-left: auto;
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
 
   .check-status {
     display: flex;

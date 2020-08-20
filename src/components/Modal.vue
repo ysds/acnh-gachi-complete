@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask" v-if="show" @click="$emit('close')">
+    <div class="modal-mask" v-show="show" @click="$emit('close')">
       <div class="modal-wrapper">
         <div class="modal-container" @click="e => e.stopPropagation()">
           <div class="modal-header">

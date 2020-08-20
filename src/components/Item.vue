@@ -63,52 +63,18 @@
         </li>
       </ul>
     </template>
-    <modal :show="isShowModal" @close="isShowModal = false">
-      <template slot="header">{{ item.displayName }}</template>
-      <div slot="body">
-        <div class="info">
-          <div class="info-label info-1">買値</div>
-          <div class="info-text" v-if="item.buy">{{ getBuy(item.buy) }}</div>
-          <div class="info-text" v-if="item.variants">
-            {{ getBuy(item.variants[0].buy) }}
-          </div>
-        </div>
-        <div class="info">
-          <div class="info-label info-2">売値</div>
-          <div class="info-text" v-if="item.buy">{{ item.sell }}</div>
-          <div class="info-text" v-if="item.variants">
-            {{ item.variants[0].sell }}
-          </div>
-        </div>
-        <div class="info">
-          <div class="info-label info-3">入手</div>
-          <div class="info-text" v-if="item.sourceJa">
-            {{ item.sourceJa.join("、") }}
-          </div>
-          <div class="info-text" v-if="item.variants">
-            {{ item.variants[0].sourceJa.join("、") }}
-          </div>
-        </div>
-        <div class="info" v-if="item.sourceNotesJa">
-          <div class="info-label info-4">入手メモ</div>
-          <div class="info-text">{{ item.sourceNotesJa }}</div>
-        </div>
-      </div>
-    </modal>
   </li>
 </template>
 
 <script>
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
-import Modal from "./Modal";
 
 export default {
   name: "Item",
   components: {
     CheckForList,
-    CheckForTile,
-    Modal
+    CheckForTile
   },
   props: {
     collected: {
@@ -133,8 +99,7 @@ export default {
   data() {
     return {
       checks: {},
-      filteredCheckIndexes: null,
-      isShowModal: false
+      filteredCheckIndexes: null
     };
   },
   computed: {
@@ -287,11 +252,7 @@ export default {
     },
     showModal: function(event) {
       event.preventDefault();
-      this.isShowModal = true;
-    },
-    getBuy: function(value) {
-      if (value === -1 || value === null) return "非売品";
-      return value;
+      this.$emit("showModal", this.item);
     }
   }
 };

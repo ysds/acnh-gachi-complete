@@ -21,6 +21,7 @@ body {
   color: #444;
   font-weight: 700;
   transition: background-color .3s;
+  user-select: none;
 
   &.active {
     background-color: #e3e3e3;

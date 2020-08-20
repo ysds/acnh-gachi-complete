@@ -60,6 +60,7 @@
         :key="item.name + item.sourceSheet"
         :renderStartDate="renderStartDate"
         @change="onChangeItemCheck"
+        @showModal="onShowModal"
       />
     </ul>
     <div class="noitems" v-else-if="showItems === null">
@@ -71,6 +72,44 @@
     <div class="noitems" v-if="isSearchResultOverThreshold">
       検索結果が 100 件を超えたため、これ以降は省略されました。
     </div>
+    <Modal :show="isShowModal" @close="isShowModal = false">
+      <template v-if="modalItem">
+        <template slot="header">{{ modalItem.displayName }}</template>
+        <div slot="body">
+          <div class="info">
+            <div class="info-label info-1">買値</div>
+            <div class="info-text" v-if="modalItem.buy">
+              {{ getBuy(modalItem.buy) }}
+            </div>
+            <div class="info-text" v-if="modalItem.variants">
+              {{ getBuy(modalItem.variants[0].buy) }}
+            </div>
+          </div>
+          <div class="info">
+            <div class="info-label info-2">売値</div>
+            <div class="info-text" v-if="modalItem.buy">
+              {{ modalItem.sell }}
+            </div>
+            <div class="info-text" v-if="modalItem.variants">
+              {{ modalItem.variants[0].sell }}
+            </div>
+          </div>
+          <div class="info">
+            <div class="info-label info-3">入手</div>
+            <div class="info-text" v-if="modalItem.sourceJa">
+              {{ modalItem.sourceJa.join("、") }}
+            </div>
+            <div class="info-text" v-if="modalItem.variants">
+              {{ modalItem.variants[0].sourceJa.join("、") }}
+            </div>
+          </div>
+          <div class="info" v-if="modalItem.sourceNotesJa">
+            <div class="info-label info-4">入手メモ</div>
+            <div class="info-text">{{ modalItem.sourceNotesJa }}</div>
+          </div>
+        </div>
+      </template>
+    </Modal>
     <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
   </div>
 </template>
@@ -85,6 +124,7 @@ import Button from "../components/Button.vue";
 import SearchBox from "../components/SearchBox.vue";
 import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
+import Modal from "../components/Modal.vue";
 
 export default {
   name: "Collection",
@@ -94,7 +134,8 @@ export default {
     Button,
     SearchBox,
     FilterUI,
-    Item
+    Item,
+    Modal
   },
   data() {
     return {
@@ -110,7 +151,9 @@ export default {
       searchText: "",
       links: links,
       isSearchResultOverThreshold: false,
-      isOpenLogin: false
+      isOpenLogin: false,
+      isShowModal: false,
+      modalItem: null
     };
   },
   computed: {
@@ -240,6 +283,14 @@ export default {
       }
       this.updateShowItems();
     },
+    onShowModal: function(item) {
+      this.isShowModal = true;
+      this.modalItem = item;
+    },
+    getBuy: function(value) {
+      if (value === -1 || value === null) return "非売品";
+      return value;
+    },
     getCollected: function(item) {
       return item.uniqueEntryId
         ? this.collected[item.uniqueEntryId]
@@ -305,6 +356,7 @@ export default {
 .home {
   text-align: left;
   margin-bottom: 4rem;
+  user-select: none;
 }
 
 .items {

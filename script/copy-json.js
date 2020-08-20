@@ -76,7 +76,6 @@ content.forEach(item => {
     if (translateObjects.length > 0) {
       item.variants.forEach((variant, index) => {
         if (variant.variation && typeof variant.variation === "string") {
-          if (!translateObjects[index]) console.log(item.name);
           item.variants[index].variationDisplayName =
             translateObjects[index].locale.JPja;
         }

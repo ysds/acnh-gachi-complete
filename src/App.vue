@@ -145,6 +145,7 @@ export default {
 
 #nav {
   padding: 1.05rem 1rem;
+  user-select: none;
 
   a {
     font-weight: bold;

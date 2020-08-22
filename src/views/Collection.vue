@@ -25,7 +25,7 @@
       <SearchBox
         :searchText="searchText"
         :isSearchMode="isSearchMode"
-        @click="onClickSearchBtn"
+        @close="onClickSearchBtn"
         @input="onInputSearchBox"
       />
     </div>

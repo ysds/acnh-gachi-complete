@@ -161,7 +161,6 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0 0 0.875rem;
 }
 
 .divider {

@@ -45,6 +45,11 @@
       @clickBatchAction="onClickItemCheckBatchAction"
       v-if="!isSearchMode"
     />
+    <CollectedBar
+      :totalValue="getTotalLength()"
+      :value="getCollectedLength()"
+      v-if="!isSearchMode"
+    />
     <ul
       class="items"
       :class="{ tiles: filter.viewMode === 'tile' }"
@@ -125,6 +130,7 @@ import SearchBox from "../components/SearchBox.vue";
 import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
 import Modal from "../components/Modal.vue";
+import CollectedBar from "../components/CollectedBar.vue";
 
 export default {
   name: "Collection",
@@ -135,7 +141,8 @@ export default {
     SearchBox,
     FilterUI,
     Item,
-    Modal
+    Modal,
+    CollectedBar
   },
   data() {
     return {
@@ -295,6 +302,51 @@ export default {
       return item.uniqueEntryId
         ? this.collected[item.uniqueEntryId]
         : this.collected[item.name];
+    },
+    getTotalLength: function() {
+      const totalItems = filterItems(
+        itemsJson,
+        {}, // this.collected
+        this.nav,
+        Object.assign({}, this.filter, { collectedFilter: "0" }),
+        this.isSearchMode,
+        this.searchText,
+        this.isShowSaleFilter
+      );
+      let result = 0;
+      for (let i = 0; i < totalItems.length; i++) {
+        if (totalItems[i].variants) {
+          result += totalItems[i].variants.length;
+        } else {
+          result++;
+        }
+      }
+      return result;
+    },
+    getCollectedLength: function() {
+      const collectedItems = filterItems(
+        itemsJson,
+        this.collected,
+        this.nav,
+        Object.assign({}, this.filter, { collectedFilter: "3" }),
+        this.isSearchMode,
+        this.searchText,
+        this.isShowSaleFilter
+      );
+
+      let result = 0;
+      for (let i = 0; i < collectedItems.length; i++) {
+        const item = collectedItems[i];
+        const collected = this.collected;
+        if (item.uniqueEntryId) {
+          if (collected[item.uniqueEntryId]) result++;
+        } else {
+          const collectedData = collected[item.name] || "";
+          const length = (collectedData.match(/[0-9A-J]/g) || []).length;
+          result += length;
+        }
+      }
+      return result;
     },
     updateShowItems: function() {
       const self = this;

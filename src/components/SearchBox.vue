@@ -81,14 +81,22 @@ export default {
   },
   methods: {
     onClickClearButton: function() {
-      this.$emit("input", "");
-      this.isShowInput = false;
-      this.$nextTick(function() {
-        this.isShowInput = true;
-        this.$nextTick(function() {
-          this.$refs.input.focus();
-        });
-      });
+      // Use fakeinput for workaround iOS issue
+      // https://bugs.webkit.org/show_bug.cgi?id=215736
+      const fakeInput = document.createElement("input");
+      fakeInput.setAttribute("type", "text");
+      fakeInput.style.position = "absolute";
+      fakeInput.style.opacity = 0;
+      fakeInput.style.height = 0;
+      fakeInput.style.fontSize = "16px";
+      document.body.prepend(fakeInput);
+      fakeInput.focus();
+
+      setTimeout(() => {
+        this.$refs.input.focus();
+        this.$emit("input", "");
+        fakeInput.remove();
+      }, 100);
     },
     onClickCloseButton: function() {
       this.$emit("close");

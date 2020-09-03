@@ -326,7 +326,7 @@ export default {
     getCollectedLength: function() {
       const collectedItems = filterItems(
         itemsJson,
-        this.collected,
+        Object.assign({}, this.collected),
         this.nav,
         Object.assign({}, this.filter, { collectedFilter: "3" }),
         this.isSearchMode,

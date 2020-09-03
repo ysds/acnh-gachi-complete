@@ -7,7 +7,7 @@
         class="nav-item"
         :class="{ active: active && active.includes(link.id) }"
         :key="link.id"
-        @click="changeNav(link.id)"
+        @click="changeNav(link.subnavs ? link.subnavs[0].id : link.id)"
       >
         {{ link.text }}
       </button>

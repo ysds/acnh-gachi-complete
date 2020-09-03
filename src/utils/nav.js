@@ -125,7 +125,7 @@ export function filterItems(
       );
     }
     // 壁紙
-    else if (nav === "walletc") {
+    else if (nav === "walletc-wall") {
       return item.sourceSheet === "Wallpaper";
     }
     // 床板
@@ -137,7 +137,7 @@ export function filterItems(
       return item.sourceSheet === "Rugs";
     }
     // ファッション (Tops)
-    else if (nav === "fashion") {
+    else if (nav === "fashion-tops") {
       return item.sourceSheet === "Tops";
     }
     // ファッション (Bottoms)
@@ -197,7 +197,7 @@ export function filterItems(
       return item.sourceSheet === "Recipes";
     }
     // 来訪者 (ジャスティン)
-    else if (nav === "special") {
+    else if (nav === "special-fishmodels") {
       return item.variants && item.variants[0].source.includes("C.J.");
     }
     // 来訪者 (レックス)
@@ -243,7 +243,7 @@ export function filterItems(
       );
     }
     // 季節・イベント (花火大会)
-    else if (nav === "season") {
+    else if (nav === "season-fireworks") {
       return (
         item.sourceNotes ===
           "Only available in August on Sundays, after 7 PM" ||
@@ -252,7 +252,6 @@ export function filterItems(
     }
     // 季節・イベント (魚釣り大会)
     else if (nav === "season-fish") {
-      // else if (nav === "season") {
       return (
         item.variants && item.variants[0].source.includes("Fishing Tourney")
       );
@@ -330,7 +329,7 @@ export function filterItems(
       return item.source && item.source.includes("Snowboy");
     }
     // バージョン 1.4.0
-    else if (nav === "versions") {
+    else if (nav === "versions-140") {
       return item.versionUnlocked === "1.4.0";
     }
   });
@@ -360,7 +359,7 @@ export const links = [
     text: "壁紙/床板/ラグ",
     subnavs: [
       {
-        id: "walletc",
+        id: "walletc-wall",
         text: "壁紙"
       },
       {
@@ -378,7 +377,7 @@ export const links = [
     text: "ファッション",
     subnavs: [
       {
-        id: "fashion",
+        id: "fashion-tops",
         text: "トップス"
       },
       {
@@ -444,7 +443,7 @@ export const links = [
     text: "来訪者",
     subnavs: [
       {
-        id: "special",
+        id: "special-fishmodels",
         text: "ジャスティン"
       },
       {
@@ -490,13 +489,6 @@ export const links = [
     text: "季節/イベント",
     subnavs: [
       {
-        id: "season",
-        // id: "season-fireworks",
-        text: "花火大会",
-        subtext: "8月"
-      },
-      {
-        // id: "season",
         id: "season-fish",
         text: "魚釣り大会",
         subtext: "1, 4, 7, 10月"
@@ -537,6 +529,12 @@ export const links = [
         subtext: "6/1〜8/31"
       },
       {
+        id: "season-fireworks",
+        text: "花火大会",
+        subtext: "8月"
+      },
+
+      {
         id: "season-fall",
         text: "どんぐり/まつぼっくり",
         subtext: "9/1〜12/10"
@@ -573,7 +571,7 @@ export const links = [
     text: "バージョン",
     subnavs: [
       {
-        id: "versions",
+        id: "versions-140",
         text: "1.4.0"
       }
     ]

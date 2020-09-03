@@ -112,6 +112,7 @@ export default {
         db.collection("users")
           .doc(this.user.uid)
           .set({
+            lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
             collected: LZString.compressToUTF16(
               JSON.stringify(this.localCollected)
             ),

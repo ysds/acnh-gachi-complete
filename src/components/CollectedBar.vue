@@ -1,7 +1,12 @@
 <template functional>
   <div class="wrap">
     <div>
-      コンプ率 {{ ((props.value / props.totalValue) * 100).toFixed(1) }}%
+      コンプ率
+      {{
+        props.totalValue !== 0
+          ? ((props.value / props.totalValue) * 100).toFixed(1)
+          : "0.0"
+      }}%
     </div>
     <div class="right">
       {{ props.value }}

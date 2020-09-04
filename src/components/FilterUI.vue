@@ -106,22 +106,51 @@
         </DropdownItem>
       </div>
     </popper>
+    <template v-if="showPinOption">
+      <div class="divider" />
+      <Button :active="isPinned" @click="onClickPin">
+        <IconPinned v-if="isPinned" />
+        <IconPin v-else />
+      </Button>
+    </template>
   </div>
 </template>
 
 <script>
 import Popper from "vue-popperjs";
 import DropdownItem from "./DropdownItem";
+import Button from "./Button";
+import IconPin from "./IconPin";
+import IconPinned from "./IconPinned";
 
 export default {
   name: "FilterUI",
   components: {
     Popper,
-    DropdownItem
+    DropdownItem,
+    Button,
+    IconPin,
+    IconPinned
   },
   props: {
     filter: Object,
-    showSaleFilter: Boolean
+    showSaleFilter: Boolean,
+    showPinOption: Boolean,
+    currentNav: String,
+    pins: Object
+  },
+  data() {
+    return {
+      isPinned: false
+    };
+  },
+  mounted() {
+    this.isPinned = this.pins[this.currentNav];
+  },
+  watch: {
+    currentNav: function() {
+      this.isPinned = this.pins[this.currentNav];
+    }
   },
   methods: {
     onClickSaleFilter: function(value) {
@@ -138,6 +167,10 @@ export default {
     onClickBatchOperation: function(value) {
       this.$refs.batchOpePopper.doClose();
       if (value) this.$emit("clickBatchAction", value);
+    },
+    onClickPin: function() {
+      this.isPinned = !this.isPinned;
+      this.$emit("changePin", this.currentNav, this.isPinned);
     },
     openSaleFilter: function() {
       if (!this.$refs.saleFilter) return false;
@@ -236,5 +269,16 @@ export default {
 .tg-bl {
   padding-right: 0.3rem;
   background-color: #a0cbff;
+}
+
+.flat-btn {
+  min-width: 38px;
+  height: 38px;
+  margin-top: 6px;
+  line-height: 38px;
+
+  &.active {
+    color: #21bec5;
+  }
 }
 </style>

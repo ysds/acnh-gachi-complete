@@ -8,7 +8,6 @@ body {
 
 .flat-btn {
   flex-shrink: 0;
-  margin-left: auto;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   height: 48px;
@@ -23,7 +22,7 @@ body {
   transition: background-color .3s;
   user-select: none;
 
-  &.active {
+  &.pressed {
     background-color: #e3e3e3;
   }
 

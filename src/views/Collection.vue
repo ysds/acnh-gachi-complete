@@ -33,16 +33,21 @@
       現在バグがあり、レシピがチェックできない状態です。申し訳ありませんが修正が完了するまでしばらくお待ちください。
     </div> -->
     <Nav
-      :links="links"
+      :navs="navs"
       :active="nav"
+      :pins="pins"
       @change="onChangeNav"
       v-if="!isSearchMode"
     />
     <FilterUI
       :filter="filter"
       :showSaleFilter="isShowSaleFilter"
+      :showPinOption="isShowPinOption"
+      :currentNav="nav"
+      :pins="pins"
       @change="onChangeFilter"
       @clickBatchAction="onClickItemCheckBatchAction"
+      @changePin="onChangePin"
       v-if="!isSearchMode"
     />
     <CollectedBar
@@ -121,7 +126,7 @@
 
 <script>
 import itemsJson from "../assets/items.json";
-import { filterItems, links } from "../utils/nav.js";
+import { filterItems, navs } from "../utils/nav.js";
 
 import Nav from "../components/Nav.vue";
 import Login from "../components/Login.vue";
@@ -156,11 +161,12 @@ export default {
       isSearchMode: false,
       renderStartDate: null,
       searchText: "",
-      links: links,
+      navs: navs,
       isSearchResultOverThreshold: false,
       isOpenLogin: false,
       isShowModal: false,
-      modalItem: null
+      modalItem: null,
+      pins: {}
     };
   },
   computed: {
@@ -181,6 +187,15 @@ export default {
         }
       }
       return false;
+    },
+    isShowPinOption: function() {
+      if (this.nav) {
+        const showNavs = ["special", "season"];
+        for (let i = 0; i < showNavs.length; i++) {
+          if (this.nav.indexOf(showNavs[i]) !== -1) return true;
+        }
+      }
+      return false;
     }
   },
   async mounted() {
@@ -191,14 +206,15 @@ export default {
     initNavFilter: async function() {
       // Load data from localStrage
       const self = this;
-      let [nav, filter] = await Promise.all([
+      let [nav, filter, pins] = await Promise.all([
         self.$vlf.getItem("nav"),
-        self.$vlf.getItem("filter")
+        self.$vlf.getItem("filter"),
+        self.$vlf.getItem("pins")
       ]);
-      // Check defined nav
+      // Set saved active nav to 'null' if it isn't defined in the lates navs data
       if (nav) {
         let isDefinedNav = false;
-        links.forEach(link => {
+        navs.forEach(link => {
           if (link.id === nav) isDefinedNav = true;
           if (link.subnavs) {
             link.subnavs.forEach(sublink => {
@@ -208,6 +224,7 @@ export default {
         });
         if (!isDefinedNav) nav = null;
       }
+
       this.nav = nav || "housewares";
       this.filter = Object.assign(
         {
@@ -217,6 +234,8 @@ export default {
         },
         filter
       );
+      this.pins = pins || {};
+      this.updateNavOrder();
     },
     onChangeItemCheck: function(itemName, itemCollectedData) {
       this.$store.commit("updateLocalCollectedDataByItem", {
@@ -277,6 +296,11 @@ export default {
       this.filter = activeFilter;
       this.updateShowItems();
       this.$vlf.setItem("filter", this.filter);
+    },
+    onChangePin: function(currentNav, value) {
+      this.pins[currentNav] = value;
+      this.$vlf.setItem("pins", this.pins);
+      this.updateNavOrder();
     },
     onClickSearchBtn: function() {
       this.isSearchMode = !this.isSearchMode;
@@ -399,6 +423,29 @@ export default {
         })();
         ite.next();
       }
+    },
+    updateNavOrder: function() {
+      // Re-order navs
+      const navs = this.navs;
+      let currentNavindex;
+      for (let i = 0; i < navs.length; i++) {
+        if (this.nav.includes(navs[i].id)) {
+          currentNavindex = i;
+        }
+      }
+
+      navs[currentNavindex].subnavs.sort(function(a, b) {
+        if (a.order < b.order) return -1;
+        if (a.order > b.order) return 1;
+        return 0;
+      });
+
+      const pins = this.pins;
+      navs[currentNavindex].subnavs.sort(function(a, b) {
+        if (pins[a.id] && !pins[b.id]) return -1;
+        if (!pins[a.id] && pins[b.id]) return 1;
+        return 0;
+      });
     }
   }
 };

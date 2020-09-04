@@ -3,13 +3,13 @@
     <nav class="nav">
       <button
         type="button"
-        v-for="link in links"
+        v-for="nav in navs"
         class="nav-item"
-        :class="{ active: active && active.includes(link.id) }"
-        :key="link.id"
-        @click="changeNav(link.subnavs ? link.subnavs[0].id : link.id)"
+        :class="{ active: active && active.includes(nav.id) }"
+        :key="nav.id"
+        @click="changeNav(nav.subnavs ? nav.subnavs[0].id : nav.id)"
       >
-        {{ link.text }}
+        {{ nav.text }}
       </button>
       <router-link class="nav-item nav-item-about" to="/about">
         使い方
@@ -21,10 +21,11 @@
           type="button"
           v-for="subnav in subnavs"
           class="subnav-item"
-          :class="{ active: active === subnav.id }"
+          :class="{ active: active === subnav.id, pinned: pins[subnav.id] }"
           :key="subnav.id"
           @click="changeNav(subnav.id)"
         >
+          <IconPinned v-if="pins[subnav.id]" />
           {{ subnav.text }}
           <span class="subnav-subtext" v-if="subnav.subtext">
             {{ subnav.subtext }}
@@ -36,17 +37,23 @@
 </template>
 
 <script>
+import IconPinned from "./IconPinned";
+
 export default {
   name: "Nav",
+  components: {
+    IconPinned
+  },
   props: {
     active: String,
-    links: Array
+    navs: Array,
+    pins: Object
   },
   computed: {
     subnavs: function() {
       if (this.active) {
-        const activeNavObj = this.links.filter(link => {
-          return this.active.includes(link.id);
+        const activeNavObj = this.navs.filter(nav => {
+          return this.active.includes(nav.id);
         });
         if (activeNavObj.length > 0) {
           return activeNavObj[0].subnavs;
@@ -110,6 +117,7 @@ export default {
 }
 
 .subnav-item {
+  position: relative;
   margin-right: 0.25rem;
   margin-left: 0.25rem;
   padding: 6px 1rem 3px;
@@ -126,6 +134,18 @@ export default {
     color: #fff;
     background-color: #21bec5;
     border-color: #21bec5;
+  }
+
+  &.pinned {
+    padding-left: 2rem;
+
+    svg {
+      position: absolute;
+      top: calc(50% - 8px);
+      left: 12px;
+      width: 16px;
+      height: 16px;
+    }
   }
 }
 

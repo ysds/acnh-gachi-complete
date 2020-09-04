@@ -2,6 +2,7 @@
   <button
     type="button"
     class="flat-btn"
+    :class="{ active: active }"
     @click="onClick"
     @touchstart="onTouchStart"
   >
@@ -12,15 +13,18 @@
 <script>
 export default {
   name: "Button",
+  props: {
+    active: Boolean
+  },
   methods: {
     onClick: function() {
       this.$emit("click");
     },
     onTouchStart: function(event) {
       const button = event.currentTarget;
-      button.classList.add("active");
+      button.classList.add("pressed");
       setTimeout(function() {
-        button.classList.remove("active");
+        button.classList.remove("pressed");
       }, 300);
     }
   }

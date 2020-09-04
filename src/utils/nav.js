@@ -335,7 +335,7 @@ export function filterItems(
   });
 }
 
-export const links = [
+export const navs = [
   {
     id: "housewares",
     text: "家具",
@@ -444,43 +444,53 @@ export const links = [
     subnavs: [
       {
         id: "special-fishmodels",
-        text: "ジャスティン"
+        text: "ジャスティン",
+        order: 1
       },
       {
         id: "special-bugmodels",
-        text: "レックス"
+        text: "レックス",
+        order: 2
       },
       {
         id: "special-saharah",
-        text: "ローラン"
+        text: "ローラン",
+        order: 3
       },
       {
         id: "special-gulliver",
-        text: "ジョニー"
+        text: "ジョニー",
+        order: 4
       },
       {
         id: "special-gullivarrr",
-        text: "海賊ジョニー"
+        text: "海賊ジョニー",
+        order: 5
       },
       {
         id: "special-celeste",
-        text: "フーコ"
+        text: "フーコ",
+        order: 6
       },
       {
         id: "special-art",
-        text: "つねきち"
+        text: "つねきち",
+        order: 7
       },
       {
         id: "special-pascal",
-        text: "ラコスケ"
+        text: "ラコスケ",
+        order: 8
       },
       {
         id: "special-labelle",
-        text: "ことの"
+        text: "ことの",
+        order: 9
       },
       {
         id: "special-kicks",
-        text: "シャンク"
+        text: "シャンク",
+        order: 10
       }
     ]
   },
@@ -491,78 +501,92 @@ export const links = [
       {
         id: "season-fish",
         text: "魚釣り大会",
-        subtext: "1, 4, 7, 10月"
+        subtext: "1, 4, 7, 10月",
+        order: 1
       },
       {
         id: "season-bug",
         text: "虫取り大会",
-        subtext: "6, 7, 8, 9月"
-      },
-      {
-        id: "season-spring",
-        text: "はるのわかたけ",
-        subtext: "2/25〜5/31"
-      },
-      {
-        id: "season-sakura",
-        text: "さくらのはなびら",
-        subtext: "4/1〜4/10"
-      },
-      {
-        id: "season-easter",
-        text: "イースター",
-        subtext: "4/1〜4/12"
-      },
-      {
-        id: "season-mayday",
-        text: "メーデー",
-        subtext: "5/1〜5/7"
-      },
-      {
-        id: "season-wedding",
-        text: "ジューンブライド",
-        subtext: "6/1〜6/30"
-      },
-      {
-        id: "season-summer",
-        text: "なつのかいがら",
-        subtext: "6/1〜8/31"
+        subtext: "6, 7, 8, 9月",
+        order: 2
       },
       {
         id: "season-fireworks",
         text: "花火大会",
-        subtext: "8月"
+        subtext: "8月",
+        order: 3
       },
-
+      {
+        id: "season-spring",
+        text: "はるのわかたけ",
+        subtext: "2/25〜5/31",
+        order: 4
+      },
+      {
+        id: "season-sakura",
+        text: "さくらのはなびら",
+        subtext: "4/1〜4/10",
+        order: 5
+      },
+      {
+        id: "season-easter",
+        text: "イースター",
+        subtext: "4/1〜4/12",
+        order: 6
+      },
+      {
+        id: "season-mayday",
+        text: "メーデー",
+        subtext: "5/1〜5/7",
+        order: 7
+      },
+      {
+        id: "season-wedding",
+        text: "ジューンブライド",
+        subtext: "6/1〜6/30",
+        order: 8
+      },
+      {
+        id: "season-summer",
+        text: "なつのかいがら",
+        subtext: "6/1〜8/31",
+        order: 9
+      },
       {
         id: "season-fall",
         text: "どんぐり/まつぼっくり",
-        subtext: "9/1〜12/10"
+        subtext: "9/1〜12/10",
+        order: 10
       },
       {
         id: "season-mushroom",
         text: "キノコ",
-        subtext: "11/1〜11/30"
+        subtext: "11/1〜11/30",
+        order: 11
       },
       {
         id: "season-maple",
         text: "もみじのはっぱ",
-        subtext: "11/16～11/25"
+        subtext: "11/16～11/25",
+        order: 12
       },
       {
         id: "season-winter",
         text: "ゆきのけっしょう",
-        subtext: "12/11〜2/24"
+        subtext: "12/11〜2/24",
+        order: 13
       },
       {
         id: "season-festive",
         text: "オーナメント",
-        subtext: "12/15〜1/6"
+        subtext: "12/15〜1/6",
+        order: 14
       },
       {
         id: "season-snowboy",
         text: "ゆきだるま",
-        subtext: "12/11〜2/24"
+        subtext: "12/11〜2/24",
+        order: 15
       }
     ]
   },

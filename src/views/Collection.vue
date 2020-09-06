@@ -427,25 +427,22 @@ export default {
     updateNavOrder: function() {
       // Re-order navs
       const navs = this.navs;
-      let currentNavindex;
       for (let i = 0; i < navs.length; i++) {
-        if (this.nav.includes(navs[i].id)) {
-          currentNavindex = i;
+        if (navs[i].subnavs) {
+          navs[i].subnavs.sort(function(a, b) {
+            if (a.order < b.order) return -1;
+            if (a.order > b.order) return 1;
+            return 0;
+          });
+
+          const pins = this.pins;
+          navs[i].subnavs.sort(function(a, b) {
+            if (pins[a.id] && !pins[b.id]) return -1;
+            if (!pins[a.id] && pins[b.id]) return 1;
+            return 0;
+          });
         }
       }
-
-      navs[currentNavindex].subnavs.sort(function(a, b) {
-        if (a.order < b.order) return -1;
-        if (a.order > b.order) return 1;
-        return 0;
-      });
-
-      const pins = this.pins;
-      navs[currentNavindex].subnavs.sort(function(a, b) {
-        if (pins[a.id] && !pins[b.id]) return -1;
-        if (!pins[a.id] && pins[b.id]) return 1;
-        return 0;
-      });
     }
   }
 };

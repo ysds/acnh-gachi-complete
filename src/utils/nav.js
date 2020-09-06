@@ -251,7 +251,8 @@ export function filterItems(
       return (
         item.sourceNotes ===
           "Only available in August on Sundays, after 7 PM" ||
-        item.sourceNotes === "Only avaliable during a Fireworks Display"
+        item.sourceNotes === "Only avaliable during a Fireworks Display" ||
+        item.name === "fountain firework"
       );
     }
     // 季節・イベント (魚釣り大会)

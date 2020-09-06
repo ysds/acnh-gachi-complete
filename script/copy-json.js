@@ -26,14 +26,6 @@ const sourceNoteTranslation = JSON.parse(
   fs.readFileSync(`./json/translation-fix-data/sourceNote.json`, "utf8")
 );
 
-// Remove "Other" items
-
-content = content.filter(item => {
-  let result = true;
-  if (item.sourceSheet === "Other") result = false;
-  return result;
-});
-
 // Each items
 content.forEach(item => {
   // Remove photo variant

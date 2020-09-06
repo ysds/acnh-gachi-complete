@@ -210,7 +210,11 @@ export function filterItems(
     }
     // 来訪者 (ローラン)
     else if (nav === "special-saharah") {
-      return item.variants && item.variants[0].source.includes("Saharah");
+      return (
+        item.variants &&
+        item.variants[0].source.includes("Saharah") &&
+        item.sourceSheet !== "Other"
+      );
     }
     // 来訪者 (ことの)
     else if (nav === "special-labelle") {
@@ -262,7 +266,11 @@ export function filterItems(
     }
     // 季節・イベント (はるのわかたけ)
     else if (nav === "season-spring") {
-      return item.sourceNotes === "Only available during Spring" && !item.diy;
+      return (
+        item.sourceNotes === "Only available during Spring" &&
+        !item.diy &&
+        item.sourceSheet !== "Other"
+      );
     }
     // 季節・イベント (さくら)
     else if (nav === "season-sakura") {
@@ -273,7 +281,11 @@ export function filterItems(
     }
     // 季節・イベント (なつのかいがら)
     else if (nav === "season-summer") {
-      return item.sourceNotes === "Only available during Summer" && !item.diy;
+      return (
+        item.sourceNotes === "Only available during Summer" &&
+        !item.diy &&
+        item.sourceSheet !== "Other"
+      );
     }
     // 季節・イベント (どんぐり/まつぼっくり)
     else if (nav === "season-fall") {
@@ -283,19 +295,25 @@ export function filterItems(
     else if (nav === "season-mushroom") {
       return (
         item.sourceNotes === "Only available during Mushroom Season" &&
-        !item.diy
+        !item.diy &&
+        item.sourceSheet !== "Other"
       );
     }
     // 季節・イベント (もみじ)
     else if (nav === "season-maple") {
       return (
         item.sourceNotes === "Only available during Maple Leaf Season" &&
-        !item.diy
+        !item.diy &&
+        item.sourceSheet !== "Other"
       );
     }
     // 季節・イベント (ゆきのけっしょう)
     else if (nav === "season-winter") {
-      return item.sourceNotes === "Only available during Winter" && !item.diy;
+      return (
+        item.sourceNotes === "Only available during Winter" &&
+        !item.diy &&
+        item.sourceSheet !== "Other"
+      );
     }
     // 季節・イベント (オーナメント)
     else if (nav === "season-festive") {

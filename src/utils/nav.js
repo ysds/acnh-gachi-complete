@@ -349,7 +349,7 @@ export function filterItems(
     }
     // バージョン 1.4.0
     else if (nav === "versions-140") {
-      return item.versionUnlocked === "1.4.0";
+      return item.versionAdded === "1.4.0";
     }
   });
 }

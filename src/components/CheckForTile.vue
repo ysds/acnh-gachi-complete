@@ -24,7 +24,7 @@ export default {
 .t {
   position: relative;
   display: inline-block;
-  width: 75px;
+  width: 72px;
   height: 96px;
   padding: 0;
   text-align: center;
@@ -36,6 +36,10 @@ export default {
   vertical-align: top;
   outline: 0;
   user-select: none;
+
+  @media (min-width: 375px) {
+    width: 75px;
+  }
 
   &:first-child {
     border-left: 1px solid #fff;

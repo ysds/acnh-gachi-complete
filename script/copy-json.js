@@ -14,6 +14,10 @@ content = content.concat(
   )
 );
 
+content = content.concat(
+  JSON.parse(fs.readFileSync("./json/item-data/creatures.json", "utf8"))
+);
+
 const allTranslations = JSON.parse(
   fs.readFileSync(`./script/translate-all.json`, "utf8")
 );
@@ -24,6 +28,18 @@ const sourceTranslation = JSON.parse(
 
 const sourceNoteTranslation = JSON.parse(
   fs.readFileSync(`./json/translation-fix-data/sourceNote.json`, "utf8")
+);
+
+const shadowTranslation = JSON.parse(
+  fs.readFileSync(`./json/translation-fix-data/shadow.json`, "utf8")
+);
+
+const whereTranslation = JSON.parse(
+  fs.readFileSync(`./json/translation-fix-data/where.json`, "utf8")
+);
+
+const weatherTranslation = JSON.parse(
+  fs.readFileSync(`./json/translation-fix-data/weather.json`, "utf8")
 );
 
 // Each items
@@ -107,6 +123,18 @@ content.forEach(item => {
   if (item.sourceNotes) {
     item.sourceNotesJa =
       sourceNoteTranslation[item.sourceNotes] || item.sourceNotes;
+  }
+  // Shadow
+  if (item.shadow) {
+    item.shadowJa = shadowTranslation[item.shadow] || item.shadow;
+  }
+  // Where
+  if (item.whereHow) {
+    item.whereHowJa = whereTranslation[item.whereHow] || item.whereHow;
+  }
+  // Whether
+  if (item.weather) {
+    item.weatherJa = weatherTranslation[item.weather] || item.weather;
   }
 });
 

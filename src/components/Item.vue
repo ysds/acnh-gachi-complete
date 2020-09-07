@@ -145,9 +145,12 @@ export default {
       return variant.image || variant.storageImage || variant.albumImage || "";
     },
     getSingeItemImage: function(item) {
-      return item.sourceSheet === "Recipes"
-        ? "https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
-        : "";
+      if (item.sourceSheet === "Recipes") {
+        return "https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png";
+      } else if (item.iconImage) {
+        return item.iconImage;
+      }
+      return "";
     },
     updateChecks: function() {
       let result = {};

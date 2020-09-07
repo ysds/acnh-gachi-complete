@@ -91,31 +91,88 @@
             <div class="info-text" v-if="modalItem.buy">
               {{ getBuy(modalItem.buy) }}
             </div>
-            <div class="info-text" v-if="modalItem.variants">
+            <div class="info-text" v-else-if="modalItem.variants">
               {{ getBuy(modalItem.variants[0].buy) }}
+            </div>
+            <div class="info-text" v-else>
+              非売品
             </div>
           </div>
           <div class="info">
             <div class="info-label info-2">売値</div>
-            <div class="info-text" v-if="modalItem.buy">
+            <div class="info-text" v-if="modalItem.sell">
               {{ modalItem.sell }}
             </div>
             <div class="info-text" v-if="modalItem.variants">
               {{ modalItem.variants[0].sell }}
             </div>
           </div>
-          <div class="info">
+          <div class="info" v-if="modalItem.sourceJa || modalItem.variants">
             <div class="info-label info-3">入手</div>
             <div class="info-text" v-if="modalItem.sourceJa">
               {{ modalItem.sourceJa.join("、") }}
             </div>
-            <div class="info-text" v-if="modalItem.variants">
+            <div class="info-text" v-else-if="modalItem.variants">
               {{ modalItem.variants[0].sourceJa.join("、") }}
             </div>
           </div>
           <div class="info" v-if="modalItem.sourceNotesJa">
             <div class="info-label info-4">入手メモ</div>
             <div class="info-text">{{ modalItem.sourceNotesJa }}</div>
+          </div>
+          <div class="info" v-if="modalItem.activeMonths">
+            <div class="info-label info-4">時期</div>
+            <div class="info-text">
+              <template v-if="modalItem.activeMonths.northern.length === 12">
+                １年中
+              </template>
+              <template v-else>
+                北半球:
+                <span
+                  v-for="month in modalItem.activeMonths.northern"
+                  :key="`${modalItem.name}Northern${month.month}`"
+                >
+                  {{ month.month }} </span
+                >月<br />
+                南半球:
+                <span
+                  v-for="month in modalItem.activeMonths.southern"
+                  :key="`${modalItem.name}Southern${month.month}`"
+                >
+                  {{ month.month }} </span
+                >月
+              </template>
+            </div>
+          </div>
+          <div class="info" v-if="modalItem.activeMonths">
+            <div class="info-label info-4">時間帯</div>
+            <div class="info-text">
+              <template v-if="modalItem.activeMonths.northern[0].isAllDay">
+                １日中
+              </template>
+              <template v-else>
+                {{ modalItem.activeMonths.northern[0].activeHours[0][0] }} -
+                {{ modalItem.activeMonths.northern[0].activeHours[0][1] }}時
+                <template
+                  v-if="modalItem.activeMonths.northern[0].activeHours[1]"
+                  ><br />
+                  {{ modalItem.activeMonths.northern[0].activeHours[1][0] }} -
+                  {{ modalItem.activeMonths.northern[0].activeHours[1][1] }}時
+                </template>
+              </template>
+            </div>
+          </div>
+          <div class="info" v-if="modalItem.weather">
+            <div class="info-label info-4">天候</div>
+            <div class="info-text">{{ modalItem.weatherJa }}</div>
+          </div>
+          <div class="info" v-if="modalItem.whereHow">
+            <div class="info-label info-4">場所</div>
+            <div class="info-text">{{ modalItem.whereHowJa }}</div>
+          </div>
+          <div class="info" v-if="modalItem.shadow">
+            <div class="info-label info-4">魚影</div>
+            <div class="info-text">{{ modalItem.shadowJa }}</div>
           </div>
         </div>
       </template>

@@ -196,6 +196,18 @@ export function filterItems(
     else if (nav === "recipes") {
       return item.sourceSheet === "Recipes";
     }
+    // 生き物 (虫)
+    else if (nav === "creatures-insects") {
+      return item.sourceSheet === "Insects";
+    }
+    // 生き物 (魚)
+    else if (nav === "creatures-fish") {
+      return item.sourceSheet === "Fish";
+    }
+    // 生き物 (海の幸)
+    else if (nav === "creatures-sea") {
+      return item.sourceSheet === "Sea Creatures";
+    }
     // 来訪者 (ジャスティン)
     else if (nav === "special-fishmodels") {
       return item.variants && item.variants[0].source.includes("C.J.");
@@ -456,6 +468,27 @@ export const navs = [
   {
     id: "recipes",
     text: "レシピ"
+  },
+  {
+    id: "creatures",
+    text: "いきもの",
+    subnavs: [
+      {
+        id: "creatures-insects",
+        text: "虫",
+        order: 1
+      },
+      {
+        id: "creatures-fish",
+        text: "魚",
+        order: 2
+      },
+      {
+        id: "creatures-sea",
+        text: "海の幸",
+        order: 3
+      }
+    ]
   },
   {
     id: "special",

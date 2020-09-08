@@ -41,18 +41,6 @@ export default {
     width: 75px;
   }
 
-  &:first-child {
-    border-left: 1px solid #fff;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-
-  &:last-child {
-    border-right: 1px solid #fff;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
   &.t1 {
     background-color: #b6ecd4;
   }

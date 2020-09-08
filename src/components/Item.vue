@@ -1,8 +1,13 @@
 <template>
   <li :class="filter.viewMode === 'list' ? 'item' : 'tile'">
     <template v-if="filter.viewMode === 'list'">
-      <div v-long-press>
+      <div v-long-press style="position: relative;">
         <img v-lazy="getImage(item)" class="item-img" />
+        <img
+          class="item-img-recipe"
+          src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
+          v-if="item.sourceSheet === 'Recipes'"
+        />
       </div>
       <div class="item-center">
         {{ item.displayName }}
@@ -58,6 +63,7 @@
             :name="item.displayName"
             :image="getSingeItemImage(item)"
             :value="checks[0]"
+            :isRecipe="item.sourceSheet === 'Recipes'"
             @click="onClickAllCheck"
           />
         </li>
@@ -146,7 +152,7 @@ export default {
     },
     getSingeItemImage: function(item) {
       if (item.sourceSheet === "Recipes") {
-        return "https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png";
+        return item.image;
       } else if (item.iconImage) {
         return item.iconImage;
       }
@@ -265,6 +271,7 @@ export default {
 // List item
 
 .item {
+  position: relative;
   display: flex;
   align-items: center;
   min-height: 66px;
@@ -280,6 +287,16 @@ export default {
   height: 40px;
   margin-right: 0.5rem;
   vertical-align: top;
+  pointer-events: none;
+  user-select: none;
+}
+
+.item-img-recipe {
+  position: absolute;
+  bottom: -6px;
+  right: 0;
+  width: 28px;
+  height: 28px;
   pointer-events: none;
   user-select: none;
 }

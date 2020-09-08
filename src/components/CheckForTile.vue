@@ -7,6 +7,11 @@
   >
     <div class="t-name">{{ props.name }}</div>
     <img class="t-img" v-lazy="props.image" />
+    <img
+      class="t-img-recipe"
+      src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
+      v-if="props.isRecipe"
+    />
     <div class="t-v-name">
       <template v-if="props.variants && props.variants.length > 1">
         {{ props.variant.variationDisplayName || props.variant.variation }}
@@ -17,7 +22,7 @@
 <script>
 export default {
   name: "CheckForList",
-  props: ["name", "image", "value", "variant", "variants"]
+  props: ["name", "image", "value", "variant", "variants", "isRecipe"]
 };
 </script>
 <style lang="scss" scoped>
@@ -79,5 +84,15 @@ export default {
   pointer-events: none;
   user-select: none;
   -webkit-touch-callout: none;
+}
+
+.t-img-recipe {
+  position: absolute;
+  bottom: 14px;
+  right: 2px;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  user-select: none;
 }
 </style>

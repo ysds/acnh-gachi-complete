@@ -182,7 +182,12 @@ function choon_conv(str) {
 
   return a;
 }
+function tsu_conv(str) {
+  str = str.replace("ッ", "ツ");
+  return str;
+}
 function conversion(str) {
+  str = tsu_conv(str);
   str = choon_conv(str);
   str = hiraToKana(str);
   str = daku_conv(str);

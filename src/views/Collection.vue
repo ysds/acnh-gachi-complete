@@ -416,9 +416,9 @@ export default {
       );
 
       let result = 0;
+      const collected = this.collected;
       for (let i = 0; i < collectedItems.length; i++) {
         const item = collectedItems[i];
-        const collected = this.collected;
         if (item.uniqueEntryId) {
           if (collected[item.uniqueEntryId]) result++;
         } else {

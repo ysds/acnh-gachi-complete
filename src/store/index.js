@@ -29,35 +29,41 @@ export default new Vuex.Store({
       state.cloudUpdateIndex = payload.updateIndex;
     },
     updateLocalCollectedDataByItem(state, payload) {
-      let localCollectedData = state.localCollectedData;
       if (payload.itemCollectedData === "") {
-        delete localCollectedData[payload.itemName];
+        Vue.delete(state.localCollectedData, payload.itemName);
       } else {
-        localCollectedData[payload.itemName] = payload.itemCollectedData;
+        Vue.set(
+          state.localCollectedData,
+          payload.itemName,
+          payload.itemCollectedData
+        );
       }
-      state.localCollectedData = Object.assign({}, localCollectedData);
       localforage.setItem("collected", state.localCollectedData);
       state.localUpdateIndex++;
       localforage.setItem("updateIndex", state.localUpdateIndex);
     },
     updateLocalCollectedDataBatch(state, payload) {
-      let localCollectedData = state.localCollectedData;
       const items = payload.items;
       const collectedArray = payload.collectedArray;
       for (let i = 0; i < items.length; i++) {
         if (collectedArray[i] === "") {
-          delete localCollectedData[items[i]];
+          Vue.delete(state.localCollectedData, items[i]);
         } else {
-          localCollectedData[items[i]] = collectedArray[i];
+          Vue.set(state.localCollectedData, items[i], collectedArray[i]);
         }
       }
-      state.localCollectedData = Object.assign({}, localCollectedData);
       localforage.setItem("collected", state.localCollectedData);
       state.localUpdateIndex++;
       localforage.setItem("updateIndex", state.localUpdateIndex);
     },
     updateLocalCollectedData(state, payload) {
-      state.localCollectedData = Object.assign({}, payload.collected);
+      state.localCollectedData = {};
+      const collected = payload.collected;
+      const keys = Object.keys(collected);
+      const values = Object.values(collected);
+      for (let i = 0; i < keys.length; i++) {
+        Vue.set(state.localCollectedData, keys[i], values[i]);
+      }
       state.localUpdateIndex = payload.updateIndex;
       localforage.setItem("collected", state.localCollectedData);
       localforage.setItem("updateIndex", payload.updateIndex);

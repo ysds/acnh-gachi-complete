@@ -1,5 +1,11 @@
 const fs = require("fs");
-const { hiraToKana, daku_conv, choon_conv, tsu_conv } = require("./utils.js");
+const {
+  hiraToKana,
+  daku_conv,
+  choon_conv,
+  tsu_conv,
+  array_move
+} = require("./utils.js");
 
 // Load Json
 
@@ -137,6 +143,19 @@ content.forEach(item => {
   if (item.weather) {
     item.weatherJa = weatherTranslation[item.weather] || item.weather;
   }
+});
+
+//
+// Sort displayName key
+//
+content = content.map(function(item) {
+  const keys = Object.keys(item);
+  array_move(keys, keys.indexOf("displayName"), 2);
+  const newItem = {};
+  keys.forEach(x => {
+    newItem[x] = item[x];
+  });
+  return newItem;
 });
 
 //

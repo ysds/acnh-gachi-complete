@@ -143,6 +143,92 @@ content.forEach(item => {
   if (item.weather) {
     item.weatherJa = weatherTranslation[item.weather] || item.weather;
   }
+
+  //
+  // Remove unused keys
+  //
+
+  // Housewares
+  delete item["patternTitle"];
+  delete item["size"];
+  delete item["surface"];
+  delete item["milesPrice"];
+  delete item["hhaBasePoints"];
+  delete item["hhaCategory"];
+  delete item["interact"];
+  delete item["tag"];
+  delete item["outdoor"];
+  delete item["speakerType"];
+  delete item["lightingType"];
+  delete item["set"];
+  delete item["customizationKitCost"];
+  delete item["versionUnlocked"];
+  // Wall-mounted
+  delete item["doorDeco"];
+  // Wallpaper
+  delete item["vfx"];
+  delete item["vfxType"];
+  delete item["windowType"];
+  delete item["windowColor"];
+  delete item["paneType"];
+  delete item["curtainType"];
+  delete item["curtainColor"];
+  delete item["ceilingType"];
+  // Rugs
+  delete item["sizeCategory"];
+  // ファッション
+  delete item["seasonalAvailability"];
+  delete item["mannequinPiece"];
+  delete item["style"];
+  delete item["sortOrder"];
+  delete item["villagerEquippable"];
+  delete item["clothGroupId"];
+  delete item["primaryShape"];
+  delete item["secondaryShape"];
+  // かせき
+  delete item["description"];
+  delete item["museum"];
+  // レシピ
+  delete item["recipesToUnlock"];
+  delete item["craftedItemInternalId"];
+  delete item["cardColor"];
+  delete item["serialId"];
+  delete item["internalId"];
+  delete item["materials"];
+  // Insects
+  delete item["num"];
+  delete item["critterpediaImage"];
+  delete item["furnitureImage"];
+  delete item["totalCatchesToUnlock"];
+  delete item["spawnRates"];
+  delete item["catchPhrase"];
+  delete item["iconFilename"];
+  delete item["critterpediaFilename"];
+  delete item["furnitureFilename"];
+  delete item["colors"];
+  delete item["specialSell"];
+  // Fish
+  delete item["catchDifficulty"];
+  delete item["vision"];
+  // Sea Creatures
+  delete item["movementSpeed"];
+  // Tools
+  delete item["uses"];
+  delete item["stackSize"];
+
+  if (item.variants) {
+    item.variants.forEach(variant => {
+      delete variant["filename"];
+      delete variant["variantId"];
+      delete variant["colors"];
+      delete variant["bodyTitle"];
+      delete variant["internalId"];
+      delete variant["closetImage"];
+      delete variant["labelThemes"];
+      delete variant["framedImage"];
+      delete variant["inventoryImage"];
+    });
+  }
 });
 
 //

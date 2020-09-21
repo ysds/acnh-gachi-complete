@@ -59,7 +59,24 @@ export default {
       }
     }, 3000);
   },
+  mounted() {
+    if (navigator.userAgent.indexOf("Android") > 0) {
+      window.addEventListener("scroll", this.handleScroll);
+    }
+  },
+  deactivated() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   methods: {
+    handleScroll: function() {
+      const windowHeight = window.screen.height;
+      const bodyEl = document.body;
+      if (window.scrollY / windowHeight > 1) {
+        bodyEl.classList.add("scrolled");
+      } else {
+        bodyEl.classList.remove("scrolled");
+      }
+    },
     loadLocalStorageData: async function() {
       const self = this;
       let [collected, updateIndex] = await Promise.all([

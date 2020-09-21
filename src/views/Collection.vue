@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <PageToTop />
     <div class="view-btn-wrapper" v-show="!isSearchMode">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
@@ -193,6 +194,7 @@ import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
 import Modal from "../components/Modal.vue";
 import CollectedBar from "../components/CollectedBar.vue";
+import PageToTop from "../components/PageToTop.vue";
 
 export default {
   name: "Collection",
@@ -204,7 +206,8 @@ export default {
     FilterUI,
     Item,
     Modal,
-    CollectedBar
+    CollectedBar,
+    PageToTop
   },
   data() {
     return {

@@ -151,7 +151,7 @@
             <a
               class="btn"
               :href="
-                `https://twitter.com/intent/tweet?text=%0a${navText}%0a&url=${shareURL}`
+                `https://twitter.com/intent/tweet?text=%0a${navText}%0a&url=${twitterURL}`
               "
               >Twitter に投稿</a
             >
@@ -265,6 +265,7 @@ export default {
     showShareModal: function() {
       const shareURL = `https://ysds.github.io/acnh-gachi-complete/#/share/${this.user.uid}/${this.currentNav}`;
       this.shareURL = shareURL;
+      this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/%23/share/${this.user.uid}/${this.currentNav}`;
       this.$copyText(shareURL);
       this.isShowModal = true;
     }

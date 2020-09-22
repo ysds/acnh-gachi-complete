@@ -709,3 +709,16 @@ export function collectedLength(args) {
   }
   return result;
 }
+
+export function getNavText(nav) {
+  let navText = nav;
+  navs.forEach(link => {
+    if (link.id === nav) navText = link.text;
+    if (link.subnavs) {
+      link.subnavs.forEach(sublink => {
+        if (sublink.id === nav) navText = sublink.text;
+      });
+    }
+  });
+  return navText;
+}

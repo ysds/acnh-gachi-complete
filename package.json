@@ -19,6 +19,7 @@
     "lz-string": "^1.4.4",
     "vlf": "^1.1.0",
     "vue": "^2.6.11",
+    "vue-clipboard2": "^0.3.1",
     "vue-lazyload": "^1.3.3",
     "vue-popperjs": "^2.3.0",
     "vue-router": "^3.2.0",

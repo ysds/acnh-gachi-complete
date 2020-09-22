@@ -119,15 +119,57 @@
         <IconPin v-else />
       </Button>
     </template>
+    <template v-if="showShareButton">
+      <div class="divider" />
+      <Button @click="showShareModal">
+        <svg
+          width="1em"
+          height="1em"
+          viewBox="0 0 16 16"
+          style="margin-top: -3px;"
+          class="bi bi-share"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"
+          />
+        </svg>
+      </Button>
+      <Modal :show="isShowModal" @close="isShowModal = false">
+        <template slot="header">あなたの「{{ navText }}」のURL</template>
+        <div slot="body">
+          <p>URL をクリップボードにコピーしました！</p>
+          <p>
+            公開ページ（{{ navText }}）<br />
+            <router-link :to="`/share/${user.uid}/${currentNav}`">
+              {{ shareURL }}
+            </router-link>
+          </p>
+          <div>
+            <a
+              class="btn"
+              :href="
+                `https://twitter.com/intent/tweet?text=%0a${navText}%0a&url=${shareURL}`
+              "
+              >Twitter に投稿</a
+            >
+          </div>
+        </div>
+      </Modal>
+    </template>
   </div>
 </template>
 
 <script>
 import Popper from "vue-popperjs";
+import { getNavText } from "../utils/nav.js";
 import DropdownItem from "./DropdownItem";
 import Button from "./Button";
 import IconPin from "./IconPin";
 import IconPinned from "./IconPinned";
+import Modal from "./Modal";
 
 export default {
   name: "FilterUI",
@@ -136,7 +178,8 @@ export default {
     DropdownItem,
     Button,
     IconPin,
-    IconPinned
+    IconPinned,
+    Modal
   },
   props: {
     filter: Object,
@@ -152,6 +195,10 @@ export default {
       type: Boolean,
       default: true
     },
+    showShareButton: {
+      type: Boolean,
+      default: false
+    },
     currentNav: String,
     pins: {
       type: Object,
@@ -162,8 +209,18 @@ export default {
   },
   data() {
     return {
-      isPinned: false
+      isPinned: false,
+      isShowModal: false,
+      shareURL: ""
     };
+  },
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    },
+    navText() {
+      return getNavText(this.currentNav);
+    }
   },
   mounted() {
     this.isPinned = this.pins[this.currentNav];
@@ -204,6 +261,12 @@ export default {
     openBatchOpe: function() {
       if (!this.$refs.batchOpePopper) return false;
       return this.$refs.batchOpePopper.showPopper;
+    },
+    showShareModal: function() {
+      const shareURL = `https://ysds.github.io/acnh-gachi-complete/share/${this.user.uid}/${this.currentNav}`;
+      this.shareURL = shareURL;
+      this.$copyText(shareURL);
+      this.isShowModal = true;
     }
   }
 };
@@ -218,8 +281,8 @@ export default {
 }
 
 .divider {
-  margin-right: 0.5rem;
-  margin-left: 0.25rem;
+  margin-right: 0.4rem;
+  margin-left: 0.2rem;
 }
 
 .btn-label {

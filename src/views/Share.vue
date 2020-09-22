@@ -9,9 +9,10 @@
     <div class="filter">
       <FilterUI
         :filter="filter"
-        :showSaleFilter="isShowSaleFilter"
         :currentNav="nav"
+        :showSaleFilter="isShowSaleFilter"
         :showBatchAction="false"
+        :showShareButton="false"
         @change="onChangeFilter"
       />
       <CollectedBar
@@ -43,9 +44,9 @@ import LZString from "lz-string";
 import firebase from "../plugins/firebase";
 import {
   filterItems,
-  navs,
   totalLength,
-  collectedLength
+  collectedLength,
+  getNavText
 } from "../utils/nav.js";
 
 import Item from "../components/Item.vue";
@@ -94,17 +95,7 @@ export default {
       return false;
     },
     navText: function() {
-      const nav = this.nav;
-      let navText = nav;
-      navs.forEach(link => {
-        if (link.id === nav) navText = link.text;
-        if (link.subnavs) {
-          link.subnavs.forEach(sublink => {
-            if (sublink.id === nav) navText = sublink.text;
-          });
-        }
-      });
-      return navText;
+      return getNavText(this.nav);
     }
   },
   mounted() {

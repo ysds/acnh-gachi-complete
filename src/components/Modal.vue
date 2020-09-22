@@ -66,6 +66,7 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   user-select: none;
   text-align: left;
+  word-break: break-all;
 }
 
 .modal-header h3 {
@@ -113,6 +114,27 @@ export default {
 
   .info-text {
     padding: 0.2rem 0.4rem;
+  }
+
+  a {
+    user-select: text;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    min-height: 50px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    background-color: #fff;
+    font-weight: 700;
+    text-decoration: none;
   }
 }
 

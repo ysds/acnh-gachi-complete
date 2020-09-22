@@ -44,6 +44,7 @@
       :filter="filter"
       :showSaleFilter="isShowSaleFilter"
       :showPinOption="isShowPinOption"
+      :showShareButton="isLogin"
       :currentNav="nav"
       :pins="pins"
       @change="onChangeFilter"

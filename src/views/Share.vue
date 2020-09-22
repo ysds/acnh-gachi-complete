@@ -1,5 +1,11 @@
 <template>
   <div class="share">
+    <PageToTop />
+    <div class="view-btn-wrapper">
+      <router-link to="/" class="flat-btn">
+        自分のページを表示
+      </router-link>
+    </div>
     <h1 class="header">
       <span class="header-lg">{{ navText }}</span>
       <div class="header-sm" v-if="isLoaded">
@@ -52,6 +58,7 @@ import {
 import Item from "../components/Item.vue";
 import FilterUI from "../components/FilterUI.vue";
 import CollectedBar from "../components/CollectedBar.vue";
+import PageToTop from "../components/PageToTop.vue";
 
 const db = firebase.firestore();
 
@@ -59,7 +66,8 @@ export default {
   components: {
     Item,
     FilterUI,
-    CollectedBar
+    CollectedBar,
+    PageToTop
   },
   data() {
     return {
@@ -225,6 +233,14 @@ export default {
   user-select: none;
 }
 
+.view-btn-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -264,5 +280,12 @@ export default {
 .message {
   padding: 1rem;
   text-align: center;
+}
+
+.flat-btn {
+  border: 1px solid #ccc;
+  height: 32px;
+  min-height: 32px;
+  line-height: 32px;
 }
 </style>

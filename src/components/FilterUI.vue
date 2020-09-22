@@ -263,7 +263,7 @@ export default {
       return this.$refs.batchOpePopper.showPopper;
     },
     showShareModal: function() {
-      const shareURL = `https://ysds.github.io/acnh-gachi-complete/share/${this.user.uid}/${this.currentNav}`;
+      const shareURL = `https://ysds.github.io/acnh-gachi-complete/#/share/${this.user.uid}/${this.currentNav}`;
       this.shareURL = shareURL;
       this.$copyText(shareURL);
       this.isShowModal = true;

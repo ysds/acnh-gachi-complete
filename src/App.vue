@@ -90,20 +90,25 @@ export default {
     },
     loadFirebaseData: function() {
       const self = this;
-      if (this.user && this.user.uid) {
+      const user = this.user;
+      if (user && user.uid) {
         db.collection("users")
-          .doc(this.user.uid)
+          .doc(user.uid)
           .get()
           .then(function(doc) {
             if (doc.exists) {
-              const collectedValue = doc.data().collected || {};
+              const data = doc.data();
+              const collectedValue = data.collected || {};
               const collected = JSON.parse(
                 LZString.decompressFromUTF16(collectedValue)
               );
-              const updateIndex = doc.data().updateIndex || 0;
+              const updateIndex = data.updateIndex || 0;
+              const userName = data.userName || user.displayName || null;
+
               self.$store.commit("initCloudCollectedData", {
                 collected,
-                updateIndex
+                updateIndex,
+                userName
               });
             } else {
               console.log("No data on cloud");

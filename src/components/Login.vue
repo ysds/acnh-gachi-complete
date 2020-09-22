@@ -9,7 +9,47 @@
     <div class="login-body">
       <template v-if="isLogin && user">
         <img :src="user.photoURL" alt="Avatar" class="avatar" />
-        <p>{{ user.displayName }}</p>
+        <div class="label">名前</div>
+        <div class="username" v-if="!isEditName">
+          {{ userName }}
+          <Button @click="editName">
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              class="bi bi-pencil-fill"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
+              />
+            </svg>
+          </Button>
+        </div>
+        <div class="username edit" v-else>
+          <input
+            class="edit-input"
+            type="text"
+            v-model="editingName"
+            ref="userName"
+          />
+          <button class="edit-btn" type="button" @click="cancelName">
+            キャンセル
+          </button>
+          <button class="edit-btn" type="button" @click="saveName">保存</button>
+        </div>
+        <p class="small">
+          シェア機能使用時にこの名前が相手に表示されます。
+        </p>
+
+        <div class="label">ID</div>
+        <p>{{ user.uid }}</p>
+        <p class="small">
+          あなたの固有IDです。シェア機能使用時の URL として使用されます。
+        </p>
+
         <button type="button" class="btn" @click="logout">
           ログアウト
         </button>
@@ -41,17 +81,31 @@
   </div>
 </template>
 <script>
+import firebase from "../plugins/firebase";
 import Auth from "../utils/auth";
 import CloseButton from "../components/CloseButton";
+import Button from "../components/Button";
+
+const db = firebase.firestore();
 
 export default {
   name: "Login",
   components: {
-    CloseButton
+    CloseButton,
+    Button
+  },
+  data() {
+    return {
+      isEditName: false,
+      editingName: ""
+    };
   },
   computed: {
     user() {
       return this.$store.getters.user;
+    },
+    userName() {
+      return this.$store.getters.userName;
     },
     isLogin() {
       return this.$store.getters.isLogin;
@@ -69,6 +123,25 @@ export default {
     },
     close() {
       this.$emit("close");
+    },
+    editName() {
+      this.editingName = this.userName;
+      this.isEditName = true;
+      this.$nextTick(function() {
+        this.$refs.userName.focus();
+      });
+    },
+    cancelName() {
+      this.isEditName = false;
+    },
+    saveName() {
+      db.collection("users")
+        .doc(this.user.uid)
+        .update({
+          userName: this.editingName
+        });
+      this.$store.commit("updateUserName", this.editingName);
+      this.isEditName = false;
     }
   }
 };
@@ -83,6 +156,7 @@ export default {
   height: 100%;
   background-color: #fff;
   overflow-y: auto;
+  user-select: text;
 }
 
 .login-header {
@@ -114,7 +188,44 @@ export default {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.username {
   margin-bottom: 1rem;
+}
+
+.eidt {
+  text-align: center;
+}
+
+.edit-input {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-color: #ccc;
+  border-radius: 3px;
+  appearance: none;
+}
+
+.edit-btn {
+  margin-left: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #42b983;
 }
 
 .btn {
@@ -135,5 +246,6 @@ export default {
 
 .small {
   font-size: 13px;
+  color: #555;
 }
 </style>

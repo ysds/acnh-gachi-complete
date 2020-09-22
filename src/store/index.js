@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     isLogin: null,
+    userName: null,
     localCollectedData: null,
     localUpdateIndex: null,
     cloudCollectedData: null,
@@ -27,6 +28,7 @@ export default new Vuex.Store({
     initCloudCollectedData(state, payload) {
       state.cloudCollectedData = payload.collected;
       state.cloudUpdateIndex = payload.updateIndex;
+      state.userName = payload.userName;
     },
     updateLocalCollectedDataByItem(state, payload) {
       if (payload.itemCollectedData === "") {
@@ -71,11 +73,17 @@ export default new Vuex.Store({
     updateCloudCollectedData(state, payload) {
       state.cloudCollectedData = payload.collected;
       state.cloudUpdateIndex = payload.updateIndex;
+    },
+    updateUserName(state, name) {
+      state.userName = name;
     }
   },
   getters: {
     user(state) {
       return state.user;
+    },
+    userName(state) {
+      return state.userName;
     },
     isLogin(state) {
       return state.isLogin;

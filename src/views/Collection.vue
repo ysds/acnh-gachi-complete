@@ -183,8 +183,12 @@
 </template>
 
 <script>
-import itemsJson from "../assets/items.json";
-import { filterItems, navs } from "../utils/nav.js";
+import {
+  filterItems,
+  navs,
+  totalLength,
+  collectedLength
+} from "../utils/nav.js";
 
 import Nav from "../components/Nav.vue";
 import Login from "../components/Login.vue";
@@ -388,64 +392,34 @@ export default {
         : this.collected[item.name];
     },
     getTotalLength: function() {
-      const totalItems = filterItems(
-        itemsJson,
-        {}, // this.collected
-        this.nav,
-        Object.assign({}, this.filter, { collectedFilter: "0" }),
-        this.isSearchMode,
-        this.searchText,
-        this.isShowSaleFilter
-      );
-      let result = 0;
-      for (let i = 0; i < totalItems.length; i++) {
-        if (totalItems[i].variants) {
-          result += totalItems[i].variants.length;
-        } else {
-          result++;
-        }
-      }
-      return result;
+      return totalLength({
+        collected: {},
+        nav: this.nav,
+        filter: Object.assign({}, this.filter, { collectedFilter: "0" }),
+        isShowSaleFilter: this.isShowSaleFilter
+      });
     },
     getCollectedLength: function() {
-      const collectedItems = filterItems(
-        itemsJson,
-        Object.assign({}, this.collected),
-        this.nav,
-        Object.assign({}, this.filter, { collectedFilter: "3" }),
-        this.isSearchMode,
-        this.searchText,
-        this.isShowSaleFilter
-      );
-
-      let result = 0;
-      const collected = this.collected;
-      for (let i = 0; i < collectedItems.length; i++) {
-        const item = collectedItems[i];
-        if (item.uniqueEntryId) {
-          if (collected[item.uniqueEntryId]) result++;
-        } else {
-          const collectedData = collected[item.name] || "";
-          const length = (collectedData.match(/[0-9A-J]/g) || []).length;
-          result += length;
-        }
-      }
-      return result;
+      return collectedLength({
+        collected: Object.assign({}, this.collected),
+        nav: this.nav,
+        filter: Object.assign({}, this.filter, { collectedFilter: "3" }),
+        isShowSaleFilter: this.isShowSaleFilter
+      });
     },
     updateShowItems: function() {
       const self = this;
       self.renderStartDate = new Date().getTime();
       const renderStartDate = self.renderStartDate;
 
-      let result = filterItems(
-        itemsJson,
-        self.collected,
-        self.nav,
-        self.filter,
-        self.isSearchMode,
-        self.searchText,
-        self.isShowSaleFilter
-      );
+      let result = filterItems({
+        collected: self.collected,
+        nav: self.nav,
+        filter: self.filter,
+        isSearchMode: self.isSearchMode,
+        searchText: self.searchText,
+        isShowSaleFilter: self.isShowSaleFilter
+      });
       if (result.length < 50) {
         self.showItems = result;
         self.isSearchResultOverThreshold = false;

@@ -77,35 +77,41 @@
         </DropdownItem>
       </div>
     </popper>
-    <div class="divider" />
-    <popper trigger="clickToToggle" :visible-arrow="false" ref="batchOpePopper">
-      <div slot="reference" style="position: relative;">
-        <div class="btn-label">一括操作</div>
-        <button
-          type="button"
-          class="dropdown-btn"
-          :class="{ active: openBatchOpe() }"
-        >
-          <span class="tg">操作...</span>
-          <img src="../assets/arrow.svg" alt="" />
-        </button>
-      </div>
-      <div class="dropdown-menu">
-        <DropdownItem @click="onClickBatchOperation('allCollected')">
-          <span class="tg"
-            >すべて<span class="tg tg-gr">取得済</span>としてチェック</span
+    <template v-if="showBatchAction">
+      <div class="divider" />
+      <popper
+        trigger="clickToToggle"
+        :visible-arrow="false"
+        ref="batchOpePopper"
+      >
+        <div slot="reference" style="position: relative;">
+          <div class="btn-label">一括操作</div>
+          <button
+            type="button"
+            class="dropdown-btn"
+            :class="{ active: openBatchOpe() }"
           >
-        </DropdownItem>
-        <DropdownItem @click="onClickBatchOperation('allProvidable')">
-          <span class="tg"
-            >すべて<span class="tg tg-bl">配布可</span>としてチェック</span
-          >
-        </DropdownItem>
-        <DropdownItem @click="onClickBatchOperation('allUncheck')">
-          <span class="tg">すべてのチェックを外す</span>
-        </DropdownItem>
-      </div>
-    </popper>
+            <span class="tg">操作...</span>
+            <img src="../assets/arrow.svg" alt="" />
+          </button>
+        </div>
+        <div class="dropdown-menu">
+          <DropdownItem @click="onClickBatchOperation('allCollected')">
+            <span class="tg"
+              >すべて<span class="tg tg-gr">取得済</span>としてチェック</span
+            >
+          </DropdownItem>
+          <DropdownItem @click="onClickBatchOperation('allProvidable')">
+            <span class="tg"
+              >すべて<span class="tg tg-bl">配布可</span>としてチェック</span
+            >
+          </DropdownItem>
+          <DropdownItem @click="onClickBatchOperation('allUncheck')">
+            <span class="tg">すべてのチェックを外す</span>
+          </DropdownItem>
+        </div>
+      </popper>
+    </template>
     <template v-if="showPinOption">
       <div class="divider" />
       <Button :active="isPinned" @click="onClickPin">
@@ -134,10 +140,25 @@ export default {
   },
   props: {
     filter: Object,
-    showSaleFilter: Boolean,
-    showPinOption: Boolean,
+    showSaleFilter: {
+      type: Boolean,
+      default: false
+    },
+    showPinOption: {
+      type: Boolean,
+      default: false
+    },
+    showBatchAction: {
+      type: Boolean,
+      default: true
+    },
     currentNav: String,
-    pins: Object
+    pins: {
+      type: Object,
+      default: () => {
+        return {};
+      }
+    }
   },
   data() {
     return {

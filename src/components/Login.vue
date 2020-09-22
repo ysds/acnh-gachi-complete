@@ -1,7 +1,10 @@
 <template>
   <div class="login">
     <div class="login-header">
-      <h2 class="login-title">ログイン</h2>
+      <h2 class="login-title">
+        <template v-if="isLogin">設定</template>
+        <template v-else>ログイン</template>
+      </h2>
       <div class="close">
         <CloseButton @click="close" />
       </div>
@@ -9,46 +12,55 @@
     <div class="login-body">
       <template v-if="isLogin && user">
         <img :src="user.photoURL" alt="Avatar" class="avatar" />
-        <div class="label">名前</div>
-        <div class="username" v-if="!isEditName">
-          {{ userName }}
-          <Button @click="editName">
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              class="bi bi-pencil-fill"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-              />
-            </svg>
-          </Button>
-        </div>
-        <div class="username edit" v-else>
-          <input
-            class="edit-input"
-            type="text"
-            v-model="editingName"
-            ref="userName"
-          />
-          <button class="edit-btn" type="button" @click="cancelName">
-            キャンセル
-          </button>
-          <button class="edit-btn" type="button" @click="saveName">保存</button>
-        </div>
-        <p class="small">
-          シェア機能使用時にこの名前が相手に表示されます。
-        </p>
 
-        <div class="label">ID</div>
-        <p>{{ user.uid }}</p>
-        <p class="small">
-          あなたの固有IDです。シェア機能使用時の URL として使用されます。
-        </p>
+        <div class="section">
+          <div class="d-flex align-items-center mb-4">
+            <div class="section-label">名前</div>
+            <Button @click="editName" style="margin-left: auto;">
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                class="bi bi-pencil-fill"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
+                />
+              </svg>
+            </Button>
+          </div>
+          <div class="username" v-if="!isEditName">
+            {{ userName }}
+          </div>
+          <div class="username edit" v-else>
+            <input
+              class="edit-input"
+              type="text"
+              v-model="editingName"
+              ref="userName"
+            />
+            <button class="edit-btn" type="button" @click="cancelName">
+              キャンセル
+            </button>
+            <button class="edit-btn" type="button" @click="saveName">
+              保存
+            </button>
+          </div>
+          <p class="small">
+            シェア機能使用時にこの名前が相手に表示されます。
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-label mb-4">ID</div>
+          <p>{{ user.uid }}</p>
+          <p class="small">
+            あなたの固有IDです。シェア機能使用時の URL として使用されます。
+          </p>
+        </div>
 
         <button type="button" class="btn" @click="logout">
           ログアウト
@@ -58,6 +70,10 @@
         </p>
       </template>
       <template v-else-if="isLogin === false">
+        <p style="font-size: 14px;">
+          ログインすると、データが自動的にクラウドに保存され、シェア機能を使えるようになります。
+        </p>
+
         <button type="button" class="btn btn-google" @click="login('google')">
           <img
             src="../assets/google.svg"
@@ -188,21 +204,36 @@ export default {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  margin-bottom: 2rem;
 }
 
-.label {
+.section {
+  margin-top: 1rem;
+  padding: 1rem 1rem 1px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  text-align: left;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  padding: 0.2rem;
+  width: 80px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #ec407a;
   font-weight: 700;
-  font-size: 14px;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .username {
   margin-bottom: 1rem;
-}
-
-.eidt {
-  text-align: center;
 }
 
 .edit-input {
@@ -211,7 +242,7 @@ export default {
   max-width: 300px;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  border-color: #ccc;
+  border: 1px solid #ccc;
   border-radius: 3px;
   appearance: none;
 }
@@ -235,7 +266,7 @@ export default {
   width: 100%;
   max-width: 400px;
   min-height: 50px;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   padding: 0 1rem;
   border: 1px solid #ccc;
@@ -247,5 +278,11 @@ export default {
 .small {
   font-size: 13px;
   color: #555;
+}
+
+.flat-btn {
+  min-width: 38px;
+  height: 38px;
+  line-height: 38px;
 }
 </style>

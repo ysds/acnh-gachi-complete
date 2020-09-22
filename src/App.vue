@@ -133,7 +133,7 @@ export default {
         const updateIndex = this.localUpdateIndex;
         db.collection("users")
           .doc(this.user.uid)
-          .set({
+          .update({
             lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
             collected: LZString.compressToUTF16(
               JSON.stringify(this.localCollected)
@@ -172,7 +172,7 @@ export default {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #42b983;
     text-decoration: none;
 
     &.router-link-exact-active {

@@ -1,3 +1,5 @@
+import itemsJson from "../assets/items.json";
+
 const kata2Hira = function(string) {
   return string.replace(/[\u30A1-\u30FA]/g, ch =>
     String.fromCharCode(ch.charCodeAt(0) - 0x60)
@@ -17,15 +19,25 @@ function normalizeText(string) {
   return result;
 }
 
-export function filterItems(
-  items,
-  collected,
-  nav,
-  filter,
-  isSearchMode,
-  searchText,
-  isShowSaleFilter
-) {
+export function filterItems(args) {
+  const items = itemsJson;
+  args = Object.assign(
+    {
+      isSearchMode: false,
+      searchText: ""
+    },
+    args
+  );
+
+  let {
+    collected,
+    nav,
+    filter,
+    isSearchMode,
+    searchText,
+    isShowSaleFilter
+  } = args;
+
   return items.filter(item => {
     // 検索
     if (isSearchMode) {
@@ -653,3 +665,47 @@ export const navs = [
     ]
   }
 ];
+
+export function totalLength(args) {
+  const { collected, nav, filter, isShowSaleFilter } = args;
+
+  const totalItems = filterItems({
+    collected,
+    nav,
+    filter,
+    isShowSaleFilter
+  });
+  let result = 0;
+  for (let i = 0; i < totalItems.length; i++) {
+    if (totalItems[i].variants) {
+      result += totalItems[i].variants.length;
+    } else {
+      result++;
+    }
+  }
+  return result;
+}
+
+export function collectedLength(args) {
+  const { collected, nav, filter, isShowSaleFilter } = args;
+
+  const collectedItems = filterItems({
+    collected,
+    nav,
+    filter,
+    isShowSaleFilter
+  });
+
+  let result = 0;
+  for (let i = 0; i < collectedItems.length; i++) {
+    const item = collectedItems[i];
+    if (item.uniqueEntryId) {
+      if (collected[item.uniqueEntryId]) result++;
+    } else {
+      const collectedData = collected[item.name] || "";
+      const length = (collectedData.match(/[0-9A-J]/g) || []).length;
+      result += length;
+    }
+  }
+  return result;
+}

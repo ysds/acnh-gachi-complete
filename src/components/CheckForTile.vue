@@ -3,6 +3,7 @@
     type="button"
     class="t"
     :class="{ t1: props.value === 1, t2: props.value === 2 }"
+    :disabled="props.isStatic"
     v-on="listeners"
   >
     <div class="t-name">{{ props.name }}</div>
@@ -22,7 +23,15 @@
 <script>
 export default {
   name: "CheckForList",
-  props: ["name", "image", "value", "variant", "variants", "isRecipe"]
+  props: [
+    "name",
+    "image",
+    "value",
+    "variant",
+    "variants",
+    "isRecipe",
+    "isStatic"
+  ]
 };
 </script>
 <style lang="scss" scoped>
@@ -38,6 +47,8 @@ export default {
   background-color: transparent;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
+  color: inherit;
+
   vertical-align: top;
   outline: 0;
   user-select: none;

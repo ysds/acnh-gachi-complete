@@ -12,7 +12,8 @@ export default new Vuex.Store({
     localCollectedData: null,
     localUpdateIndex: null,
     cloudCollectedData: null,
-    cloudUpdateIndex: null
+    cloudUpdateIndex: null,
+    sharedCollected: null
   },
   mutations: {
     authStateChange(state, user) {
@@ -76,6 +77,9 @@ export default new Vuex.Store({
     },
     updateUserName(state, name) {
       state.userName = name;
+    },
+    updateSharedCollected(state, data) {
+      state.sharedCollected = data;
     }
   },
   getters: {
@@ -99,6 +103,9 @@ export default new Vuex.Store({
     },
     cloudUpdateIndex(state) {
       return state.cloudUpdateIndex;
+    },
+    sharedCollected(state) {
+      return state.sharedCollected;
     }
   }
 });

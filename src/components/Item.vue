@@ -53,6 +53,7 @@
             :value="checks[index]"
             :variant="item.variants[index]"
             :variants="item.variants"
+            :isStatic="isStatic"
             @click="onChangeCheck(index)"
           />
         </li>
@@ -64,6 +65,7 @@
             :image="getSingeItemImage(item)"
             :value="checks[0]"
             :isRecipe="item.sourceSheet === 'Recipes'"
+            :isStatic="isStatic"
             @click="onClickAllCheck"
           />
         </li>
@@ -90,7 +92,8 @@ export default {
     item: Object,
     filter: Object,
     isSearchMode: Boolean,
-    renderStartDate: Number
+    renderStartDate: Number,
+    isStatic: Boolean
   },
   directives: {
     "long-press": {

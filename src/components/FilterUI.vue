@@ -211,7 +211,8 @@ export default {
     return {
       isPinned: false,
       isShowModal: false,
-      shareURL: ""
+      shareURL: "",
+      twitterURL: ""
     };
   },
   computed: {

@@ -111,7 +111,9 @@ export default {
                 userName
               });
             } else {
-              console.log("No data on cloud");
+              db.collection("users")
+                .doc(user.uid)
+                .set({});
             }
           })
           .catch(function(error) {

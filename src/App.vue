@@ -24,6 +24,9 @@ export default {
     user() {
       return this.$store.getters.user;
     },
+    userName() {
+      return this.$store.getters.userName;
+    },
     isLogin() {
       return this.$store.getters.isLogin;
     },
@@ -91,6 +94,7 @@ export default {
     loadFirebaseData: function() {
       const self = this;
       const user = this.user;
+      const userName = this.userName;
       if (user && user.uid) {
         db.collection("users")
           .doc(user.uid)
@@ -113,7 +117,9 @@ export default {
             } else {
               db.collection("users")
                 .doc(user.uid)
-                .set({});
+                .set({
+                  userName
+                });
             }
           })
           .catch(function(error) {
@@ -133,6 +139,7 @@ export default {
     updateCloudData: function() {
       if (this.user && this.user.uid) {
         const updateIndex = this.localUpdateIndex;
+        const userName = this.userName;
         db.collection("users")
           .doc(this.user.uid)
           .update({
@@ -140,7 +147,8 @@ export default {
             collected: LZString.compressToUTF16(
               JSON.stringify(this.localCollected)
             ),
-            updateIndex
+            updateIndex,
+            userName
           })
           .then(function() {})
           .catch(function() {});

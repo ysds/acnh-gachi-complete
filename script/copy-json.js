@@ -100,7 +100,11 @@ content.forEach(item => {
 
   // Add displayName
   const translateObj = allTranslations.filter(obj => {
-    return obj.locale.USen.toLowerCase() === item.name.toLowerCase();
+    if (typeof obj.locale.USen === "string") {
+      return obj.locale.USen.toLowerCase() === item.name.toLowerCase();
+    } else {
+      return null;
+    }
   });
   if (translateObj.length) {
     item.displayName = translateObj[0].locale.JPja;
@@ -295,3 +299,16 @@ content.sort(function(a, b) {
 
 // Write file
 fs.writeFileSync("./src/assets/items.json", JSON.stringify(content));
+
+// Get All source
+// let sources = "";
+// content.forEach(item => {
+//   if (item.source) sources += `¥n${item.source}`;
+//   if (item.variants) {
+//     item.variants.forEach(variant => {
+//       if (variant.source) sources += `¥n${variant.source}`;
+//     });
+//   }
+// });
+
+// fs.writeFileSync("./sources.txt", sources);

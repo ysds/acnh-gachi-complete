@@ -242,7 +242,11 @@ export function filterItems(args) {
     }
     // 来訪者 (ことの)
     else if (nav === "special-labelle") {
-      return item.variants && item.variants[0].source.includes("Labelle");
+      return (
+        item.variants &&
+        item.variants[0].source.includes("Label") &&
+        item.sourceSheet !== "Other"
+      );
     }
     // 来訪者 (シャンク)
     else if (nav === "special-kicks") {
@@ -266,16 +270,15 @@ export function filterItems(args) {
         (item.series === "mermaid" && !item.variants) ||
         (!item.diy &&
           item.variants &&
-          item.variants[0].source.includes("Pascal")) ||
+          item.variants[0].source.includes("Pascal") &&
+          item.sourceSheet !== "Other") ||
         (item.source && item.source.includes("Pascal"))
       );
     }
     // 季節・イベント (花火大会)
     else if (nav === "season-fireworks") {
       return (
-        item.sourceNotes ===
-          "Only available in August on Sundays, after 7 PM" ||
-        item.sourceNotes === "Only avaliable during a Fireworks Display" ||
+        (item.sourceNotes && item.sourceNotes.indexOf("ireworks") > 0) ||
         item.name === "fountain firework"
       );
     }
@@ -301,7 +304,8 @@ export function filterItems(args) {
     else if (nav === "season-sakura") {
       return (
         item.sourceNotes === "Only available during Cherry-Blossom Season" &&
-        !item.diy
+        !item.diy &&
+        item.sourceSheet !== "Other"
       );
     }
     // 季節・イベント (なつのかいがら)
@@ -315,6 +319,14 @@ export function filterItems(args) {
     // 季節・イベント (どんぐり/まつぼっくり)
     else if (nav === "season-fall") {
       return item.sourceNotes === "Only available during Fall" && !item.diy;
+    }
+    // 季節・イベント (ハロウィン)
+    else if (nav === "season-halloween") {
+      return (
+        item.name.match(/spooky/) ||
+        (item.sourceNotes && item.sourceNotes.match(/(Halloween|lollipop)/)) ||
+        (item.variants && item.variants[0].source.includes("Jack"))
+      );
     }
     // 季節・イベント (きのこ)
     else if (nav === "season-mushroom") {
@@ -374,6 +386,10 @@ export function filterItems(args) {
     // バージョン 1.4.0
     else if (nav === "versions-140") {
       return item.versionAdded === "1.4.0";
+    }
+    // バージョン 1.5.0
+    else if (nav === "versions-150") {
+      return item.versionAdded === "1.5.0" && item.storageFilename !== null;
     }
   });
 }
@@ -623,34 +639,40 @@ export const navs = [
         order: 10
       },
       {
+        id: "season-halloween",
+        text: "ハロウィン",
+        subtext: "10/1〜10/31",
+        order: 11
+      },
+      {
         id: "season-mushroom",
         text: "キノコ",
         subtext: "11/1〜11/30",
-        order: 11
+        order: 12
       },
       {
         id: "season-maple",
         text: "もみじのはっぱ",
         subtext: "11/16～11/25",
-        order: 12
+        order: 13
       },
       {
         id: "season-winter",
         text: "ゆきのけっしょう",
         subtext: "12/11〜2/24",
-        order: 13
+        order: 14
       },
       {
         id: "season-festive",
         text: "オーナメント",
         subtext: "12/15〜1/6",
-        order: 14
+        order: 15
       },
       {
         id: "season-snowboy",
         text: "ゆきだるま",
         subtext: "12/11〜2/24",
-        order: 15
+        order: 16
       }
     ]
   },
@@ -658,6 +680,10 @@ export const navs = [
     id: "versions",
     text: "バージョン",
     subnavs: [
+      {
+        id: "versions-150",
+        text: "1.5.0"
+      },
       {
         id: "versions-140",
         text: "1.4.0"

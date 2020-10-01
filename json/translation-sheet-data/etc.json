@@ -428,8 +428,8 @@
       "EUde": "Designs: Profi-Edition",
       "EUes": "Mis diseños profesionales",
       "USes": "Mis diseños profesionales",
-      "EUfr": "Motifs persos pour les pros",
-      "USfr": "Motifs perso pour les pros",
+      "EUfr": "Motifs persos pour pros",
+      "USfr": "Motifs perso pour pros",
       "EUit": "I miei modelli: versione pro",
       "EUnl": "Speciaal ontwerp",
       "CNzh": "我的设计专业版",
@@ -437,6 +437,46 @@
       "JPja": "マイデザインPROエディタ",
       "KRko": "마이 디자인 PRO 에디터",
       "EUru": "Режим профи-рисунков"
+    }
+  },
+  {
+    "id": "DummyHowtoBook_13256",
+    "version": "1.5.0",
+    "locale": {
+      "USen": "Body-Paint Costume Tips",
+      "EUen": "Body-Paint Costume Tips",
+      "EUde": "Die Kunst des Bodypainting",
+      "EUes": "Trucos de pintura corporal",
+      "USes": "Trucos de pintura corporal",
+      "EUfr": "ABC de peinture corporelle",
+      "USfr": "ABC de peinture corporelle",
+      "EUit": "L'arte del body painting",
+      "EUnl": "Tips voor bodypainten",
+      "CNzh": "变身！身体彩绘",
+      "TWzh": "變身！身體彩繪",
+      "JPja": "へんしん！ボディカラーペイント",
+      "KRko": "변신! 컬러풀 보디 페인팅",
+      "EUru": "Искусство боди-арта"
+    }
+  },
+  {
+    "id": "DummyHowtoBook_13257",
+    "version": "1.5.0",
+    "locale": {
+      "USen": "Exploring New Eye Colors",
+      "EUen": "Exploring New Eye Colors",
+      "EUde": "Augenfarben für Gewinner",
+      "EUes": "Guía de lentillas de colores",
+      "USes": "Guía colores de ojos",
+      "EUfr": "Varier la couleur des yeux",
+      "USfr": "Varier la couleur des yeux",
+      "EUit": "Occhi dai mille colori",
+      "EUnl": "Oog voor oogkleuren",
+      "CNzh": "看看！彩色隐形眼镜",
+      "TWzh": "看！彩色隱形眼鏡",
+      "JPja": "みせる！カラーコンタクト",
+      "KRko": "매력 만점! 컬러 렌즈 모음",
+      "EUru": "Новые цвета глаз"
     }
   },
   {
@@ -2117,6 +2157,26 @@
       "JPja": "おきはなびのもえかす",
       "KRko": "분수 불꽃의 재",
       "EUru": "б/у фейерверк-фонтан"
+    }
+  },
+  {
+    "id": "Uchiwa_05319",
+    "version": "1.4.0",
+    "locale": {
+      "USen": "uchiwa fan",
+      "EUen": "uchiwa fan",
+      "EUde": "Uchiwa-Fächer",
+      "EUes": "paipay",
+      "USes": "abanico paipay",
+      "EUfr": "éventail uchiwa",
+      "USfr": "éventail uchiwa",
+      "EUit": "ventaglio uchiwa",
+      "EUnl": "uchiwa-waaier",
+      "CNzh": "扇子",
+      "TWzh": "扇子",
+      "JPja": "うちわ",
+      "KRko": "둥글부채",
+      "EUru": "веер утива"
     }
   },
   {

@@ -18,6 +18,10 @@ const fixData = JSON.parse(
   fs.readFileSync("./json/translation-fix-data/fix.json", "utf8")
 );
 
+const fixData2 = JSON.parse(
+  fs.readFileSync("./json/translation-fix-data/fix2.json", "utf8")
+);
+
 all.forEach(translate => {
   delete translate["version"];
   delete translate.locale["EUen"];
@@ -38,6 +42,11 @@ all.forEach(translate => {
 
   if (fixIndex >= 0) {
     translate.locale["JPja"] = fixData.correct[fixIndex];
+  }
+
+  const ENname = translate.locale["USen"];
+  if (fixData2[ENname]) {
+    translate.locale["JPja"] = fixData2[ENname];
   }
 });
 

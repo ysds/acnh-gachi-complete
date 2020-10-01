@@ -891,7 +891,7 @@
       "EUfr": "collant à rayures verticales",
       "USfr": "collant à rayures verticales",
       "EUit": "paio di calze a strisce",
-      "EUnl": "gestreepte panty",
+      "EUnl": "verticale-strepen-panty",
       "CNzh": "条纹袜子",
       "TWzh": "條紋襪子",
       "JPja": "ストライプソックス",
@@ -1197,6 +1197,26 @@
       "JPja": "シンプルなニーハイソックス",
       "KRko": "심플 니하이 삭스",
       "EUru": "простые гольфы"
+    }
+  },
+  {
+    "id": 1275,
+    "version": "1.5.0",
+    "locale": {
+      "USen": "horizontal-striped tights",
+      "EUen": "horizontal-striped tights",
+      "EUde": "Paar Ringel-Kniestrümpfe",
+      "EUes": "media rayas horizontales",
+      "USes": "media rayas horizontales",
+      "EUfr": "collant rayures horizontales",
+      "USfr": "collant rayures horizontales",
+      "EUit": "paio di calze a righe oriz.",
+      "EUnl": "horizontale-strepen-panty",
+      "CNzh": "粗横纹长袜",
+      "TWzh": "粗橫紋褲襪",
+      "JPja": "ボーダータイツ",
+      "KRko": "줄무늬 타이츠",
+      "EUru": "чулки в полоску"
     }
   }
 ]

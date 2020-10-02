@@ -153,11 +153,27 @@ content.forEach(item => {
   });
   if (item.variants) {
     item.variants.forEach((variant, index) => {
+      item.variants[index].variationDisplayName = variant.variation;
       furnitureTranslations.forEach(translate => {
         if (
           variant.variation &&
+          typeof translate.locale.USen === "string" &&
           translate.locale.USen.toLowerCase() ===
             variant.variation.toLowerCase()
+        ) {
+          item.variants[index].variationDisplayName = translate.locale.JPja;
+        }
+      });
+    });
+    // 二回目
+    item.variants.forEach((variant, index) => {
+      allTranslations.forEach(translate => {
+        if (
+          variant.variationDisplayName &&
+          typeof translate.locale.USen === "string" &&
+          typeof variant.variationDisplayName === "string" &&
+          translate.locale.USen.toLowerCase() ===
+            variant.variationDisplayName.toLowerCase()
         ) {
           item.variants[index].variationDisplayName = translate.locale.JPja;
         }
@@ -169,7 +185,9 @@ content.forEach(item => {
     let newBodyVariants = [];
     item.bodyVariants.forEach(variantString => {
       const translations = furnitureTranslations.filter(translate => {
-        return translate.locale.USen === variantString;
+        return (
+          translate.locale.USen.toLowerCase() === variantString.toLowerCase()
+        );
       });
       if (translations.length > 0) {
         newBodyVariants.push(translations[0].locale.JPja);
@@ -183,7 +201,10 @@ content.forEach(item => {
     newBodyVariants = [];
     item.bodyVariants.forEach(variantString => {
       const translations = allTranslations.filter(translate => {
-        return translate.locale.USen === variantString;
+        return (
+          typeof translate.locale.USen === "string" &&
+          translate.locale.USen.toLowerCase() === variantString.toLowerCase()
+        );
       });
       if (translations.length > 0) {
         newBodyVariants.push(translations[0].locale.JPja);
@@ -209,11 +230,14 @@ content.forEach(item => {
     });
     item.patternVariants = newPatternVariants;
 
-    // 2買い目
+    // 二回目
     newPatternVariants = [];
     item.patternVariants.forEach(variantString => {
       const translations = allTranslations.filter(translate => {
-        return translate.locale.USen === variantString;
+        return (
+          typeof translate.locale.USen === "string" &&
+          translate.locale.USen === variantString
+        );
       });
       if (translations.length > 0) {
         newPatternVariants.push(translations[0].locale.JPja);

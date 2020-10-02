@@ -109,6 +109,22 @@
               {{ modalItem.variants[0].sell }}
             </div>
           </div>
+          <div class="info" v-if="modalItem.bodyCustomize">
+            <div class="info-label info-5">
+              リメイク<template v-if="modalItem.patternCustomize">1</template>
+            </div>
+            <div class="info-text">
+              {{ modalItem.bodyVariants.join("、") }}
+            </div>
+          </div>
+          <div class="info" v-if="modalItem.patternCustomize">
+            <div class="info-label info-5">
+              リメイク<template v-if="modalItem.bodyCustomize">2</template>
+            </div>
+            <div class="info-text">
+              {{ modalItem.patternVariants.join("、") }}
+            </div>
+          </div>
           <div class="info" v-if="modalItem.sourceJa || modalItem.variants">
             <div class="info-label info-3">入手</div>
             <div class="info-text" v-if="modalItem.sourceJa">

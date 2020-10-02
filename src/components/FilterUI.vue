@@ -178,7 +178,7 @@
         <template slot="header">あなたの「{{ navText }}」のURL</template>
         <div slot="body">
           <p>URL をクリップボードにコピーしました！</p>
-          <p>
+          <p style="word-break: break-all;">
             公開ページ（{{ navText }}）<br />
             <router-link :to="`/share/${user.uid}/${currentNav}`">
               {{ shareURL }}

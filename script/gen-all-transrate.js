@@ -4,7 +4,6 @@ let all = [];
 
 let fileList = fs.readdirSync("./json/translation-sheet-data");
 fileList = fileList.filter(RegExp.prototype.test, /.*\.json$/);
-fileList = fileList.filter(RegExp.prototype.test, /^(?!.*patterns\.json).*$/);
 
 for (let i = 0; i < fileList.length; i++) {
   const content = fs.readFileSync(
@@ -20,6 +19,10 @@ const fixData = JSON.parse(
 
 const fixData2 = JSON.parse(
   fs.readFileSync("./json/translation-fix-data/fix2.json", "utf8")
+);
+
+const fixPatterns = JSON.parse(
+  fs.readFileSync("./json/translation-fix-data/fix_patterns.json", "utf8")
 );
 
 all.forEach(translate => {
@@ -47,6 +50,9 @@ all.forEach(translate => {
   const ENname = translate.locale["USen"];
   if (fixData2[ENname]) {
     translate.locale["JPja"] = fixData2[ENname];
+  }
+  if (fixPatterns[ENname]) {
+    translate.locale["JPja"] = fixPatterns[ENname];
   }
 });
 

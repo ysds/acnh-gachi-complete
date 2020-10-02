@@ -66,7 +66,6 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   user-select: none;
   text-align: left;
-  word-break: break-all;
 }
 
 .modal-header h3 {
@@ -110,6 +109,10 @@ export default {
 
   .info-4 {
     background-color: #7e57c2;
+  }
+
+  .info-5 {
+    background-color: #ff7626;
   }
 
   .info-text {

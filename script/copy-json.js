@@ -58,43 +58,40 @@ content.forEach(item => {
 
   if (item.variants) {
     // Remove pattern variant
-    let prevVariation = "";
-    let newVariants = item.variants.filter(variant => {
-      const result = prevVariation !== variant.variation;
-      prevVariation = variant.variation;
-      return result;
-    });
-    item.variants = newVariants;
+    if (item.patternCustomize) {
+      let prevVariation = "";
+      let newVariants = item.variants.filter(variant => {
+        // Create patternVariants key
+        if (item.patternVariants && variant.pattern !== null) {
+          if (!item.patternVariants.includes(variant.pattern)) {
+            item.patternVariants.push(variant.pattern);
+          }
+        } else {
+          item.patternVariants = [
+            variant.pattern === null ? "None" : variant.pattern
+          ];
+        }
+
+        const result = prevVariation !== variant.variation;
+        prevVariation = variant.variation;
+        return result;
+      });
+      item.variants = newVariants;
+    }
 
     // Remove remake variant
-    let prevBodyCustomize = false;
-    newVariants = item.variants.filter(variant => {
-      if (variant.bodyCustomize) {
-        const result = prevBodyCustomize !== variant.bodyCustomize;
-        prevBodyCustomize = true;
-        return result;
-      } else {
-        prevBodyCustomize = false;
-        return true;
-      }
-    });
-    item.variants = newVariants;
-
-    // Add variants displayName (furniture)
-    let translateObjects = allTranslations.filter(obj => {
-      if (obj.furniture_name) {
-        return obj.furniture_name.toLowerCase() === item.name.toLowerCase();
-      }
-      return false;
-    });
-
-    if (translateObjects.length > 0) {
-      item.variants.forEach((variant, index) => {
-        if (variant.variation && typeof variant.variation === "string") {
-          item.variants[index].variationDisplayName =
-            translateObjects[index].locale.JPja;
+    if (item.variants[0].bodyCustomize) {
+      item.variants.forEach(variant => {
+        if (item.bodyVariants && variant.variation !== null) {
+          item.bodyVariants.push(variant.variation);
+        } else {
+          item.bodyVariants = [
+            variant.variation === null ? "None" : variant.variation
+          ];
         }
       });
+      item.bodyCustomize = true;
+      item.variants.length = 1;
     }
   }
 
@@ -146,6 +143,85 @@ content.forEach(item => {
   // Whether
   if (item.weather) {
     item.weatherJa = weatherTranslation[item.weather] || item.weather;
+  }
+  // Add variation displayName
+  const furnitureTranslations = allTranslations.filter(obj => {
+    if (obj.furniture_name) {
+      return obj.furniture_name.toLowerCase() === item.name.toLowerCase();
+    }
+    return false;
+  });
+  if (item.variants) {
+    item.variants.forEach((variant, index) => {
+      furnitureTranslations.forEach(translate => {
+        if (
+          variant.variation &&
+          translate.locale.USen.toLowerCase() ===
+            variant.variation.toLowerCase()
+        ) {
+          item.variants[index].variationDisplayName = translate.locale.JPja;
+        }
+      });
+    });
+  }
+  // Body variants
+  if (item.bodyCustomize) {
+    let newBodyVariants = [];
+    item.bodyVariants.forEach(variantString => {
+      const translations = furnitureTranslations.filter(translate => {
+        return translate.locale.USen === variantString;
+      });
+      if (translations.length > 0) {
+        newBodyVariants.push(translations[0].locale.JPja);
+      } else {
+        newBodyVariants.push(variantString);
+      }
+    });
+    item.bodyVariants = newBodyVariants;
+
+    // 二回目
+    newBodyVariants = [];
+    item.bodyVariants.forEach(variantString => {
+      const translations = allTranslations.filter(translate => {
+        return translate.locale.USen === variantString;
+      });
+      if (translations.length > 0) {
+        newBodyVariants.push(translations[0].locale.JPja);
+      } else {
+        newBodyVariants.push(variantString);
+      }
+    });
+    item.bodyVariants = newBodyVariants;
+  }
+
+  // Pattern variants
+  if (item.patternCustomize) {
+    let newPatternVariants = [];
+    item.patternVariants.forEach(variantString => {
+      const translations = furnitureTranslations.filter(translate => {
+        return translate.locale.USen === variantString;
+      });
+      if (translations.length > 0) {
+        newPatternVariants.push(translations[0].locale.JPja);
+      } else {
+        newPatternVariants.push(variantString);
+      }
+    });
+    item.patternVariants = newPatternVariants;
+
+    // 2買い目
+    newPatternVariants = [];
+    item.patternVariants.forEach(variantString => {
+      const translations = allTranslations.filter(translate => {
+        return translate.locale.USen === variantString;
+      });
+      if (translations.length > 0) {
+        newPatternVariants.push(translations[0].locale.JPja);
+      } else {
+        newPatternVariants.push(variantString);
+      }
+    });
+    item.patternVariants = newPatternVariants;
   }
 
   //
@@ -231,6 +307,9 @@ content.forEach(item => {
       delete variant["labelThemes"];
       delete variant["framedImage"];
       delete variant["inventoryImage"];
+      delete variant["themes"];
+      delete variant["bodyCustomize"];
+      delete variant["pattern"];
     });
   }
 });

@@ -4,6 +4,11 @@
       <div v-long-press style="position: relative;">
         <img v-lazy="getImage(item)" class="item-img" />
         <img
+          class="item-img-remake"
+          src="../assets/remake.svg"
+          v-if="item.bodyCustomize || item.patternCustomize"
+        />
+        <img
           class="item-img-recipe"
           src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
           v-if="item.sourceSheet === 'Recipes'"
@@ -54,6 +59,7 @@
             :variant="item.variants[index]"
             :variants="item.variants"
             :isStatic="isStatic"
+            :isRemake="item.bodyCustomize || item.patternCustomize"
             @click="onChangeCheck(index)"
           />
         </li>
@@ -66,6 +72,7 @@
             :value="checks[0]"
             :isRecipe="item.sourceSheet === 'Recipes'"
             :isStatic="isStatic"
+            :isRemake="item.bodyCustomize || item.patternCustomize"
             @click="onClickAllCheck"
           />
         </li>
@@ -290,6 +297,14 @@ export default {
   height: 40px;
   margin-right: 0.5rem;
   vertical-align: top;
+  pointer-events: none;
+  user-select: none;
+}
+
+.item-img-remake {
+  position: absolute;
+  bottom: -8px;
+  right: 2px;
   pointer-events: none;
   user-select: none;
 }

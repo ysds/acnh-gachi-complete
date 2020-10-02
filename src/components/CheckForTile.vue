@@ -6,8 +6,15 @@
     :disabled="props.isStatic"
     v-on="listeners"
   >
-    <div class="t-name">{{ props.name }}</div>
+    <div class="t-name">
+      {{ props.name }}
+    </div>
     <img class="t-img" v-lazy="props.image" />
+    <img
+      class="t-img-remake"
+      src="../assets/remake.svg"
+      v-if="props.isRemake"
+    />
     <img
       class="t-img-recipe"
       src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
@@ -17,6 +24,8 @@
       <template v-if="props.variants && props.variants.length > 1">
         {{ props.variant.variationDisplayName || props.variant.variation }}
       </template>
+      <template v-if="props.variant.genuine === true">本物</template>
+      <template v-else-if="props.variant.genuine === false">偽物</template>
     </div>
   </button>
 </template>
@@ -30,7 +39,8 @@ export default {
     "variant",
     "variants",
     "isRecipe",
-    "isStatic"
+    "isStatic",
+    "isRemake"
   ]
 };
 </script>
@@ -95,6 +105,14 @@ export default {
   pointer-events: none;
   user-select: none;
   -webkit-touch-callout: none;
+}
+
+.t-img-remake {
+  position: absolute;
+  bottom: 20px;
+  right: 2px;
+  pointer-events: none;
+  user-select: none;
 }
 
 .t-img-recipe {

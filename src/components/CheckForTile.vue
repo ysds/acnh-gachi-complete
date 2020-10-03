@@ -21,11 +21,13 @@
       v-if="props.isRecipe"
     />
     <div class="t-v-name">
-      <template v-if="props.variants && props.variants.length > 1">
-        {{ props.variant.variationDisplayName || props.variant.variation }}
+      <template v-if="props.variants">
+        <template v-if="props.variants.length > 1">
+          {{ props.variant.variationDisplayName || props.variant.variation }}
+        </template>
+        <template v-if="props.variant.genuine === true">本物</template>
+        <template v-else-if="props.variant.genuine === false">偽物</template>
       </template>
-      <template v-if="props.variant.genuine === true">本物</template>
-      <template v-else-if="props.variant.genuine === false">偽物</template>
     </div>
   </button>
 </template>

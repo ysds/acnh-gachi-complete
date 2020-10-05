@@ -8,9 +8,7 @@
     </div>
     <h1 class="header">
       <span class="header-lg">{{ navText }}</span>
-      <div class="header-sm" v-if="isLoaded">
-        {{ sharedUserName }}さんのコンプ状況
-      </div>
+      <div class="header-sm" v-if="isLoaded">（{{ sharedUserName }}さん）</div>
     </h1>
     <div class="filter">
       <FilterUI
@@ -71,7 +69,6 @@ export default {
   },
   data() {
     return {
-      sharedUserName: "",
       message: "データを読み込んでいます。",
       isLoaded: false,
       showItems: [],
@@ -89,6 +86,9 @@ export default {
     },
     sharedCollected() {
       return this.$store.getters.sharedCollected;
+    },
+    sharedUserName() {
+      return this.$store.getters.sharedUserName;
     },
     nav() {
       return this.$route.params.category;
@@ -129,9 +129,9 @@ export default {
               LZString.decompressFromUTF16(collectedValue)
             );
             self.$store.commit("updateSharedCollected", collected);
+            self.$store.commit("updateSharedUserName", doc.data().userName);
             self.message = "";
             self.isLoaded = true;
-            self.sharedUserName = doc.data().userName;
             self.updateShowItems();
           } else {
             self.message =
@@ -247,25 +247,23 @@ export default {
   flex-wrap: wrap;
   padding: 0 1rem;
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 28px;
+  font-weight: 700;
   word-break: break-all;
 }
 
 .header-lg {
   display: inline-flex;
-  margin-right: 1rem;
-  border-bottom: 4px solid #42b983;
-  font-size: 28px;
-  font-weight: 700;
 }
 
 .header-sm {
   margin: 0.5rem 0;
+  font-size: 15px;
   color: #555;
 }
 
 .filter {
-  margin: 1rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .items {

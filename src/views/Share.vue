@@ -11,12 +11,9 @@
       <div class="header-sm" v-if="isLoaded">（{{ sharedUserName }}さん）</div>
     </h1>
     <div class="filter">
-      <FilterUI
+      <FilterUIShared
         :filter="filter"
-        :currentNav="nav"
         :showSaleFilter="isShowSaleFilter"
-        :showBatchAction="false"
-        :showShareButton="false"
         @change="onChangeFilter"
       />
       <CollectedBar
@@ -54,7 +51,7 @@ import {
 } from "../utils/nav.js";
 
 import Item from "../components/Item.vue";
-import FilterUI from "../components/FilterUI.vue";
+import FilterUIShared from "../components/FilterUIShared.vue";
 import CollectedBar from "../components/CollectedBar.vue";
 import PageToTop from "../components/PageToTop.vue";
 
@@ -63,7 +60,7 @@ const db = firebase.firestore();
 export default {
   components: {
     Item,
-    FilterUI,
+    FilterUIShared,
     CollectedBar,
     PageToTop
   },

@@ -139,7 +139,7 @@ export default {
     updateCloudData: function() {
       if (this.user && this.user.uid) {
         const updateIndex = this.localUpdateIndex;
-        const userName = this.userName;
+        const userName = this.userName || this.user.displayName;
         db.collection("users")
           .doc(this.user.uid)
           .update({

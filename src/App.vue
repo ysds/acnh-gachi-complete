@@ -57,6 +57,7 @@ export default {
     this.cloudSynctimer = setInterval(function() {
       if (self.updateIndex && self.updateIndex === self.localUpdateIndex) {
         self.syncCollectedData();
+        self.$store.commit("updateHasUpdateData", false);
       } else {
         self.updateIndex = self.localUpdateIndex;
       }

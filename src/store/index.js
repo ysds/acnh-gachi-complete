@@ -14,7 +14,8 @@ export default new Vuex.Store({
     cloudCollectedData: null,
     cloudUpdateIndex: null,
     sharedCollected: null,
-    sharedUserName: null
+    sharedUserName: null,
+    hasUpdateData: false
   },
   mutations: {
     authStateChange(state, user) {
@@ -33,6 +34,7 @@ export default new Vuex.Store({
       state.userName = payload.userName;
     },
     updateLocalCollectedDataByItem(state, payload) {
+      state.hasUpdateData = true;
       if (payload.itemCollectedData === "") {
         Vue.delete(state.localCollectedData, payload.itemName);
       } else {
@@ -49,6 +51,7 @@ export default new Vuex.Store({
     updateLocalCollectedDataBatch(state, payload) {
       const items = payload.items;
       const collectedArray = payload.collectedArray;
+      state.hasUpdateData = true;
       for (let i = 0; i < items.length; i++) {
         if (collectedArray[i] === "") {
           Vue.delete(state.localCollectedData, items[i]);
@@ -62,6 +65,7 @@ export default new Vuex.Store({
     },
     updateLocalCollectedData(state, payload) {
       state.localCollectedData = {};
+      state.hasUpdateData = true;
       const collected = payload.collected;
       const keys = Object.keys(collected);
       const values = Object.values(collected);
@@ -84,6 +88,9 @@ export default new Vuex.Store({
     },
     updateSharedUserName(state, data) {
       state.sharedUserName = data;
+    },
+    updateHasUpdateData(state, data) {
+      state.hasUpdateData = data;
     }
   },
   getters: {
@@ -113,6 +120,9 @@ export default new Vuex.Store({
     },
     sharedUserName(state) {
       return state.sharedUserName;
+    },
+    hasUpdateData(state) {
+      return state.hasUpdateData;
     }
   }
 });

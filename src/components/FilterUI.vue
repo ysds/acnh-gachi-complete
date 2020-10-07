@@ -177,21 +177,31 @@
       <Modal :show="isShowModal" @close="isShowModal = false">
         <template slot="header">{{ navText }}のコンプ状況をシェア</template>
         <div slot="body">
-          <p style="word-break: break-all;">
-            公開ページの URL<br />
-            <router-link :to="`/share/${user.uid}/${currentNav}`">
-              {{ shareURL }}
-            </router-link>
-          </p>
-          <p>URL をクリップボードにコピーしました。</p>
-          <div>
-            <a
-              class="btn"
-              :href="
-                `https://twitter.com/intent/tweet?text=%0a${navText}%0a&url=${twitterURL}`
-              "
-              >Twitter に投稿する</a
-            >
+          <div v-show="hasUpdateData">
+            <div class="spinner">
+              <Spinner />
+            </div>
+            <p>
+              最新のチェック状態をクラウドに保存しています。
+            </p>
+          </div>
+          <div v-show="!hasUpdateData">
+            <p style="word-break: break-all;">
+              公開ページの URL<br />
+              <router-link :to="`/share/${user.uid}/${currentNav}`">
+                {{ shareURL }}
+              </router-link>
+            </p>
+            <p>URL をクリップボードにコピーしました。</p>
+            <div>
+              <a
+                class="btn"
+                :href="
+                  `https://twitter.com/intent/tweet?text=%0a${navText}%0a&url=${twitterURL}`
+                "
+                >Twitter に投稿する</a
+              >
+            </div>
           </div>
         </div>
       </Modal>
@@ -207,6 +217,7 @@ import Button from "./Button";
 import IconPin from "./IconPin";
 import IconPinned from "./IconPinned";
 import Modal from "./Modal";
+import Spinner from "./Spinner";
 
 export default {
   name: "FilterUI",
@@ -216,7 +227,8 @@ export default {
     Button,
     IconPin,
     IconPinned,
-    Modal
+    Modal,
+    Spinner
   },
   props: {
     filter: Object,
@@ -258,6 +270,9 @@ export default {
     },
     navText() {
       return getNavText(this.currentNav);
+    },
+    hasUpdateData() {
+      return this.$store.getters.hasUpdateData;
     }
   },
   mounted() {
@@ -418,5 +433,11 @@ export default {
   &.active {
     color: #21bec5;
   }
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 1rem;
 }
 </style>

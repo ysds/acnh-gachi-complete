@@ -31,7 +31,6 @@ export default new Vuex.Store({
     initCloudCollectedData(state, payload) {
       state.cloudCollectedData = payload.collected;
       state.cloudUpdateIndex = payload.updateIndex;
-      state.userName = payload.userName;
     },
     updateLocalCollectedDataByItem(state, payload) {
       state.hasUpdateData = true;

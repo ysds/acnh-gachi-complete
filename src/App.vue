@@ -95,7 +95,6 @@ export default {
     loadFirebaseData: function() {
       const self = this;
       const user = this.user;
-      const userName = this.userName;
       if (user && user.uid) {
         db.collection("users")
           .doc(user.uid)
@@ -112,15 +111,17 @@ export default {
 
               self.$store.commit("initCloudCollectedData", {
                 collected,
-                updateIndex,
-                userName
+                updateIndex
               });
+              self.$store.commit("updateUserName", userName);
             } else {
+              const userName = user.displayName || null;
               db.collection("users")
                 .doc(user.uid)
                 .set({
                   userName
                 });
+              self.$store.commit("updateUserName", userName);
             }
           })
           .catch(function(error) {

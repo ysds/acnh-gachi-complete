@@ -188,7 +188,7 @@
           <div v-show="!hasUpdateData">
             <p style="word-break: break-all;">
               公開ページの URL<br />
-              <router-link :to="`/share/${user.uid}/${currentNav}`">
+              <router-link :to="`/share2/${currentNav}?uid=${user.uid}`">
                 {{ shareURL }}
               </router-link>
             </p>
@@ -316,9 +316,9 @@ export default {
       return this.$refs.batchOpePopper.showPopper;
     },
     showShareModal: function() {
-      const shareURL = `https://ysds.github.io/acnh-gachi-complete/#/share/${this.user.uid}/${this.currentNav}`;
+      const shareURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.currentNav}?uid=${this.user.uid}`;
       this.shareURL = shareURL;
-      this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/%23/share/${this.user.uid}/${this.currentNav}`;
+      this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.currentNav}?uid=${this.user.uid}`;
       this.$copyText(shareURL);
       this.isShowModal = true;
     }

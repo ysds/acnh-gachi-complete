@@ -16,14 +16,13 @@ const routes = [
     component: () => import("../views/About.vue")
   },
   {
-    path: "/share2/:category/",
-    name: "Share2",
+    path: "/share/:id/:category",
+    name: "Share",
     component: () => import("../views/Share.vue")
   }
 ];
 
 const router = new VueRouter({
-  mode: "history",
   routes
 });
 

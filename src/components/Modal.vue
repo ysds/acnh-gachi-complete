@@ -130,8 +130,7 @@ export default {
     width: 100%;
     max-width: 400px;
     min-height: 50px;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     padding: 0 1rem;
     border: 1px solid #ccc;
     border-radius: 1rem;

@@ -175,22 +175,22 @@
         </svg>
       </Button>
       <Modal :show="isShowModal" @close="isShowModal = false">
-        <template slot="header">あなたの「{{ navText }}」のURL</template>
+        <template slot="header">{{ navText }}のコンプ状況をシェア</template>
         <div slot="body">
-          <p>URL をクリップボードにコピーしました！</p>
           <p style="word-break: break-all;">
-            公開ページ（{{ navText }}）<br />
+            公開ページの URL<br />
             <router-link :to="`/share/${user.uid}/${currentNav}`">
               {{ shareURL }}
             </router-link>
           </p>
+          <p>URL をクリップボードにコピーしました。</p>
           <div>
             <a
               class="btn"
               :href="
                 `https://twitter.com/intent/tweet?text=%0a${navText}%0a&url=${twitterURL}`
               "
-              >Twitter に投稿</a
+              >Twitter に投稿する</a
             >
           </div>
         </div>

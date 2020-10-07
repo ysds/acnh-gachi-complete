@@ -77,6 +77,9 @@ export default {
       renderStartDate: null
     };
   },
+  watch: {
+    myCollected() {}
+  },
   computed: {
     sharedUid() {
       return this.$route.params.id;
@@ -86,6 +89,15 @@ export default {
     },
     sharedUserName() {
       return this.$store.getters.sharedUserName;
+    },
+    myUser() {
+      return this.$store.getters.user;
+    },
+    myCollected() {
+      return this.$store.getters.localCollectedData;
+    },
+    myUserName() {
+      return this.$store.getters.userName;
     },
     nav() {
       return this.$route.params.category;
@@ -104,7 +116,13 @@ export default {
     }
   },
   mounted() {
-    if (this.sharedCollected === null) {
+    if (this.myUser && this.myUser.uid === this.sharedUid) {
+      this.$store.commit("updateSharedCollected", this.myCollected);
+      this.$store.commit("updateSharedUserName", this.myUserName);
+      this.message = "";
+      this.isLoaded = true;
+      this.updateShowItems();
+    } else if (this.sharedCollected === null) {
       this.loadOtherFirebaseData();
     } else {
       this.message = "";
@@ -114,7 +132,6 @@ export default {
   },
   methods: {
     loadOtherFirebaseData: function() {
-      console.log("load");
       const self = this;
       db.collection("users")
         .doc(self.sharedUid)

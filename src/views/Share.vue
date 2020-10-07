@@ -82,7 +82,7 @@ export default {
   },
   computed: {
     sharedUid() {
-      return this.$route.params.id;
+      return this.$route.query.uid;
     },
     sharedCollected() {
       return this.$store.getters.sharedCollected;

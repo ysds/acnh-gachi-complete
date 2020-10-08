@@ -1,5 +1,6 @@
 const path = require("path");
 const PrerenderSPAPlugin = require("prerender-spa-plugin");
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
 
 module.exports = {
   publicPath:
@@ -17,6 +18,9 @@ module.exports = {
         plugins: [
           new PrerenderSPAPlugin({
             staticDir: path.join(__dirname, "docs"),
+            renderer: new Renderer({
+              maxConcurrentRoutes: 4
+            }),
             routes: [
               "/share2/housewares",
               "/share2/housewares-miscellaneous",

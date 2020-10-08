@@ -100,6 +100,22 @@
         <span class="tg">未取得</span>
       </Button>
     </div>
+    <div class="buttons" style="margin-top: 0.5rem;">
+      <Button
+        @click="onClickCollectedFilter('5')"
+        class="pill"
+        :class="{ active: filter.collectedFilter === '5' }"
+      >
+        もらえる
+      </Button>
+      <Button
+        @click="onClickCollectedFilter('6')"
+        class="pill"
+        :class="{ active: filter.collectedFilter === '6' }"
+      >
+        ゆずれる
+      </Button>
+    </div>
   </div>
 </template>
 
@@ -262,11 +278,24 @@ export default {
   &.nav {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+
+    &.active {
+      font-weight: 700;
+      border-bottom: 4px solid #42b983;
+    }
   }
 
-  &.nav.active {
-    font-weight: 700;
-    border-bottom: 4px solid #42b983;
+  &.pill {
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    width: 100px;
+
+    &.active {
+      font-weight: 700;
+      background-color: #42b983;
+      border-color: transparent;
+      color: #fff;
+    }
   }
 }
 </style>

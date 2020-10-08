@@ -2,8 +2,16 @@
   <div class="share">
     <PageToTop />
     <div class="view-btn-wrapper">
-      <router-link to="/" class="flat-btn">
-        自分のページを表示
+      <Button @click="isOpenLogin = true">
+        <template v-if="isLogin">
+          <img :src="myUser.photoURL" alt="Avatar" class="avatar" />
+        </template>
+        <template v-else-if="isLogin === false">
+          ログイン
+        </template>
+      </Button>
+      <router-link to="/" class="flat-btn back-btn">
+        自分のページ
       </router-link>
     </div>
     <h1 class="header">
@@ -16,10 +24,25 @@
         :showSaleFilter="isShowSaleFilter"
         @change="onChangeFilter"
       />
-      <CollectedBar
-        :totalValue="getTotalLength()"
-        :value="getCollectedLength()"
-      />
+      <div v-show="parseInt(filter.collectedFilter, 10) < 5">
+        <CollectedBar
+          :totalValue="getTotalLength()"
+          :value="getCollectedLength()"
+        />
+      </div>
+    </div>
+    <div class="description" v-show="filter.collectedFilter === '5'">
+      相手が配布可で自分が未取得のアイテム
+    </div>
+    <div class="description" v-show="filter.collectedFilter === '6'">
+      相手が未取得で自分が配布可のアイテム
+    </div>
+    <div class="message" v-show="message !== ''">{{ message }}</div>
+    <div
+      class="message"
+      v-if="!isLogin && parseInt(filter.collectedFilter, 10) > 4"
+    >
+      ログインすると自分のデータと比較できます。
     </div>
     <ul
       class="items"
@@ -36,7 +59,7 @@
         :renderStartDate="renderStartDate"
       />
     </ul>
-    <div class="message">{{ message }}</div>
+    <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
   </div>
 </template>
 
@@ -54,6 +77,8 @@ import Item from "../components/Item.vue";
 import FilterUIShared from "../components/FilterUIShared.vue";
 import CollectedBar from "../components/CollectedBar.vue";
 import PageToTop from "../components/PageToTop.vue";
+import Login from "../components/Login.vue";
+import Button from "../components/Button.vue";
 
 const db = firebase.firestore();
 
@@ -62,7 +87,9 @@ export default {
     Item,
     FilterUIShared,
     CollectedBar,
-    PageToTop
+    PageToTop,
+    Login,
+    Button
   },
   data() {
     return {
@@ -74,11 +101,9 @@ export default {
         collectedFilter: "0",
         viewMode: "tile"
       },
-      renderStartDate: null
+      renderStartDate: null,
+      isOpenLogin: false
     };
-  },
-  watch: {
-    myCollected() {}
   },
   computed: {
     sharedUid() {
@@ -110,6 +135,9 @@ export default {
         }
       }
       return false;
+    },
+    isLogin() {
+      return this.$store.getters.isLogin;
     },
     navText: function() {
       return getNavText(this.nav);
@@ -170,7 +198,7 @@ export default {
         : this.sharedCollected[item.name];
     },
     onChangeFilter: function(activeFilter) {
-      this.filter = activeFilter;
+      this.filter = Object.assign({}, activeFilter);
       this.updateShowItems();
     },
     getTotalLength: function() {
@@ -196,6 +224,7 @@ export default {
 
       let result = filterItems({
         collected: self.sharedCollected,
+        myCollected: self.myCollected,
         nav: self.nav,
         filter: self.filter,
         isSearchMode: false,
@@ -252,7 +281,11 @@ export default {
   align-items: center;
   position: absolute;
   right: 12px;
-  top: 12px;
+  top: 4px;
+
+  > * {
+    margin-left: 4px;
+  }
 }
 
 .header {
@@ -294,10 +327,25 @@ export default {
   text-align: center;
 }
 
-.flat-btn {
+.back-btn {
   border: 1px solid #ccc;
+  height: 34px;
+  min-height: 34px;
+  line-height: 34px;
+}
+
+.description {
+  text-align: center;
+  font-weight: 700;
+  background-color: #eee;
+  padding: 0.5rem;
+  margin-top: -13px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  width: 32px;
   height: 32px;
-  min-height: 32px;
-  line-height: 32px;
+  border-radius: 50%;
 }
 </style>

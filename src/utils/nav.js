@@ -31,6 +31,7 @@ export function filterItems(args) {
 
   let {
     collected,
+    myCollected,
     nav,
     filter,
     isSearchMode,
@@ -81,7 +82,10 @@ export function filterItems(args) {
       }
     }
     // 配布可のみ
-    if (filter && filter.collectedFilter === "2") {
+    if (
+      filter &&
+      (filter.collectedFilter === "2" || filter.collectedFilter === "5")
+    ) {
       if (item.uniqueEntryId) {
         if (
           !collected[item.uniqueEntryId] ||
@@ -105,7 +109,10 @@ export function filterItems(args) {
       }
     }
     // 未取得
-    else if (filter && filter.collectedFilter === "4") {
+    else if (
+      filter &&
+      (filter.collectedFilter === "4" || filter.collectedFilter === "6")
+    ) {
       if (item.uniqueEntryId) {
         if (collected[item.uniqueEntryId]) return false;
       } else if (
@@ -113,6 +120,31 @@ export function filterItems(args) {
         item.variants.length === collected[item.name].length
       ) {
         return false;
+      }
+    }
+    // もらえる
+    if (filter && filter.collectedFilter === "5") {
+      if (item.uniqueEntryId) {
+        if (myCollected[item.uniqueEntryId]) return false;
+      } else if (
+        myCollected[item.name] &&
+        item.variants.length === myCollected[item.name].length
+      ) {
+        return false;
+      }
+    }
+    // ゆずれる
+    if (filter && filter.collectedFilter === "6") {
+      if (item.uniqueEntryId) {
+        if (
+          !myCollected[item.uniqueEntryId] ||
+          !myCollected[item.uniqueEntryId] === "A"
+        )
+          return false;
+      } else {
+        const collectedData = myCollected[item.name] || "";
+        const length = (collectedData.match(/[A-J]/g) || []).length;
+        if (length === 0) return false;
       }
     }
     // 家具

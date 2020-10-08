@@ -55,7 +55,7 @@
           <CheckForTile
             :name="i === 0 ? item.displayName : ''"
             :image="getVariantTileImage(item.variants[index])"
-            :value="checks[index]"
+            :value="getChecks(index)"
             :variant="item.variants[index]"
             :variants="item.variants"
             :isStatic="isStatic"
@@ -69,7 +69,7 @@
           <CheckForTile
             :name="item.displayName"
             :image="getSingeItemImage(item)"
-            :value="checks[0]"
+            :value="getChecks(0)"
             :isRecipe="item.sourceSheet === 'Recipes'"
             :isStatic="isStatic"
             :isRemake="item.bodyCustomize || item.patternCustomize"
@@ -220,14 +220,20 @@ export default {
           result.push(key);
         } else if (collectedFilter === "1" && checks[key] === 1) {
           result.push(key);
-        } else if (collectedFilter === "2" && checks[key] === 2) {
+        } else if (
+          (collectedFilter === "2" || collectedFilter === "5") &&
+          checks[key] === 2
+        ) {
           result.push(key);
         } else if (
           collectedFilter === "3" &&
           (checks[key] === 1 || checks[key] === 2)
         ) {
           result.push(key);
-        } else if (collectedFilter === "4" && checks[key] === 0) {
+        } else if (
+          (collectedFilter === "4" || collectedFilter === "6") &&
+          checks[key] === 0
+        ) {
           result.push(key);
         }
       });
@@ -243,14 +249,20 @@ export default {
         return true;
       } else if (collectedFilter === "1" && checks[0] === 1) {
         return true;
-      } else if (collectedFilter === "2" && checks[0] === 2) {
+      } else if (
+        (collectedFilter === "2" || collectedFilter === "5") &&
+        checks[0] === 2
+      ) {
         return true;
       } else if (
         collectedFilter === "3" &&
         (checks[0] === 1 || checks[0] === 2)
       ) {
         return true;
-      } else if (collectedFilter === "4" && checks[0] === 0) {
+      } else if (
+        (collectedFilter === "4" || collectedFilter === "6") &&
+        checks[0] === 0
+      ) {
         return true;
       }
     },
@@ -272,6 +284,14 @@ export default {
     showModal: function(event) {
       event.preventDefault();
       this.$emit("showModal", this.item);
+    },
+    getChecks(index) {
+      if (this.filter.collectedFilter === "5") {
+        return 0;
+      } else if (this.filter.collectedFilter === "6") {
+        return 2;
+      }
+      return this.checks[index];
     }
   }
 };

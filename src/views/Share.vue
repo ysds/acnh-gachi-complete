@@ -31,19 +31,20 @@
         />
       </div>
     </div>
-    <div class="description" v-show="filter.collectedFilter === '5'">
-      相手が配布可で自分が未取得のアイテム
-    </div>
-    <div class="description" v-show="filter.collectedFilter === '6'">
-      相手が未取得で自分が配布可のアイテム
-    </div>
+    <template v-if="!isLogin && parseInt(filter.collectedFilter, 10) > 4">
+      <div class="description">
+        ログインすると自分のデータと比較できます。
+      </div>
+    </template>
+    <template v-else>
+      <div class="description" v-show="filter.collectedFilter === '5'">
+        相手が配布可で自分が未取得のアイテム
+      </div>
+      <div class="description" v-show="filter.collectedFilter === '6'">
+        相手が未取得で自分が配布可のアイテム
+      </div>
+    </template>
     <div class="message" v-show="message !== ''">{{ message }}</div>
-    <div
-      class="message"
-      v-if="!isLogin && parseInt(filter.collectedFilter, 10) > 4"
-    >
-      ログインすると自分のデータと比較できます。
-    </div>
     <ul
       class="items"
       :class="{ tiles: filter.viewMode === 'tile' }"
@@ -337,10 +338,11 @@ export default {
 .description {
   text-align: center;
   font-weight: 700;
+  font-size: 14px;
   background-color: #eee;
   padding: 0.5rem;
-  margin-top: -13px;
-  margin-bottom: 12px;
+  margin-top: -12px;
+  margin-bottom: 14px;
 }
 
 .avatar {

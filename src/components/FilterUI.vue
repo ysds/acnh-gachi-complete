@@ -197,7 +197,7 @@
               <a
                 class="btn"
                 :href="
-                  `https://twitter.com/intent/tweet?text=%0a${navText}%0a&url=${twitterURL}`
+                  `https://twitter.com/intent/tweet?text=${navText}%0a${twitterURL}%0a%0a%23あつ森ガチコンプ`
                 "
                 >Twitter に投稿する</a
               >

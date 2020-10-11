@@ -110,6 +110,7 @@ content.forEach(item => {
   }
 
   if (item.displayName === "uchiwa fan") item.displayName = "うちわ";
+  if (item.displayName === "わ") item.displayName = "ゆびわ";
 
   //
   // 翻訳
@@ -178,6 +179,12 @@ content.forEach(item => {
           item.variants[index].variationDisplayName = translate.locale.JPja;
         }
       });
+      if (item.name === "jockey uniform" && variant.variation === "Ring") {
+        item.variants[index].variationDisplayName = "わ";
+      }
+      if (item.name === "essay set" && variant.variation === "Blank") {
+        item.variants[index].variationDisplayName = "白紙";
+      }
     });
   }
   // Body variants

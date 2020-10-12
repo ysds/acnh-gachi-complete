@@ -5,6 +5,7 @@
     :class="{ active: active }"
     @click="onClick"
     @touchstart="onTouchStart"
+    @mousedown="onTouchStart"
   >
     <slot></slot>
   </button>

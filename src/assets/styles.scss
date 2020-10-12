@@ -33,6 +33,11 @@ body {
     text-decoration: none;
   }
 
+  &:focus {
+    outline: 0;
+    background-color: #e3e3e3;
+  }
+
   > svg {
     margin-top: -5px;
     pointer-events: none;

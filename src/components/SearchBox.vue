@@ -135,6 +135,7 @@ export default {
 
 .search-input {
   width: 100%;
+  height: 34px;
   margin-top: 2px;
   appearance: none;
   padding-right: 0;

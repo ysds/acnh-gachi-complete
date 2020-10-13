@@ -1,28 +1,31 @@
 <template>
   <div>
-    <Button
-      v-if="!isOpen"
-      @click="isOpen = !isOpen"
-      :class="{ active: isOpen }"
-    >
-      一括公開するカテゴリの設定
-    </Button>
-    <div v-else style="margin-bottom: .5rem;">
-      <div>
-        <button class="edit-btn" type="button" @click="cancel">
-          キャンセル
-        </button>
-        <button
-          class="edit-btn"
-          type="button"
-          @click="save"
-          style="margin-left: 1rem;"
-        >
-          保存
-        </button>
+    <div style="text-align: center;">
+      <Button
+        v-if="!isOpen"
+        @click="isOpen = !isOpen"
+        :class="{ active: isOpen }"
+      >
+        一括公開するカテゴリの設定
+      </Button>
+      <div v-else style="margin-bottom: .5rem;">
+        <div>
+          <button class="edit-btn" type="button" @click="cancel">
+            キャンセル
+          </button>
+          <button
+            class="edit-btn"
+            type="button"
+            @click="save"
+            style="margin-left: 1rem;"
+          >
+            保存
+          </button>
+        </div>
+        <p class="message">変更を反映するには保存を押してください。</p>
       </div>
-      <p class="message">変更を反映するには保存を押してください。</p>
     </div>
+
     <div v-show="isOpen">
       <div class="group" v-for="nav in navs" :key="nav.id">
         <template v-if="nav.subnavs">

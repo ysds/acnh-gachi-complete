@@ -68,15 +68,17 @@
               }}</a
             >
           </div>
-          <a
-            class="btn"
-            :href="
-              `https://twitter.com/intent/tweet?text=取得状況%0ahttps://ysds.github.io/acnh-gachi-complete/shares/?uid=${user.uid}%0a%0a%23あつ森ガチコンプ`
-            "
-            style="margin: 0 0 1rem;"
-          >
-            Twitter に投稿する
-          </a>
+          <div style="text-align: center;">
+            <a
+              class="btn"
+              :href="
+                `https://twitter.com/intent/tweet?text=取得状況%0ahttps://ysds.github.io/acnh-gachi-complete/shares/?uid=${user.uid}%0a%0a%23あつ森ガチコンプ`
+              "
+              style="margin: 0 0 1rem;"
+            >
+              Twitter に投稿する
+            </a>
+          </div>
           <p class="small">
             この URL
             を他の人に伝えることで、任意のカテゴリを一括でシェアできます。公開したいカテゴリを以下から選択してください。

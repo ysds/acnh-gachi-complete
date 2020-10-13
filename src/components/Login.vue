@@ -63,9 +63,20 @@
           <div class="section-label mb-4">一括シェア</div>
           <div class="link">
             <a :href="`/shares/?uid=${user.uid}`"
-              >https://ysds.github.io/acnh-gachi-complete/shares/?uid=XXXXXXXXXXXXXXXXX</a
+              >https://ysds.github.io/acnh-gachi-complete/shares/?uid={{
+                user.uid
+              }}</a
             >
           </div>
+          <a
+            class="btn"
+            :href="
+              `https://twitter.com/intent/tweet?text=取得状況%0ahttps://ysds.github.io/acnh-gachi-complete/shares/?uid=${user.uid}%0a%0a%23あつ森ガチコンプ`
+            "
+            style="margin: 0 0 1rem;"
+          >
+            Twitter に投稿する
+          </a>
           <p class="small">
             この URL
             を他の人に伝えることで、任意のカテゴリを一括でシェアできます。公開したいカテゴリを以下から選択してください。
@@ -93,7 +104,7 @@
           ログインすると、データが自動的にクラウドに保存され、シェア機能を使えるようになります。
         </p>
 
-        <button type="button" class="btn btn-google" @click="login('google')">
+        <button type="button" class="btn" @click="login('google')">
           <img
             src="../assets/google.svg"
             width="24px"
@@ -102,7 +113,7 @@
           />
           Google でログイン
         </button>
-        <button type="button" class="btn btn-google" @click="login('twitter')">
+        <button type="button" class="btn" @click="login('twitter')">
           <img
             src="../assets/Twitter_Logo_Blue.svg"
             width="40px"

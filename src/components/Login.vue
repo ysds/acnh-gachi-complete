@@ -45,13 +45,32 @@
             <button class="edit-btn" type="button" @click="cancelName">
               キャンセル
             </button>
-            <button class="edit-btn" type="button" @click="saveName">
+            <button
+              class="edit-btn"
+              type="button"
+              @click="saveName"
+              style="margin-left: 1rem;"
+            >
               保存
             </button>
           </div>
           <p class="small">
             シェア機能使用時にこの名前が相手に表示されます。
           </p>
+        </div>
+
+        <div class="section">
+          <div class="section-label mb-4">一括シェア</div>
+          <div class="link">
+            <a :href="`/shares/?uid=${user.uid}`"
+              >https://ysds.github.io/acnh-gachi-complete/shares/?uid=XXXXXXXXXXXXXXXXX</a
+            >
+          </div>
+          <p class="small">
+            この URL
+            を他の人に伝えることで、任意のカテゴリを一括でシェアできます。公開したいカテゴリを以下から選択してください。
+          </p>
+          <LoginShare />
         </div>
 
         <div class="section">
@@ -101,6 +120,7 @@ import firebase from "../plugins/firebase";
 import Auth from "../utils/auth";
 import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
+import LoginShare from "../components/LoginShare";
 
 const db = firebase.firestore();
 
@@ -108,7 +128,8 @@ export default {
   name: "Login",
   components: {
     CloseButton,
-    Button
+    Button,
+    LoginShare
   },
   data() {
     return {
@@ -218,13 +239,12 @@ export default {
 }
 
 .section-label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   flex-shrink: 0;
-  padding: 0.2rem;
-  width: 80px;
+  padding: 0.2rem 1rem;
   border-radius: 4px;
   color: #fff;
   background-color: #ec407a;
@@ -248,7 +268,6 @@ export default {
 }
 
 .edit-btn {
-  margin-left: 1rem;
   padding: 0.5rem 0.75rem;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -284,5 +303,10 @@ export default {
   min-width: 38px;
   height: 38px;
   line-height: 38px;
+}
+
+.link {
+  word-break: break-all;
+  margin-bottom: 1rem;
 }
 </style>

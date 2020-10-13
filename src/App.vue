@@ -108,12 +108,14 @@ export default {
               );
               const updateIndex = data.updateIndex || 0;
               const userName = data.userName || user.displayName || null;
+              const shareCategories = data.shareCategories || [];
 
               self.$store.commit("initCloudCollectedData", {
                 collected,
                 updateIndex
               });
               self.$store.commit("updateUserName", userName);
+              self.$store.commit("updateShareCategories", shareCategories);
             } else {
               const userName = user.displayName || null;
               db.collection("users")

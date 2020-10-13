@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Collection from "../views/Collection.vue";
+import Share from "../views/Share.vue";
 
 Vue.use(VueRouter);
 
@@ -18,7 +19,12 @@ const routes = [
   {
     path: "/share2/:category/",
     name: "Share2",
-    component: () => import("../views/Share.vue")
+    component: Share
+  },
+  {
+    path: "/shares/",
+    name: "Shares",
+    component: Share
   }
 ];
 

@@ -15,6 +15,8 @@ export default new Vuex.Store({
     cloudUpdateIndex: null,
     sharedCollected: null,
     sharedUserName: null,
+    shareCategories: [],
+    sharedShareCategories: [],
     hasUpdateData: false
   },
   mutations: {
@@ -88,6 +90,12 @@ export default new Vuex.Store({
     updateSharedUserName(state, data) {
       state.sharedUserName = data;
     },
+    updateShareCategories(state, data) {
+      state.shareCategories = data;
+    },
+    updateSharedShareCategories(state, data) {
+      state.sharedShareCategories = data;
+    },
     updateHasUpdateData(state, data) {
       state.hasUpdateData = data;
     }
@@ -119,6 +127,12 @@ export default new Vuex.Store({
     },
     sharedUserName(state) {
       return state.sharedUserName;
+    },
+    shareCategories(state) {
+      return state.shareCategories;
+    },
+    sharedShareCategories(state) {
+      return state.sharedShareCategories;
     },
     hasUpdateData(state) {
       return state.hasUpdateData;

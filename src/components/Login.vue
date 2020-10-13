@@ -62,7 +62,7 @@
         <div class="section">
           <div class="section-label mb-4">一括シェア</div>
           <div class="link">
-            <a :href="`/shares/?uid=${user.uid}`"
+            <a :href="`${baseURL}shares/?uid=${user.uid}`"
               >https://ysds.github.io/acnh-gachi-complete/shares/?uid={{
                 user.uid
               }}</a
@@ -134,6 +134,7 @@ import Button from "../components/Button";
 import LoginShare from "../components/LoginShare";
 
 const db = firebase.firestore();
+const baseURL = process.env.BASE_URL;
 
 export default {
   name: "Login",
@@ -145,7 +146,8 @@ export default {
   data() {
     return {
       isEditName: false,
-      editingName: ""
+      editingName: "",
+      baseURL: baseURL
     };
   },
   computed: {
@@ -181,6 +183,7 @@ export default {
     },
     cancelName() {
       this.isEditName = false;
+      console.log(this.$route);
     },
     saveName() {
       db.collection("users")

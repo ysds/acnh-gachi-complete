@@ -64,7 +64,7 @@
           />
         </li>
       </ul>
-      <ul v-else-if="isShowNoVariantsItem()" class="tile-variants">
+      <ul v-else class="tile-variants">
         <li class="t" v-long-press>
           <CheckForTile
             :name="item.displayName"
@@ -96,6 +96,10 @@ export default {
       type: [String, Array],
       default: ""
     },
+    myCollected: {
+      type: [String, Array],
+      default: ""
+    },
     item: Object,
     filter: Object,
     isSearchMode: Boolean,
@@ -115,6 +119,7 @@ export default {
   data() {
     return {
       checks: {},
+      myChecks: {},
       filteredCheckIndexes: null
     };
   },
@@ -137,14 +142,16 @@ export default {
   },
   watch: {
     collected: function() {
-      this.checks = this.updateChecks();
+      this.checks = this.updateChecks(this.collected);
+      this.myChecks = this.updateChecks(this.myCollected);
     },
     renderStartDate: function() {
       this.filteredCheckIndexes = this.updateFilteredCheckIndexes();
     }
   },
   mounted() {
-    this.checks = this.updateChecks();
+    this.checks = this.updateChecks(this.collected);
+    this.myChecks = this.updateChecks(this.myCollected);
     this.filteredCheckIndexes = this.updateFilteredCheckIndexes();
   },
   methods: {
@@ -168,11 +175,10 @@ export default {
       }
       return "";
     },
-    updateChecks: function() {
+    updateChecks: function(collected) {
       let result = {};
       const item = this.item;
-      const collected =
-        typeof this.collected === "string" ? this.collected : "";
+      collected = typeof collected === "string" ? collected : "";
 
       // No variants item
       if (item.uniqueEntryId) {
@@ -214,57 +220,38 @@ export default {
       const collectedFilter = this.filter.collectedFilter;
       const isSearchMode = this.isSearchMode || false;
       const checks = this.checks;
+      const myChecks = this.myChecks;
 
       Object.keys(checks).forEach(function(key) {
         if (collectedFilter === "0" || isSearchMode) {
           result.push(key);
         } else if (collectedFilter === "1" && checks[key] === 1) {
           result.push(key);
-        } else if (
-          (collectedFilter === "2" || collectedFilter === "5") &&
-          checks[key] === 2
-        ) {
+        } else if (collectedFilter === "2" && checks[key] === 2) {
           result.push(key);
         } else if (
           collectedFilter === "3" &&
           (checks[key] === 1 || checks[key] === 2)
         ) {
           result.push(key);
+        } else if (collectedFilter === "4" && checks[key] === 0) {
+          result.push(key);
         } else if (
-          (collectedFilter === "4" || collectedFilter === "6") &&
-          checks[key] === 0
+          collectedFilter === "5" &&
+          checks[key] === 2 &&
+          myChecks[key] === 0
+        ) {
+          result.push(key);
+        } else if (
+          collectedFilter === "6" &&
+          checks[key] === 0 &&
+          myChecks[key] === 2
         ) {
           result.push(key);
         }
       });
 
       return result;
-    },
-    isShowNoVariantsItem: function() {
-      const collectedFilter = this.filter.collectedFilter;
-      const isSearchMode = this.isSearchMode || false;
-      const checks = this.checks;
-
-      if (collectedFilter === "0" || isSearchMode) {
-        return true;
-      } else if (collectedFilter === "1" && checks[0] === 1) {
-        return true;
-      } else if (
-        (collectedFilter === "2" || collectedFilter === "5") &&
-        checks[0] === 2
-      ) {
-        return true;
-      } else if (
-        collectedFilter === "3" &&
-        (checks[0] === 1 || checks[0] === 2)
-      ) {
-        return true;
-      } else if (
-        (collectedFilter === "4" || collectedFilter === "6") &&
-        checks[0] === 0
-      ) {
-        return true;
-      }
     },
     onChangeCheck: function(index) {
       const currentValue = this.checks[index];

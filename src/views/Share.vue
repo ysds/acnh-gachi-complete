@@ -72,6 +72,7 @@
         :key="item.name + item.sourceSheet"
         :item="item"
         :collected="getCollected(item)"
+        :myCollected="getMyCollected(item)"
         :filter="filter"
         :isStatic="true"
         :renderStartDate="renderStartDate"
@@ -247,6 +248,11 @@ export default {
       return item.uniqueEntryId
         ? this.sharedCollected[item.uniqueEntryId]
         : this.sharedCollected[item.name];
+    },
+    getMyCollected: function(item) {
+      return item.uniqueEntryId
+        ? this.myCollected[item.uniqueEntryId]
+        : this.myCollected[item.name];
     },
     onChangeFilter: function(activeFilter) {
       this.filter = Object.assign({}, activeFilter);

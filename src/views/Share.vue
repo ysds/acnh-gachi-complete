@@ -135,6 +135,9 @@ export default {
     sharedUserName() {
       return this.$store.getters.sharedUserName;
     },
+    sharedShareCategories() {
+      return this.$store.getters.sharedShareCategories;
+    },
     myUser() {
       return this.$store.getters.user;
     },
@@ -143,6 +146,9 @@ export default {
     },
     myUserName() {
       return this.$store.getters.userName;
+    },
+    myShareCategories() {
+      return this.$store.getters.shareCategories;
     },
     isShowSaleFilter: function() {
       if (this.nav) {
@@ -159,39 +165,38 @@ export default {
     navText: function() {
       return getNavText(this.nav);
     },
-    myShareCategories() {
-      return this.$store.getters.shareCategories;
-    },
-    sharedShareCategories() {
-      return this.$store.getters.sharedShareCategories;
-    },
     isShares() {
       return this.$route.name === "Shares";
     }
   },
   mounted() {
-    if (!this.isShares) {
-      this.nav = this.$route.params.category;
-    }
+    this.loadOtherFirebaseData();
 
-    if (this.myUser && this.myUser.uid === this.sharedUid) {
-      this.$store.commit("updateSharedCollected", this.myCollected);
-      this.$store.commit("updateSharedUserName", this.myUserName);
-      this.$store.commit("updateSharedShareCategories", this.myShareCategories);
-      this.nav = this.myShareCategories[0];
-      if (this.nav.length > 0) {
-        this.message = "";
-      } else {
-        this.message = "データは非公開です。";
+    // if (this.sharedCollected === null) {
+    //   console.log(1);
+    //   this.loadOtherFirebaseData();
+    // }
+    // // 自分のページを表示したとき（ブラウザバック）
+    // else if (this.myUser && this.myUser.uid === this.sharedUid) {
+    //   console.log(2);
+    //   this.$store.commit("updateSharedCollected", this.myCollected);
+    //   this.$store.commit("updateSharedUserName", this.myUserName);
+    //   this.$store.commit("updateSharedShareCategories", this.myShareCategories);
+    //   this.finishMounted(this.myShareCategorie);
+    // }
+    // // 他人のページを初期表示したとき（ブラウザバック）
+    // else {
+    //   console.log(3);
+
+    //   this.finishMounted(this.sharedShareCategories);
+    // }
+  },
+  watch: {
+    myCollected() {
+      const collectedFilter = this.filter.collectedFilter;
+      if (collectedFilter === "5" || collectedFilter === "6") {
+        this.updateShowItems;
       }
-      this.isLoaded = true;
-      this.updateShowItems();
-    } else if (this.sharedCollected === null) {
-      this.loadOtherFirebaseData();
-    } else {
-      this.message = "";
-      this.isLoaded = true;
-      this.updateShowItems();
     }
   },
   methods: {
@@ -212,23 +217,12 @@ export default {
               "updateSharedShareCategories",
               doc.data().shareCategories
             ) || [];
-            self.message = "";
-            self.isLoaded = true;
-            self.nav = self.sharedShareCategories
-              ? self.sharedShareCategories[0]
-              : "";
-            if (self.nav.length > 0) {
-              self.message = "";
-            } else {
-              self.message = "データは非公開です。";
-            }
-            self.updateShowItems();
+            self.finishMounted(self.sharedShareCategories);
           } else {
             self.message =
               "データを読み込めませんでした。URL が間違えているか、データが存在しません。";
             self.isLoaded = true;
             self.$store.commit("updateSharedCollected", {});
-
             self.updateShowItems();
           }
         })
@@ -240,6 +234,23 @@ export default {
 
           self.updateShowItems();
         });
+    },
+    finishMounted(shareCategories) {
+      if (!this.isShares) {
+        this.nav = this.$route.params.category;
+      } else {
+        this.nav =
+          shareCategories && shareCategories.length > 0
+            ? shareCategories[0]
+            : "";
+      }
+      if (this.nav && this.nav.length > 0) {
+        this.message = "";
+      } else {
+        this.message = "データは非公開です。";
+      }
+      this.isLoaded = true;
+      this.updateShowItems();
     },
     getNavText(id) {
       return getNavText(id);

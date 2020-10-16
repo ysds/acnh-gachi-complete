@@ -306,10 +306,14 @@ export default {
         if (!isDefinedNav) nav = null;
       }
 
+      if (filter.saleFilter.indexOf(/[012345]/g)) {
+        filter.saleFilter = "all";
+      }
+
       this.nav = nav || "housewares";
       this.filter = Object.assign(
         {
-          saleFilter: "0",
+          saleFilter: "all",
           collectedFilter: "0",
           viewMode: "tile"
         },
@@ -363,6 +367,13 @@ export default {
     },
     onChangeNav: function(activeNav) {
       if (this.nav === activeNav) return;
+
+      // Reset saleFilter
+      const prevCategory = this.nav.split("-")[0];
+      if (activeNav.indexOf(prevCategory) === -1) {
+        this.filter.saleFilter = "all";
+      }
+
       this.nav = activeNav;
       this.updateShowItems();
       this.$vlf.setItem("nav", this.nav);

@@ -39,6 +39,7 @@
       <FilterUIShared
         :filter="filter"
         :showSaleFilter="isShowSaleFilter"
+        :currentNav="nav"
         @change="onChangeFilter"
       />
       <div v-show="parseInt(filter.collectedFilter, 10) < 5">
@@ -117,7 +118,7 @@ export default {
       isLoaded: false,
       showItems: [],
       filter: {
-        saleFilter: "0",
+        saleFilter: "all",
         collectedFilter: "0",
         viewMode: "tile"
       },
@@ -286,6 +287,12 @@ export default {
       });
     },
     changeNav(category) {
+      // Reset saleFilter
+      const prevCategory = this.nav.split("-")[0];
+      if (category.indexOf(prevCategory) === -1) {
+        this.filter.saleFilter = "all";
+      }
+
       this.nav = category;
       this.updateShowItems();
     },

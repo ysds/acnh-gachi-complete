@@ -40,7 +40,9 @@ export function filterItems(args) {
   } = args;
 
   return items.filter(item => {
+    //
     // 検索
+    //
     if (isSearchMode) {
       if (searchText === "") {
         return false;
@@ -49,104 +51,154 @@ export function filterItems(args) {
       const normalizedSearchText = normalizeText(searchText);
       return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
     }
+
+    //
+    // 取得方法
+    //
+
     // 商店
-    if (isShowSaleFilter && filter.saleFilter === "1") {
-      if (
-        item.catalog === "Not for sale" ||
-        item.catalog === "Not in catalog" ||
-        item.catalog === false
-      )
-        return false;
-    }
-    // DIY
-    if (isShowSaleFilter && filter.saleFilter === "2") {
-      if (!item.diy) return false;
-    }
-    // その他
-    if (isShowSaleFilter && filter.saleFilter === "3") {
-      if (item.diy || item.catalog === "For sale" || item.catalog === true)
-        return false;
-    }
-    // 取得のみ
-    if (filter && filter.collectedFilter === "1") {
-      if (item.uniqueEntryId) {
+    if (isShowSaleFilter) {
+      if (filter.saleFilter === "catalog") {
         if (
-          !collected[item.uniqueEntryId] ||
-          !collected[item.uniqueEntryId] === "0"
+          item.catalog === "Not for sale" ||
+          item.catalog === "Not in catalog" ||
+          item.catalog === false
         )
           return false;
-      } else {
-        const collectedData = collected[item.name] || "";
-        const length = (collectedData.match(/[0-9]/g) || []).length;
-        if (length === 0) return false;
       }
-    }
-    // 配布可のみ
-    if (
-      filter &&
-      (filter.collectedFilter === "2" || filter.collectedFilter === "5")
-    ) {
-      if (item.uniqueEntryId) {
-        if (
-          !collected[item.uniqueEntryId] ||
-          !collected[item.uniqueEntryId] === "A"
-        )
+      // DIY
+      else if (filter.saleFilter === "diy") {
+        if (!item.diy) return false;
+      }
+      // その他
+      else if (filter.saleFilter === "other") {
+        if (item.diy || item.catalog === "For sale" || item.catalog === true)
           return false;
-      } else {
-        const collectedData = collected[item.name] || "";
-        const length = (collectedData.match(/[A-J]/g) || []).length;
-        if (length === 0) return false;
+      }
+      // エイブル
+      else if (filter.saleFilter === "able") {
+        if (
+          item.variants &&
+          !item.variants[0].source.includes("Able Sisters")
+        ) {
+          return false;
+        }
+      }
+      // シャンク
+      else if (filter.saleFilter === "kicks") {
+        if (item.variants && !item.variants[0].source.includes("Kicks")) {
+          return false;
+        }
+      }
+      // ことの
+      else if (filter.saleFilter === "labelle") {
+        if (item.variants && !item.variants[0].source.includes("Label")) {
+          return false;
+        }
+      }
+      // 日替わり
+      else if (filter.saleFilter === "daly") {
+        if (
+          item.variants &&
+          !item.variants[0].source.includes("Nook Shopping Daily Selection")
+        ) {
+          return false;
+        }
       }
     }
-    // 取得or配布
-    if (filter && filter.collectedFilter === "3") {
-      if (item.uniqueEntryId) {
-        if (!collected[item.uniqueEntryId]) return false;
-      } else {
-        const collectedData = collected[item.name] || "";
-        const length = (collectedData.match(/[0-9A-J]/g) || []).length;
-        if (length === 0) return false;
+
+    //
+    // チェック状態
+    //
+
+    if (filter) {
+      // 取得のみ
+      if (filter.collectedFilter === "1") {
+        if (item.uniqueEntryId) {
+          if (
+            !collected[item.uniqueEntryId] ||
+            !collected[item.uniqueEntryId] === "0"
+          )
+            return false;
+        } else {
+          const collectedData = collected[item.name] || "";
+          const length = (collectedData.match(/[0-9]/g) || []).length;
+          if (length === 0) return false;
+        }
       }
-    }
-    // 未取得
-    else if (
-      filter &&
-      (filter.collectedFilter === "4" || filter.collectedFilter === "6")
-    ) {
-      if (item.uniqueEntryId) {
-        if (collected[item.uniqueEntryId]) return false;
-      } else if (
-        collected[item.name] &&
-        item.variants.length === collected[item.name].length
+      // 配布可のみ
+      else if (
+        filter.collectedFilter === "2" ||
+        filter.collectedFilter === "5"
       ) {
-        return false;
+        if (item.uniqueEntryId) {
+          if (
+            !collected[item.uniqueEntryId] ||
+            !collected[item.uniqueEntryId] === "A"
+          )
+            return false;
+        } else {
+          const collectedData = collected[item.name] || "";
+          const length = (collectedData.match(/[A-J]/g) || []).length;
+          if (length === 0) return false;
+        }
       }
-    }
-    // もらえる
-    if (filter && filter.collectedFilter === "5") {
-      if (item.uniqueEntryId) {
-        if (myCollected[item.uniqueEntryId]) return false;
-      } else if (
-        myCollected[item.name] &&
-        item.variants.length === myCollected[item.name].length
+      // 取得or配布
+      else if (filter.collectedFilter === "3") {
+        if (item.uniqueEntryId) {
+          if (!collected[item.uniqueEntryId]) return false;
+        } else {
+          const collectedData = collected[item.name] || "";
+          const length = (collectedData.match(/[0-9A-J]/g) || []).length;
+          if (length === 0) return false;
+        }
+      }
+      // 未取得
+      else if (
+        filter.collectedFilter === "4" ||
+        filter.collectedFilter === "6"
       ) {
-        return false;
-      }
-    }
-    // ゆずれる
-    if (filter && filter.collectedFilter === "6") {
-      if (item.uniqueEntryId) {
-        if (
-          !myCollected[item.uniqueEntryId] ||
-          !myCollected[item.uniqueEntryId] === "A"
-        )
+        if (item.uniqueEntryId) {
+          if (collected[item.uniqueEntryId]) return false;
+        } else if (
+          collected[item.name] &&
+          item.variants.length === collected[item.name].length
+        ) {
           return false;
-      } else {
-        const collectedData = myCollected[item.name] || "";
-        const length = (collectedData.match(/[A-J]/g) || []).length;
-        if (length === 0) return false;
+        }
+      }
+
+      // もらえる
+      if (filter.collectedFilter === "5") {
+        if (item.uniqueEntryId) {
+          if (myCollected[item.uniqueEntryId]) return false;
+        } else if (
+          myCollected[item.name] &&
+          item.variants.length === myCollected[item.name].length
+        ) {
+          return false;
+        }
+      }
+      // ゆずれる
+      else if (filter.collectedFilter === "6") {
+        if (item.uniqueEntryId) {
+          if (
+            !myCollected[item.uniqueEntryId] ||
+            !myCollected[item.uniqueEntryId] === "A"
+          )
+            return false;
+        } else {
+          const collectedData = myCollected[item.name] || "";
+          const length = (collectedData.match(/[A-J]/g) || []).length;
+          if (length === 0) return false;
+        }
       }
     }
+
+    //
+    // Nav
+    //
+
     // 家具
     if (nav === "housewares") {
       return (

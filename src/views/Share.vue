@@ -90,7 +90,8 @@ import {
   filterItems,
   totalLength,
   collectedLength,
-  getNavText
+  getNavText,
+  navs
 } from "../utils/nav.js";
 
 import Item from "../components/Item.vue";
@@ -137,7 +138,26 @@ export default {
       return this.$store.getters.sharedUserName;
     },
     sharedShareCategories() {
-      return this.$store.getters.sharedShareCategories;
+      const sharedShareCategories = this.$store.getters.sharedShareCategories;
+
+      let correctOrder = [];
+      navs.forEach(nav => {
+        if (nav.subnavs) {
+          nav.subnavs.forEach(subnav => {
+            correctOrder.push(subnav.id);
+          });
+        } else {
+          correctOrder.push(nav.id);
+        }
+      });
+      let reOrder = [];
+      correctOrder.forEach(id => {
+        if (sharedShareCategories.includes(id)) {
+          reOrder.push(id);
+        }
+      });
+
+      return reOrder;
     },
     myUser() {
       return this.$store.getters.user;

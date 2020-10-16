@@ -138,7 +138,8 @@ export default {
       return this.$store.getters.sharedUserName;
     },
     sharedShareCategories() {
-      const sharedShareCategories = this.$store.getters.sharedShareCategories;
+      const sharedShareCategories =
+        this.$store.getters.sharedShareCategories || [];
 
       let correctOrder = [];
       navs.forEach(nav => {

@@ -30,9 +30,6 @@
         @input="onInputSearchBox"
       />
     </div>
-    <!-- <div class="message">
-      現在バグがあり、レシピがチェックできない状態です。申し訳ありませんが修正が完了するまでしばらくお待ちください。
-    </div> -->
     <Nav
       :navs="navs"
       :active="nav"
@@ -75,15 +72,23 @@
         @showModal="onShowModal"
       />
     </ul>
-    <div class="noitems" v-else-if="showItems === null">
+    <div v-if="!isLoadComplete" class="message loading">
       読み込み中...
     </div>
-    <div class="noitems" v-else-if="!isSearchMode && showItems.length === 0">
-      表示するアイテムがありません。
-    </div>
-    <div class="noitems" v-if="isSearchResultOverThreshold">
-      検索結果が 100 件を超えたため、これ以降は省略されました。
-    </div>
+    <infinite-loading
+      v-if="isLoadComplete !== null"
+      :identifier="renderStartDate"
+      :distance="2000"
+      @infinite="loadMore"
+    >
+      <div slot="no-more"></div>
+      <template slot="no-results">
+        <div v-if="isSearchMode && searchText === ''" class="message"></div>
+        <div v-else class="message">
+          表示するアイテムがありません。
+        </div>
+      </template>
+    </infinite-loading>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
         <template slot="header">{{ modalItem.displayName }}</template>
@@ -238,12 +243,14 @@ export default {
         collectedFilter: null,
         viewMode: null
       },
-      showItems: null,
+      showItems: [],
+      resultItems: [],
+      queueItems: [],
       isSearchMode: false,
-      renderStartDate: null,
+      renderStartDate: new Date().getTime(),
+      isLoadComplete: null,
       searchText: "",
       navs: navs,
-      isSearchResultOverThreshold: false,
       isOpenLogin: false,
       isShowModal: false,
       modalItem: null,
@@ -396,14 +403,10 @@ export default {
     },
     onClickSearchBtn: function() {
       this.isSearchMode = !this.isSearchMode;
-      this.isSearchResultOverThreshold = false;
       this.updateShowItems();
     },
     onInputSearchBox: function(text) {
       this.searchText = text;
-      if (text === "") {
-        this.isSearchResultOverThreshold = false;
-      }
       this.updateShowItems();
     },
     onShowModal: function(item) {
@@ -436,55 +439,36 @@ export default {
       });
     },
     updateShowItems: function() {
-      const self = this;
-      self.renderStartDate = new Date().getTime();
-      const renderStartDate = self.renderStartDate;
-
-      let result = filterItems({
-        collected: self.collected,
-        nav: self.nav,
-        filter: self.filter,
-        isSearchMode: self.isSearchMode,
-        searchText: self.searchText,
-        isShowSaleFilter: self.isShowSaleFilter
+      this.isLoadComplete = false;
+      this.resultItems = filterItems({
+        collected: this.collected,
+        nav: this.nav,
+        filter: this.filter,
+        isSearchMode: this.isSearchMode,
+        searchText: this.searchText,
+        isShowSaleFilter: this.isShowSaleFilter
       });
-      if (result.length < 50) {
-        self.showItems = result;
-        self.isSearchResultOverThreshold = false;
-      } else if (self.isSearchMode && result.length > 100) {
-        result = result.slice(0, 100);
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        self.isSearchResultOverThreshold = true;
-        self.showItems = result;
-      } else {
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        self.isSearchResultOverThreshold = false;
 
-        self.showItems = [];
-        for (let i = 0; i < 50; i++) {
-          const item = result[i];
-          self.showItems.push(item);
-        }
-        result.splice(0, 50);
-
-        const showItems = result;
-        const ite = (function*() {
-          while (true) {
-            const items = showItems.splice(0, 50);
-            if (items.length <= 0 || self.renderStartDate > renderStartDate)
-              break;
-            yield setTimeout(() => {
-              if (self.renderStartDate > renderStartDate) return;
-              for (let len = items.length, i = 0; i < len; i++) {
-                const item = items[i];
-                self.showItems.push(item);
-              }
-              ite.next();
-            });
-          }
-        })();
-        ite.next();
+      this.showItems = [];
+      this.renderStartDate = new Date().getTime();
+      this.queueItems = this.resultItems.slice();
+    },
+    loadMore($state) {
+      const loadLength = this.isSearchMode ? 100 : 200;
+      const queueLength = this.queueItems.length;
+      const count = queueLength >= loadLength ? loadLength : queueLength;
+      for (let i = 0; i < count; i++) {
+        this.showItems.push(this.queueItems[i]);
       }
+
+      if (queueLength > 0) {
+        $state.loaded();
+      } else {
+        $state.complete();
+      }
+
+      this.queueItems.splice(0, count);
+      this.isLoadComplete = true;
     },
     updateNavOrder: function() {
       // Re-order navs
@@ -526,12 +510,27 @@ export default {
   }
 }
 
-.noitems {
+.message {
   margin-top: 3rem;
   padding: 0 1rem;
   text-align: center;
   font-weight: 700;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.6);
+}
+
+.loading {
+  animation: delay 0s 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes delay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .view-btn-wrapper {
@@ -557,12 +556,5 @@ export default {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-}
-
-.message {
-  background-color: #f44;
-  color: #fff;
-  font-size: 14px;
-  padding: 0.2rem 0.5rem;
 }
 </style>

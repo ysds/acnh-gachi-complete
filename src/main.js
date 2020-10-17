@@ -4,6 +4,7 @@ import localforage from "localforage";
 import VueLazyload from "vue-lazyload";
 import VueAnalytics from "vue-analytics";
 import VueClipboard from "vue-clipboard2";
+import InfiniteLoading from "vue-infinite-loading";
 
 import "bootstrap/dist/css/bootstrap-reboot.min.css";
 import "./assets/styles.scss";
@@ -22,6 +23,7 @@ Vue.use(VueAnalytics, {
   id: "UA-173561585-1",
   router
 });
+Vue.use(InfiniteLoading);
 
 new Vue({
   router,

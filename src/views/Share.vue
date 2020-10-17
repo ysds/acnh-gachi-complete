@@ -62,7 +62,6 @@
         相手が未取得で自分が配布可のアイテム
       </div>
     </template>
-    <div class="message" v-show="message !== ''">{{ message }}</div>
     <ul
       class="items"
       :class="{ tiles: filter.viewMode === 'tile' }"
@@ -79,6 +78,20 @@
         :renderStartDate="renderStartDate"
       />
     </ul>
+    <div v-if="!isLoadComplete" class="message loading">
+      読み込み中...
+    </div>
+    <infinite-loading
+      v-if="isLoadComplete !== null"
+      :identifier="renderStartDate"
+      :distance="2000"
+      @infinite="loadMore"
+    >
+      <div slot="no-more"></div>
+      <template slot="no-results">
+        <div class="message">{{ message }}</div>
+      </template>
+    </infinite-loading>
     <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
   </div>
 </template>
@@ -115,16 +128,19 @@ export default {
   data() {
     return {
       nav: null,
-      message: "データを読み込んでいます。",
-      isLoaded: false,
-      showItems: [],
       filter: {
         saleFilter: "all",
         collectedFilter: "0",
         viewMode: "tile"
       },
-      renderStartDate: null,
-      isOpenLogin: false
+      showItems: [],
+      resultItems: [],
+      queueItems: [],
+      renderStartDate: new Date().getTime(),
+      isLoadComplete: null,
+      isLoaded: false,
+      isOpenLogin: false,
+      message: ""
     };
   },
   computed: {
@@ -318,52 +334,38 @@ export default {
       this.updateShowItems();
     },
     updateShowItems: function() {
-      const self = this;
-      self.renderStartDate = new Date().getTime();
-      const renderStartDate = self.renderStartDate;
-
-      let result = filterItems({
-        collected: self.sharedCollected,
-        myCollected: self.myCollected,
-        nav: self.nav,
-        filter: self.filter,
+      this.isLoadComplete = false;
+      this.resultItems = filterItems({
+        collected: this.sharedCollected,
+        myCollected: this.myCollected,
+        nav: this.nav,
+        filter: this.filter,
         isSearchMode: false,
-        isShowSaleFilter: self.isShowSaleFilter,
+        isShowSaleFilter: this.isShowSaleFilter,
         searchText: "",
         false: false
       });
-      if (result.length < 50) {
-        self.showItems = result;
-        self.isSearchResultOverThreshold = false;
-      } else {
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        self.isSearchResultOverThreshold = false;
 
-        self.showItems = [];
-        for (let i = 0; i < 50; i++) {
-          const item = result[i];
-          self.showItems.push(item);
-        }
-        result.splice(0, 50);
-
-        const showItems = result;
-        const ite = (function*() {
-          while (true) {
-            const items = showItems.splice(0, 50);
-            if (items.length <= 0 || self.renderStartDate > renderStartDate)
-              break;
-            yield setTimeout(() => {
-              if (self.renderStartDate > renderStartDate) return;
-              for (let len = items.length, i = 0; i < len; i++) {
-                const item = items[i];
-                self.showItems.push(item);
-              }
-              ite.next();
-            });
-          }
-        })();
-        ite.next();
+      this.showItems = [];
+      this.renderStartDate = new Date().getTime();
+      this.queueItems = this.resultItems.slice();
+    },
+    loadMore($state) {
+      const loadLength = 200;
+      const queueLength = this.queueItems.length;
+      const count = queueLength >= loadLength ? loadLength : queueLength;
+      for (let i = 0; i < count; i++) {
+        this.showItems.push(this.queueItems[i]);
       }
+
+      if (queueLength > 0) {
+        $state.loaded();
+      } else {
+        $state.complete();
+      }
+
+      this.queueItems.splice(0, count);
+      this.isLoadComplete = true;
     }
   }
 };
@@ -426,8 +428,26 @@ export default {
 }
 
 .message {
-  padding: 1rem;
+  margin-top: 3rem;
+  padding: 0 1rem;
   text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.loading {
+  animation: delay 0s 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes delay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .back-btn {

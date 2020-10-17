@@ -23,6 +23,7 @@ module.exports = {
             }),
             routes: [
               "/shares",
+              "/share2/housewares-all",
               "/share2/housewares",
               "/share2/housewares-miscellaneous",
               "/share2/housewares-wallmounted",
@@ -79,6 +80,7 @@ module.exports = {
             postProcess(context) {
               const categories = {
                 "/shares": "取得状況",
+                "/share2/housewares-all": "家具（すべて）",
                 "/share2/housewares": "家具",
                 "/share2/housewares-miscellaneous": "小物",
                 "/share2/housewares-wallmounted": "壁かけ",

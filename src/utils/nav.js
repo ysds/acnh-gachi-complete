@@ -491,7 +491,8 @@ export const navs = [
     subnavs: [
       {
         id: "housewares-all",
-        text: "すべて"
+        text: "家具（すべて）",
+        alttext: "すべて"
       },
       {
         id: "housewares",

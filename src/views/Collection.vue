@@ -214,7 +214,7 @@ export default {
         filter.saleFilter = "all";
       }
 
-      this.nav = nav || "housewares";
+      this.nav = nav || "housewares-all";
       this.filter = Object.assign(
         {
           saleFilter: "all",

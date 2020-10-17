@@ -26,7 +26,7 @@
           @click="changeNav(subnav.id)"
         >
           <IconPinned v-if="pins[subnav.id]" />
-          {{ subnav.text }}
+          {{ subnav.alttext ? subnav.alttext : subnav.text }}
           <span class="subnav-subtext" v-if="subnav.subtext">
             {{ subnav.subtext }}
           </span>

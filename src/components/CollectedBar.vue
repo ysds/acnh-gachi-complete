@@ -16,7 +16,11 @@
     <div class="bar">
       <div
         class="bar-value"
-        :style="'width: ' + (props.value / props.totalValue) * 100 + '%'"
+        :style="
+          props.totalValue !== 0
+            ? 'width: ' + (props.value / props.totalValue) * 100 + '%'
+            : 'width: 0'
+        "
       ></div>
     </div>
   </div>

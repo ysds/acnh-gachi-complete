@@ -210,7 +210,7 @@ export default {
         if (!isDefinedNav) nav = null;
       }
 
-      if (filter.saleFilter.indexOf(/[012345]/g)) {
+      if (filter.saleFilter.match(/[012345]/g)) {
         filter.saleFilter = "all";
       }
 
@@ -276,6 +276,7 @@ export default {
       const prevCategory = this.nav.split("-")[0];
       if (activeNav.indexOf(prevCategory) === -1) {
         this.filter.saleFilter = "all";
+        this.$vlf.setItem("filter", this.filter);
       }
 
       this.nav = activeNav;

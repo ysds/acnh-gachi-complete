@@ -75,50 +75,6 @@ export default {
 .modal-body /deep/ {
   margin: 20px 0;
 
-  .info {
-    display: flex;
-    margin-bottom: 0.5rem;
-    font-size: 15px;
-  }
-
-  .info-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-    padding: 0.2rem;
-    width: 80px;
-    border-radius: 4px;
-    color: #fff;
-    font-weight: 700;
-    text-align: center;
-  }
-
-  .info-1 {
-    background-color: #ec407a;
-  }
-
-  .info-2 {
-    background-color: #1e88e5;
-  }
-
-  .info-3 {
-    background-color: #ab47bc;
-  }
-
-  .info-4 {
-    background-color: #7e57c2;
-  }
-
-  .info-5 {
-    background-color: #ff7626;
-  }
-
-  .info-text {
-    padding: 0.2rem 0.4rem;
-  }
-
   a {
     user-select: text;
   }

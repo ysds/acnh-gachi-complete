@@ -199,21 +199,27 @@ export function filterItems(args) {
     // Nav
     //
 
-    // 家具
-    if (nav === "housewares") {
+    // 家具（すべて）
+    if (nav === "housewares-all") {
+      return item.sourceSheet.match(
+        /Housewares|Miscellaneous|Wall-mounted|Art/g
+      );
+    }
+    // 家具（家具）
+    else if (nav === "housewares") {
       return (
         item.sourceSheet === "Housewares" ||
         (item.sourceSheet === "Art" && item.category === "Housewares")
       );
     }
-    // 小物
+    // 家具（小物）
     else if (nav === "housewares-miscellaneous") {
       return (
         item.sourceSheet === "Miscellaneous" ||
         (item.sourceSheet === "Art" && item.category === "Miscellaneous")
       );
     }
-    // 壁かけ
+    // 家具（壁かけ）
     else if (nav === "housewares-wallmounted") {
       return (
         item.sourceSheet === "Wall-mounted" ||
@@ -483,6 +489,10 @@ export const navs = [
     id: "housewares",
     text: "家具",
     subnavs: [
+      {
+        id: "housewares-all",
+        text: "すべて"
+      },
       {
         id: "housewares",
         text: "家具"

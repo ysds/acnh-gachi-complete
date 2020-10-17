@@ -239,25 +239,25 @@ export default {
       if (!confirm) return;
       let items = [];
       let collectedArray = [];
-      const showItems = this.showItems;
-      for (let i = 0; i < showItems.length; i++) {
-        items.push(showItems[i].uniqueEntryId || showItems[i].name);
+      const resultItems = this.resultItems;
+      for (let i = 0; i < resultItems.length; i++) {
+        items.push(resultItems[i].uniqueEntryId || resultItems[i].name);
       }
       for (let i = 0; i < items.length; i++) {
         if (value === "allCollected") {
-          if (showItems[i].uniqueEntryId) {
+          if (resultItems[i].uniqueEntryId) {
             collectedArray.push("0");
           } else {
             collectedArray.push(
-              "0123456789".slice(0, showItems[i].variants.length)
+              "0123456789".slice(0, resultItems[i].variants.length)
             );
           }
         } else if (value === "allProvidable") {
-          if (showItems[i].uniqueEntryId) {
+          if (resultItems[i].uniqueEntryId) {
             collectedArray.push("A");
           } else {
             collectedArray.push(
-              "ABCDEFGHIJ".slice(0, showItems[i].variants.length)
+              "ABCDEFGHIJ".slice(0, resultItems[i].variants.length)
             );
           }
         } else {

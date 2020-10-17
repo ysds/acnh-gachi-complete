@@ -93,7 +93,7 @@
       <template v-if="modalItem">
         <template slot="header">{{ modalItem.displayName }}</template>
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
-              </template>
+      </template>
     </Modal>
     <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
   </div>
@@ -116,6 +116,7 @@ import Item from "../components/Item.vue";
 import Modal from "../components/Modal.vue";
 import CollectedBar from "../components/CollectedBar.vue";
 import PageToTop from "../components/PageToTop.vue";
+import ItemModalContent from "../components/ItemModalContent.vue";
 
 export default {
   name: "Collection",
@@ -128,7 +129,8 @@ export default {
     Item,
     Modal,
     CollectedBar,
-    PageToTop
+    PageToTop,
+    ItemModalContent
   },
   data() {
     return {
@@ -307,10 +309,6 @@ export default {
     onShowModal: function(item) {
       this.isShowModal = true;
       this.modalItem = item;
-    },
-    getBuy: function(value) {
-      if (value === -1 || value === null) return "非売品";
-      return value;
     },
     getCollected: function(item) {
       return item.uniqueEntryId

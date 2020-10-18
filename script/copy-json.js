@@ -91,7 +91,9 @@ content.forEach(item => {
         }
       });
       item.bodyCustomize = true;
-      item.variants.length = 1;
+      if (item.diy || item.catalog === "For sale" || item.catalog === true) {
+        item.variants.length = 1;
+      }
     }
   }
 

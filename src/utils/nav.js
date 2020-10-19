@@ -238,6 +238,12 @@ export function filterItems(args) {
     else if (nav === "walletc-rugs") {
       return item.sourceSheet === "Rugs";
     }
+    // ファッション (すべて)
+    else if (nav === "fashion-all") {
+      return item.sourceSheet.match(
+        /Tops|Bottoms|Dress-Up|Headwear|Accessories|Socks|Shoes|Bags|Umbrellas|Clothing Other/g
+      );
+    }
     // ファッション (Tops)
     else if (nav === "fashion-tops") {
       return item.sourceSheet === "Tops";
@@ -509,27 +515,14 @@ export const navs = [
     ]
   },
   {
-    id: "walletc",
-    text: "壁紙/床板/ラグ",
-    subnavs: [
-      {
-        id: "walletc-wall",
-        text: "壁紙"
-      },
-      {
-        id: "walletc-floors",
-        text: "床板"
-      },
-      {
-        id: "walletc-rugs",
-        text: "ラグ"
-      }
-    ]
-  },
-  {
     id: "fashion",
     text: "ファッション",
     subnavs: [
+      {
+        id: "fashion-all",
+        text: "ファッション（すべて）",
+        alttext: "すべて"
+      },
       {
         id: "fashion-tops",
         text: "トップス"
@@ -569,6 +562,24 @@ export const navs = [
       {
         id: "fashion-other",
         text: "そのほか"
+      }
+    ]
+  },
+  {
+    id: "walletc",
+    text: "壁紙/床板/ラグ",
+    subnavs: [
+      {
+        id: "walletc-wall",
+        text: "壁紙"
+      },
+      {
+        id: "walletc-floors",
+        text: "床板"
+      },
+      {
+        id: "walletc-rugs",
+        text: "ラグ"
       }
     ]
   },

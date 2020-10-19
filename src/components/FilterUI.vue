@@ -102,31 +102,31 @@
       <popper
         trigger="clickToToggle"
         :visible-arrow="false"
-        ref="batchOpePopper"
+        ref="batchActionPopper"
       >
         <div slot="reference" style="position: relative;">
           <div class="btn-label">一括操作</div>
           <button
             type="button"
             class="dropdown-btn"
-            :class="{ active: isOpenBatchOpe }"
+            :class="{ active: isOpenBatchMenu }"
           >
             <span class="tg">操作...</span>
             <img src="../assets/arrow.svg" width="12" alt="" />
           </button>
         </div>
         <div class="dropdown-menu">
-          <DropdownItem @click="onClickBatchOperation('allCollected')">
+          <DropdownItem @click="onClickBatchMenuItem('allCollected')">
             <span class="tg"
               >すべて<span class="tg tg-gr">取得済</span>としてチェック</span
             >
           </DropdownItem>
-          <DropdownItem @click="onClickBatchOperation('allProvidable')">
+          <DropdownItem @click="onClickBatchMenuItem('allProvidable')">
             <span class="tg"
               >すべて<span class="tg tg-bl">配布可</span>としてチェック</span
             >
           </DropdownItem>
-          <DropdownItem @click="onClickBatchOperation('allUncheck')">
+          <DropdownItem @click="onClickBatchMenuItem('allUncheck')">
             <span class="tg">すべてのチェックを外す</span>
           </DropdownItem>
         </div>
@@ -157,7 +157,7 @@
           />
         </svg>
       </Button>
-      <Modal :show="isShowModal" @close="isShowModal = false">
+      <Modal :show="isShowShareModal" @close="isShowShareModal = false">
         <template slot="header">{{ navText }}のコンプ状況をシェア</template>
         <div slot="body">
           <div v-show="hasUpdateData">
@@ -187,6 +187,21 @@
             </div>
           </div>
         </div>
+      </Modal>
+      <Modal :show="isShowBatchModal" @close="isShowBatchModal = false">
+        <template slot="header">
+          本当にチェック状態を一括変更してもよろしいですか？
+        </template>
+        <template slot="body">
+          <div class="batch-modal-body">
+            <Button class="batch-btn" @click="isShowBatchModal = false">
+              キャンセル
+            </Button>
+            <Button class="batch-btn batch-btn-ok" @click="onClickBatchAction">
+              一括変更
+            </Button>
+          </div>
+        </template>
       </Modal>
     </template>
   </div>
@@ -244,7 +259,8 @@ export default {
   data() {
     return {
       isPinned: false,
-      isShowModal: false,
+      isShowShareModal: false,
+      isShowBatchModal: false,
       shareURL: "",
       twitterURL: ""
     };
@@ -270,9 +286,9 @@ export default {
       if (!this.$refs.collectedFilter) return false;
       return this.$refs.collectedFilter.showPopper;
     },
-    isOpenBatchOpe() {
-      if (!this.$refs.batchOpePopper) return false;
-      return this.$refs.batchOpePopper.showPopper;
+    isOpenBatchMenu() {
+      if (!this.$refs.batchActionPopper) return false;
+      return this.$refs.batchActionPopper.showPopper;
     }
   },
   mounted() {
@@ -295,9 +311,14 @@ export default {
         Object.assign(this.filter, { collectedFilter: value })
       );
     },
-    onClickBatchOperation: function(value) {
-      this.$refs.batchOpePopper.doClose();
-      if (value) this.$emit("clickBatchAction", value);
+    onClickBatchMenuItem: function(value) {
+      this.$refs.batchActionPopper.doClose();
+      this.isShowBatchModal = true;
+      this.batchAction = value;
+    },
+    onClickBatchAction() {
+      this.isShowBatchModal = false;
+      this.$emit("clickBatchAction", this.batchAction);
     },
     onClickPin: function() {
       this.isPinned = !this.isPinned;
@@ -308,7 +329,7 @@ export default {
       this.shareURL = shareURL;
       this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.currentNav}/?uid=${this.user.uid}`;
       this.$copyText(shareURL);
-      this.isShowModal = true;
+      this.isShowShareModal = true;
     }
   }
 };
@@ -421,6 +442,22 @@ export default {
   &.active {
     color: #21bec5;
   }
+}
+
+.batch-modal-body {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -20px;
+}
+
+.batch-btn {
+  margin-left: 1rem;
+  color: #007bff;
+  font-weight: 400;
+}
+
+.batch-btn-ok {
+  font-weight: 700;
 }
 
 .spinner {

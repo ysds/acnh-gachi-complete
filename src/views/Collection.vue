@@ -233,10 +233,6 @@ export default {
       });
     },
     onClickItemCheckBatchAction: function(value) {
-      const confirm = window.confirm(
-        "本当にチェック状態を一括変更してもよろしいですか？"
-      );
-      if (!confirm) return;
       let items = [];
       let collectedArray = [];
       const resultItems = this.resultItems;

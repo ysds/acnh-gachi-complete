@@ -116,6 +116,10 @@
           </button>
         </div>
         <div class="dropdown-menu">
+          <DropdownItem @click="onClickCopyName">
+            <span class="tg">すべてのアイテム名をコピー</span>
+          </DropdownItem>
+          <div class="dropdown-divider" />
           <DropdownItem @click="onClickBatchMenuItem('allCollected')">
             <span class="tg"
               >すべて<span class="tg tg-gr">取得済</span>としてチェック</span
@@ -203,6 +207,26 @@
           </div>
         </template>
       </Modal>
+      <Modal :show="isShowCopyModal" @close="isShowCopyModal = false">
+        <template slot="header">
+          表示されているすべてのアイテム名をクリップボードにコピーしました！
+        </template>
+        <template slot="body">
+          <p v-if="currentNav === 'posters' || currentNav === 'photos'">
+            住民の名前だけコピーし、「{{
+              currentNav === "posters" ? "のポスター" : "のしゃしん"
+            }}」 は省略しました。
+          </p>
+          <div class="batch-modal-body">
+            <Button
+              class="batch-btn batch-btn-ok"
+              @click="isShowCopyModal = false"
+            >
+              OK
+            </Button>
+          </div>
+        </template>
+      </Modal>
     </template>
   </div>
 </template>
@@ -261,6 +285,7 @@ export default {
       isPinned: false,
       isShowShareModal: false,
       isShowBatchModal: false,
+      isShowCopyModal: false,
       shareURL: "",
       twitterURL: ""
     };
@@ -303,6 +328,11 @@ export default {
       this.$refs.batchActionPopper.doClose();
       this.isShowBatchModal = true;
       this.batchAction = value;
+    },
+    onClickCopyName() {
+      this.$refs.batchActionPopper.doClose();
+      this.isShowCopyModal = true;
+      this.$emit("clickCopyName", this.currentNav);
     },
     onClickBatchAction() {
       this.isShowBatchModal = false;
@@ -393,6 +423,11 @@ export default {
       margin-left: 4px;
     }
   }
+}
+
+.dropdown-divider {
+  margin: 0.5rem 0;
+  border-top: 1px solid #ccc;
 }
 
 .dropdown-menu {

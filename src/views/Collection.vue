@@ -46,6 +46,7 @@
       :pins="pins"
       @change="onChangeFilter"
       @clickBatchAction="onClickItemCheckBatchAction"
+      @clickCopyName="onClickCopyName"
       @changePin="onChangePin"
       v-if="!isSearchMode"
     />
@@ -264,6 +265,19 @@ export default {
         items,
         collectedArray
       });
+    },
+    onClickCopyName(nav) {
+      let names = "";
+      const resultItems = this.resultItems;
+      for (let i = 0; i < resultItems.length; i++) {
+        names += `${resultItems[i].displayName}\n`;
+      }
+      if (nav === "posters") {
+        names = names.replace(/のポスター/g, "");
+      } else if (nav === "photos") {
+        names = names.replace(/のしゃしん/g, "");
+      }
+      this.$copyText(names);
     },
     onChangeNav: function(activeNav) {
       if (this.nav === activeNav) return;

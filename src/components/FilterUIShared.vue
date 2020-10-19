@@ -7,7 +7,7 @@
           <button
             type="button"
             class="dropdown-btn"
-            :class="{ active: isOpenSaleFilter }"
+            :class="{ active: isOpenSaleFilter() }"
           >
             <span v-if="filter.saleFilter === 'all'">すべて</span>
             <span v-else-if="filter.saleFilter === 'catalog'"
@@ -125,10 +125,6 @@ export default {
     currentNav: String
   },
   computed: {
-    isOpenSaleFilter() {
-      if (!this.$refs.saleFilter) return false;
-      return this.$refs.saleFilter.showPopper;
-    },
     isFashion() {
       return this.currentNav.indexOf("fashion") > -1;
     }
@@ -143,6 +139,10 @@ export default {
         "change",
         Object.assign(this.filter, { collectedFilter: value })
       );
+    },
+    isOpenSaleFilter() {
+      if (!this.$refs.saleFilter) return false;
+      return this.$refs.saleFilter.showPopper;
     }
   }
 };

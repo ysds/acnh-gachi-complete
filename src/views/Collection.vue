@@ -11,11 +11,11 @@
         </template>
       </Button>
       <Button @click="onChangeView">
-        <template v-if="filter.viewMode !== 'tile'">
-          <img src="../assets/tile.svg" />
+        <template v-if="filter.viewMode !== 'list'">
+          <img src="../assets/list.svg" />
         </template>
         <template v-else>
-          <img src="../assets/list.svg" />
+          <img src="../assets/tile.svg" />
         </template>
       </Button>
       <Button @click="onClickSearchBtn">
@@ -211,7 +211,16 @@ export default {
         if (!isDefinedNav) nav = null;
       }
 
-      if (filter.saleFilter.match(/[012345]/g)) {
+      if (filter && filter.saleFilter === null) {
+        filter.saleFilter = "all";
+      }
+      if (filter && filter.collectedFilter === null) {
+        filter.collectedFilter = "0";
+      }
+      if (filter && filter.viewMode === null) {
+        filter.viewMode = "tile";
+      }
+      if (filter && filter.saleFilter && filter.saleFilter.match(/[012345]/g)) {
         filter.saleFilter = "all";
       }
 

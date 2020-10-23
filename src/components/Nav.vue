@@ -16,7 +16,7 @@
       </router-link>
     </nav>
     <div class="wrapper" v-if="subnavs">
-      <nav class="subnav">
+      <nav class="subnav" ref="subnav">
         <button
           type="button"
           v-for="subnav in subnavs"
@@ -60,6 +60,13 @@ export default {
         }
       }
       return null;
+    }
+  },
+  watch: {
+    subnavs() {
+      if (this.$refs.subnav) {
+        this.$refs.subnav.scrollLeft = 0;
+      }
     }
   },
   methods: {

@@ -192,42 +192,42 @@
           </div>
         </div>
       </Modal>
-      <Modal :show="isShowBatchModal" @close="isShowBatchModal = false">
-        <template slot="header">
-          本当にチェック状態を一括変更してもよろしいですか？
-        </template>
-        <template slot="body">
-          <div class="batch-modal-body">
-            <Button class="batch-btn" @click="isShowBatchModal = false">
-              キャンセル
-            </Button>
-            <Button class="batch-btn batch-btn-ok" @click="onClickBatchAction">
-              一括変更
-            </Button>
-          </div>
-        </template>
-      </Modal>
-      <Modal :show="isShowCopyModal" @close="isShowCopyModal = false">
-        <template slot="header">
-          表示されているすべてのアイテム名をクリップボードにコピーしました！
-        </template>
-        <template slot="body">
-          <p v-if="currentNav === 'posters' || currentNav === 'photos'">
-            住民の名前だけコピーし、「{{
-              currentNav === "posters" ? "のポスター" : "のしゃしん"
-            }}」 は省略しました。
-          </p>
-          <div class="batch-modal-body">
-            <Button
-              class="batch-btn batch-btn-ok"
-              @click="isShowCopyModal = false"
-            >
-              OK
-            </Button>
-          </div>
-        </template>
-      </Modal>
     </template>
+    <Modal :show="isShowBatchModal" @close="isShowBatchModal = false">
+      <template slot="header">
+        本当にチェック状態を一括変更してもよろしいですか？
+      </template>
+      <template slot="body">
+        <div class="batch-modal-body">
+          <Button class="batch-btn" @click="isShowBatchModal = false">
+            キャンセル
+          </Button>
+          <Button class="batch-btn batch-btn-ok" @click="onClickBatchAction">
+            一括変更
+          </Button>
+        </div>
+      </template>
+    </Modal>
+    <Modal :show="isShowCopyModal" @close="isShowCopyModal = false">
+      <template slot="header">
+        表示されているすべてのアイテム名をクリップボードにコピーしました！
+      </template>
+      <template slot="body">
+        <p v-if="currentNav === 'posters' || currentNav === 'photos'">
+          住民の名前だけコピーし、「{{
+            currentNav === "posters" ? "のポスター" : "のしゃしん"
+          }}」 は省略しました。
+        </p>
+        <div class="batch-modal-body">
+          <Button
+            class="batch-btn batch-btn-ok"
+            @click="isShowCopyModal = false"
+          >
+            OK
+          </Button>
+        </div>
+      </template>
+    </Modal>
   </div>
 </template>
 

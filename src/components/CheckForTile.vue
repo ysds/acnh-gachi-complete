@@ -60,13 +60,17 @@ export default {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   color: inherit;
-
   vertical-align: top;
   outline: 0;
   user-select: none;
+  transition: transform 0.1s, background-color 0.2s;
 
   @media (min-width: 375px) {
     width: 75px;
+  }
+
+  &:active {
+    transform: scale(0.85);
   }
 
   &.t1 {

@@ -30,6 +30,11 @@ export default {
   background-color: #eee;
   font-size: 13px;
   user-select: none;
+  transition: transform 0.1s, background-color 0.2s;
+
+  &:active {
+    transform: scale(0.8);
+  }
 
   &.v1 {
     background-color: #42b983;

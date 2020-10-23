@@ -71,6 +71,7 @@ export default {
 
   &:active {
     transform: scale(0.85);
+    border-radius: 8px !important;
   }
 
   &.t1 {

@@ -38,6 +38,7 @@
 
 <script>
 import IconPinned from "./IconPinned";
+import isEqual from "lodash/isEqual";
 
 export default {
   name: "Nav",
@@ -63,8 +64,8 @@ export default {
     }
   },
   watch: {
-    subnavs() {
-      if (this.$refs.subnav) {
+    subnavs(value, oldValue) {
+      if (!isEqual(value, oldValue) && this.$refs.subnav) {
         this.$refs.subnav.scrollLeft = 0;
       }
     }

@@ -117,9 +117,10 @@ export function filterItems(args) {
         if (item.uniqueEntryId) {
           if (
             !collected[item.uniqueEntryId] ||
-            !collected[item.uniqueEntryId] === "0"
-          )
+            collected[item.uniqueEntryId] !== "0"
+          ) {
             return false;
+          }
         } else {
           const collectedData = collected[item.name] || "";
           const length = (collectedData.match(/[0-9]/g) || []).length;
@@ -134,9 +135,10 @@ export function filterItems(args) {
         if (item.uniqueEntryId) {
           if (
             !collected[item.uniqueEntryId] ||
-            !collected[item.uniqueEntryId] === "A"
-          )
+            collected[item.uniqueEntryId] !== "A"
+          ) {
             return false;
+          }
         } else {
           const collectedData = collected[item.name] || "";
           const length = (collectedData.match(/[A-J]/g) || []).length;
@@ -184,7 +186,7 @@ export function filterItems(args) {
         if (item.uniqueEntryId) {
           if (
             !myCollected[item.uniqueEntryId] ||
-            !myCollected[item.uniqueEntryId] === "A"
+            myCollected[item.uniqueEntryId] !== "A"
           )
             return false;
         } else {

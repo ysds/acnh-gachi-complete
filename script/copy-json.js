@@ -51,9 +51,13 @@ const weatherTranslation = JSON.parse(
 
 // Each items
 content.forEach(item => {
-  // Remove photo variant
-  if (item.sourceSheet === "Photos") {
-    item.variants = item.variants.slice(0, 1);
+  // Remove photos and tools variant
+  if (item.customize) {
+    item.customizeVariants = [];
+    item.variants.forEach(variant => {
+      item.customizeVariants.push(variant.variation);
+    });
+    item.variants.length = 1;
   }
 
   if (item.variants) {
@@ -79,7 +83,7 @@ content.forEach(item => {
       item.variants = newVariants;
     }
 
-    // Remove remake variant
+    // Remove body variant
     if (item.variants[0].bodyCustomize) {
       item.variants.forEach(variant => {
         if (item.bodyVariants && variant.variation !== null) {
@@ -255,6 +259,45 @@ content.forEach(item => {
       }
     });
     item.patternVariants = newPatternVariants;
+  }
+
+  // Customize variants
+  if (item.customize) {
+    let newCustomizeVariants = [];
+    item.customizeVariants.forEach(variantString => {
+      const translations = furnitureTranslations.filter(translate => {
+        return translate.locale.USen === variantString;
+      });
+      if (translations.length > 0) {
+        newCustomizeVariants.push(translations[0].locale.JPja);
+      } else {
+        newCustomizeVariants.push(variantString);
+      }
+    });
+    item.customizeVariants = newCustomizeVariants;
+
+    // 二回目
+    newCustomizeVariants = [];
+    item.customizeVariants.forEach(variantString => {
+      const translations = allTranslations.filter(translate => {
+        return (
+          typeof translate.locale.USen === "string" &&
+          translate.locale.USen === variantString
+        );
+      });
+      if (translations.length > 0) {
+        newCustomizeVariants.push(translations[0].locale.JPja);
+      } else if (variantString === "Yellow & orange") {
+        newCustomizeVariants.push("イエロー×オレンジ");
+      } else if (variantString === "Orange & blue") {
+        newCustomizeVariants.push("オレンジ×ブルー");
+      } else if (variantString === "Gray & green") {
+        newCustomizeVariants.push("グレー×グリーン");
+      } else {
+        newCustomizeVariants.push(variantString);
+      }
+    });
+    item.customizeVariants = newCustomizeVariants;
   }
 
   //

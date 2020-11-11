@@ -240,6 +240,10 @@ export function filterItems(args) {
     else if (nav === "walletc-rugs") {
       return item.sourceSheet === "Rugs";
     }
+    // ラグ
+    else if (nav === "walletc-fencing") {
+      return item.sourceSheet === "Fencing";
+    }
     // ファッション (すべて)
     else if (nav === "fashion-all") {
       return item.sourceSheet.match(
@@ -305,6 +309,14 @@ export function filterItems(args) {
     // レシピ
     else if (nav === "recipes") {
       return item.sourceSheet === "Recipes";
+    }
+    // 道具 (すべて)
+    else if (nav === "tools-all") {
+      return item.sourceSheet === "Tools";
+    }
+    // 道具 (ステッキ)
+    else if (nav === "tools-wand") {
+      return item.sourceSheet === "Tools" && item.name.indexOf("wand") >= 0;
     }
     // 生き物 (虫)
     else if (nav === "creatures-insects") {
@@ -569,7 +581,7 @@ export const navs = [
   },
   {
     id: "walletc",
-    text: "壁紙/床板/ラグ",
+    text: "壁紙/床板/ラグ/柵",
     subnavs: [
       {
         id: "walletc-wall",
@@ -582,6 +594,10 @@ export const navs = [
       {
         id: "walletc-rugs",
         text: "ラグ"
+      },
+      {
+        id: "walletc-fencing",
+        text: "柵"
       }
     ]
   },
@@ -623,6 +639,23 @@ export const navs = [
         id: "creatures-sea",
         text: "海の幸",
         order: 3
+      }
+    ]
+  },
+  {
+    id: "tools",
+    text: "道具",
+    subnavs: [
+      {
+        id: "tools-all",
+        text: "道具",
+        alttext: "すべて",
+        order: 1
+      },
+      {
+        id: "tools-wand",
+        text: "ステッキ",
+        order: 2
       }
     ]
   },

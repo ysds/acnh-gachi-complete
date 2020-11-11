@@ -23,6 +23,14 @@
         </template>
       </div>
     </div>
+    <div class="info" v-if="modalItem.customize">
+      <div class="info-label info-5">
+        リメイク
+      </div>
+      <div class="info-text">
+        {{ modalItem.customizeVariants.join("、") }}
+      </div>
+    </div>
     <div class="info" v-if="modalItem.bodyCustomize">
       <div class="info-label info-5">
         リメイク<template v-if="modalItem.patternCustomize">1</template>

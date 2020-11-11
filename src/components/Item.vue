@@ -6,7 +6,7 @@
         <img
           class="item-img-remake"
           src="../assets/remake.svg"
-          v-if="item.bodyCustomize || item.patternCustomize"
+          v-if="item.customize || item.bodyCustomize || item.patternCustomize"
         />
         <img
           class="item-img-recipe"
@@ -59,7 +59,9 @@
             :variant="item.variants[index]"
             :variants="item.variants"
             :isStatic="isStatic"
-            :isRemake="item.bodyCustomize || item.patternCustomize"
+            :isRemake="
+              item.customize || item.bodyCustomize || item.patternCustomize
+            "
             @click="onChangeCheck(index)"
           />
         </li>
@@ -72,7 +74,9 @@
             :value="getChecks(0)"
             :isRecipe="item.sourceSheet === 'Recipes'"
             :isStatic="isStatic"
-            :isRemake="item.bodyCustomize || item.patternCustomize"
+            :isRemake="
+              item.customize || item.bodyCustomize || item.patternCustomize
+            "
             @click="onClickAllCheck"
           />
         </li>

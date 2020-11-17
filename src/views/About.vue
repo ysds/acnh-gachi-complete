@@ -3,18 +3,35 @@
     <div class="close">
       <CloseButton @click="$router.push('/')" />
     </div>
-    <img class="logo" src="../assets/logo.svg" />
-    <h1>あつ森ガチコンプについて</h1>
+    <h1>あつ森ガチコンプの使い方</h1>
+    <h2>最新情報</h2>
+    <div class="timeline">
+      <Timeline
+        id="dmnmd55"
+        sourceType="profile"
+        :options="{
+          width: '400',
+          tweetLimit: '1',
+          chrome: 'noheader nofooter',
+          lang: 'ja'
+        }"
+      />
+    </div>
+    <a href="https://twitter.com/dmnmd55" class="follow-button"
+      ><img src="../assets/Twitter_Logo_WhiteOnImage.svg" /> 開発者の Twitter
+      を見る</a
+    >
+    <h2>あつ森ガチコンプについて</h2>
     <p>
-      このアプリは、あつ森の家具などの取得状況を管理できるウェブアプリです。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。<br />
+      このアプリは、あつ森のアイテムの取得状況を管理できるウェブアプリです。来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。<br />
     </p>
     <p>
       あつ森のバージョン 1.5 に対応しています。
     </p>
     <h2>対象アイテム</h2>
     <p>
-      あつ森のアイテムコンプを目指すことを目的にしていますが、素材や消費アイテム、店売りと
-      DIY 家具のリメイク違いはチェック対象から外しています。
+      「素材」、「消費アイテム」、「店売りと DIY
+      家具のリメイク違い」はチェック対象から外しています。
     </p>
     <p>
       リメイクできるアイテムには
@@ -35,11 +52,10 @@
       </div>
     </div>
     <p style="margin-top: 1rem;">
-      タップすることで状態を切り替えられます。
+      タップすると状態を切り替えられます。
     </p>
-    <h2>カテゴリとチェック状態の同期</h2>
     <p>
-      同じアイテムが異なるカテゴリで表示されることがありますが、それぞれのチェック状態は同期しています。例えば、「フーコ」カテゴリで「アクエリアスのみずがめ」をチェックすると、「レシピ」カテゴリの「アクエリアスのみずがめ」でもチェックが入ります。検索についても同様です。
+      同じアイテムが別のカテゴリで表示されることがありますが、それぞれのチェック状態は同期しています。例えば、「フーコ」カテゴリで「アクエリアスのみずがめ」をチェックすると、「レシピ」カテゴリの「アクエリアスのみずがめ」でもチェックが入ります。検索についても同様です。
     </p>
     <h2>リスト表示</h2>
     <img class="img" src="../assets/list.svg" style="margin-bottom: 1rem;" />
@@ -108,7 +124,11 @@
     </p>
     <h2>その他</h2>
     <p>
-      ご要望、不具合がございましたら Twitter にてご連絡ください。
+      ご要望、不具合がございましたら
+      <a target="_blank" rel="noopener" href="https://twitter.com/dmnmd55"
+        >Twitter</a
+      >
+      にてご連絡ください。
     </p>
     <h2>THIRD-PARTIES ASSETS AND DATA</h2>
     <ul class="thd-list">
@@ -159,11 +179,13 @@
 </template>
 
 <script>
+import { Timeline } from "vue-tweet-embed";
 import CloseButton from "../components/CloseButton";
 
 export default {
   components: {
-    CloseButton
+    CloseButton,
+    Timeline
   }
 };
 </script>
@@ -183,14 +205,9 @@ export default {
   right: 16px;
 }
 
-.logo {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 2rem;
-}
-
 h1 {
   font-size: 1.5rem;
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -239,7 +256,6 @@ p {
     font-size: 14px;
     font-weight: 700;
   }
-
   .check-state {
     display: block;
     width: 80px;
@@ -251,6 +267,39 @@ p {
     &:nth-child(3) {
       color: #3790ff;
     }
+  }
+}
+
+.timeline {
+  display: flex;
+  justify-content: center;
+
+  > div {
+    background-color: rgba(15, 70, 100, 0.08);
+    padding: 8px 8px 1px;
+    border-radius: 8px;
+  }
+}
+
+.follow-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  margin-top: 2rem;
+  background-color: #1b95e0;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #0c7abf;
+  }
+
+  img {
+    margin-right: 5px;
+    width: 32px;
+    height: 32px;
   }
 }
 </style>

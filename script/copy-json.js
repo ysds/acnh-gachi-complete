@@ -49,6 +49,10 @@ const weatherTranslation = JSON.parse(
   fs.readFileSync(`./json/translation-fix-data/weather.json`, "utf8")
 );
 
+const fixData = JSON.parse(
+  fs.readFileSync("./json/translation-fix-data/fix2.json", "utf8")
+);
+
 // Each items
 content.forEach(item => {
   // Remove photos and tools variant
@@ -101,6 +105,14 @@ content.forEach(item => {
     }
   }
 
+  if (item.name.match(/midwinter sweater|sunflower crown/g)) {
+    item.versionAdded = "1.6.0";
+  }
+
+  //
+  // 翻訳
+  //
+
   // Add displayName
   const translateObj = allTranslations.filter(obj => {
     if (typeof obj.locale.USen === "string") {
@@ -115,12 +127,9 @@ content.forEach(item => {
     item.displayName = item.name;
   }
 
-  if (item.displayName === "uchiwa fan") item.displayName = "うちわ";
-  if (item.displayName === "わ") item.displayName = "ゆびわ";
-
-  //
-  // 翻訳
-  //
+  if (fixData[item.name]) {
+    item.displayName = fixData[item.name];
+  }
 
   // Source
   if (item.source) {
@@ -382,7 +391,6 @@ content.forEach(item => {
       delete variant["closetImage"];
       delete variant["labelThemes"];
       delete variant["framedImage"];
-      delete variant["inventoryImage"];
       delete variant["themes"];
       delete variant["bodyCustomize"];
       delete variant["pattern"];

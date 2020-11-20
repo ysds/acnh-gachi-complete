@@ -501,6 +501,10 @@ export function filterItems(args) {
     else if (nav === "versions-150") {
       return item.versionAdded === "1.5.0" && item.storageFilename !== null;
     }
+    // バージョン 1.6.0
+    else if (nav === "versions-160") {
+      return item.versionAdded === "1.6.0";
+    }
   });
 }
 
@@ -821,6 +825,10 @@ export const navs = [
     id: "versions",
     text: "バージョン",
     subnavs: [
+      {
+        id: "versions-160",
+        text: "1.6.0"
+      },
       {
         id: "versions-150",
         text: "1.5.0"

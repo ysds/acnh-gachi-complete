@@ -78,6 +78,7 @@ module.exports = {
               "/share2/season-winter",
               "/share2/season-festive",
               "/share2/season-snowboy",
+              "/share2/versions-160",
               "/share2/versions-150",
               "/share2/versions-140"
             ],
@@ -139,6 +140,7 @@ module.exports = {
                 "/share2/season-winter": "ゆきのけっしょう",
                 "/share2/season-festive": "オーナメント",
                 "/share2/season-snowboy": "ゆきだるま",
+                "/share2/versions-160": "1.6.0",
                 "/share2/versions-150": "1.5.0",
                 "/share2/versions-140": "1.4.0"
               };

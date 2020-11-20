@@ -169,7 +169,13 @@ export default {
       return image;
     },
     getVariantTileImage: function(variant) {
-      return variant.image || variant.storageImage || variant.albumImage || "";
+      return (
+        variant.image ||
+        variant.storageImage ||
+        variant.albumImage ||
+        variant.inventoryImage ||
+        ""
+      );
     },
     getSingeItemImage: function(item) {
       if (item.sourceSheet === "Recipes") {

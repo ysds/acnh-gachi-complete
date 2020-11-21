@@ -9,20 +9,24 @@ const {
 
 // Load Json
 
-let content = JSON.parse(
+let allItems = JSON.parse(
   // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/items.json", "utf8")
   fs.readFileSync("./data/item-data/items.json", "utf8")
 );
 
-content = content.concat(
+allItems = allItems.concat(
   JSON.parse(
     // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/recipes.json", "utf8")
     fs.readFileSync("./data/item-data/recipes.json", "utf8")
   )
 );
 
-content = content.concat(
+allItems = allItems.concat(
   JSON.parse(fs.readFileSync("./data/item-data/creatures.json", "utf8"))
+);
+
+const itemNameTranslations = JSON.parse(
+  fs.readFileSync(`./script/item-name.json`, "utf8")
 );
 
 const allTranslations = JSON.parse(
@@ -54,7 +58,7 @@ const fixData = JSON.parse(
 );
 
 // Each items
-content.forEach(item => {
+allItems.forEach(item => {
   // Remove photos and tools variant
   if (item.customize) {
     item.customizeVariants = [];
@@ -114,21 +118,28 @@ content.forEach(item => {
   //
 
   // Add displayName
-  const translateObj = allTranslations.filter(obj => {
-    if (typeof obj.locale.USen === "string") {
-      return obj.locale.USen.toLowerCase() === item.name.toLowerCase();
-    } else {
-      return null;
-    }
-  });
-  if (translateObj.length) {
-    item.displayName = translateObj[0].locale.JPja;
+  let itemName;
+  if (item.sourceSheet === "Recipes") {
+    const items = allItems.filter(craftedItem => {
+      return craftedItem.name === item.name;
+    });
+    itemName = items[0].displayName;
+  } else if (item.clothGroupId) {
+    itemName = itemNameTranslations[`Fassion_${item.clothGroupId}`];
+  } else if (item.variants) {
+    itemName = itemNameTranslations[item.variants[0].internalId];
+  } else {
+    itemName = itemNameTranslations[item.internalId];
+  }
+  if (fixData[item.name]) {
+    itemName = fixData[item.name];
+  }
+  if (itemName) {
+    item.displayName = itemName;
   } else {
     item.displayName = item.name;
-  }
-
-  if (fixData[item.name]) {
-    item.displayName = fixData[item.name];
+    console.log(`Noname: ${item.name}`);
+    item.noName = true;
   }
 
   // Source
@@ -401,7 +412,7 @@ content.forEach(item => {
 //
 // Sort displayName key
 //
-content = content.map(function(item) {
+allItems = allItems.map(function(item) {
   const keys = Object.keys(item);
   array_move(keys, keys.indexOf("displayName"), 2);
   const newItem = {};
@@ -416,7 +427,7 @@ content = content.map(function(item) {
 //
 
 // localeCompare
-content.sort(function(a, b) {
+allItems.sort(function(a, b) {
   return a.displayName.localeCompare(b.displayName);
 });
 
@@ -428,7 +439,7 @@ function conversion(str) {
   str = daku_conv(str);
   return str;
 }
-content.sort(function(c, d) {
+allItems.sort(function(c, d) {
   const a = c.displayName;
   const b = d.displayName;
   if (a == b) {
@@ -448,7 +459,7 @@ content.sort(function(c, d) {
 });
 
 // アルファベットを日本語の後ろに
-content.sort(function(a, b) {
+allItems.sort(function(a, b) {
   const isAlfabetA = a.displayName.slice(0, 1).match(/[^a-zA-Z]/gi);
   const isAlfabetB = b.displayName.slice(0, 1).match(/[^a-zA-Z]/gi);
   if (!isAlfabetA && isAlfabetB) {
@@ -461,11 +472,11 @@ content.sort(function(a, b) {
 });
 
 // Write file
-fs.writeFileSync("./src/assets/items.json", JSON.stringify(content));
+fs.writeFileSync("./src/assets/items.json", JSON.stringify(allItems));
 
 // Get All source
 // let sources = "";
-// content.forEach(item => {
+// allItems.forEach(item => {
 //   if (item.source) sources += `¥n${item.source}`;
 //   if (item.variants) {
 //     item.variants.forEach(variant => {

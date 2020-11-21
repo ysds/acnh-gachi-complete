@@ -195,6 +195,7 @@ export function filterItems(args) {
           if (length === 0) return false;
         }
       }
+      // return item.noName;
     }
 
     //

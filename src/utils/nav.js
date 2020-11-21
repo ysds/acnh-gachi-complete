@@ -196,7 +196,7 @@ export function filterItems(args) {
         }
       }
       // return item.noName;
-      return item.customizeVariants;
+      // return item.customizeVariants;
     }
 
     //

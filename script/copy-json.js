@@ -11,18 +11,18 @@ const {
 
 let content = JSON.parse(
   // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/items.json", "utf8")
-  fs.readFileSync("./json/item-data/items.json", "utf8")
+  fs.readFileSync("./data/item-data/items.json", "utf8")
 );
 
 content = content.concat(
   JSON.parse(
     // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/recipes.json", "utf8")
-    fs.readFileSync("./json/item-data/recipes.json", "utf8")
+    fs.readFileSync("./data/item-data/recipes.json", "utf8")
   )
 );
 
 content = content.concat(
-  JSON.parse(fs.readFileSync("./json/item-data/creatures.json", "utf8"))
+  JSON.parse(fs.readFileSync("./data/item-data/creatures.json", "utf8"))
 );
 
 const allTranslations = JSON.parse(
@@ -30,27 +30,27 @@ const allTranslations = JSON.parse(
 );
 
 const sourceTranslation = JSON.parse(
-  fs.readFileSync(`./json/translation-fix-data/source.json`, "utf8")
+  fs.readFileSync(`./data/translation-fix-data/source.json`, "utf8")
 );
 
 const sourceNoteTranslation = JSON.parse(
-  fs.readFileSync(`./json/translation-fix-data/sourceNote.json`, "utf8")
+  fs.readFileSync(`./data/translation-fix-data/sourceNote.json`, "utf8")
 );
 
 const shadowTranslation = JSON.parse(
-  fs.readFileSync(`./json/translation-fix-data/shadow.json`, "utf8")
+  fs.readFileSync(`./data/translation-fix-data/shadow.json`, "utf8")
 );
 
 const whereTranslation = JSON.parse(
-  fs.readFileSync(`./json/translation-fix-data/where.json`, "utf8")
+  fs.readFileSync(`./data/translation-fix-data/where.json`, "utf8")
 );
 
 const weatherTranslation = JSON.parse(
-  fs.readFileSync(`./json/translation-fix-data/weather.json`, "utf8")
+  fs.readFileSync(`./data/translation-fix-data/weather.json`, "utf8")
 );
 
 const fixData = JSON.parse(
-  fs.readFileSync("./json/translation-fix-data/fix2.json", "utf8")
+  fs.readFileSync("./data/translation-fix-data/fix2.json", "utf8")
 );
 
 // Each items

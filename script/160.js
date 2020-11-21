@@ -3,15 +3,15 @@ const fs = require("fs");
 // Load Json
 
 let content = JSON.parse(
-  fs.readFileSync("./json/item-data/items.json", "utf8")
+  fs.readFileSync("./data/item-data/items.json", "utf8")
 );
 
 content = content.concat(
-  JSON.parse(fs.readFileSync("./json/item-data/recipes.json", "utf8"))
+  JSON.parse(fs.readFileSync("./data/item-data/recipes.json", "utf8"))
 );
 
 content = content.concat(
-  JSON.parse(fs.readFileSync("./json/item-data/creatures.json", "utf8"))
+  JSON.parse(fs.readFileSync("./data/item-data/creatures.json", "utf8"))
 );
 
 // Each items

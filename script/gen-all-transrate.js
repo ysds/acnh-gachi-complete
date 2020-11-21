@@ -2,23 +2,23 @@ const fs = require("fs");
 
 let all = [];
 
-let fileList = fs.readdirSync("./json/translation-sheet-data");
+let fileList = fs.readdirSync("./data/translation-sheet-data");
 fileList = fileList.filter(RegExp.prototype.test, /.*\.json$/);
 
 for (let i = 0; i < fileList.length; i++) {
   const content = fs.readFileSync(
-    `./json/translation-sheet-data/${fileList[i]}`,
+    `./data/translation-sheet-data/${fileList[i]}`,
     "utf8"
   );
   all = all.concat(JSON.parse(content));
 }
 
 const fixData = JSON.parse(
-  fs.readFileSync("./json/translation-fix-data/fix.json", "utf8")
+  fs.readFileSync("./data/translation-fix-data/fix.json", "utf8")
 );
 
 const fixPatterns = JSON.parse(
-  fs.readFileSync("./json/translation-fix-data/fix_patterns.json", "utf8")
+  fs.readFileSync("./data/translation-fix-data/fix_patterns.json", "utf8")
 );
 
 all.forEach(translate => {

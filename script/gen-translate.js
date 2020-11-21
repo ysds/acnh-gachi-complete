@@ -43,7 +43,9 @@ const csvParse = require("csv-parse/lib/sync");
 (() => {
   let contentJson = {};
 
-  const content = fs.readFileSync(`./data/remake/STR_Remake_BodyColor.csv`);
+  const content = fs.readFileSync(
+    `./data/variant-remake/STR_Remake_BodyColor.csv`
+  );
   const contentArray = csvParse(content, {
     bom: true,
     from_line: 2
@@ -62,7 +64,7 @@ const csvParse = require("csv-parse/lib/sync");
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
-  fs.writeFileSync("./script/remake-body-name.json", contentJson);
+  fs.writeFileSync("./script/variant-body.json", contentJson);
 })();
 
 //
@@ -72,7 +74,9 @@ const csvParse = require("csv-parse/lib/sync");
 (() => {
   let contentJson = {};
 
-  const content = fs.readFileSync(`./data/remake/STR_Remake_FabricColor.csv`);
+  const content = fs.readFileSync(
+    `./data/variant-remake/STR_Remake_FabricColor.csv`
+  );
   const contentArray = csvParse(content, {
     bom: true,
     from_line: 2
@@ -95,5 +99,36 @@ const csvParse = require("csv-parse/lib/sync");
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
-  fs.writeFileSync("./script/remake-pattern-name.json", contentJson);
+  fs.writeFileSync("./script/variant-pattern.json", contentJson);
+})();
+
+//
+// Fassion
+//
+
+(() => {
+  const dir = "./data/variant-fassion";
+  let contentJson = {};
+  let fileList = fs.readdirSync(dir);
+  fileList = fileList.filter(RegExp.prototype.test, /.*\.csv$/);
+
+  for (let i = 0; i < fileList.length; i++) {
+    const content = fs.readFileSync(`${dir}/${fileList[i]}`);
+    const contentArray = csvParse(content, {
+      bom: true,
+      from_line: 2
+    });
+
+    for (let j = 0; j < contentArray.length; j++) {
+      const rowData = contentArray[j];
+      const key = (() => {
+        const strArray = rowData[0].split("_");
+        return `${parseInt(strArray[2], 10)}`;
+      })();
+      contentJson[key] = rowData[1];
+    }
+  }
+
+  contentJson = JSON.stringify(contentJson, null, 2);
+  fs.writeFileSync("./script/variant-fassion.json", contentJson);
 })();

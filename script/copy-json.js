@@ -29,6 +29,14 @@ const itemNameTranslations = JSON.parse(
   fs.readFileSync(`./script/item-name.json`, "utf8")
 );
 
+const bodyTranslations = JSON.parse(
+  fs.readFileSync(`./script/remake-body-name.json`, "utf8")
+);
+
+const patternTranslations = JSON.parse(
+  fs.readFileSync(`./script/remake-pattern-name.json`, "utf8")
+);
+
 const allTranslations = JSON.parse(
   fs.readFileSync(`./script/translate-all.json`, "utf8")
 );
@@ -69,45 +77,43 @@ allItems.forEach(item => {
   }
 
   if (item.variants) {
-    // Remove pattern variant
+    // Remove pattern variant and add pattern translation
     if (item.patternCustomize) {
       let prevVariation = "";
       let newVariants = item.variants.filter(variant => {
-        // Create patternVariants key
-        if (item.patternVariants && variant.pattern !== null) {
-          if (!item.patternVariants.includes(variant.pattern)) {
-            item.patternVariants.push(variant.pattern);
-          }
-        } else {
-          item.patternVariants = [
-            variant.pattern === null ? "None" : variant.pattern
-          ];
-        }
-
         const result = prevVariation !== variant.variation;
         prevVariation = variant.variation;
         return result;
       });
+      item.patternVariants = patternTranslations[item.variants[0].internalId];
+      if (!patternTranslations[item.variants[0].internalId]) {
+        console.log(`NoPatternVariant: ${item.name}`);
+      }
       item.variants = newVariants;
     }
 
-    // Remove body variant
+    // Remove body variant and Add bodyVariants translation
     if (item.variants[0].bodyCustomize) {
+      const bodyVariants = [];
       item.variants.forEach(variant => {
-        if (item.bodyVariants && variant.variation !== null) {
-          item.bodyVariants.push(variant.variation);
-        } else {
-          item.bodyVariants = [
-            variant.variation === null ? "None" : variant.variation
-          ];
+        const variantIdArray = variant.variantId.slice("_");
+        const variantId = `${variant.internalId}_${variantIdArray[0]}`;
+        bodyVariants.push(bodyTranslations[variantId] || variant.variation);
+        if (!bodyTranslations[variantId]) {
+          console.log(`NoBodyVariant: ${item.name} : ${variant.variation}`);
         }
       });
+      item.bodyVariants = bodyVariants;
       item.bodyCustomize = true;
       if (item.diy || item.catalog === "For sale" || item.catalog === true) {
         item.variants.length = 1;
       }
     }
   }
+
+  //
+  // Version fix
+  //
 
   if (item.name.match(/midwinter sweater|sunflower crown/g)) {
     item.versionAdded = "1.6.0";
@@ -138,7 +144,7 @@ allItems.forEach(item => {
     item.displayName = itemName;
   } else {
     item.displayName = item.name;
-    console.log(`Noname: ${item.name}`);
+    console.log(`NoName: ${item.name}`);
     item.noName = true;
   }
 
@@ -212,73 +218,6 @@ allItems.forEach(item => {
         item.variants[index].variationDisplayName = "白紙";
       }
     });
-  }
-  // Body variants
-  if (item.bodyCustomize) {
-    let newBodyVariants = [];
-    item.bodyVariants.forEach(variantString => {
-      const translations = furnitureTranslations.filter(translate => {
-        return (
-          translate.locale.USen.toLowerCase() === variantString.toLowerCase()
-        );
-      });
-      if (translations.length > 0) {
-        newBodyVariants.push(translations[0].locale.JPja);
-      } else {
-        newBodyVariants.push(variantString);
-      }
-    });
-    item.bodyVariants = newBodyVariants;
-
-    // 二回目
-    newBodyVariants = [];
-    item.bodyVariants.forEach(variantString => {
-      const translations = allTranslations.filter(translate => {
-        return (
-          typeof translate.locale.USen === "string" &&
-          translate.locale.USen.toLowerCase() === variantString.toLowerCase()
-        );
-      });
-      if (translations.length > 0) {
-        newBodyVariants.push(translations[0].locale.JPja);
-      } else {
-        newBodyVariants.push(variantString);
-      }
-    });
-    item.bodyVariants = newBodyVariants;
-  }
-
-  // Pattern variants
-  if (item.patternCustomize) {
-    let newPatternVariants = [];
-    item.patternVariants.forEach(variantString => {
-      const translations = furnitureTranslations.filter(translate => {
-        return translate.locale.USen === variantString;
-      });
-      if (translations.length > 0) {
-        newPatternVariants.push(translations[0].locale.JPja);
-      } else {
-        newPatternVariants.push(variantString);
-      }
-    });
-    item.patternVariants = newPatternVariants;
-
-    // 二回目
-    newPatternVariants = [];
-    item.patternVariants.forEach(variantString => {
-      const translations = allTranslations.filter(translate => {
-        return (
-          typeof translate.locale.USen === "string" &&
-          translate.locale.USen === variantString
-        );
-      });
-      if (translations.length > 0) {
-        newPatternVariants.push(translations[0].locale.JPja);
-      } else {
-        newPatternVariants.push(variantString);
-      }
-    });
-    item.patternVariants = newPatternVariants;
   }
 
   // Customize variants

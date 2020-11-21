@@ -1,29 +1,49 @@
 const fs = require("fs");
 const csvParse = require("csv-parse/lib/sync");
 
-let contentJson = {};
-let dir;
-let fileList;
-
-const getInternalId = function(str) {
-  const strArray = str.split("_");
-  if (strArray.length === 1) {
-    return `Fassion_${parseInt(strArray[0], 10)}`;
-  } else {
-    return parseInt(strArray[1], 10);
-  }
-};
-
 //
 // Item name
 //
 
-dir = "./data/item-name";
-fileList = fs.readdirSync(dir);
-fileList = fileList.filter(RegExp.prototype.test, /.*\.csv$/);
+(() => {
+  const dir = "./data/item-name";
+  let contentJson = {};
+  let fileList = fs.readdirSync(dir);
+  fileList = fileList.filter(RegExp.prototype.test, /.*\.csv$/);
 
-for (let i = 0; i < fileList.length; i++) {
-  const content = fs.readFileSync(`${dir}/${fileList[i]}`);
+  for (let i = 0; i < fileList.length; i++) {
+    const content = fs.readFileSync(`${dir}/${fileList[i]}`);
+    const contentArray = csvParse(content, {
+      bom: true,
+      from_line: 2
+    });
+
+    for (let j = 0; j < contentArray.length; j++) {
+      const rowData = contentArray[j];
+      const key = (() => {
+        const strArray = rowData[0].split("_");
+        if (strArray.length === 1) {
+          return `Fassion_${parseInt(strArray[0], 10)}`;
+        } else {
+          return parseInt(strArray[1], 10);
+        }
+      })();
+      contentJson[key] = rowData[1];
+    }
+  }
+
+  contentJson = JSON.stringify(contentJson, null, 2);
+  fs.writeFileSync("./script/item-name.json", contentJson);
+})();
+
+//
+// BodyColor
+//
+
+(() => {
+  let contentJson = {};
+
+  const content = fs.readFileSync(`./data/remake/STR_Remake_BodyColor.csv`);
   const contentArray = csvParse(content, {
     bom: true,
     from_line: 2
@@ -31,10 +51,49 @@ for (let i = 0; i < fileList.length; i++) {
 
   for (let j = 0; j < contentArray.length; j++) {
     const rowData = contentArray[j];
-    const key = getInternalId(rowData[0]);
-    contentJson[key] = rowData[1];
+    const key = (() => {
+      const strArray = rowData[0].split("_");
+      return `${parseInt(strArray[1], 10)}_${parseInt(strArray[2], 10)}`;
+    })();
+    let value = rowData[1].replace(/\r\n/g, "");
+    // eslint-disable-next-line no-control-regex
+    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
+    contentJson[key] = value;
   }
-}
 
-contentJson = JSON.stringify(contentJson, null, 2);
-fs.writeFileSync("./script/item-name.json", contentJson);
+  contentJson = JSON.stringify(contentJson, null, 2);
+  fs.writeFileSync("./script/remake-body-name.json", contentJson);
+})();
+
+//
+// PatternColor
+//
+
+(() => {
+  let contentJson = {};
+
+  const content = fs.readFileSync(`./data/remake/STR_Remake_FabricColor.csv`);
+  const contentArray = csvParse(content, {
+    bom: true,
+    from_line: 2
+  });
+
+  for (let j = 0; j < contentArray.length; j++) {
+    const rowData = contentArray[j];
+    const key = (() => {
+      const strArray = rowData[0].split("_");
+      return `${parseInt(strArray[1], 10)}`;
+    })();
+    let value = rowData[1].replace(/\r\n/g, "");
+    // eslint-disable-next-line no-control-regex
+    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
+
+    if (!contentJson[key]) {
+      contentJson[key] = [];
+    }
+    contentJson[key].push(value);
+  }
+
+  contentJson = JSON.stringify(contentJson, null, 2);
+  fs.writeFileSync("./script/remake-pattern-name.json", contentJson);
+})();

@@ -67,12 +67,31 @@ const fixData = JSON.parse(
 
 // Each items
 allItems.forEach(item => {
-  // Remove photos and tools variant
-  if (item.customize) {
-    item.customizeVariants = [];
+  // Remove photos & tools variant and add translation
+  if (item.customize && item.sourceSheet === "Tools") {
+    const customizeVariants = [];
     item.variants.forEach(variant => {
-      item.customizeVariants.push(variant.variation);
+      const variantIdArray = variant.variantId.slice("_");
+      const variantId = `${variant.internalId}_${variantIdArray[0]}`;
+      customizeVariants.push(bodyTranslations[variantId] || variant.variation);
+      if (!bodyTranslations[variantId]) {
+        console.log(`NoCustomizeVariant: ${item.name} : ${variant.variation}`);
+      }
     });
+    item.customizeVariants = customizeVariants;
+    item.variants.length = 1;
+  }
+  if (item.sourceSheet === "Photos") {
+    item.customizeVariants = [
+      "ナチュラルウッド",
+      "ダークウッド",
+      "パステル",
+      "ホワイト",
+      "ポップ",
+      "カラフル",
+      "シルバー",
+      "ゴールド"
+    ];
     item.variants.length = 1;
   }
 
@@ -218,45 +237,6 @@ allItems.forEach(item => {
         item.variants[index].variationDisplayName = "白紙";
       }
     });
-  }
-
-  // Customize variants
-  if (item.customize) {
-    let newCustomizeVariants = [];
-    item.customizeVariants.forEach(variantString => {
-      const translations = furnitureTranslations.filter(translate => {
-        return translate.locale.USen === variantString;
-      });
-      if (translations.length > 0) {
-        newCustomizeVariants.push(translations[0].locale.JPja);
-      } else {
-        newCustomizeVariants.push(variantString);
-      }
-    });
-    item.customizeVariants = newCustomizeVariants;
-
-    // 二回目
-    newCustomizeVariants = [];
-    item.customizeVariants.forEach(variantString => {
-      const translations = allTranslations.filter(translate => {
-        return (
-          typeof translate.locale.USen === "string" &&
-          translate.locale.USen === variantString
-        );
-      });
-      if (translations.length > 0) {
-        newCustomizeVariants.push(translations[0].locale.JPja);
-      } else if (variantString === "Yellow & orange") {
-        newCustomizeVariants.push("イエロー×オレンジ");
-      } else if (variantString === "Orange & blue") {
-        newCustomizeVariants.push("オレンジ×ブルー");
-      } else if (variantString === "Gray & green") {
-        newCustomizeVariants.push("グレー×グリーン");
-      } else {
-        newCustomizeVariants.push(variantString);
-      }
-    });
-    item.customizeVariants = newCustomizeVariants;
   }
 
   //

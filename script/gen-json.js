@@ -172,17 +172,26 @@ allItems.forEach(item => {
     item.sourceJa = [];
     item.source.forEach(source => {
       item.sourceJa.push(sourceTranslation[source] || source);
+      if (source !== "" && sourceTranslation[source] === undefined) {
+        console.log(`NoSource: ${item.name}: ${source}`);
+      }
     });
   } else if (item.variants && item.variants[0].source) {
     item.variants[0].sourceJa = [];
     item.variants[0].source.forEach(source => {
       item.variants[0].sourceJa.push(sourceTranslation[source] || source);
+      if (source !== "" && sourceTranslation[source] === undefined) {
+        console.log(`NoSource: ${item.name}: ${source}`);
+      }
     });
   }
   // SourceNotes
   if (item.sourceNotes) {
     item.sourceNotesJa =
       sourceNoteTranslation[item.sourceNotes] || item.sourceNotes;
+    if (sourceNoteTranslation[item.sourceNotes] === undefined) {
+      console.log(`NoSourceNote: ${item.sourceNotes}`);
+    }
   }
   // Shadow
   if (item.shadow) {

@@ -144,7 +144,7 @@
           >」から、データをインポートすることができます。
         </p>
         <p class="small" style="font-weight: 700; margin-bottom: .5rem;">
-          こののテキストボックスに、発行した URL
+          このテキストボックスに、発行した URL
           を貼り付けて、インポートボタンを押してください。
         </p>
         <login-import />

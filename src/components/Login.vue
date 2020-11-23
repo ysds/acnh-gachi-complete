@@ -93,13 +93,6 @@
             あなたの固有IDです。シェア機能使用時の URL として使用されます。
           </p>
         </div>
-
-        <button type="button" class="btn" @click="logout">
-          ログアウト
-        </button>
-        <p class="small">
-          ログアウトするとブラウザに保存されているデータはクリアされます。再度ログインすることで、クラウドからデータを復元できます。
-        </p>
       </template>
       <template v-else-if="isLogin === false">
         <p style="font-size: 14px;">
@@ -125,6 +118,45 @@
           Twitter でログイン
         </button>
       </template>
+      <div class="section">
+        <div class="section-label mb-4">インポート</div>
+        <p class="small">
+          「<a
+            target="_blank"
+            rel="noopener"
+            href="https://modunogay.github.io/DIY/index.html"
+            >DIYレシピチェッカー</a
+          >」、「<a
+            target="_blank"
+            rel="noopener"
+            href="https://modunogay.github.io/FTR/index.html"
+            >家具チェッカー</a
+          >」、「<a
+            target="_blank"
+            rel="noopener"
+            href="https://modunogay.github.io/MISC/index.html"
+            >小物家具チェッカー</a
+          >」、「<a
+            target="_blank"
+            rel="noopener"
+            href="https://modunogay.github.io/FTR_WALL/index.html"
+            >壁掛け家具チェッカー</a
+          >」から、データをインポートすることができます。
+        </p>
+        <p class="small" style="font-weight: 700; margin-bottom: .5rem;">
+          こののテキストボックスに、発行した URL
+          を貼り付けて、インポートボタンを押してください。
+        </p>
+        <login-import />
+      </div>
+      <template v-if="isLogin && user">
+        <button type="button" class="btn" @click="logout">
+          ログアウト
+        </button>
+        <p class="small">
+          ログアウトするとブラウザに保存されているデータはクリアされます。再度ログインすることで、クラウドからデータを復元できます。
+        </p>
+      </template>
     </div>
   </div>
 </template>
@@ -134,6 +166,7 @@ import Auth from "../utils/auth";
 import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
 import LoginShare from "../components/LoginShare";
+import LoginImport from "../components/LoginImport";
 
 const db = firebase.firestore();
 const baseURL = process.env.BASE_URL;
@@ -143,7 +176,8 @@ export default {
   components: {
     CloseButton,
     Button,
-    LoginShare
+    LoginShare,
+    LoginImport
   },
   data() {
     return {

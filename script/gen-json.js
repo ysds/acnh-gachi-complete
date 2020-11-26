@@ -67,6 +67,13 @@ const fixData = JSON.parse(
 
 // Each items
 allItems.forEach(item => {
+  // Fix
+  if (item.name === "set of stockings") {
+    item.variants.forEach((variant, index) => {
+      item.variants[index].bodyCustomize = false;
+    });
+  }
+
   // Remove photos & tools variant and add translation
   if (item.customize && item.sourceSheet === "Tools") {
     const customizeVariants = [];

@@ -400,7 +400,7 @@ allItems.sort(function(a, b) {
 });
 
 // Write file
-fs.writeFileSync("./src/assets/items.json", JSON.stringify(allItems));
+fs.writeFileSync("./src/assets/items.json", JSON.stringify(allItems, null, 2));
 
 // Get All source
 // let sources = "";

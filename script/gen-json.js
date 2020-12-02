@@ -267,6 +267,8 @@ allItems.forEach(item => {
   delete item["set"];
   delete item["customizationKitCost"];
   delete item["versionUnlocked"];
+  delete item["unlockNotes"];
+  delete item["unlocked"];
   // Wall-mounted
   delete item["doorDeco"];
   // Wallpaper

@@ -49,6 +49,10 @@ const sourceNoteTranslation = JSON.parse(
   fs.readFileSync(`./data/translation-fix-data/sourceNote.json`, "utf8")
 );
 
+const seasonEventTranslation = JSON.parse(
+  fs.readFileSync(`./data/translation-fix-data/seasonEvent.json`, "utf8")
+);
+
 const shadowTranslation = JSON.parse(
   fs.readFileSync(`./data/translation-fix-data/shadow.json`, "utf8")
 );
@@ -193,6 +197,14 @@ allItems.forEach(item => {
       console.log(`NoSourceNote: ${item.sourceNotes}`);
     }
   }
+  // seasonEvent
+  if (item.seasonEvent) {
+    item.seasonEventJa =
+      seasonEventTranslation[item.seasonEvent] || item.seasonEvent;
+    if (seasonEventTranslation[item.seasonEvent] === undefined) {
+      console.log(`NoSeasonEvent: ${item.seasonEvent}`);
+    }
+  }
   // Shadow
   if (item.shadow) {
     item.shadowJa = shadowTranslation[item.shadow] || item.shadow;
@@ -246,6 +258,7 @@ allItems.forEach(item => {
   //
 
   // Housewares
+  delete item["mannequinSeason"];
   delete item["patternTitle"];
   delete item["size"];
   delete item["surface"];

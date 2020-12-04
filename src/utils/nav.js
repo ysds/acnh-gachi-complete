@@ -387,27 +387,33 @@ export function filterItems(args) {
         (item.source && item.source.includes("Pascal"))
       );
     }
-    // 季節・イベント (花火大会)
-    else if (nav === "season-fireworks") {
+    // 季節・イベント (たぬきショッピング)
+    else if (nav === "season-nook") {
       return (
-        (item.sourceNotes && item.sourceNotes.indexOf("ireworks") > 0) ||
-        item.name === "fountain firework"
+        item.variants &&
+        item.variants[0].source &&
+        item.variants[0].source.join(",").match(/Nook Shopping Seasonal/gi)
       );
     }
     // 季節・イベント (魚釣り大会)
     else if (nav === "season-fish") {
-      return (
-        item.variants && item.variants[0].source.includes("Fishing Tourney")
-      );
+      return item.seasonEvent === "Fishing Tourney";
     }
     // 季節・イベント (虫取り大会)
     else if (nav === "season-bug") {
-      return item.variants && item.variants[0].source.includes("Bug-Off");
+      return item.seasonEvent === "Bug-Off";
+    }
+    // 季節・イベント (花火大会)
+    else if (nav === "season-fireworks") {
+      return (
+        (item.sourceNotes && item.sourceNotes.indexOf("ireworks") > 0) ||
+        item.seasonEvent === "Fireworks Show"
+      );
     }
     // 季節・イベント (はるのわかたけ)
     else if (nav === "season-spring") {
       return (
-        item.sourceNotes === "Only available during Spring" &&
+        item.seasonEvent === "young spring bamboo" &&
         !item.diy &&
         item.sourceSheet !== "Other"
       );
@@ -415,7 +421,32 @@ export function filterItems(args) {
     // 季節・イベント (さくら)
     else if (nav === "season-sakura") {
       return (
-        item.sourceNotes === "Only available during Cherry-Blossom Season" &&
+        item.seasonEvent === "cherry-blossom petals" &&
+        !item.diy &&
+        item.sourceSheet !== "Other"
+      );
+    }
+    // 季節・イベント (イースター)
+    else if (nav === "season-easter") {
+      return (
+        item.seasonEvent &&
+        item.seasonEvent.includes("Bunny Day") &&
+        !item.diy &&
+        item.sourceSheet !== "Other"
+      );
+    }
+    // 季節・イベント (メーデー)
+    else if (nav === "season-mayday") {
+      return item.seasonEvent === "May Day" && item.sourceSheet !== "Other";
+    }
+    // 季節・イベント (国際ミュージアムデー)
+    else if (nav === "season-museum") {
+      return item.seasonEvent === "International Museum Day";
+    }
+    // 季節・イベント (ジューンブライト)
+    else if (nav === "season-wedding") {
+      return (
+        item.seasonEvent === "Wedding Season" &&
         !item.diy &&
         item.sourceSheet !== "Other"
       );
@@ -423,27 +454,27 @@ export function filterItems(args) {
     // 季節・イベント (なつのかいがら)
     else if (nav === "season-summer") {
       return (
-        item.sourceNotes === "Only available during Summer" &&
+        item.seasonEvent === "summer shells" &&
         !item.diy &&
         item.sourceSheet !== "Other"
       );
     }
     // 季節・イベント (どんぐり/まつぼっくり)
     else if (nav === "season-fall") {
-      return item.sourceNotes === "Only available during Fall" && !item.diy;
+      return (
+        item.seasonEvent === "acorns and pine cones" &&
+        !item.diy &&
+        item.sourceSheet !== "Other"
+      );
     }
     // 季節・イベント (ハロウィン)
     else if (nav === "season-halloween") {
-      return (
-        item.name.match(/spooky/) ||
-        (item.sourceNotes && item.sourceNotes.match(/(Halloween|lollipop)/)) ||
-        (item.variants && item.variants[0].source.includes("Jack"))
-      );
+      return item.seasonEvent && item.seasonEvent.includes("Halloween");
     }
     // 季節・イベント (きのこ)
     else if (nav === "season-mushroom") {
       return (
-        item.sourceNotes === "Only available during Mushroom Season" &&
+        item.seasonEvent === "mushrooms" &&
         !item.diy &&
         item.sourceSheet !== "Other"
       );
@@ -451,7 +482,20 @@ export function filterItems(args) {
     // 季節・イベント (もみじ)
     else if (nav === "season-maple") {
       return (
-        item.sourceNotes === "Only available during Maple Leaf Season" &&
+        item.seasonEvent === "maple leaves" &&
+        !item.diy &&
+        item.sourceSheet !== "Other"
+      );
+    }
+    // 季節・イベント (サンクスギビングデー)
+    else if (nav === "season-turkey") {
+      return item.seasonEvent && item.seasonEvent.includes("Turkey Day");
+    }
+    // 季節・イベント (クリスマス)
+    else if (nav === "season-toy") {
+      return (
+        item.seasonEvent &&
+        item.seasonEvent.includes("Toy Day") &&
         !item.diy &&
         item.sourceSheet !== "Other"
       );
@@ -464,36 +508,25 @@ export function filterItems(args) {
         item.sourceSheet !== "Other"
       );
     }
-    // 季節・イベント (オーナメント)
-    else if (nav === "season-festive") {
-      return (
-        item.sourceNotes === "Only available during Festive Season" && !item.diy
-      );
-    }
-    // 季節・イベント (ジューンブライト)
-    else if (nav === "season-wedding") {
-      return (
-        item.sourceNotes === "Only available during Wedding Season" && !item.diy
-      );
-    }
-    // 季節・イベント (イースター)
-    else if (nav === "season-easter") {
-      return (
-        (!item.diy &&
-          item.variants &&
-          item.variants[0].source.includes("Bunny Day")) ||
-        (item.sourceSheet === "Recipes" &&
-          (item.sourceNotes === "Only available during Bunny Day" ||
-            item.source.includes("Zipper")))
-      );
-    }
-    // 季節・イベント (メーデー)
-    else if (nav === "season-mayday") {
-      return item.sourceNotes === "Reward for solving May Day maze";
-    }
     // 季節・イベント (雪だるま)
     else if (nav === "season-snowboy") {
       return item.source && item.source.includes("Snowboy");
+    }
+    // 季節・イベント (オーナメント)
+    else if (nav === "season-festive") {
+      return (
+        item.seasonEvent === "ornaments" &&
+        !item.diy &&
+        item.sourceSheet !== "Other"
+      );
+    }
+    // 季節・イベント (カウントダウン)
+    else if (nav === "season-countdown") {
+      return item.seasonEvent === "Countdown";
+    }
+    // 季節・イベント (誕生日)
+    else if (nav === "season-birthday") {
+      return item.seasonEvent === "Birthday";
     }
     // バージョン 1.4.0
     else if (nav === "versions-140") {
@@ -726,6 +759,11 @@ export const navs = [
     text: "季節/イベント",
     subnavs: [
       {
+        id: "season-nook",
+        text: "たぬきショッピング",
+        subtext: "スペシャル（シーズン）"
+      },
+      {
         id: "season-fish",
         text: "魚釣り大会",
         subtext: "1, 4, 7, 10月",
@@ -768,6 +806,12 @@ export const navs = [
         order: 7
       },
       {
+        id: "season-museum",
+        text: "国際ミュージアムデー",
+        subtext: "5/18〜5/31",
+        order: 7
+      },
+      {
         id: "season-wedding",
         text: "ジューンブライド",
         subtext: "6/1〜6/30",
@@ -804,22 +848,45 @@ export const navs = [
         order: 13
       },
       {
+        id: "season-turkey",
+        text: "サンクスギビングデー",
+        subtext: "11/26～11/30",
+        order: 13
+      },
+      {
+        id: "season-toy",
+        text: "クリスマス",
+        subtext: "12/1～12/25",
+        order: 13
+      },
+      {
         id: "season-winter",
         text: "ゆきのけっしょう",
         subtext: "12/11〜2/24",
         order: 14
       },
       {
-        id: "season-festive",
-        text: "オーナメント",
-        subtext: "12/15〜1/6",
-        order: 15
-      },
-      {
         id: "season-snowboy",
         text: "ゆきだるま",
         subtext: "12/11〜2/24",
+        order: 15
+      },
+      {
+        id: "season-festive",
+        text: "オーナメント",
+        subtext: "12/15〜1/6",
         order: 16
+      },
+      {
+        id: "season-countdown",
+        text: "カウントダウン",
+        subtext: "12/31",
+        order: 17
+      },
+      {
+        id: "season-birthday",
+        text: "誕生日",
+        order: 18
       }
     ]
   },

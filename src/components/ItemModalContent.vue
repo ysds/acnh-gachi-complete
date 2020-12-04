@@ -62,6 +62,10 @@
       <div class="info-label info-4">入手メモ</div>
       <div class="info-text">{{ modalItem.sourceNotesJa }}</div>
     </div>
+    <div class="info" v-if="modalItem.seasonEvent">
+      <div class="info-label info-4">時期/イベント</div>
+      <div class="info-text">{{ modalItem.seasonEventJa }}</div>
+    </div>
     <div class="info" v-if="modalItem.activeMonths">
       <div class="info-label info-4">時期</div>
       <div class="info-text">

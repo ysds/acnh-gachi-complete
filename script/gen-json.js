@@ -175,7 +175,7 @@ allItems.forEach(item => {
   if (item.source) {
     item.sourceJa = [];
     item.source.forEach(source => {
-      item.sourceJa.push(sourceTranslation[source] || source);
+      item.sourceJa.push(sourceTranslation[source]);
       if (source !== "" && sourceTranslation[source] === undefined) {
         console.log(`NoSource: ${item.name}: ${source}`);
       }
@@ -183,7 +183,7 @@ allItems.forEach(item => {
   } else if (item.variants && item.variants[0].source) {
     item.variants[0].sourceJa = [];
     item.variants[0].source.forEach(source => {
-      item.variants[0].sourceJa.push(sourceTranslation[source] || source);
+      item.variants[0].sourceJa.push(sourceTranslation[source] ?? source);
       if (source !== "" && sourceTranslation[source] === undefined) {
         console.log(`NoSource: ${item.name}: ${source}`);
       }
@@ -191,8 +191,9 @@ allItems.forEach(item => {
   }
   // SourceNotes
   if (item.sourceNotes) {
-    item.sourceNotesJa =
-      sourceNoteTranslation[item.sourceNotes] || item.sourceNotes;
+    if (sourceNoteTranslation[item.sourceNotes]) {
+      item.sourceNotesJa = sourceNoteTranslation[item.sourceNotes];
+    }
     if (sourceNoteTranslation[item.sourceNotes] === undefined) {
       console.log(`NoSourceNote: ${item.sourceNotes}`);
     }
@@ -200,7 +201,7 @@ allItems.forEach(item => {
   // seasonEvent
   if (item.seasonEvent) {
     item.seasonEventJa =
-      seasonEventTranslation[item.seasonEvent] || item.seasonEvent;
+      seasonEventTranslation[item.seasonEvent] ?? item.seasonEvent;
     if (seasonEventTranslation[item.seasonEvent] === undefined) {
       console.log(`NoSeasonEvent: ${item.seasonEvent}`);
     }
@@ -258,6 +259,7 @@ allItems.forEach(item => {
   //
 
   // Housewares
+  delete item["seasonEventExclusive"];
   delete item["mannequinSeason"];
   delete item["patternTitle"];
   delete item["size"];

@@ -313,12 +313,12 @@ export function filterItems(args) {
       return item.sourceSheet === "Recipes";
     }
     // 道具 (すべて)
-    else if (nav === "ss-all") {
-      return item.sourceSheet === "ss";
+    else if (nav === "tools-all") {
+      return item.sourceSheet === "Tools";
     }
     // 道具 (ステッキ)
-    else if (nav === "ss-wand") {
-      return item.sourceSheet === "ss" && item.name.indexOf("wand") >= 0;
+    else if (nav === "tools-wand") {
+      return item.sourceSheet === "Tools" && item.name.indexOf("wand") >= 0;
     }
     // 生き物 (虫)
     else if (nav === "creatures-insects") {
@@ -690,17 +690,17 @@ export const navs = [
     ]
   },
   {
-    id: "ss",
+    id: "tools",
     text: "道具",
     subnavs: [
       {
-        id: "ss-all",
+        id: "tools-all",
         text: "道具",
         alttext: "すべて",
         order: 1
       },
       {
-        id: "ss-wand",
+        id: "tools-wand",
         text: "ステッキ",
         order: 2
       }

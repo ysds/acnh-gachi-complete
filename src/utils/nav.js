@@ -313,12 +313,12 @@ export function filterItems(args) {
       return item.sourceSheet === "Recipes";
     }
     // 道具 (すべて)
-    else if (nav === "tools-all") {
-      return item.sourceSheet === "Tools";
+    else if (nav === "ss-all") {
+      return item.sourceSheet === "ss";
     }
     // 道具 (ステッキ)
-    else if (nav === "tools-wand") {
-      return item.sourceSheet === "Tools" && item.name.indexOf("wand") >= 0;
+    else if (nav === "ss-wand") {
+      return item.sourceSheet === "ss" && item.name.indexOf("wand") >= 0;
     }
     // 生き物 (虫)
     else if (nav === "creatures-insects") {
@@ -334,11 +334,19 @@ export function filterItems(args) {
     }
     // 来訪者 (ジャスティン)
     else if (nav === "special-fishmodels") {
-      return item.variants && item.variants[0].source.includes("C.J.");
+      return (
+        item.variants &&
+        item.variants[0].source.includes("C.J.") &&
+        item.seasonEvent !== "Fishing Tourney"
+      );
     }
     // 来訪者 (レックス)
     else if (nav === "special-bugmodels") {
-      return item.variants && item.variants[0].source.includes("Flick");
+      return (
+        item.variants &&
+        item.variants[0].source.includes("Flick") &&
+        item.seasonEvent !== "Bug-Off"
+      );
     }
     // 来訪者 (つねきち)
     else if (nav === "special-art") {
@@ -437,7 +445,7 @@ export function filterItems(args) {
     }
     // 季節・イベント (メーデー)
     else if (nav === "season-mayday") {
-      return item.seasonEvent === "May Day" && item.sourceSheet !== "Other";
+      return item.seasonEvent === "May Day" && item.sourceSheet !== "Tools";
     }
     // 季節・イベント (国際ミュージアムデー)
     else if (nav === "season-museum") {
@@ -682,17 +690,17 @@ export const navs = [
     ]
   },
   {
-    id: "tools",
+    id: "ss",
     text: "道具",
     subnavs: [
       {
-        id: "tools-all",
+        id: "ss-all",
         text: "道具",
         alttext: "すべて",
         order: 1
       },
       {
-        id: "tools-wand",
+        id: "ss-wand",
         text: "ステッキ",
         order: 2
       }
@@ -761,132 +769,133 @@ export const navs = [
       {
         id: "season-nook",
         text: "たぬきショッピング",
-        subtext: "スペシャル（シーズン）"
+        subtext: "スペシャル（シーズン）",
+        order: 1
       },
       {
         id: "season-fish",
         text: "魚釣り大会",
         subtext: "1, 4, 7, 10月",
-        order: 1
+        order: 2
       },
       {
         id: "season-bug",
         text: "虫取り大会",
         subtext: "6, 7, 8, 9月",
-        order: 2
+        order: 3
       },
       {
         id: "season-fireworks",
         text: "花火大会",
         subtext: "8月",
-        order: 3
+        order: 4
       },
       {
         id: "season-spring",
         text: "はるのわかたけ",
         subtext: "2/25〜5/31",
-        order: 4
+        order: 5
       },
       {
         id: "season-sakura",
         text: "さくらのはなびら",
         subtext: "4/1〜4/10",
-        order: 5
+        order: 6
       },
       {
         id: "season-easter",
         text: "イースター",
         subtext: "4/1〜4/12",
-        order: 6
+        order: 7
       },
       {
         id: "season-mayday",
         text: "メーデー",
         subtext: "5/1〜5/7",
-        order: 7
+        order: 8
       },
       {
         id: "season-museum",
         text: "国際ミュージアムデー",
         subtext: "5/18〜5/31",
-        order: 7
+        order: 9
       },
       {
         id: "season-wedding",
         text: "ジューンブライド",
         subtext: "6/1〜6/30",
-        order: 8
+        order: 10
       },
       {
         id: "season-summer",
         text: "なつのかいがら",
         subtext: "6/1〜8/31",
-        order: 9
+        order: 11
       },
       {
         id: "season-fall",
         text: "どんぐり/まつぼっくり",
         subtext: "9/1〜12/10",
-        order: 10
+        order: 12
       },
       {
         id: "season-halloween",
         text: "ハロウィン",
         subtext: "10/1〜10/31",
-        order: 11
+        order: 13
       },
       {
         id: "season-mushroom",
         text: "キノコ",
         subtext: "11/1〜11/30",
-        order: 12
+        order: 14
       },
       {
         id: "season-maple",
         text: "もみじのはっぱ",
         subtext: "11/16～11/25",
-        order: 13
+        order: 15
       },
       {
         id: "season-turkey",
         text: "サンクスギビングデー",
         subtext: "11/26～11/30",
-        order: 13
+        order: 16
       },
       {
         id: "season-toy",
         text: "クリスマス",
         subtext: "12/1～12/25",
-        order: 13
+        order: 17
       },
       {
         id: "season-winter",
         text: "ゆきのけっしょう",
         subtext: "12/11〜2/24",
-        order: 14
+        order: 18
       },
       {
         id: "season-snowboy",
         text: "ゆきだるま",
         subtext: "12/11〜2/24",
-        order: 15
+        order: 19
       },
       {
         id: "season-festive",
         text: "オーナメント",
         subtext: "12/15〜1/6",
-        order: 16
+        order: 20
       },
       {
         id: "season-countdown",
         text: "カウントダウン",
         subtext: "12/31",
-        order: 17
+        order: 21
       },
       {
         id: "season-birthday",
         text: "誕生日",
-        order: 18
+        order: 22
       }
     ]
   },

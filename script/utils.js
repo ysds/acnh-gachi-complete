@@ -5,6 +5,12 @@ module.exports = {
       return String.fromCharCode(chr);
     });
   },
+  hanEisuToZenEisu: function(str) {
+    return str.replace(/[A-Za-z0-9]/g, function(match) {
+      const chr = match.charCodeAt(0) + 0xFEE0;
+      return String.fromCharCode(chr);
+    });
+  },
   daku_conv: function(str) {
     str = str.normalize("NFD");
     str = str.replace(/[\u3099\u309A]/g, "");

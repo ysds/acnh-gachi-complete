@@ -400,8 +400,8 @@ allItems.sort(function(c, d) {
 
 // 数字で始まるアイテムを先頭に持ってくる（例：１ごうのしゃしん）
 allItems.sort(function(a, b) {
-  const isAlfabetA = a.displayName.slice(0, 1).match(/[^０-９]/gi);
-  const isAlfabetB = b.displayName.slice(0, 1).match(/[^０-９]/gi);
+  const isAlfabetA = a.displayName.slice(0, 1).match(/[^0-9０-９]/gi);
+  const isAlfabetB = b.displayName.slice(0, 1).match(/[^0-9０-９]/gi);
   if (!isAlfabetA && isAlfabetB) {
     return -1;
   }

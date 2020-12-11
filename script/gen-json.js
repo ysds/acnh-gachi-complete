@@ -371,9 +371,9 @@ allItems.sort(function(a, b) {
 
 // 日本語ソート
 function conversion(str) {
+  str = hiraToKana(str);
   str = tsu_conv(str);
   str = choon_conv(str);
-  str = hiraToKana(str);
   str = daku_conv(str);
   return str;
 }

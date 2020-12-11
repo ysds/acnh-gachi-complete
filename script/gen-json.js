@@ -1,6 +1,7 @@
 const fs = require("fs");
 const {
   hiraToKana,
+  hanEisuToZenEisu,
   daku_conv,
   choon_conv,
   tsu_conv,
@@ -372,6 +373,7 @@ allItems.sort(function(a, b) {
 // 日本語ソート
 function conversion(str) {
   str = hiraToKana(str);
+  str = hanEisuToZenEisu(str);
   str = tsu_conv(str);
   str = choon_conv(str);
   str = daku_conv(str);
@@ -396,15 +398,15 @@ allItems.sort(function(c, d) {
   }
 });
 
-// アルファベットを日本語の後ろに
+// 数字で始まるアイテムを先頭に持ってくる（例：１ごうのしゃしん）
 allItems.sort(function(a, b) {
-  const isAlfabetA = a.displayName.slice(0, 1).match(/[^a-zA-Z]/gi);
-  const isAlfabetB = b.displayName.slice(0, 1).match(/[^a-zA-Z]/gi);
+  const isAlfabetA = a.displayName.slice(0, 1).match(/[^0-9０-９]/gi);
+  const isAlfabetB = b.displayName.slice(0, 1).match(/[^0-9０-９]/gi);
   if (!isAlfabetA && isAlfabetB) {
-    return 1;
+    return -1;
   }
   if (isAlfabetA && !isAlfabetB) {
-    return -1;
+    return 1;
   }
   return 0;
 });

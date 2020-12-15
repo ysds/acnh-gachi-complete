@@ -536,6 +536,10 @@ export function filterItems(args) {
     else if (nav === "season-birthday") {
       return item.seasonEvent === "Birthday";
     }
+    // リアクション
+    else if (nav === "reactions") {
+      return item.sourceSheet === "Reactions";
+    }
     // バージョン 1.4.0
     else if (nav === "versions-140") {
       return item.versionAdded === "1.4.0";
@@ -898,6 +902,10 @@ export const navs = [
         order: 22
       }
     ]
+  },
+  {
+    id: "reactions",
+    text: "リアクション"
   },
   {
     id: "versions",

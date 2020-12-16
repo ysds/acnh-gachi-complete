@@ -6,6 +6,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    activeNav: null,
+    isOpenDrawer: false,
     user: null,
     isLogin: null,
     userName: null,
@@ -20,6 +22,13 @@ export default new Vuex.Store({
     hasUpdateData: false
   },
   mutations: {
+    changeNav(state, nextNav) {
+      localforage.setItem("nav", nextNav);
+      state.activeNav = nextNav;
+    },
+    toggleDrawer(state) {
+      state.isOpenDrawer = !state.isOpenDrawer;
+    },
     authStateChange(state, user) {
       state.user = user;
     },
@@ -101,6 +110,12 @@ export default new Vuex.Store({
     }
   },
   getters: {
+    activeNav(state) {
+      return state.activeNav;
+    },
+    isOpenDrawer(state) {
+      return state.isOpenDrawer;
+    },
     user(state) {
       return state.user;
     },

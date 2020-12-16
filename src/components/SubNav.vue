@@ -1,22 +1,7 @@
 <template>
-  <div>
-    <nav class="nav">
-      <button
-        type="button"
-        v-for="nav in navs"
-        class="nav-item"
-        :class="{ active: active && active.includes(nav.id) }"
-        :key="nav.id"
-        @click="changeNav(nav.subnavs ? nav.subnavs[0].id : nav.id)"
-      >
-        {{ nav.text }}
-      </button>
-      <router-link class="nav-item nav-item-about" to="/about">
-        使い方
-      </router-link>
-    </nav>
-    <div class="wrapper" v-if="subnavs">
-      <nav class="subnav" ref="subnav">
+  <div class="wrapper" :class="{ sticky: subnavs }">
+    <nav class="subnav" ref="subnav">
+      <template v-if="subnavs">
         <button
           type="button"
           v-for="subnav in subnavs"
@@ -31,8 +16,13 @@
             {{ subnav.subtext }}
           </span>
         </button>
-      </nav>
-    </div>
+      </template>
+      <template v-else>
+        <button type="button" class="subnav-item active" disabled>
+          {{ navText }}
+        </button>
+      </template>
+    </nav>
   </div>
 </template>
 
@@ -41,7 +31,6 @@ import IconPinned from "./IconPinned";
 import isEqual from "lodash/isEqual";
 
 export default {
-  name: "Nav",
   components: {
     IconPinned
   },
@@ -51,6 +40,17 @@ export default {
     pins: Object
   },
   computed: {
+    navText() {
+      if (this.active) {
+        const activeNavObj = this.navs.filter(nav => {
+          return this.active.includes(nav.id);
+        });
+        if (activeNavObj.length > 0) {
+          return activeNavObj[0].text;
+        }
+      }
+      return "";
+    },
     subnavs: function() {
       if (this.active) {
         const activeNavObj = this.navs.filter(nav => {
@@ -72,52 +72,28 @@ export default {
   },
   methods: {
     changeNav(id) {
-      this.$emit("change", id);
+      this.$store.commit("changeNav", id);
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
-.nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: -0.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.nav-item {
-  margin: 0.5rem 0.33rem 0;
-  padding: 2px 0;
-  background-color: transparent;
-  outline: none;
-  font-weight: bold;
-  border-width: 0 0 3px;
-  border-style: solid;
-  border-color: transparent;
-  border-radius: 2px;
-  color: #444;
-  touch-action: manipulation;
-
-  &.active {
-    color: #42b983;
-    border-bottom-color: #42b983;
-  }
-}
-
-.nav-item-about {
-  color: #ff617c;
-}
-
 .wrapper {
   display: flex;
+  background-color: #fff;
+}
+
+.sticky {
+  position: sticky;
+  top: 52px;
+  z-index: 1008;
 }
 
 .subnav {
   display: flex;
   margin: 0 auto;
-  padding: 0.5rem;
+  padding: 0 0.5rem 0.5rem;
   overflow-x: auto;
   line-height: 1;
   white-space: nowrap;

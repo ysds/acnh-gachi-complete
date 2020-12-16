@@ -558,7 +558,7 @@ export const navs = [
     subnavs: [
       {
         id: "housewares-all",
-        text: "家具（すべて）",
+        text: "すべての家具",
         alttext: "すべて"
       },
       {
@@ -581,7 +581,7 @@ export const navs = [
     subnavs: [
       {
         id: "fashion-all",
-        text: "ファッション（すべて）",
+        text: "すべてのファッション",
         alttext: "すべて"
       },
       {

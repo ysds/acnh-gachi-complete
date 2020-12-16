@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <PageToTop />
-    <div class="view-btn-wrapper" v-show="!isSearchMode">
+    <div class="view-btn-wrapper" v-show="!isSearchMode && !isOpenDrawer">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
           <img :src="user.photoURL" alt="Avatar" class="avatar" />
@@ -30,31 +30,30 @@
         @input="onInputSearchBox"
       />
     </div>
-    <Nav
+    <SubNav
       :navs="navs"
-      :active="nav"
+      :active="activeNav"
       :pins="pins"
-      @change="onChangeNav"
-      v-if="!isSearchMode"
+      v-show="!isSearchMode && activeNav"
     />
-    <FilterUI
-      :filter="filter"
-      :showSaleFilter="isShowSaleFilter"
-      :showPinOption="isShowPinOption"
-      :showShareButton="isLogin"
-      :currentNav="nav"
-      :pins="pins"
-      @change="onChangeFilter"
-      @clickBatchAction="onClickItemCheckBatchAction"
-      @clickCopyName="onClickCopyName"
-      @changePin="onChangePin"
-      v-if="!isSearchMode"
-    />
-    <CollectedBar
-      :totalValue="getTotalLength()"
-      :value="getCollectedLength()"
-      v-if="!isSearchMode"
-    />
+    <div v-show="!isSearchMode && activeNav">
+      <FilterUI
+        :filter="filter"
+        :showSaleFilter="isShowSaleFilter"
+        :showPinOption="isShowPinOption"
+        :showShareButton="isLogin"
+        :currentNav="activeNav"
+        :pins="pins"
+        @change="onChangeFilter"
+        @clickBatchAction="onClickItemCheckBatchAction"
+        @clickCopyName="onClickCopyName"
+        @changePin="onChangePin"
+      />
+      <CollectedBar
+        :totalValue="getTotalLength()"
+        :value="getCollectedLength()"
+      />
+    </div>
     <ul
       class="items"
       :class="{ tiles: filter.viewMode === 'tile' }"
@@ -108,7 +107,7 @@ import {
   collectedLength
 } from "../utils/nav.js";
 
-import Nav from "../components/Nav.vue";
+import SubNav from "../components/SubNav.vue";
 import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
 import SearchBox from "../components/SearchBox.vue";
@@ -122,7 +121,7 @@ import ItemModalContent from "../components/ItemModalContent.vue";
 export default {
   name: "Collection",
   components: {
-    Nav,
+    SubNav,
     Login,
     Button,
     SearchBox,
@@ -135,7 +134,6 @@ export default {
   },
   data() {
     return {
-      nav: "",
       filter: {
         saleFilter: null,
         collectedFilter: null,
@@ -156,6 +154,12 @@ export default {
     };
   },
   computed: {
+    isOpenDrawer() {
+      return this.$store.getters.isOpenDrawer;
+    },
+    activeNav() {
+      return this.$store.getters.activeNav;
+    },
     collected() {
       return this.$store.getters.localCollectedData;
     },
@@ -166,22 +170,27 @@ export default {
       return this.$store.getters.isLogin;
     },
     isShowSaleFilter: function() {
-      if (this.nav) {
+      if (this.activeNav) {
         const showNavs = ["housewares", "walletc", "fashion"];
         for (let i = 0; i < showNavs.length; i++) {
-          if (this.nav.indexOf(showNavs[i]) !== -1) return true;
+          if (this.activeNav.indexOf(showNavs[i]) !== -1) return true;
         }
       }
       return false;
     },
     isShowPinOption: function() {
-      if (this.nav) {
+      if (this.activeNav) {
         const showNavs = ["special", "season"];
         for (let i = 0; i < showNavs.length; i++) {
-          if (this.nav.indexOf(showNavs[i]) !== -1) return true;
+          if (this.activeNav.indexOf(showNavs[i]) !== -1) return true;
         }
       }
       return false;
+    }
+  },
+  watch: {
+    activeNav(nav) {
+      this.onChangeNav(nav);
     }
   },
   async mounted() {
@@ -197,19 +206,6 @@ export default {
         self.$vlf.getItem("filter"),
         self.$vlf.getItem("pins")
       ]);
-      // Set saved active nav to 'null' if it isn't defined in the lates navs data
-      if (nav) {
-        let isDefinedNav = false;
-        navs.forEach(link => {
-          if (link.id === nav) isDefinedNav = true;
-          if (link.subnavs) {
-            link.subnavs.forEach(sublink => {
-              if (sublink.id === nav) isDefinedNav = true;
-            });
-          }
-        });
-        if (!isDefinedNav) nav = null;
-      }
 
       if (filter && filter.saleFilter === null) {
         filter.saleFilter = "all";
@@ -224,7 +220,6 @@ export default {
         filter.saleFilter = "all";
       }
 
-      this.nav = nav || "housewares-all";
       this.filter = Object.assign(
         {
           saleFilter: "all",
@@ -234,6 +229,23 @@ export default {
         filter
       );
       this.pins = pins || {};
+
+      if (this.activeNav === null) {
+        // 保存されている nav 値が navs に存在しない場合、null にする
+        if (nav) {
+          let isDefinedNav = false;
+          navs.forEach(link => {
+            if (link.id === nav) isDefinedNav = true;
+            if (link.subnavs) {
+              link.subnavs.forEach(sublink => {
+                if (sublink.id === nav) isDefinedNav = true;
+              });
+            }
+          });
+          if (!isDefinedNav) nav = null;
+        }
+        this.changeNav(nav || "housewares-all");
+      }
       this.updateNavOrder();
     },
     onChangeItemCheck: function(itemName, itemCollectedData) {
@@ -289,18 +301,13 @@ export default {
       this.$copyText(names);
     },
     onChangeNav: function(activeNav) {
-      if (this.nav === activeNav) return;
-
       // Reset saleFilter
-      const prevCategory = this.nav.split("-")[0];
+      const prevCategory = this.activeNav.split("-")[0];
       if (activeNav.indexOf(prevCategory) === -1) {
         this.filter.saleFilter = "all";
         this.$vlf.setItem("filter", this.filter);
       }
-
-      this.nav = activeNav;
       this.updateShowItems();
-      this.$vlf.setItem("nav", this.nav);
     },
     onChangeView: function() {
       const newViewMode = this.filter.viewMode === "tile" ? "list" : "tile";
@@ -330,6 +337,9 @@ export default {
       this.isShowModal = true;
       this.modalItem = item;
     },
+    changeNav(nav) {
+      this.$store.commit("changeNav", nav);
+    },
     getCollected: function(item) {
       return item.uniqueEntryId
         ? this.collected[item.uniqueEntryId]
@@ -338,7 +348,7 @@ export default {
     getTotalLength: function() {
       return totalLength({
         collected: {},
-        nav: this.nav,
+        nav: this.activeNav,
         filter: Object.assign({}, this.filter, { collectedFilter: "0" }),
         isShowSaleFilter: this.isShowSaleFilter
       });
@@ -346,7 +356,7 @@ export default {
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.collected),
-        nav: this.nav,
+        nav: this.activeNav,
         filter: Object.assign({}, this.filter, { collectedFilter: "3" }),
         isShowSaleFilter: this.isShowSaleFilter
       });
@@ -355,7 +365,7 @@ export default {
       this.isLoadComplete = false;
       this.resultItems = filterItems({
         collected: this.collected,
-        nav: this.nav,
+        nav: this.activeNav,
         filter: this.filter,
         isSearchMode: this.isSearchMode,
         searchText: this.searchText,
@@ -447,11 +457,12 @@ export default {
 }
 
 .view-btn-wrapper {
+  position: fixed;
+  top: 4px;
+  right: 8px;
+  z-index: 1011;
   display: flex;
   align-items: center;
-  position: absolute;
-  right: 12px;
-  top: 4px;
 
   > * {
     margin-left: 4px;
@@ -460,6 +471,7 @@ export default {
 
 .search-wrapper {
   position: absolute;
+  z-index: 1050;
   right: 12px;
   top: 4px;
   left: 12px;

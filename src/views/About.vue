@@ -1,8 +1,5 @@
 <template>
   <div class="about">
-    <div class="close">
-      <CloseButton @click="$router.push('/')" />
-    </div>
     <h1>あつ森ガチコンプの使い方</h1>
     <h2>最新情報</h2>
     <div class="timeline">
@@ -180,11 +177,9 @@
 
 <script>
 import { Timeline } from "vue-tweet-embed";
-import CloseButton from "../components/CloseButton";
 
 export default {
   components: {
-    CloseButton,
     Timeline
   }
 };
@@ -197,12 +192,6 @@ export default {
   margin-right: auto;
   margin-left: auto;
   text-align: center;
-}
-
-.close {
-  position: absolute;
-  top: 8px;
-  right: 16px;
 }
 
 h1 {

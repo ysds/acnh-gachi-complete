@@ -1,7 +1,7 @@
 <template>
   <div class="share">
     <PageToTop />
-    <div class="view-btn-wrapper">
+    <div class="view-btn-wrapper" v-show="!isOpenDrawer">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
           <img :src="myUser.photoURL" alt="Avatar" class="avatar" />
@@ -10,9 +10,6 @@
           ログイン
         </template>
       </Button>
-      <router-link to="/" class="flat-btn back-btn">
-        自分のページ
-      </router-link>
     </div>
     <h1 v-if="!isShares" class="header">
       <span class="header-lg">{{ navText }}</span>
@@ -144,6 +141,9 @@ export default {
     };
   },
   computed: {
+    isOpenDrawer() {
+      return this.$store.getters.isOpenDrawer;
+    },
     sharedUid() {
       return this.$route.query.uid;
     },
@@ -379,11 +379,12 @@ export default {
 }
 
 .view-btn-wrapper {
+  position: fixed;
+  top: 4px;
+  right: 8px;
+  z-index: 1011;
   display: flex;
   align-items: center;
-  position: absolute;
-  right: 12px;
-  top: 4px;
 
   > * {
     margin-left: 4px;
@@ -448,13 +449,6 @@ export default {
   100% {
     opacity: 1;
   }
-}
-
-.back-btn {
-  border: 1px solid #ccc;
-  height: 34px;
-  min-height: 34px;
-  line-height: 34px;
 }
 
 .description {

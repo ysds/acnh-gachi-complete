@@ -91,7 +91,7 @@ module.exports = {
             postProcess(context) {
               const categories = {
                 "/shares": "取得状況",
-                "/share2/housewares-all": "家具（すべて）",
+                "/share2/housewares-all": "すべての家具",
                 "/share2/housewares": "家具",
                 "/share2/housewares-miscellaneous": "小物",
                 "/share2/housewares-wallmounted": "壁かけ",
@@ -99,7 +99,7 @@ module.exports = {
                 "/share2/walletc-floors": "床板",
                 "/share2/walletc-rugs": "ラグ",
                 "/share2/walletc-fencing": "柵",
-                "/share2/fashion-all": "ファッション（すべて）",
+                "/share2/fashion-all": "すべてのファッション",
                 "/share2/fashion-tops": "トップス",
                 "/share2/fashion-bottoms": "ボトムス",
                 "/share2/fashion-dress": "ワンピース",

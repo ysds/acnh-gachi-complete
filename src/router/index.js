@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Collection from "../views/Collection.vue";
 import Share from "../views/Share.vue";
+import store from "../store";
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,12 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
+});
+
+router.afterEach((to, from) => {
+  if (from.name === "Collection") {
+    store.commit("changeNav", null);
+  }
 });
 
 export default router;

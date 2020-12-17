@@ -178,7 +178,7 @@ export default {
       );
     },
     getSingeItemImage: function(item) {
-      if (item.sourceSheet === "Recipes") {
+      if (item.sourceSheet === "Recipes" || item.sourceSheet === "Reactions") {
         return item.image;
       } else if (item.iconImage) {
         return item.iconImage;

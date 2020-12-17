@@ -132,3 +132,24 @@ const csvParse = require("csv-parse/lib/sync");
   contentJson = JSON.stringify(contentJson, null, 2);
   fs.writeFileSync("./script/variant-fassion.json", contentJson);
 })();
+
+//
+// Reaction
+//
+
+(() => {
+  let contentJson = {};
+  const content = fs.readFileSync("./data/reaction/STR_Emoticon.csv");
+  const contentArray = csvParse(content, {
+    bom: true,
+    from_line: 2
+  });
+
+  for (let i = 0; i < contentArray.length; i++) {
+    const rowData = contentArray[i];
+    contentJson[rowData[0]] = rowData[1];
+  }
+
+  contentJson = JSON.stringify(contentJson, null, 2);
+  fs.writeFileSync("./script/reaction.json", contentJson);
+})();

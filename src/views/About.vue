@@ -141,8 +141,8 @@
         <a
           target="_blank"
           rel="noopener"
-          href="https://github.com/alexislours/translation-sheet-data"
-          >ACNH Translation sheet (JSON format)</a
+          href="https://github.com/alexislours/acnh-message"
+          >acnh-message</a
         >
       </li>
       <li class="thd-list-item">

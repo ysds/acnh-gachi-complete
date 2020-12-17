@@ -8,80 +8,36 @@ const {
   array_move
 } = require("./utils.js");
 
+//
 // Load Json
+//
 
-let allItems = JSON.parse(
-  // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/items.json", "utf8")
-  fs.readFileSync("./data/item-data/items.json", "utf8")
+let allItems = [].concat(
+  require("../data/item-data/items.json"),
+  require("../data/item-data/recipes.json"),
+  require("../data/item-data/creatures.json"),
+  require("../data/item-data/reactions.json")
 );
 
-allItems = allItems.concat(
-  JSON.parse(
-    // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/reactions.json", "utf8")
-    fs.readFileSync("./data/item-data/reactions.json", "utf8")
-  )
-);
+const translation = {
+  itemName: require("../data/translation-json/item-name.json"),
+  variantBody: require("../data/translation-json/variant-body.json"),
+  variantPattern: require("../data/translation-json/variant-pattern.json"),
+  variantFassion: require("../data/translation-json/variant-fassion.json"),
+  reaction: require("../data/translation-json/reaction.json"),
+  source: require("../data/translation-custom/source.json"),
+  sourceNote: require("../data/translation-custom/sourceNote.json"),
+  seasonEvent: require("../data/translation-custom/seasonEvent.json"),
+  shadow: require("../data/translation-custom/shadow.json"),
+  where: require("../data/translation-custom/where.json"),
+  wheather: require("../data/translation-custom/weather.json"),
+  fixData: require("../data/translation-custom/fix.json")
+};
 
-allItems = allItems.concat(
-  JSON.parse(
-    // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/recipes.json", "utf8")
-    fs.readFileSync("./data/item-data/recipes.json", "utf8")
-  )
-);
-
-allItems = allItems.concat(
-  JSON.parse(fs.readFileSync("./data/item-data/creatures.json", "utf8"))
-);
-
-const itemNameTranslations = JSON.parse(
-  fs.readFileSync(`./data/translation-json/item-name.json`, "utf8")
-);
-
-const bodyTranslations = JSON.parse(
-  fs.readFileSync(`./data/translation-json/variant-body.json`, "utf8")
-);
-
-const patternTranslations = JSON.parse(
-  fs.readFileSync(`./data/translation-json/variant-pattern.json`, "utf8")
-);
-
-const fassionVariantTranslations = JSON.parse(
-  fs.readFileSync(`./data/translation-json/variant-fassion.json`, "utf8")
-);
-
-const reactionTranslations = JSON.parse(
-  fs.readFileSync(`./data/translation-json/reaction.json`, "utf8")
-);
-
-const sourceTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-custom/source.json`, "utf8")
-);
-
-const sourceNoteTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-custom/sourceNote.json`, "utf8")
-);
-
-const seasonEventTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-custom/seasonEvent.json`, "utf8")
-);
-
-const shadowTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-custom/shadow.json`, "utf8")
-);
-
-const whereTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-custom/where.json`, "utf8")
-);
-
-const weatherTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-custom/weather.json`, "utf8")
-);
-
-const fixData = JSON.parse(
-  fs.readFileSync("./data/translation-custom/fix.json", "utf8")
-);
-
+//
 // Each items
+//
+
 allItems.forEach(item => {
   // Remove photos & tools variant and add translation
   if (item.customize && item.sourceSheet === "Tools") {
@@ -89,8 +45,10 @@ allItems.forEach(item => {
     item.variants.forEach(variant => {
       const variantIdArray = variant.variantId.slice("_");
       const variantId = `${variant.internalId}_${variantIdArray[0]}`;
-      customizeVariants.push(bodyTranslations[variantId] || variant.variation);
-      if (!bodyTranslations[variantId]) {
+      customizeVariants.push(
+        translation.variantBody[variantId] || variant.variation
+      );
+      if (!translation.variantBody[variantId]) {
         console.log(`NoCustomizeVariant: ${item.name} : ${variant.variation}`);
       }
     });
@@ -120,8 +78,9 @@ allItems.forEach(item => {
         prevVariation = variant.variation;
         return result;
       });
-      item.patternVariants = patternTranslations[item.variants[0].internalId];
-      if (!patternTranslations[item.variants[0].internalId]) {
+      item.patternVariants =
+        translation.variantPattern[item.variants[0].internalId];
+      if (!translation.variantPattern[item.variants[0].internalId]) {
         console.log(`NoPatternVariant: ${item.name}`);
       }
       item.variants = newVariants;
@@ -133,8 +92,10 @@ allItems.forEach(item => {
       item.variants.forEach(variant => {
         const variantIdArray = variant.variantId.slice("_");
         const variantId = `${variant.internalId}_${variantIdArray[0]}`;
-        bodyVariants.push(bodyTranslations[variantId] || variant.variation);
-        if (!bodyTranslations[variantId]) {
+        bodyVariants.push(
+          translation.variantBody[variantId] || variant.variation
+        );
+        if (!translation.variantBody[variantId]) {
           console.log(`NoBodyVariant: ${item.name} : ${variant.variation}`);
         }
       });
@@ -166,16 +127,16 @@ allItems.forEach(item => {
     });
     itemName = items[0].displayName;
   } else if (item.sourceSheet === "Reactions") {
-    itemName = reactionTranslations[item.iconFilename];
+    itemName = translation.reaction[item.iconFilename];
   } else if (item.clothGroupId) {
-    itemName = itemNameTranslations[`Fassion_${item.clothGroupId}`];
+    itemName = translation.itemName[`Fassion_${item.clothGroupId}`];
   } else if (item.variants) {
-    itemName = itemNameTranslations[item.variants[0].internalId];
+    itemName = translation.itemName[item.variants[0].internalId];
   } else {
-    itemName = itemNameTranslations[item.internalId];
+    itemName = translation.itemName[item.internalId];
   }
-  if (fixData[item.name]) {
-    itemName = fixData[item.name];
+  if (translation.fixData[item.name]) {
+    itemName = translation.fixData[item.name];
   }
   if (itemName) {
     item.displayName = itemName;
@@ -189,48 +150,48 @@ allItems.forEach(item => {
   if (item.source) {
     item.sourceJa = [];
     item.source.forEach(source => {
-      item.sourceJa.push(sourceTranslation[source]);
-      if (source !== "" && sourceTranslation[source] === undefined) {
+      item.sourceJa.push(translation.source[source]);
+      if (source !== "" && translation.source[source] === undefined) {
         console.log(`NoSource: ${item.name}: ${source}`);
       }
     });
   } else if (item.variants && item.variants[0].source) {
     item.variants[0].sourceJa = [];
     item.variants[0].source.forEach(source => {
-      item.variants[0].sourceJa.push(sourceTranslation[source] ?? source);
-      if (source !== "" && sourceTranslation[source] === undefined) {
+      item.variants[0].sourceJa.push(translation.source[source] ?? source);
+      if (source !== "" && translation.source[source] === undefined) {
         console.log(`NoSource: ${item.name}: ${source}`);
       }
     });
   }
   // SourceNotes
   if (item.sourceNotes) {
-    if (sourceNoteTranslation[item.sourceNotes]) {
-      item.sourceNotesJa = sourceNoteTranslation[item.sourceNotes];
+    if (translation.sourceNote[item.sourceNotes]) {
+      item.sourceNotesJa = translation.sourceNote[item.sourceNotes];
     }
-    if (sourceNoteTranslation[item.sourceNotes] === undefined) {
+    if (translation.sourceNote[item.sourceNotes] === undefined) {
       console.log(`NoSourceNote: ${item.sourceNotes}`);
     }
   }
   // seasonEvent
   if (item.seasonEvent) {
     item.seasonEventJa =
-      seasonEventTranslation[item.seasonEvent] ?? item.seasonEvent;
-    if (seasonEventTranslation[item.seasonEvent] === undefined) {
+      translation.seasonEvent[item.seasonEvent] ?? item.seasonEvent;
+    if (translation.seasonEvent[item.seasonEvent] === undefined) {
       console.log(`NoSeasonEvent: ${item.seasonEvent}`);
     }
   }
   // Shadow
   if (item.shadow) {
-    item.shadowJa = shadowTranslation[item.shadow] || item.shadow;
+    item.shadowJa = translation.shadow[item.shadow] || item.shadow;
   }
   // Where
   if (item.whereHow) {
-    item.whereHowJa = whereTranslation[item.whereHow] || item.whereHow;
+    item.whereHowJa = translation.where[item.whereHow] || item.whereHow;
   }
   // Whether
   if (item.weather) {
-    item.weatherJa = weatherTranslation[item.weather] || item.weather;
+    item.weatherJa = translation.wheather[item.weather] || item.weather;
   }
   // Add variation displayName
   if (item.clothGroupId && item.variants.length > 1) {
@@ -238,9 +199,9 @@ allItems.forEach(item => {
       if (variant.internalId) {
         const internalId = variant.internalId;
         item.variants[index].variationDisplayName =
-          fassionVariantTranslations[internalId] || variant.variation;
+          translation.variantFassion[internalId] || variant.variation;
 
-        if (!fassionVariantTranslations[internalId]) {
+        if (!translation.variantFassion[internalId]) {
           console.log(`NoVariant: ${item.displayName} : ${variant.variation}`);
         }
       } else {
@@ -253,9 +214,9 @@ allItems.forEach(item => {
         const variantIdArray = variant.variantId.slice("_");
         const variantId = `${variant.internalId}_${variantIdArray[0]}`;
         item.variants[index].variationDisplayName =
-          bodyTranslations[variantId] || variant.variation;
+          translation.variantBody[variantId] || variant.variation;
 
-        if (!bodyTranslations[variantId]) {
+        if (!translation.variantBody[variantId]) {
           console.log(`NoVariant: ${item.displayName} : ${variant.variation}`);
         }
       } else if (
@@ -364,6 +325,7 @@ allItems.forEach(item => {
 //
 // Sort displayName key
 //
+
 allItems = allItems.map(function(item) {
   const keys = Object.keys(item);
   array_move(keys, keys.indexOf("displayName"), 2);
@@ -378,12 +340,6 @@ allItems = allItems.map(function(item) {
 // Sort items
 //
 
-// localeCompare
-allItems.sort(function(a, b) {
-  return a.displayName.localeCompare(b.displayName);
-});
-
-// 日本語ソート
 function conversion(str) {
   str = hiraToKana(str);
   str = hanEisuToZenEisu(str);
@@ -392,18 +348,12 @@ function conversion(str) {
   str = daku_conv(str);
   return str;
 }
-allItems.sort(function(c, d) {
-  const a = c.displayName;
-  const b = d.displayName;
-  if (a == b) {
-    return 0;
-  }
-  let ca = conversion(a);
-  let cb = conversion(b);
-  if (ca == cb) {
-    ca = a;
-    cb = b;
-  }
+
+// 日本語ソート
+allItems.sort(function(a, b) {
+  const ca = conversion(a.displayName);
+  const cb = conversion(b.displayName);
+  if (ca == cb) return 0;
   if (ca > cb) {
     return 1;
   } else {
@@ -424,18 +374,8 @@ allItems.sort(function(a, b) {
   return 0;
 });
 
+//
 // Write file
+//
+
 fs.writeFileSync("./src/assets/items.json", JSON.stringify(allItems, null, 2));
-
-// Get All source
-// let sources = "";
-// allItems.forEach(item => {
-//   if (item.source) sources += `¥n${item.source}`;
-//   if (item.variants) {
-//     item.variants.forEach(variant => {
-//       if (variant.source) sources += `¥n${variant.source}`;
-//     });
-//   }
-// });
-
-// fs.writeFileSync("./sources.txt", sources);

@@ -50,7 +50,7 @@ const fassionVariantTranslations = JSON.parse(
 );
 
 const reactionTranslations = JSON.parse(
-  fs.readFileSync(`./data/translation-sheet-data/reactions.json`, "utf8")
+  fs.readFileSync(`./script/reaction.json`, "utf8")
 );
 
 const sourceTranslation = JSON.parse(
@@ -166,12 +166,7 @@ allItems.forEach(item => {
     });
     itemName = items[0].displayName;
   } else if (item.sourceSheet === "Reactions") {
-    const reaction = reactionTranslations.filter(reaction => {
-      return reaction.id === item.iconFilename;
-    });
-    if (reaction.length) {
-      itemName = reaction[0].locale['JPja'];
-    }
+    itemName = reactionTranslations[item.iconFilename];
   } else if (item.clothGroupId) {
     itemName = itemNameTranslations[`Fassion_${item.clothGroupId}`];
   } else if (item.variants) {

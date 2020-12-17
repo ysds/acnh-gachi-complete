@@ -6,7 +6,7 @@ const csvParse = require("csv-parse/lib/sync");
 //
 
 (() => {
-  const dir = "./data/item-name";
+  const dir = "./data/translation-src/item-name";
   let contentJson = {};
   let fileList = fs.readdirSync(dir);
   fileList = fileList.filter(RegExp.prototype.test, /.*\.csv$/);
@@ -33,7 +33,7 @@ const csvParse = require("csv-parse/lib/sync");
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
-  fs.writeFileSync("./script/item-name.json", contentJson);
+  fs.writeFileSync("./data/translation-json/item-name.json", contentJson);
 })();
 
 //
@@ -44,7 +44,7 @@ const csvParse = require("csv-parse/lib/sync");
   let contentJson = {};
 
   const content = fs.readFileSync(
-    `./data/variant-remake/STR_Remake_BodyColor.csv`
+    `./data/translation-src/variant-remake/STR_Remake_BodyColor.csv`
   );
   const contentArray = csvParse(content, {
     bom: true,
@@ -64,7 +64,7 @@ const csvParse = require("csv-parse/lib/sync");
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
-  fs.writeFileSync("./script/variant-body.json", contentJson);
+  fs.writeFileSync("./data/translation-json/variant-body.json", contentJson);
 })();
 
 //
@@ -75,7 +75,7 @@ const csvParse = require("csv-parse/lib/sync");
   let contentJson = {};
 
   const content = fs.readFileSync(
-    `./data/variant-remake/STR_Remake_FabricColor.csv`
+    `./data/translation-src/variant-remake/STR_Remake_FabricColor.csv`
   );
   const contentArray = csvParse(content, {
     bom: true,
@@ -99,7 +99,7 @@ const csvParse = require("csv-parse/lib/sync");
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
-  fs.writeFileSync("./script/variant-pattern.json", contentJson);
+  fs.writeFileSync("./data/translation-json/variant-pattern.json", contentJson);
 })();
 
 //
@@ -107,7 +107,7 @@ const csvParse = require("csv-parse/lib/sync");
 //
 
 (() => {
-  const dir = "./data/variant-fassion";
+  const dir = "./data/translation-src/variant-fassion";
   let contentJson = {};
   let fileList = fs.readdirSync(dir);
   fileList = fileList.filter(RegExp.prototype.test, /.*\.csv$/);
@@ -130,7 +130,7 @@ const csvParse = require("csv-parse/lib/sync");
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
-  fs.writeFileSync("./script/variant-fassion.json", contentJson);
+  fs.writeFileSync("./data/translation-json/variant-fassion.json", contentJson);
 })();
 
 //
@@ -139,7 +139,9 @@ const csvParse = require("csv-parse/lib/sync");
 
 (() => {
   let contentJson = {};
-  const content = fs.readFileSync("./data/reaction/STR_Emoticon.csv");
+  const content = fs.readFileSync(
+    "./data/translation-src/reaction/STR_Emoticon.csv"
+  );
   const contentArray = csvParse(content, {
     bom: true,
     from_line: 2
@@ -151,5 +153,5 @@ const csvParse = require("csv-parse/lib/sync");
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
-  fs.writeFileSync("./script/reaction.json", contentJson);
+  fs.writeFileSync("./data/translation-json/reaction.json", contentJson);
 })();

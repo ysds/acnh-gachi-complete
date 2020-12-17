@@ -34,51 +34,51 @@ allItems = allItems.concat(
 );
 
 const itemNameTranslations = JSON.parse(
-  fs.readFileSync(`./script/item-name.json`, "utf8")
+  fs.readFileSync(`./data/translation-json/item-name.json`, "utf8")
 );
 
 const bodyTranslations = JSON.parse(
-  fs.readFileSync(`./script/variant-body.json`, "utf8")
+  fs.readFileSync(`./data/translation-json/variant-body.json`, "utf8")
 );
 
 const patternTranslations = JSON.parse(
-  fs.readFileSync(`./script/variant-pattern.json`, "utf8")
+  fs.readFileSync(`./data/translation-json/variant-pattern.json`, "utf8")
 );
 
 const fassionVariantTranslations = JSON.parse(
-  fs.readFileSync(`./script/variant-fassion.json`, "utf8")
+  fs.readFileSync(`./data/translation-json/variant-fassion.json`, "utf8")
 );
 
 const reactionTranslations = JSON.parse(
-  fs.readFileSync(`./script/reaction.json`, "utf8")
+  fs.readFileSync(`./data/translation-json/reaction.json`, "utf8")
 );
 
 const sourceTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-fix-data/source.json`, "utf8")
+  fs.readFileSync(`./data/translation-custom/source.json`, "utf8")
 );
 
 const sourceNoteTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-fix-data/sourceNote.json`, "utf8")
+  fs.readFileSync(`./data/translation-custom/sourceNote.json`, "utf8")
 );
 
 const seasonEventTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-fix-data/seasonEvent.json`, "utf8")
+  fs.readFileSync(`./data/translation-custom/seasonEvent.json`, "utf8")
 );
 
 const shadowTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-fix-data/shadow.json`, "utf8")
+  fs.readFileSync(`./data/translation-custom/shadow.json`, "utf8")
 );
 
 const whereTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-fix-data/where.json`, "utf8")
+  fs.readFileSync(`./data/translation-custom/where.json`, "utf8")
 );
 
 const weatherTranslation = JSON.parse(
-  fs.readFileSync(`./data/translation-fix-data/weather.json`, "utf8")
+  fs.readFileSync(`./data/translation-custom/weather.json`, "utf8")
 );
 
 const fixData = JSON.parse(
-  fs.readFileSync("./data/translation-fix-data/fix.json", "utf8")
+  fs.readFileSync("./data/translation-custom/fix.json", "utf8")
 );
 
 // Each items

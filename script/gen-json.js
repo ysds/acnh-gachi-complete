@@ -17,6 +17,13 @@ let allItems = JSON.parse(
 
 allItems = allItems.concat(
   JSON.parse(
+    // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/reactions.json", "utf8")
+    fs.readFileSync("./data/item-data/reactions.json", "utf8")
+  )
+);
+
+allItems = allItems.concat(
+  JSON.parse(
     // fs.readFileSync("./node_modules/@nooksbazaar/acdb/out/recipes.json", "utf8")
     fs.readFileSync("./data/item-data/recipes.json", "utf8")
   )
@@ -40,6 +47,10 @@ const patternTranslations = JSON.parse(
 
 const fassionVariantTranslations = JSON.parse(
   fs.readFileSync(`./script/variant-fassion.json`, "utf8")
+);
+
+const reactionTranslations = JSON.parse(
+  fs.readFileSync(`./script/reaction.json`, "utf8")
 );
 
 const sourceTranslation = JSON.parse(
@@ -154,6 +165,8 @@ allItems.forEach(item => {
       return craftedItem.name === item.name;
     });
     itemName = items[0].displayName;
+  } else if (item.sourceSheet === "Reactions") {
+    itemName = reactionTranslations[item.iconFilename];
   } else if (item.clothGroupId) {
     itemName = itemNameTranslations[`Fassion_${item.clothGroupId}`];
   } else if (item.variants) {

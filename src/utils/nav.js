@@ -554,7 +554,12 @@ export function filterItems(args) {
     }
   });
 
-  if (nav && nav.indexOf("creatures") > -1 && filter.order === "id") {
+  if (
+    !isSearchMode &&
+    nav &&
+    nav.indexOf("creatures") > -1 &&
+    filter.order === "id"
+  ) {
     items.sort(function(itemA, itemB) {
       const numA = itemA.num;
       const numB = itemB.num;

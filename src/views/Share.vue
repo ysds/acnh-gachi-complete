@@ -128,7 +128,8 @@ export default {
       filter: {
         saleFilter: "all",
         collectedFilter: "0",
-        viewMode: "tile"
+        viewMode: "tile",
+        order: "name"
       },
       showItems: [],
       resultItems: [],

@@ -7,7 +7,7 @@
           <button
             type="button"
             class="dropdown-btn"
-            :class="{ active: isOpenSaleFilter() }"
+            :class="{ active: isOpenSaleFilter }"
           >
             <span v-if="filter.saleFilter === 'all'">すべて</span>
             <span v-else-if="filter.saleFilter === 'catalog'"
@@ -63,7 +63,7 @@
         <button
           type="button"
           class="dropdown-btn"
-          :class="{ active: isOpenCollectedFilter() }"
+          :class="{ active: isOpenCollectedFilter }"
         >
           <span class="tg" v-if="filter.collectedFilter === '0'">すべて</span>
           <span class="tg tg-gr" v-else-if="filter.collectedFilter === '1'"
@@ -109,7 +109,7 @@
           <button
             type="button"
             class="dropdown-btn"
-            :class="{ active: isOpenBatchMenu() }"
+            :class="{ active: isOpenBatchMenu }"
           >
             <span class="tg">操作...</span>
             <img src="../assets/arrow.svg" width="12" alt="" />
@@ -135,6 +135,23 @@
           </DropdownItem>
         </div>
       </popper>
+    </template>
+    <template v-if="isShowOrderChanger">
+      <div class="divider" />
+      <Button
+        v-if="filter.order === 'name'"
+        @click="onClickOrderMenuItem('id')"
+        class="btn-small"
+      >
+        名前順
+      </Button>
+      <Button
+        v-else-if="filter.order === 'id'"
+        @click="onClickOrderMenuItem('name')"
+        class="btn-small"
+      >
+        実機順
+      </Button>
     </template>
     <template v-if="showPinOption">
       <div class="divider" />
@@ -301,7 +318,22 @@ export default {
       return this.$store.getters.hasUpdateData;
     },
     isFashion() {
-      return this.currentNav.indexOf("fashion") > -1;
+      return this.currentNav && this.currentNav.indexOf("fashion") > -1;
+    },
+    isShowOrderChanger() {
+      return this.currentNav && this.currentNav.indexOf("creatures") > -1;
+    },
+    isOpenSaleFilter() {
+      if (!this.$refs.saleFilter) return false;
+      return this.$refs.saleFilter.showPopper;
+    },
+    isOpenCollectedFilter() {
+      if (!this.$refs.collectedFilter) return false;
+      return this.$refs.collectedFilter.showPopper;
+    },
+    isOpenBatchMenu() {
+      if (!this.$refs.batchActionPopper) return false;
+      return this.$refs.batchActionPopper.showPopper;
     }
   },
   mounted() {
@@ -323,6 +355,9 @@ export default {
         "change",
         Object.assign(this.filter, { collectedFilter: value })
       );
+    },
+    onClickOrderMenuItem(value) {
+      this.$emit("change", Object.assign(this.filter, { order: value }));
     },
     onClickBatchMenuItem: function(value) {
       this.$refs.batchActionPopper.doClose();
@@ -348,18 +383,6 @@ export default {
       this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.currentNav}/?uid=${this.user.uid}`;
       this.$copyText(shareURL);
       this.isShowShareModal = true;
-    },
-    isOpenSaleFilter() {
-      if (!this.$refs.saleFilter) return false;
-      return this.$refs.saleFilter.showPopper;
-    },
-    isOpenCollectedFilter() {
-      if (!this.$refs.collectedFilter) return false;
-      return this.$refs.collectedFilter.showPopper;
-    },
-    isOpenBatchMenu() {
-      if (!this.$refs.batchActionPopper) return false;
-      return this.$refs.batchActionPopper.showPopper;
     }
   }
 };
@@ -499,5 +522,10 @@ export default {
   display: flex;
   justify-content: center;
   margin: 2rem 1rem;
+}
+
+.btn-small {
+  font-size: 14px;
+  font-weight: 400;
 }
 </style>

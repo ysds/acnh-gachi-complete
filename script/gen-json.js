@@ -285,7 +285,6 @@ allItems.forEach(item => {
   delete item["internalId"];
   delete item["materials"];
   // Insects
-  delete item["num"];
   delete item["critterpediaImage"];
   delete item["furnitureImage"];
   delete item["totalCatchesToUnlock"];

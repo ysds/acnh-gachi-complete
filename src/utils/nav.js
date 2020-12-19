@@ -20,7 +20,7 @@ function normalizeText(string) {
 }
 
 export function filterItems(args) {
-  const items = itemsJson;
+  let items = itemsJson;
   args = Object.assign(
     {
       isSearchMode: false,
@@ -39,7 +39,7 @@ export function filterItems(args) {
     isShowSaleFilter
   } = args;
 
-  return items.filter(item => {
+  items = items.filter(item => {
     //
     // 検索
     //
@@ -553,6 +553,22 @@ export function filterItems(args) {
       return item.versionAdded === "1.6.0";
     }
   });
+
+  if (nav && nav.indexOf("creatures") > -1 && filter.order === "id") {
+    items.sort(function(itemA, itemB) {
+      const numA = itemA.num;
+      const numB = itemB.num;
+      if (numA > numB) {
+        return 1;
+      }
+      if (numA < numB) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  return items;
 }
 
 export const navs = [

@@ -137,7 +137,8 @@ export default {
       filter: {
         saleFilter: null,
         collectedFilter: null,
-        viewMode: null
+        viewMode: null,
+        order: null
       },
       showItems: [],
       resultItems: [],
@@ -216,6 +217,9 @@ export default {
       if (filter && filter.viewMode === null) {
         filter.viewMode = "tile";
       }
+      if (filter && filter.order === null) {
+        filter.order = "name";
+      }
       if (filter && filter.saleFilter && filter.saleFilter.match(/[012345]/g)) {
         filter.saleFilter = "all";
       }
@@ -224,7 +228,8 @@ export default {
         {
           saleFilter: "all",
           collectedFilter: "0",
-          viewMode: "tile"
+          viewMode: "tile",
+          order: "name"
         },
         filter
       );

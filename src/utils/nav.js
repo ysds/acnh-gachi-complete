@@ -550,7 +550,7 @@ export function filterItems(args) {
   if (
     !isSearchMode &&
     nav &&
-    nav.indexOf("creatures") > -1 &&
+    (nav.indexOf("creatures") > -1 || nav === "reactions") &&
     filter.order === "id"
   ) {
     items.sort(function(itemA, itemB) {

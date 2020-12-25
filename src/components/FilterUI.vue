@@ -321,7 +321,10 @@ export default {
       return this.currentNav && this.currentNav.indexOf("fashion") > -1;
     },
     isShowOrderChanger() {
-      return this.currentNav && this.currentNav.indexOf("creatures") > -1;
+      return (
+        (this.currentNav && this.currentNav.indexOf("creatures") > -1) ||
+        this.currentNav === "reactions"
+      );
     },
     isOpenSaleFilter() {
       if (!this.$refs.saleFilter) return false;

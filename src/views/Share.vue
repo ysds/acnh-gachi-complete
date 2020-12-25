@@ -168,6 +168,9 @@ export default {
           correctOrder.push(nav.id);
         }
       });
+      correctOrder = correctOrder.filter(
+        category => category !== "season-snowboy"
+      );
       let reOrder = [];
       correctOrder.forEach(id => {
         if (sharedShareCategories.includes(id)) {

@@ -1,11 +1,10 @@
 [
   {
     "sourceSheet": "Reactions",
+    "num": 40,
     "name": "Aggravation",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Outraged.png",
-    "source": [
-      "Peppy villagers"
-    ],
+    "source": ["Peppy villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -15,11 +14,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 2,
     "name": "Agreement",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Nodding.png",
-    "source": [
-      "Cranky villagers"
-    ],
+    "source": ["Cranky villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -29,11 +27,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 20,
     "name": "Amazed",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Shocked.png",
-    "source": [
-      "Snooty villagers"
-    ],
+    "source": ["Snooty villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -43,11 +40,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 16,
     "name": "Apologetic",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Apologize.png",
-    "source": [
-      "Big Sister villagers"
-    ],
+    "source": ["Big Sister villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -57,11 +53,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 24,
     "name": "Bashfulness",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Blushing.png",
-    "source": [
-      "Lazy villagers"
-    ],
+    "source": ["Lazy villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -71,11 +66,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 17,
     "name": "Bewilderment",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Pardon.png",
-    "source": [
-      "Cranky villagers"
-    ],
+    "source": ["Cranky villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -85,11 +79,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 41,
     "name": "Cold Chill",
     "image": "https://acnhcdn.com/latest/ManpuIcon/ColdChill.png",
-    "source": [
-      "Big Sister villagers"
-    ],
+    "source": ["Big Sister villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -99,11 +92,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 10,
     "name": "Confident",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Assent.png",
-    "source": [
-      "Big Sister villagers"
-    ],
+    "source": ["Big Sister villagers"],
     "sourceNotes": "Requires a high level of friendship",
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -113,11 +105,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 18,
     "name": "Curiosity",
     "image": "https://acnhcdn.com/latest/ManpuIcon/QuestionMark.png",
-    "source": [
-      "Peppy villagers"
-    ],
+    "source": ["Peppy villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -127,11 +118,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 30,
     "name": "Daydreaming",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AbsentMindedness.png",
-    "source": [
-      "Normal villagers"
-    ],
+    "source": ["Normal villagers"],
     "sourceNotes": "Requires a high level of friendship",
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -141,11 +131,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 15,
     "name": "Delight",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Clapping.png",
-    "source": [
-      "All villagers"
-    ],
+    "source": ["All villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -155,11 +144,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 3,
     "name": "Disagreement",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Negative.png",
-    "source": [
-      "Big Sister villagers"
-    ],
+    "source": ["Big Sister villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -169,11 +157,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 42,
     "name": "Distress",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Frantic.png",
-    "source": [
-      "Jock villagers"
-    ],
+    "source": ["Jock villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -183,11 +170,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 33,
     "name": "Dozing",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Sleep.png",
-    "source": [
-      "Smug villagers"
-    ],
+    "source": ["Smug villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -197,11 +183,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 14,
     "name": "Encouraging",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Cheering.png",
-    "source": [
-      "Jock villagers"
-    ],
+    "source": ["Jock villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -211,11 +196,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 54,
     "name": "Excited",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddExcited.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -225,11 +209,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 43,
     "name": "Fearful",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Shaking.png",
-    "source": [
-      "Normal villagers"
-    ],
+    "source": ["Normal villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -239,11 +222,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 12,
     "name": "Flourish",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Dance.png",
-    "source": [
-      "Jock villagers"
-    ],
+    "source": ["Jock villagers"],
     "sourceNotes": "Requires a high level of friendship",
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -253,11 +235,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 7,
     "name": "Glee",
     "image": "https://acnhcdn.com/latest/ManpuIcon/HappyDance.png",
-    "source": [
-      "Normal villagers"
-    ],
+    "source": ["Normal villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -267,11 +248,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 1,
     "name": "Greetings",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Greeting.png",
-    "source": [
-      "All villagers"
-    ],
+    "source": ["All villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -281,11 +261,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 5,
     "name": "Happiness",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Smiling.png",
-    "source": [
-      "Peppy villagers"
-    ],
+    "source": ["Peppy villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -295,11 +274,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 45,
     "name": "Haunt",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddScaring.png",
-    "source": [
-      "Jack"
-    ],
+    "source": ["Jack"],
     "sourceNotes": null,
     "seasonEvent": "Halloween",
     "seasonEventExclusive": true,
@@ -309,11 +287,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 37,
     "name": "Heartbreak",
     "image": "https://acnhcdn.com/latest/ManpuIcon/BrokenHeart.png",
-    "source": [
-      "Smug villagers"
-    ],
+    "source": ["Smug villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -323,11 +300,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 53,
     "name": "Here You Go",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddHereYouGo.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -337,11 +313,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 21,
     "name": "Inspiration",
     "image": "https://acnhcdn.com/latest/ManpuIcon/IdeaBulb.png",
-    "source": [
-      "Cranky villagers"
-    ],
+    "source": ["Cranky villagers"],
     "sourceNotes": "Requires a high level of friendship",
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -351,11 +326,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 39,
     "name": "Intense",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Silent.png",
-    "source": [
-      "Snooty villagers"
-    ],
+    "source": ["Snooty villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -365,11 +339,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 6,
     "name": "Joy",
     "image": "https://acnhcdn.com/latest/ManpuIcon/HappyFlower.png",
-    "source": [
-      "All villagers"
-    ],
+    "source": ["All villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -379,11 +352,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 8,
     "name": "Laughter",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Laughing.png",
-    "source": [
-      "Big Sister villagers"
-    ],
+    "source": ["Big Sister villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -393,11 +365,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 9,
     "name": "Love",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Love.png",
-    "source": [
-      "Snooty villagers"
-    ],
+    "source": ["Snooty villagers"],
     "sourceNotes": "Requires a high level of friendship",
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -407,11 +378,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 28,
     "name": "Mischief",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Scheming.png",
-    "source": [
-      "Peppy villagers"
-    ],
+    "source": ["Peppy villagers"],
     "sourceNotes": "Requires a high level of friendship",
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -421,11 +391,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 23,
     "name": "Mistaken",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Oops.png",
-    "source": [
-      "Lazy villagers"
-    ],
+    "source": ["Lazy villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -435,11 +404,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 4,
     "name": "Pleased",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Hello.png",
-    "source": [
-      "Normal villagers"
-    ],
+    "source": ["Normal villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -449,11 +417,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 13,
     "name": "Pride",
     "image": "https://acnhcdn.com/latest/ManpuIcon/SmugFace.png",
-    "source": [
-      "Lazy villagers"
-    ],
+    "source": ["Lazy villagers"],
     "sourceNotes": "Requires a high level of friendship",
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -463,11 +430,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 29,
     "name": "Resignation",
     "image": "https://acnhcdn.com/latest/ManpuIcon/OhGeez.png",
-    "source": [
-      "Smug villagers"
-    ],
+    "source": ["Smug villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -477,11 +443,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 36,
     "name": "Sadness",
     "image": "https://acnhcdn.com/latest/ManpuIcon/SadSpiral.png",
-    "source": [
-      "Normal villagers"
-    ],
+    "source": ["Normal villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -491,11 +456,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 46,
     "name": "Scare",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddPrank.png",
-    "source": [
-      "All villagers"
-    ],
+    "source": ["All villagers"],
     "sourceNotes": null,
     "seasonEvent": "Halloween",
     "seasonEventExclusive": true,
@@ -505,11 +469,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 26,
     "name": "Sheepishness",
     "image": "https://acnhcdn.com/latest/ManpuIcon/WrySmile.png",
-    "source": [
-      "Cranky villagers"
-    ],
+    "source": ["Cranky villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -519,11 +482,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 22,
     "name": "Shocked",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Surprised.png",
-    "source": [
-      "Jock villagers"
-    ],
+    "source": ["Jock villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -533,11 +495,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 11,
     "name": "Showmanship",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Shaki.png",
-    "source": [
-      "Smug villagers"
-    ],
+    "source": ["Smug villagers"],
     "sourceNotes": "Requires a high level of friendship",
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -547,11 +508,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 25,
     "name": "Shyness",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Hesitate.png",
-    "source": [
-      "Lazy villagers"
-    ],
+    "source": ["Lazy villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -561,11 +521,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 35,
     "name": "Sighing",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Sighing.png",
-    "source": [
-      "Snooty villagers"
-    ],
+    "source": ["Snooty villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -575,11 +534,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 47,
     "name": "Sit Down",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddSitDown.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -589,11 +547,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 32,
     "name": "Sleepy",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Sleepy.png",
-    "source": [
-      "Peppy villagers"
-    ],
+    "source": ["Peppy villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -603,11 +560,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 27,
     "name": "Smirking",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Grin.png",
-    "source": [
-      "Smug villagers"
-    ],
+    "source": ["Smug villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -617,11 +573,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 44,
     "name": "Sneezing",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Sneezing.png",
-    "source": [
-      "Jock villagers"
-    ],
+    "source": ["Jock villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -631,11 +586,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 50,
     "name": "Sniff Sniff",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddSmell.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -645,11 +599,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 38,
     "name": "Sorrow",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Crying.png",
-    "source": [
-      "Lazy villagers"
-    ],
+    "source": ["Lazy villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -659,11 +612,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 19,
     "name": "Surprise",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Aha.png",
-    "source": [
-      "All villagers"
-    ],
+    "source": ["All villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -673,11 +625,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 55,
     "name": "Ta-da",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddPraise.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -687,11 +638,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 49,
     "name": "Take a Picture",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddTakePictures.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -701,11 +651,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 31,
     "name": "Thought",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Thinking.png",
-    "source": [
-      "Snooty villagers"
-    ],
+    "source": ["Snooty villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -715,11 +664,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 48,
     "name": "Wave Goodbye",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddWaveHands.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -729,11 +677,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 51,
     "name": "Work Out",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddGymnastics.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -743,11 +690,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 34,
     "name": "Worry",
     "image": "https://acnhcdn.com/latest/ManpuIcon/Worried.png",
-    "source": [
-      "Cranky villagers"
-    ],
+    "source": ["Cranky villagers"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,
@@ -757,11 +703,10 @@
   },
   {
     "sourceSheet": "Reactions",
+    "num": 52,
     "name": "Yoga",
     "image": "https://acnhcdn.com/latest/ManpuIcon/AddYoga.png",
-    "source": [
-      "Hip Reaction Collection"
-    ],
+    "source": ["Hip Reaction Collection"],
     "sourceNotes": null,
     "seasonEvent": null,
     "seasonEventExclusive": null,

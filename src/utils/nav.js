@@ -413,10 +413,7 @@ export function filterItems(args) {
     }
     // 季節・イベント (花火大会)
     else if (nav === "season-fireworks") {
-      return (
-        (item.sourceNotes && item.sourceNotes.indexOf("ireworks") > 0) ||
-        item.seasonEvent === "Fireworks Show"
-      );
+      return item.seasonEvent === "Fireworks Show";
     }
     // 季節・イベント (はるのわかたけ)
     else if (nav === "season-spring") {
@@ -511,14 +508,10 @@ export function filterItems(args) {
     // 季節・イベント (ゆきのけっしょう)
     else if (nav === "season-winter") {
       return (
-        item.sourceNotes === "Only available during Winter" &&
+        item.seasonEvent === "snowflakes" &&
         !item.diy &&
         item.sourceSheet !== "Other"
       );
-    }
-    // 季節・イベント (雪だるま)
-    else if (nav === "season-snowboy") {
-      return item.source && item.source.includes("Snowboy");
     }
     // 季節・イベント (オーナメント)
     else if (nav === "season-festive") {
@@ -900,27 +893,21 @@ export const navs = [
         order: 18
       },
       {
-        id: "season-snowboy",
-        text: "ゆきだるま",
-        subtext: "12/11〜2/24",
-        order: 19
-      },
-      {
         id: "season-festive",
         text: "オーナメント",
         subtext: "12/15〜1/6",
-        order: 20
+        order: 19
       },
       {
         id: "season-countdown",
         text: "カウントダウン",
         subtext: "12/31",
-        order: 21
+        order: 20
       },
       {
         id: "season-birthday",
         text: "誕生日",
-        order: 22
+        order: 21
       }
     ]
   },
@@ -993,7 +980,7 @@ export function collectedLength(args) {
 }
 
 export function getNavText(nav) {
-  let navText = nav;
+  let navText = "";
   navs.forEach(link => {
     if (link.id === nav) navText = link.text;
     if (link.subnavs) {

@@ -1,10 +1,10 @@
 {
-  "X-Small": "極小",
-  "Small": "小",
-  "Medium": "中",
   "Large": "大",
+  "Long": "細長",
+  "Medium": "中",
+  "Small": "小",
   "X-Large": "特大",
-  "XX-Large": "超特大",
   "X-Large w/Fin": "背びれ",
-  "Long": "細長"
+  "X-Small": "極小",
+  "XX-Large": "超特大"
 }

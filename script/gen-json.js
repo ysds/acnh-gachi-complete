@@ -26,13 +26,23 @@ const translation = {
   variantFassion: require("../data/translation-json/variant-fassion.json"),
   reaction: require("../data/translation-json/reaction.json"),
   source: require("../data/translation-custom/source.json"),
-  sourceNote: require("../data/translation-custom/sourceNote.json"),
+  sourceNotes: require("../data/translation-custom/sourceNotes.json"),
   seasonEvent: require("../data/translation-custom/seasonEvent.json"),
   shadow: require("../data/translation-custom/shadow.json"),
-  where: require("../data/translation-custom/where.json"),
-  wheather: require("../data/translation-custom/weather.json"),
+  whereHow: require("../data/translation-custom/whereHow.json"),
+  weather: require("../data/translation-custom/weather.json"),
   fixData: require("../data/translation-custom/fix.json")
 };
+
+const removeTranslation = JSON.parse(JSON.stringify(translation));
+const newTranslation = JSON.parse(JSON.stringify(translation));
+const customTranslations = [
+  "sourceNotes",
+  "seasonEvent",
+  "shadow",
+  "whereHow",
+  "weather"
+];
 
 //
 // Each items
@@ -164,35 +174,23 @@ allItems.forEach(item => {
       }
     });
   }
-  // SourceNotes
-  if (item.sourceNotes) {
-    if (translation.sourceNote[item.sourceNotes]) {
-      item.sourceNotesJa = translation.sourceNote[item.sourceNotes];
+
+  customTranslations.forEach(key => {
+    const value = item[key];
+    if (value) {
+      const ja = translation[key][value];
+      if (ja !== undefined) {
+        if (ja !== "") {
+          item[`${key}Ja`] = ja;
+        }
+        delete removeTranslation[key][value];
+      } else {
+        item[`${key}Ja`] = value;
+        //newTranslation[key][value] = value;
+      }
     }
-    if (translation.sourceNote[item.sourceNotes] === undefined) {
-      console.log(`NoSourceNote: ${item.sourceNotes}`);
-    }
-  }
-  // seasonEvent
-  if (item.seasonEvent) {
-    item.seasonEventJa =
-      translation.seasonEvent[item.seasonEvent] ?? item.seasonEvent;
-    if (translation.seasonEvent[item.seasonEvent] === undefined) {
-      console.log(`NoSeasonEvent: ${item.seasonEvent}`);
-    }
-  }
-  // Shadow
-  if (item.shadow) {
-    item.shadowJa = translation.shadow[item.shadow] || item.shadow;
-  }
-  // Where
-  if (item.whereHow) {
-    item.whereHowJa = translation.where[item.whereHow] || item.whereHow;
-  }
-  // Whether
-  if (item.weather) {
-    item.weatherJa = translation.wheather[item.weather] || item.weather;
-  }
+  });
+
   // Add variation displayName
   if (item.clothGroupId && item.variants.length > 1) {
     item.variants.forEach((variant, index) => {
@@ -378,3 +376,24 @@ allItems.sort(function(a, b) {
 //
 
 fs.writeFileSync("./src/assets/items.json", JSON.stringify(allItems, null, 2));
+
+// Update custom translation files
+customTranslations.forEach(translationKey => {
+  const unordered = newTranslation[translationKey];
+
+  Object.keys(removeTranslation[translationKey]).forEach(function(key) {
+    delete unordered[key];
+  });
+
+  const ordered = Object.keys(unordered)
+    .sort()
+    .reduce(function(result, key) {
+      result[key] = unordered[key];
+      return result;
+    }, {});
+
+  fs.writeFileSync(
+    `./data/translation-custom/${translationKey}.json`,
+    JSON.stringify(ordered, null, 2)
+  );
+});

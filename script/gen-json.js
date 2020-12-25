@@ -186,7 +186,7 @@ allItems.forEach(item => {
         delete removeTranslation[key][value];
       } else {
         item[`${key}Ja`] = value;
-        //newTranslation[key][value] = value;
+        newTranslation[key][value] = "";
       }
     }
   });

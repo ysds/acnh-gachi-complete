@@ -73,6 +73,7 @@
         :filter="filter"
         :isStatic="true"
         :renderStartDate="renderStartDate"
+        @showModal="onShowModal"
       />
     </ul>
     <div v-if="!isLoadComplete" class="message loading">
@@ -89,6 +90,12 @@
         <div class="message">{{ message }}</div>
       </template>
     </infinite-loading>
+    <Modal :show="isShowModal" @close="isShowModal = false">
+      <template v-if="modalItem">
+        <template slot="header">{{ modalItem.displayName }}</template>
+        <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
+      </template>
+    </Modal>
     <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
   </div>
 </template>
@@ -110,6 +117,8 @@ import CollectedBar from "../components/CollectedBar.vue";
 import PageToTop from "../components/PageToTop.vue";
 import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
+import Modal from "../components/Modal.vue";
+import ItemModalContent from "../components/ItemModalContent.vue";
 
 const db = firebase.firestore();
 
@@ -120,7 +129,9 @@ export default {
     CollectedBar,
     PageToTop,
     Login,
-    Button
+    Button,
+    Modal,
+    ItemModalContent
   },
   data() {
     return {
@@ -138,6 +149,8 @@ export default {
       isLoadComplete: null,
       isLoaded: false,
       isOpenLogin: false,
+      isShowModal: false,
+      modalItem: null,
       message: ""
     };
   },
@@ -310,6 +323,10 @@ export default {
     onChangeFilter: function(activeFilter) {
       this.filter = Object.assign({}, activeFilter);
       this.updateShowItems();
+    },
+    onShowModal: function(item) {
+      this.isShowModal = true;
+      this.modalItem = item;
     },
     getTotalLength: function() {
       return totalLength({

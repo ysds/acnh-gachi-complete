@@ -84,6 +84,8 @@ export default {
 }
 
 .t-name {
+  position: relative;
+  z-index: 10;
   display: block;
   margin-top: 2px;
   font-size: 10px;
@@ -108,6 +110,7 @@ export default {
   margin-top: -3px;
   width: 50px;
   height: 50px;
+  object-fit: contain;
   vertical-align: top;
   pointer-events: none;
   user-select: none;

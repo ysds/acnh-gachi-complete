@@ -312,6 +312,7 @@ export default {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
+  object-fit: contain;
   margin-right: 0.5rem;
   vertical-align: top;
   pointer-events: none;

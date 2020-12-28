@@ -190,8 +190,8 @@ export default {
     }
   },
   watch: {
-    activeNav(nav) {
-      this.onChangeNav(nav);
+    activeNav(nav, prev) {
+      this.onChangeNav(nav, prev);
     }
   },
   async mounted() {
@@ -305,9 +305,9 @@ export default {
       }
       this.$copyText(names);
     },
-    onChangeNav: function(activeNav) {
+    onChangeNav: function(activeNav, prevNav) {
       // Reset saleFilter
-      const prevCategory = this.activeNav.split("-")[0];
+      const prevCategory = prevNav.split("-")[0];
       if (activeNav.indexOf(prevCategory) === -1) {
         this.filter.saleFilter = "all";
         this.$vlf.setItem("filter", this.filter);

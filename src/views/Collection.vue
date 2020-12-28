@@ -307,10 +307,12 @@ export default {
     },
     onChangeNav: function(activeNav, prevNav) {
       // Reset saleFilter
-      const prevCategory = prevNav.split("-")[0];
-      if (activeNav.indexOf(prevCategory) === -1) {
-        this.filter.saleFilter = "all";
-        this.$vlf.setItem("filter", this.filter);
+      if (prevNav) {
+        const prevCategory = prevNav.split("-")[0];
+        if (activeNav.indexOf(prevCategory) === -1) {
+          this.filter.saleFilter = "all";
+          this.$vlf.setItem("filter", this.filter);
+        }
       }
       this.updateShowItems();
     },

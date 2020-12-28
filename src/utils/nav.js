@@ -230,6 +230,14 @@ export function filterItems(args) {
         (item.sourceSheet === "Art" && item.category === "Wall-mounted")
       );
     }
+    // 家具（マイル家具）
+    else if (nav === "housewares-nookmiles") {
+      return (
+        item.sourceSheet === "Housewares" &&
+        item.variants &&
+        item.variants[0].source.includes("Nook Miles Redemption")
+      );
+    }
     // 壁紙
     else if (nav === "walletc-wall") {
       return item.sourceSheet === "Wallpaper";
@@ -566,6 +574,26 @@ export function filterItems(args) {
     });
   }
 
+  // マイル家具の実機順ソート
+  if (
+    !isSearchMode &&
+    nav &&
+    nav.indexOf("housewares-nookmiles") > -1 &&
+    filter.order === "id"
+  ) {
+    items.sort(function(itemA, itemB) {
+      const numA = itemA.exchangePrice;
+      const numB = itemB.exchangePrice;
+      if (numA > numB) {
+        return 1;
+      }
+      if (numA < numB) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
   return items;
 }
 
@@ -590,6 +618,10 @@ export const navs = [
       {
         id: "housewares-wallmounted",
         text: "壁かけ"
+      },
+      {
+        id: "housewares-nookmiles",
+        text: "マイル家具"
       }
     ]
   },

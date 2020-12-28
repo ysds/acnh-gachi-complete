@@ -53,6 +53,23 @@
       </popper>
       <div class="divider" />
     </div>
+    <div v-if="isShowOrderChanger">
+      <div class="divider" />
+      <Button
+        v-if="filter.order === 'name'"
+        @click="onClickOrderMenuItem('id')"
+        class="btn-small"
+      >
+        名前順
+      </Button>
+      <Button
+        v-else-if="filter.order === 'id'"
+        @click="onClickOrderMenuItem('name')"
+        class="btn-small"
+      >
+        実機順
+      </Button>
+    </div>
     <div class="buttons" style="margin-top: 0.5rem;">
       <Button
         @click="onClickCollectedFilter('0')"
@@ -127,6 +144,13 @@ export default {
   computed: {
     isFashion() {
       return this.currentNav.indexOf("fashion") > -1;
+    },
+    isShowOrderChanger() {
+      return (
+        (this.currentNav && this.currentNav.indexOf("creatures") > -1) ||
+        this.currentNav === "reactions" ||
+        this.currentNav === "housewares-nookmiles"
+      );
     }
   },
   methods: {
@@ -139,6 +163,9 @@ export default {
         "change",
         Object.assign(this.filter, { collectedFilter: value })
       );
+    },
+    onClickOrderMenuItem(value) {
+      this.$emit("change", Object.assign(this.filter, { order: value }));
     },
     isOpenSaleFilter() {
       if (!this.$refs.saleFilter) return false;

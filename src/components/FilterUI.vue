@@ -51,7 +51,6 @@
           </DropdownItem>
         </div>
       </popper>
-      <div class="divider" />
     </template>
     <popper
       trigger="clickToToggle"
@@ -98,7 +97,6 @@
       </div>
     </popper>
     <template v-if="showBatchAction">
-      <div class="divider" />
       <popper
         trigger="clickToToggle"
         :visible-arrow="false"
@@ -137,7 +135,6 @@
       </popper>
     </template>
     <template v-if="isShowOrderChanger">
-      <div class="divider" />
       <Button
         v-if="filter.order === 'name'"
         @click="onClickOrderMenuItem('id')"
@@ -154,14 +151,12 @@
       </Button>
     </template>
     <template v-if="showPinOption">
-      <div class="divider" />
       <Button :active="isPinned" @click="onClickPin">
         <IconPinned v-if="isPinned" />
         <IconPin v-else />
       </Button>
     </template>
     <template v-if="showShareButton">
-      <div class="divider" />
       <Button @click="showShareModal">
         <svg
           width="1em"
@@ -400,11 +395,6 @@ export default {
   flex-wrap: wrap;
 }
 
-.divider {
-  margin-right: 0.3rem;
-  margin-left: 0.15rem;
-}
-
 .btn-label {
   position: absolute;
   top: 0;
@@ -422,17 +412,14 @@ export default {
   display: inline-flex;
   align-items: center;
   margin-top: 6px;
+  margin-right: 0.5rem;
   min-width: 60px;
-  padding: 0.5rem 0.3rem 0.2rem 0.4rem;
+  padding: 0.7em 0.3rem 0.2rem 0.4rem;
   background-color: transparent;
-  border: 1px solid #ccc;
+  border: 1px solid #e3e3e3;
   border-radius: 8px;
   font-size: 14px;
   outline: 0;
-
-  @media (min-width: 360px) {
-    padding: 0.6rem 0.6rem 0.3rem;
-  }
 
   &.active {
     border-color: #42b983;

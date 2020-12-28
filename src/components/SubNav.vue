@@ -73,6 +73,10 @@ export default {
   methods: {
     changeNav(id) {
       this.$store.commit("changeNav", id);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   }
 };

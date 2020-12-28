@@ -36,6 +36,10 @@ export default {
     changeNav(id) {
       this.toggleDrawer();
       this.$store.commit("changeNav", id);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   }
 };

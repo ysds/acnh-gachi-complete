@@ -1,6 +1,5 @@
 <template>
   <div class="share">
-    <PageToTop />
     <div class="view-btn-wrapper" v-show="!isOpenDrawer">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
@@ -114,7 +113,6 @@ import {
 import Item from "../components/Item.vue";
 import FilterUIShared from "../components/FilterUIShared.vue";
 import CollectedBar from "../components/CollectedBar.vue";
-import PageToTop from "../components/PageToTop.vue";
 import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
 import Modal from "../components/Modal.vue";
@@ -127,7 +125,6 @@ export default {
     Item,
     FilterUIShared,
     CollectedBar,
-    PageToTop,
     Login,
     Button,
     Modal,

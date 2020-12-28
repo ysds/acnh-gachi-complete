@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <PageToTop />
     <div class="view-btn-wrapper" v-show="!isSearchMode && !isOpenDrawer">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
@@ -115,7 +114,6 @@ import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
 import Modal from "../components/Modal.vue";
 import CollectedBar from "../components/CollectedBar.vue";
-import PageToTop from "../components/PageToTop.vue";
 import ItemModalContent from "../components/ItemModalContent.vue";
 
 export default {
@@ -129,7 +127,6 @@ export default {
     Item,
     Modal,
     CollectedBar,
-    PageToTop,
     ItemModalContent
   },
   data() {

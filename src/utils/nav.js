@@ -555,43 +555,36 @@ export function filterItems(args) {
     }
   });
 
-  if (
-    !isSearchMode &&
-    nav &&
-    (nav.indexOf("creatures") > -1 || nav === "reactions") &&
-    filter.order === "id"
-  ) {
-    items.sort(function(itemA, itemB) {
-      const numA = itemA.num;
-      const numB = itemB.num;
-      if (numA > numB) {
-        return 1;
-      }
-      if (numA < numB) {
-        return -1;
-      }
-      return 0;
-    });
-  }
-
-  // マイル家具の実機順ソート
-  if (
-    !isSearchMode &&
-    nav &&
-    nav.indexOf("housewares-nookmiles") > -1 &&
-    filter.order === "id"
-  ) {
-    items.sort(function(itemA, itemB) {
-      const numA = itemA.exchangePrice;
-      const numB = itemB.exchangePrice;
-      if (numA > numB) {
-        return 1;
-      }
-      if (numA < numB) {
-        return -1;
-      }
-      return 0;
-    });
+  // 実機順ソート
+  if (!isSearchMode && nav && filter.order === "id") {
+    // いいもの、リアクション
+    if (nav.indexOf("creatures") > -1 || nav === "reactions") {
+      items.sort(function(itemA, itemB) {
+        const ca = itemA.num;
+        const cb = itemB.num;
+        if (ca > cb) {
+          return 1;
+        }
+        if (ca < cb) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    // マイル家具
+    else if (nav === "housewares-nookmiles") {
+      items.sort(function(itemA, itemB) {
+        const ca = itemA.exchangePrice;
+        const cb = itemB.exchangePrice;
+        if (ca > cb) {
+          return 1;
+        }
+        if (ca < cb) {
+          return -1;
+        }
+        return 0;
+      });
+    }
   }
 
   return items;

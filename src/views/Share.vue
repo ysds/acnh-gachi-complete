@@ -140,7 +140,7 @@ export default {
         saleFilter: "all",
         collectedFilter: "0",
         viewMode: "tile",
-        order: "name"
+        order: "id"
       },
       showItems: [],
       resultItems: [],

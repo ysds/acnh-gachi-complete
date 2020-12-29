@@ -413,7 +413,13 @@ allItems.sort(function(a, b) {
 // Write file
 //
 
-fs.writeFileSync("./src/assets/items.json", JSON.stringify(allItems, null, 2));
+allItems = JSON.stringify(allItems, null, 2);
+
+allItems = allItems.replace(/https:\/\/acnhcdn.com\/latest\//g, "");
+allItems = allItems.replace(/https:\/\/acnhcdn.com\/1.2.0\//g, "");
+allItems = allItems.replace(/https:\/\/acnhapi.com\/latest\//g, "");
+
+fs.writeFileSync("./src/assets/items.json", allItems);
 
 // Update custom translation files
 customTranslations.forEach(translationKey => {

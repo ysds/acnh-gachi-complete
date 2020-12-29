@@ -139,6 +139,16 @@ allItems.forEach(item => {
     });
   }
 
+  // 未使用の variant の uniqueEntryId を単純化（ファイルサイズ削減のため）
+  // v-for の key のために index を付与
+  if (item.variants) {
+    item.variants.forEach((variant, index) => {
+      if (variant.uniqueEntryId) {
+        item.variants[index].uniqueEntryId = index;
+      }
+    });
+  }
+
   //
   // 翻訳
   //

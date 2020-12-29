@@ -4,7 +4,7 @@
       コンプ率
       {{
         props.totalValue !== 0
-          ? ((props.value / props.totalValue) * 100).toFixed(1)
+          ? (Math.floor(props.value / props.totalValue * 1000) / 1000 * 100).toFixed(1)
           : "0.0"
       }}%
     </div>

@@ -558,6 +558,8 @@ export function filterItems(args) {
     else if (nav === "versions-160") {
       return item.versionAdded === "1.6.0";
     }
+
+    return true;
   });
 
   // 実機順ソート
@@ -636,6 +638,37 @@ export function collectedLength(args) {
       const collectedData = collected[item.name] || "";
       const length = (collectedData.match(/[0-9A-J]/g) || []).length;
       result += length;
+    }
+  }
+  return result;
+}
+
+export function allLength() {
+  const items = itemsJson.filter(
+    item => item.sourceSheet !== "Other" && item.name.indexOf("Hazure") === -1
+  );
+
+  let result = 0;
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].variants) {
+      result += items[i].variants.length;
+    } else {
+      result++;
+    }
+  }
+  return result;
+}
+
+export function allCollectedLength(collected) {
+  let items = filterItems({ collected, filter: { collectedFilter: "3" } });
+  items = items.filter(item => item.sourceSheet !== "Other");
+
+  let result = 0;
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].variants) {
+      result += items[i].variants.length;
+    } else {
+      result++;
     }
   }
   return result;

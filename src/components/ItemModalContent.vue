@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="info">
+    <div
+      class="info"
+      v-if="modalItem.buy || (modalItem.variants && modalItem.variants[0].buy)"
+    >
       <div class="info-label info-1">買値</div>
       <div class="info-text">
         <template v-if="modalItem.buy">
@@ -9,16 +12,20 @@
         <template v-else-if="modalItem.variants">
           {{ getBuy(modalItem.variants[0].buy) }}
         </template>
-        <template v-else>非売品</template>
       </div>
     </div>
-    <div class="info">
+    <div
+      class="info"
+      v-if="
+        modalItem.sell || (modalItem.variants && modalItem.variants[0].sell)
+      "
+    >
       <div class="info-label info-2">売値</div>
       <div class="info-text">
         <template v-if="modalItem.sell">
           {{ modalItem.sell }}
         </template>
-        <template v-if="modalItem.variants">
+        <template v-else-if="modalItem.variants">
           {{ modalItem.variants[0].sell }}
         </template>
       </div>
@@ -53,7 +60,9 @@
         <template v-if="modalItem.sourceJa">
           {{ modalItem.sourceJa.join("、") }}
         </template>
-        <template v-else-if="modalItem.variants">
+        <template
+          v-else-if="modalItem.variants && modalItem.variants[0].sourceJa"
+        >
           {{ modalItem.variants[0].sourceJa.join("、") }}
         </template>
       </div>

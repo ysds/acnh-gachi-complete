@@ -244,8 +244,16 @@ allItems.forEach(item => {
   //
   // Remove unused keys
   //
+  Object.keys(item).forEach(key => {
+    if (item[key] === false || item[key] === null) {
+      delete item[key];
+    }
+  });
 
   delete item["sourceNotes"];
+  delete item["kitType"];
+  delete item["series"];
+  delete item["exchangeCurrency"];
 
   // Housewares
   delete item["seasonEventExclusive"];
@@ -288,9 +296,15 @@ allItems.forEach(item => {
   delete item["clothGroupId"];
   delete item["primaryShape"];
   delete item["secondaryShape"];
+  delete item["seasonality"];
+  delete item["gender"];
+  delete item["villagerGender"];
+  delete item["style1"];
+  delete item["style2"];
   // かせき
   delete item["description"];
   delete item["museum"];
+  delete item["fossilGroup"];
   // レシピ
   delete item["recipesToUnlock"];
   delete item["craftedItemInternalId"];
@@ -298,6 +312,7 @@ allItems.forEach(item => {
   delete item["serialId"];
   delete item["internalId"];
   delete item["materials"];
+  delete item["diyIconFilename"];
   // Insects
   delete item["critterpediaImage"];
   delete item["furnitureImage"];

@@ -66,8 +66,7 @@ export function filterItems(args) {
       if (filter.saleFilter === "catalog") {
         if (
           item.catalog === "Not for sale" ||
-          item.catalog === "Not in catalog" ||
-          item.catalog === false
+          item.catalog === "Not in catalog"
         )
           return false;
       }

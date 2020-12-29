@@ -23,7 +23,7 @@
     <div class="t-v-name">
       <template v-if="props.variants">
         <template v-if="props.variants.length > 1">
-          {{ props.variant.variationDisplayName }}
+          {{ props.variant.vName }}
         </template>
         <template v-if="props.variant.genuine">
           {{ props.variant.genuine }}

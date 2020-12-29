@@ -202,7 +202,7 @@ allItems.forEach(item => {
     item.variants.forEach((variant, index) => {
       if (variant.internalId) {
         const internalId = variant.internalId;
-        item.variants[index].variationDisplayName =
+        item.variants[index].vName =
           translation.variantFassion[internalId] || variant.variation;
 
         if (!translation.variantFassion[internalId]) {
@@ -217,7 +217,7 @@ allItems.forEach(item => {
       if (variant.variantId) {
         const variantIdArray = variant.variantId.slice("_");
         const variantId = `${variant.internalId}_${variantIdArray[0]}`;
-        item.variants[index].variationDisplayName =
+        item.variants[index].vName =
           translation.variantBody[variantId] || variant.variation;
 
         if (!translation.variantBody[variantId]) {

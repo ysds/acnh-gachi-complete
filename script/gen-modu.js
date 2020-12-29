@@ -54,7 +54,7 @@ const genFTRMap = function(list, filename) {
           map = item;
         } else {
           const variant = item.variants.filter((variant, index) => {
-            if (moduVariant === variant.variationDisplayName) {
+            if (moduVariant === variant.vName) {
               variantIndex = index;
               return true;
             }

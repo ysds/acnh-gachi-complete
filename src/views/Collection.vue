@@ -88,6 +88,13 @@
         </div>
       </template>
     </infinite-loading>
+    <div
+      v-if="isVersion"
+      class="message"
+      style="font-weight: 400; font-size: 12px;"
+    >
+      バージョンカテゴリは、「素材」、「消費アイテム」、「植物」を含む、そのバージョンで追加されたすべてのアイテムを表示します。
+    </div>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
         <template slot="header">{{ modalItem.displayName }}</template>
@@ -171,12 +178,18 @@ export default {
     isShowSaleFilter() {
       return isFilterBySaleType(this.activeNav);
     },
-    isShowPinOption: function() {
+    isShowPinOption() {
       if (this.activeNav) {
         const showNavs = ["special", "season"];
         for (let i = 0; i < showNavs.length; i++) {
           if (this.activeNav.indexOf(showNavs[i]) !== -1) return true;
         }
+      }
+      return false;
+    },
+    isVersion() {
+      if (this.activeNav) {
+        if (this.activeNav.indexOf("versions") !== -1) return true;
       }
       return false;
     }

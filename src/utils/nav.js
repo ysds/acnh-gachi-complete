@@ -552,7 +552,7 @@ export function filterItems(args) {
     }
     // バージョン 1.5.0
     else if (nav === "versions-150") {
-      return item.versionAdded === "1.5.0" && item.storageFilename !== null;
+      return item.versionAdded === "1.5.0";
     }
     // バージョン 1.6.0
     else if (nav === "versions-160") {

@@ -346,16 +346,15 @@ export default {
     },
     getTotalLength: function() {
       return totalLength({
-        collected: {},
         nav: this.activeNav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "0" })
+        saleFilter: this.filter.saleFilter
       });
     },
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "3" })
+        saleFilter: this.filter.saleFilter
       });
     },
     updateShowItems: function() {

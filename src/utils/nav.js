@@ -596,12 +596,13 @@ export function filterItems(args) {
 }
 
 export function totalLength(args) {
-  const { collected, nav, filter } = args;
+  const { nav, saleFilter } = args;
 
   const totalItems = filterItems({
-    collected,
     nav,
-    filter
+    filter: {
+      saleFilter: saleFilter
+    }
   });
   let result = 0;
   for (let i = 0; i < totalItems.length; i++) {
@@ -615,12 +616,15 @@ export function totalLength(args) {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, filter } = args;
+  const { collected, nav, saleFilter } = args;
 
   const collectedItems = filterItems({
     collected,
     nav,
-    filter
+    filter: {
+      saleFilter: saleFilter,
+      collectedFilter: "3"
+    }
   });
 
   let result = 0;

@@ -233,6 +233,14 @@ allItems.forEach(item => {
     });
   }
 
+  // 本物/偽物
+  if (item.variants) {
+    item.variants.forEach((variant, i) => {
+      if (variant.genuine === true) item.variants[i].genuine = "本物";
+      if (variant.genuine === false) item.variants[i].genuine = "偽物";
+    });
+  }
+
   //
   // Remove unused keys
   //

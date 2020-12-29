@@ -10,8 +10,9 @@
         {{ props.variant.variationDisplayName }}
       </template>
     </template>
-    <template v-else-if="props.variant.genuine === true">本物</template>
-    <template v-else-if="props.variant.genuine === false">偽物</template>
+    <template v-if="props.variant.genuine">
+      {{ props.variant.genuine }}
+    </template>
   </button>
 </template>
 <script>

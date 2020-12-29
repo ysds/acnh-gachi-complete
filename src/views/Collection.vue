@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <PageToTop />
     <div class="view-btn-wrapper" v-show="!isSearchMode && !isOpenDrawer">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
@@ -89,6 +88,13 @@
         </div>
       </template>
     </infinite-loading>
+    <div
+      v-if="isVersion"
+      class="message"
+      style="font-weight: 400; font-size: 12px;"
+    >
+      バージョンカテゴリは、「素材」や「消費アイテム」、「植物」を含む、そのバージョンで追加されたすべてのアイテムを表示します。
+    </div>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
         <template slot="header">{{ modalItem.displayName }}</template>
@@ -104,7 +110,8 @@ import {
   filterItems,
   navs,
   totalLength,
-  collectedLength
+  collectedLength,
+  isFilterBySaleType
 } from "../utils/nav.js";
 
 import SubNav from "../components/SubNav.vue";
@@ -115,7 +122,6 @@ import FilterUI from "../components/FilterUI.vue";
 import Item from "../components/Item.vue";
 import Modal from "../components/Modal.vue";
 import CollectedBar from "../components/CollectedBar.vue";
-import PageToTop from "../components/PageToTop.vue";
 import ItemModalContent from "../components/ItemModalContent.vue";
 
 export default {
@@ -129,7 +135,6 @@ export default {
     Item,
     Modal,
     CollectedBar,
-    PageToTop,
     ItemModalContent
   },
   data() {
@@ -170,16 +175,10 @@ export default {
     isLogin() {
       return this.$store.getters.isLogin;
     },
-    isShowSaleFilter: function() {
-      if (this.activeNav) {
-        const showNavs = ["housewares", "walletc", "fashion"];
-        for (let i = 0; i < showNavs.length; i++) {
-          if (this.activeNav.indexOf(showNavs[i]) !== -1) return true;
-        }
-      }
-      return false;
+    isShowSaleFilter() {
+      return isFilterBySaleType(this.activeNav);
     },
-    isShowPinOption: function() {
+    isShowPinOption() {
       if (this.activeNav) {
         const showNavs = ["special", "season"];
         for (let i = 0; i < showNavs.length; i++) {
@@ -187,11 +186,17 @@ export default {
         }
       }
       return false;
+    },
+    isVersion() {
+      if (this.activeNav) {
+        if (this.activeNav.indexOf("versions") !== -1) return true;
+      }
+      return false;
     }
   },
   watch: {
-    activeNav(nav) {
-      this.onChangeNav(nav);
+    activeNav(nav, prev) {
+      this.onChangeNav(nav, prev);
     }
   },
   async mounted() {
@@ -305,12 +310,14 @@ export default {
       }
       this.$copyText(names);
     },
-    onChangeNav: function(activeNav) {
+    onChangeNav: function(activeNav, prevNav) {
       // Reset saleFilter
-      const prevCategory = this.activeNav.split("-")[0];
-      if (activeNav.indexOf(prevCategory) === -1) {
-        this.filter.saleFilter = "all";
-        this.$vlf.setItem("filter", this.filter);
+      if (prevNav) {
+        const prevCategory = prevNav.split("-")[0];
+        if (activeNav.indexOf(prevCategory) === -1) {
+          this.filter.saleFilter = "all";
+          this.$vlf.setItem("filter", this.filter);
+        }
       }
       this.updateShowItems();
     },
@@ -352,18 +359,15 @@ export default {
     },
     getTotalLength: function() {
       return totalLength({
-        collected: {},
         nav: this.activeNav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "0" }),
-        isShowSaleFilter: this.isShowSaleFilter
+        saleFilter: this.filter.saleFilter
       });
     },
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "3" }),
-        isShowSaleFilter: this.isShowSaleFilter
+        saleFilter: this.filter.saleFilter
       });
     },
     updateShowItems: function() {
@@ -373,8 +377,7 @@ export default {
         nav: this.activeNav,
         filter: this.filter,
         isSearchMode: this.isSearchMode,
-        searchText: this.searchText,
-        isShowSaleFilter: this.isShowSaleFilter
+        searchText: this.searchText
       });
 
       this.showItems = [];

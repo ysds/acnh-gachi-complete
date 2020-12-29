@@ -1,4 +1,5 @@
 import itemsJson from "../assets/items.json";
+import navs from "./navs.json";
 
 const kata2Hira = function(string) {
   return string.replace(/[\u30A1-\u30FA]/g, ch =>
@@ -19,6 +20,18 @@ function normalizeText(string) {
   return result;
 }
 
+export { navs };
+
+export function isFilterBySaleType(activeNav) {
+  if (activeNav) {
+    const showNavs = ["housewares", "walletc", "fashion"];
+    for (let i = 0; i < showNavs.length; i++) {
+      if (activeNav.indexOf(showNavs[i]) !== -1) return true;
+    }
+  }
+  return false;
+}
+
 export function filterItems(args) {
   let items = itemsJson;
   args = Object.assign(
@@ -29,15 +42,7 @@ export function filterItems(args) {
     args
   );
 
-  let {
-    collected,
-    myCollected,
-    nav,
-    filter,
-    isSearchMode,
-    searchText,
-    isShowSaleFilter
-  } = args;
+  let { collected, myCollected, nav, filter, isSearchMode, searchText } = args;
 
   items = items.filter(item => {
     //
@@ -57,7 +62,7 @@ export function filterItems(args) {
     //
 
     // 商店
-    if (isShowSaleFilter) {
+    if (isFilterBySaleType(nav)) {
       if (filter.saleFilter === "catalog") {
         if (
           item.catalog === "Not for sale" ||
@@ -228,6 +233,14 @@ export function filterItems(args) {
       return (
         item.sourceSheet === "Wall-mounted" ||
         (item.sourceSheet === "Art" && item.category === "Wall-mounted")
+      );
+    }
+    // 家具（マイル家具）
+    else if (nav === "housewares-nookmiles") {
+      return (
+        item.sourceSheet === "Housewares" &&
+        item.variants &&
+        item.variants[0].source.includes("Nook Miles Redemption")
       );
     }
     // 壁紙
@@ -547,415 +560,59 @@ export function filterItems(args) {
     }
     // バージョン 1.5.0
     else if (nav === "versions-150") {
-      return item.versionAdded === "1.5.0" && item.storageFilename !== null;
+      return item.versionAdded === "1.5.0";
     }
     // バージョン 1.6.0
     else if (nav === "versions-160") {
       return item.versionAdded === "1.6.0";
     }
+
+    return true;
   });
 
-  if (
-    !isSearchMode &&
-    nav &&
-    (nav.indexOf("creatures") > -1 || nav === "reactions") &&
-    filter.order === "id"
-  ) {
-    items.sort(function(itemA, itemB) {
-      const numA = itemA.num;
-      const numB = itemB.num;
-      if (numA > numB) {
-        return 1;
-      }
-      if (numA < numB) {
-        return -1;
-      }
-      return 0;
-    });
+  // 実機順ソート
+  if (!isSearchMode && nav && filter.order === "id") {
+    // いいもの、リアクション
+    if (nav.indexOf("creatures") > -1 || nav === "reactions") {
+      items.sort(function(itemA, itemB) {
+        const ca = itemA.num;
+        const cb = itemB.num;
+        if (ca > cb) {
+          return 1;
+        }
+        if (ca < cb) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    // マイル家具
+    else if (nav === "housewares-nookmiles") {
+      items.sort(function(itemA, itemB) {
+        const ca = itemA.exchangePrice;
+        const cb = itemB.exchangePrice;
+        if (ca > cb) {
+          return 1;
+        }
+        if (ca < cb) {
+          return -1;
+        }
+        return 0;
+      });
+    }
   }
 
   return items;
 }
 
-export const navs = [
-  {
-    id: "housewares",
-    text: "家具",
-    subnavs: [
-      {
-        id: "housewares-all",
-        text: "すべての家具",
-        alttext: "すべて"
-      },
-      {
-        id: "housewares",
-        text: "家具"
-      },
-      {
-        id: "housewares-miscellaneous",
-        text: "小物"
-      },
-      {
-        id: "housewares-wallmounted",
-        text: "壁かけ"
-      }
-    ]
-  },
-  {
-    id: "fashion",
-    text: "ファッション",
-    subnavs: [
-      {
-        id: "fashion-all",
-        text: "すべてのファッション",
-        alttext: "すべて"
-      },
-      {
-        id: "fashion-tops",
-        text: "トップス"
-      },
-      {
-        id: "fashion-bottoms",
-        text: "ボトムス"
-      },
-      {
-        id: "fashion-dress",
-        text: "ワンピース"
-      },
-      {
-        id: "fashion-headwear",
-        text: "かぶりもの"
-      },
-      {
-        id: "fashion-accessories",
-        text: "アクセサリー"
-      },
-      {
-        id: "fashion-socks",
-        text: "くつした"
-      },
-      {
-        id: "fashion-shoes",
-        text: "くつ"
-      },
-      {
-        id: "fashion-bags",
-        text: "バッグ"
-      },
-      {
-        id: "fashion-umbrellas",
-        text: "かさ"
-      },
-      {
-        id: "fashion-other",
-        text: "そのほか"
-      }
-    ]
-  },
-  {
-    id: "walletc",
-    text: "壁紙/床板/ラグ/柵",
-    subnavs: [
-      {
-        id: "walletc-wall",
-        text: "壁紙"
-      },
-      {
-        id: "walletc-floors",
-        text: "床板"
-      },
-      {
-        id: "walletc-rugs",
-        text: "ラグ"
-      },
-      {
-        id: "walletc-fencing",
-        text: "柵"
-      }
-    ]
-  },
-  {
-    id: "fossils",
-    text: "かせき"
-  },
-  {
-    id: "music",
-    text: "曲"
-  },
-  {
-    id: "posters",
-    text: "ポスター"
-  },
-  {
-    id: "photos",
-    text: "写真"
-  },
-  {
-    id: "recipes",
-    text: "レシピ"
-  },
-  {
-    id: "creatures",
-    text: "いきもの",
-    subnavs: [
-      {
-        id: "creatures-insects",
-        text: "虫",
-        order: 1
-      },
-      {
-        id: "creatures-fish",
-        text: "魚",
-        order: 2
-      },
-      {
-        id: "creatures-sea",
-        text: "海の幸",
-        order: 3
-      }
-    ]
-  },
-  {
-    id: "tools",
-    text: "道具",
-    subnavs: [
-      {
-        id: "tools-all",
-        text: "道具",
-        alttext: "すべて",
-        order: 1
-      },
-      {
-        id: "tools-wand",
-        text: "ステッキ",
-        order: 2
-      }
-    ]
-  },
-  {
-    id: "special",
-    text: "来訪者",
-    subnavs: [
-      {
-        id: "special-fishmodels",
-        text: "ジャスティン",
-        order: 1
-      },
-      {
-        id: "special-bugmodels",
-        text: "レックス",
-        order: 2
-      },
-      {
-        id: "special-saharah",
-        text: "ローラン",
-        order: 3
-      },
-      {
-        id: "special-gulliver",
-        text: "ジョニー",
-        order: 4
-      },
-      {
-        id: "special-gullivarrr",
-        text: "海賊ジョニー",
-        order: 5
-      },
-      {
-        id: "special-celeste",
-        text: "フーコ",
-        order: 6
-      },
-      {
-        id: "special-art",
-        text: "つねきち",
-        order: 7
-      },
-      {
-        id: "special-pascal",
-        text: "ラコスケ",
-        order: 8
-      },
-      {
-        id: "special-labelle",
-        text: "ことの",
-        order: 9
-      },
-      {
-        id: "special-kicks",
-        text: "シャンク",
-        order: 10
-      }
-    ]
-  },
-  {
-    id: "season",
-    text: "季節/イベント",
-    subnavs: [
-      {
-        id: "season-nook",
-        text: "たぬきショッピング",
-        subtext: "スペシャル（シーズン）",
-        order: 1
-      },
-      {
-        id: "season-fish",
-        text: "魚釣り大会",
-        subtext: "1, 4, 7, 10月",
-        order: 2
-      },
-      {
-        id: "season-bug",
-        text: "虫取り大会",
-        subtext: "6, 7, 8, 9月",
-        order: 3
-      },
-      {
-        id: "season-fireworks",
-        text: "花火大会",
-        subtext: "8月",
-        order: 4
-      },
-      {
-        id: "season-spring",
-        text: "はるのわかたけ",
-        subtext: "2/25〜5/31",
-        order: 5
-      },
-      {
-        id: "season-sakura",
-        text: "さくらのはなびら",
-        subtext: "4/1〜4/10",
-        order: 6
-      },
-      {
-        id: "season-easter",
-        text: "イースター",
-        subtext: "4/1〜4/12",
-        order: 7
-      },
-      {
-        id: "season-mayday",
-        text: "メーデー",
-        subtext: "5/1〜5/7",
-        order: 8
-      },
-      {
-        id: "season-museum",
-        text: "国際ミュージアムデー",
-        subtext: "5/18〜5/31",
-        order: 9
-      },
-      {
-        id: "season-wedding",
-        text: "ジューンブライド",
-        subtext: "6/1〜6/30",
-        order: 10
-      },
-      {
-        id: "season-summer",
-        text: "なつのかいがら",
-        subtext: "6/1〜8/31",
-        order: 11
-      },
-      {
-        id: "season-fall",
-        text: "どんぐり/まつぼっくり",
-        subtext: "9/1〜12/10",
-        order: 12
-      },
-      {
-        id: "season-halloween",
-        text: "ハロウィン",
-        subtext: "10/1〜10/31",
-        order: 13
-      },
-      {
-        id: "season-mushroom",
-        text: "キノコ",
-        subtext: "11/1〜11/30",
-        order: 14
-      },
-      {
-        id: "season-maple",
-        text: "もみじのはっぱ",
-        subtext: "11/16～11/25",
-        order: 15
-      },
-      {
-        id: "season-turkey",
-        text: "サンクスギビングデー",
-        subtext: "11/26～11/30",
-        order: 16
-      },
-      {
-        id: "season-toy",
-        text: "クリスマス",
-        subtext: "12/1～12/25",
-        order: 17
-      },
-      {
-        id: "season-winter",
-        text: "ゆきのけっしょう",
-        subtext: "12/11〜2/24",
-        order: 18
-      },
-      {
-        id: "season-festive",
-        text: "オーナメント",
-        subtext: "12/15〜1/6",
-        order: 19
-      },
-      {
-        id: "season-countdown",
-        text: "カウントダウン",
-        subtext: "12/31",
-        order: 20
-      },
-      {
-        id: "season-birthday",
-        text: "誕生日",
-        order: 21
-      },
-      {
-        id: "season-mother",
-        text: "ははシリーズ",
-        order: 22
-      }
-    ]
-  },
-  {
-    id: "reactions",
-    text: "リアクション"
-  },
-  {
-    id: "versions",
-    text: "バージョン",
-    subnavs: [
-      {
-        id: "versions-160",
-        text: "1.6.0"
-      },
-      {
-        id: "versions-150",
-        text: "1.5.0"
-      },
-      {
-        id: "versions-140",
-        text: "1.4.0"
-      }
-    ]
-  }
-];
-
 export function totalLength(args) {
-  const { collected, nav, filter, isShowSaleFilter } = args;
+  const { nav, saleFilter } = args;
 
   const totalItems = filterItems({
-    collected,
     nav,
-    filter,
-    isShowSaleFilter
+    filter: {
+      saleFilter: saleFilter
+    }
   });
   let result = 0;
   for (let i = 0; i < totalItems.length; i++) {
@@ -969,13 +626,15 @@ export function totalLength(args) {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, filter, isShowSaleFilter } = args;
+  const { collected, nav, saleFilter } = args;
 
   const collectedItems = filterItems({
     collected,
     nav,
-    filter,
-    isShowSaleFilter
+    filter: {
+      saleFilter: saleFilter,
+      collectedFilter: "3"
+    }
   });
 
   let result = 0;
@@ -987,6 +646,37 @@ export function collectedLength(args) {
       const collectedData = collected[item.name] || "";
       const length = (collectedData.match(/[0-9A-J]/g) || []).length;
       result += length;
+    }
+  }
+  return result;
+}
+
+export function allLength() {
+  const items = itemsJson.filter(
+    item => item.sourceSheet !== "Other" && item.name.indexOf("Hazure") === -1
+  );
+
+  let result = 0;
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].variants) {
+      result += items[i].variants.length;
+    } else {
+      result++;
+    }
+  }
+  return result;
+}
+
+export function allCollectedLength(collected) {
+  let items = filterItems({ collected, filter: { collectedFilter: "3" } });
+  items = items.filter(item => item.sourceSheet !== "Other");
+
+  let result = 0;
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].variants) {
+      result += items[i].variants.length;
+    } else {
+      result++;
     }
   }
   return result;

@@ -12,7 +12,35 @@
     <div class="login-body">
       <template v-if="isLogin && user">
         <img :src="user.photoURL" alt="Avatar" class="avatar" />
-
+      </template>
+      <template v-else-if="isLogin === false">
+        <p style="font-size: 14px;">
+          ログインすると、データが自動的にクラウドに保存され、シェア機能を使えるようになります。
+        </p>
+        <button type="button" class="btn" @click="login('google')">
+          <img
+            src="../assets/google.svg"
+            width="24px"
+            height="24px"
+            style="margin-right: 1rem"
+          />
+          Google でログイン
+        </button>
+        <button type="button" class="btn" @click="login('twitter')">
+          <img
+            src="../assets/Twitter_Logo_Blue.svg"
+            width="40px"
+            height="40px"
+            style="margin-right: .5rem"
+          />
+          Twitter でログイン
+        </button>
+      </template>
+      <div class="section">
+        <div class="section-label mb-4">コンプ率</div>
+        <LoginCollected />
+      </div>
+      <template v-if="isLogin && user">
         <div class="section">
           <div class="d-flex align-items-center mb-4">
             <div class="section-label">名前</div>
@@ -94,30 +122,6 @@
           </p>
         </div>
       </template>
-      <template v-else-if="isLogin === false">
-        <p style="font-size: 14px;">
-          ログインすると、データが自動的にクラウドに保存され、シェア機能を使えるようになります。
-        </p>
-
-        <button type="button" class="btn" @click="login('google')">
-          <img
-            src="../assets/google.svg"
-            width="24px"
-            height="24px"
-            style="margin-right: 1rem"
-          />
-          Google でログイン
-        </button>
-        <button type="button" class="btn" @click="login('twitter')">
-          <img
-            src="../assets/Twitter_Logo_Blue.svg"
-            width="40px"
-            height="40px"
-            style="margin-right: .5rem"
-          />
-          Twitter でログイン
-        </button>
-      </template>
       <div class="section">
         <div class="section-label mb-4">インポート</div>
         <p class="small">
@@ -167,6 +171,7 @@ import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
 import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
+import LoginCollected from "../components/LoginCollected";
 
 const db = firebase.firestore();
 const baseURL = process.env.BASE_URL;
@@ -177,7 +182,8 @@ export default {
     CloseButton,
     Button,
     LoginShare,
-    LoginImport
+    LoginImport,
+    LoginCollected
   },
   data() {
     return {
@@ -280,7 +286,7 @@ export default {
 
 .section {
   margin-top: 1rem;
-  padding: 1rem 1rem 1px;
+  padding: 1rem;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -335,7 +341,7 @@ export default {
   width: 100%;
   max-width: 400px;
   min-height: 50px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 0 1rem;
   border: 1px solid #ccc;

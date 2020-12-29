@@ -1,6 +1,5 @@
 <template>
   <div class="share">
-    <PageToTop />
     <div class="view-btn-wrapper" v-show="!isOpenDrawer">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
@@ -108,13 +107,13 @@ import {
   totalLength,
   collectedLength,
   getNavText,
-  navs
+  navs,
+  isFilterBySaleType
 } from "../utils/nav.js";
 
 import Item from "../components/Item.vue";
 import FilterUIShared from "../components/FilterUIShared.vue";
 import CollectedBar from "../components/CollectedBar.vue";
-import PageToTop from "../components/PageToTop.vue";
 import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
 import Modal from "../components/Modal.vue";
@@ -127,7 +126,6 @@ export default {
     Item,
     FilterUIShared,
     CollectedBar,
-    PageToTop,
     Login,
     Button,
     Modal,
@@ -140,7 +138,7 @@ export default {
         saleFilter: "all",
         collectedFilter: "0",
         viewMode: "tile",
-        order: "name"
+        order: "id"
       },
       showItems: [],
       resultItems: [],
@@ -205,14 +203,8 @@ export default {
     myShareCategories() {
       return this.$store.getters.shareCategories;
     },
-    isShowSaleFilter: function() {
-      if (this.nav) {
-        const showNavs = ["housewares", "walletc", "fashion"];
-        for (let i = 0; i < showNavs.length; i++) {
-          if (this.nav.indexOf(showNavs[i]) !== -1) return true;
-        }
-      }
-      return false;
+    isShowSaleFilter() {
+      return isFilterBySaleType(this.nav);
     },
     isLogin() {
       return this.$store.getters.isLogin;
@@ -330,18 +322,15 @@ export default {
     },
     getTotalLength: function() {
       return totalLength({
-        collected: {},
         nav: this.nav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "0" }),
-        isShowSaleFilter: this.isShowSaleFilter
+        saleFilter: this.filter.saleFilter
       });
     },
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.sharedCollected),
         nav: this.nav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "3" }),
-        isShowSaleFilter: this.isShowSaleFilter
+        saleFilter: this.filter.saleFilter
       });
     },
     changeNav(category) {
@@ -362,7 +351,6 @@ export default {
         nav: this.nav,
         filter: this.filter,
         isSearchMode: false,
-        isShowSaleFilter: this.isShowSaleFilter,
         searchText: "",
         false: false
       });

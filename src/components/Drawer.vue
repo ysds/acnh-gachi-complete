@@ -36,6 +36,10 @@ export default {
     changeNav(id) {
       this.toggleDrawer();
       this.$store.commit("changeNav", id);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   }
 };
@@ -61,20 +65,14 @@ export default {
 .nav-item {
   margin: 0.25rem 0.33rem;
   padding: 5px 0;
-  background-color: transparent;
   outline: none;
   font-weight: bold;
   text-decoration: none;
-  border-width: 0 0 3px;
-  border-style: solid;
-  border-color: transparent;
-  border-radius: 2px;
   color: #444;
   touch-action: manipulation;
 
   &.active {
     color: #42b983;
-    border-bottom-color: #42b983;
   }
 }
 

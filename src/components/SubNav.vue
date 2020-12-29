@@ -73,6 +73,10 @@ export default {
   methods: {
     changeNav(id) {
       this.$store.commit("changeNav", id);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   }
 };
@@ -93,31 +97,32 @@ export default {
 .subnav {
   display: flex;
   margin: 0 auto;
-  padding: 0 0.5rem 0.5rem;
+  padding: 0 0 0.5rem 1rem;
   overflow-x: auto;
   line-height: 1;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+
+  &::after {
+    content: "";
+    padding-left: 1rem;
+  }
 }
 
 .subnav-item {
   position: relative;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-  padding: 6px 1rem 3px;
-  min-height: 40px;
-  background-color: #fff;
+  padding: 3px 0.5rem;
+  min-height: 38px;
+  background-color: transparent;
   outline: none;
   border: 0;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
-  border: 1px solid #ccc;
-  border-radius: 100px;
+  border-bottom: 3px solid transparent;
 
   &.active {
-    color: #fff;
-    background-color: #21bec5;
-    border-color: #21bec5;
+    color: #42b983;
+    border-bottom-color: #42b983;
   }
 
   &.pinned {

@@ -51,9 +51,24 @@
           </DropdownItem>
         </div>
       </popper>
-      <div class="divider" />
     </div>
-    <div class="buttons" style="margin-top: 0.5rem;">
+    <div v-if="isShowOrderChanger">
+      <Button
+        v-if="filter.order === 'name'"
+        @click="onClickOrderMenuItem('id')"
+        class="btn-small"
+      >
+        名前順
+      </Button>
+      <Button
+        v-else-if="filter.order === 'id'"
+        @click="onClickOrderMenuItem('name')"
+        class="btn-small"
+      >
+        実機順
+      </Button>
+    </div>
+    <div class="buttons">
       <Button
         @click="onClickCollectedFilter('0')"
         class="nav"
@@ -127,6 +142,13 @@ export default {
   computed: {
     isFashion() {
       return this.currentNav.indexOf("fashion") > -1;
+    },
+    isShowOrderChanger() {
+      return (
+        (this.currentNav && this.currentNav.indexOf("creatures") > -1) ||
+        this.currentNav === "reactions" ||
+        this.currentNav === "housewares-nookmiles"
+      );
     }
   },
   methods: {
@@ -139,6 +161,9 @@ export default {
         "change",
         Object.assign(this.filter, { collectedFilter: value })
       );
+    },
+    onClickOrderMenuItem(value) {
+      this.$emit("change", Object.assign(this.filter, { order: value }));
     },
     isOpenSaleFilter() {
       if (!this.$refs.saleFilter) return false;
@@ -154,11 +179,6 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.divider {
-  margin-right: 0.3rem;
-  margin-left: 0.15rem;
 }
 
 .btn-label {
@@ -178,17 +198,14 @@ export default {
   display: inline-flex;
   align-items: center;
   margin-top: 6px;
+  margin-right: 0.5rem;
   min-width: 60px;
-  padding: 0.5rem 0.3rem 0.2rem 0.4rem;
+  padding: 0.7em 0.3rem 0.2rem 0.4rem;
   background-color: transparent;
-  border: 1px solid #ccc;
+  border: 1px solid #e3e3e3;
   border-radius: 8px;
   font-size: 14px;
   outline: 0;
-
-  @media (min-width: 360px) {
-    padding: 0.6rem 0.6rem 0.3rem;
-  }
 
   &.active {
     border-color: #42b983;
@@ -251,7 +268,6 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 0.5rem;
 }
 
 .flat-btn {
@@ -261,6 +277,7 @@ export default {
   font-size: 14px;
   padding-right: 0.25rem;
   padding-left: 0.25rem;
+  margin-top: 6px;
   margin-right: 0.25rem;
   margin-left: 0.25rem;
 

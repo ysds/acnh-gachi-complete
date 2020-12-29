@@ -103,7 +103,8 @@ import {
   filterItems,
   navs,
   totalLength,
-  collectedLength
+  collectedLength,
+  isFilterBySaleType
 } from "../utils/nav.js";
 
 import SubNav from "../components/SubNav.vue";
@@ -167,14 +168,8 @@ export default {
     isLogin() {
       return this.$store.getters.isLogin;
     },
-    isShowSaleFilter: function() {
-      if (this.activeNav) {
-        const showNavs = ["housewares", "walletc", "fashion"];
-        for (let i = 0; i < showNavs.length; i++) {
-          if (this.activeNav.indexOf(showNavs[i]) !== -1) return true;
-        }
-      }
-      return false;
+    isShowSaleFilter() {
+      return isFilterBySaleType(this.activeNav);
     },
     isShowPinOption: function() {
       if (this.activeNav) {
@@ -353,16 +348,14 @@ export default {
       return totalLength({
         collected: {},
         nav: this.activeNav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "0" }),
-        isShowSaleFilter: this.isShowSaleFilter
+        filter: Object.assign({}, this.filter, { collectedFilter: "0" })
       });
     },
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "3" }),
-        isShowSaleFilter: this.isShowSaleFilter
+        filter: Object.assign({}, this.filter, { collectedFilter: "3" })
       });
     },
     updateShowItems: function() {
@@ -372,8 +365,7 @@ export default {
         nav: this.activeNav,
         filter: this.filter,
         isSearchMode: this.isSearchMode,
-        searchText: this.searchText,
-        isShowSaleFilter: this.isShowSaleFilter
+        searchText: this.searchText
       });
 
       this.showItems = [];

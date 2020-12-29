@@ -22,6 +22,16 @@ function normalizeText(string) {
 
 export { navs };
 
+export function isFilterBySaleType(activeNav) {
+  if (activeNav) {
+    const showNavs = ["housewares", "walletc", "fashion"];
+    for (let i = 0; i < showNavs.length; i++) {
+      if (activeNav.indexOf(showNavs[i]) !== -1) return true;
+    }
+  }
+  return false;
+}
+
 export function filterItems(args) {
   let items = itemsJson;
   args = Object.assign(
@@ -32,15 +42,7 @@ export function filterItems(args) {
     args
   );
 
-  let {
-    collected,
-    myCollected,
-    nav,
-    filter,
-    isSearchMode,
-    searchText,
-    isShowSaleFilter
-  } = args;
+  let { collected, myCollected, nav, filter, isSearchMode, searchText } = args;
 
   items = items.filter(item => {
     //
@@ -60,7 +62,7 @@ export function filterItems(args) {
     //
 
     // 商店
-    if (isShowSaleFilter) {
+    if (isFilterBySaleType(nav)) {
       if (filter.saleFilter === "catalog") {
         if (
           item.catalog === "Not for sale" ||
@@ -594,13 +596,12 @@ export function filterItems(args) {
 }
 
 export function totalLength(args) {
-  const { collected, nav, filter, isShowSaleFilter } = args;
+  const { collected, nav, filter } = args;
 
   const totalItems = filterItems({
     collected,
     nav,
-    filter,
-    isShowSaleFilter
+    filter
   });
   let result = 0;
   for (let i = 0; i < totalItems.length; i++) {
@@ -614,13 +615,12 @@ export function totalLength(args) {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, filter, isShowSaleFilter } = args;
+  const { collected, nav, filter } = args;
 
   const collectedItems = filterItems({
     collected,
     nav,
-    filter,
-    isShowSaleFilter
+    filter
   });
 
   let result = 0;

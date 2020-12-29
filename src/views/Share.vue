@@ -107,7 +107,8 @@ import {
   totalLength,
   collectedLength,
   getNavText,
-  navs
+  navs,
+  isFilterBySaleType
 } from "../utils/nav.js";
 
 import Item from "../components/Item.vue";
@@ -202,14 +203,8 @@ export default {
     myShareCategories() {
       return this.$store.getters.shareCategories;
     },
-    isShowSaleFilter: function() {
-      if (this.nav) {
-        const showNavs = ["housewares", "walletc", "fashion"];
-        for (let i = 0; i < showNavs.length; i++) {
-          if (this.nav.indexOf(showNavs[i]) !== -1) return true;
-        }
-      }
-      return false;
+    isShowSaleFilter() {
+      return isFilterBySaleType(this.nav);
     },
     isLogin() {
       return this.$store.getters.isLogin;
@@ -329,16 +324,14 @@ export default {
       return totalLength({
         collected: {},
         nav: this.nav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "0" }),
-        isShowSaleFilter: this.isShowSaleFilter
+        filter: Object.assign({}, this.filter, { collectedFilter: "0" })
       });
     },
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.sharedCollected),
         nav: this.nav,
-        filter: Object.assign({}, this.filter, { collectedFilter: "3" }),
-        isShowSaleFilter: this.isShowSaleFilter
+        filter: Object.assign({}, this.filter, { collectedFilter: "3" })
       });
     },
     changeNav(category) {
@@ -359,7 +352,6 @@ export default {
         nav: this.nav,
         filter: this.filter,
         isSearchMode: false,
-        isShowSaleFilter: this.isShowSaleFilter,
         searchText: "",
         false: false
       });

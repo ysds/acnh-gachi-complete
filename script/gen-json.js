@@ -304,6 +304,7 @@ allItems.forEach(item => {
 
   if (item.variants) {
     item.variants.forEach(variant => {
+      delete variant["variation"];
       delete variant["filename"];
       delete variant["variantId"];
       delete variant["colors"];

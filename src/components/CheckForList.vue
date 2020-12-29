@@ -5,9 +5,9 @@
     :class="{ v1: props.value === 1, v2: props.value === 2 }"
     v-on="listeners"
   >
-    <template v-if="props.variant.variation">
+    <template v-if="props.variant.variationDisplayName">
       <template v-if="props.variants.length > 1">
-        {{ props.variant.variationDisplayName || props.variant.variation }}
+        {{ props.variant.variationDisplayName }}
       </template>
     </template>
     <template v-else-if="props.variant.genuine === true">本物</template>

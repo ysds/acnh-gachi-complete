@@ -23,7 +23,7 @@
     <div class="t-v-name">
       <template v-if="props.variants">
         <template v-if="props.variants.length > 1">
-          {{ props.variant.variationDisplayName || props.variant.variation }}
+          {{ props.variant.variationDisplayName }}
         </template>
         <template v-if="props.variant.genuine === true">本物</template>
         <template v-else-if="props.variant.genuine === false">偽物</template>

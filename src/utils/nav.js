@@ -82,40 +82,27 @@ export function filterItems(args) {
       }
       // エイブル
       else if (filter.saleFilter === "able") {
-        if (
-          item.variants &&
-          item.variants[0].source &&
-          !item.variants[0].source.includes("Able Sisters")
-        ) {
+        if (item.source && !item.source.includes("Able Sisters")) {
           return false;
         }
       }
       // シャンク
       else if (filter.saleFilter === "kicks") {
-        if (
-          item.variants &&
-          item.variants[0].source &&
-          !item.variants[0].source.includes("Kicks")
-        ) {
+        if (item.source && !item.source.includes("Kicks")) {
           return false;
         }
       }
       // ことの
       else if (filter.saleFilter === "labelle") {
-        if (
-          item.variants &&
-          item.variants[0].source &&
-          !item.variants[0].source.includes("Label")
-        ) {
+        if (item.source && !item.source.includes("Label")) {
           return false;
         }
       }
       // 日替わり
       else if (filter.saleFilter === "daly") {
         if (
-          item.variants &&
-          item.variants[0].source &&
-          !item.variants[0].source.includes("Nook Shopping Daily Selection")
+          item.source &&
+          !item.source.includes("Nook Shopping Daily Selection")
         ) {
           return false;
         }
@@ -249,9 +236,8 @@ export function filterItems(args) {
     else if (nav === "housewares-nookmiles") {
       return (
         item.sourceSheet === "Housewares" &&
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("Nook Miles Redemption")
+        item.source &&
+        item.source.includes("Nook Miles Redemption")
       );
     }
     // 壁紙
@@ -359,18 +345,16 @@ export function filterItems(args) {
     // 来訪者 (ジャスティン)
     else if (nav === "special-fishmodels") {
       return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("C.J.") &&
+        item.source &&
+        item.source.includes("C.J.") &&
         item.seasonEvent !== "Fishing Tourney"
       );
     }
     // 来訪者 (レックス)
     else if (nav === "special-bugmodels") {
       return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("Flick") &&
+        item.source &&
+        item.source.includes("Flick") &&
         item.seasonEvent !== "Bug-Off"
       );
     }
@@ -381,28 +365,22 @@ export function filterItems(args) {
     // 来訪者 (ローラン)
     else if (nav === "special-saharah") {
       return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("Saharah") &&
+        item.source &&
+        item.source.includes("Saharah") &&
         item.sourceSheet !== "Other"
       );
     }
     // 来訪者 (ことの)
     else if (nav === "special-labelle") {
       return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("Label") &&
+        item.source &&
+        item.source.includes("Label") &&
         item.sourceSheet !== "Other"
       );
     }
     // 来訪者 (シャンク)
     else if (nav === "special-kicks") {
-      return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("Kicks")
-      );
+      return item.source && item.source.includes("Kicks");
     }
     // 来訪者 (フーコ)
     else if (nav === "special-celeste") {
@@ -410,28 +388,19 @@ export function filterItems(args) {
     }
     // 来訪者 (ジョニー)
     else if (nav === "special-gulliver") {
-      return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("Gulliver")
-      );
+      return item.source && item.source.includes("Gulliver");
     }
     // 来訪者 (海賊ジョニー)
     else if (nav === "special-gullivarrr") {
-      return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("Gullivarrr")
-      );
+      return item.source && item.source.includes("Gullivarrr");
     }
     // 来訪者 (ラコスケ)
     else if (nav === "special-pascal") {
       return (
         (item.series === "mermaid" && !item.variants) ||
         (!item.diy &&
-          item.variants &&
-          item.variants[0].source &&
-          item.variants[0].source.includes("Pascal") &&
+          item.source &&
+          item.source.includes("Pascal") &&
           item.sourceSheet !== "Other") ||
         (item.source && item.source.includes("Pascal"))
       );
@@ -439,9 +408,7 @@ export function filterItems(args) {
     // 季節・イベント (たぬきショッピング)
     else if (nav === "season-nook") {
       return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.join(",").match(/Nook Shopping Seasonal/gi)
+        item.source && item.source.join(",").match(/Nook Shopping Seasonal/gi)
       );
     }
     // 季節・イベント (魚釣り大会)
@@ -572,11 +539,7 @@ export function filterItems(args) {
     }
     // 季節・イベント (ははシリーズ)
     else if (nav === "season-mother") {
-      return (
-        item.variants &&
-        item.variants[0].source &&
-        item.variants[0].source.includes("Mom")
-      );
+      return item.source && item.source.includes("Mom");
     }
     // リアクション
     else if (nav === "reactions") {
@@ -680,7 +643,7 @@ export function collectedLength(args) {
 }
 
 function filterOtherItem(item) {
-	return item.sourceSheet !== "Other" && item.name.indexOf("Hazure") === -1;
+  return item.sourceSheet !== "Other" && item.name.indexOf("Hazure") === -1;
 }
 
 export function allLength() {

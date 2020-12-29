@@ -126,6 +126,20 @@ allItems.forEach(item => {
   }
 
   //
+  // 重複データの共通データ化
+  //
+
+  if (item.variants) {
+    const copyKeys = ["source", "buy", "sell"];
+    const variant = item.variants[0];
+    copyKeys.forEach(key => {
+      if (variant[key]) {
+        item[key] = variant[key];
+      }
+    });
+  }
+
+  //
   // 翻訳
   //
 
@@ -161,14 +175,6 @@ allItems.forEach(item => {
     item.sourceJa = [];
     item.source.forEach(source => {
       item.sourceJa.push(translation.source[source]);
-      if (source !== "" && translation.source[source] === undefined) {
-        console.log(`NoSource: ${item.name}: ${source}`);
-      }
-    });
-  } else if (item.variants && item.variants[0].source) {
-    item.variants[0].sourceJa = [];
-    item.variants[0].source.forEach(source => {
-      item.variants[0].sourceJa.push(translation.source[source] ?? source);
       if (source !== "" && translation.source[source] === undefined) {
         console.log(`NoSource: ${item.name}: ${source}`);
       }
@@ -318,17 +324,23 @@ allItems.forEach(item => {
       delete variant["themes"];
       delete variant["bodyCustomize"];
       delete variant["pattern"];
+      delete variant["source"];
+      delete variant["buy"];
+      delete variant["sell"];
     });
   }
 });
 
 //
-// Sort displayName key
+// Sort keys
 //
 
 allItems = allItems.map(function(item) {
   const keys = Object.keys(item);
   array_move(keys, keys.indexOf("displayName"), 2);
+  array_move(keys, keys.indexOf("source"), 3);
+  array_move(keys, keys.indexOf("buy"), 4);
+  array_move(keys, keys.indexOf("sell"), 5);
   const newItem = {};
   keys.forEach(x => {
     newItem[x] = item[x];

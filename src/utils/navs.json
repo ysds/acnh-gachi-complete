@@ -341,6 +341,11 @@
         "id": "season-birthday",
         "text": "誕生日",
         "order": 21
+      },
+      {
+        "id": "season-mother",
+        "text": "ははシリーズ",
+        "order": 22
       }
     ]
   },

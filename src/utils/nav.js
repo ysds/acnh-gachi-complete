@@ -542,6 +542,14 @@ export function filterItems(args) {
     else if (nav === "season-birthday") {
       return item.seasonEvent === "Birthday";
     }
+    // 季節・イベント (ははシリーズ)
+    else if (nav === "season-mother") {
+      return (
+        item.variants &&
+        item.variants[0].source &&
+        item.variants[0].source.includes("Mom")
+      );
+    }
     // リアクション
     else if (nav === "reactions") {
       return item.sourceSheet === "Reactions";

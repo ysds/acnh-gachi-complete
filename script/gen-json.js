@@ -231,6 +231,8 @@ allItems.forEach(item => {
   // Remove unused keys
   //
 
+  delete item["sourceNotes"];
+
   // Housewares
   delete item["seasonEventExclusive"];
   delete item["mannequinSeason"];

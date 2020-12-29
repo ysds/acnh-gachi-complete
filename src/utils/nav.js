@@ -84,6 +84,7 @@ export function filterItems(args) {
       else if (filter.saleFilter === "able") {
         if (
           item.variants &&
+          item.variants[0].source &&
           !item.variants[0].source.includes("Able Sisters")
         ) {
           return false;
@@ -91,13 +92,21 @@ export function filterItems(args) {
       }
       // シャンク
       else if (filter.saleFilter === "kicks") {
-        if (item.variants && !item.variants[0].source.includes("Kicks")) {
+        if (
+          item.variants &&
+          item.variants[0].source &&
+          !item.variants[0].source.includes("Kicks")
+        ) {
           return false;
         }
       }
       // ことの
       else if (filter.saleFilter === "labelle") {
-        if (item.variants && !item.variants[0].source.includes("Label")) {
+        if (
+          item.variants &&
+          item.variants[0].source &&
+          !item.variants[0].source.includes("Label")
+        ) {
           return false;
         }
       }
@@ -105,6 +114,7 @@ export function filterItems(args) {
       else if (filter.saleFilter === "daly") {
         if (
           item.variants &&
+          item.variants[0].source &&
           !item.variants[0].source.includes("Nook Shopping Daily Selection")
         ) {
           return false;
@@ -240,6 +250,7 @@ export function filterItems(args) {
       return (
         item.sourceSheet === "Housewares" &&
         item.variants &&
+        item.variants[0].source &&
         item.variants[0].source.includes("Nook Miles Redemption")
       );
     }
@@ -349,6 +360,7 @@ export function filterItems(args) {
     else if (nav === "special-fishmodels") {
       return (
         item.variants &&
+        item.variants[0].source &&
         item.variants[0].source.includes("C.J.") &&
         item.seasonEvent !== "Fishing Tourney"
       );
@@ -357,6 +369,7 @@ export function filterItems(args) {
     else if (nav === "special-bugmodels") {
       return (
         item.variants &&
+        item.variants[0].source &&
         item.variants[0].source.includes("Flick") &&
         item.seasonEvent !== "Bug-Off"
       );
@@ -369,6 +382,7 @@ export function filterItems(args) {
     else if (nav === "special-saharah") {
       return (
         item.variants &&
+        item.variants[0].source &&
         item.variants[0].source.includes("Saharah") &&
         item.sourceSheet !== "Other"
       );
@@ -377,13 +391,18 @@ export function filterItems(args) {
     else if (nav === "special-labelle") {
       return (
         item.variants &&
+        item.variants[0].source &&
         item.variants[0].source.includes("Label") &&
         item.sourceSheet !== "Other"
       );
     }
     // 来訪者 (シャンク)
     else if (nav === "special-kicks") {
-      return item.variants && item.variants[0].source.includes("Kicks");
+      return (
+        item.variants &&
+        item.variants[0].source &&
+        item.variants[0].source.includes("Kicks")
+      );
     }
     // 来訪者 (フーコ)
     else if (nav === "special-celeste") {
@@ -391,11 +410,19 @@ export function filterItems(args) {
     }
     // 来訪者 (ジョニー)
     else if (nav === "special-gulliver") {
-      return item.variants && item.variants[0].source.includes("Gulliver");
+      return (
+        item.variants &&
+        item.variants[0].source &&
+        item.variants[0].source.includes("Gulliver")
+      );
     }
     // 来訪者 (海賊ジョニー)
     else if (nav === "special-gullivarrr") {
-      return item.variants && item.variants[0].source.includes("Gullivarrr");
+      return (
+        item.variants &&
+        item.variants[0].source &&
+        item.variants[0].source.includes("Gullivarrr")
+      );
     }
     // 来訪者 (ラコスケ)
     else if (nav === "special-pascal") {
@@ -403,6 +430,7 @@ export function filterItems(args) {
         (item.series === "mermaid" && !item.variants) ||
         (!item.diy &&
           item.variants &&
+          item.variants[0].source &&
           item.variants[0].source.includes("Pascal") &&
           item.sourceSheet !== "Other") ||
         (item.source && item.source.includes("Pascal"))

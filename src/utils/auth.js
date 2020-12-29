@@ -8,10 +8,12 @@ export default {
       const user = Object.assign({}, _user);
 
       // Update latest data
-      user.providerData.forEach(function(profile) {
-        user.displayName = profile.displayName;
-        user.photoURL = profile.photoURL;
-      });
+      if (user.providerData) {
+        user.providerData.forEach(function(profile) {
+          user.displayName = profile.displayName;
+          user.photoURL = profile.photoURL;
+        });
+      }
 
       store.commit("authStateChange", user);
       store.commit("loginStateChange", user.uid ? true : false);

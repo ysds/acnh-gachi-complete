@@ -651,10 +651,12 @@ export function collectedLength(args) {
   return result;
 }
 
+function filterOtherItem(item) {
+	return item.sourceSheet !== "Other" && item.name.indexOf("Hazure") === -1;
+}
+
 export function allLength() {
-  const items = itemsJson.filter(
-    item => item.sourceSheet !== "Other" && item.name.indexOf("Hazure") === -1
-  );
+  const items = itemsJson.filter(filterOtherItem);
 
   let result = 0;
   for (let i = 0; i < items.length; i++) {
@@ -669,7 +671,7 @@ export function allLength() {
 
 export function allCollectedLength(collected) {
   let items = filterItems({ collected, filter: { collectedFilter: "3" } });
-  items = items.filter(item => item.sourceSheet !== "Other");
+  items = items.filter(filterOtherItem);
 
   let result = 0;
   for (let i = 0; i < items.length; i++) {

@@ -45,11 +45,15 @@ const customTranslations = [
 ];
 
 //
-// Each items
+// items データ生成
 //
 
 allItems.forEach(item => {
-  // Remove photos & tools variant and add translation
+  //
+  // リメイクバリエーションの整理
+  //
+
+  // Tools の 日本語リメイク名配列を追加とリメイクバリエーションの削除 (customizeVariants)
   if (item.customize && item.sourceSheet === "Tools") {
     const customizeVariants = [];
     item.variants.forEach(variant => {
@@ -65,6 +69,8 @@ allItems.forEach(item => {
     item.customizeVariants = customizeVariants;
     item.variants.length = 1;
   }
+
+  // Photos の 日本語リメイク名配列を追加とリメイクバリエーションの削除 (customizeVariants)
   if (item.sourceSheet === "Photos") {
     item.customizeVariants = [
       "ナチュラルウッド",
@@ -79,50 +85,70 @@ allItems.forEach(item => {
     item.variants.length = 1;
   }
 
-  if (item.variants) {
-    // Remove pattern variant and add pattern translation
-    if (item.patternCustomize) {
-      let prevVariation = "";
-      let newVariants = item.variants.filter(variant => {
-        const result = prevVariation !== variant.variation;
-        prevVariation = variant.variation;
-        return result;
-      });
-      item.patternVariants =
-        translation.variantPattern[item.variants[0].internalId];
-      if (!translation.variantPattern[item.variants[0].internalId]) {
-        console.log(`NoPatternVariant: ${item.name}`);
-      }
-      item.variants = newVariants;
+  // 家具の日本語リメイク名配列を追加とリメイクバリエーションの削除 (patternVariants)
+  if (item.variants && item.patternCustomize) {
+    let prevVariation = "";
+    let newVariants = item.variants.filter(variant => {
+      const result = prevVariation !== variant.variation;
+      prevVariation = variant.variation;
+      return result;
+    });
+    item.patternVariants =
+      translation.variantPattern[item.variants[0].internalId];
+    if (!translation.variantPattern[item.variants[0].internalId]) {
+      console.log(`NoPatternVariant: ${item.name}`);
     }
+    item.variants = newVariants;
+  }
 
-    // Remove body variant and Add bodyVariants translation
-    if (item.variants[0].bodyCustomize) {
-      const bodyVariants = [];
-      item.variants.forEach(variant => {
-        const variantIdArray = variant.variantId.slice("_");
-        const variantId = `${variant.internalId}_${variantIdArray[0]}`;
-        bodyVariants.push(
-          translation.variantBody[variantId] || variant.variation
-        );
-        if (!translation.variantBody[variantId]) {
-          console.log(`NoBodyVariant: ${item.name} : ${variant.variation}`);
-        }
-      });
-      item.bodyVariants = bodyVariants;
-      item.bodyCustomize = true;
-      if (item.diy || item.catalog === "For sale" || item.catalog === true) {
-        item.variants.length = 1;
+  // 家具の日本語リメイク名配列を追加とリメイクバリエーションの削除 (bodyVariants)
+  if (item.variants && item.variants[0].bodyCustomize) {
+    const bodyVariants = [];
+    item.variants.forEach(variant => {
+      const variantIdArray = variant.variantId.slice("_");
+      const variantId = `${variant.internalId}_${variantIdArray[0]}`;
+      bodyVariants.push(
+        translation.variantBody[variantId] || variant.variation
+      );
+      if (!translation.variantBody[variantId]) {
+        console.log(`NoBodyVariant: ${item.name} : ${variant.variation}`);
       }
+    });
+    item.bodyVariants = bodyVariants;
+    item.bodyCustomize = true;
+    if (item.diy || item.catalog === "For sale" || item.catalog === true) {
+      item.variants.length = 1;
     }
   }
 
   //
-  // Version fix
+  // データ整理
   //
 
+  // Version fix
   if (item.name.match(/midwinter sweater|sunflower crown/g)) {
     item.versionAdded = "1.6.0";
+  }
+
+  // 重複データの共通データ化
+  if (item.variants) {
+    const copyKeys = ["source", "buy", "sell"];
+    const variant = item.variants[0];
+    copyKeys.forEach(key => {
+      if (variant[key]) {
+        item[key] = variant[key];
+      }
+    });
+  }
+
+  // 未使用の variant の uniqueEntryId を単純化（ファイルサイズ削減のため）
+  // v-for の key のために index を付与
+  if (item.variants) {
+    item.variants.forEach((variant, index) => {
+      if (variant.uniqueEntryId) {
+        item.variants[index].uniqueEntryId = index;
+      }
+    });
   }
 
   //
@@ -165,16 +191,9 @@ allItems.forEach(item => {
         console.log(`NoSource: ${item.name}: ${source}`);
       }
     });
-  } else if (item.variants && item.variants[0].source) {
-    item.variants[0].sourceJa = [];
-    item.variants[0].source.forEach(source => {
-      item.variants[0].sourceJa.push(translation.source[source] ?? source);
-      if (source !== "" && translation.source[source] === undefined) {
-        console.log(`NoSource: ${item.name}: ${source}`);
-      }
-    });
   }
 
+  // customTranslations
   customTranslations.forEach(key => {
     const value = item[key];
     if (value) {
@@ -196,7 +215,7 @@ allItems.forEach(item => {
     item.variants.forEach((variant, index) => {
       if (variant.internalId) {
         const internalId = variant.internalId;
-        item.variants[index].variationDisplayName =
+        item.variants[index].vName =
           translation.variantFassion[internalId] || variant.variation;
 
         if (!translation.variantFassion[internalId]) {
@@ -211,7 +230,7 @@ allItems.forEach(item => {
       if (variant.variantId) {
         const variantIdArray = variant.variantId.slice("_");
         const variantId = `${variant.internalId}_${variantIdArray[0]}`;
-        item.variants[index].variationDisplayName =
+        item.variants[index].vName =
           translation.variantBody[variantId] || variant.variation;
 
         if (!translation.variantBody[variantId]) {
@@ -227,105 +246,128 @@ allItems.forEach(item => {
     });
   }
 
+  // 本物/偽物
+  if (item.variants) {
+    item.variants.forEach((variant, i) => {
+      if (variant.genuine === true) item.variants[i].genuine = "本物";
+      if (variant.genuine === false) item.variants[i].genuine = "偽物";
+    });
+  }
+
   //
-  // Remove unused keys
+  // Remove keys
   //
 
-  // Housewares
-  delete item["seasonEventExclusive"];
-  delete item["mannequinSeason"];
-  delete item["patternTitle"];
-  delete item["size"];
-  delete item["surface"];
-  delete item["milesPrice"];
+  // false and null keys
+  Object.keys(item).forEach(key => {
+    if (item[key] === false || item[key] === null) {
+      delete item[key];
+    }
+  });
+
+  // Unused
+  delete item["cardColor"];
+  delete item["catchDifficulty"];
+  delete item["catchPhrase"];
+  delete item["ceilingType"];
+  delete item["clothGroupId"];
+  delete item["colors"];
+  delete item["craftedItemInternalId"];
+  delete item["critterpediaFilename"];
+  delete item["critterpediaImage"];
+  delete item["curtainColor"];
+  delete item["curtainType"];
+  delete item["customizationKitCost"];
+  delete item["description"];
+  delete item["diyIconFilename"];
+  delete item["doorDeco"];
+  delete item["exchangeCurrency"];
+  delete item["fossilGroup"];
+  delete item["furnitureFilename"];
+  delete item["furnitureImage"];
+  delete item["gender"];
   delete item["hhaBasePoints"];
   delete item["hhaCategory"];
+  delete item["iconFilename"];
   delete item["interact"];
-  delete item["tag"];
-  delete item["outdoor"];
-  delete item["speakerType"];
+  delete item["internalId"];
+  delete item["kitType"];
   delete item["lightingType"];
+  delete item["mannequinPiece"];
+  delete item["mannequinSeason"];
+  delete item["materials"];
+  delete item["milesPrice"];
+  delete item["movementSpeed"];
+  delete item["museum"];
+  delete item["outdoor"];
+  delete item["paneType"];
+  delete item["patternTitle"];
+  delete item["primaryShape"];
+  delete item["recipesToUnlock"];
+  delete item["seasonalAvailability"];
+  delete item["seasonality"];
+  delete item["seasonEventExclusive"];
+  delete item["secondaryShape"];
+  delete item["serialId"];
+  delete item["series"];
   delete item["set"];
-  delete item["customizationKitCost"];
-  delete item["versionUnlocked"];
-  delete item["unlockNotes"];
+  delete item["size"];
+  delete item["sizeCategory"];
+  delete item["sortOrder"];
+  delete item["sourceNotes"];
+  delete item["spawnRates"];
+  delete item["speakerType"];
+  delete item["specialSell"];
+  delete item["stackSize"];
+  delete item["style"];
+  delete item["style1"];
+  delete item["style2"];
+  delete item["surface"];
+  delete item["tag"];
+  delete item["totalCatchesToUnlock"];
   delete item["unlocked"];
-  // Wall-mounted
-  delete item["doorDeco"];
-  // Wallpaper
+  delete item["unlockNotes"];
+  delete item["uses"];
+  delete item["versionUnlocked"];
   delete item["vfx"];
   delete item["vfxType"];
-  delete item["windowType"];
-  delete item["windowColor"];
-  delete item["paneType"];
-  delete item["curtainType"];
-  delete item["curtainColor"];
-  delete item["ceilingType"];
-  // Rugs
-  delete item["sizeCategory"];
-  // ファッション
-  delete item["seasonalAvailability"];
-  delete item["mannequinPiece"];
-  delete item["style"];
-  delete item["sortOrder"];
   delete item["villagerEquippable"];
-  delete item["clothGroupId"];
-  delete item["primaryShape"];
-  delete item["secondaryShape"];
-  // かせき
-  delete item["description"];
-  delete item["museum"];
-  // レシピ
-  delete item["recipesToUnlock"];
-  delete item["craftedItemInternalId"];
-  delete item["cardColor"];
-  delete item["serialId"];
-  delete item["internalId"];
-  delete item["materials"];
-  // Insects
-  delete item["critterpediaImage"];
-  delete item["furnitureImage"];
-  delete item["totalCatchesToUnlock"];
-  delete item["spawnRates"];
-  delete item["catchPhrase"];
-  delete item["iconFilename"];
-  delete item["critterpediaFilename"];
-  delete item["furnitureFilename"];
-  delete item["colors"];
-  delete item["specialSell"];
-  // Fish
-  delete item["catchDifficulty"];
+  delete item["villagerGender"];
   delete item["vision"];
-  // Sea Creatures
-  delete item["movementSpeed"];
-  // Tools
-  delete item["uses"];
-  delete item["stackSize"];
+  delete item["windowColor"];
+  delete item["windowType"];
 
   if (item.variants) {
     item.variants.forEach(variant => {
-      delete variant["filename"];
-      delete variant["variantId"];
-      delete variant["colors"];
-      delete variant["bodyTitle"];
-      delete variant["internalId"];
-      delete variant["closetImage"];
-      delete variant["labelThemes"];
-      delete variant["framedImage"];
-      delete variant["themes"];
       delete variant["bodyCustomize"];
+      delete variant["bodyTitle"];
+      delete variant["buy"];
+      delete variant["closetImage"];
+      delete variant["colors"];
+      delete variant["filename"];
+      delete variant["framedImage"];
+      delete variant["internalId"];
+      delete variant["labelThemes"];
       delete variant["pattern"];
+      delete variant["sell"];
+      delete variant["source"];
+      delete variant["themes"];
+      delete variant["variantId"];
+      delete variant["variation"];
     });
   }
 });
 
 //
-// Sort displayName key
+// Sort keys
 //
 
 allItems = allItems.map(function(item) {
   const keys = Object.keys(item);
   array_move(keys, keys.indexOf("displayName"), 2);
+  array_move(keys, keys.indexOf("source"), 3);
+  array_move(keys, keys.indexOf("buy"), 4);
+  array_move(keys, keys.indexOf("sell"), 5);
   const newItem = {};
   keys.forEach(x => {
     newItem[x] = item[x];
@@ -375,9 +417,18 @@ allItems.sort(function(a, b) {
 // Write file
 //
 
-fs.writeFileSync("./src/assets/items.json", JSON.stringify(allItems, null, 2));
+allItems = JSON.stringify(allItems, null, 2);
 
+allItems = allItems.replace(/https:\/\/acnhcdn.com\/latest\//g, "");
+allItems = allItems.replace(/https:\/\/acnhcdn.com\/1.2.0\//g, "");
+allItems = allItems.replace(/https:\/\/acnhapi.com\/latest\//g, "");
+
+fs.writeFileSync("./src/assets/items.json", allItems);
+
+//
 // Update custom translation files
+//
+
 customTranslations.forEach(translationKey => {
   const unordered = newTranslation[translationKey];
 

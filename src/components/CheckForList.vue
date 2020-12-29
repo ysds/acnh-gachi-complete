@@ -5,13 +5,14 @@
     :class="{ v1: props.value === 1, v2: props.value === 2 }"
     v-on="listeners"
   >
-    <template v-if="props.variant.variation">
+    <template v-if="props.variant.vName">
       <template v-if="props.variants.length > 1">
-        {{ props.variant.variationDisplayName || props.variant.variation }}
+        {{ props.variant.vName }}
       </template>
     </template>
-    <template v-else-if="props.variant.genuine === true">本物</template>
-    <template v-else-if="props.variant.genuine === false">偽物</template>
+    <template v-if="props.variant.genuine">
+      {{ props.variant.genuine }}
+    </template>
   </button>
 </template>
 <script>

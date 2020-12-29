@@ -169,19 +169,21 @@ export default {
       return image;
     },
     getVariantTileImage: function(variant) {
-      return (
+      const image =
         variant.image ||
         variant.storageImage ||
         variant.albumImage ||
-        variant.inventoryImage ||
-        ""
-      );
+        variant.inventoryImage;
+      if (image) {
+        return `https://acnhcdn.com/latest/${image}`;
+      }
+      return "";
     },
     getSingeItemImage: function(item) {
       if (item.sourceSheet === "Recipes" || item.sourceSheet === "Reactions") {
-        return item.image;
+        return `https://acnhcdn.com/latest/${item.image}`;
       } else if (item.iconImage) {
-        return item.iconImage;
+        return `https://acnhcdn.com/latest/${item.iconImage}`;
       }
       return "";
     },

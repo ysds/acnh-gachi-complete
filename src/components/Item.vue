@@ -88,6 +88,7 @@
 <script>
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
+import stampUrls from "../mixins/stampUrls";
 
 export default {
   name: "Item",
@@ -95,6 +96,7 @@ export default {
     CheckForList,
     CheckForTile
   },
+  mixins: [stampUrls],
   props: {
     collected: {
       type: [String, Array],
@@ -169,13 +171,17 @@ export default {
       return image;
     },
     getVariantTileImage: function(variant) {
-      const image =
-        variant.image ||
-        variant.storageImage ||
-        variant.albumImage ||
-        variant.inventoryImage;
-      if (image) {
-        return image[0] !== "." ? `https://acnhcdn.com/latest/${image}` : image;
+      if (variant.stampImage) {
+        return this.stampUrls[variant.stampImage];
+      } else {
+        const image =
+          variant.image ||
+          variant.storageImage ||
+          variant.albumImage ||
+          variant.inventoryImage;
+        if (image) {
+          return `https://acnhcdn.com/latest/${image}`;
+        }
       }
       return "";
     },

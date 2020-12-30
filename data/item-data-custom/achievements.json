@@ -208,7 +208,7 @@
     "tier3": "秋",
     "tier4": "冬",
     "tier1Icon": "./img/stamp-fish-spring.png",
-    "tier2Icon": "./img/stamp-fish.summer",
+    "tier2Icon": "./img/stamp-fish-summer.png",
     "tier3Icon": "./img/stamp-fish-autumn.png",
     "tier4Icon": "./img/stamp-fish-winter.png"
   },

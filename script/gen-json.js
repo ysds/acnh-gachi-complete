@@ -152,7 +152,7 @@ allItems.forEach(item => {
     for (let i = 1; i <= numOfTiers; i++) {
       const variant = {};
       variant.vName = numberWithCommas(item[`tier${i}`]);
-      variant.image = item[`tier${i}Icon`];
+      variant.stampImage = item[`tier${i}Icon`];
       variant.uniqueEntryId = i;
       item.variants.push(variant);
     }

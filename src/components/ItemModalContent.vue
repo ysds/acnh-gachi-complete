@@ -105,10 +105,6 @@
       <div class="info-label info-4">魚影</div>
       <div class="info-text">{{ modalItem.shadowJa }}</div>
     </div>
-    <div class="info" v-if="modalItem.achievementCriteria">
-      <div class="info-label info-3">達成条件</div>
-      <div class="info-text">{{ modalItem.achievementCriteria }}</div>
-    </div>
     <div class="info" v-if="modalItem.achievementDescription">
       <div class="info-label info-4">説明</div>
       <div class="info-text">{{ modalItem.achievementDescription }}</div>

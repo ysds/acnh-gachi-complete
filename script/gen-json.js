@@ -305,6 +305,7 @@ allItems.forEach(item => {
   });
 
   // Unused
+  delete item["achievementCriteria"];
   delete item["cardColor"];
   delete item["catchDifficulty"];
   delete item["catchPhrase"];

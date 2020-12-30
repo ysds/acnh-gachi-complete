@@ -5,7 +5,8 @@ const {
   daku_conv,
   choon_conv,
   tsu_conv,
-  array_move
+  array_move,
+  numberWithCommas
 } = require("./utils.js");
 
 //
@@ -16,7 +17,8 @@ let allItems = [].concat(
   require("../data/item-data/items.json"),
   require("../data/item-data/recipes.json"),
   require("../data/item-data/creatures.json"),
-  require("../data/item-data/reactions.json")
+  require("../data/item-data/reactions.json"),
+  require("../data/item-data/achievements.json")
 );
 
 const translation = {
@@ -25,6 +27,7 @@ const translation = {
   variantPattern: require("../data/translation-json/variant-pattern.json"),
   variantFassion: require("../data/translation-json/variant-fassion.json"),
   reaction: require("../data/translation-json/reaction.json"),
+  achievements: require("../data/translation-json/achievements.json"),
   source: require("../data/translation-custom/source.json"),
   sourceNotes: require("../data/translation-custom/sourceNotes.json"),
   seasonEvent: require("../data/translation-custom/seasonEvent.json"),
@@ -43,6 +46,8 @@ const customTranslations = [
   "whereHow",
   "weather"
 ];
+
+const customAchievementData = require("../data/item-data-custom/achievements.json");
 
 //
 // items データ生成
@@ -122,6 +127,38 @@ allItems.forEach(item => {
   }
 
   //
+  // たぬきマイレージデータ生成
+  //
+
+  if (item.sourceSheet === "Achievements") {
+    // displayName and description
+    item.achievementDescription =
+      translation.achievements[item.internalId].desc;
+
+    // parseInt num
+    item.num = parseInt(item.num, 10);
+
+    // Marge custom data
+    const customData = customAchievementData[item.internalId];
+    item = Object.assign(item, customData);
+    if (!customData) {
+      console.log(`NoCustomAchievements: ${item.name}`);
+    }
+
+    // Gen variants
+    delete item["uniqueEntryId"];
+    item.variants = [];
+    const numOfTiers = parseInt(item.numOfTiers, 10);
+    for (let i = 1; i <= numOfTiers; i++) {
+      const variant = {};
+      variant.vName = numberWithCommas(item[`tier${i}`]);
+      variant.image = item[`tier${i}Icon`];
+      variant.uniqueEntryId = i;
+      item.variants.push(variant);
+    }
+  }
+
+  //
   // データ整理
   //
 
@@ -164,6 +201,8 @@ allItems.forEach(item => {
     itemName = items[0].displayName;
   } else if (item.sourceSheet === "Reactions") {
     itemName = translation.reaction[item.iconFilename];
+  } else if (item.sourceSheet === "Achievements") {
+    itemName = translation.achievements[item.internalId].name;
   } else if (item.clothGroupId) {
     itemName = translation.itemName[`Fassion_${item.clothGroupId}`];
   } else if (item.variants) {
@@ -179,7 +218,6 @@ allItems.forEach(item => {
   } else {
     item.displayName = item.name;
     console.log(`NoName: ${item.name}`);
-    item.noName = true;
   }
 
   // Source
@@ -239,7 +277,8 @@ allItems.forEach(item => {
       } else if (
         variant.genuine === undefined &&
         item.displayName !== "おとしもの" &&
-        item.displayName !== "なんだっけ？"
+        item.displayName !== "なんだっけ？" &&
+        item.sourceSheet !== "Achievements"
       ) {
         console.log(`NoVariant: ${item.displayName} : ${variant.variation}`);
       }
@@ -290,8 +329,11 @@ allItems.forEach(item => {
   delete item["hhaCategory"];
   delete item["iconFilename"];
   delete item["interact"];
+  delete item["internalCategory"];
   delete item["internalId"];
+  delete item["internalName"];
   delete item["kitType"];
+  delete item["LandMaking"];
   delete item["lightingType"];
   delete item["mannequinPiece"];
   delete item["mannequinSeason"];
@@ -299,6 +341,7 @@ allItems.forEach(item => {
   delete item["milesPrice"];
   delete item["movementSpeed"];
   delete item["museum"];
+  delete item["numOfTiers"];
   delete item["outdoor"];
   delete item["paneType"];
   delete item["patternTitle"];
@@ -308,6 +351,7 @@ allItems.forEach(item => {
   delete item["seasonality"];
   delete item["seasonEventExclusive"];
   delete item["secondaryShape"];
+  delete item["sequential"];
   delete item["serialId"];
   delete item["series"];
   delete item["set"];
@@ -336,6 +380,14 @@ allItems.forEach(item => {
   delete item["vision"];
   delete item["windowColor"];
   delete item["windowType"];
+
+  for (let i = 1; i < 7; i++) {
+    delete item[`tier${i}`];
+    delete item[`tier${i}Reward`];
+    delete item[`tier${i}Modifier`];
+    delete item[`tier${i}Noun`];
+    delete item[`tier${i}Icon`];
+  }
 
   if (item.variants) {
     item.variants.forEach(variant => {

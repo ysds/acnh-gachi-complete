@@ -147,7 +147,8 @@ export default {
       return (
         (this.currentNav && this.currentNav.indexOf("creatures") > -1) ||
         this.currentNav === "reactions" ||
-        this.currentNav === "housewares-nookmiles"
+        this.currentNav === "housewares-nookmiles" ||
+        this.currentNav === "achievements"
       );
     }
   },

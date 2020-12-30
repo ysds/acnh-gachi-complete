@@ -155,3 +155,44 @@ const csvParse = require("csv-parse/lib/sync");
   contentJson = JSON.stringify(contentJson, null, 2);
   fs.writeFileSync("./data/translation-json/reaction.json", contentJson);
 })();
+
+//
+// NookMilage
+//
+
+(() => {
+  let contentJson = {};
+  const content = fs.readFileSync("./data/translation-src/NookMilage_List.csv");
+  const contentArray = csvParse(content, {
+    bom: true,
+    from_line: 2
+  });
+
+  for (let i = 0; i < contentArray.length; i++) {
+    const rowData = contentArray[i];
+    const csvKey = rowData[0];
+    const key = (() => {
+      const strArray = rowData[0].split("_");
+      return `${parseInt(strArray[0], 10)}`;
+    })();
+    let value = rowData[1];
+    value = value.replace('n"\\0', "○○島");
+    value = value.replace(/\r\n/g, "");
+    // eslint-disable-next-line no-control-regex
+    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
+    // eslint-disable-next-line no-irregular-whitespace
+    value = value.replace(/[　]/g, "");
+    value = value.replace("\u000e\\0\\0\u0002\u0006プラス", "");
+    value = value.replace("\u000e\\0\\0\b\u0006\u0004プロ", "");
+
+    if (contentJson[key] === undefined) contentJson[key] = {};
+    if (csvKey.indexOf("_0") > -1) {
+      contentJson[key].name = value;
+    } else {
+      contentJson[key].desc = value;
+    }
+  }
+
+  contentJson = JSON.stringify(contentJson, null, 2);
+  fs.writeFileSync("./data/translation-json/achievements.json", contentJson);
+})();

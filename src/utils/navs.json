@@ -354,6 +354,10 @@
     "text": "リアクション"
   },
   {
+    "id": "achievements",
+    "text": "たぬきマイレージ"
+  },
+  {
     "id": "versions",
     "text": "バージョン",
     "subnavs": [

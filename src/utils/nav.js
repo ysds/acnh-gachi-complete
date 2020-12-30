@@ -544,6 +544,10 @@ export function filterItems(args) {
     else if (nav === "reactions") {
       return item.sourceSheet === "Reactions";
     }
+    // たぬきマイレージ
+    else if (nav === "achievements") {
+      return item.sourceSheet === "Achievements";
+    }
     // バージョン 1.4.0
     else if (nav === "versions-140") {
       return item.versionAdded === "1.4.0";
@@ -562,8 +566,12 @@ export function filterItems(args) {
 
   // 実機順ソート
   if (!isSearchMode && nav && filter.order === "id") {
-    // いいもの、リアクション
-    if (nav.indexOf("creatures") > -1 || nav === "reactions") {
+    // いきもの、リアクション、たぬきマイレージ
+    if (
+      nav.indexOf("creatures") > -1 ||
+      nav === "reactions" ||
+      nav === "achievements"
+    ) {
       items.sort(function(itemA, itemB) {
         const ca = itemA.num;
         const cb = itemB.num;

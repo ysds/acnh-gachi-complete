@@ -175,15 +175,44 @@ const csvParse = require("csv-parse/lib/sync");
       const strArray = rowData[0].split("_");
       return `${parseInt(strArray[0], 10)}`;
     })();
-    let value = rowData[1];
+
+    const rawValue = rowData[1].replace(/\r/g, "");;
+
+    const rubiHeader = "\u000e\\0\\0";
+    let pos = rawValue.indexOf(rubiHeader);
+
+    let value = "";
+    if (pos < 0) {
+      // ルビなし
+      value = rawValue;
+    } else if (pos > 0) {
+      // 先頭からルビまでを切り出し
+      value = rawValue.substring(0, pos);
+    }
+
+    // ルビを削除
+    while (pos > -1) {
+      const rubiLen = rawValue.charCodeAt(pos + rubiHeader.length) / 2;
+      const startIndex = pos + rubiHeader.length + 1 + rubiLen;
+      pos = rawValue.indexOf(rubiHeader, pos + 1);
+      if (pos > -1) {
+        value += rawValue.substring(startIndex, pos);
+      } else {
+        value += rawValue.substring(startIndex);
+      }
+    }
+
+    // 強調用の制御文字（？）を削除
+    value = value.replace(/\u000e\\0.../g, "");
+    // 絵文字を削除（釣り大会、ムシとり大会）
+    value = value.replace(/\ue20a/g, "");
+    value = value.replace(/\ue20b/g, "");
+    // 改行削除
+    value = value.replace(/\n/g, "");
+    // 全角スペース削除
+    value = value.replace(/　/g, "");
+    // 島名を置換
     value = value.replace('n"\\0', "○○島");
-    value = value.replace(/\r\n/g, "");
-    // eslint-disable-next-line no-control-regex
-    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
-    // eslint-disable-next-line no-irregular-whitespace
-    value = value.replace(/[　]/g, "");
-    value = value.replace("\u000e\\0\\0\u0002\u0006プラス", "");
-    value = value.replace("\u000e\\0\\0\b\u0006\u0004プロ", "");
 
     if (contentJson[key] === undefined) contentJson[key] = {};
     if (csvKey.indexOf("_0") > -1) {

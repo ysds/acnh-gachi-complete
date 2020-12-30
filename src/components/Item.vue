@@ -175,7 +175,7 @@ export default {
         variant.albumImage ||
         variant.inventoryImage;
       if (image) {
-        return `https://acnhcdn.com/latest/${image}`;
+        return image[0] !== "." ? `https://acnhcdn.com/latest/${image}` : image;
       }
       return "";
     },

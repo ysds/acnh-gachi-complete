@@ -1,0 +1,479 @@
+{
+  "0": {
+    "tier1Icon": "./img/stamp-fish.png",
+    "tier2Icon": "./img/stamp-fish.png",
+    "tier3Icon": "./img/stamp-fish.png",
+    "tier4Icon": "./img/stamp-fish.png",
+    "tier5Icon": "./img/stamp-fish.png"
+  },
+  "1": {
+    "tier1Icon": "./img/stamp-insect.png",
+    "tier2Icon": "./img/stamp-insect.png",
+    "tier3Icon": "./img/stamp-insect.png",
+    "tier4Icon": "./img/stamp-insect.png",
+    "tier5Icon": "./img/stamp-insect.png"
+  },
+  "2": {
+    "tier1Icon": "./img/stamp-fish.png",
+    "tier2Icon": "./img/stamp-fish.png",
+    "tier3Icon": "./img/stamp-fish.png"
+  },
+  "3": {
+    "tier1Icon": "./img/stamp-fish.png",
+    "tier2Icon": "./img/stamp-fish.png",
+    "tier3Icon": "./img/stamp-fish.png",
+    "tier4Icon": "./img/stamp-fish.png",
+    "tier5Icon": "./img/stamp-fish.png"
+  },
+  "4": {
+    "tier1Icon": "./img/stamp-insect.png",
+    "tier2Icon": "./img/stamp-insect.png",
+    "tier3Icon": "./img/stamp-insect.png",
+    "tier4Icon": "./img/stamp-insect.png",
+    "tier5Icon": "./img/stamp-insect.png"
+  },
+  "5": {
+    "tier1Icon": "./img/stamp-landmaking.png",
+    "tier2Icon": "./img/stamp-landmaking.png",
+    "tier3Icon": "./img/stamp-landmaking.png",
+    "tier4Icon": "./img/stamp-landmaking.png",
+    "tier5Icon": "./img/stamp-landmaking.png"
+  },
+  "6": {
+    "tier1Icon": "./img/stamp-plant.png",
+    "tier2Icon": "./img/stamp-plant.png",
+    "tier3Icon": "./img/stamp-plant.png",
+    "tier4Icon": "./img/stamp-plant.png",
+    "tier5Icon": "./img/stamp-plant.png"
+  },
+  "7": {
+    "tier1": "さくらんぼ",
+    "tier2": "オレンジ",
+    "tier3": "ナシ",
+    "tier4": "モモ",
+    "tier5": "リンゴ",
+    "tier6": "ヤシのみ",
+    "tier1Icon": "./img/stamp-fruit-roots-cherry.png",
+    "tier2Icon": "./img/stamp-fruit-roots-orange.png",
+    "tier3Icon": "./img/stamp-fruit-roots-pear.png",
+    "tier4Icon": "./img/stamp-fruit-roots-peach.png",
+    "tier5Icon": "./img/stamp-plant.png",
+    "tier6Icon": "./img/stamp-fruit-roots-coconut.png"
+  },
+  "8": {
+    "tier1Icon": "./img/stamp-plant.png",
+    "tier2Icon": "./img/stamp-plant.png",
+    "tier3Icon": "./img/stamp-plant.png"
+  },
+  "9": {
+    "tier1Icon": "./img/stamp-money.png"
+  },
+  "10": {
+    "tier1Icon": "./img/stamp-money.png",
+    "tier2Icon": "./img/stamp-money.png",
+    "tier3Icon": "./img/stamp-money.png",
+    "tier4Icon": "./img/stamp-money.png",
+    "tier5Icon": "./img/stamp-money.png"
+  },
+  "11": {
+    "tier1Icon": "./img/stamp-money.png",
+    "tier2Icon": "./img/stamp-money.png",
+    "tier3Icon": "./img/stamp-money.png",
+    "tier4Icon": "./img/stamp-money.png",
+    "tier5Icon": "./img/stamp-money.png"
+  },
+  "12": {
+    "tier1Icon": "./img/stamp-money.png"
+  },
+  "13": {
+    "tier1Icon": "./img/stamp-money.png"
+  },
+  "14": {
+    "tier1Icon": "./img/stamp-diy.png",
+    "tier2Icon": "./img/stamp-diy.png",
+    "tier3Icon": "./img/stamp-diy.png",
+    "tier4Icon": "./img/stamp-diy.png",
+    "tier5Icon": "./img/stamp-diy.png"
+  },
+  "15": {
+    "tier1Icon": "./img/stamp-smartphone.png",
+    "tier2Icon": "./img/stamp-smartphone.png",
+    "tier3Icon": "./img/stamp-smartphone.png",
+    "tier4Icon": "./img/stamp-smartphone.png",
+    "tier5Icon": "./img/stamp-smartphone.png"
+  },
+  "16": {
+    "tier1Icon": "./img/stamp-smartphone.png",
+    "tier2Icon": "./img/stamp-smartphone.png",
+    "tier3Icon": "./img/stamp-smartphone.png",
+    "tier4Icon": "./img/stamp-smartphone.png",
+    "tier5Icon": "./img/stamp-smartphone.png"
+  },
+  "17": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png",
+    "tier4Icon": "./img/stamp-communication.png",
+    "tier5Icon": "./img/stamp-communication.png"
+  },
+  "18": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png"
+  },
+  "19": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png"
+  },
+  "21": {
+    "tier1Icon": "./img/stamp-event.png",
+    "tier2Icon": "./img/stamp-event.png",
+    "tier3Icon": "./img/stamp-event.png",
+    "tier4Icon": "./img/stamp-event.png",
+    "tier5Icon": "./img/stamp-event.png"
+  },
+  "23": {
+    "tier1Icon": "./img/stamp-plant.png",
+    "tier2Icon": "./img/stamp-plant.png",
+    "tier3Icon": "./img/stamp-plant.png",
+    "tier4Icon": "./img/stamp-plant.png",
+    "tier5Icon": "./img/stamp-plant.png"
+  },
+  "24": {
+    "tier1Icon": "./img/stamp-negative.png"
+  },
+  "25": {
+    "tier1Icon": "./img/stamp-insect.png"
+  },
+  "26": {
+    "tier1Icon": "./img/stamp-insect.png",
+    "tier2Icon": "./img/stamp-insect.png",
+    "tier3Icon": "./img/stamp-insect.png"
+  },
+  "27": {
+    "tier1Icon": "./img/stamp-negative.png"
+  },
+  "31": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png",
+    "tier4Icon": "./img/stamp-communication.png",
+    "tier5Icon": "./img/stamp-communication.png"
+  },
+  "32": {
+    "tier1Icon": "./img/stamp-fish.png",
+    "tier2Icon": "./img/stamp-fish.png",
+    "tier3Icon": "./img/stamp-fish.png"
+  },
+  "33": {
+    "tier1Icon": "./img/stamp-money.png"
+  },
+  "34": {
+    "tier1Icon": "./img/stamp-money.png"
+  },
+  "35": {
+    "tier1Icon": "./img/stamp-mydesign.png"
+  },
+  "36": {
+    "tier1Icon": "./img/stamp-mydesign.png"
+  },
+  "37": {
+    "tier1Icon": "./img/stamp-plant.png",
+    "tier2Icon": "./img/stamp-plant.png",
+    "tier3Icon": "./img/stamp-plant.png",
+    "tier4Icon": "./img/stamp-plant.png",
+    "tier5Icon": "./img/stamp-plant.png"
+  },
+  "39": {
+    "tier1": "スコップ",
+    "tier2": "あみ",
+    "tier3": "ジョウロ",
+    "tier4": "パチンコ",
+    "tier5": "オノ",
+    "tier6": "つりざお",
+    "tier1Icon": "./img/stamp-golden-milestone-shovel.png",
+    "tier2Icon": "./img/stamp-golden-milestone-net.png",
+    "tier3Icon": "./img/stamp-golden-milestone-can.png",
+    "tier4Icon": "./img/stamp-golden-milestone-shot.png",
+    "tier5Icon": "./img/stamp-golden-milestone-axe.png",
+    "tier6Icon": "./img/stamp-golden-milestone-fishing.png"
+  },
+  "40": {
+    "tier1Icon": "./img/stamp-event.png"
+  },
+  "41": {
+    "tier1": "春",
+    "tier2": "夏",
+    "tier3": "秋",
+    "tier4": "冬",
+    "tier1Icon": "./img/stamp-fish-spring.png",
+    "tier2Icon": "./img/stamp-fish-summer.png",
+    "tier3Icon": "./img/stamp-fish-autumn.png",
+    "tier4Icon": "./img/stamp-fish-winter.png"
+  },
+  "42": {
+    "tier1": "6月",
+    "tier2": "7月",
+    "tier3": "8月",
+    "tier4": "9月",
+    "tier1Icon": "./img/stamp-insect-jun.png",
+    "tier2Icon": "./img/stamp-insect-jul.png",
+    "tier3Icon": "./img/stamp-insect-aug.png",
+    "tier4Icon": "./img/stamp-insect-sep.png"
+  },
+  "43": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png"
+  },
+  "44": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png"
+  },
+  "45": {
+    "tier1Icon": "./img/stamp-landmaking.png",
+    "tier2Icon": "./img/stamp-landmaking.png",
+    "tier3Icon": "./img/stamp-landmaking.png"
+  },
+  "46": {
+    "tier1Icon": "./img/stamp-event.png"
+  },
+  "47": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png"
+  },
+  "48": {
+    "tier1Icon": "./img/stamp-event.png"
+  },
+  "49": {
+    "tier1Icon": "./img/stamp-hha.png",
+    "tier2Icon": "./img/stamp-hha.png",
+    "tier3Icon": "./img/stamp-hha.png",
+    "tier4Icon": "./img/stamp-hha.png",
+    "tier5Icon": "./img/stamp-hha.png"
+  },
+  "50": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png",
+    "tier4Icon": "./img/stamp-communication.png",
+    "tier5Icon": "./img/stamp-communication.png"
+  },
+  "51": {
+    "tier1Icon": "./img/stamp-hha.png"
+  },
+  "52": {
+    "tier1Icon": "./img/stamp-negative.png"
+  },
+  "53": {
+    "tier1Icon": "./img/stamp-event.png"
+  },
+  "54": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png"
+  },
+  "55": {
+    "tier1Icon": "./img/stamp-diy.png",
+    "tier2Icon": "./img/stamp-diy.png",
+    "tier3Icon": "./img/stamp-diy.png",
+    "tier4Icon": "./img/stamp-diy.png",
+    "tier5Icon": "./img/stamp-diy.png"
+  },
+  "56": {
+    "tier1Icon": "./img/stamp-smartphone.png"
+  },
+  "57": {
+    "tier1Icon": "./img/stamp-hha.png"
+  },
+  "58": {
+    "tier1Icon": "./img/stamp-smartphone.png",
+    "tier2Icon": "./img/stamp-smartphone.png",
+    "tier3Icon": "./img/stamp-smartphone.png",
+    "tier4Icon": "./img/stamp-smartphone.png",
+    "tier5Icon": "./img/stamp-smartphone.png"
+  },
+  "59": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png",
+    "tier4Icon": "./img/stamp-communication.png",
+    "tier5Icon": "./img/stamp-communication.png"
+  },
+  "60": {
+    "tier1Icon": "./img/stamp-money.png"
+  },
+  "61": {
+    "tier1Icon": "./img/stamp-hha.png"
+  },
+  "62": {
+    "tier1Icon": "./img/stamp-hha.png",
+    "tier2Icon": "./img/stamp-hha.png",
+    "tier3Icon": "./img/stamp-hha.png",
+    "tier4Icon": "./img/stamp-hha.png",
+    "tier5Icon": "./img/stamp-hha.png"
+  },
+  "63": {
+    "tier1Icon": "./img/stamp-fish.png",
+    "tier2Icon": "./img/stamp-fish.png",
+    "tier3Icon": "./img/stamp-fish.png",
+    "tier4Icon": "./img/stamp-fish.png",
+    "tier5Icon": "./img/stamp-fish.png"
+  },
+  "64": {
+    "tier1Icon": "./img/stamp-landmaking.png"
+  },
+  "67": {
+    "tier1Icon": "./img/stamp-diy.png",
+    "tier2Icon": "./img/stamp-diy.png",
+    "tier3Icon": "./img/stamp-diy.png",
+    "tier4Icon": "./img/stamp-diy.png",
+    "tier5Icon": "./img/stamp-diy.png"
+  },
+  "68": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png",
+    "tier4Icon": "./img/stamp-communication.png",
+    "tier5Icon": "./img/stamp-communication.png"
+  },
+  "69": {
+    "tier1Icon": "./img/stamp-fish.png",
+    "tier2Icon": "./img/stamp-fish.png",
+    "tier3Icon": "./img/stamp-fish.png",
+    "tier4Icon": "./img/stamp-fish.png",
+    "tier5Icon": "./img/stamp-fish.png"
+  },
+  "70": {
+    "tier1Icon": "./img/stamp-plant.png",
+    "tier2Icon": "./img/stamp-plant.png",
+    "tier3Icon": "./img/stamp-plant.png",
+    "tier4Icon": "./img/stamp-plant.png",
+    "tier5Icon": "./img/stamp-plant.png"
+  },
+  "71": {
+    "tier1Icon": "./img/stamp-insect.png"
+  },
+  "72": {
+    "tier1Icon": "./img/stamp-diy.png",
+    "tier2Icon": "./img/stamp-diy.png",
+    "tier3Icon": "./img/stamp-diy.png",
+    "tier4Icon": "./img/stamp-diy.png",
+    "tier5Icon": "./img/stamp-diy.png"
+  },
+  "73": {
+    "tier1Icon": "./img/stamp-diy.png",
+    "tier2Icon": "./img/stamp-diy.png",
+    "tier3Icon": "./img/stamp-diy.png",
+    "tier4Icon": "./img/stamp-diy.png",
+    "tier5Icon": "./img/stamp-diy.png"
+  },
+  "75": {
+    "tier1Icon": "./img/stamp-smartphone.png"
+  },
+  "76": {
+    "tier1Icon": "./img/stamp-smartphone.png"
+  },
+  "77": {
+    "tier1Icon": "./img/stamp-event.png",
+    "tier2Icon": "./img/stamp-event.png",
+    "tier3Icon": "./img/stamp-event.png",
+    "tier4Icon": "./img/stamp-event.png",
+    "tier5Icon": "./img/stamp-event.png"
+  },
+  "78": {
+    "tier1Icon": "./img/stamp-event.png",
+    "tier2Icon": "./img/stamp-event.png",
+    "tier3Icon": "./img/stamp-event.png",
+    "tier4Icon": "./img/stamp-event.png",
+    "tier5Icon": "./img/stamp-event.png"
+  },
+  "79": {
+    "tier1Icon": "./img/stamp-plant.png",
+    "tier2Icon": "./img/stamp-plant.png",
+    "tier3Icon": "./img/stamp-plant.png",
+    "tier4Icon": "./img/stamp-plant.png",
+    "tier5Icon": "./img/stamp-plant.png"
+  },
+  "80": {
+    "tier1Icon": "./img/stamp-negative.png"
+  },
+  "81": {
+    "tier1Icon": "./img/stamp-event.png",
+    "tier2Icon": "./img/stamp-event.png",
+    "tier3Icon": "./img/stamp-event.png"
+  },
+  "82": {
+    "tier1Icon": "./img/stamp-event.png",
+    "tier2Icon": "./img/stamp-event.png",
+    "tier3Icon": "./img/stamp-event.png",
+    "tier4Icon": "./img/stamp-event.png",
+    "tier5Icon": "./img/stamp-event.png"
+  },
+  "83": {
+    "tier1Icon": "./img/stamp-communication.png"
+  },
+  "84": {
+    "tier1Icon": "./img/stamp-mydesign.png"
+  },
+  "85": {
+    "tier1Icon": "./img/stamp-landmaking.png",
+    "tier2Icon": "./img/stamp-landmaking.png",
+    "tier3Icon": "./img/stamp-landmaking.png"
+  },
+  "86": {
+    "tier1": "旗",
+    "tier2": "メロディ",
+    "tier1Icon": "./img/stamp-island-name-icons-flag.png",
+    "tier2Icon": "./img/stamp-island-name-icons-melody.png"
+  },
+  "87": {
+    "tier1Icon": "./img/stamp-smartphone.png"
+  },
+  "88": {
+    "tier1": "どうろ",
+    "tier2": "かせん",
+    "tier3": "がけ",
+    "tier1Icon": "./img/stamp-island-designer-green.png",
+    "tier2Icon": "./img/stamp-island-designer-blue.png",
+    "tier3Icon": "./img/stamp-island-designer-brown.png"
+  },
+  "89": {
+    "tier1Icon": "./img/stamp-landmaking.png"
+  },
+  "90": {
+    "tier1Icon": "./img/stamp-negative.png"
+  },
+  "91": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png"
+  },
+  "92": {
+    "tier1Icon": "./img/stamp-shrubbery-hubbery.png",
+    "tier2Icon": "./img/stamp-shrubbery-hubbery.png",
+    "tier3Icon": "./img/stamp-shrubbery-hubbery.png"
+  },
+  "95": {
+    "tier1Icon": "./img/stamp-diving.png",
+    "tier2Icon": "./img/stamp-diving.png",
+    "tier3Icon": "./img/stamp-diving.png",
+    "tier4Icon": "./img/stamp-diving.png",
+    "tier5Icon": "./img/stamp-diving.png"
+  },
+  "96": {
+    "tier1Icon": "./img/stamp-communication.png",
+    "tier2Icon": "./img/stamp-communication.png",
+    "tier3Icon": "./img/stamp-communication.png"
+  },
+  "98": {
+    "tier1Icon": "./img/stamp-diving.png",
+    "tier2Icon": "./img/stamp-diving.png",
+    "tier3Icon": "./img/stamp-diving.png",
+    "tier4Icon": "./img/stamp-diving.png",
+    "tier5Icon": "./img/stamp-diving.png"
+  }
+}

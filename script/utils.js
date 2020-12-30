@@ -7,7 +7,7 @@ module.exports = {
   },
   hanEisuToZenEisu: function(str) {
     return str.replace(/[A-Za-z0-9]/g, function(match) {
-      const chr = match.charCodeAt(0) + 0xFEE0;
+      const chr = match.charCodeAt(0) + 0xfee0;
       return String.fromCharCode(chr);
     });
   },
@@ -52,5 +52,8 @@ module.exports = {
     }
     arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
     return arr;
+  },
+  numberWithCommas: function(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 };

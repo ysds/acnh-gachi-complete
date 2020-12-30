@@ -36,7 +36,7 @@
         {{ modalItem.patternVariants.join("、") }}
       </div>
     </div>
-    <div class="info" v-if="modalItem.sourceJa || modalItem.variants">
+    <div class="info" v-if="modalItem.sourceJa">
       <div class="info-label info-3">入手</div>
       <div class="info-text">
         <template v-if="modalItem.sourceJa">
@@ -104,6 +104,10 @@
     <div class="info" v-if="modalItem.shadow">
       <div class="info-label info-4">魚影</div>
       <div class="info-text">{{ modalItem.shadowJa }}</div>
+    </div>
+    <div class="info" v-if="modalItem.achievementDescription">
+      <div class="info-label info-4">説明</div>
+      <div class="info-text">{{ modalItem.achievementDescription }}</div>
     </div>
   </div>
 </template>

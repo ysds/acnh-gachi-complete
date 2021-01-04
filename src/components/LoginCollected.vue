@@ -1,31 +1,36 @@
 <template>
   <div class="wrapper">
-    <div style="margin-bottom: 1rem;">
-      <LoginCollectedBar
-        text="全体"
-        :value="allCollectedLength"
-        :totalValue="allLength"
-        :isAll="true"
-      />
+    <div v-if="!isLoadComplete">
+      計算中...
     </div>
-    <div v-for="nav in navs" :key="nav.id">
-      <template v-if="nav.subnavs">
+    <div v-if="isLoadComplete">
+      <div style="margin-bottom: 1rem;">
         <LoginCollectedBar
-          v-for="subnav in nav.subnavs"
-          :key="subnav.id"
-          :text="subnav.text"
-          :value="collectedLengths[subnav.id]"
-          :totalValue="totalLengths[subnav.id]"
+          text="全体"
+          :value="allCollectedLength"
+          :totalValue="allLength"
+          :isAll="true"
         />
-      </template>
-      <template v-else>
-        <LoginCollectedBar
-          :key="nav.id"
-          :text="nav.text"
-          :value="collectedLengths[nav.id]"
-          :totalValue="totalLengths[nav.id]"
-        />
-      </template>
+      </div>
+      <div v-for="nav in navs" :key="nav.id">
+        <template v-if="nav.subnavs">
+          <LoginCollectedBar
+            v-for="subnav in nav.subnavs"
+            :key="subnav.id"
+            :text="subnav.text"
+            :value="collectedLengths[subnav.id]"
+            :totalValue="totalLengths[subnav.id]"
+          />
+        </template>
+        <template v-else>
+          <LoginCollectedBar
+            :key="nav.id"
+            :text="nav.text"
+            :value="collectedLengths[nav.id]"
+            :totalValue="totalLengths[nav.id]"
+          />
+        </template>
+      </div>
     </div>
     <p class="note">
       一部のカテゴリに「素材」や「消費アイテム」、「植物」が例外的に含まれていますが、これらのコンプ状況は「全体」のコンプ率の計算対象には含まれていません。
@@ -46,6 +51,11 @@ import LoginCollectedBar from "./LoginCollectedBar";
 export default {
   data() {
     return {
+      isLoadComplete: null,
+      totalLengths: null,
+      collectedLengths: null,
+      allLength: null,
+      allCollectedLength: null,
       navs: navs
     };
   },
@@ -55,19 +65,16 @@ export default {
   computed: {
     collected() {
       return this.$store.getters.localCollectedData;
-    },
-    totalLengths() {
-      return this.getLengths();
-    },
-    collectedLengths() {
-      return this.getLengths(true);
-    },
-    allLength() {
-      return allLength();
-    },
-    allCollectedLength() {
-      return allCollectedLength(this.collected);
     }
+  },
+  created() {
+    setTimeout(() => {
+      this.totalLengths = this.getLengths();
+      this.collectedLengths = this.getLengths(true);
+      this.allLength = allLength();
+      this.allCollectedLength = allCollectedLength(this.collected);
+      this.isLoadComplete = true;
+    }, 0);
   },
   methods: {
     getLengths(isCollected) {

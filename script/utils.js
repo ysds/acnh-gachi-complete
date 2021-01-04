@@ -43,6 +43,12 @@ module.exports = {
     str = str.replace("ッ", "ツ");
     return str;
   },
+  yoon_conv : function(str) {
+    str = str.replace("ャ", "ヤ");
+    str = str.replace("ュ", "ユ");
+    str = str.replace("ョ", "ヨ");
+    return str;
+  },
   array_move: function(arr, old_index, new_index) {
     if (new_index >= arr.length) {
       var k = new_index - arr.length + 1;

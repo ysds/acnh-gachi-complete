@@ -1,32 +1,29 @@
 <template functional>
-  <div class="bar" :class="{ all: props.isAll }">
-    <div class="left">
-      {{ props.text }}
+  <div class="wrapper">
+    <div class="bar" :class="{ all: props.isAll }">
+      <div class="left">
+        {{ props.text }}
+      </div>
+      <div class="right">
+        {{ props.value }} /
+        {{ props.totalValue }}
+        ({{ $options.percentage(props.value, props.totalValue) }})
+      </div>
+      <div
+        class="bar-value"
+        :class="{
+          'bar-comp': $options.isComplete(props.value, props.totalValue)
+        }"
+        :style="$options.style(props.value, props.totalValue)"
+      />
     </div>
-    <div class="right">
-      {{ props.value }} /
-      {{ props.totalValue }}
-      ({{
-        props.totalValue !== 0
-          ? (
-              (Math.floor((props.value / props.totalValue) * 1000) / 1000) *
-              100
-            ).toFixed(1)
-          : "0.0"
-      }}%)
-    </div>
-    <div
-      class="bar-value"
-      :class="
-        props.totalValue !== 0 && props.value === props.totalValue
-          ? 'bar-comp'
-          : ''
-      "
-      :style="
-        props.totalValue !== 0
-          ? 'width: ' + (props.value / props.totalValue) * 100 + '%'
-          : 'width: 0'
-      "
+    <img
+      class="img"
+      :class="{
+        'img-comp': $options.isComplete(props.value, props.totalValue)
+      }"
+      src="../assets/complete.svg"
+      alt=""
     />
   </div>
 </template>
@@ -38,15 +35,36 @@ export default {
     value: 0,
     totalValue: 0,
     isAll: false
+  },
+  percentage(value, totalValue) {
+    if (totalValue === 0) {
+      return "0.0%";
+    } else {
+      const percentage = (Math.floor((value / totalValue) * 1000) / 1000) * 100;
+      return `${percentage.toFixed(1)}%`;
+    }
+  },
+  isComplete(value, totalValue) {
+    return totalValue !== 0 && value === totalValue;
+  },
+  style(value, totalValue) {
+    const width = totalValue !== 0 ? (value / totalValue) * 100 + "%" : 0;
+    return `width: ${width}`;
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .bar {
   position: relative;
   display: flex;
   align-items: center;
+  flex-grow: 1;
   width: 100%;
   padding: 3px 0.25rem 1px;
   margin-bottom: 0.25rem;
@@ -71,6 +89,15 @@ export default {
   position: relative;
   z-index: 2;
   margin-left: auto;
+}
+
+.img {
+  margin-top: -4px;
+  visibility: hidden;
+}
+
+.img-comp {
+  visibility: visible;
 }
 
 .bar-value {

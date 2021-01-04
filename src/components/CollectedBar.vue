@@ -2,14 +2,13 @@
   <div class="wrap">
     <div>
       コンプ率
-      {{
-        props.totalValue !== 0
-          ? (
-              (Math.floor((props.value / props.totalValue) * 1000) / 1000) *
-              100
-            ).toFixed(1)
-          : "0.0"
-      }}%
+      {{ $options.percentage(props.value, props.totalValue) }}
+      <img
+        v-if="$options.isComplete(props.value, props.totalValue)"
+        class="img"
+        src="../assets/complete.svg"
+        alt=""
+      />
     </div>
     <div class="right">
       {{ props.value }}
@@ -19,17 +18,11 @@
     <div class="bar">
       <div
         class="bar-value"
-        :class="
-          props.totalValue !== 0 && props.value === props.totalValue
-            ? 'bar-comp'
-            : ''
-        "
-        :style="
-          props.totalValue !== 0
-            ? 'width: ' + (props.value / props.totalValue) * 100 + '%'
-            : 'width: 0'
-        "
-      ></div>
+        :class="{
+          'bar-comp': $options.isComplete(props.value, props.totalValue)
+        }"
+        :style="$options.style(props.value, props.totalValue)"
+      />
     </div>
   </div>
 </template>
@@ -37,7 +30,22 @@
 <script>
 export default {
   name: "CollectedBar",
-  props: ["value", "totalValue"]
+  props: ["value", "totalValue"],
+  percentage(value, totalValue) {
+    if (totalValue === 0) {
+      return "0.0%";
+    } else {
+      const percentage = (Math.floor((value / totalValue) * 1000) / 1000) * 100;
+      return `${percentage.toFixed(1)}%`;
+    }
+  },
+  isComplete(value, totalValue) {
+    return totalValue !== 0 && value === totalValue;
+  },
+  style(value, totalValue) {
+    const width = totalValue !== 0 ? (value / totalValue) * 100 + "%" : 0;
+    return `width: ${width}`;
+  }
 };
 </script>
 
@@ -57,6 +65,10 @@ export default {
 
 .right {
   margin-left: auto;
+}
+
+.img {
+  margin-top: -4px;
 }
 
 .bar {

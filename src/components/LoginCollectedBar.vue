@@ -83,6 +83,6 @@ export default {
 }
 
 .bar-comp {
-  background-color: #a0cbff;
+  background-color: #ff9baf;
 }
 </style>

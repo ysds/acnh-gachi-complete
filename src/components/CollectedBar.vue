@@ -19,6 +19,11 @@
     <div class="bar">
       <div
         class="bar-value"
+        :class="
+          props.totalValue !== 0 && props.value === props.totalValue
+            ? 'bar-comp'
+            : ''
+        "
         :style="
           props.totalValue !== 0
             ? 'width: ' + (props.value / props.totalValue) * 100 + '%'
@@ -65,5 +70,9 @@ export default {
 .bar-value {
   height: 100%;
   background-color: #42b983;
+}
+
+.bar-comp {
+  background-color: #a0cbff;
 }
 </style>

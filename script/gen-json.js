@@ -5,6 +5,7 @@ const {
   daku_conv,
   choon_conv,
   tsu_conv,
+  yoon_conv,
   array_move,
   numberWithCommas
 } = require("./utils.js");
@@ -437,6 +438,7 @@ function conversion(str) {
   str = hanEisuToZenEisu(str);
   str = tsu_conv(str);
   str = choon_conv(str);
+  str = yoon_conv(str);
   str = daku_conv(str);
   return str;
 }

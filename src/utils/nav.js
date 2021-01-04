@@ -76,7 +76,12 @@ export function filterItems(args) {
       }
       // その他
       else if (filter.saleFilter === "other") {
-        if (item.diy || item.catalog === "For sale" || item.catalog === true)
+        if (
+          item.diy ||
+          item.catalog === "For sale" ||
+          item.catalog === true ||
+          (item.source && item.source.includes("Recycle box"))
+        )
           return false;
       }
       // エイブル
@@ -103,6 +108,12 @@ export function filterItems(args) {
           item.source &&
           !item.source.includes("Nook Shopping Daily Selection")
         ) {
+          return false;
+        }
+      }
+      // リサイクルボックス
+      else if (filter.saleFilter === "recycle") {
+        if (item.source && !item.source.includes("Recycle box")) {
           return false;
         }
       }

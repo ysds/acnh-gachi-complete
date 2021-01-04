@@ -24,7 +24,7 @@
         <span class="name"><span>あつ森</span>ガチコンプ</span>
       </Button>
     </div>
-    <router-view />
+    <router-view v-if="isLoadComplete" />
   </div>
 </template>
 <script>
@@ -45,6 +45,7 @@ export default {
   data() {
     return {
       cloudSynctimer: null,
+      isLoadComplete: null,
       updateIndex: null,
       navs
     };
@@ -89,6 +90,7 @@ export default {
   async created() {
     const self = this;
     await Promise.all([self.loadLocalStorageData()]);
+    this.isLoadComplete = true;
     this.cloudSynctimer = setInterval(function() {
       if (self.updateIndex && self.updateIndex === self.localUpdateIndex) {
         self.syncCollectedData();

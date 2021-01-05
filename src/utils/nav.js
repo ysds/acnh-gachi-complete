@@ -206,6 +206,7 @@ export function filterItems(args) {
 
     // たぬきショッピングのシーズンアイテムはたぬきショッピングカテゴリのみで表示
     if (
+      nav &&
       nav !== "season-nook" &&
       item.source &&
       item.source.includes("Nook Shopping Seasonal")

@@ -544,6 +544,14 @@ export function filterItems(args) {
     else if (nav === "reactions") {
       return item.sourceSheet === "Reactions";
     }
+    // 交配花
+    else if (nav === "breeding") {
+      return (
+        item.sourceSheet === "Other" &&
+        item.source &&
+        item.source.includes("Breeding")
+      );
+    }
     // たぬきマイレージ
     else if (nav === "achievements") {
       return item.sourceSheet === "Achievements";
@@ -649,8 +657,15 @@ export function collectedLength(args) {
   return result;
 }
 
+// コンプ率の計算対象外アイテムの判定
 function filterOtherItem(item) {
-  return item.sourceSheet !== "Other" && item.name.indexOf("Hazure") === -1;
+  if (item.sourceSheet !== "Other") {
+    // Otherシート以外：ミュージックの「はずれ01～03」を除外
+    return item.name.indexOf("Hazure") === -1;
+  } else {
+    // Otherシート：交配花のみコンプ率に含める
+    return item.source && item.source.includes("Breeding");
+  }
 }
 
 export function allLength() {

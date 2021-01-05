@@ -87,6 +87,7 @@ module.exports = {
               "/share2/season-mother",
               "/share2/reactions",
               "/share2/achievements",
+              "/share2/breeding",
               "/share2/versions-160",
               "/share2/versions-150",
               "/share2/versions-140"
@@ -158,6 +159,7 @@ module.exports = {
                 "/share2/season-mother": "ははシリーズ",
                 "/share2/reactions": "リアクション",
                 "/share2/achievements": "たぬきマイレージ",
+                "/share2/breeding": "交配花",
                 "/share2/versions-160": "1.6.0",
                 "/share2/versions-150": "1.5.0",
                 "/share2/versions-140": "1.4.0"

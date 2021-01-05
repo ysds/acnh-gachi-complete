@@ -358,6 +358,10 @@
     "text": "たぬきマイレージ"
   },
   {
+    "id": "breeding",
+    "text": "交配花"
+  },
+  {
     "id": "versions",
     "text": "バージョン",
     "subnavs": [

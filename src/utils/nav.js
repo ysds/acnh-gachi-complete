@@ -204,6 +204,15 @@ export function filterItems(args) {
     // Nav
     //
 
+    // たぬきショッピングのシーズンアイテムはたぬきショッピングカテゴリのみで表示
+    if (
+      nav !== "season-nook" &&
+      item.source &&
+      item.source.includes("Nook Shopping Seasonal")
+    ) {
+      return false;
+    }
+
     // 家具（すべて）
     if (nav === "housewares-all") {
       return item.sourceSheet.match(
@@ -251,7 +260,7 @@ export function filterItems(args) {
     else if (nav === "walletc-rugs") {
       return item.sourceSheet === "Rugs";
     }
-    // ラグ
+    // 柵
     else if (nav === "walletc-fencing") {
       return item.sourceSheet === "Fencing";
     }

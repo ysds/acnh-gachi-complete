@@ -301,14 +301,6 @@ export function filterItems(args) {
     else if (nav === "fashion-other") {
       return item.sourceSheet === "Clothing Other";
     }
-    // ファッション (リサイクルボックス)
-    else if (nav === "fashion-recycle") {
-      return (
-        item.source &&
-        item.source.includes("Recycle box") &&
-        item.sourceSheet !== "Other"
-      );
-    }
     // かせき
     else if (nav === "fossils") {
       return item.sourceSheet === "Fossils";

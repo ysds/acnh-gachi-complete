@@ -91,6 +91,13 @@
         <span class="tg tg-bl">配布可</span>
       </Button>
       <Button
+        @click="onClickCollectedFilter('3')"
+        class="nav"
+        :class="{ active: filter.collectedFilter === '3' }"
+      >
+        <span class="tg tg-gr">取</span>＋<span class="tg tg-bl">配</span>
+      </Button>
+      <Button
         @click="onClickCollectedFilter('4')"
         class="nav"
         :class="{ active: filter.collectedFilter === '4' }"

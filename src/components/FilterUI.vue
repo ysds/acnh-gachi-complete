@@ -187,7 +187,7 @@
           <div v-show="!hasUpdateData">
             <p style="word-break: break-all;">
               公開ページの URL<br />
-              <router-link :to="`/share2/${currentNav}/?uid=${user.uid}`">
+              <router-link :to="`${createSharePath()}`">
                 {{ shareURL }}
               </router-link>
             </p>
@@ -377,10 +377,21 @@ export default {
       this.isPinned = !this.isPinned;
       this.$emit("changePin", this.currentNav, this.isPinned);
     },
+    createSharePath: function() {
+      function appendParam(flag, name, value) {
+        return flag ? "&" + name + "=" + value : "";
+      }
+      return (
+        `/share2/${this.currentNav}/?uid=${this.user.uid}` +
+        appendParam(this.showSaleFilter, "sale", this.filter.saleFilter) +
+        appendParam(true, "collected", this.filter.collectedFilter) +
+        appendParam(this.isShowOrderChanger, "order", this.filter.order)
+      );
+    },
     showShareModal: function() {
-      const shareURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.currentNav}/?uid=${this.user.uid}`;
+      const shareURL = `https://ysds.github.io/acnh-gachi-complete${this.createSharePath()}`;
       this.shareURL = shareURL;
-      this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.currentNav}/?uid=${this.user.uid}`;
+      this.twitterURL = encodeURIComponent(shareURL);
       this.$copyText(shareURL);
       this.isShowShareModal = true;
     }

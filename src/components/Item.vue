@@ -2,7 +2,7 @@
   <li :class="filter.viewMode === 'list' ? 'item' : 'tile'">
     <template v-if="filter.viewMode === 'list'">
       <div v-long-press style="position: relative;">
-        <img v-lazy="getImage(item)" class="item-img" />
+        <img v-lazy="itemImage" class="item-img" />
         <img
           class="item-img-remake"
           src="../assets/remake.svg"
@@ -54,7 +54,7 @@
         >
           <CheckForTile
             :name="i === 0 ? itemName : ''"
-            :image="getVariantTileImage(item.variants[index])"
+            :image="variantImages[index]"
             :value="getChecks(index)"
             :variant="item.variants[index]"
             :variants="item.variants"
@@ -70,7 +70,7 @@
         <li class="t" v-long-press>
           <CheckForTile
             :name="itemName"
-            :image="getSingeItemImage(item)"
+            :image="itemImage"
             :value="getChecks(0)"
             :isRecipe="item.sourceSheet === 'Recipes'"
             :isStatic="isStatic"
@@ -143,6 +143,45 @@ export default {
         return this.item.displayName;
       }
     },
+    itemImage() {
+      const item = this.item;
+      if (item.variants) {
+        return this.variantImages[0];
+      } else {
+        if (
+          item.sourceSheet === "Recipes" ||
+          item.sourceSheet === "Reactions"
+        ) {
+          return `https://acnhcdn.com/latest/${item.image}`;
+        } else if (item.iconImage) {
+          return `https://acnhcdn.com/latest/${item.iconImage}`;
+        }
+      }
+      return "";
+    },
+    variantImages() {
+      const variants = this.item.variants;
+      let images = [];
+      if (variants) {
+        variants.forEach(variant => {
+          let image = "";
+          if (variant.stampImage) {
+            image = this.stampUrls[variant.stampImage];
+          } else {
+            image =
+              variant.image ||
+              variant.storageImage ||
+              variant.albumImage ||
+              variant.inventoryImage;
+            if (image !== "") {
+              image = `https://acnhcdn.com/latest/${image}`;
+            }
+          }
+          images.push(image);
+        });
+      }
+      return images;
+    },
     allCheckState: function() {
       const checks = Object.values(this.checks);
       let count2 = 0;
@@ -174,38 +213,6 @@ export default {
     this.filteredCheckIndexes = this.updateFilteredCheckIndexes();
   },
   methods: {
-    getImage: function(item) {
-      let image = "";
-      if (item.variants) {
-        image = this.getVariantTileImage(item.variants[0]);
-      } else {
-        image = this.getSingeItemImage(item);
-      }
-      return image;
-    },
-    getVariantTileImage: function(variant) {
-      if (variant.stampImage) {
-        return this.stampUrls[variant.stampImage];
-      } else {
-        const image =
-          variant.image ||
-          variant.storageImage ||
-          variant.albumImage ||
-          variant.inventoryImage;
-        if (image) {
-          return `https://acnhcdn.com/latest/${image}`;
-        }
-      }
-      return "";
-    },
-    getSingeItemImage: function(item) {
-      if (item.sourceSheet === "Recipes" || item.sourceSheet === "Reactions") {
-        return `https://acnhcdn.com/latest/${item.image}`;
-      } else if (item.iconImage) {
-        return `https://acnhcdn.com/latest/${item.iconImage}`;
-      }
-      return "";
-    },
     updateChecks: function(collected) {
       let result = {};
       const item = this.item;

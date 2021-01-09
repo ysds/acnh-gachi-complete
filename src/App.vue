@@ -63,6 +63,9 @@ export default {
     userName() {
       return this.$store.getters.userName;
     },
+    islandName() {
+      return this.$store.getters.islandName;
+    },
     isLogin() {
       return this.$store.getters.isLogin;
     },
@@ -148,6 +151,7 @@ export default {
               );
               const updateIndex = data.updateIndex || 0;
               const userName = data.userName || user.displayName || null;
+              const islandName = data.islandName || null;
               const shareCategories = data.shareCategories || [];
 
               self.$store.commit("initCloudCollectedData", {
@@ -155,6 +159,7 @@ export default {
                 updateIndex
               });
               self.$store.commit("updateUserName", userName);
+              self.$store.commit("updateIslandName", islandName);
               self.$store.commit("updateShareCategories", shareCategories);
             } else {
               const userName = user.displayName || null;

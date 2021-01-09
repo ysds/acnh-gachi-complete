@@ -67,6 +67,7 @@
         :isSearchMode="isSearchMode"
         :key="item.name + item.sourceSheet"
         :renderStartDate="renderStartDate"
+        :islandName="islandName"
         @change="onChangeItemCheck"
         @showModal="onShowModal"
       />
@@ -174,6 +175,9 @@ export default {
     },
     isLogin() {
       return this.$store.getters.isLogin;
+    },
+    islandName() {
+      return this.$store.getters.islandName;
     },
     isShowSaleFilter() {
       return isFilterBySaleType(this.activeNav);

@@ -65,7 +65,7 @@
           </div>
           <div class="username edit" v-else>
             <input
-              class="edit-input"
+              class="edit-input mb-4"
               type="text"
               v-model="editingName"
               ref="userName"
@@ -111,13 +111,16 @@
             <div v-else>（未設定）</div>
           </div>
           <div class="username edit" v-else>
-            <input
-              class="edit-input"
-              type="text"
-              v-model="editingIslandName"
-              ref="islandName"
-            />
-            島
+            <div class="d-flex align-items-center mb-4">
+              <input
+                class="edit-input"
+                type="text"
+                v-model="editingIslandName"
+                ref="islandName"
+                style="margin-right: .5rem;"
+              />
+              島
+            </div>
             <button class="edit-btn" type="button" @click="cancelIslandName">
               キャンセル
             </button>
@@ -384,10 +387,7 @@ export default {
 }
 
 .edit-input {
-  display: inline-block;
   width: 100%;
-  max-width: 300px;
-  margin-bottom: 1rem;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 3px;

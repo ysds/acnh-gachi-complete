@@ -106,6 +106,12 @@ export function filterItems(args) {
           return false;
         }
       }
+      // リサイクルボックス
+      else if (filter.saleFilter === "recycle") {
+        if (item.source && !item.source.includes("Recycle box")) {
+          return false;
+        }
+      }
     }
 
     //

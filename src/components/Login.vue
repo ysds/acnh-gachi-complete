@@ -108,6 +108,7 @@
           </div>
           <div class="username" v-if="!isEditIslandName">
             <div v-if="islandName">{{ islandName }}島</div>
+            <div v-else>（未設定）</div>
           </div>
           <div class="username edit" v-else>
             <input

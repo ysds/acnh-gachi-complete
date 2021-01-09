@@ -65,7 +65,7 @@
           </div>
           <div class="username edit" v-else>
             <input
-              class="edit-input"
+              class="edit-input mb-4"
               type="text"
               v-model="editingName"
               ref="userName"
@@ -83,7 +83,58 @@
             </button>
           </div>
           <p class="small">
-            シェア機能使用時にこの名前が相手に表示されます。
+            シェア機能使用時に相手に表示されます。
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="d-flex align-items-center mb-4">
+            <div class="section-label">島の名前</div>
+            <Button @click="editIslandName" style="margin-left: auto;">
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                class="bi bi-pencil-fill"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
+                />
+              </svg>
+            </Button>
+          </div>
+          <div class="username" v-if="!isEditIslandName">
+            <div v-if="islandName">{{ islandName }}島</div>
+            <div v-else>（未設定）</div>
+          </div>
+          <div class="username edit" v-else>
+            <div class="d-flex align-items-center mb-4">
+              <input
+                class="edit-input"
+                type="text"
+                v-model="editingIslandName"
+                ref="islandName"
+                style="margin-right: .5rem;"
+              />
+              島
+            </div>
+            <button class="edit-btn" type="button" @click="cancelIslandName">
+              キャンセル
+            </button>
+            <button
+              class="edit-btn"
+              type="button"
+              @click="saveIslandName"
+              style="margin-left: 1rem;"
+            >
+              保存
+            </button>
+          </div>
+          <p class="small">
+            シェア機能使用時に相手に表示されます。
           </p>
         </div>
 
@@ -188,7 +239,9 @@ export default {
   data() {
     return {
       isEditName: false,
+      isEditIslandName: false,
       editingName: "",
+      editingIslandName: "",
       baseURL: baseURL
     };
   },
@@ -198,6 +251,9 @@ export default {
     },
     userName() {
       return this.$store.getters.userName;
+    },
+    islandName() {
+      return this.$store.getters.islandName;
     },
     isLogin() {
       return this.$store.getters.isLogin;
@@ -223,9 +279,18 @@ export default {
         this.$refs.userName.focus();
       });
     },
+    editIslandName() {
+      this.editingIslandName = this.islandName;
+      this.isEditIslandName = true;
+      this.$nextTick(function() {
+        this.$refs.islandName.focus();
+      });
+    },
     cancelName() {
       this.isEditName = false;
-      console.log(this.$route);
+    },
+    cancelIslandName() {
+      this.isEditIslandName = false;
     },
     saveName() {
       db.collection("users")
@@ -235,6 +300,15 @@ export default {
         });
       this.$store.commit("updateUserName", this.editingName);
       this.isEditName = false;
+    },
+    saveIslandName() {
+      db.collection("users")
+        .doc(this.user.uid)
+        .update({
+          islandName: this.editingIslandName
+        });
+      this.$store.commit("updateIslandName", this.editingIslandName);
+      this.isEditIslandName = false;
     }
   }
 };
@@ -313,10 +387,7 @@ export default {
 }
 
 .edit-input {
-  display: inline-block;
   width: 100%;
-  max-width: 300px;
-  margin-bottom: 1rem;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 3px;

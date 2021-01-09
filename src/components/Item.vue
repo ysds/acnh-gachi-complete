@@ -15,7 +15,7 @@
         />
       </div>
       <div class="item-center">
-        {{ item.displayName }}
+        {{ getDisplayName(item) }}
         <template>
           <div
             class="item-variants"
@@ -53,7 +53,7 @@
           v-long-press
         >
           <CheckForTile
-            :name="i === 0 ? item.displayName : ''"
+            :name="i === 0 ? getDisplayName(item) : ''"
             :image="getVariantTileImage(item.variants[index])"
             :value="getChecks(index)"
             :variant="item.variants[index]"
@@ -69,7 +69,7 @@
       <ul v-else class="tile-variants">
         <li class="t" v-long-press>
           <CheckForTile
-            :name="item.displayName"
+            :name="getDisplayName(item)"
             :image="getSingeItemImage(item)"
             :value="getChecks(0)"
             :isRecipe="item.sourceSheet === 'Recipes'"
@@ -110,7 +110,8 @@ export default {
     filter: Object,
     isSearchMode: Boolean,
     renderStartDate: Number,
-    isStatic: Boolean
+    isStatic: Boolean,
+    islandName: String
   },
   directives: {
     "long-press": {
@@ -297,6 +298,18 @@ export default {
         return 2;
       }
       return this.checks[index];
+    },
+    getDisplayName(item) {
+      // 島名を置換
+      if (
+        this.islandName &&
+        (item.name === "(island name) Icons" ||
+          item.name === "(island name) Miles!")
+      ) {
+        return item.displayName.replace("○○", this.islandName);
+      } else {
+        return item.displayName;
+      }
     }
   }
 };

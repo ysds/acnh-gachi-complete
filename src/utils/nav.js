@@ -24,7 +24,7 @@ export { navs };
 
 export function isFilterBySaleType(activeNav) {
   if (activeNav) {
-    const showNavs = ["housewares", "walletc", "fashion"];
+    const showNavs = ["housewares", "walletc", "fashion", "plants-flowers"];
     for (let i = 0; i < showNavs.length; i++) {
       if (activeNav.indexOf(showNavs[i]) !== -1) return true;
     }
@@ -74,10 +74,27 @@ export function filterItems(args) {
       else if (filter.saleFilter === "diy") {
         if (!item.diy) return false;
       }
+      // 種袋
+      else if (filter.saleFilter === "seed") {
+        if (item.source && !item.source.includes("Seed bag")) {
+          return false;
+        }
+      }
+      // 交配
+      else if (filter.saleFilter === "breeding") {
+        if (item.source && !item.source.includes("Breeding")) {
+          return false;
+        }
+      }
       // その他
       else if (filter.saleFilter === "other") {
-        if (item.diy || item.catalog === "For sale" || item.catalog === true)
-          return false;
+        if (nav === "plants-flowers") {
+          if (!(item.source && item.source.includes("5-star town status")))
+            return false;
+        } else {
+          if (item.diy || item.catalog === "For sale" || item.catalog === true)
+            return false;
+        }
       }
       // エイブル
       else if (filter.saleFilter === "able") {
@@ -544,13 +561,13 @@ export function filterItems(args) {
     else if (nav === "reactions") {
       return item.sourceSheet === "Reactions";
     }
-    // 交配花
-    else if (nav === "breeding") {
-      return (
-        item.sourceSheet === "Other" &&
-        item.source &&
-        item.source.includes("Breeding")
-      );
+    // 花
+    else if (nav === "plants-flowers") {
+      return isFlower(item);
+    }
+    // 低木
+    else if (nav === "plants-bushes") {
+      return isBush(item);
     }
     // たぬきマイレージ
     else if (nav === "achievements") {
@@ -657,14 +674,34 @@ export function collectedLength(args) {
   return result;
 }
 
-// コンプ率の計算対象外アイテムの判定
+// アイテムが「花」であるかの判定
+function isFlower(item) {
+  return (
+    item.sourceSheet === "Other" &&
+    item.source &&
+    (item.source.includes("Seed bag") ||
+      item.source.includes("Breeding") ||
+      item.source.includes("5-star town status"))
+  );
+}
+
+// アイテムが「低木」であるかの判定
+function isBush(item) {
+  return (
+    item.sourceSheet === "Other" &&
+    item.source &&
+    item.source.includes("Digging up a fully grown bush")
+  );
+}
+
+// コンプ率の計算対象アイテムの判定
 function filterOtherItem(item) {
   if (item.sourceSheet !== "Other") {
     // Otherシート以外：ミュージックの「はずれ01～03」を除外
     return item.name.indexOf("Hazure") === -1;
   } else {
-    // Otherシート：交配花のみコンプ率に含める
-    return item.source && item.source.includes("Breeding");
+    // Otherシート：花/低木のみコンプ率に含める
+    return isFlower(item) || isBush(item);
   }
 }
 

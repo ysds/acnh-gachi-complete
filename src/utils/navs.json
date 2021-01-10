@@ -358,8 +358,20 @@
     "text": "たぬきマイレージ"
   },
   {
-    "id": "breeding",
-    "text": "交配花"
+    "id": "plants",
+    "text": "花/低木",
+    "subnavs": [
+      {
+        "id": "plants-flowers",
+        "text": "花",
+        "order": 1
+      },
+      {
+        "id": "plants-bushes",
+        "text": "低木",
+        "order": 2
+      }
+    ]
   },
   {
     "id": "versions",

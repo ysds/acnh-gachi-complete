@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div v-if="showSaleFilter">
+    <div v-show="showSaleFilter">
       <popper trigger="clickToToggle" :visible-arrow="false" ref="saleFilter">
         <div slot="reference" style="position: relative;">
           <div class="btn-label">取得方法</div>
@@ -145,7 +145,7 @@ export default {
   },
   computed: {
     isFashion() {
-      return this.currentNav.indexOf("fashion") > -1;
+      return this.currentNav && this.currentNav.indexOf("fashion") > -1;
     },
     isShowOrderChanger() {
       return (

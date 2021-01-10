@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div v-if="showSaleFilter">
+    <div v-show="showSaleFilter">
       <popper trigger="clickToToggle" :visible-arrow="false" ref="saleFilter">
         <div slot="reference" style="position: relative;">
           <div class="btn-label">取得方法</div>
@@ -19,6 +19,9 @@
             <span v-else-if="filter.saleFilter === 'kicks'">シャンク</span>
             <span v-else-if="filter.saleFilter === 'labelle'">ことの</span>
             <span v-else-if="filter.saleFilter === 'daly'">日替わり</span>
+            <span v-else-if="filter.saleFilter === 'recycle'">リサイクル</span>
+            <span v-else-if="filter.saleFilter === 'seed'">種袋</span>
+            <span v-else-if="filter.saleFilter === 'breeding'">交配</span>
             <img src="../assets/arrow.svg" width="12" alt="" />
           </button>
         </div>
@@ -26,7 +29,10 @@
           <DropdownItem @click="onClickSaleFilter('all')">
             <span class="tg">すべて</span>
           </DropdownItem>
-          <DropdownItem @click="onClickSaleFilter('catalog')" v-if="!isFashion">
+          <DropdownItem
+            @click="onClickSaleFilter('catalog')"
+            v-if="!isFashion && !isFlower"
+          >
             <span class="tg">お店＆<IconCatalog /></span>
           </DropdownItem>
           <template v-if="isFashion">
@@ -42,8 +48,19 @@
             <DropdownItem @click="onClickSaleFilter('daly')">
               <span class="tg">日替わり</span>
             </DropdownItem>
+            <DropdownItem @click="onClickSaleFilter('recycle')">
+              <span class="tg">リサイクル</span>
+            </DropdownItem>
           </template>
-          <DropdownItem @click="onClickSaleFilter('diy')">
+          <template v-if="isFlower">
+            <DropdownItem @click="onClickSaleFilter('seed')">
+              <span class="tg">種袋</span>
+            </DropdownItem>
+            <DropdownItem @click="onClickSaleFilter('breeding')">
+              <span class="tg">交配</span>
+            </DropdownItem>
+          </template>
+          <DropdownItem @click="onClickSaleFilter('diy')" v-if="!isFlower">
             <span class="tg">DIY</span>
           </DropdownItem>
           <DropdownItem @click="onClickSaleFilter('other')">
@@ -148,7 +165,10 @@ export default {
   },
   computed: {
     isFashion() {
-      return this.currentNav.indexOf("fashion") > -1;
+      return this.currentNav && this.currentNav.indexOf("fashion") > -1;
+    },
+    isFlower() {
+      return this.currentNav === "plants-flowers";
     },
     isShowOrderChanger() {
       return (

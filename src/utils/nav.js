@@ -24,7 +24,7 @@ export { navs };
 
 export function isFilterBySaleType(activeNav) {
   if (activeNav) {
-    const showNavs = ["housewares", "walletc", "fashion"];
+    const showNavs = ["housewares", "walletc", "fashion", "plants-flowers"];
     for (let i = 0; i < showNavs.length; i++) {
       if (activeNav.indexOf(showNavs[i]) !== -1) return true;
     }
@@ -74,10 +74,32 @@ export function filterItems(args) {
       else if (filter.saleFilter === "diy") {
         if (!item.diy) return false;
       }
+      // 種袋
+      else if (filter.saleFilter === "seed") {
+        if (item.source && !item.source.includes("Seed bag")) {
+          return false;
+        }
+      }
+      // 交配
+      else if (filter.saleFilter === "breeding") {
+        if (item.source && !item.source.includes("Breeding")) {
+          return false;
+        }
+      }
       // その他
       else if (filter.saleFilter === "other") {
-        if (item.diy || item.catalog === "For sale" || item.catalog === true)
-          return false;
+        if (nav === "plants-flowers") {
+          if (!(item.source && item.source.includes("5-star town status")))
+            return false;
+        } else {
+          if (
+            item.diy ||
+            item.catalog === "For sale" ||
+            item.catalog === true ||
+            (item.source && item.source.includes("Recycle box"))
+          )
+            return false;
+        }
       }
       // エイブル
       else if (filter.saleFilter === "able") {
@@ -103,6 +125,12 @@ export function filterItems(args) {
           item.source &&
           !item.source.includes("Nook Shopping Daily Selection")
         ) {
+          return false;
+        }
+      }
+      // リサイクルボックス
+      else if (filter.saleFilter === "recycle") {
+        if (item.source && !item.source.includes("Recycle box")) {
           return false;
         }
       }
@@ -544,6 +572,14 @@ export function filterItems(args) {
     else if (nav === "reactions") {
       return item.sourceSheet === "Reactions";
     }
+    // 花
+    else if (nav === "plants-flowers") {
+      return isFlower(item);
+    }
+    // 低木
+    else if (nav === "plants-bushes") {
+      return isBush(item);
+    }
     // たぬきマイレージ
     else if (nav === "achievements") {
       return item.sourceSheet === "Achievements";
@@ -649,8 +685,35 @@ export function collectedLength(args) {
   return result;
 }
 
+// アイテムが「花」であるかの判定
+function isFlower(item) {
+  return (
+    item.sourceSheet === "Other" &&
+    item.source &&
+    (item.source.includes("Seed bag") ||
+      item.source.includes("Breeding") ||
+      item.source.includes("5-star town status"))
+  );
+}
+
+// アイテムが「低木」であるかの判定
+function isBush(item) {
+  return (
+    item.sourceSheet === "Other" &&
+    item.source &&
+    item.source.includes("Digging up a fully grown bush")
+  );
+}
+
+// コンプ率の計算対象アイテムの判定
 function filterOtherItem(item) {
-  return item.sourceSheet !== "Other" && item.name.indexOf("Hazure") === -1;
+  if (item.sourceSheet !== "Other") {
+    // Otherシート以外：ミュージックの「はずれ01～03」を除外
+    return item.name.indexOf("Hazure") === -1;
+  } else {
+    // Otherシート：花/低木のみコンプ率に含める
+    return isFlower(item) || isBush(item);
+  }
 }
 
 export function allLength() {

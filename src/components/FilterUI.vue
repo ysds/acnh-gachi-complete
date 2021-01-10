@@ -19,6 +19,7 @@
             <span v-else-if="filter.saleFilter === 'kicks'">シャンク</span>
             <span v-else-if="filter.saleFilter === 'labelle'">ことの</span>
             <span v-else-if="filter.saleFilter === 'daly'">日替わり</span>
+            <span v-else-if="filter.saleFilter === 'recycle'">リサイクル</span>
             <span v-else-if="filter.saleFilter === 'seed'">種袋</span>
             <span v-else-if="filter.saleFilter === 'breeding'">交配</span>
             <img src="../assets/arrow.svg" width="12" alt="" />
@@ -46,6 +47,9 @@
             </DropdownItem>
             <DropdownItem @click="onClickSaleFilter('daly')">
               <span class="tg">日替わり</span>
+            </DropdownItem>
+            <DropdownItem @click="onClickSaleFilter('recycle')">
+              <span class="tg">リサイクル</span>
             </DropdownItem>
           </template>
           <template v-if="isFlower">

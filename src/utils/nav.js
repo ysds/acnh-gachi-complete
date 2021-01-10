@@ -92,7 +92,12 @@ export function filterItems(args) {
           if (!(item.source && item.source.includes("5-star town status")))
             return false;
         } else {
-          if (item.diy || item.catalog === "For sale" || item.catalog === true)
+          if (
+            item.diy ||
+            item.catalog === "For sale" ||
+            item.catalog === true ||
+            (item.source && item.source.includes("Recycle box"))
+          )
             return false;
         }
       }
@@ -120,6 +125,12 @@ export function filterItems(args) {
           item.source &&
           !item.source.includes("Nook Shopping Daily Selection")
         ) {
+          return false;
+        }
+      }
+      // リサイクルボックス
+      else if (filter.saleFilter === "recycle") {
+        if (item.source && !item.source.includes("Recycle box")) {
           return false;
         }
       }

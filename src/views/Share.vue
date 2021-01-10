@@ -12,7 +12,12 @@
     </div>
     <h1 v-if="!isShares" class="header">
       <span class="header-lg">{{ navText }}</span>
-      <div class="header-sm" v-if="isLoaded">（{{ sharedUserName }}さん）</div>
+      <div class="header-sm" v-if="isLoaded">
+        <SharedUserName
+          :sharedUserName="sharedUserName"
+          :sharedIslandName="sharedIslandName"
+        />
+      </div>
     </h1>
     <div v-else>
       <div class="nav-wrapper">
@@ -29,7 +34,12 @@
           </button>
         </nav>
       </div>
-      <div class="header-sm" v-if="isLoaded">（{{ sharedUserName }}さん）</div>
+      <div class="header-sm" v-if="isLoaded">
+        <SharedUserName
+          :sharedUserName="sharedUserName"
+          :sharedIslandName="sharedIslandName"
+        />
+      </div>
     </div>
     <div class="filter">
       <FilterUIShared
@@ -72,6 +82,7 @@
         :filter="filter"
         :isStatic="true"
         :renderStartDate="renderStartDate"
+        :islandName="sharedIslandName"
         @showModal="onShowModal"
       />
     </ul>
@@ -118,6 +129,7 @@ import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
 import Modal from "../components/Modal.vue";
 import ItemModalContent from "../components/ItemModalContent.vue";
+import SharedUserName from "../components/SharedUserName.vue";
 
 const db = firebase.firestore();
 
@@ -129,7 +141,8 @@ export default {
     Login,
     Button,
     Modal,
-    ItemModalContent
+    ItemModalContent,
+    SharedUserName
   },
   data() {
     return {
@@ -164,6 +177,9 @@ export default {
     },
     sharedUserName() {
       return this.$store.getters.sharedUserName;
+    },
+    sharedIslandName() {
+      return this.$store.getters.sharedIslandName;
     },
     sharedShareCategories() {
       const sharedShareCategories =
@@ -260,6 +276,7 @@ export default {
             );
             self.$store.commit("updateSharedCollected", collected);
             self.$store.commit("updateSharedUserName", doc.data().userName);
+            self.$store.commit("updateSharedIslandName", doc.data().islandName);
             self.$store.commit(
               "updateSharedShareCategories",
               doc.data().shareCategories

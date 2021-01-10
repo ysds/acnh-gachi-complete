@@ -2,7 +2,7 @@
   <li :class="filter.viewMode === 'list' ? 'item' : 'tile'">
     <template v-if="filter.viewMode === 'list'">
       <div v-long-press style="position: relative;">
-        <img v-lazy="getImage(item)" class="item-img" />
+        <img v-lazy="itemImage" class="item-img" />
         <img
           class="item-img-remake"
           src="../assets/remake.svg"
@@ -15,7 +15,7 @@
         />
       </div>
       <div class="item-center">
-        {{ item.displayName }}
+        {{ itemName }}
         <template>
           <div
             class="item-variants"
@@ -53,8 +53,8 @@
           v-long-press
         >
           <CheckForTile
-            :name="i === 0 ? item.displayName : ''"
-            :image="getVariantTileImage(item.variants[index])"
+            :name="i === 0 ? itemName : ''"
+            :image="variantImages[index]"
             :value="getChecks(index)"
             :variant="item.variants[index]"
             :variants="item.variants"
@@ -69,8 +69,8 @@
       <ul v-else class="tile-variants">
         <li class="t" v-long-press>
           <CheckForTile
-            :name="item.displayName"
-            :image="getSingeItemImage(item)"
+            :name="itemName"
+            :image="itemImage"
             :value="getChecks(0)"
             :isRecipe="item.sourceSheet === 'Recipes'"
             :isStatic="isStatic"
@@ -110,7 +110,8 @@ export default {
     filter: Object,
     isSearchMode: Boolean,
     renderStartDate: Number,
-    isStatic: Boolean
+    isStatic: Boolean,
+    islandName: String
   },
   directives: {
     "long-press": {
@@ -130,6 +131,57 @@ export default {
     };
   },
   computed: {
+    itemName() {
+      // 島名を置換
+      if (
+        this.islandName &&
+        (this.item.name === "(island name) Icons" ||
+          this.item.name === "(island name) Miles!")
+      ) {
+        return this.item.displayName.replace("○○", this.islandName);
+      } else {
+        return this.item.displayName;
+      }
+    },
+    itemImage() {
+      const item = this.item;
+      if (item.variants) {
+        return this.variantImages[0];
+      } else {
+        if (
+          item.sourceSheet === "Recipes" ||
+          item.sourceSheet === "Reactions"
+        ) {
+          return `https://acnhcdn.com/latest/${item.image}`;
+        } else if (item.iconImage) {
+          return `https://acnhcdn.com/latest/${item.iconImage}`;
+        }
+      }
+      return "";
+    },
+    variantImages() {
+      const variants = this.item.variants;
+      let images = [];
+      if (variants) {
+        variants.forEach(variant => {
+          let image = "";
+          if (variant.stampImage) {
+            image = this.stampUrls[variant.stampImage];
+          } else {
+            image =
+              variant.image ||
+              variant.storageImage ||
+              variant.albumImage ||
+              variant.inventoryImage;
+            if (image !== "") {
+              image = `https://acnhcdn.com/latest/${image}`;
+            }
+          }
+          images.push(image);
+        });
+      }
+      return images;
+    },
     allCheckState: function() {
       const checks = Object.values(this.checks);
       let count2 = 0;
@@ -161,38 +213,6 @@ export default {
     this.filteredCheckIndexes = this.updateFilteredCheckIndexes();
   },
   methods: {
-    getImage: function(item) {
-      let image = "";
-      if (item.variants) {
-        image = this.getVariantTileImage(item.variants[0]);
-      } else {
-        image = this.getSingeItemImage(item);
-      }
-      return image;
-    },
-    getVariantTileImage: function(variant) {
-      if (variant.stampImage) {
-        return this.stampUrls[variant.stampImage];
-      } else {
-        const image =
-          variant.image ||
-          variant.storageImage ||
-          variant.albumImage ||
-          variant.inventoryImage;
-        if (image) {
-          return `https://acnhcdn.com/latest/${image}`;
-        }
-      }
-      return "";
-    },
-    getSingeItemImage: function(item) {
-      if (item.sourceSheet === "Recipes" || item.sourceSheet === "Reactions") {
-        return `https://acnhcdn.com/latest/${item.image}`;
-      } else if (item.iconImage) {
-        return `https://acnhcdn.com/latest/${item.iconImage}`;
-      }
-      return "";
-    },
     updateChecks: function(collected) {
       let result = {};
       const item = this.item;

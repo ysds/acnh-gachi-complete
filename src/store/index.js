@@ -11,12 +11,14 @@ export default new Vuex.Store({
     user: null,
     isLogin: null,
     userName: null,
+    islandName: null,
     localCollectedData: null,
     localUpdateIndex: null,
     cloudCollectedData: null,
     cloudUpdateIndex: null,
     sharedCollected: null,
     sharedUserName: null,
+    sharedIslandName: null,
     shareCategories: [],
     sharedShareCategories: [],
     hasUpdateData: false
@@ -93,11 +95,17 @@ export default new Vuex.Store({
     updateUserName(state, name) {
       state.userName = name;
     },
+    updateIslandName(state, name) {
+      state.islandName = name;
+    },
     updateSharedCollected(state, data) {
       state.sharedCollected = data;
     },
     updateSharedUserName(state, data) {
       state.sharedUserName = data;
+    },
+    updateSharedIslandName(state, data) {
+      state.sharedIslandName = data;
     },
     updateShareCategories(state, data) {
       state.shareCategories = data;
@@ -122,6 +130,9 @@ export default new Vuex.Store({
     userName(state) {
       return state.userName;
     },
+    islandName(state) {
+      return state.islandName;
+    },
     isLogin(state) {
       return state.isLogin;
     },
@@ -142,6 +153,9 @@ export default new Vuex.Store({
     },
     sharedUserName(state) {
       return state.sharedUserName;
+    },
+    sharedIslandName(state) {
+      return state.sharedIslandName;
     },
     shareCategories(state) {
       return state.shareCategories;

@@ -69,6 +69,30 @@
         </div>
       </popper>
     </div>
+    <template v-if="showSeasonFilter">
+      <popper trigger="clickToToggle" :visible-arrow="false" ref="seasonFilter">
+        <div slot="reference" style="position: relative;">
+          <div class="btn-label">シーズン</div>
+          <button
+            type="button"
+            class="dropdown-btn"
+            :class="{ active: isOpenSeasonFilter() }"
+          >
+            <span v-if="filter.seasonFilter === '1'">ON</span>
+            <span v-else-if="filter.seasonFilter === '0'">OFF</span>
+            <img src="../assets/arrow.svg" width="12" alt="" />
+          </button>
+        </div>
+        <div class="dropdown-menu">
+          <DropdownItem @click="onClickSeasonFilter('1')">
+            <span class="tg">シーズンアイテムの表示ON</span>
+          </DropdownItem>
+          <DropdownItem @click="onClickSeasonFilter('0')">
+            <span class="tg">シーズンアイテムの表示OFF</span>
+          </DropdownItem>
+        </div>
+      </popper>
+    </template>
     <div v-if="isShowOrderChanger">
       <Button
         v-if="filter.order === 'name'"
@@ -161,6 +185,10 @@ export default {
       type: Boolean,
       default: false
     },
+    showSeasonFilter: {
+      type: Boolean,
+      default: false
+    },
     currentNav: String
   },
   computed: {
@@ -184,6 +212,10 @@ export default {
       this.$refs.saleFilter.doClose();
       this.$emit("change", Object.assign(this.filter, { saleFilter: value }));
     },
+    onClickSeasonFilter: function(value) {
+      this.$refs.seasonFilter.doClose();
+      this.$emit("change", Object.assign(this.filter, { seasonFilter: value }));
+    },
     onClickCollectedFilter: function(value) {
       this.$emit(
         "change",
@@ -196,6 +228,10 @@ export default {
     isOpenSaleFilter() {
       if (!this.$refs.saleFilter) return false;
       return this.$refs.saleFilter.showPopper;
+    },
+    isOpenSeasonFilter() {
+      if (!this.$refs.seasonFilter) return false;
+      return this.$refs.seasonFilter.showPopper;
     }
   }
 };

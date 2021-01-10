@@ -32,6 +32,20 @@ export function isFilterBySaleType(activeNav) {
   return false;
 }
 
+export function isFilterBySeasonType(activeNav) {
+  if (activeNav) {
+    // マイル家具は表示順ボタンがあり、スペースに余裕がないので表示しない
+    if (activeNav === "housewares-nookmiles") {
+      return false;
+    }
+    const showNavs = ["housewares", "walletc", "fashion"];
+    for (let i = 0; i < showNavs.length; i++) {
+      if (activeNav.indexOf(showNavs[i]) !== -1) return true;
+    }
+  }
+  return false;
+}
+
 export function filterItems(args) {
   let items = itemsJson;
   args = Object.assign(
@@ -133,6 +147,20 @@ export function filterItems(args) {
         if (item.source && !item.source.includes("Recycle box")) {
           return false;
         }
+      }
+    }
+
+    //
+    // シーズンアイテムフィルタ
+    //
+
+    if (isFilterBySeasonType(nav)) {
+      if (
+        filter.seasonFilter === "0" &&
+        item.source &&
+        item.source.includes("Nook Shopping Seasonal")
+      ) {
+        return false;
       }
     }
 
@@ -279,7 +307,7 @@ export function filterItems(args) {
     else if (nav === "walletc-rugs") {
       return item.sourceSheet === "Rugs";
     }
-    // ラグ
+    // 柵
     else if (nav === "walletc-fencing") {
       return item.sourceSheet === "Fencing";
     }
@@ -640,12 +668,13 @@ export function filterItems(args) {
 }
 
 export function totalLength(args) {
-  const { nav, saleFilter } = args;
+  const { nav, saleFilter, seasonFilter } = args;
 
   const totalItems = filterItems({
     nav,
     filter: {
-      saleFilter: saleFilter
+      saleFilter: saleFilter,
+      seasonFilter: seasonFilter
     }
   });
   let result = 0;
@@ -660,13 +689,14 @@ export function totalLength(args) {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, saleFilter } = args;
+  const { collected, nav, saleFilter, seasonFilter } = args;
 
   const collectedItems = filterItems({
     collected,
     nav,
     filter: {
       saleFilter: saleFilter,
+      seasonFilter: seasonFilter,
       collectedFilter: "3"
     }
   });

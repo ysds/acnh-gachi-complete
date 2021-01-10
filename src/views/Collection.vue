@@ -39,6 +39,7 @@
       <FilterUI
         :filter="filter"
         :showSaleFilter="isShowSaleFilter"
+        :showSeasonFilter="isShowSeasonFilter"
         :showPinOption="isShowPinOption"
         :showShareButton="isLogin"
         :currentNav="activeNav"
@@ -112,7 +113,8 @@ import {
   navs,
   totalLength,
   collectedLength,
-  isFilterBySaleType
+  isFilterBySaleType,
+  isFilterBySeasonType
 } from "../utils/nav.js";
 
 import SubNav from "../components/SubNav.vue";
@@ -142,6 +144,7 @@ export default {
     return {
       filter: {
         saleFilter: null,
+        seasonFilter: null,
         collectedFilter: null,
         viewMode: null,
         order: null
@@ -182,6 +185,9 @@ export default {
     isShowSaleFilter() {
       return isFilterBySaleType(this.activeNav);
     },
+    isShowSeasonFilter() {
+      return isFilterBySeasonType(this.activeNav);
+    },
     isShowPinOption() {
       if (this.activeNav) {
         const showNavs = ["special", "season"];
@@ -220,6 +226,9 @@ export default {
       if (filter && filter.saleFilter === null) {
         filter.saleFilter = "all";
       }
+      if (filter && filter.seasonFilter === null) {
+        filter.seasonFilter = "1";
+      }
       if (filter && filter.collectedFilter === null) {
         filter.collectedFilter = "0";
       }
@@ -236,6 +245,7 @@ export default {
       this.filter = Object.assign(
         {
           saleFilter: "all",
+          seasonFilter: "1",
           collectedFilter: "0",
           viewMode: "tile",
           order: "name"
@@ -364,14 +374,16 @@ export default {
     getTotalLength: function() {
       return totalLength({
         nav: this.activeNav,
-        saleFilter: this.filter.saleFilter
+        saleFilter: this.filter.saleFilter,
+        seasonFilter: this.filter.seasonFilter
       });
     },
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
-        saleFilter: this.filter.saleFilter
+        saleFilter: this.filter.saleFilter,
+        seasonFilter: this.filter.seasonFilter
       });
     },
     updateShowItems: function() {

@@ -32,7 +32,7 @@ export function isFilterBySaleType(activeNav) {
   return false;
 }
 
-export function isFilterBySeasonType(activeNav) {
+export function isFilterByCatalogType(activeNav) {
   if (activeNav) {
     // マイル家具は表示順ボタンがあり、スペースに余裕がないので表示しない
     if (activeNav === "housewares-nookmiles") {
@@ -150,12 +150,12 @@ export function filterItems(args) {
     }
 
     //
-    // シーズンアイテムフィルタ
+    // カタログアイテムフィルタ
     //
 
-    if (isFilterBySeasonType(nav)) {
+    if (isFilterByCatalogType(nav)) {
       if (
-        filter.seasonFilter === "0" &&
+        filter.catalogFilter === "1" &&
         item.source &&
         item.source.includes("Nook Shopping Seasonal")
       ) {
@@ -667,13 +667,13 @@ export function filterItems(args) {
 }
 
 export function totalLength(args) {
-  const { nav, saleFilter, seasonFilter } = args;
+  const { nav, saleFilter, catalogFilter } = args;
 
   const totalItems = filterItems({
     nav,
     filter: {
       saleFilter: saleFilter,
-      seasonFilter: seasonFilter
+      catalogFilter: catalogFilter
     }
   });
   let result = 0;
@@ -688,14 +688,14 @@ export function totalLength(args) {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, saleFilter, seasonFilter } = args;
+  const { collected, nav, saleFilter, catalogFilter } = args;
 
   const collectedItems = filterItems({
     collected,
     nav,
     filter: {
       saleFilter: saleFilter,
-      seasonFilter: seasonFilter,
+      catalogFilter: catalogFilter,
       collectedFilter: "3"
     }
   });

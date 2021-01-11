@@ -37,7 +37,7 @@
       <FilterUIShared
         :filter="filter"
         :showSaleFilter="isShowSaleFilter"
-        :showSeasonFilter="isShowSeasonFilter"
+        :showCatalogFilter="isShowCatalogFilter"
         :currentNav="nav"
         @change="onChangeFilter"
       />
@@ -113,7 +113,7 @@ import {
   getNavText,
   navs,
   isFilterBySaleType,
-  isFilterBySeasonType
+  isFilterByCatalogType
 } from "../utils/nav.js";
 
 import Item from "../components/Item.vue";
@@ -143,7 +143,7 @@ export default {
       nav: null,
       filter: {
         saleFilter: "all",
-        seasonFilter: "1",
+        catalogFilter: "0",
         collectedFilter: "0",
         viewMode: "tile",
         order: "id"
@@ -217,8 +217,8 @@ export default {
     isShowSaleFilter() {
       return isFilterBySaleType(this.nav);
     },
-    isShowSeasonFilter() {
-      return isFilterBySeasonType(this.nav);
+    isShowCatalogFilter() {
+      return isFilterByCatalogType(this.nav);
     },
     isLogin() {
       return this.$store.getters.isLogin;
@@ -339,7 +339,7 @@ export default {
       return totalLength({
         nav: this.nav,
         saleFilter: this.filter.saleFilter,
-        seasonFilter: this.filter.seasonFilter
+        catalogFilter: this.filter.catalogFilter
       });
     },
     getCollectedLength: function() {
@@ -347,7 +347,7 @@ export default {
         collected: Object.assign({}, this.sharedCollected),
         nav: this.nav,
         saleFilter: this.filter.saleFilter,
-        seasonFilter: this.filter.seasonFilter
+        catalogFilter: this.filter.catalogFilter
       });
     },
     changeNav(category) {

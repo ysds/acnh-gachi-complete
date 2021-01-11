@@ -69,26 +69,26 @@
         </div>
       </popper>
     </div>
-    <template v-if="showSeasonFilter">
-      <popper trigger="clickToToggle" :visible-arrow="false" ref="seasonFilter">
+    <template v-if="showCatalogFilter">
+      <popper trigger="clickToToggle" :visible-arrow="false" ref="catalogFilter">
         <div slot="reference" style="position: relative;">
-          <div class="btn-label">シーズン</div>
+          <div class="btn-label"><IconCatalog />モード</div>
           <button
             type="button"
             class="dropdown-btn"
-            :class="{ active: isOpenSeasonFilter() }"
+            :class="{ active: isOpenCatalogFilter() }"
           >
-            <span v-if="filter.seasonFilter === '1'">ON</span>
-            <span v-else-if="filter.seasonFilter === '0'">OFF</span>
+            <span v-if="filter.catalogFilter === '0'">OFF</span>
+            <span v-else-if="filter.catalogFilter === '1'">ON</span>
             <img src="../assets/arrow.svg" width="12" alt="" />
           </button>
         </div>
         <div class="dropdown-menu">
-          <DropdownItem @click="onClickSeasonFilter('1')">
-            <span class="tg">シーズンアイテムの表示ON</span>
+          <DropdownItem @click="onClickCatalogFilter('0')">
+            <span class="tg">OFF：すべてのアイテムを表示</span>
           </DropdownItem>
-          <DropdownItem @click="onClickSeasonFilter('0')">
-            <span class="tg">シーズンアイテムの表示OFF</span>
+          <DropdownItem @click="onClickCatalogFilter('1')">
+            <span class="tg">ON：カタログアイテムのみ表示</span>
           </DropdownItem>
         </div>
       </popper>
@@ -178,7 +178,7 @@ export default {
       type: Boolean,
       default: false
     },
-    showSeasonFilter: {
+    showCatalogFilter: {
       type: Boolean,
       default: false
     },
@@ -205,9 +205,9 @@ export default {
       this.$refs.saleFilter.doClose();
       this.$emit("change", Object.assign(this.filter, { saleFilter: value }));
     },
-    onClickSeasonFilter: function(value) {
-      this.$refs.seasonFilter.doClose();
-      this.$emit("change", Object.assign(this.filter, { seasonFilter: value }));
+    onClickCatalogFilter: function(value) {
+      this.$refs.catalogFilter.doClose();
+      this.$emit("change", Object.assign(this.filter, { catalogFilter: value }));
     },
     onClickCollectedFilter: function(value) {
       this.$emit(
@@ -222,9 +222,9 @@ export default {
       if (!this.$refs.saleFilter) return false;
       return this.$refs.saleFilter.showPopper;
     },
-    isOpenSeasonFilter() {
-      if (!this.$refs.seasonFilter) return false;
-      return this.$refs.seasonFilter.showPopper;
+    isOpenCatalogFilter() {
+      if (!this.$refs.catalogFilter) return false;
+      return this.$refs.catalogFilter.showPopper;
     }
   }
 };
@@ -243,7 +243,7 @@ export default {
   top: 0;
   left: 5px;
   z-index: 2;
-  padding: 0 2px;
+  padding: 2px;
   font-size: 10px;
   background-color: white;
   border-radius: 8px;
@@ -254,7 +254,7 @@ export default {
 .dropdown-btn {
   display: inline-flex;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 8px;
   margin-right: 0.5rem;
   min-width: 60px;
   padding: 0.7em 0.3rem 0.2rem 0.4rem;

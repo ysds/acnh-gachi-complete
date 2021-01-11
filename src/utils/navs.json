@@ -158,6 +158,22 @@
     ]
   },
   {
+    "id": "plants",
+    "text": "花/低木",
+    "subnavs": [
+      {
+        "id": "plants-flowers",
+        "text": "花",
+        "order": 1
+      },
+      {
+        "id": "plants-bushes",
+        "text": "低木",
+        "order": 2
+      }
+    ]
+  },
+  {
     "id": "special",
     "text": "来訪者",
     "subnavs": [
@@ -356,22 +372,6 @@
   {
     "id": "achievements",
     "text": "たぬきマイレージ"
-  },
-  {
-    "id": "plants",
-    "text": "花/低木",
-    "subnavs": [
-      {
-        "id": "plants-flowers",
-        "text": "花",
-        "order": 1
-      },
-      {
-        "id": "plants-bushes",
-        "text": "低木",
-        "order": 2
-      }
-    ]
   },
   {
     "id": "versions",

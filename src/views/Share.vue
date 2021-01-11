@@ -10,37 +10,29 @@
         </template>
       </Button>
     </div>
-    <h1 v-if="!isShares" class="header">
-      <span class="header-lg">{{ navText }}</span>
-      <div class="header-sm" v-if="isLoaded">
-        <SharedUserName
-          :sharedUserName="sharedUserName"
-          :sharedIslandName="sharedIslandName"
-        />
-      </div>
+    <h1 v-if="!isShares" class="heading">
+      {{ navText }}
     </h1>
-    <div v-else>
-      <div class="nav-wrapper">
-        <nav class="nav">
-          <button
-            type="button"
-            class="nav-item"
-            :class="{ active: nav === category }"
-            v-for="category in sharedShareCategories"
-            :key="category"
-            @click="changeNav(category)"
-          >
-            {{ getNavText(category) }}
-          </button>
-        </nav>
-      </div>
-      <div class="header-sm" v-if="isLoaded">
-        <SharedUserName
-          :sharedUserName="sharedUserName"
-          :sharedIslandName="sharedIslandName"
-        />
-      </div>
+    <div v-else class="nav-wrapper">
+      <nav class="nav">
+        <button
+          type="button"
+          class="nav-item"
+          :class="{ active: nav === category }"
+          v-for="category in sharedShareCategories"
+          :key="category"
+          @click="changeNav(category)"
+        >
+          {{ getNavText(category) }}
+        </button>
+      </nav>
     </div>
+    <SharedUserName
+      v-if="isLoaded"
+      :sharedUserName="sharedUserName"
+      :sharedIslandName="sharedIslandName"
+      style="padding: 0.5rem 1rem;"
+    />
     <div class="filter">
       <FilterUIShared
         :filter="filter"
@@ -425,7 +417,7 @@ export default {
   }
 }
 
-.header {
+.heading {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -433,20 +425,8 @@ export default {
   font-size: 28px;
   font-weight: 700;
   word-break: break-all;
-}
-
-.header-lg {
-  display: inline-flex;
-  padding: 0.1rem 0 0.1rem 1rem;
+  padding: 0 1rem;
   color: #000;
-}
-
-.header-sm {
-  margin: 0.5rem 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: #555;
-  padding: 0.1rem 0.5rem;
 }
 
 .filter {
@@ -503,10 +483,6 @@ export default {
 
 .nav-wrapper {
   display: flex;
-
-  ~ .header-sm {
-    margin-top: 0;
-  }
 }
 
 .nav {

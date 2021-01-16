@@ -1,18 +1,18 @@
 <template>
   <div class="d-flex" :class="{ 'toolbar-share': isShareView }">
-    <span v-show="saleFilterItems.length > 0">
-      <Popper ref="saleFilter">
+    <span v-show="typeFilterItems.length > 0">
+      <Popper ref="typeFilter">
         <template slot="reference">
-          <Button dropdown sm :active="isOpenSaleFilter()">
-            <span v-html="saleFilterLabel" />
+          <Button dropdown sm :active="isOpenTypeFilter()">
+            <span v-html="typeFilterLabel" />
           </Button>
         </template>
         <DropdownMenu>
           <DropdownItem
-            v-for="saleFilterItem in saleFilterItems"
-            v-html="saleFilterItem.label"
-            :key="saleFilterItem.id"
-            @click="onClickSaleFilter(saleFilterItem.id)"
+            v-for="typeFilterItem in typeFilterItems"
+            v-html="typeFilterItem.label"
+            :key="typeFilterItem.id"
+            @click="onClickTypeFilter(typeFilterItem.id)"
           />
         </DropdownMenu>
       </Popper>
@@ -88,9 +88,9 @@ import DropdownMenu from "./DropdownMenu";
 import DropdownItem from "./DropdownItem";
 
 import {
-  saleFilters,
+  typeFilters,
   collectedFilters,
-  getSaleFilterItems
+  getTypeFilterItems
 } from "../utils/filter";
 
 export default {
@@ -111,9 +111,9 @@ export default {
     };
   },
   computed: {
-    saleFilterLabel() {
-      const matchedFilters = saleFilters.filter(
-        obj => obj.id === this.filter.saleFilter
+    typeFilterLabel() {
+      const matchedFilters = typeFilters.filter(
+        obj => obj.id === this.filter.typeFilter
       );
       if (matchedFilters.length === 1) {
         return matchedFilters[0].btnLabel || matchedFilters[0].label;
@@ -121,8 +121,8 @@ export default {
         return "";
       }
     },
-    saleFilterItems() {
-      return getSaleFilterItems(this.activeNav);
+    typeFilterItems() {
+      return getTypeFilterItems(this.activeNav);
     },
     collectedFilterLabel() {
       const matchedFilters = collectedFilters.filter(
@@ -144,9 +144,9 @@ export default {
     }
   },
   methods: {
-    onClickSaleFilter(value) {
-      if (this.$refs.saleFilter) this.$refs.saleFilter.doClose();
-      this.$emit("change", Object.assign(this.filter, { saleFilter: value }));
+    onClickTypeFilter(value) {
+      if (this.$refs.typeFilter) this.$refs.typeFilter.doClose();
+      this.$emit("change", Object.assign(this.filter, { typeFilter: value }));
     },
     onClickCollectedFilter(value) {
       if (this.$refs.collectedFilter) this.$refs.collectedFilter.doClose();
@@ -158,9 +158,9 @@ export default {
     onClickOrderButton(value) {
       this.$emit("change", Object.assign(this.filter, { order: value }));
     },
-    isOpenSaleFilter() {
-      if (!this.$refs.saleFilter) return false;
-      return this.$refs.saleFilter.isShowPopper();
+    isOpenTypeFilter() {
+      if (!this.$refs.typeFilter) return false;
+      return this.$refs.typeFilter.isShowPopper();
     },
     isOpenCollectedFilter() {
       if (!this.$refs.collectedFilter) return false;

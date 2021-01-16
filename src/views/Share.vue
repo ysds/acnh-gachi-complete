@@ -142,7 +142,7 @@ export default {
     return {
       nav: null,
       filter: {
-        saleFilter: "all",
+        typeFilter: "all",
         collectedFilter: "0",
         viewMode: "tile",
         order: "id"
@@ -331,20 +331,20 @@ export default {
     getTotalLength: function() {
       return totalLength({
         nav: this.nav,
-        saleFilter: this.filter.saleFilter
+        typeFilter: this.filter.typeFilter
       });
     },
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.sharedCollected),
         nav: this.nav,
-        saleFilter: this.filter.saleFilter
+        typeFilter: this.filter.typeFilter
       });
     },
     changeNav(category) {
-      // Reset saleFilter
-      if (isAvailableFilter(this.activeNav, this.filter.saleFilter)) {
-        this.filter.saleFilter = "all";
+      // Reset typeFilter
+      if (isAvailableFilter(this.activeNav, this.filter.typeFilter)) {
+        this.filter.typeFilter = "all";
       }
       this.nav = category;
       this.updateShowItems();

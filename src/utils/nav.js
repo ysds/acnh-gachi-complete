@@ -53,7 +53,7 @@ export function filterItems(args) {
 
     if (filter) {
       // 商店
-      if (filter.saleFilter === "catalog") {
+      if (filter.typeFilter === "catalog") {
         if (
           item.catalog === "Not for sale" ||
           item.catalog === "Not in catalog"
@@ -61,23 +61,23 @@ export function filterItems(args) {
           return false;
       }
       // DIY
-      else if (filter.saleFilter === "diy") {
+      else if (filter.typeFilter === "diy") {
         if (!item.diy) return false;
       }
       // 種袋
-      else if (filter.saleFilter === "seed") {
+      else if (filter.typeFilter === "seed") {
         if (item.source && !item.source.includes("Seed bag")) {
           return false;
         }
       }
       // 交配
-      else if (filter.saleFilter === "breeding") {
+      else if (filter.typeFilter === "breeding") {
         if (item.source && !item.source.includes("Breeding")) {
           return false;
         }
       }
       // その他
-      else if (filter.saleFilter === "other") {
+      else if (filter.typeFilter === "other") {
         if (nav === "plants-flowers") {
           if (!(item.source && item.source.includes("5-star town status")))
             return false;
@@ -91,25 +91,25 @@ export function filterItems(args) {
         }
       }
       // エイブル
-      else if (filter.saleFilter === "able") {
+      else if (filter.typeFilter === "able") {
         if (item.source && !item.source.includes("Able Sisters")) {
           return false;
         }
       }
       // シャンク
-      else if (filter.saleFilter === "kicks") {
+      else if (filter.typeFilter === "kicks") {
         if (item.source && !item.source.includes("Kicks")) {
           return false;
         }
       }
       // ことの
-      else if (filter.saleFilter === "labelle") {
+      else if (filter.typeFilter === "labelle") {
         if (item.source && !item.source.includes("Label")) {
           return false;
         }
       }
       // 日替わり
-      else if (filter.saleFilter === "daly") {
+      else if (filter.typeFilter === "daly") {
         if (
           item.source &&
           !item.source.includes("Nook Shopping Daily Selection")
@@ -118,7 +118,7 @@ export function filterItems(args) {
         }
       }
       // リサイクルボックス
-      else if (filter.saleFilter === "recycle") {
+      else if (filter.typeFilter === "recycle") {
         if (item.source && !item.source.includes("Recycle box")) {
           return false;
         }
@@ -629,12 +629,12 @@ export function filterItems(args) {
 }
 
 export function totalLength(args) {
-  const { nav, saleFilter } = args;
+  const { nav, typeFilter } = args;
 
   const totalItems = filterItems({
     nav,
     filter: {
-      saleFilter: saleFilter
+      typeFilter: typeFilter
     }
   });
   let result = 0;
@@ -649,13 +649,13 @@ export function totalLength(args) {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, saleFilter } = args;
+  const { collected, nav, typeFilter } = args;
 
   const collectedItems = filterItems({
     collected,
     nav,
     filter: {
-      saleFilter: saleFilter,
+      typeFilter: typeFilter,
       collectedFilter: "3"
     }
   });

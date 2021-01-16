@@ -152,7 +152,7 @@ export default {
   data() {
     return {
       filter: {
-        saleFilter: null,
+        typeFilter: null,
         collectedFilter: null,
         viewMode: null,
         order: null
@@ -216,8 +216,8 @@ export default {
         self.$vlf.getItem("pins")
       ]);
 
-      if (filter && filter.saleFilter === null) {
-        filter.saleFilter = "all";
+      if (filter && filter.typeFilter === null) {
+        filter.typeFilter = "all";
       }
       if (filter && filter.collectedFilter === null) {
         filter.collectedFilter = "0";
@@ -228,13 +228,13 @@ export default {
       if (filter && filter.order === null) {
         filter.order = "name";
       }
-      if (filter && filter.saleFilter && filter.saleFilter.match(/[012345]/g)) {
-        filter.saleFilter = "all";
+      if (filter && filter.typeFilter && filter.typeFilter.match(/[012345]/g)) {
+        filter.typeFilter = "all";
       }
 
       this.filter = Object.assign(
         {
-          saleFilter: "all",
+          typeFilter: "all",
           collectedFilter: "0",
           viewMode: "tile",
           order: "name"
@@ -314,9 +314,9 @@ export default {
       this.$copyText(names);
     },
     onChangeNav() {
-      // Reset saleFilter
-      if (isAvailableFilter(this.activeNav, this.filter.saleFilter)) {
-        this.filter.saleFilter = "all";
+      // Reset typeFilter
+      if (isAvailableFilter(this.activeNav, this.filter.typeFilter)) {
+        this.filter.typeFilter = "all";
         this.$vlf.setItem("filter", this.filter);
       }
 
@@ -361,14 +361,14 @@ export default {
     getTotalLength: function() {
       return totalLength({
         nav: this.activeNav,
-        saleFilter: this.filter.saleFilter
+        typeFilter: this.filter.typeFilter
       });
     },
     getCollectedLength: function() {
       return collectedLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
-        saleFilter: this.filter.saleFilter
+        typeFilter: this.filter.typeFilter
       });
     },
     updateShowItems: function() {

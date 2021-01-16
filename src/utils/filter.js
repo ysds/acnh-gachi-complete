@@ -1,4 +1,4 @@
-export const saleFilters = [
+export const typeFilters = [
   {
     id: "all",
     label: "すべて",
@@ -46,9 +46,9 @@ export const collectedFilters = [
 ];
 
 // nav に応じて利用可能なフィルター項目配列を返す
-export function getSaleFilterItems(nav) {
+export function getTypeFilterItems(nav) {
   if (nav) {
-    return saleFilters.filter(obj => {
+    return typeFilters.filter(obj => {
       const regex = new RegExp(`.*(${obj.show.join(["|"])}).*`, "g");
       return nav.match(regex);
     });
@@ -59,7 +59,7 @@ export function getSaleFilterItems(nav) {
 
 // 指定された nav で指定された filter が利用可能かどうか
 export function isAvailableFilter(nav, filter) {
-  const filters = getSaleFilterItems(nav);
+  const filters = getTypeFilterItems(nav);
   const matchedFilters = filters.filter(obj => obj.id === filter);
   return matchedFilters.length === 0;
 }

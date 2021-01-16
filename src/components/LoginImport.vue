@@ -13,14 +13,9 @@
     </p>
     <div class="small">{{ message }}</div>
     <div style="text-align: center;">
-      <button
-        type="button"
-        class="btn"
-        :disabled="!isEnableButton"
-        @click="runImport"
-      >
+      <Button cta :disabled="!isEnableButton" @click="runImport">
         インポート
-      </button>
+      </Button>
     </div>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template slot="header">
@@ -235,27 +230,6 @@ export default {
   border: 1px solid #ccc;
   border-radius: 3px;
   appearance: none;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  min-height: 50px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  padding: 0 1rem;
-  border: 1px solid #ccc;
-  border-radius: 1rem;
-  background-color: #fff;
-  color: #007bff;
-  font-weight: 700;
-
-  &:disabled {
-    opacity: 0.4;
-  }
 }
 
 .small {

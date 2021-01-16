@@ -13,11 +13,11 @@
       <template v-if="isLogin && user">
         <img :src="user.photoURL" alt="Avatar" class="avatar" />
       </template>
-      <template v-else-if="isLogin === false">
+      <div v-else-if="isLogin === false" class="mb-6">
         <p style="font-size: 14px;">
           ログインすると、データが自動的にクラウドに保存され、シェア機能を使えるようになります。
         </p>
-        <button type="button" class="btn" @click="login('google')">
+        <Button block @click="login('google')">
           <img
             src="../assets/google.svg"
             width="24px"
@@ -25,8 +25,8 @@
             style="margin-right: 1rem"
           />
           Google でログイン
-        </button>
-        <button type="button" class="btn" @click="login('twitter')">
+        </Button>
+        <Button block @click="login('twitter')">
           <img
             src="../assets/Twitter_Logo_Blue.svg"
             width="40px"
@@ -34,8 +34,8 @@
             style="margin-right: .5rem"
           />
           Twitter でログイン
-        </button>
-      </template>
+        </Button>
+      </div>
       <div class="section">
         <div class="section-label mb-4">コンプ率</div>
         <LoginCollected />
@@ -70,17 +70,12 @@
               v-model="editingName"
               ref="userName"
             />
-            <button class="edit-btn" type="button" @click="cancelName">
+            <Button form secondary @click="cancelName">
               キャンセル
-            </button>
-            <button
-              class="edit-btn"
-              type="button"
-              @click="saveName"
-              style="margin-left: 1rem;"
-            >
+            </Button>
+            <Button form primary @click="saveName" style="margin-left: 1rem;">
               保存
-            </button>
+            </Button>
           </div>
           <p class="small">
             シェア機能使用時に相手に表示されます。
@@ -121,17 +116,17 @@
               />
               島
             </div>
-            <button class="edit-btn" type="button" @click="cancelIslandName">
+            <Button form secondary @click="cancelIslandName">
               キャンセル
-            </button>
-            <button
-              class="edit-btn"
-              type="button"
+            </Button>
+            <Button
+              form
+              primary
               @click="saveIslandName"
               style="margin-left: 1rem;"
             >
               保存
-            </button>
+            </Button>
           </div>
           <p class="small">
             シェア機能使用時に相手に表示されます。
@@ -148,15 +143,15 @@
             >
           </div>
           <div style="text-align: center;">
-            <a
-              class="btn"
+            <Button
+              cta
               :href="
                 `https://twitter.com/intent/tweet?text=取得状況%0ahttps://ysds.github.io/acnh-gachi-complete/shares/?uid=${user.uid}%0a%0a%23あつ森ガチコンプ`
               "
               style="margin: 0 0 1rem;"
             >
               Twitter に投稿する
-            </a>
+            </Button>
           </div>
           <p class="small">
             この URL
@@ -205,10 +200,10 @@
         <login-import />
       </div>
       <template v-if="isLogin && user">
-        <button type="button" class="btn" @click="logout">
+        <Button block @click="logout">
           ログアウト
-        </button>
-        <p class="small">
+        </Button>
+        <p class="small mt-4">
           ログアウトするとブラウザに保存されているデータはクリアされます。再度ログインすることで、クラウドからデータを復元できます。
         </p>
       </template>
@@ -392,33 +387,6 @@ export default {
   border: 1px solid #ccc;
   border-radius: 3px;
   appearance: none;
-}
-
-.edit-btn {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.3;
-  color: #42b983;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  min-height: 50px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 0 1rem;
-  border: 1px solid #ccc;
-  border-radius: 1rem;
-  background-color: #fff;
-  font-weight: 700;
 }
 
 .small {

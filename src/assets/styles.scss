@@ -6,42 +6,18 @@ body {
   overflow-x: hidden;
 }
 
-.flat-btn {
-  flex-shrink: 0;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  height: 44px;
-  min-width: 44px;
-  text-align: center;
-  text-decoration: none;
-  line-height: 44px;
-  background-color: transparent;
-  border: 0;
-  border-radius: 8px;
-  color: #444;
-  font-weight: 700;
-  transition: background-color .3s;
-  user-select: none;
+.tg {
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  line-height: 1.3;
+}
 
-  &.pressed {
-    background-color: #e3e3e3;
-  }
+.tg-gr {
+  background-color: #b6ecd4;
+}
 
-  &:hover,
-  &:active {
-    color: #444;
-    text-decoration: none;
-  }
-
-  &:focus {
-    outline: 0;
-    background-color: #e3e3e3;
-  }
-
-  > svg {
-    margin-top: -5px;
-    pointer-events: none;
-  }
+.tg-bl {
+  background-color: #a0cbff;
 }
 
 .d-flex {
@@ -52,6 +28,18 @@ body {
   align-items: center;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 2rem;
 }

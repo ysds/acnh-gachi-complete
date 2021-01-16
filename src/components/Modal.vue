@@ -78,22 +78,6 @@ export default {
   a {
     user-select: text;
   }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 400px;
-    min-height: 50px;
-    margin-top: 1rem;
-    padding: 0 1rem;
-    border: 1px solid #ccc;
-    border-radius: 1rem;
-    background-color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-  }
 }
 
 .modal-default-button {

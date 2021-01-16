@@ -10,17 +10,12 @@
       </Button>
       <div v-else style="margin-bottom: .5rem;">
         <div>
-          <button class="edit-btn" type="button" @click="cancel">
+          <Button secondary form @click="cancel">
             キャンセル
-          </button>
-          <button
-            class="edit-btn"
-            type="button"
-            @click="save"
-            style="margin-left: 1rem;"
-          >
+          </Button>
+          <Button primary form @click="save" style="margin-left: 1rem;">
             保存
-          </button>
+          </Button>
         </div>
         <p class="message">変更を反映するには保存を押してください。</p>
       </div>
@@ -117,17 +112,6 @@ export default {
   &.active svg {
     transform: rotate(180deg);
   }
-}
-
-.edit-btn {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.3;
-  color: #42b983;
 }
 
 .message {

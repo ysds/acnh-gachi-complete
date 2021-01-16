@@ -31,11 +31,13 @@ export default {
   padding: 0.5rem;
   background-color: transparent;
   border: 0;
+  border-radius: 8px;
   outline: 0;
   text-align: left;
   transition: background-color 0.15s;
   white-space: nowrap;
 
+  &:active,
   &.active {
     background-color: #e3e3e3;
   }

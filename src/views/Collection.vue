@@ -36,18 +36,21 @@
       v-show="!isSearchMode && activeNav"
     />
     <div v-show="!isSearchMode && activeNav">
-      <FilterUI
-        :filter="filter"
-        :showSaleFilter="isShowSaleFilter"
-        :showPinOption="isShowPinOption"
-        :showShareButton="isLogin"
-        :currentNav="activeNav"
-        :pins="pins"
-        @change="onChangeFilter"
-        @clickBatchAction="onClickItemCheckBatchAction"
-        @clickCopyName="onClickCopyName"
-        @changePin="onChangePin"
-      />
+      <div class="d-flex">
+        <div class="toolbar">
+          <ToolbarFilter
+            :filter="filter"
+            :activeNav="activeNav"
+            @change="onChangeFilter"
+          />
+          <ToolbarShare v-if="isLogin" />
+          <ToolbarPin :pins="pins" @changePin="onChangePin" />
+          <ToolbarBatch
+            @clickCopyName="onClickCopyName"
+            @clickBatchAction="onClickItemCheckBatchAction"
+          />
+        </div>
+      </div>
       <CollectedBar
         :totalValue="getTotalLength()"
         :value="getCollectedLength()"
@@ -102,6 +105,8 @@
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
       </template>
     </Modal>
+    <portal-target name="shareModal"></portal-target>
+    <portal-target name="batchModal"></portal-target>
     <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
   </div>
 </template>
@@ -111,15 +116,18 @@ import {
   filterItems,
   navs,
   totalLength,
-  collectedLength,
-  isFilterBySaleType
+  collectedLength
 } from "../utils/nav.js";
+import { isAvailableFilter } from "../utils/filter";
 
 import SubNav from "../components/SubNav.vue";
 import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
 import SearchBox from "../components/SearchBox.vue";
-import FilterUI from "../components/FilterUI.vue";
+import ToolbarFilter from "../components/ToolbarFilter.vue";
+import ToolbarShare from "../components/ToolbarShare.vue";
+import ToolbarPin from "../components/ToolbarPin.vue";
+import ToolbarBatch from "../components/ToolbarBatch.vue";
 import Item from "../components/Item.vue";
 import Modal from "../components/Modal.vue";
 import CollectedBar from "../components/CollectedBar.vue";
@@ -132,7 +140,10 @@ export default {
     Login,
     Button,
     SearchBox,
-    FilterUI,
+    ToolbarFilter,
+    ToolbarShare,
+    ToolbarPin,
+    ToolbarBatch,
     Item,
     Modal,
     CollectedBar,
@@ -179,18 +190,6 @@ export default {
     islandName() {
       return this.$store.getters.islandName;
     },
-    isShowSaleFilter() {
-      return isFilterBySaleType(this.activeNav);
-    },
-    isShowPinOption() {
-      if (this.activeNav) {
-        const showNavs = ["special", "season"];
-        for (let i = 0; i < showNavs.length; i++) {
-          if (this.activeNav.indexOf(showNavs[i]) !== -1) return true;
-        }
-      }
-      return false;
-    },
     isVersion() {
       if (this.activeNav) {
         if (this.activeNav.indexOf("versions") !== -1) return true;
@@ -199,8 +198,8 @@ export default {
     }
   },
   watch: {
-    activeNav(nav, prev) {
-      this.onChangeNav(nav, prev);
+    activeNav() {
+      this.onChangeNav();
     }
   },
   async mounted() {
@@ -314,15 +313,13 @@ export default {
       }
       this.$copyText(names);
     },
-    onChangeNav: function(activeNav, prevNav) {
+    onChangeNav() {
       // Reset saleFilter
-      if (prevNav) {
-        const prevCategory = prevNav.split("-")[0];
-        if (activeNav.indexOf(prevCategory) === -1) {
-          this.filter.saleFilter = "all";
-          this.$vlf.setItem("filter", this.filter);
-        }
+      if (isAvailableFilter(this.activeNav, this.filter.saleFilter)) {
+        this.filter.saleFilter = "all";
+        this.$vlf.setItem("filter", this.filter);
       }
+
       this.updateShowItems();
     },
     onChangeView: function() {
@@ -493,5 +490,19 @@ export default {
   width: 32px;
   height: 32px;
   border-radius: 50%;
+}
+
+.toolbar {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 0 0.5rem 1rem;
+  overflow-x: auto;
+  line-height: 1;
+  -webkit-overflow-scrolling: touch;
+
+  &::after {
+    content: "";
+    padding-left: 1rem;
+  }
 }
 </style>

@@ -5,6 +5,7 @@ import VueLazyload from "vue-lazyload";
 import VueAnalytics from "vue-analytics";
 import VueClipboard from "vue-clipboard2";
 import InfiniteLoading from "vue-infinite-loading";
+import PortalVue from "portal-vue";
 
 import "bootstrap/dist/css/bootstrap-reboot.min.css";
 import "./assets/styles.scss";
@@ -24,6 +25,7 @@ Vue.use(VueAnalytics, {
   router
 });
 Vue.use(InfiniteLoading);
+Vue.use(PortalVue);
 
 new Vue({
   router,

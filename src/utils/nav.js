@@ -22,16 +22,6 @@ function normalizeText(string) {
 
 export { navs };
 
-export function isFilterBySaleType(activeNav) {
-  if (activeNav) {
-    const showNavs = ["housewares", "walletc", "fashion", "plants-flowers"];
-    for (let i = 0; i < showNavs.length; i++) {
-      if (activeNav.indexOf(showNavs[i]) !== -1) return true;
-    }
-  }
-  return false;
-}
-
 export function filterItems(args) {
   let items = itemsJson;
   args = Object.assign(
@@ -61,8 +51,8 @@ export function filterItems(args) {
     // 取得方法
     //
 
-    // 商店
-    if (isFilterBySaleType(nav)) {
+    if (filter) {
+      // 商店
       if (filter.saleFilter === "catalog") {
         if (
           item.catalog === "Not for sale" ||

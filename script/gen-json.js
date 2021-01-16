@@ -225,9 +225,11 @@ allItems.forEach(item => {
   if (item.source) {
     item.sourceJa = [];
     item.source.forEach(source => {
-      item.sourceJa.push(translation.source[source]);
       if (source !== "" && translation.source[source] === undefined) {
-        console.log(`NoSource: ${item.name}: ${source}`);
+        newTranslation.source[source] = "";
+      } else {
+        item.sourceJa.push(translation.source[source]);
+        delete removeTranslation.source[source];
       }
     });
   }
@@ -484,6 +486,7 @@ fs.writeFileSync("./src/assets/items.json", allItems);
 // Update custom translation files
 //
 
+customTranslations.push("source");
 customTranslations.forEach(translationKey => {
   const unordered = newTranslation[translationKey];
 

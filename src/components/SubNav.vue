@@ -130,7 +130,7 @@ export default {
 
     svg {
       position: absolute;
-      top: calc(50% - 8px);
+      top: calc(50% - 9px);
       left: 12px;
       width: 16px;
       height: 16px;

@@ -51,6 +51,18 @@ const filterOtherItem = function(item) {
   }
 };
 
+const calcTotalLength = function(items) {
+  let result = 0;
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].variants) {
+      result += items[i].variants.length;
+    } else {
+      result++;
+    }
+  }
+  return result;
+};
+
 const calcCollectedLength = function(collected, items) {
   let result = 0;
   for (let i = 0; i < items.length; i++) {
@@ -648,27 +660,24 @@ export function filterItems(args) {
 
 export function totalLength(args) {
   const { nav, typeFilter } = args;
-
-  const totalItems = filterItems({
+  const items = filterItems({
     nav,
     filter: {
       typeFilter: typeFilter
     }
   });
-  let result = 0;
-  for (let i = 0; i < totalItems.length; i++) {
-    if (totalItems[i].variants) {
-      result += totalItems[i].variants.length;
-    } else {
-      result++;
-    }
-  }
-  return result;
+
+  return calcTotalLength(items);
+}
+
+export function allLength() {
+  const items = itemsJson.filter(filterOtherItem);
+
+  return calcTotalLength(items);
 }
 
 export function collectedLength(args) {
   const { collected, nav, typeFilter } = args;
-
   const collectedItems = filterItems({
     collected,
     nav,
@@ -679,20 +688,6 @@ export function collectedLength(args) {
   });
 
   return calcCollectedLength(collected, collectedItems);
-}
-
-export function allLength() {
-  const items = itemsJson.filter(filterOtherItem);
-
-  let result = 0;
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].variants) {
-      result += items[i].variants.length;
-    } else {
-      result++;
-    }
-  }
-  return result;
 }
 
 export function allCollectedLength(collected) {

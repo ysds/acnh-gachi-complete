@@ -5,19 +5,113 @@ export const typeFilters = [
     btnLabel: "フィルタ",
     show: ["housewares", "walletc", "fashion", "flowers"]
   },
-  { id: "catalog", label: "お店&カタログ", show: ["housewares", "walletc"] },
-  { id: "able", label: "エイブル", show: ["fashion"] },
-  { id: "kicks", label: "シャンク", show: ["fashion"] },
-  { id: "labelle", label: "ことの", show: ["fashion"] },
-  { id: "daly", label: "日替わり", show: ["fashion"] },
-  { id: "recycle", label: "リサイクルボックス", show: ["fashion"] },
-  { id: "seed", label: "種袋", show: ["flowers"] },
-  { id: "breeding", label: "交配", show: ["flowers"] },
-  { id: "diy", label: "DIY", show: ["housewares", "walletc", "fashion"] },
   {
-    id: "other",
+    id: "catalog",
+    label: "カタログ",
+    show: ["housewares", "walletc", "fashion"],
+    filter: function(item) {
+      return item.catalog === "For sale" || item.catalog === "Not for sale";
+    }
+  },
+  {
+    id: "catalog-buyable",
+    label: "カタログ（購入可）",
+    show: ["housewares", "walletc", "fashion"],
+    filter: function(item) {
+      return item.catalog === "For sale";
+    }
+  },
+  {
+    id: "able",
+    label: "エイブル",
+    show: ["fashion"],
+    filter: function(item) {
+      return item.source && item.source.includes("Able Sisters");
+    }
+  },
+  {
+    id: "kicks",
+    label: "シャンク",
+    show: ["fashion"],
+    filter: function(item) {
+      return item.source && item.source.includes("Kicks");
+    }
+  },
+  {
+    id: "labelle",
+    label: "ことの",
+    show: ["fashion"],
+    filter: function(item) {
+      return item.source && item.source.includes("Label");
+    }
+  },
+  {
+    id: "daly",
+    label: "日替わり",
+    show: ["fashion"],
+    filter: function(item) {
+      return (
+        item.source && item.source.includes("Nook Shopping Daily Selection")
+      );
+    }
+  },
+  {
+    id: "recycle",
+    label: "リサイクルボックス",
+    show: ["fashion"],
+    filter: function(item) {
+      return item.source && item.source.includes("Recycle box");
+    }
+  },
+  {
+    id: "nook-special",
+    label: "たぬきショッピング（スペシャル）",
+    show: ["housewares", "walletc", "fashion"],
+    filter: function(item) {
+      return (
+        item.source && item.source.join(",").match(/Nook Shopping Seasonal/gi)
+      );
+    }
+  },
+  {
+    id: "diy",
+    label: "DIY",
+    show: ["housewares", "walletc", "fashion"],
+    filter: function(item) {
+      return item.diy;
+    }
+  },
+  {
+    id: "not-for-sale",
+    label: "非売品",
+    show: ["housewares", "walletc", "fashion"],
+    filter: function(item) {
+      return !item.diy && item.catalog !== "For sale";
+    }
+  },
+  {
+    id: "seed",
+    label: "種袋",
+    show: ["flowers"],
+    filter: function(item) {
+      return item.source && item.source.includes("Seed bag");
+    }
+  },
+  {
+    id: "breeding",
+    label: "交配",
+    show: ["flowers"],
+    filter: function(item) {
+      return item.source && item.source.includes("Breeding");
+    }
+  },
+  {
+    id: "flower-reward",
     label: "その他",
-    show: ["housewares", "walletc", "fashion", "flowers"]
+    show: ["flowers"],
+    filter: function(item) {
+      return item.source && item.source.includes("5-star town status");
+    }
   }
 ];
 
@@ -44,6 +138,16 @@ export const collectedFilters = [
     label: "未取得 "
   }
 ];
+
+export function typeFilter(item, filterValue) {
+  const matchedFilter = typeFilters.filter(
+    filter => filter.id === filterValue
+  )[0];
+  if (matchedFilter && matchedFilter.filter) {
+    return matchedFilter.filter(item);
+  }
+  return true;
+}
 
 // nav に応じて利用可能なフィルター項目配列を返す
 export function getTypeFilterItems(nav) {

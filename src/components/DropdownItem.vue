@@ -48,7 +48,7 @@ export default {
 <style scoped lang="scss">
 .dropdown-item {
   position: relative;
-  padding: 0.5rem;
+  padding: 0.4rem 0.5rem;
   background-color: transparent;
   border: 0;
   border-radius: 8px;

@@ -22,6 +22,30 @@ export const typeFilters = [
     }
   },
   {
+    id: "diy",
+    label: "カタログ（DIY）",
+    show: ["housewares", "walletc", "fashion"],
+    filter: function(item) {
+      return item.diy;
+    }
+  },
+  {
+    id: "not-for-sale",
+    label: "カタログ（DIYを除く非売品）",
+    show: ["housewares", "walletc", "fashion"],
+    filter: function(item) {
+      return !item.diy && item.catalog !== "For sale";
+    }
+  },
+  {
+    id: "catalog-not-in-catalog",
+    label: "カタログ掲載なし",
+    show: ["housewares", "walletc", "fashion"],
+    filter: function(item) {
+      return item.catalog === "Not in catalog";
+    }
+  },
+  {
     id: "able",
     label: "エイブル",
     show: ["fashion"],
@@ -47,7 +71,7 @@ export const typeFilters = [
   },
   {
     id: "daly",
-    label: "日替わり",
+    label: "たぬきショッピング（日替わり）",
     show: ["fashion"],
     filter: function(item) {
       return (
@@ -61,32 +85,6 @@ export const typeFilters = [
     show: ["fashion"],
     filter: function(item) {
       return item.source && item.source.includes("Recycle box");
-    }
-  },
-  {
-    id: "nook-special",
-    label: "たぬきショッピング（スペシャル）",
-    show: ["housewares", "walletc", "fashion"],
-    filter: function(item) {
-      return (
-        item.source && item.source.join(",").match(/Nook Shopping Seasonal/gi)
-      );
-    }
-  },
-  {
-    id: "diy",
-    label: "DIY",
-    show: ["housewares", "walletc", "fashion"],
-    filter: function(item) {
-      return item.diy;
-    }
-  },
-  {
-    id: "not-for-sale",
-    label: "非売品",
-    show: ["housewares", "walletc", "fashion"],
-    filter: function(item) {
-      return !item.diy && item.catalog !== "For sale";
     }
   },
   {

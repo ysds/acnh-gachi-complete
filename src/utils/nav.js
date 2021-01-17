@@ -637,7 +637,8 @@ export function collectedLength(args) {
     if (item.uniqueEntryId) {
       if (collected[item.uniqueEntryId]) result++;
     } else {
-      const collectedData = collected[item.name] || "";
+      let collectedData = collected[item.name] || "";
+      collectedData = collectedData.substr(0, item.variants.length); // Fix for #34
       const length = (collectedData.match(/[0-9A-J]/g) || []).length;
       result += length;
     }
@@ -700,7 +701,8 @@ export function allCollectedLength(collected) {
     if (item.uniqueEntryId) {
       if (collected[item.uniqueEntryId]) result++;
     } else {
-      const collectedData = collected[item.name] || "";
+      let collectedData = collected[item.name] || "";
+      collectedData = collectedData.substr(0, item.variants.length); // Fix for #34
       const length = (collectedData.match(/[0-9A-J]/g) || []).length;
       result += length;
     }

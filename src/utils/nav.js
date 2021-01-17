@@ -599,6 +599,22 @@ export function filterItems(args) {
   return items;
 }
 
+function calcCollectedLength(collected, items) {
+  let result = 0;
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (item.uniqueEntryId) {
+      if (collected[item.uniqueEntryId]) result++;
+    } else {
+      let collectedData = collected[item.name] || "";
+      collectedData = collectedData.substr(0, item.variants.length); // Fix for #34
+      const length = (collectedData.match(/[0-9A-J]/g) || []).length;
+      result += length;
+    }
+  }
+  return result;
+}
+
 export function totalLength(args) {
   const { nav, typeFilter } = args;
 
@@ -631,19 +647,7 @@ export function collectedLength(args) {
     }
   });
 
-  let result = 0;
-  for (let i = 0; i < collectedItems.length; i++) {
-    const item = collectedItems[i];
-    if (item.uniqueEntryId) {
-      if (collected[item.uniqueEntryId]) result++;
-    } else {
-      let collectedData = collected[item.name] || "";
-      collectedData = collectedData.substr(0, item.variants.length); // Fix for #34
-      const length = (collectedData.match(/[0-9A-J]/g) || []).length;
-      result += length;
-    }
-  }
-  return result;
+  return calcCollectedLength(collected, collectedItems);
 }
 
 // アイテムが「花」であるかの判定
@@ -692,22 +696,13 @@ export function allLength() {
 }
 
 export function allCollectedLength(collected) {
-  let items = filterItems({ collected, filter: { collectedFilter: "3" } });
-  items = items.filter(filterOtherItem);
+  let collectedItems = filterItems({
+    collected,
+    filter: { collectedFilter: "3" }
+  });
+  collectedItems = collectedItems.filter(filterOtherItem);
 
-  let result = 0;
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    if (item.uniqueEntryId) {
-      if (collected[item.uniqueEntryId]) result++;
-    } else {
-      let collectedData = collected[item.name] || "";
-      collectedData = collectedData.substr(0, item.variants.length); // Fix for #34
-      const length = (collectedData.match(/[0-9A-J]/g) || []).length;
-      result += length;
-    }
-  }
-  return result;
+  return calcCollectedLength(collected, collectedItems);
 }
 
 export function getNavText(nav) {

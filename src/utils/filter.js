@@ -149,14 +149,13 @@ export function typeFilter(item, filterValue) {
 
 // nav に応じて利用可能なフィルター項目配列を返す
 export function getTypeFilterItems(nav) {
-  if (nav) {
+  if (nav && nav !== "housewares-nookmiles") {
     return typeFilters.filter(obj => {
       const regex = new RegExp(`.*(${obj.show.join(["|"])}).*`, "g");
       return nav.match(regex);
     });
-  } else {
-    return [];
   }
+  return [];
 }
 
 // 指定された nav で指定された filter が利用可能かどうか

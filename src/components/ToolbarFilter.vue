@@ -10,10 +10,13 @@
         <DropdownMenu>
           <DropdownItem
             v-for="typeFilterItem in typeFilterItems"
-            v-html="typeFilterItem.label"
+            selectable
+            :active="filter.typeFilter === typeFilterItem.id"
             :key="typeFilterItem.id"
             @click="onClickTypeFilter(typeFilterItem.id)"
-          />
+          >
+            <span v-html="typeFilterItem.label"></span>
+          </DropdownItem>
         </DropdownMenu>
       </Popper>
     </span>
@@ -27,10 +30,13 @@
         <DropdownMenu>
           <DropdownItem
             v-for="collectedFilterItem in collectedFilterItems"
-            v-html="collectedFilterItem.label"
+            selectable
+            :active="filter.collectedFilter === collectedFilterItem.id"
             :key="collectedFilterItem.id"
             @click="onClickCollectedFilter(collectedFilterItem.id)"
-          />
+          >
+            <span v-html="collectedFilterItem.label"></span>
+          </DropdownItem>
         </DropdownMenu>
       </Popper>
     </template>

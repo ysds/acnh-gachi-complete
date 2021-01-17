@@ -13,12 +13,71 @@ const hankaku2Zenkaku = function(string) {
   );
 };
 
-function normalizeText(string) {
+const normalizeText = function(string) {
   let result = string;
   result = kata2Hira(result);
   result = hankaku2Zenkaku(result);
   return result;
-}
+};
+
+// アイテムが「低木」であるかの判定
+const isBush = function(item) {
+  return (
+    item.sourceSheet === "Other" &&
+    item.source &&
+    item.source.includes("Digging up a fully grown bush")
+  );
+};
+
+// アイテムが「花」であるかの判定
+const isFlower = function(item) {
+  return (
+    item.sourceSheet === "Other" &&
+    item.source &&
+    (item.source.includes("Seed bag") ||
+      item.source.includes("Breeding") ||
+      item.source.includes("5-star town status"))
+  );
+};
+
+// コンプ率の計算対象アイテムの判定
+const filterOtherItem = function(item) {
+  if (item.sourceSheet !== "Other") {
+    // Otherシート以外：ミュージックの「はずれ01～03」を除外
+    return item.name.indexOf("Hazure") === -1;
+  } else {
+    // Otherシート：花/低木のみコンプ率に含める
+    return isFlower(item) || isBush(item);
+  }
+};
+
+const calcTotalLength = function(items) {
+  let result = 0;
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].variants) {
+      result += items[i].variants.length;
+    } else {
+      result++;
+    }
+  }
+  return result;
+};
+
+const calcCollectedLength = function(collected, items) {
+  let result = 0;
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (item.uniqueEntryId) {
+      if (collected[item.uniqueEntryId]) result++;
+    } else {
+      let collectedData = collected[item.name] || "";
+      collectedData = collectedData.substr(0, item.variants.length); // Fix for #34
+      const length = (collectedData.match(/[0-9A-J]/g) || []).length;
+      result += length;
+    }
+  }
+  return result;
+};
 
 export { navs };
 
@@ -601,27 +660,24 @@ export function filterItems(args) {
 
 export function totalLength(args) {
   const { nav, typeFilter } = args;
-
-  const totalItems = filterItems({
+  const items = filterItems({
     nav,
     filter: {
       typeFilter: typeFilter
     }
   });
-  let result = 0;
-  for (let i = 0; i < totalItems.length; i++) {
-    if (totalItems[i].variants) {
-      result += totalItems[i].variants.length;
-    } else {
-      result++;
-    }
-  }
-  return result;
+
+  return calcTotalLength(items);
+}
+
+export function allTotalLength() {
+  const items = itemsJson.filter(filterOtherItem);
+
+  return calcTotalLength(items);
 }
 
 export function collectedLength(args) {
   const { collected, nav, typeFilter } = args;
-
   const collectedItems = filterItems({
     collected,
     nav,
@@ -631,81 +687,17 @@ export function collectedLength(args) {
     }
   });
 
-  let result = 0;
-  for (let i = 0; i < collectedItems.length; i++) {
-    const item = collectedItems[i];
-    if (item.uniqueEntryId) {
-      if (collected[item.uniqueEntryId]) result++;
-    } else {
-      const collectedData = collected[item.name] || "";
-      const length = (collectedData.match(/[0-9A-J]/g) || []).length;
-      result += length;
-    }
-  }
-  return result;
-}
-
-// アイテムが「花」であるかの判定
-function isFlower(item) {
-  return (
-    item.sourceSheet === "Other" &&
-    item.source &&
-    (item.source.includes("Seed bag") ||
-      item.source.includes("Breeding") ||
-      item.source.includes("5-star town status"))
-  );
-}
-
-// アイテムが「低木」であるかの判定
-function isBush(item) {
-  return (
-    item.sourceSheet === "Other" &&
-    item.source &&
-    item.source.includes("Digging up a fully grown bush")
-  );
-}
-
-// コンプ率の計算対象アイテムの判定
-function filterOtherItem(item) {
-  if (item.sourceSheet !== "Other") {
-    // Otherシート以外：ミュージックの「はずれ01～03」を除外
-    return item.name.indexOf("Hazure") === -1;
-  } else {
-    // Otherシート：花/低木のみコンプ率に含める
-    return isFlower(item) || isBush(item);
-  }
-}
-
-export function allLength() {
-  const items = itemsJson.filter(filterOtherItem);
-
-  let result = 0;
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].variants) {
-      result += items[i].variants.length;
-    } else {
-      result++;
-    }
-  }
-  return result;
+  return calcCollectedLength(collected, collectedItems);
 }
 
 export function allCollectedLength(collected) {
-  let items = filterItems({ collected, filter: { collectedFilter: "3" } });
-  items = items.filter(filterOtherItem);
+  let collectedItems = filterItems({
+    collected,
+    filter: { collectedFilter: "3" }
+  });
+  collectedItems = collectedItems.filter(filterOtherItem);
 
-  let result = 0;
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    if (item.uniqueEntryId) {
-      if (collected[item.uniqueEntryId]) result++;
-    } else {
-      const collectedData = collected[item.name] || "";
-      const length = (collectedData.match(/[0-9A-J]/g) || []).length;
-      result += length;
-    }
-  }
-  return result;
+  return calcCollectedLength(collected, collectedItems);
 }
 
 export function getNavText(nav) {

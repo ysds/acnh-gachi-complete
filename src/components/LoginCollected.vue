@@ -8,7 +8,7 @@
         <LoginCollectedBar
           text="全体"
           :value="allCollectedLength"
-          :totalValue="allLength"
+          :totalValue="allTotalLength"
           :isAll="true"
         />
       </div>
@@ -43,7 +43,7 @@ import {
   navs,
   totalLength,
   collectedLength,
-  allLength,
+  allTotalLength,
   allCollectedLength
 } from "../utils/nav";
 import LoginCollectedBar from "./LoginCollectedBar";
@@ -54,7 +54,7 @@ export default {
       isLoadComplete: null,
       totalLengths: null,
       collectedLengths: null,
-      allLength: null,
+      allTotalLength: null,
       allCollectedLength: null,
       navs: navs
     };
@@ -71,7 +71,7 @@ export default {
     setTimeout(() => {
       this.totalLengths = this.getLengths();
       this.collectedLengths = this.getLengths(true);
-      this.allLength = allLength();
+      this.allTotalLength = allTotalLength();
       this.allCollectedLength = allCollectedLength(this.collected);
       this.isLoadComplete = true;
     }, 0);

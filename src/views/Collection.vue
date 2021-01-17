@@ -159,6 +159,7 @@ export default {
       },
       showItems: [],
       resultItems: [],
+      resultVariations: {},
       queueItems: [],
       isSearchMode: false,
       renderStartDate: new Date().getTime(),
@@ -270,31 +271,42 @@ export default {
     onClickItemCheckBatchAction: function(value) {
       let items = [];
       let collectedArray = [];
-      const resultItems = this.resultItems;
-      for (let i = 0; i < resultItems.length; i++) {
-        items.push(resultItems[i].uniqueEntryId || resultItems[i].name);
+      let self = this;
+      function collectedValue(values, index) {
+        return values.length > 0 ? values.charAt(index) : "";
       }
-      for (let i = 0; i < items.length; i++) {
-        if (value === "allCollected") {
-          if (resultItems[i].uniqueEntryId) {
-            collectedArray.push("0");
-          } else {
-            collectedArray.push(
-              "0123456789".slice(0, resultItems[i].variants.length)
-            );
-          }
-        } else if (value === "allProvidable") {
-          if (resultItems[i].uniqueEntryId) {
-            collectedArray.push("A");
-          } else {
-            collectedArray.push(
-              "ABCDEFGHIJ".slice(0, resultItems[i].variants.length)
-            );
-          }
-        } else {
-          collectedArray.push("");
+      function createVariationCollected(item, values) {
+        const collected = self.disassembleCollected(item);
+        if (
+          self.filter.viewMode === "list" ||
+          self.filter.collectedFilter === "0"
+        ) {
+          // リストビュー or タイルビューの「すべて」：全バリエーションを更新
+          [...Array(item.variants.length).keys()].forEach(
+            i => (collected[i] = collectedValue(values, i))
+          );
+        } else if (self.resultVariations[item.name]) {
+          // タイルビューの「すべて」以外：表示中バリエーションを更新
+          self.resultVariations[item.name].forEach(
+            i => (collected[i] = collectedValue(values, i))
+          );
         }
+        return collected.join("");
       }
+      this.resultItems.forEach(item => {
+        items.push(item.uniqueEntryId || item.name);
+        let values = "";
+        if (value === "allCollected") {
+          values = "0123456789";
+        } else if (value === "allProvidable") {
+          values = "ABCDEFGHIJ";
+        }
+        if (item.uniqueEntryId) {
+          collectedArray.push(collectedValue(values, 0));
+        } else {
+          collectedArray.push(createVariationCollected(item, values));
+        }
+      });
       this.$store.commit("updateLocalCollectedDataBatch", {
         items,
         collectedArray
@@ -371,6 +383,15 @@ export default {
         typeFilter: this.filter.typeFilter
       });
     },
+    disassembleCollected: function(item) {
+      // collectedを分解して配列にする
+      const collected = new Array(item.variants.length).fill("");
+      (this.collected[item.name] || "").split("").forEach(c => {
+        // 未取得アイテム以外の取得状態を設定
+        collected[!isNaN(c) ? parseInt(c, 10) : c.charCodeAt() - 65] = c;
+      });
+      return collected;
+    },
     updateShowItems: function() {
       this.isLoadComplete = false;
       this.resultItems = filterItems({
@@ -380,6 +401,37 @@ export default {
         isSearchMode: this.isSearchMode,
         searchText: this.searchText
       });
+
+      // 表示対象バリエーションのインデックスを保持する
+      this.resultVariations = {};
+      this.resultItems
+        .filter(item => !item.uniqueEntryId)
+        .map(item => {
+          const collected = this.disassembleCollected(item);
+          let indexes = [];
+          if (this.filter.collectedFilter === "1") {
+            // 取得済
+            collected.forEach((c, i) => {
+              if (c.match(/[0-9]/)) indexes.push(i);
+            });
+          } else if (this.filter.collectedFilter === "2") {
+            // 配布可
+            collected.forEach((c, i) => {
+              if (c.match(/[A-J]/)) indexes.push(i);
+            });
+          } else if (this.filter.collectedFilter === "3") {
+            // 取＋配
+            collected.forEach((c, i) => {
+              if (c.match(/[0-9A-J]/)) indexes.push(i);
+            });
+          } else if (this.filter.collectedFilter === "4") {
+            // 未取得
+            collected.forEach((c, i) => {
+              if (c === "") indexes.push(i);
+            });
+          }
+          if (indexes.length) this.resultVariations[item.name] = indexes;
+        });
 
       this.showItems = [];
       this.renderStartDate = new Date().getTime();

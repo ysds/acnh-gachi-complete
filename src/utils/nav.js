@@ -670,7 +670,7 @@ export function totalLength(args) {
   return calcTotalLength(items);
 }
 
-export function allLength() {
+export function allTotalLength() {
   const items = itemsJson.filter(filterOtherItem);
 
   return calcTotalLength(items);

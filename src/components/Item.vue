@@ -196,6 +196,9 @@ export default {
         return 2;
       }
       return 1;
+    },
+    isShowDropdown() {
+      return this.$store.getters.isShowDropdown;
     }
   },
   watch: {
@@ -292,19 +295,23 @@ export default {
       return result;
     },
     onChangeCheck: function(index) {
-      const currentValue = this.checks[index];
-      const nextValue = currentValue === 2 ? 0 : currentValue + 1;
-      this.checks[index] = nextValue;
-      this.updateCollected();
+      if (!this.isShowDropdown) {
+        const currentValue = this.checks[index];
+        const nextValue = currentValue === 2 ? 0 : currentValue + 1;
+        this.checks[index] = nextValue;
+        this.updateCollected();
+      }
     },
     onClickAllCheck: function() {
-      const nextState = this.allCheckState === 2 ? 0 : this.allCheckState + 1;
-      let result = {};
-      Object.keys(this.checks).forEach(key => {
-        result[key] = nextState;
-      });
-      this.checks = result;
-      this.updateCollected();
+      if (!this.isShowDropdown) {
+        const nextState = this.allCheckState === 2 ? 0 : this.allCheckState + 1;
+        let result = {};
+        Object.keys(this.checks).forEach(key => {
+          result[key] = nextState;
+        });
+        this.checks = result;
+        this.updateCollected();
+      }
     },
     showModal: function(event) {
       event.preventDefault();

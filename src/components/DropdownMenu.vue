@@ -10,7 +10,7 @@
 .wrapper {
   position: absolute;
   left: 0;
-  z-index: 1000;
+  z-index: 1020;
 }
 
 .dropdown-menu {

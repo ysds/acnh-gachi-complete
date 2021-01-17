@@ -21,7 +21,8 @@ export default new Vuex.Store({
     sharedIslandName: null,
     shareCategories: [],
     sharedShareCategories: [],
-    hasUpdateData: false
+    hasUpdateData: false,
+    isShowDropdown: false
   },
   mutations: {
     changeNav(state, nextNav) {
@@ -115,6 +116,9 @@ export default new Vuex.Store({
     },
     updateHasUpdateData(state, data) {
       state.hasUpdateData = data;
+    },
+    isShowDropdown(state, isShow) {
+      state.isShowDropdown = isShow;
     }
   },
   getters: {
@@ -165,6 +169,9 @@ export default new Vuex.Store({
     },
     hasUpdateData(state) {
       return state.hasUpdateData;
+    },
+    isShowDropdown(state) {
+      return state.isShowDropdown;
     }
   }
 });

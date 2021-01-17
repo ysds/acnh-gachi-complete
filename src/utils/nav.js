@@ -1,5 +1,6 @@
 import itemsJson from "../assets/items.json";
 import navs from "./navs.json";
+import { typeFilter } from "./filter";
 
 const kata2Hira = function(string) {
   return string.replace(/[\u30A1-\u30FA]/g, ch =>
@@ -111,81 +112,7 @@ export function filterItems(args) {
       // 分類フィルター
       //
 
-      items = items.filter(item => {
-        // 商店
-        if (filter.typeFilter === "catalog") {
-          if (
-            item.catalog === "Not for sale" ||
-            item.catalog === "Not in catalog"
-          )
-            return false;
-        }
-        // DIY
-        else if (filter.typeFilter === "diy") {
-          if (!item.diy) return false;
-        }
-        // 種袋
-        else if (filter.typeFilter === "seed") {
-          if (item.source && !item.source.includes("Seed bag")) {
-            return false;
-          }
-        }
-        // 交配
-        else if (filter.typeFilter === "breeding") {
-          if (item.source && !item.source.includes("Breeding")) {
-            return false;
-          }
-        }
-        // その他
-        else if (filter.typeFilter === "other") {
-          if (nav === "plants-flowers") {
-            if (!(item.source && item.source.includes("5-star town status")))
-              return false;
-          } else if (
-            item.diy ||
-            item.catalog === "For sale" ||
-            item.catalog === true ||
-            (item.source && item.source.includes("Recycle box"))
-          ) {
-            return false;
-          }
-        }
-        // エイブル
-        else if (filter.typeFilter === "able") {
-          if (item.source && !item.source.includes("Able Sisters")) {
-            return false;
-          }
-        }
-        // シャンク
-        else if (filter.typeFilter === "kicks") {
-          if (item.source && !item.source.includes("Kicks")) {
-            return false;
-          }
-        }
-        // ことの
-        else if (filter.typeFilter === "labelle") {
-          if (item.source && !item.source.includes("Label")) {
-            return false;
-          }
-        }
-        // 日替わり
-        else if (filter.typeFilter === "daly") {
-          if (
-            item.source &&
-            !item.source.includes("Nook Shopping Daily Selection")
-          ) {
-            return false;
-          }
-        }
-        // リサイクルボックス
-        else if (filter.typeFilter === "recycle") {
-          if (item.source && !item.source.includes("Recycle box")) {
-            return false;
-          }
-        }
-
-        return true;
-      });
+      items = items.filter(item => typeFilter(item, filter.typeFilter));
 
       //
       // 取得フィルター

@@ -253,21 +253,6 @@ export default {
 
     //   this.finishMounted(this.sharedShareCategories);
     // }
-
-    // フィルタの初期値をURLパラメータから取得
-    if (this.typeFilter) {
-      this.filter.typeFilter = this.typeFilter;
-      // 廃止されたtypeが渡された場合を考慮
-      if (isAvailableFilter(this.activeNav, this.filter.typeFilter)) {
-        this.filter.typeFilter = "all";
-      }
-    }
-    if (this.collectedFilter) {
-      this.filter.collectedFilter = this.collectedFilter;
-    }
-    if (this.order) {
-      this.filter.order = this.order;
-    }
   },
   watch: {
     myCollected() {
@@ -327,6 +312,20 @@ export default {
         this.message = "";
       } else {
         this.message = "データは非公開です。";
+      }
+      // フィルタの初期値をURLパラメータから取得
+      if (this.typeFilter) {
+        this.filter.typeFilter = this.typeFilter;
+        // 廃止されたtypeが渡された場合を考慮
+        if (isAvailableFilter(this.nav, this.filter.typeFilter)) {
+          this.filter.typeFilter = "all";
+        }
+      }
+      if (this.collectedFilter) {
+        this.filter.collectedFilter = this.collectedFilter;
+      }
+      if (this.order) {
+        this.filter.order = this.order;
       }
       this.isLoaded = true;
       this.updateShowItems();

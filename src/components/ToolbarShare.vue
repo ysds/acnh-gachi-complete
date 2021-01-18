@@ -31,7 +31,7 @@
           <div v-show="!hasUpdateData">
             <p style="word-break: break-all;">
               公開ページの URL<br />
-              <router-link :to="`/share2/${activeNav}/?uid=${user.uid}`">
+              <router-link :to="`${createSharePath()}`">
                 {{ shareURL }}
               </router-link>
             </p>
@@ -40,7 +40,7 @@
               <Button
                 cta
                 :href="
-                  `https://twitter.com/intent/tweet?text=${navText}%0a${twitterURL}%0a%0a%23あつ森ガチコンプ`
+                  `https://twitter.com/intent/tweet?text=${twitterTitle}%0a${twitterURL}%0a%0a%23あつ森ガチコンプ`
                 "
               >
                 Twitter に投稿する
@@ -59,20 +59,31 @@ import Button from "./Button";
 import Modal from "./Modal";
 import Spinner from "./Spinner";
 
+import { getTypeFilterItems, isShowOrderChanger } from "../utils/filter";
+
 export default {
   components: {
     Button,
     Modal,
     Spinner
   },
+  props: {
+    filter: Object,
+    getTypeFilterText: Function,
+    getCollectedFilterText: Function
+  },
   data() {
     return {
       isShowShareModal: false,
       shareURL: "",
+      twitterTitle: "",
       twitterURL: ""
     };
   },
   computed: {
+    typeFilterItems() {
+      return getTypeFilterItems(this.activeNav);
+    },
     activeNav() {
       return this.$store.getters.activeNav;
     },
@@ -87,10 +98,44 @@ export default {
     }
   },
   methods: {
-    showShareModal() {
-      const shareURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.activeNav}/?uid=${this.user.uid}`;
+    createSharePath: function() {
+      function appendParam(flag, name, value) {
+        return flag ? "&" + name + "=" + value : "";
+      }
+      return (
+        `/share2/${this.activeNav}/?uid=${this.user.uid}` +
+        appendParam(
+          this.typeFilterItems.length > 0,
+          "type",
+          this.filter.typeFilter
+        ) +
+        appendParam(true, "collected", this.filter.collectedFilter) +
+        appendParam(
+          isShowOrderChanger(this.activeNav),
+          "order",
+          this.filter.order
+        )
+      );
+    },
+    createTwitterTitle: function() {
+      let title = this.navText;
+      // すべて以外のフィルタをタイトルに付加
+      if (this.typeFilterItems.length > 0 && this.filter.typeFilter !== "all") {
+        title += "｜";
+        title += this.getTypeFilterText();
+      }
+      // すべて以外の状態をタイトルに付加
+      if (this.filter.collectedFilter !== "0") {
+        title += "｜";
+        title += this.getCollectedFilterText();
+      }
+      return title;
+    },
+    showShareModal: function() {
+      const shareURL = `https://ysds.github.io/acnh-gachi-complete${this.createSharePath()}`;
       this.shareURL = shareURL;
-      this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.activeNav}/?uid=${this.user.uid}`;
+      this.twitterTitle = this.createTwitterTitle();
+      this.twitterURL = encodeURIComponent(shareURL);
       this.$copyText(shareURL);
       this.isShowShareModal = true;
     }

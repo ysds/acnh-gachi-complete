@@ -166,6 +166,15 @@ export default {
     sharedUid() {
       return this.$route.query.uid;
     },
+    typeFilter() {
+      return this.$route.query.type;
+    },
+    collectedFilter() {
+      return this.$route.query.collected;
+    },
+    order() {
+      return this.$route.query.order;
+    },
     sharedCollected() {
       return this.$store.getters.sharedCollected;
     },
@@ -244,6 +253,17 @@ export default {
 
     //   this.finishMounted(this.sharedShareCategories);
     // }
+
+    // フィルタの初期値をURLパラメータから取得
+    if (this.typeFilter) {
+      this.filter.typeFilter = this.typeFilter;
+    }
+    if (this.collectedFilter) {
+      this.filter.collectedFilter = this.collectedFilter;
+    }
+    if (this.order) {
+      this.filter.order = this.order;
+    }
   },
   watch: {
     myCollected() {

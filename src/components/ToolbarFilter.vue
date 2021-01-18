@@ -96,7 +96,8 @@ import DropdownItem from "./DropdownItem";
 import {
   typeFilters,
   collectedFilters,
-  getTypeFilterItems
+  getTypeFilterItems,
+  isShowOrderChanger
 } from "../utils/filter";
 
 export default {
@@ -141,12 +142,7 @@ export default {
       }
     },
     isShowOrderChanger() {
-      return (
-        (this.activeNav && this.activeNav.indexOf("creatures") > -1) ||
-        this.activeNav === "reactions" ||
-        this.activeNav === "housewares-nookmiles" ||
-        this.activeNav === "achievements"
-      );
+      return isShowOrderChanger(this.activeNav);
     }
   },
   methods: {
@@ -171,6 +167,15 @@ export default {
     isOpenCollectedFilter() {
       if (!this.$refs.collectedFilter) return false;
       return this.$refs.collectedFilter.isShowPopper();
+    },
+    getFilterText(filter) {
+      return filter.$el.querySelector(".btn-dropdown").innerText;
+    },
+    getTypeFilterText() {
+      return this.getFilterText(this.$refs.typeFilter);
+    },
+    getCollectedFilterText() {
+      return this.getFilterText(this.$refs.collectedFilter);
     }
   }
 };

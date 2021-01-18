@@ -42,8 +42,14 @@
             :filter="filter"
             :activeNav="activeNav"
             @change="onChangeFilter"
+            ref="toolbarFilter"
           />
-          <ToolbarShare v-if="isLogin" />
+          <ToolbarShare
+            v-if="isLogin"
+            :filter="filter"
+            :getTypeFilterText="getTypeFilterText"
+            :getCollectedFilterText="getCollectedFilterText"
+          />
           <ToolbarPin :pins="pins" @changePin="onChangePin" />
           <ToolbarBatch
             @clickCopyName="onClickCopyName"
@@ -473,6 +479,12 @@ export default {
           });
         }
       }
+    },
+    getTypeFilterText() {
+      return this.$refs.toolbarFilter.getTypeFilterText();
+    },
+    getCollectedFilterText() {
+      return this.$refs.toolbarFilter.getCollectedFilterText();
     }
   }
 };

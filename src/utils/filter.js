@@ -164,3 +164,13 @@ export function isAvailableFilter(nav, filter) {
   const matchedFilters = filters.filter(obj => obj.id === filter);
   return matchedFilters.length === 0;
 }
+
+// 表示順変更ボタンを表示するかどうか
+export function isShowOrderChanger(activeNav) {
+  return (
+    (activeNav && activeNav.indexOf("creatures") > -1) ||
+    activeNav === "reactions" ||
+    activeNav === "housewares-nookmiles" ||
+    activeNav === "achievements"
+  );
+}

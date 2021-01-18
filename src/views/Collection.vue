@@ -51,10 +51,7 @@
           />
         </div>
       </div>
-      <CollectedBar
-        :totalValue="getTotalLength()"
-        :value="getCollectedLength()"
-      />
+      <CollectedBar :totalValue="totalLength" :value="collectedLength" />
     </div>
     <ul
       class="items"
@@ -196,6 +193,19 @@ export default {
         if (this.activeNav.indexOf("versions") !== -1) return true;
       }
       return false;
+    },
+    totalLength() {
+      return totalLength({
+        nav: this.activeNav,
+        typeFilter: this.filter.typeFilter
+      });
+    },
+    collectedLength() {
+      return collectedLength({
+        collected: Object.assign({}, this.collected),
+        nav: this.activeNav,
+        typeFilter: this.filter.typeFilter
+      });
     }
   },
   watch: {
@@ -369,19 +379,6 @@ export default {
       return item.uniqueEntryId
         ? this.collected[item.uniqueEntryId]
         : this.collected[item.name];
-    },
-    getTotalLength: function() {
-      return totalLength({
-        nav: this.activeNav,
-        typeFilter: this.filter.typeFilter
-      });
-    },
-    getCollectedLength: function() {
-      return collectedLength({
-        collected: Object.assign({}, this.collected),
-        nav: this.activeNav,
-        typeFilter: this.filter.typeFilter
-      });
     },
     disassembleCollected: function(item) {
       // collectedを分解して配列にする

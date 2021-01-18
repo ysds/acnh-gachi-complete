@@ -257,6 +257,10 @@ export default {
     // フィルタの初期値をURLパラメータから取得
     if (this.typeFilter) {
       this.filter.typeFilter = this.typeFilter;
+      // 廃止されたtypeが渡された場合を考慮
+      if (isAvailableFilter(this.activeNav, this.filter.typeFilter)) {
+        this.filter.typeFilter = "all";
+      }
     }
     if (this.collectedFilter) {
       this.filter.collectedFilter = this.collectedFilter;

@@ -183,7 +183,7 @@ export default {
           .then(function() {})
           .catch(function() {});
         this.$store.commit("updateCloudCollectedData", {
-          collected: Object.assign({}, this.localCollected),
+          collected: this.localCollected,
           updateIndex
         });
       }

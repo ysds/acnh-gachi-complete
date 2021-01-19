@@ -117,23 +117,23 @@ export const collectedFilters = [
   {
     id: "0",
     label: "すべて",
-    btnLabel: "状態 "
+    btnLabel: "状態"
   },
   {
     id: "1",
-    label: '<span class="tg tg-gr">取得済</span> '
+    label: '<span class="tg tg-gr">取得済</span>'
   },
   {
     id: "2",
-    label: '<span class="tg tg-bl">配布可</span> '
+    label: '<span class="tg tg-bl">配布可</span>'
   },
   {
     id: "3",
-    label: '<span class="tg tg-gr">取</span>＋<span class="tg tg-bl">配</span> '
+    label: '<span class="tg tg-gr">取</span>＋<span class="tg tg-bl">配</span>'
   },
   {
     id: "4",
-    label: "未取得 "
+    label: "未取得"
   }
 ];
 

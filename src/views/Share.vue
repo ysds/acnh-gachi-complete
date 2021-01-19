@@ -44,10 +44,7 @@
       </div>
     </div>
     <div class="mb-5" v-show="parseInt(filter.collectedFilter, 10) < 5">
-      <CollectedBar
-        :totalValue="getTotalLength()"
-        :value="getCollectedLength()"
-      />
+      <CollectedBar :totalValue="totalLength" :value="collectedLength" />
     </div>
     <template v-if="!isLogin && parseInt(filter.collectedFilter, 10) > 4">
       <div class="description">
@@ -225,11 +222,24 @@ export default {
     isLogin() {
       return this.$store.getters.isLogin;
     },
-    navText: function() {
+    navText() {
       return getNavText(this.nav);
     },
     isShares() {
       return this.$route.name === "Shares";
+    },
+    totalLength() {
+      return totalLength({
+        nav: this.nav,
+        typeFilter: this.filter.typeFilter
+      });
+    },
+    collectedLength() {
+      return collectedLength({
+        collected: Object.assign({}, this.sharedCollected),
+        nav: this.nav,
+        typeFilter: this.filter.typeFilter
+      });
     }
   },
   mounted() {
@@ -350,19 +360,6 @@ export default {
     onShowModal: function(item) {
       this.isShowModal = true;
       this.modalItem = item;
-    },
-    getTotalLength: function() {
-      return totalLength({
-        nav: this.nav,
-        typeFilter: this.filter.typeFilter
-      });
-    },
-    getCollectedLength: function() {
-      return collectedLength({
-        collected: Object.assign({}, this.sharedCollected),
-        nav: this.nav,
-        typeFilter: this.filter.typeFilter
-      });
     },
     changeNav(category) {
       // Reset typeFilter

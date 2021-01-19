@@ -46,6 +46,15 @@
                 Twitter に投稿する
               </Button>
             </div>
+            <div v-for="opt in tweetOptions" :key="opt.value">
+              <input
+                type="checkbox"
+                :id="opt.value"
+                :value="opt.value"
+                v-model="checkedTweetOptions"
+              />
+              <label :for="opt.value">{{ opt.text }}：</label>
+            </div>
           </div>
         </div>
       </Modal>
@@ -61,6 +70,25 @@ import Spinner from "./Spinner";
 
 import { getTypeFilterItems, isShowOrderChanger } from "../utils/filter";
 
+const TWEET_OPTIONS = [
+  {
+    value: "percentage",
+    text: "コンプ率"
+  },
+  {
+    value: "collected",
+    text: "取得済"
+  },
+  {
+    value: "providable",
+    text: "配布可"
+  },
+  {
+    value: "unCollected",
+    text: "未取得"
+  }
+];
+
 export default {
   components: {
     Button,
@@ -68,6 +96,17 @@ export default {
     Spinner
   },
   props: {
+    collectedData: {
+      type: Object,
+      default: () => {
+        return {
+          collected: 0,
+          providable: 0,
+          unCollected: 0,
+          percentage: 0
+        };
+      }
+    },
     filter: Object,
     getTypeFilterText: Function,
     getCollectedFilterText: Function
@@ -77,7 +116,9 @@ export default {
       isShowShareModal: false,
       shareURL: "",
       twitterTitle: "",
-      twitterURL: ""
+      twitterURL: "",
+      tweetOptions: TWEET_OPTIONS,
+      checkedTweetOptions: []
     };
   },
   computed: {

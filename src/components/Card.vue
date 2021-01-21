@@ -23,7 +23,7 @@ export default {
   margin-bottom: 1rem;
   text-align: left;
   background-color: #fff;
-  border: 1px solid red;
+  border: 1px solid #d6d6d6;
   border-radius: 8px;
 }
 

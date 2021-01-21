@@ -58,10 +58,10 @@
               </svg>
             </Button>
           </template>
-          <div class="username" v-if="!isEditName">
+          <div class="mb-4" v-if="!isEditName">
             {{ userName }}
           </div>
-          <div class="username edit" v-else>
+          <div class="mb-4 edit" v-else>
             <input
               class="edit-input mb-4"
               type="text"
@@ -97,11 +97,11 @@
               </svg>
             </Button>
           </template>
-          <div class="username" v-if="!isEditIslandName">
+          <div class="mb-4" v-if="!isEditIslandName">
             <div v-if="islandName">{{ islandName }}島</div>
             <div v-else>（未設定）</div>
           </div>
-          <div class="username edit" v-else>
+          <div class="mb-4 edit" v-else>
             <div class="d-flex align-items-center mb-4">
               <input
                 class="edit-input"
@@ -270,14 +270,14 @@ export default {
   line-height: 64px;
 }
 
+.login-title {
+  margin-bottom: 0;
+}
+
 .close {
   position: absolute;
   top: 8px;
   right: 16px;
-}
-
-.login-title {
-  margin-bottom: 0;
 }
 
 .login-body {
@@ -295,21 +295,11 @@ export default {
   margin-bottom: 2rem;
 }
 
-.username {
-  margin-bottom: 1rem;
-}
-
 .edit-input {
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 3px;
   appearance: none;
-}
-
-.flat-btn {
-  min-width: 38px;
-  height: 38px;
-  line-height: 38px;
 }
 </style>

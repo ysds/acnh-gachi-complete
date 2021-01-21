@@ -36,9 +36,9 @@
           Twitter でログイン
         </Button>
       </div>
-      <Card title="コンプ率">
-        <LoginCollected />
-      </Card>
+
+      <LoginCollected />
+
       <template v-if="isLogin && user">
         <Card title="名前">
           <template slot="action">

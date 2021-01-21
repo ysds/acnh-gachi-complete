@@ -41,56 +41,8 @@
 
       <template v-if="isLogin && user">
         <LoginName :userName="userName" @change="saveName" />
-        <Card title="島の名前">
-          <template slot="action">
-            <Button @click="editIslandName" style="margin-left: auto;">
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-pencil-fill"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                />
-              </svg>
-            </Button>
-          </template>
-          <div class="mb-4" v-if="!isEditIslandName">
-            <div v-if="islandName">{{ islandName }}島</div>
-            <div v-else>（未設定）</div>
-          </div>
-          <div class="mb-4 edit" v-else>
-            <div class="d-flex align-items-center mb-4">
-              <Input
-                v-model="editingIslandName"
-                ref="islandName"
-                style="margin-right: .5rem;"
-              />
-              島
-            </div>
-            <Button form secondary @click="cancelIslandName">
-              キャンセル
-            </Button>
-            <Button
-              form
-              primary
-              @click="saveIslandName"
-              style="margin-left: 1rem;"
-            >
-              保存
-            </Button>
-          </div>
-          <p class="small">
-            シェア機能使用時に相手に表示されます。
-          </p>
-        </Card>
-
+        <LoginIslandName :islandName="islandName" @change="saveIslandName" />
         <LoginShare />
-
         <Card title="ID">
           <p>{{ user.uid }}</p>
           <p class="small">
@@ -118,8 +70,8 @@ import Auth from "../utils/auth";
 import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
 import Card from "../components/Card";
-import Input from "../components/Input";
 import LoginName from "../components/LoginName";
+import LoginIslandName from "../components/LoginIslandName";
 import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
@@ -132,17 +84,11 @@ export default {
     CloseButton,
     Button,
     Card,
-    Input,
     LoginName,
+    LoginIslandName,
     LoginShare,
     LoginImport,
     LoginCollected
-  },
-  data() {
-    return {
-      isEditIslandName: false,
-      editingIslandName: ""
-    };
   },
   computed: {
     user() {
@@ -171,16 +117,6 @@ export default {
     close() {
       this.$emit("close");
     },
-    editIslandName() {
-      this.editingIslandName = this.islandName;
-      this.isEditIslandName = true;
-      this.$nextTick(function() {
-        this.$refs.islandName.focus();
-      });
-    },
-    cancelIslandName() {
-      this.isEditIslandName = false;
-    },
     saveName(newName) {
       db.collection("users")
         .doc(this.user.uid)
@@ -189,14 +125,13 @@ export default {
         });
       this.$store.commit("updateUserName", newName);
     },
-    saveIslandName() {
+    saveIslandName(newName) {
       db.collection("users")
         .doc(this.user.uid)
         .update({
-          islandName: this.editingIslandName
+          islandName: newName
         });
-      this.$store.commit("updateIslandName", this.editingIslandName);
-      this.isEditIslandName = false;
+      this.$store.commit("updateIslandName", newName);
     }
   }
 };

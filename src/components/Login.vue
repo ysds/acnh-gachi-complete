@@ -40,40 +40,7 @@
       <LoginCollected />
 
       <template v-if="isLogin && user">
-        <Card title="名前">
-          <template slot="action">
-            <Button @click="editName" style="margin-left: auto;">
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-pencil-fill"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                />
-              </svg>
-            </Button>
-          </template>
-          <div class="mb-4" v-if="!isEditName">
-            {{ userName }}
-          </div>
-          <div class="mb-4 edit" v-else>
-            <Input v-model="editingName" ref="userName" class="mb-4" />
-            <Button form secondary @click="cancelName">
-              キャンセル
-            </Button>
-            <Button form primary @click="saveName" style="margin-left: 1rem;">
-              保存
-            </Button>
-          </div>
-          <p class="small">
-            シェア機能使用時に相手に表示されます。
-          </p>
-        </Card>
+        <LoginName :userName="userName" @change="saveName" />
         <Card title="島の名前">
           <template slot="action">
             <Button @click="editIslandName" style="margin-left: auto;">
@@ -152,6 +119,7 @@ import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Input from "../components/Input";
+import LoginName from "../components/LoginName";
 import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
@@ -165,15 +133,14 @@ export default {
     Button,
     Card,
     Input,
+    LoginName,
     LoginShare,
     LoginImport,
     LoginCollected
   },
   data() {
     return {
-      isEditName: false,
       isEditIslandName: false,
-      editingName: "",
       editingIslandName: ""
     };
   },
@@ -204,13 +171,6 @@ export default {
     close() {
       this.$emit("close");
     },
-    editName() {
-      this.editingName = this.userName;
-      this.isEditName = true;
-      this.$nextTick(function() {
-        this.$refs.userName.focus();
-      });
-    },
     editIslandName() {
       this.editingIslandName = this.islandName;
       this.isEditIslandName = true;
@@ -218,20 +178,16 @@ export default {
         this.$refs.islandName.focus();
       });
     },
-    cancelName() {
-      this.isEditName = false;
-    },
     cancelIslandName() {
       this.isEditIslandName = false;
     },
-    saveName() {
+    saveName(newName) {
       db.collection("users")
         .doc(this.user.uid)
         .update({
-          userName: this.editingName
+          userName: newName
         });
-      this.$store.commit("updateUserName", this.editingName);
-      this.isEditName = false;
+      this.$store.commit("updateUserName", newName);
     },
     saveIslandName() {
       db.collection("users")

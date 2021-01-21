@@ -232,11 +232,6 @@ export default {
   appearance: none;
 }
 
-.small {
-  font-size: 13px;
-  color: #555;
-}
-
 .message-category {
   color: #ec407a;
   font-size: 13px;

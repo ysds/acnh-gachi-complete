@@ -360,11 +360,6 @@ export default {
   appearance: none;
 }
 
-.small {
-  font-size: 13px;
-  color: #555;
-}
-
 .flat-btn {
   min-width: 38px;
   height: 38px;

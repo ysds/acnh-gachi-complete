@@ -195,17 +195,25 @@ export default {
       return false;
     },
     totalLength() {
-      return totalLength({
-        nav: this.activeNav,
-        typeFilter: this.filter.typeFilter
-      });
+      if (this.activeNav === null || this.filter.typeFilter === null) {
+        return 0;
+      } else {
+        return totalLength({
+          nav: this.activeNav,
+          typeFilter: this.filter.typeFilter
+        });
+      }
     },
     collectedLength() {
-      return collectedLength({
-        collected: Object.assign({}, this.collected),
-        nav: this.activeNav,
-        typeFilter: this.filter.typeFilter
-      });
+      if (this.activeNav === null || this.filter.typeFilter === null) {
+        return 0;
+      } else {
+        return collectedLength({
+          collected: Object.assign({}, this.collected),
+          nav: this.activeNav,
+          typeFilter: this.filter.typeFilter
+        });
+      }
     }
   },
   watch: {

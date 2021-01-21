@@ -587,7 +587,6 @@ export function filterItems(args) {
 
 export function totalLength(args) {
   const { nav, typeFilter } = args;
-  if (!nav || !typeFilter) return 0;
   const items = filterItems({
     nav,
     filter: {
@@ -606,7 +605,6 @@ export function allTotalLength() {
 
 export function collectedLength(args) {
   const { collected, nav, typeFilter } = args;
-  if (!nav || !typeFilter) return 0;
   const collectedItems = filterItems({
     collected,
     nav,

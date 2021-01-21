@@ -138,36 +138,9 @@
           </p>
         </Card>
       </template>
-      <Card title="インポート">
-        <p class="small">
-          「<a
-            target="_blank"
-            rel="noopener"
-            href="https://modunogay.github.io/DIY/index.html"
-            >DIYレシピチェッカー</a
-          >」、「<a
-            target="_blank"
-            rel="noopener"
-            href="https://modunogay.github.io/FTR/index.html"
-            >家具チェッカー</a
-          >」、「<a
-            target="_blank"
-            rel="noopener"
-            href="https://modunogay.github.io/MISC/index.html"
-            >小物家具チェッカー</a
-          >」、「<a
-            target="_blank"
-            rel="noopener"
-            href="https://modunogay.github.io/FTR_WALL/index.html"
-            >壁掛け家具チェッカー</a
-          >」から、データをインポートすることができます。
-        </p>
-        <p class="small" style="font-weight: 700; margin-bottom: .5rem;">
-          このテキストボックスに、発行した URL
-          を貼り付けて、インポートボタンを押してください。
-        </p>
-        <login-import />
-      </Card>
+
+      <LoginImport />
+
       <template v-if="isLogin && user">
         <Button block @click="logout">
           ログアウト

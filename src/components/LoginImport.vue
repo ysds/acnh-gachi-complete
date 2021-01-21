@@ -49,7 +49,7 @@
       </template>
       <template slot="body">
         <div class="batch-modal-body">
-          <Button class="batch-btn" @click="isShowModal = false">
+          <Button primary class="batch-btn" @click="isShowModal = false">
             OK
           </Button>
         </div>
@@ -260,8 +260,5 @@ export default {
 
 .batch-btn {
   float: right;
-  min-width: 60px;
-  color: #007bff;
-  font-weight: 700;
 }
 </style>

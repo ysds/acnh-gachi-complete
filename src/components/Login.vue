@@ -36,14 +36,12 @@
           Twitter でログイン
         </Button>
       </div>
-      <div class="section">
-        <div class="section-label mb-4">コンプ率</div>
+      <Card title="コンプ率">
         <LoginCollected />
-      </div>
+      </Card>
       <template v-if="isLogin && user">
-        <div class="section">
-          <div class="d-flex align-items-center mb-4">
-            <div class="section-label">名前</div>
+        <Card title="名前">
+          <template slot="action">
             <Button @click="editName" style="margin-left: auto;">
               <svg
                 width="1em"
@@ -59,7 +57,7 @@
                 />
               </svg>
             </Button>
-          </div>
+          </template>
           <div class="username" v-if="!isEditName">
             {{ userName }}
           </div>
@@ -80,11 +78,9 @@
           <p class="small">
             シェア機能使用時に相手に表示されます。
           </p>
-        </div>
-
-        <div class="section">
-          <div class="d-flex align-items-center mb-4">
-            <div class="section-label">島の名前</div>
+        </Card>
+        <Card title="島の名前">
+          <template slot="action">
             <Button @click="editIslandName" style="margin-left: auto;">
               <svg
                 width="1em"
@@ -100,7 +96,7 @@
                 />
               </svg>
             </Button>
-          </div>
+          </template>
           <div class="username" v-if="!isEditIslandName">
             <div v-if="islandName">{{ islandName }}島</div>
             <div v-else>（未設定）</div>
@@ -131,10 +127,9 @@
           <p class="small">
             シェア機能使用時に相手に表示されます。
           </p>
-        </div>
+        </Card>
 
-        <div class="section">
-          <div class="section-label mb-4">一括シェア</div>
+        <Card title="一括シェア">
           <div class="link">
             <a :href="`${baseURL}shares/?uid=${user.uid}`"
               >https://ysds.github.io/acnh-gachi-complete/shares/?uid={{
@@ -158,18 +153,16 @@
             を他の人に伝えることで、任意のカテゴリを一括でシェアできます。公開したいカテゴリを以下から選択してください。
           </p>
           <LoginShare />
-        </div>
+        </Card>
 
-        <div class="section">
-          <div class="section-label mb-4">ID</div>
+        <Card title="ID">
           <p>{{ user.uid }}</p>
           <p class="small">
             あなたの固有IDです。シェア機能使用時の URL として使用されます。
           </p>
-        </div>
+        </Card>
       </template>
-      <div class="section">
-        <div class="section-label mb-4">インポート</div>
+      <Card title="インポート">
         <p class="small">
           「<a
             target="_blank"
@@ -198,7 +191,7 @@
           を貼り付けて、インポートボタンを押してください。
         </p>
         <login-import />
-      </div>
+      </Card>
       <template v-if="isLogin && user">
         <Button block @click="logout">
           ログアウト
@@ -215,6 +208,7 @@ import firebase from "../plugins/firebase";
 import Auth from "../utils/auth";
 import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
+import Card from "../components/Card";
 import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
@@ -227,6 +221,7 @@ export default {
   components: {
     CloseButton,
     Button,
+    Card,
     LoginShare,
     LoginImport,
     LoginCollected
@@ -351,30 +346,6 @@ export default {
   height: 80px;
   border-radius: 50%;
   margin-bottom: 2rem;
-}
-
-.section {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-
-  text-align: left;
-}
-
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-  padding: 0.2rem 1rem;
-  border-radius: 4px;
-  color: #fff;
-  background-color: #ec407a;
-  font-weight: 700;
-  text-align: center;
 }
 
 .username {

@@ -36,169 +36,23 @@
           Twitter でログイン
         </Button>
       </div>
-      <div class="section">
-        <div class="section-label mb-4">コンプ率</div>
-        <LoginCollected />
-      </div>
+
+      <LoginCollected />
+
       <template v-if="isLogin && user">
-        <div class="section">
-          <div class="d-flex align-items-center mb-4">
-            <div class="section-label">名前</div>
-            <Button @click="editName" style="margin-left: auto;">
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-pencil-fill"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                />
-              </svg>
-            </Button>
-          </div>
-          <div class="username" v-if="!isEditName">
-            {{ userName }}
-          </div>
-          <div class="username edit" v-else>
-            <input
-              class="edit-input mb-4"
-              type="text"
-              v-model="editingName"
-              ref="userName"
-            />
-            <Button form secondary @click="cancelName">
-              キャンセル
-            </Button>
-            <Button form primary @click="saveName" style="margin-left: 1rem;">
-              保存
-            </Button>
-          </div>
-          <p class="small">
-            シェア機能使用時に相手に表示されます。
-          </p>
-        </div>
-
-        <div class="section">
-          <div class="d-flex align-items-center mb-4">
-            <div class="section-label">島の名前</div>
-            <Button @click="editIslandName" style="margin-left: auto;">
-              <svg
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                class="bi bi-pencil-fill"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
-                />
-              </svg>
-            </Button>
-          </div>
-          <div class="username" v-if="!isEditIslandName">
-            <div v-if="islandName">{{ islandName }}島</div>
-            <div v-else>（未設定）</div>
-          </div>
-          <div class="username edit" v-else>
-            <div class="d-flex align-items-center mb-4">
-              <input
-                class="edit-input"
-                type="text"
-                v-model="editingIslandName"
-                ref="islandName"
-                style="margin-right: .5rem;"
-              />
-              島
-            </div>
-            <Button form secondary @click="cancelIslandName">
-              キャンセル
-            </Button>
-            <Button
-              form
-              primary
-              @click="saveIslandName"
-              style="margin-left: 1rem;"
-            >
-              保存
-            </Button>
-          </div>
-          <p class="small">
-            シェア機能使用時に相手に表示されます。
-          </p>
-        </div>
-
-        <div class="section">
-          <div class="section-label mb-4">一括シェア</div>
-          <div class="link">
-            <a :href="`${baseURL}shares/?uid=${user.uid}`"
-              >https://ysds.github.io/acnh-gachi-complete/shares/?uid={{
-                user.uid
-              }}</a
-            >
-          </div>
-          <div style="text-align: center;">
-            <Button
-              cta
-              :href="
-                `https://twitter.com/intent/tweet?text=取得状況%0ahttps://ysds.github.io/acnh-gachi-complete/shares/?uid=${user.uid}%0a%0a%23あつ森ガチコンプ`
-              "
-              style="margin: 0 0 1rem;"
-            >
-              Twitter に投稿する
-            </Button>
-          </div>
-          <p class="small">
-            この URL
-            を他の人に伝えることで、任意のカテゴリを一括でシェアできます。公開したいカテゴリを以下から選択してください。
-          </p>
-          <LoginShare />
-        </div>
-
-        <div class="section">
-          <div class="section-label mb-4">ID</div>
+        <LoginName :userName="userName" @change="saveName" />
+        <LoginIslandName :islandName="islandName" @change="saveIslandName" />
+        <LoginShare />
+        <Card title="ID">
           <p>{{ user.uid }}</p>
           <p class="small">
             あなたの固有IDです。シェア機能使用時の URL として使用されます。
           </p>
-        </div>
+        </Card>
       </template>
-      <div class="section">
-        <div class="section-label mb-4">インポート</div>
-        <p class="small">
-          「<a
-            target="_blank"
-            rel="noopener"
-            href="https://modunogay.github.io/DIY/index.html"
-            >DIYレシピチェッカー</a
-          >」、「<a
-            target="_blank"
-            rel="noopener"
-            href="https://modunogay.github.io/FTR/index.html"
-            >家具チェッカー</a
-          >」、「<a
-            target="_blank"
-            rel="noopener"
-            href="https://modunogay.github.io/MISC/index.html"
-            >小物家具チェッカー</a
-          >」、「<a
-            target="_blank"
-            rel="noopener"
-            href="https://modunogay.github.io/FTR_WALL/index.html"
-            >壁掛け家具チェッカー</a
-          >」から、データをインポートすることができます。
-        </p>
-        <p class="small" style="font-weight: 700; margin-bottom: .5rem;">
-          このテキストボックスに、発行した URL
-          を貼り付けて、インポートボタンを押してください。
-        </p>
-        <login-import />
-      </div>
+
+      <LoginImport />
+
       <template v-if="isLogin && user">
         <Button block @click="logout">
           ログアウト
@@ -215,30 +69,26 @@ import firebase from "../plugins/firebase";
 import Auth from "../utils/auth";
 import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
+import Card from "../components/Card";
+import LoginName from "../components/LoginName";
+import LoginIslandName from "../components/LoginIslandName";
 import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
 
 const db = firebase.firestore();
-const baseURL = process.env.BASE_URL;
 
 export default {
   name: "Login",
   components: {
     CloseButton,
     Button,
+    Card,
+    LoginName,
+    LoginIslandName,
     LoginShare,
     LoginImport,
     LoginCollected
-  },
-  data() {
-    return {
-      isEditName: false,
-      isEditIslandName: false,
-      editingName: "",
-      editingIslandName: "",
-      baseURL: baseURL
-    };
   },
   computed: {
     user() {
@@ -267,43 +117,21 @@ export default {
     close() {
       this.$emit("close");
     },
-    editName() {
-      this.editingName = this.userName;
-      this.isEditName = true;
-      this.$nextTick(function() {
-        this.$refs.userName.focus();
-      });
-    },
-    editIslandName() {
-      this.editingIslandName = this.islandName;
-      this.isEditIslandName = true;
-      this.$nextTick(function() {
-        this.$refs.islandName.focus();
-      });
-    },
-    cancelName() {
-      this.isEditName = false;
-    },
-    cancelIslandName() {
-      this.isEditIslandName = false;
-    },
-    saveName() {
+    saveName(newName) {
       db.collection("users")
         .doc(this.user.uid)
         .update({
-          userName: this.editingName
+          userName: newName
         });
-      this.$store.commit("updateUserName", this.editingName);
-      this.isEditName = false;
+      this.$store.commit("updateUserName", newName);
     },
-    saveIslandName() {
+    saveIslandName(newName) {
       db.collection("users")
         .doc(this.user.uid)
         .update({
-          islandName: this.editingIslandName
+          islandName: newName
         });
-      this.$store.commit("updateIslandName", this.editingIslandName);
-      this.isEditIslandName = false;
+      this.$store.commit("updateIslandName", newName);
     }
   }
 };
@@ -328,14 +156,14 @@ export default {
   line-height: 64px;
 }
 
+.login-title {
+  margin-bottom: 0;
+}
+
 .close {
   position: absolute;
   top: 8px;
   right: 16px;
-}
-
-.login-title {
-  margin-bottom: 0;
 }
 
 .login-body {
@@ -351,57 +179,5 @@ export default {
   height: 80px;
   border-radius: 50%;
   margin-bottom: 2rem;
-}
-
-.section {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-
-  text-align: left;
-}
-
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-  padding: 0.2rem 1rem;
-  border-radius: 4px;
-  color: #fff;
-  background-color: #ec407a;
-  font-weight: 700;
-  text-align: center;
-}
-
-.username {
-  margin-bottom: 1rem;
-}
-
-.edit-input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  appearance: none;
-}
-
-.small {
-  font-size: 13px;
-  color: #555;
-}
-
-.flat-btn {
-  min-width: 38px;
-  height: 38px;
-  line-height: 38px;
-}
-
-.link {
-  word-break: break-all;
-  margin-bottom: 1rem;
 }
 </style>

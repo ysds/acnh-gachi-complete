@@ -1,12 +1,38 @@
 <template>
-  <div>
-    <input
-      class="edit-input"
-      type="input"
+  <Card title="インポート">
+    <p class="small">
+      「<a
+        target="_blank"
+        rel="noopener"
+        href="https://modunogay.github.io/DIY/index.html"
+        >DIYレシピチェッカー</a
+      >」、「<a
+        target="_blank"
+        rel="noopener"
+        href="https://modunogay.github.io/FTR/index.html"
+        >家具チェッカー</a
+      >」、「<a
+        target="_blank"
+        rel="noopener"
+        href="https://modunogay.github.io/MISC/index.html"
+        >小物家具チェッカー</a
+      >」、「<a
+        target="_blank"
+        rel="noopener"
+        href="https://modunogay.github.io/FTR_WALL/index.html"
+        >壁掛け家具チェッカー</a
+      >」から、データをインポートすることができます。
+    </p>
+    <p class="small" style="font-weight: 700; margin-bottom: .5rem;">
+      このテキストボックスに、発行した URL
+      を貼り付けて、インポートボタンを押してください。
+    </p>
+    <Input
       placeholder="https://modunogay.github.io/..."
       v-model="inputValue"
       @input="onInput"
       @focus="$event.target.select()"
+      class="mb-4"
     />
     <p class="message-category" v-show="messageCategory">
       {{ messageCategory }}
@@ -23,13 +49,13 @@
       </template>
       <template slot="body">
         <div class="batch-modal-body">
-          <Button class="batch-btn" @click="isShowModal = false">
+          <Button primary class="batch-btn" @click="isShowModal = false">
             OK
           </Button>
         </div>
       </template>
     </Modal>
-  </div>
+  </Card>
 </template>
 
 <script>
@@ -40,11 +66,15 @@ import moduMiscellaneousMap from "../assets/modu-miscellaneous.json";
 import moduWallmountedMap from "../assets/modu-wallmounted.json";
 
 import Button from "./Button";
+import Card from "./Card";
+import Input from "./Input";
 import Modal from "./Modal";
 
 export default {
   components: {
     Button,
+    Card,
+    Input,
     Modal
   },
   data() {
@@ -222,21 +252,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.edit-input {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  appearance: none;
-}
-
-.small {
-  font-size: 13px;
-  color: #555;
-}
-
 .message-category {
   color: #ec407a;
   font-size: 13px;
@@ -245,8 +260,5 @@ export default {
 
 .batch-btn {
   float: right;
-  min-width: 60px;
-  color: #007bff;
-  font-weight: 700;
 }
 </style>

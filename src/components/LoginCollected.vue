@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <Card title="コンプ率">
     <div v-if="!isLoadComplete">
       計算中...
     </div>
@@ -35,7 +35,7 @@
     <p class="note">
       一部のカテゴリに「素材」や「消費アイテム」、「植物」が例外的に含まれていますが、これらのコンプ状況は「全体」のコンプ率の計算対象には含まれていません。
     </p>
-  </div>
+  </Card>
 </template>
 
 <script>
@@ -46,6 +46,7 @@ import {
   allTotalLength,
   allCollectedLength
 } from "../utils/nav";
+import Card from "./Card";
 import LoginCollectedBar from "./LoginCollectedBar";
 
 export default {
@@ -60,6 +61,7 @@ export default {
     };
   },
   components: {
+    Card,
     LoginCollectedBar
   },
   computed: {

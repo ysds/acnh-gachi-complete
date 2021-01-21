@@ -129,31 +129,7 @@
           </p>
         </Card>
 
-        <Card title="一括シェア">
-          <div class="link">
-            <a :href="`${baseURL}shares/?uid=${user.uid}`"
-              >https://ysds.github.io/acnh-gachi-complete/shares/?uid={{
-                user.uid
-              }}</a
-            >
-          </div>
-          <div style="text-align: center;">
-            <Button
-              cta
-              :href="
-                `https://twitter.com/intent/tweet?text=取得状況%0ahttps://ysds.github.io/acnh-gachi-complete/shares/?uid=${user.uid}%0a%0a%23あつ森ガチコンプ`
-              "
-              style="margin: 0 0 1rem;"
-            >
-              Twitter に投稿する
-            </Button>
-          </div>
-          <p class="small">
-            この URL
-            を他の人に伝えることで、任意のカテゴリを一括でシェアできます。公開したいカテゴリを以下から選択してください。
-          </p>
-          <LoginShare />
-        </Card>
+        <LoginShare />
 
         <Card title="ID">
           <p>{{ user.uid }}</p>
@@ -214,7 +190,6 @@ import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
 
 const db = firebase.firestore();
-const baseURL = process.env.BASE_URL;
 
 export default {
   name: "Login",
@@ -231,8 +206,7 @@ export default {
       isEditName: false,
       isEditIslandName: false,
       editingName: "",
-      editingIslandName: "",
-      baseURL: baseURL
+      editingIslandName: ""
     };
   },
   computed: {
@@ -364,10 +338,5 @@ export default {
   min-width: 38px;
   height: 38px;
   line-height: 38px;
-}
-
-.link {
-  word-break: break-all;
-  margin-bottom: 1rem;
 }
 </style>

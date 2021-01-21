@@ -27,13 +27,12 @@
       このテキストボックスに、発行した URL
       を貼り付けて、インポートボタンを押してください。
     </p>
-    <input
-      class="edit-input"
-      type="input"
+    <Input
       placeholder="https://modunogay.github.io/..."
       v-model="inputValue"
       @input="onInput"
       @focus="$event.target.select()"
+      class="mb-4"
     />
     <p class="message-category" v-show="messageCategory">
       {{ messageCategory }}
@@ -68,12 +67,14 @@ import moduWallmountedMap from "../assets/modu-wallmounted.json";
 
 import Button from "./Button";
 import Card from "./Card";
+import Input from "./Input";
 import Modal from "./Modal";
 
 export default {
   components: {
     Button,
     Card,
+    Input,
     Modal
   },
   data() {
@@ -251,16 +252,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.edit-input {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  appearance: none;
-}
-
 .message-category {
   color: #ec407a;
   font-size: 13px;

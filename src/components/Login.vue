@@ -62,12 +62,7 @@
             {{ userName }}
           </div>
           <div class="mb-4 edit" v-else>
-            <input
-              class="edit-input mb-4"
-              type="text"
-              v-model="editingName"
-              ref="userName"
-            />
+            <Input v-model="editingName" ref="userName" class="mb-4" />
             <Button form secondary @click="cancelName">
               キャンセル
             </Button>
@@ -103,9 +98,7 @@
           </div>
           <div class="mb-4 edit" v-else>
             <div class="d-flex align-items-center mb-4">
-              <input
-                class="edit-input"
-                type="text"
+              <Input
                 v-model="editingIslandName"
                 ref="islandName"
                 style="margin-right: .5rem;"
@@ -158,6 +151,7 @@ import Auth from "../utils/auth";
 import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
 import Card from "../components/Card";
+import Input from "../components/Input";
 import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
@@ -170,6 +164,7 @@ export default {
     CloseButton,
     Button,
     Card,
+    Input,
     LoginShare,
     LoginImport,
     LoginCollected
@@ -293,13 +288,5 @@ export default {
   height: 80px;
   border-radius: 50%;
   margin-bottom: 2rem;
-}
-
-.edit-input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  appearance: none;
 }
 </style>

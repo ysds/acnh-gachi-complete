@@ -30,8 +30,8 @@
 <script>
 import LZString from "lz-string";
 import firebase from "./plugins/firebase";
-import isEqual from "lodash/isEqual";
 import { navs } from "./utils/nav.js";
+import { syncCollectedData } from "./utils/db.js";
 import Drawer from "./components/Drawer.vue";
 import Button from "./components/Button.vue";
 
@@ -44,9 +44,7 @@ export default {
   },
   data() {
     return {
-      cloudSynctimer: null,
       isLoadComplete: null,
-      updateIndex: null,
       navs
     };
   },
@@ -72,36 +70,27 @@ export default {
     localCollected() {
       return this.$store.getters.localCollectedData;
     },
-    localUpdateIndex() {
-      return this.$store.getters.localUpdateIndex;
-    },
-    cloudCollected() {
-      return this.$store.getters.cloudCollectedData;
-    },
     cloudUpdateIndex() {
       return this.$store.getters.cloudUpdateIndex;
+    },
+    isDoneSyncCloudFirstTime() {
+      return this.$store.getters.isDoneSyncCloudFirstTime;
     }
   },
   watch: {
-    user() {
+    isLogin() {
       this.loadFirebaseData();
     },
     cloudUpdateIndex() {
-      this.syncCollectedData();
+      if (!this.isDoneSyncCloudFirstTime) {
+        syncCollectedData();
+        this.$store.commit("isDoneSyncCloudFirstTime", true);
+      }
     }
   },
   async created() {
-    const self = this;
-    await Promise.all([self.loadLocalStorageData()]);
+    await Promise.all([this.loadLocalStorageData()]);
     this.isLoadComplete = true;
-    this.cloudSynctimer = setInterval(function() {
-      if (self.updateIndex && self.updateIndex === self.localUpdateIndex) {
-        self.syncCollectedData();
-        self.$store.commit("updateHasUpdateData", false);
-      } else {
-        self.updateIndex = self.localUpdateIndex;
-      }
-    }, 3000);
   },
   methods: {
     toggleDrawer() {
@@ -158,41 +147,6 @@ export default {
             console.log(error);
           });
       }
-    },
-    syncCollectedData: function() {
-      if (!isEqual(this.localCollected, this.cloudCollected)) {
-        if (this.localUpdateIndex > this.cloudUpdateIndex) {
-          this.updateCloudData();
-        } else {
-          this.updateLocalData();
-        }
-      }
-    },
-    updateCloudData: function() {
-      if (this.user && this.user.uid) {
-        const updateIndex = this.localUpdateIndex;
-        db.collection("users")
-          .doc(this.user.uid)
-          .update({
-            lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
-            collected: LZString.compressToUTF16(
-              JSON.stringify(this.localCollected)
-            ),
-            updateIndex
-          })
-          .then(function() {})
-          .catch(function() {});
-        this.$store.commit("updateCloudCollectedData", {
-          collected: this.localCollected,
-          updateIndex
-        });
-      }
-    },
-    updateLocalData: function() {
-      this.$store.commit("updateLocalCollectedData", {
-        collected: this.cloudCollected,
-        updateIndex: this.cloudUpdateIndex
-      });
     }
   }
 };

@@ -21,8 +21,8 @@ export default new Vuex.Store({
     sharedIslandName: null,
     shareCategories: [],
     sharedShareCategories: [],
-    hasUpdateData: false,
-    isShowDropdown: false
+    isShowDropdown: false,
+    isDoneSyncCloudFirstTime: false
   },
   mutations: {
     changeNav(state, nextNav) {
@@ -47,7 +47,6 @@ export default new Vuex.Store({
       state.cloudUpdateIndex = payload.updateIndex;
     },
     updateLocalCollectedDataByItem(state, payload) {
-      state.hasUpdateData = true;
       if (payload.itemCollectedData === "") {
         Vue.delete(state.localCollectedData, payload.itemName);
       } else {
@@ -64,7 +63,6 @@ export default new Vuex.Store({
     updateLocalCollectedDataBatch(state, payload) {
       const items = payload.items;
       const collectedArray = payload.collectedArray;
-      state.hasUpdateData = true;
       for (let i = 0; i < items.length; i++) {
         if (collectedArray[i] === "") {
           Vue.delete(state.localCollectedData, items[i]);
@@ -78,7 +76,6 @@ export default new Vuex.Store({
     },
     updateLocalCollectedData(state, payload) {
       state.localCollectedData = {};
-      state.hasUpdateData = true;
       const collected = payload.collected;
       const keys = Object.keys(collected);
       const values = Object.values(collected);
@@ -114,11 +111,11 @@ export default new Vuex.Store({
     updateSharedShareCategories(state, data) {
       state.sharedShareCategories = data;
     },
-    updateHasUpdateData(state, data) {
-      state.hasUpdateData = data;
-    },
     isShowDropdown(state, isShow) {
       state.isShowDropdown = isShow;
+    },
+    isDoneSyncCloudFirstTime(state, payload) {
+      state.isDoneSyncCloudFirstTime = payload;
     }
   },
   getters: {
@@ -167,11 +164,11 @@ export default new Vuex.Store({
     sharedShareCategories(state) {
       return state.sharedShareCategories;
     },
-    hasUpdateData(state) {
-      return state.hasUpdateData;
-    },
     isShowDropdown(state) {
       return state.isShowDropdown;
+    },
+    isDoneSyncCloudFirstTime(state) {
+      return state.isDoneSyncCloudFirstTime;
     }
   }
 });

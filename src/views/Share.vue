@@ -113,6 +113,7 @@ import {
   navs
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
+import { syncCollectedData } from "../utils/db.js";
 
 import Item from "../components/Item.vue";
 import ToolbarFilter from "../components/ToolbarFilter.vue";
@@ -232,6 +233,9 @@ export default {
         nav: this.nav,
         typeFilter: this.filter.typeFilter
       });
+    },
+    isDoneSyncCloudFirstTime() {
+      return this.$store.getters.isDoneSyncCloudFirstTime;
     }
   },
   mounted() {
@@ -255,6 +259,12 @@ export default {
 
     //   this.finishMounted(this.sharedShareCategories);
     // }
+
+    // シェアページを直接開いたときは同期処理を実行しないが、
+    // ブラウザナビゲーションなどシェアダイアログを通らないケースを考慮
+    if (this.isDoneSyncCloudFirstTime) {
+      syncCollectedData();
+    }
   },
   watch: {
     myCollected() {

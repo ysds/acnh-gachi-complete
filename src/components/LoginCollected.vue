@@ -84,17 +84,16 @@ export default {
       navs.forEach(nav => {
         const subnavs = nav.subnavs;
         const collected = this.collected;
-        const typeFilter = "0";
         if (subnavs) {
           subnavs.forEach(subnav => {
             result[subnav.id] = isCollected
-              ? collectedLength({ nav: subnav.id, collected, typeFilter })
-              : totalLength({ nav: subnav.id, typeFilter });
+              ? collectedLength({ nav: subnav.id, collected })
+              : totalLength({ nav: subnav.id });
           });
         } else {
           result[nav.id] = isCollected
-            ? collectedLength({ nav: nav.id, collected, typeFilter })
-            : totalLength({ nav: nav.id, typeFilter });
+            ? collectedLength({ nav: nav.id, collected })
+            : totalLength({ nav: nav.id });
         }
       });
       return result;

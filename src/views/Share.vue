@@ -13,6 +13,9 @@
     <h1 v-if="!isShares" class="heading">
       {{ navText }}
     </h1>
+    <h1 v-else-if="sharedShareCategories" class="heading">
+      全取得状況
+    </h1>
     <div v-else class="nav-wrapper">
       <nav class="nav">
         <button
@@ -43,22 +46,20 @@
         />
       </div>
     </div>
-    <div class="mb-5" v-show="parseInt(filter.collectedFilter, 10) < 5">
+    <div v-show="parseInt(filter.collectedFilter, 10) <= 4" class="mb-5">
       <CollectedBar :totalValue="totalLength" :value="collectedLength" />
     </div>
-    <template v-if="!isLogin && parseInt(filter.collectedFilter, 10) > 4">
-      <div class="description">
+    <div v-show="parseInt(filter.collectedFilter, 10) > 4" class="description">
+      <div v-if="!isLogin">
         ログインすると自分のデータと比較できます。
       </div>
-    </template>
-    <template v-else>
-      <div class="description" v-show="filter.collectedFilter === '5'">
+      <div v-show="filter.collectedFilter === '5'">
         相手が配布可で自分が未取得のアイテム
       </div>
-      <div class="description" v-show="filter.collectedFilter === '6'">
+      <div v-show="filter.collectedFilter === '6'">
         相手が未取得で自分が配布可のアイテム
       </div>
-    </template>
+    </div>
     <ul
       class="items"
       :class="{ tiles: filter.viewMode === 'tile' }"

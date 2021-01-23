@@ -241,25 +241,6 @@ export default {
   mounted() {
     this.loadOtherFirebaseData();
 
-    // if (this.sharedCollected === null) {
-    //   console.log(1);
-    //   this.loadOtherFirebaseData();
-    // }
-    // // 自分のページを表示したとき（ブラウザバック）
-    // else if (this.myUser && this.myUser.uid === this.sharedUid) {
-    //   console.log(2);
-    //   this.$store.commit("updateSharedCollected", this.myCollected);
-    //   this.$store.commit("updateSharedUserName", this.myUserName);
-    //   this.$store.commit("updateSharedShareCategories", this.myShareCategories);
-    //   this.finishMounted(this.myShareCategorie);
-    // }
-    // // 他人のページを初期表示したとき（ブラウザバック）
-    // else {
-    //   console.log(3);
-
-    //   this.finishMounted(this.sharedShareCategories);
-    // }
-
     // シェアページを直接開いたときは同期処理を実行しないが、
     // ブラウザナビゲーションなどシェアダイアログを通らないケースを考慮
     if (this.isDoneSyncCloudFirstTime) {

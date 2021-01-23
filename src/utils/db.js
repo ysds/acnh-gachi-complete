@@ -51,3 +51,45 @@ export function syncCollectedData() {
     updateLocalData();
   }
 }
+
+export function loadFirebaseData() {
+  initDataFromStore();
+
+  if (user && user.uid) {
+    db.collection("users")
+      .doc(user.uid)
+      .get()
+      .then(function(doc) {
+        if (doc.exists) {
+          const data = doc.data();
+          const collectedValue = data.collected || {};
+          const collected = JSON.parse(
+            LZString.decompressFromUTF16(collectedValue)
+          );
+          const updateIndex = data.updateIndex || 0;
+          const userName = data.userName || user.displayName || null;
+          const islandName = data.islandName || null;
+          const shareCategories = data.shareCategories || [];
+
+          store.commit("initCloudCollectedData", {
+            collected,
+            updateIndex
+          });
+          store.commit("updateUserName", userName);
+          store.commit("updateIslandName", islandName);
+          store.commit("updateShareCategories", shareCategories);
+        } else {
+          const userName = user.displayName || null;
+          db.collection("users")
+            .doc(user.uid)
+            .set({
+              userName
+            });
+          store.commit("updateUserName", userName);
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+}

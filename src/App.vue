@@ -28,14 +28,10 @@
   </div>
 </template>
 <script>
-import LZString from "lz-string";
-import firebase from "./plugins/firebase";
 import { navs } from "./utils/nav.js";
-import { syncCollectedData } from "./utils/db.js";
+import { syncCollectedData, loadFirebaseData } from "./utils/db.js";
 import Drawer from "./components/Drawer.vue";
 import Button from "./components/Button.vue";
-
-const db = firebase.firestore();
 
 export default {
   components: {
@@ -55,15 +51,6 @@ export default {
     isOpenDrawer() {
       return this.$store.getters.isOpenDrawer;
     },
-    user() {
-      return this.$store.getters.user;
-    },
-    userName() {
-      return this.$store.getters.userName;
-    },
-    islandName() {
-      return this.$store.getters.islandName;
-    },
     isLogin() {
       return this.$store.getters.isLogin;
     },
@@ -79,7 +66,7 @@ export default {
   },
   watch: {
     isLogin() {
-      this.loadFirebaseData();
+      loadFirebaseData();
     },
     cloudUpdateIndex() {
       if (!this.isDoneSyncCloudFirstTime) {
@@ -106,47 +93,6 @@ export default {
       updateIndex = updateIndex || 0;
       self.$store.commit("initLocalCollectedData", { collected, updateIndex });
       return self.localCollected;
-    },
-    loadFirebaseData: function() {
-      const self = this;
-      const user = this.user;
-      if (user && user.uid) {
-        db.collection("users")
-          .doc(user.uid)
-          .get()
-          .then(function(doc) {
-            if (doc.exists) {
-              const data = doc.data();
-              const collectedValue = data.collected || {};
-              const collected = JSON.parse(
-                LZString.decompressFromUTF16(collectedValue)
-              );
-              const updateIndex = data.updateIndex || 0;
-              const userName = data.userName || user.displayName || null;
-              const islandName = data.islandName || null;
-              const shareCategories = data.shareCategories || [];
-
-              self.$store.commit("initCloudCollectedData", {
-                collected,
-                updateIndex
-              });
-              self.$store.commit("updateUserName", userName);
-              self.$store.commit("updateIslandName", islandName);
-              self.$store.commit("updateShareCategories", shareCategories);
-            } else {
-              const userName = user.displayName || null;
-              db.collection("users")
-                .doc(user.uid)
-                .set({
-                  userName
-                });
-              self.$store.commit("updateUserName", userName);
-            }
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
-      }
     }
   }
 };

@@ -13,7 +13,7 @@
     <h1 v-if="!isShares" class="heading">
       {{ navText }}
     </h1>
-    <h1 v-else-if="sharedShareCategories" class="heading">
+    <h1 v-else-if="sharedShareCategories.lenght === 0" class="heading">
       全取得状況
     </h1>
     <div v-else class="nav-wrapper">

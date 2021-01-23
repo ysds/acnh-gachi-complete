@@ -1,4 +1,5 @@
 import LZString from "lz-string";
+import isEqual from "lodash/isEqual";
 import store from "../store";
 import firebase from "../plugins/firebase";
 
@@ -8,6 +9,7 @@ let localCollected;
 let localUpdateIndex;
 let cloudCollected;
 let cloudUpdateIndex;
+let lastSyncCollected = {};
 
 const initDataFromStore = function() {
   user = store.getters.user;
@@ -45,9 +47,15 @@ const updateLocalData = function() {
 
 export function syncCollectedData() {
   initDataFromStore();
-  if (localUpdateIndex > cloudUpdateIndex) {
+
+  if (
+    localUpdateIndex > cloudUpdateIndex &&
+    !isEqual(localCollected, lastSyncCollected) // 最終同期データと異なる時のみ同期する。
+  ) {
+    lastSyncCollected = Object.assign({}, localCollected);
     updateCloudData();
   } else if (localUpdateIndex < cloudUpdateIndex) {
+    lastSyncCollected = Object.assign({}, cloudCollected);
     updateLocalData();
   }
 }

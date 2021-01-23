@@ -20,32 +20,22 @@
       <Modal :show="isShowShareModal" @close="isShowShareModal = false">
         <template slot="header">{{ navText }}のコンプ状況をシェア</template>
         <div slot="body">
-          <div v-show="hasUpdateData">
-            <div class="spinner">
-              <Spinner />
-            </div>
-            <p>
-              最新のチェック状態をクラウドに保存しています。
-            </p>
-          </div>
-          <div v-show="!hasUpdateData">
-            <p style="word-break: break-all;">
-              公開ページの URL<br />
-              <router-link :to="`/share2/${activeNav}/?uid=${user.uid}`">
-                {{ shareURL }}
-              </router-link>
-            </p>
-            <p>URL をクリップボードにコピーしました。</p>
-            <div>
-              <Button
-                cta
-                :href="
-                  `https://twitter.com/intent/tweet?text=${navText}%0a${twitterURL}%0a%0a%23あつ森ガチコンプ`
-                "
-              >
-                Twitter に投稿する
-              </Button>
-            </div>
+          <p style="word-break: break-all;">
+            公開ページの URL<br />
+            <router-link :to="`/share2/${activeNav}/?uid=${user.uid}`">
+              {{ shareURL }}
+            </router-link>
+          </p>
+          <p>URL をクリップボードにコピーしました。</p>
+          <div>
+            <Button
+              cta
+              :href="
+                `https://twitter.com/intent/tweet?text=${navText}%0a${twitterURL}%0a%0a%23あつ森ガチコンプ`
+              "
+            >
+              Twitter に投稿する
+            </Button>
           </div>
         </div>
       </Modal>
@@ -55,15 +45,14 @@
 
 <script>
 import { getNavText } from "../utils/nav.js";
+import { syncCollectedData } from "../utils/db.js";
 import Button from "./Button";
 import Modal from "./Modal";
-import Spinner from "./Spinner";
 
 export default {
   components: {
     Button,
-    Modal,
-    Spinner
+    Modal
   },
   data() {
     return {
@@ -81,13 +70,11 @@ export default {
     },
     navText() {
       return getNavText(this.activeNav);
-    },
-    hasUpdateData() {
-      return this.$store.getters.hasUpdateData;
     }
   },
   methods: {
     showShareModal() {
+      syncCollectedData();
       const shareURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.activeNav}/?uid=${this.user.uid}`;
       this.shareURL = shareURL;
       this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.activeNav}/?uid=${this.user.uid}`;
@@ -101,12 +88,6 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   display: inline-block;
-}
-
-.spinner {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 1rem;
 }
 
 .bi-reply {

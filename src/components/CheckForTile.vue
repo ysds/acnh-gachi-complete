@@ -3,7 +3,6 @@
     type="button"
     class="t"
     :class="{ t1: props.value === 1, t2: props.value === 2 }"
-    :disabled="props.isStatic"
     v-on="listeners"
   >
     <div class="t-name">
@@ -42,7 +41,6 @@ export default {
     "variant",
     "variants",
     "isRecipe",
-    "isStatic",
     "isRemake"
   ]
 };

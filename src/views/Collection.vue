@@ -278,6 +278,13 @@ export default {
         }
         this.changeNav(nav || "housewares-all");
       }
+
+      // Reset typeFilter
+      if (isAvailableFilter(this.activeNav, this.filter.typeFilter)) {
+        this.filter.typeFilter = "all";
+        this.$vlf.setItem("filter", this.filter);
+      }
+
       this.updateNavOrder();
     },
     onChangeItemCheck: function(itemName, itemCollectedData) {

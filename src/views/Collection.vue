@@ -62,12 +62,12 @@
       <Item
         v-for="item in showItems"
         :item="item"
+        :itemName="toDisplayItemName(item, islandName)"
         :collected="getCollected(item)"
         :filter="filter"
         :isSearchMode="isSearchMode"
         :key="item.name + item.sourceSheet"
         :renderStartDate="renderStartDate"
-        :islandName="islandName"
         @change="onChangeItemCheck"
         @showModal="onShowModal"
       />
@@ -98,7 +98,9 @@
     </div>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
-        <template slot="header">{{ modalItem.displayName }}</template>
+        <template slot="header">{{
+          toDisplayItemName(modalItem, islandName)
+        }}</template>
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
       </template>
     </Modal>
@@ -113,7 +115,8 @@ import {
   filterItems,
   navs,
   totalLength,
-  collectedLength
+  collectedLength,
+  toDisplayItemName
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
 

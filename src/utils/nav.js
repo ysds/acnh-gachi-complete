@@ -639,3 +639,16 @@ export function getNavText(nav) {
   });
   return navText;
 }
+
+export function toDisplayItemName(item, islandName) {
+  // 島名を置換
+  if (
+    islandName &&
+    (item.name === "(island name) Icons" ||
+      item.name === "(island name) Miles!")
+  ) {
+    return item.displayName.replace("○○", islandName);
+  } else {
+    return item.displayName;
+  }
+}

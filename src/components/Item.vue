@@ -105,11 +105,11 @@ export default {
       default: ""
     },
     item: Object,
+    itemName: String,
     filter: Object,
     isSearchMode: Boolean,
     renderStartDate: Number,
-    isStatic: Boolean,
-    islandName: String
+    isStatic: Boolean
   },
   directives: {
     "long-press": {
@@ -129,18 +129,6 @@ export default {
     };
   },
   computed: {
-    itemName() {
-      // 島名を置換
-      if (
-        this.islandName &&
-        (this.item.name === "(island name) Icons" ||
-          this.item.name === "(island name) Miles!")
-      ) {
-        return this.item.displayName.replace("○○", this.islandName);
-      } else {
-        return this.item.displayName;
-      }
-    },
     itemImage() {
       const item = this.item;
       if (item.variants) {

@@ -69,12 +69,12 @@
         v-for="item in showItems"
         :key="item.name + item.sourceSheet"
         :item="item"
+        :itemName="toDisplayItemName(item, sharedIslandName)"
         :collected="getCollected(item)"
         :myCollected="getMyCollected(item)"
         :filter="filter"
         :isStatic="true"
         :renderStartDate="renderStartDate"
-        :islandName="sharedIslandName"
         @showModal="onShowModal"
       />
     </ul>
@@ -94,7 +94,9 @@
     </infinite-loading>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
-        <template slot="header">{{ modalItem.displayName }}</template>
+        <template slot="header">{{
+          toDisplayItemName(modalItem, sharedIslandName)
+        }}</template>
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
       </template>
     </Modal>
@@ -110,7 +112,8 @@ import {
   totalLength,
   collectedLength,
   getNavText,
-  navs
+  navs,
+  toDisplayItemName
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
 import { syncCollectedData } from "../utils/db.js";
@@ -370,7 +373,8 @@ export default {
 
       this.queueItems.splice(0, count);
       this.isLoadComplete = true;
-    }
+    },
+    toDisplayItemName: toDisplayItemName
   }
 };
 </script>

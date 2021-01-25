@@ -279,12 +279,7 @@ export default {
         this.changeNav(nav || "housewares-all");
       }
 
-      // Reset typeFilter
-      if (isAvailableFilter(this.activeNav, this.filter.typeFilter)) {
-        this.filter.typeFilter = "all";
-        this.$vlf.setItem("filter", this.filter);
-      }
-
+      this.resetTypeFilter();
       this.updateNavOrder();
     },
     onChangeItemCheck: function(itemName, itemCollectedData) {
@@ -351,12 +346,7 @@ export default {
       this.$copyText(names);
     },
     onChangeNav() {
-      // Reset typeFilter
-      if (isAvailableFilter(this.activeNav, this.filter.typeFilter)) {
-        this.filter.typeFilter = "all";
-        this.$vlf.setItem("filter", this.filter);
-      }
-
+      this.resetTypeFilter();
       this.updateShowItems();
     },
     onChangeView: function() {
@@ -484,6 +474,12 @@ export default {
             return 0;
           });
         }
+      }
+    },
+    resetTypeFilter() {
+      if (isAvailableFilter(this.activeNav, this.filter.typeFilter)) {
+        this.filter.typeFilter = "all";
+        this.$vlf.setItem("filter", this.filter);
       }
     }
   }

@@ -69,12 +69,12 @@
         v-for="item in showItems"
         :key="item.name + item.sourceSheet"
         :item="item"
-        :itemName="toDisplayItemName(item, sharedIslandName)"
         :collected="getCollected(item)"
         :myCollected="getMyCollected(item)"
         :filter="filter"
         :isStatic="true"
         :renderStartDate="renderStartDate"
+        :islandName="sharedIslandName"
         @showModal="onShowModal"
       />
     </ul>
@@ -94,9 +94,7 @@
     </infinite-loading>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
-        <template slot="header">{{
-          toDisplayItemName(modalItem, sharedIslandName)
-        }}</template>
+        <template slot="header">{{ modalItemName }}</template>
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
       </template>
     </Modal>
@@ -217,6 +215,9 @@ export default {
     },
     isLogin() {
       return this.$store.getters.isLogin;
+    },
+    modalItemName() {
+      return this.toDisplayItemName(this.modalItem, this.sharedIslandName);
     },
     navText() {
       return getNavText(this.nav);

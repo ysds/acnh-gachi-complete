@@ -87,6 +87,7 @@
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
+import { toDisplayItemName } from "../utils/nav";
 
 export default {
   name: "Item",
@@ -105,11 +106,11 @@ export default {
       default: ""
     },
     item: Object,
-    itemName: String,
     filter: Object,
     isSearchMode: Boolean,
     renderStartDate: Number,
-    isStatic: Boolean
+    isStatic: Boolean,
+    islandName: String
   },
   directives: {
     "long-press": {
@@ -129,6 +130,9 @@ export default {
     };
   },
   computed: {
+    itemName() {
+      return toDisplayItemName(this.item, this.islandName);
+    },
     itemImage() {
       const item = this.item;
       if (item.variants) {
@@ -310,7 +314,8 @@ export default {
         return 2;
       }
       return this.checks[index];
-    }
+    },
+    toDisplayItemName: toDisplayItemName
   }
 };
 </script>

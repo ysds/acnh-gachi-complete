@@ -374,8 +374,7 @@ export default {
 
       this.queueItems.splice(0, count);
       this.isLoadComplete = true;
-    },
-    toDisplayItemName: toDisplayItemName
+    }
   }
 };
 </script>

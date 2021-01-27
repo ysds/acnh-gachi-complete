@@ -314,8 +314,7 @@ export default {
         return 2;
       }
       return this.checks[index];
-    },
-    toDisplayItemName: toDisplayItemName
+    }
   }
 };
 </script>

@@ -190,7 +190,7 @@ export default {
       return this.$store.getters.islandName;
     },
     modalItemName() {
-      return this.toDisplayItemName(this.modalItem, this.islandName);
+      return toDisplayItemName(this.modalItem, this.islandName);
     },
     isVersion() {
       if (this.activeNav) {

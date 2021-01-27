@@ -98,7 +98,7 @@
     </div>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
-        <template slot="header">{{ modalItem.displayName }}</template>
+        <template slot="header">{{ modalItemName }}</template>
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
       </template>
     </Modal>
@@ -113,7 +113,8 @@ import {
   filterItems,
   navs,
   totalLength,
-  collectedLength
+  collectedLength,
+  toDisplayItemName
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
 
@@ -187,6 +188,9 @@ export default {
     },
     islandName() {
       return this.$store.getters.islandName;
+    },
+    modalItemName() {
+      return toDisplayItemName(this.modalItem, this.islandName);
     },
     isVersion() {
       if (this.activeNav) {

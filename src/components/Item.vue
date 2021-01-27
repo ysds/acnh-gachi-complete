@@ -87,6 +87,7 @@
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
+import { toDisplayItemName } from "../utils/nav";
 
 export default {
   name: "Item",
@@ -130,16 +131,7 @@ export default {
   },
   computed: {
     itemName() {
-      // 島名を置換
-      if (
-        this.islandName &&
-        (this.item.name === "(island name) Icons" ||
-          this.item.name === "(island name) Miles!")
-      ) {
-        return this.item.displayName.replace("○○", this.islandName);
-      } else {
-        return this.item.displayName;
-      }
+      return toDisplayItemName(this.item, this.islandName);
     },
     itemImage() {
       const item = this.item;

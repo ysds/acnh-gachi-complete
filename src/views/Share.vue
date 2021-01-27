@@ -94,7 +94,7 @@
     </infinite-loading>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
-        <template slot="header">{{ modalItem.displayName }}</template>
+        <template slot="header">{{ modalItemName }}</template>
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
       </template>
     </Modal>
@@ -110,7 +110,8 @@ import {
   totalLength,
   collectedLength,
   getNavText,
-  navs
+  navs,
+  toDisplayItemName
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
 import { syncCollectedData } from "../utils/db.js";
@@ -214,6 +215,9 @@ export default {
     },
     isLogin() {
       return this.$store.getters.isLogin;
+    },
+    modalItemName() {
+      return toDisplayItemName(this.modalItem, this.sharedIslandName);
     },
     navText() {
       return getNavText(this.nav);

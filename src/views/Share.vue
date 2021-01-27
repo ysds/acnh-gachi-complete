@@ -217,7 +217,7 @@ export default {
       return this.$store.getters.isLogin;
     },
     modalItemName() {
-      return this.toDisplayItemName(this.modalItem, this.sharedIslandName);
+      return toDisplayItemName(this.modalItem, this.sharedIslandName);
     },
     navText() {
       return getNavText(this.nav);

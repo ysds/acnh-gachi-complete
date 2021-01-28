@@ -18,6 +18,11 @@ const routes = [
     component: () => import("../views/About.vue")
   },
   {
+    path: "/policy",
+    name: "Policy",
+    component: () => import("../views/Policy.vue")
+  },
+  {
     path: "/share2/:category/",
     name: "Share2",
     component: Share

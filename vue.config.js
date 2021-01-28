@@ -69,6 +69,7 @@ module.exports = {
               "/share2/season-fish",
               "/share2/season-bug",
               "/share2/season-fireworks",
+              "/share2/season-festivale",
               "/share2/season-spring",
               "/share2/season-sakura",
               "/share2/season-easter",
@@ -90,6 +91,7 @@ module.exports = {
               "/share2/reactions",
               "/share2/achievements",
               "/share2/versions-160",
+              "/share2/versions-170",
               "/share2/versions-150",
               "/share2/versions-140"
             ],
@@ -142,6 +144,7 @@ module.exports = {
                 "/share2/season-fish": "魚釣り大会",
                 "/share2/season-bug": "虫取り大会",
                 "/share2/season-fireworks": "花火大会",
+                "/share2/season-festivale": "カーニバル",
                 "/share2/season-spring": "はるのわかたけ",
                 "/share2/season-sakura": "さくらのはなびら",
                 "/share2/season-easter": "イースター",
@@ -162,6 +165,7 @@ module.exports = {
                 "/share2/season-mother": "ははシリーズ",
                 "/share2/reactions": "リアクション",
                 "/share2/achievements": "たぬきマイレージ",
+                "/share2/versions-170": "1.7.0",
                 "/share2/versions-160": "1.6.0",
                 "/share2/versions-150": "1.5.0",
                 "/share2/versions-140": "1.4.0"

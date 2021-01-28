@@ -1,41 +1,43 @@
-﻿"label","text"
-"Fence_03080","レンガのカベ"
-"Fence_03080_pl","レンガのカベ"
-"Fence_03402","たていたのさく"
-"Fence_03402_pl","たていたのさく"
-"Fence_03403","たけがき"
-"Fence_03403_pl","たけがき"
-"Fence_04349","よこいたのさく"
-"Fence_04349_pl","よこいたのさく"
-"Fence_04350","まるたのさく"
-"Fence_04350_pl","まるたのさく"
-"Fence_04352","ペグとロープ"
-"Fence_04352_pl","ペグとロープ"
-"Fence_04354","オリエンタルなさく"
-"Fence_04354_pl","オリエンタルなさく"
-"Fence_04356","わらぼしのさく"
-"Fence_04356_pl","わらぼしのさく"
-"Fence_04357","てつのさく"
-"Fence_04357_pl","てつのさく"
-"Fence_04358","トゲトゲのさく"
-"Fence_04358_pl","トゲトゲのさく"
-"Fence_05206","ようふうのさく"
-"Fence_05206_pl","ようふうのさく"
-"Fence_05207","わふうのさく"
-"Fence_05207_pl","わふうのさく"
-"Fence_05212","いしかべ"
-"Fence_05212_pl","いしかべ"
-"Fence_05213","ゆうしてっせん"
-"Fence_05213_pl","ゆうしてっせん"
-"Fence_11711","そぼくなもくせいのさく"
-"Fence_11711_pl","そぼくなもくせいのさく"
-"Fence_11712","ラティス"
-"Fence_11712_pl","ラティス"
-"Fence_12630","イースターなさく"
-"Fence_12630_pl","イースターなさく"
-"Fence_12758","いけがき"
-"Fence_12758_pl","いけがき"
-"Fence_12894","ウェディングなさく"
-"Fence_12894_pl","ウェディングなさく"
-"Fence_13275","ハロウィンなさく"
-"Fence_13275_pl","ハロウィンなさく"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+Fence_03080;brick fence;brick fence;Ziegelsteinmauer;cerca de ladrillo;cerca de ladrillo;muret en briques;muret en briques;muretto di mattoni;bakstenen muurtje;砖块栅栏;磚塊柵欄;レンガのカベ;벽돌 울타리;кирпичный забор
+Fence_03080_pl;brick fencing;brick fencing;Ziegelsteinmauer;cercas de ladrillo;cercas de ladrillo;muret en briques;muret en briques;muretti di mattoni;bakstenen muurtje;砖块栅栏;磚塊柵欄;レンガのカベ;벽돌 울타리;кирпичные заборы
+Fence_03402;vertical-board fence;vertical-board fence;Bretterzaun;valla de tablones;valla de tablas;clôture lattes verticales;clôture lattes verticales;recinzione di assi verticali;lichte schutting;直条木板栅栏;直條木板柵欄;たていたのさく;세로 널빤지 울타리;штакетник
+Fence_03402_pl;vertical-board fencing;vertical-board fencing;Bretterzaun;vallas de tablones;vallas de tablas;clôture lattes verticales;clôture lattes verticales;recinzioni di assi verticali;lichte schutting;直条木板栅栏;直條木板柵欄;たていたのさく;세로 널빤지 울타리;штакетники
+Fence_03403;bamboo lattice fence;bamboo lattice fence;Bambuszaun;valla celosía de bambú;valla celosía de bambú;clôture bambou à treillis;clôture bambou à treillis;recinzione di bambù;bamboeschutting;竹栅栏;竹柵欄;たけがき;대나무 울타리;забор из бамбука
+Fence_03403_pl;bamboo lattice fencing;bamboo lattice fencing;Bambuszaun;vallas celosía de bambú;vallas celosía de bambú;clôture bambou à treillis;clôture bambou à treillis;recinzioni di bambù;bamboeschutting;竹栅栏;竹柵欄;たけがき;대나무 울타리;заборы из бамбука
+Fence_04349;corral fence;corral fence;Weidezaun;valla de corral;valla de corral;clôture de ferme;clôture de ferme;staccionata ranch;boerderijhek;横条木板栅栏;橫條木板柵欄;よこいたのさく;가로 널빤지 울타리;дощатый забор
+Fence_04349_pl;corral fencing;corral fencing;Weidezaun;vallas de corral;vallas de corral;clôture de ferme;clôture de ferme;staccionate ranch;boerderijhek;横条木板栅栏;橫條木板柵欄;よこいたのさく;가로 널빤지 울타리;дощатые заборы
+Fence_04350;country fence;country fence;Baumstammzaun;valla leños;valla rural;clôture de rondins;clôture de rondins;staccionata di ceppi;paalhekje;圆木栅栏;圓木柵欄;まるたのさく;통나무 울타리;забор из столбиков
+Fence_04350_pl;country fencing;country fencing;Baumstammzaun;vallas leños;vallas rurales;clôture de rondins;clôture de rondins;staccionate di ceppi;paalhekje;圆木栅栏;圓木柵欄;まるたのさく;통나무 울타리;заборы из столбиков
+Fence_04352;rope fence;rope fence;Seilzaun;valla cordón;valla de soga;clôture de corde;clôture de corde;recinzione di corda;touwhek;钉子与绳索;釘子與繩索;ペグとロープ;페그 울타리;ограда из веревки
+Fence_04352_pl;rope fencing;rope fencing;Seilzaun;vallas cordones;vallas de soga;clôture de corde;clôture de corde;recinzioni di corda;touwhek;钉子与绳索;釘子與繩索;ペグとロープ;페그 울타리;ограды из веревки
+Fence_04354;imperial fence;imperial fence;Asienzaun;valla dinastía;valla dinastía;clôture dynastie orientale;clôture dynastie;recinzione dinastia;keizerlijk hek;东方风栅栏;東方風柵欄;オリエンタルなさく;오리엔탈 울타리;забор в азиатском стиле
+Fence_04354_pl;imperial fencing;imperial fencing;Asienzaun;vallas dinastía;vallas dinastía;clôture dynastie orientale;clôture dynastie;recinzioni dinastia;keizerlijk hek;东方风栅栏;東方風柵欄;オリエンタルなさく;오리엔탈 울타리;заборы в азиатском стиле
+Fence_04356;straw fence;straw fence;Strohzaun;valla de paja;valla de paja;clôture de paille;clôture de paille;recinzione di paglia;strohek;干稻草栅栏;乾稻草柵欄;わらぼしのさく;짚단 울타리;соломенный забор
+Fence_04356_pl;straw fencing;straw fencing;Strohzaun;vallas de paja;vallas de paja;clôture de paille;clôture de paille;recinzioni di paglia;strohek;干稻草栅栏;乾稻草柵欄;わらぼしのさく;짚단 울타리;соломенные заборы
+Fence_04357;iron fence;iron fence;Eisenzaun;verja de hierro;valla de hierro;clôture en fer;clôture en fer;recinzione di ferro;ijzeren hek;铁栅栏;鐵柵欄;てつのさく;철제 울타리;железный забор
+Fence_04357_pl;iron fencing;iron fencing;Eisenzaun;verjas de hierro;vallas de hierro;clôture en fer;clôture en fer;recinzioni di ferro;ijzeren hek;铁栅栏;鐵柵欄;てつのさく;철제 울타리;железные заборы
+Fence_04358;spiky fence;spiky fence;Spitzpfostenzaun;valla puntiaguda;valla puntiaguda;clôture épieux;clôture épieux;recinzione appuntita;puntig hek;尖刺栅栏;尖刺柵欄;トゲトゲのさく;뾰족뾰족 울타리;забор из кольев
+Fence_04358_pl;spiky fencing;spiky fencing;Spitzpfostenzaun;vallas puntiagudas;vallas puntiagudas;clôture épieux;clôture épieux;recinzioni appuntite;puntig hek;尖刺栅栏;尖刺柵欄;トゲトゲのさく;뾰족뾰족 울타리;заборы из кольев
+Fence_05206;iron-and-stone fence;iron-and-stone fence;Villenzaun;verja de hierro y piedra;valla de hierro y piedra;clôture manoir;clôture manoir;muretto con ringhiera;hek met pijlers;石砌铁艺栅栏;西洋風柵欄;ようふうのさく;아이언 스톤 울타리;кованый забор
+Fence_05206_pl;iron-and-stone fencing;iron-and-stone fencing;Villenzaun;verjas de hierro y piedra;vallas de hierro y piedra;clôture manoir;clôture manoir;muretti con ringhiera;hek met pijlers;石砌铁艺栅栏;西洋風柵欄;ようふうのさく;아이언 스톤 울타리;кованые заборы
+Fence_05207;zen fence;zen fence;Japanmauer;cerca oriental;cerca oriental;muret zen;muret zen;muretto giapponese;zenmuurtje;和风栅栏;和風柵欄;わふうのさく;동양풍 울타리;забор-дзен
+Fence_05207_pl;zen fencing;zen fencing;Japanmauer;cercas orientales;cercas orientales;muret zen;muret zen;muretti giapponesi;zenmuurtje;和风栅栏;和風柵欄;わふうのさく;동양풍 울타리;заборы-дзен
+Fence_05212;stone fence;stone fence;Feldsteinmauer;cerca de piedra;cerca de piedra;muret en pierre sèche;muret en pierre sèche;muretto di pietra;stenen muurtje;石栅栏;石柵欄;いしかべ;돌 울타리;каменный забор
+Fence_05212_pl;stone fencing;stone fencing;Feldsteinmauer;cercas de piedra;cercas de piedra;muret en pierre sèche;muret en pierre sèche;muretti di pietra;stenen muurtje;石栅栏;石柵欄;いしかべ;돌 울타리;каменные заборы
+Fence_05213;barbed-wire fence;barbed-wire fence;Stacheldrahtzaun;valla de alambre;valla de alambre;clôture de barbelés;clôture de barbelés;filo spinato;prikkeldraadhek;有刺铁丝网;有刺鐵絲網;ゆうしてっせん;가시철조망 울타리;колючая проволока
+Fence_05213_pl;barbed-wire fencing;barbed-wire fencing;Stacheldrahtzaun;vallas de alambre;vallas de alambre;clôture de barbelés;clôture de barbelés;filo spinato;prikkeldraadhek;有刺铁丝网;有刺鐵絲網;ゆうしてっせん;가시철조망 울타리;колючая проволока
+Fence_11711;simple wooden fence;simple wooden fence;Standard-Holzzaun;valla de madera;valla de madera;clôture en bois standard;clôture en bois standard;recinzione di legno grezzo;houten hekje;朴素木制栅栏;樸素木製柵欄;そぼくなもくせいのさく;소박한 목제 울타리;простой дерев. забор
+Fence_11711_pl;simple wooden fencing;simple wooden fencing;Standard-Holzzaun;vallas de madera;vallas de madera;clôture en bois standard;clôture en bois standard;recinzioni di legno grezzo;houten hekje;朴素木制栅栏;樸素木製柵欄;そぼくなもくせいのさく;소박한 목제 울타리;простые дерев. заборы
+Fence_11712;lattice fence;lattice fence;Gitterzaun;valla celosía;valla celosía;clôture en treillis standard;clôture en treillis standard;recinzione graticcio;rasterhek;交叉格栅;交叉格柵;ラティス;격자 울타리;решетка
+Fence_11712_pl;lattice fencing;lattice fencing;Gitterzaun;vallas celosía;vallas celosía;clôture en treillis standard;clôture en treillis standard;recinzioni graticcio;rasterhek;交叉格栅;交叉格柵;ラティス;격자 울타리;решетки
+Fence_12630;Bunny Day fence;Bunny Day fence;Häschentag-Zaun;valla Caza del Huevo;valla Caza del Huevo;clôture fête des œufs;clôture fête des œufs;recinzione caccia all'uovo;eierhek;复活节栅栏;復活節柵欄;イースターなさく;이스터 울타리;забор «День зайцев»
+Fence_12630_pl;Bunny Day fencing;Bunny Day fencing;Häschentag-Zaun;vallas Caza del Huevo;vallas Caza del Huevo;clôture fête des œufs;clôture fête des œufs;recinzioni caccia all'uovo;eierhek;复活节栅栏;復活節柵欄;イースターなさく;이스터 울타리;заборы «День зайцев»
+Fence_12758;hedge;hedge;Hecke;seto;arbusto;clôture végétale;clôture végétale;siepe;heg;树篱;樹叢;いけがき;낮은 나무 울타리;живая изгородь
+Fence_12758_pl;hedges;hedges;Hecke;setos;arbustos;clôture végétale;clôture végétale;siepi;heg;树篱;樹叢;いけがき;낮은 나무 울타리;живые изгороди
+Fence_12894;wedding fence;wedding fence;Hochzeitsabsperrung;valla de boda;valla de boda;clôture de mariage;clôture de mariage;recinzione nuziale;trouwhek;婚礼栅栏;婚禮柵欄;ウェディングなさく;웨딩 울타리;свадебный забор
+Fence_12894_pl;wedding fencing;wedding fencing;Hochzeitsabsperrung;vallas de boda;vallas de boda;clôture de mariage;clôture de mariage;recinzioni nuziali;trouwhek;婚礼栅栏;婚禮柵欄;ウェディングなさく;웨딩 울타리;свадебные заборы
+Fence_13275;spooky fence;spooky fence;Kürbiszaun;valla calabaza;valla calabaza;clôture Halloween;clôture Halloween;recinzione brividi;pompoenhek;万圣节栅栏;萬聖節柵欄;ハロウィンなさく;할로윈 울타리;жуткий забор
+Fence_13275_pl;spooky fencing;spooky fencing;Kürbiszaun;vallas calabaza;vallas calabaza;clôture Halloween;clôture Halloween;recinzioni brividi;pompoenhek;万圣节栅栏;萬聖節柵欄;ハロウィンなさく;할로윈 울타리;жуткие заборы
+Fence_14278;mermaid fence;mermaid fence;Nixenzaun;valla sirena;valla sirena;clôture sirène;clôture sirène;recinzione sirena;meerminnenhek;人鱼栅栏;人魚柵欄;マーメイドなさく;머메이드 울타리;забор русалки
+Fence_14278_pl;mermaid fencing;mermaid fencing;Nixenzaun;vallas sirena;vallas sirena;clôture sirène;clôture sirène;recinzioni sirena;meerminnenhek;人鱼栅栏;人魚柵欄;マーメイドなさく;머메이드 울타리;заборы русалки

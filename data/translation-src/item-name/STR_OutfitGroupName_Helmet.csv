@@ -1,67 +1,69 @@
-﻿"label","text"
-"1008","おひめさま"
-"1009","ヘアターバン"
-"1010","コインヘッドピース"
-"1011","べんぱつ"
-"1012","ヴィジュアルけいウィッグ"
-"1040","ゆきだるまのぼうし"
-"1113","おほしさまのあたま"
-"1265","まほうスクールのフード"
-"1266","パンプキングフェイス"
-"674","ほっかむり"
-"675","メルヘンなずきん"
-"676","ミイラのかぶりもの"
-"677","ウサギのかぶりもの"
-"678","ネコのかぶりもの"
-"679","めだしぼう"
-"680","ガイコツのかぶりもの"
-"682","クマのかぶりもの"
-"683","カッパのおさら"
-"686","アイアンアーマーヘルメット"
-"687","カエルのかぶりもの"
-"692","ゴールデンアーマーヘルメット"
-"697","アメフトヘルメット"
-"698","しょうぼうしのぼうし"
-"699","ようせつマスク"
-"702","かぶと"
-"704","オランダのぼうし"
-"706","ひこうぼう"
-"707","あかちゃんのぼうし"
-"708","にんじゃずきん"
-"709","やきゅうのヘルメット"
-"711","プロレスのマスク"
-"712","ホットドッグマスク"
-"713","みみあてつきニット"
-"717","アストロヘルメット"
-"718","ペイントボールマスク"
-"738","ヒーローヘルメット"
-"741","ターバン"
-"742","ゴーグルつきヘルメット"
-"748","フルフェイスメット"
-"750","トナカイのぼうし"
-"758","デビルなかぶりもの"
-"759","ひつじのかぶりもの"
-"790","ツタンカーメン"
-"822","のうぎょうぼう"
-"825","ヘッドギア"
-"826","モヒカン"
-"827","リーゼント"
-"828","ちょんまげ"
-"829","たまねぎヘアー"
-"830","じゅんぱくのヴェール"
-"831","おだんごあたま"
-"832","ヘッドホン"
-"833","ヘッドドレス"
-"834","ベール"
-"836","ゲイシャさん"
-"837","おんがくかのかつら"
-"838","パワードメット"
-"900","かみぶくろ"
-"917","キツネのおめん"
-"918","おきなののうめん"
-"919","のうめん"
-"923","ホッケーのマスク"
-"931","キャッチャーマスク"
-"933","アラビアのぼうし"
-"934","くろこ"
-"956","はっぱのおめん"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+1008;tiara hair;tiara hair;Diadem-Perücke;diadema de princesa;diadema de princesa;diadème;diadème;diadema;tiarapruik;公主假发;公主假髮;おひめさま;공주님 머리;парик с диадемой
+1009;headband;headband;Haarband;cinta para el pelo;cinta para el cabello;bandeau;bandeau;fascia;haarbandpruik;发带;髮帶;ヘアターバン;헤어밴드;парик с ленточкой
+1010;coin headpiece;coin headpiece;Münzen-Stirnband;gorra de monedas;gorra de monedas;parure de sultane;parure de sultane;copricapo con monete;muntenpruik;金币头饰;金幣頭飾;コインヘッドピース;코인 헤드피스;парик с монетками
+1011;pigtail;pigtail;Khan-Perücke;coleta mongola;cola de caballo;natte;natte;codino cinese;paardenstaart;小辫子;小辮子;べんぱつ;변발;парик-косичка
+1012;visual-punk wig;visual-punk wig;Visual-Kei-Perücke;peluca punk;peluca punk;perruque visual kei;perruque visual kei;parrucca visual kei;Japanse punkpruik;视觉系假发;視覺系假髮;ヴィジュアルけいウィッグ;록 밴드 스타일 가발;панковский парик
+1040;snowperson head;snowperson head;Schneemannhut;casco de Copito;casco de Copito;cagoule neige;cagoule neige;testa da pupazzo di neve;sneeuwpopkop;雪人头套;雪人帽子;ゆきだるまのぼうし;눈사람 모자;шапка снеговика
+1113;star head;star head;Sternenkapuze;casco estrella;casco estrella;cagoule étoile;cagoule étoile;cappuccio stella;sterrenkop;星星头套;星星頭套;おほしさまのあたま;별님 머리;звездный шлем
+1265;magic-academy hood;magic-academy hood;Zauberlehrlingskapuze;capucha escuela de magia;capucha escuela de magia;capuche école de magie;capuche école de magie;cappuccio scuola di magia;tovenaarsleerlingkap;魔法学校兜帽;魔法學校兜帽;まほうスクールのフード;마법 학교 후드;капюшон академии магов
+1266;Jack's face;Jack's face;Jakob-Maske;máscara de Soponcio;máscara de Soponcio;masque Jacqu'O;masque Jacqu'O;maschera di Fifonio;masker van Jack;南瓜王头套;南瓜王面孔;パンプキングフェイス;펌킹 페이스;шлем Джека
+1343;okame mask;okame mask;Okame-Maske;máscara de Okame;máscara de Okame;masque okame;masque okame;maschera da Okame;okame-masker;阿龟面具;阿龜面具;おかめのおめん;복을 부르는 가면;маска окамэ
+674;headkerchief;headkerchief;Wanderkopftuch;pañuelo anudado en la nariz;pañuelo anudado en la nariz;foulard vert;foulard vert;fazzoletto giapponese;hoofddoek;小偷头巾;小偷頭巾;ほっかむり;뒤집어쓴 보자기;платок
+675;fairy-tale hood;fairy-tale hood;Märchenkapuze;caperuza de cuento;caperuza de cuento;chaperon féerique;capuche de petit chaperon;cappuccio fiabesco;sprookjeskapje;童话风头巾;童話風頭巾;メルヘンなずきん;메르헨 두건;сказочный капюшон
+676;mummy mask;mummy mask;Mumienmaske;careta de momia;careta de momia;masque de momie;masque de momie;maschera da mummia;mummiemasker;木乃伊头套;木乃伊頭套;ミイラのかぶりもの;미라 마스크;маска мумии
+677;bunny hood;bunny hood;Hasenkapuze;gorro de conejito;gorro de conejito;cagoule lapin;cagoule lapin;cappello da coniglio;konijnenmuts;兔子头套;兔子頭套;ウサギのかぶりもの;토끼 모자;шапка зайки
+678;cat cap;cat cap;Katzenmütze;gorro de gato;gorro de gato;cagoule chat;cagoule chat;cappello da gatto;kattenmuts;猫头套;貓頭套;ネコのかぶりもの;고양이 모자;шапка кошки
+679;ski mask;ski mask;Skimaske;pasamontañas;pasamontañas;cagoule;cagoule;passamontagna;bivakmuts;全罩式头套;全罩式頭套;めだしぼう;복면 마스크;лыжная маска
+680;skeleton hood;skeleton hood;Skelettkapuze;capucha calavera;capucha calavera;masque de squelette;masque de squelette;copricapo scheletro;schedelmuts;骸骨头套;骸骨頭套;ガイコツのかぶりもの;해골 모자;шапка скелета
+682;bear cap;bear cap;Bärenmütze;gorro de oso;gorro de oso;cagoule ours;cagoule ours;cappello da orso;berenmuts;熊头套;熊頭套;クマのかぶりもの;곰 모자;шапка медведя
+683;kappa cap;kappa cap;Käpten-Mütze;gorro de kappa;gorro de kappa;cagoule kappa;cagoule kappa;cappello da kappa;kappa-muts;河童头套;河童頭頂;カッパのおさら;거북이 모자;шапка каппы
+686;knight's helmet;knight's helmet;Ritterhelm;yelmo;yelmo;casque de chevalier;casque de chevalier;elmo medievale;ridderhelm;铁甲头盔;鐵甲面罩;アイアンアーマーヘルメット;아이언 아머 헬멧;рыцарский шлем
+687;frog cap;frog cap;Froschmütze;gorro de rana;gorro de rana;cagoule grenouille;cagoule grenouille;cappello da rana;kikkermuts;青蛙头套;青蛙頭套;カエルのかぶりもの;개구리 모자;шапка лягушки
+691;horned-ogre mask;horned-ogre mask;Ogermaske;careta de ogro;careta de ogro;masque d'ogre cornu;masque d'ogre cornu;maschera da orco;gehoornd boemanmasker;鬼面具;鬼面具;オニのおめん;도깨비 가면;маска великана-людоеда
+692;gold helmet;gold helmet;Goldhelm;yelmo dorado;yelmo dorado;casque en or;casque en or;elmo d'oro;gouden helm;金甲头盔;金頭盔;ゴールデンアーマーヘルメット;골든 아머 헬멧;золотой шлем
+697;football helmet;football helmet;Football-Helm;casco de rugby;casco de rugby;casque de football;casque de football;casco da football;Americanfootballhelm;美式足球头盔;美式足球安全帽;アメフトヘルメット;럭비 헬멧;футбольный шлем
+698;firefighter's hat;firefighter's hat;Feuerwehrhut;casco de bombero;casco de bombero;casque de pompier;casque de pompier;elmo da pompiere;brandweerhelm;消防员头盔;消防員帽子;しょうぼうしのぼうし;소방관 모자;шлем пожарного
+699;welding mask;welding mask;Schweißmaske;máscara de soldar;máscara de soldar;masque de soudure;masque de soudure;maschera da saldatore;lasmasker;焊接面罩;焊接面罩;ようせつマスク;용접 마스크;шлем сварщика
+702;samurai helmet;samurai helmet;Samuraihelm;casco de samurái;casco de samurái;casque de samouraï;casque de samouraï;elmo da samurai;samoeraihelm;头盔;頭盔;かぶと;일본 무사 투구;шлем самурая
+704;milkmaid hat;milkmaid hat;Trachtenhaube;tocado holandés;tocado holandés;chapeau hollandais;chapeau hollandais;cuffia olandese;melkmeisjesmuts;荷兰帽子;荷蘭帽子;オランダのぼうし;네덜란드 모자;шапочка молочницы
+706;pilot's cap;pilot's cap;Pilotenkappe;gorra de aviación;gorra de aviación;casque de pilote;casque de pilote;casco d'aviatore;pilotenmuts;飞行帽;飛行帽;ひこうぼう;비행 모자;шапка летчика
+707;baby's hat;baby's hat;Babyhütchen;gorro de bebé;gorro de bebé;chapeau de bébé;chapeau de bébé;cuffietta;babymutsje;婴儿帽子;嬰兒帽子;あかちゃんのぼうし;아기 모자;чепчик младенца
+708;ninja hood;ninja hood;Ninjakapuze;caperuza de ninja;caperuza de ninja;cagoule de ninja;cagoule de ninja;cappuccio ninja;ninjamasker;忍者头巾;忍者頭巾;にんじゃずきん;닌자 두건;капюшон ниндзя
+709;batter's helmet;batter's helmet;Baseballhelm;casco de bateador;casco de bateador;casque de batteur;casque de batteur;elmetto da battitore;slagmanshelm;棒球头盔;棒球安全帽;やきゅうのヘルメット;야구 헬멧;шлем бейсболиста
+711;wrestling mask;wrestling mask;Wrestlingmaske;máscara de lucha libre;máscara de lucha libre;masque de catch;masque de catch;maschera da wrestling;worstelaarsmasker;职业摔角面具;職業摔角面具;プロレスのマスク;프로 레슬링 마스크;маска рестлера
+712;hot-dog hood;hot-dog hood;Hotdog-Kapuze;capucha salchicha;capucha salchicha;capuche saucisse;capuche saucisse;berretto hot dog;hotdogmuts;热狗头套;熱狗頭套;ホットドッグマスク;핫도그 마스크;шапка «Хот-дог»
+713;knit cap with earflaps;knit cap with earflaps;Ohrenwärmer-Strickmütze;gorro de punto con orejeras;gorro tejido con orejas;bonnet cache-oreilles tricot;bonnet cache-oreilles tricot;cappello con paraorecchi;gebreide flapmuts;耳罩针织帽;耳罩針織帽;みみあてつきニット;귀마개 니트 모자;вязаная шапка с ушами
+717;space helmet;space helmet;Astronautenhelm;casco espacial;casco espacial;casque spatial;casque spatial;casco spaziale;ruimtehelm;宇航员头盔;太空人安全帽;アストロヘルメット;아스트로 헬멧;шлем космонавта
+718;paintball mask;paintball mask;Paintball-Maske;casco de paintball;casco de paintball;masque de paintball;masque de paintball;maschera da paintball;paintballmasker;漆弹面罩;漆彈面罩;ペイントボールマスク;페인트 볼 마스크;маска для пейнтбола
+738;zap helmet;zap helmet;Superheldenhelm;supercasco;supercasco;casque de héros;casque de héros;casco da eroe;superhelm;英雄头盔;英雄安全帽;ヒーローヘルメット;히어로 헬멧;шлем супергероя
+741;turban;turban;Turban;turbante;turbante;turban;turban;turbante;tulband;特本头巾;特本頭巾;ターバン;터번;тюрбан
+742;helmet with goggles;helmet with goggles;Skibrillenhelm;casco motocicleta clásico;casco motocicleta clásico;casque avec lunettes;casque avec lunettes;casco con occhiali;helm met beschermbril;带护目镜头盔;護目鏡安全帽;ゴーグルつきヘルメット;고글 헬멧;шлем с очками
+748;racing helmet;racing helmet;Rennfahrerhelm;casco de carreras;casco de carreras;casque de course;casque de course;casco da pilota;coureurshelm;全罩式头盔;全罩式安全帽;フルフェイスメット;풀페이스 헬멧;шлем гонщика
+750;reindeer hat;reindeer hat;Rentiermütze;gorro de reno;sombrero de reno;coiffe de renne;coiffe de renne;cappello da renna;rendiermuts;驯鹿帽子;馴鹿帽子;トナカイのぼうし;순록 모자;шапка оленя
+758;imp hood;imp hood;Kobold-Mütze;gorro de diablo;gorro de diablo;capuche de diablotin;capuche de diablotin;copricapo con corna;duveltjesmuts;恶魔头套;惡魔頭套;デビルなかぶりもの;악마 모자;шапка чертика
+759;sheep hood;sheep hood;Schafkapuze;gorro de carnero;gorro de carnero;capuche de bélier;capuche de bélier;cappello da montone;schapenmuts;绵羊头套;綿羊頭套;ひつじのかぶりもの;양 모자;шапка барана
+790;King Tut mask;King Tut mask;Pharaomaske;máscara egipcia;máscara egipcia;masque de pharaon;masque de pharaon;maschera Re Tut;faraomasker;图坦卡门面具;圖坦卡門面具;ツタンカーメン;투탕카멘;маска фараона Тута
+822;veiled gardening hat;veiled gardening hat;Schleier-Gärtnerhut;gorra para agricultura;gorra para agricultura;chapeau agricole;chapeau agricole;cappello con veletta;tuinierpet;农作遮阳帽;農作遮陽帽;のうぎょうぼう;농부 모자;дачная шапка
+825;headgear;headgear;Boxerhelm;protector de cabeza;protector de cabeza;casque de boxe;casque de boxe;casco;hoofdbeschermer;拳击头套;拳擊頭套;ヘッドギア;헤드기어;парик боксера со шлемом
+826;mohawk wig;mohawk wig;Irokesenperücke;cresta mohicana;cresta mohicana;perruque iroquoise;perruque en crête;parrucca da moicano;hanenkampruik;朋克头;龐克頭;モヒカン;모히칸;парик-ирокез
+827;pompadour wig;pompadour wig;Schmalztollenperücke;tupé rockabilly;tupé rockabilly;perruque banane;perruque banane;parrucca da principe;vetkuifpruik;飞机头;飛機頭;リーゼント;리젠트;парик регента
+828;samurai wig;samurai wig;Samuraiperücke;peluca de samurái;peluca de samurái;coiffe de samouraï;coiffe de samouraï;parrucca da samurai;samoeraipruik;武士头;武士頭;ちょんまげ;일본식 상투;парик самурая
+829;matronly bun;matronly bun;Großmutterperücke;peluca señora mayor;peluca señora mayor;perruque de matrone;perruque de matrone;parrucca da matrona;omaknotpruik;丸子头;洋蔥頭;たまねぎヘアー;양파 머리;парик-кичка
+830;bridal veil;bridal veil;Brautschleier;velo de novia;velo de novia;voile de mariée;voile de mariée;velo da sposa;bruidssluier;纯白头纱;純白頭紗;じゅんぱくのヴェール;순백 베일;парик с фатой
+831;bun wig;bun wig;Doppel-Dutt;moño;par de gorritos de seda;perruque beignet;perruque beigne;parrucca con chignon;knotjespruik;双丸子头;丸子頭;おだんごあたま;양갈래 머리;парик с чепцами
+832;DJ cap;DJ cap;DJ-Kappe;gorra de DJ;gorra de DJ;casque de DJ;casque de DJ;cappello con cuffie;dj-pet;头戴式耳机;頭戴式耳機;ヘッドホン;헤드폰;кепка диджея
+833;gothic headdress;gothic headdress;Gothic-Kopfputz;peluca con tocado;peluca con tocado;chevelure gothique;chevelure gothique;copricapo gotico;victoriaanse haarband;头饰;頭飾;ヘッドドレス;헤드드레스;парик с аксессуаром
+834;veil;veil;1001-Nacht-Schleier;velo princesa desierto;velo princesa desierto;voile princesse du désert;voile princesse du désert;velo da mille e una notte;woestijnprinsessensluier;面纱;面紗;ベール;베일;парик с вуалью
+836;geisha wig;geisha wig;Geishaperücke;peluca de geisha;peluca de geisha;coiffe de geisha;coiffe de geisha;parrucca da geisha;geishapruik;艺伎假发;藝妓假髮;ゲイシャさん;게이샤 머리;парик гейши
+837;composer's wig;composer's wig;Komponistenperücke;pelucón;pelucón;perruque de compositeur;perruque de compositeur;parrucca da musicista;componistenpruik;音乐家假发;音樂家假髮;おんがくかのかつら;음악가 가발;парик композитора
+838;power helmet;power helmet;Power-Helm;casco de energía;casco de energía;casque de puissance;casque de puissance;casco da tuta potenziata;superkrachthelm;动力头盔;動力頭盔;パワードメット;파워 헬멧;силовой шлем
+900;paper bag;paper bag;Papiertüte;bolsa de papel;bolsa de papel;sac en papier;sac en papier;sacchetto di carta;papieren zak;纸袋;紙袋;かみぶくろ;종이 봉투;бумажный пакет
+917;fox mask;fox mask;Fuchsmaske;máscara de zorro;máscara de zorro;masque de renard;masque de renard;maschera da volpe;vossenmasker;狐狸面具;狐狸面具;キツネのおめん;여우 가면;маска лисы
+918;elder mask;elder mask;Greisenmaske;máscara de sabio;máscara de sabio;masque de sage;masque de sage;maschera da saggio;ouderenmasker;老翁能面具;老翁能面具;おきなののうめん;동양 전통 가면;маска старика
+919;Noh mask;Noh mask;No-Maske;máscara de teatro Noh;máscara de teatro Noh;masque de nô;masque de nô;maschera da teatro nō;no-masker;能面具;能面具;のうめん;일본 전통 가면;маска театра «но»
+923;hockey mask;hockey mask;Hockeymaske;máscara de hockey;máscara de hockey;masque de hockey;masque de hockey;maschera da hockey;ijshockeymasker;曲棍球面罩;曲棍球面罩;ホッケーのマスク;하키 마스크;хоккейная маска
+931;catcher's mask;catcher's mask;Baseballmaske;máscara de béisbol;máscara de béisbol;masque de receveur;masque de receveur;maschera da ricevitore;achtervangershelm;捕手面罩;捕手面罩;キャッチャーマスク;포수 마스크;маска бейсболиста
+933;kaffiyeh;kaffiyeh;Kufija;pañuelo árabe;pañuelo árabe;keffieh;keffieh;kefiah;keffiyeh;阿拉伯帽子;阿拉伯帽子;アラビアのぼうし;아라비아 모자;куфия
+934;stagehand hat;stagehand hat;Kabuki-Hut;velo de tramoyista;gorro con velo;chapeau machiniste;chapeau machiniste;cappuccio in garza nera;kuroko-muts;黑子头巾;黑子頭巾;くろこ;검은 복면;шапка сценрабочего
+956;leaf mask;leaf mask;Blatt-Maske;máscara hoja;máscara hoja;masque feuille;masque feuille;maschera a foglia;bladmasker;叶子面具;葉子面具;はっぱのおめん;나뭇잎 가면;маска-лист

@@ -1,481 +1,457 @@
-﻿"label","text"
-"CraftPhoneCase_08760_0","グリーン"
-"CraftPhoneCase_08760_1","レッド"
-"CraftPhoneCase_08760_2","ピンク"
-"CraftPhoneCase_08760_3","ブラック"
-"CraftPhoneCase_08760_4","ホワイト"
-"CraftPhoneCase_08760_5","ブルー"
-"CraftPhoneCase_08760_6","イエロー"
-"CraftPhoneCase_08760_7","ベージュ"
-"Ftr_00725_0","\0\0むじ無地"
-"Ftr_00725_1","\0\0はる春"
-"Ftr_00725_2","\0\0なつ夏"
-"Ftr_00725_3","\0\0あき秋"
-"Ftr_00725_4","\0\0ふゆ冬"
-"Ftr_00833_0","なし"
-"Ftr_00833_1","クール"
-"Ftr_00833_2","キュート"
-"Ftr_00833_3","ポップ"
-"Ftr_00833_4","メッセージ"
-"Ftr_00941_0","なし"
-"Ftr_00941_1","おなじみのロゴ"
-"Ftr_00941_2","シックなロゴ"
-"Ftr_00941_3","ハードなロゴ"
-"Ftr_00941_4","エンブレムなロゴ"
-"Ftr_00941_5","スクリプトなロゴ"
-"Ftr_00941_6","ポップなロゴ"
-"Ftr_00941_7","キュートなロゴ"
-"Ftr_00950_0","なし"
-"Ftr_00950_1","おなじみのロゴ"
-"Ftr_00950_2","シックなロゴ"
-"Ftr_00950_3","ハードなロゴ"
-"Ftr_00950_4","エンブレムなロゴ"
-"Ftr_00950_5","スクリプトなロゴ"
-"Ftr_00950_6","ポップなロゴ"
-"Ftr_00950_7","キュートなロゴ"
-"Ftr_01029_0","\0\0むじ無地"
-"Ftr_01029_1","\0\0はる春"
-"Ftr_01029_2","\0\0なつ夏"
-"Ftr_01029_3","\0\0あき秋"
-"Ftr_01029_4","\0\0ふゆ冬"
-"Ftr_01032_0","カフェ"
-"Ftr_01032_1","トラベル"
-"Ftr_01032_2","ファッション"
-"Ftr_01032_3","スポーツ"
-"Ftr_01032_4","マガジン"
-"Ftr_01032_5","キッズ"
-"Ftr_01032_6","\0\0しゅうかんし週刊誌"
-"Ftr_01499_0","なし"
-"Ftr_01499_1","レッド"
-"Ftr_01499_2","ブルー"
-"Ftr_01499_3","イエロー"
-"Ftr_01500_0","なし"
-"Ftr_01500_1","レッドボーダー"
-"Ftr_01500_2","ブルーボーダー"
-"Ftr_01500_3","イエローボーダー"
-"Ftr_01501_0","なし"
-"Ftr_01501_1","ハート"
-"Ftr_01501_2","サカナ"
-"Ftr_01501_3","スター"
-"Ftr_01504_0","なし"
-"Ftr_01504_1","ホワイト"
-"Ftr_01504_2","トクダイドット"
-"Ftr_01504_3","トクダイボーダー"
-"Ftr_01620_0","カラフル"
-"Ftr_01620_1","カモフラージュ"
-"Ftr_01620_2","ハイビスカス"
-"Ftr_01620_3","ホワイト"
-"Ftr_01644_0","なし"
-"Ftr_01644_1","おなじみのロゴ"
-"Ftr_01644_2","シックなロゴ"
-"Ftr_01644_3","ハードなロゴ"
-"Ftr_01644_4","エンブレムなロゴ"
-"Ftr_01644_5","スクリプトなロゴ"
-"Ftr_01644_6","ポップなロゴ"
-"Ftr_01644_7","キュートなロゴ"
-"Ftr_01645_0","なし"
-"Ftr_01645_1","おなじみのロゴ"
-"Ftr_01645_2","シックなロゴ"
-"Ftr_01645_3","ハードなロゴ"
-"Ftr_01645_4","エンブレムなロゴ"
-"Ftr_01645_5","スクリプトなロゴ"
-"Ftr_01645_6","ポップなロゴ"
-"Ftr_01645_7","キュートなロゴ"
-"Ftr_01750_0","\0\0しりょう資料"
-"Ftr_01750_1","テキスト\0\0しりょう資料"
-"Ftr_01750_2","\0\0かいとうようし解答用紙"
-"Ftr_01750_3","\0\0え絵コンテ"
-"Ftr_01778_0","\0\0むじ無地"
-"Ftr_01778_1","\0\0
-たいそうぎ体操着"
-"Ftr_01778_2","サカナ"
-"Ftr_01778_3","ニンジン"
-"Ftr_01779_0","ホワイト"
-"Ftr_01779_1","ブラウン"
-"Ftr_01779_2","グリーン"
-"Ftr_01779_3","レッド"
-"Ftr_01779_4","ピンク"
-"Ftr_01779_5","イエロー"
-"Ftr_01779_6","ライトグリーン"
-"Ftr_01779_7","ライトブルー"
-"Ftr_01783_0","アップル"
-"Ftr_01783_1","フィッシュ"
-"Ftr_01783_2","フラワー"
-"Ftr_01792_0","ホワイト"
-"Ftr_01792_1","フラワー"
-"Ftr_01792_2","アルファベット"
-"Ftr_01792_3","ペイズリー"
-"Ftr_01792_4","レインボー"
-"Ftr_01792_5","ポップ"
-"Ftr_01802_0","オレンジジュース"
-"Ftr_01802_1","スポーツドリンク"
-"Ftr_01802_2","セール"
-"Ftr_01802_3","キュート"
-"Ftr_01803_0","スムースホワイト"
-"Ftr_01803_1","グロスブラック"
-"Ftr_01803_2","ブラックロゴ"
-"Ftr_01803_3","ホワイトロゴ"
-"Ftr_01803_4","ハードロゴ"
-"Ftr_01803_5","ヴィンテージロゴ"
-"Ftr_01816_0","ホワイト"
-"Ftr_01816_1","パープル"
-"Ftr_01816_2","ブラック"
-"Ftr_01816_3","イエロー"
-"Ftr_01816_4","ピンク"
-"Ftr_01816_5","レッド"
-"Ftr_01816_6","グリーン"
-"Ftr_01816_7","ブルー"
-"Ftr_01838_0","ホワイト"
-"Ftr_01838_1","イエロー"
-"Ftr_01838_2","ピンク"
-"Ftr_01838_3","ブルー"
-"Ftr_01849_0","\0\0
-いげた井桁"
-"Ftr_01849_1","\0\0はな花"
-"Ftr_01849_2","\0\0
-こうし格子"
-"Ftr_01849_3","\0\0しま縞"
-"Ftr_01850_0","デスクトップ"
-"Ftr_01850_1","サーチエンジン"
-"Ftr_01850_2","\0\0ひょうけいさん表計算"
-"Ftr_01850_3","インターネット"
-"Ftr_01850_4","ネット\0\0つうはん通販"
-"Ftr_01850_5","チャットツール"
-"Ftr_01861_0","\0\0えんげい園芸"
-"Ftr_01861_1","トラベル"
-"Ftr_01861_2","ファッション"
-"Ftr_01861_3","スポーツ"
-"Ftr_01861_4","マガジン"
-"Ftr_01861_5","キッズ"
-"Ftr_01861_6","\0\0しゅうかんし週刊誌"
-"Ftr_01870_0","なし"
-"Ftr_01870_1","しかくいロゴ"
-"Ftr_01870_2","まるいロゴ"
-"Ftr_01870_3","サカナ"
-"Ftr_01870_4","ニンジン"
-"Ftr_01870_5","チーズ"
-"Ftr_01899_0","ミュージシャンのサイン"
-"Ftr_01899_1","コメディアンのサイン"
-"Ftr_02020_0","ナチュラルホワイト"
-"Ftr_02020_1","ディレクターブラック"
-"Ftr_02020_2","シックレザー"
-"Ftr_02561_0","ホワイト"
-"Ftr_02561_1","グレー"
-"Ftr_02561_2","ピンク"
-"Ftr_02561_3","ライトブルー"
-"Ftr_02561_4","イエローパターン"
-"Ftr_02561_5","グリーンパターン"
-"Ftr_02561_6","オレンジパターン"
-"Ftr_02561_7","ネイビーパターン"
-"Ftr_02605_0","オレンジ"
-"Ftr_02605_1","ピンク"
-"Ftr_02605_2","ブルー"
-"Ftr_02605_3","グリーン"
-"Ftr_02713_0","なし"
-"Ftr_02713_1","キュート"
-"Ftr_02713_2","ロック"
-"Ftr_02713_3","フルーツ"
-"Ftr_02713_4","\0\0
-けいじぶつ掲示物"
-"Ftr_03200_0","ネイビー"
-"Ftr_03200_1","ブルーグレー"
-"Ftr_03200_2","ブラウン"
-"Ftr_03229_0","ホワイト"
-"Ftr_03229_1","オンボロ"
-"Ftr_03229_2","ブルーストライプ"
-"Ftr_03229_3","レッドチェック"
-"Ftr_03229_4","グリーンチェック"
-"Ftr_03230_0","\0\0あか赤"
-"Ftr_03230_1","\0\0あお青"
-"Ftr_03230_2","\0\0だいだい橙"
-"Ftr_03230_3","\0\0
-みどり緑"
-"Ftr_03305_0","クマ"
-"Ftr_03305_1","イチゴ"
-"Ftr_03305_2","チョウ"
-"Ftr_03305_3","\0\0
-きしゃ汽車"
-"Ftr_03305_4","あしあと"
-"Ftr_03307_0","ホワイト"
-"Ftr_03307_1","フラワー"
-"Ftr_03307_2","ポルカドット"
-"Ftr_03307_3","ブラックストライプ"
-"Ftr_03307_4","イエローストライプ"
-"Ftr_03439_0","なし"
-"Ftr_03439_1","オレンジ"
-"Ftr_03439_2","ピンク"
-"Ftr_03439_3","ブルー"
-"Ftr_03439_4","グリーン"
-"Ftr_03444_0","ブルー"
-"Ftr_03444_1","レッドチェック"
-"Ftr_03444_2","グリーンチェック"
-"Ftr_03444_3","ベージュ"
-"Ftr_03444_4","カラフル"
-"Ftr_03445_0","ボーダー"
-"Ftr_03445_1","ドット"
-"Ftr_03445_2","ネイビー"
-"Ftr_03445_3","トリコロール"
-"Ftr_03449_0","なし"
-"Ftr_03449_1","オレンジ"
-"Ftr_03449_2","ピンク"
-"Ftr_03449_3","ブルー"
-"Ftr_03449_4","グリーン"
-"Ftr_03467_0","イエロー"
-"Ftr_03467_1","ブルー"
-"Ftr_03467_2","レッド"
-"Ftr_03467_3","グレー"
-"Ftr_03468_0","マリンボーダー"
-"Ftr_03468_1","レッドストライプ"
-"Ftr_03468_2","カラフル"
-"Ftr_03468_3","シェル"
-"Ftr_03468_4","ブルー"
-"Ftr_03468_5","イエロー"
-"Ftr_03468_6","ホワイト"
-"Ftr_03502_0","ブラウン"
-"Ftr_03502_1","ホワイト"
-"Ftr_03502_2","グレー"
-"Ftr_03502_3","ダークブラウン"
-"Ftr_03561_0","ネイビー"
-"Ftr_03561_1","シェルピンク"
-"Ftr_03586_0","グルメ"
-"Ftr_03586_1","クルマ"
-"Ftr_03586_2","ファッション"
-"Ftr_03586_3","アウトドア"
-"Ftr_03586_4","リゾート"
-"Ftr_03586_5","ミュージック"
-"Ftr_03586_6","アイドル"
-"Ftr_03590_0","デスクトップ"
-"Ftr_03590_1","サーチエンジン"
-"Ftr_03590_2","\0\0ひょうけいさん表計算"
-"Ftr_03590_3","インターネット"
-"Ftr_03590_4","プログラム"
-"Ftr_03590_5","ペイント"
-"Ftr_03590_6","DAWソフト"
-"Ftr_03617_0","なし"
-"Ftr_03617_1","グリーンストライプ"
-"Ftr_03617_2","レッドストライプ"
-"Ftr_03617_3","カラフル"
-"Ftr_03617_4","ウェーブ"
-"Ftr_03618_0","レッド"
-"Ftr_03618_1","ブルー"
-"Ftr_03618_2","イエロー"
-"Ftr_03621_0","ホワイト"
-"Ftr_03621_1","ブラック"
-"Ftr_03621_2","ライトブルー"
-"Ftr_03621_3","オレンジ"
-"Ftr_03621_4","イエロー"
-"Ftr_03621_5","ピンク"
-"Ftr_03621_6","グリーンボーダー"
-"Ftr_03621_7","レッドボーダー"
-"Ftr_03622_0","\0\0くさいろ草色"
-"Ftr_03622_1","からし\0\0いろ色"
-"Ftr_03622_2","\0\0ももいろ桃色"
-"Ftr_03622_3","\0\0こんいろ紺色"
-"Ftr_03692_0","ペット"
-"Ftr_03692_1","おたずねもの"
-"Ftr_03692_2","\0\0こうこく広告"
-"Ftr_03692_3","\0\0けいこく警告"
-"Ftr_03702_0","イエロー"
-"Ftr_03702_1","ブルー"
-"Ftr_03702_2","ピンク"
-"Ftr_03946_0","ホワイト"
-"Ftr_03946_1","ブラック"
-"Ftr_03946_2","グリーン"
-"Ftr_03946_3","ブルー"
-"Ftr_03946_4","オレンジ"
-"Ftr_03946_5","ライトウッド"
-"Ftr_03946_6","ダークウッド"
-"Ftr_03947_0","ホワイト"
-"Ftr_03947_1","ブラック"
-"Ftr_03947_2","グリーン"
-"Ftr_03947_3","ブルー"
-"Ftr_03947_4","オレンジ"
-"Ftr_03947_5","ライトウッド"
-"Ftr_03947_6","ダークウッド"
-"Ftr_03965_0","\0\0
-はくし白紙"
-"Ftr_03965_1","\0\0
-えがお笑顔"
-"Ftr_03965_2","ムシ"
-"Ftr_03965_3","\0\0
-せいぶつが静物画"
-"Ftr_04034_0","\0\0ぶんしょ文書"
-"Ftr_04034_1","\0\0げんこうようし原稿用紙"
-"Ftr_04034_2","イラスト"
-"Ftr_04034_3","\0\0
-せっけいず設計図"
-"Ftr_04035_0","なし"
-"Ftr_04035_1","キリム"
-"Ftr_04035_2","チマヨ"
-"Ftr_04035_3","クマ"
-"Ftr_04035_4","キルト"
-"Ftr_04036_0","なし"
-"Ftr_04036_1","キリム"
-"Ftr_04036_2","チマヨ"
-"Ftr_04036_3","クマ"
-"Ftr_04036_4","キルト"
-"Ftr_04039_0","なし"
-"Ftr_04039_1","キリム"
-"Ftr_04039_2","チマヨ"
-"Ftr_04039_3","クマ"
-"Ftr_04039_4","キルト"
-"Ftr_04040_0","なし"
-"Ftr_04040_1","キリム"
-"Ftr_04040_2","チマヨ"
-"Ftr_04040_3","クマ"
-"Ftr_04040_4","キルト"
-"Ftr_04041_0","キリム"
-"Ftr_04041_1","チマヨ"
-"Ftr_04041_2","クマ"
-"Ftr_04041_3","キルト"
-"Ftr_04043_0","なし"
-"Ftr_04043_1","キリム"
-"Ftr_04043_2","チマヨ"
-"Ftr_04043_3","クマ"
-"Ftr_04043_4","キルト"
-"Ftr_04044_0","なし"
-"Ftr_04044_1","キリム"
-"Ftr_04044_2","チマヨ"
-"Ftr_04044_3","クマ"
-"Ftr_04044_4","キルト"
-"Ftr_04068_0","ホワイト"
-"Ftr_04068_1","ネイビー"
-"Ftr_04068_2","ピンク"
-"Ftr_04068_3","オレンジ"
-"Ftr_04068_4","グリーン"
-"Ftr_04069_0","ホワイト"
-"Ftr_04069_1","ブラック"
-"Ftr_04069_2","レッドフラワー"
-"Ftr_04069_3","ブルーフラワー"
-"Ftr_04069_4","グリーンフラワー"
-"Ftr_04069_5","イエローフラワー"
-"Ftr_04069_6","ピンクフラワー"
-"Ftr_04101_0","\0\0ぶんしょ文書"
-"Ftr_04101_1","グラフ"
-"Ftr_04101_2","イラスト"
-"Ftr_04101_3","メッセージ"
-"Ftr_04102_0","ホワイト"
-"Ftr_04102_1","ブラック"
-"Ftr_04102_2","ブルー"
-"Ftr_04102_3","レッド"
-"Ftr_04102_4","イエロー"
-"Ftr_04122_0","\0\0
-はくし白紙"
-"Ftr_04122_1","ストーリーまんが"
-"Ftr_04122_2","4コマまんが"
-"Ftr_04140_0","イエローオイル"
-"Ftr_04140_1","グリーンアニマル"
-"Ftr_04140_2","ブラックレトロ"
-"Ftr_04144_0","ラインレッド"
-"Ftr_04144_1","ブルービー"
-"Ftr_04144_2","ブラックナンバー"
-"Ftr_04308_0","サンセット"
-"Ftr_04308_1","こもれび"
-"Ftr_04308_2","スノー"
-"Ftr_04308_3","セピア"
-"Ftr_04308_4","キャッスル"
-"Ftr_04445_0","グリーン"
-"Ftr_04445_1","ブラック"
-"Ftr_04445_2","ホワイト"
-"Ftr_04445_3","ナチュラルウッド"
-"Ftr_05338_0","\0\0むじ無地パネル"
-"Ftr_05338_1","ラインパネル"
-"Ftr_05338_2","パンチングボード"
-"Ftr_05338_3","\0\0よこ横\0\0いた板\0\0ば張り"
-"Ftr_05338_4","\0\0
-こうし格子"
-"Ftr_05338_5","\0\0つちかべ土壁"
-"Ftr_05338_6","コンクリート"
-"Ftr_05338_7","ゴールド"
-"Ftr_07047_0","\0\0こん紺"
-"Ftr_07047_1","\0\0あい藍"
-"Ftr_07047_2","\0\0
-あずき小豆"
-"Ftr_07047_3","\0\0
-ふかみどり深緑"
-"Ftr_07047_4","\0\0きんぎょ金魚"
-"Ftr_07047_5","\0\0つる鶴"
-"Ftr_07047_6","\0\0きん金"
-"Ftr_07048_0","\0\0こん紺"
-"Ftr_07048_1","\0\0あい藍"
-"Ftr_07048_2","\0\0
-あずき小豆"
-"Ftr_07048_3","\0\0
-ふかみどり深緑"
-"Ftr_07048_4","\0\0きんぎょ金魚"
-"Ftr_07048_5","\0\0つる鶴"
-"Ftr_07048_6","\0\0きん金"
-"Ftr_07132_0","オレンジ"
-"Ftr_07132_1","ピンク"
-"Ftr_07132_2","ブルー"
-"Ftr_07132_3","グリーン"
-"Ftr_07133_0","なし"
-"Ftr_07133_1","オレンジ"
-"Ftr_07133_2","ピンク"
-"Ftr_07133_3","ブルー"
-"Ftr_07133_4","グリーン"
-"Ftr_07150_0","グリーン"
-"Ftr_07150_1","レッド"
-"Ftr_07150_2","ブルー"
-"Ftr_07150_3","ブラック"
-"Ftr_07150_4","イエロー"
-"Ftr_07151_0","グリーン"
-"Ftr_07151_1","レッド"
-"Ftr_07151_2","ブルー"
-"Ftr_07151_3","ブラック"
-"Ftr_07151_4","イエロー"
-"Ftr_07152_0","グリーン"
-"Ftr_07152_1","レッド"
-"Ftr_07152_2","ブルー"
-"Ftr_07152_3","ブラック"
-"Ftr_07152_4","イエロー"
-"Ftr_07282_0","\0\0しょ書"
-"Ftr_07282_1","\0\0やま山"
-"Ftr_07282_2","\0\0
-さかな魚"
-"Ftr_07282_3","\0\0とり鶏"
-"Ftr_07282_4","\0\0はな花"
-"Ftr_07531_0","ボーダー"
-"Ftr_07531_1","チェック"
-"Ftr_07531_2","ドット"
-"Ftr_07531_3","リーフ"
-"Ftr_07531_4","トライアングル"
-"Ftr_07681_0","\0\0
-こうし格子"
-"Ftr_07681_1","\0\0きんぎょ金魚"
-"Ftr_07681_2","\0\0
-つばき椿"
-"Ftr_07681_3","\0\0
-くさり鎖"
-"Ftr_07682_0","\0\0
-こうし格子"
-"Ftr_07682_1","\0\0きんぎょ金魚"
-"Ftr_07682_2","\0\0
-つばき椿"
-"Ftr_07682_3","\0\0
-くさり鎖"
-"Ftr_07802_0","ホワイト"
-"Ftr_07802_1","モスグリーン"
-"Ftr_07802_2","\0\0みずたまがら水玉柄"
-"Ftr_07802_3","チェック\0\0がら柄"
-"Ftr_07802_4","\0\0
-こはながら子花柄"
-"Ftr_08096_0","なし"
-"Ftr_08096_1","ロゴ"
-"Ftr_08096_2","サンセット"
-"Ftr_08096_3","ランダム"
-"Ftr_08298_0","ホワイト"
-"Ftr_08298_1","ストライプ"
-"Ftr_08298_2","チェック"
-"Ftr_08298_3","コスモ"
-"Ftr_08298_4","カラフルライン"
-"Ftr_12410_0","メッセージ"
-"Ftr_12410_1","リサ＆カイゾー"
-"SmartPhone_05397_0","グリーン"
-"SmartPhone_05397_1","レッド"
-"SmartPhone_05397_2","ピンク"
-"SmartPhone_05397_3","ブラック"
-"SmartPhone_05397_4","ホワイト"
-"SmartPhone_05397_5","ブルー"
-"SmartPhone_05397_6","イエロー"
-"SmartPhone_05397_7","ベージュ"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+CraftPhoneCase_08760_0;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+CraftPhoneCase_08760_1;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+CraftPhoneCase_08760_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+CraftPhoneCase_08760_3;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+CraftPhoneCase_08760_4;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+CraftPhoneCase_08760_5;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+CraftPhoneCase_08760_6;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+CraftPhoneCase_08760_7;Beige;Beige;Beige;Beis;Beige;Beige;Beige;Beige;Beige;米色;米色;ベージュ;베이지;Бежевый
+Ftr_00725_0;Plain;Plain;Schlicht;Sencillo;Sencillo;Uni;Uni;Semplice;Kaal;无图案;無圖案;無地;무지;Стандарт
+Ftr_00725_1;Spring;Spring;Frühling;Primavera;Primavera;Printemps;Printemps;Primavera;Lente;春;春;春;봄;Весна
+Ftr_00725_2;Summer;Summer;Sommer;Verano;Verano;Été;Été;Estate;Zomer;夏;夏;夏;여름;Лето
+Ftr_00725_3;Fall;Fall;Herbst;Otoño;Otoño;Automne;Automne;Autunno;Herfst;秋;秋;秋;가을;Осень
+Ftr_00725_4;Winter;Winter;Winter;Invierno;Invierno;Hiver;Hiver;Inverno;Winter;冬;冬;冬;겨울;Зима
+Ftr_00833_0;None;None;Ohne;Ninguna;Ninguna;Sans;Sans;Nessun adesivo;Geen;无;無;なし;없음;Без наклеек
+Ftr_00833_1;Cool;Cool;Cool;Moderna;Moderna;Cool;Cool;Spavaldo;Cool;冷色;清新;クール;쿨;Стильные наклейки
+Ftr_00833_2;Cute;Cute;Niedlich;Adorable;Adorable;Mignons;Mignons;Grazioso;Schattig;可爱色;可愛;キュート;큐트;Милые наклейки
+Ftr_00833_3;Pop;Pop;Pop;Pop;Pop;Pop;Pop;Pop;Spetterend;缤纷色;繽紛;ポップ;팝;Яркие наклейки
+Ftr_00833_4;Notes;Notes;Notizzettel;Notas;Notas;Pense-bêtes;Pense-bêtes;Messaggi;Notities;信息;訊息;メッセージ;메시지;Заметки
+Ftr_00941_0;None;None;Ohne;Ninguna;Ninguna;Sans;Sans;Senza;Geen;无;無;なし;없음;Простая
+Ftr_00941_1;Familiar logo;Familiar logo;Logo;Marca;Marca;Marque;Autocollant;Familiare;Bekend;熟悉的标志;熟悉Logo;おなじみのロゴ;친숙한 로고;Знакомый логотип
+Ftr_00941_2;Chic logo;Chic logo;Schick;Chic;Chic;Chic;Chic;Chic;Chic;典雅的标志;典雅Logo;シックなロゴ;시크한 로고;Шикарный логотип
+Ftr_00941_3;Rock logo;Rock logo;Hard Rock;Rock duro;Rock pesado;Hard rock;Hard rock;Hard rock;Rock;坚硬的标志;硬派Logo;ハードなロゴ;과격한 로고;Рок-логотип
+Ftr_00941_4;Emblem logo;Emblem logo;Wappen;Emblema;Emblema;Emblème;Emblème;Emblema;Embleem;纹章的标志;徽章Logo;エンブレムなロゴ;엠블렘 로고;Герб
+Ftr_00941_5;Handwritten logo;Handwritten logo;Unterschrift;Firma;Firma;Signature;Signature;Foglietto di carta;Handgeschreven;手写体的标志;手寫風Logo;スクリプトなロゴ;스크립트 로고;Надпись от руки
+Ftr_00941_6;Pop logo;Pop logo;Pop;Pop;Pop;Pop;Pop;Pop;Populair;流行的标志;繽紛Logo;ポップなロゴ;팝 로고;Популярный логотип
+Ftr_00941_7;Cute logo;Cute logo;Niedlich;Adorable;Adorable;Mignon;Mignon;Grazioso;Schattig;可爱的标志;可愛Logo;キュートなロゴ;큐트 로고;Милый логотип
+Ftr_00950_0;None;None;Ohne;Ninguna;Ninguna;Sans;Sans;Senza;Geen;无;無;なし;없음;Простая
+Ftr_00950_1;Familiar logo;Familiar logo;Logo;Marca;Marca;Marque;Autocollant;Familiare;Bekend;熟悉的标志;熟悉Logo;おなじみのロゴ;친숙한 로고;Знакомый логотип
+Ftr_00950_2;Chic logo;Chic logo;Schick;Chic;Chic;Chic;Chic;Chic;Chic;典雅的标志;典雅Logo;シックなロゴ;시크한 로고;Шикарный логотип
+Ftr_00950_3;Rock logo;Rock logo;Hard Rock;Rock duro;Rock pesado;Hard rock;Hard rock;Hard rock;Rock;坚硬的标志;硬派Logo;ハードなロゴ;과격한 로고;Рок-логотип
+Ftr_00950_4;Emblem logo;Emblem logo;Wappen;Emblema;Emblema;Emblème;Emblème;Emblema;Embleem;纹章的标志;徽章Logo;エンブレムなロゴ;엠블렘 로고;Герб
+Ftr_00950_5;Handwritten logo;Handwritten logo;Unterschrift;Firma;Firma;Signature;Signature;Foglietto di carta;Handgeschreven;手写体的标志;手寫風Logo;スクリプトなロゴ;스크립트 로고;Надпись от руки
+Ftr_00950_6;Pop logo;Pop logo;Pop;Pop;Pop;Pop;Pop;Pop;Populair;流行的标志;繽紛Logo;ポップなロゴ;팝 로고;Популярный логотип
+Ftr_00950_7;Cute logo;Cute logo;Niedlich;Adorable;Adorable;Mignon;Mignon;Grazioso;Schattig;可爱的标志;可愛Logo;キュートなロゴ;큐트 로고;Милый логотип
+Ftr_01029_0;Plain;Plain;Schlicht;Sencillo;Sencillo;Uni;Uni;Semplice;Kaal;无图案;無圖案;無地;무지;Стандарт
+Ftr_01029_1;Spring;Spring;Frühling;Primavera;Primavera;Printemps;Printemps;Primavera;Lente;春;春;春;봄;Весна
+Ftr_01029_2;Summer;Summer;Sommer;Verano;Verano;Été;Été;Estate;Zomer;夏;夏;夏;여름;Лето
+Ftr_01029_3;Fall;Fall;Herbst;Otoño;Otoño;Automne;Automne;Autunno;Herfst;秋;秋;秋;가을;Осень
+Ftr_01029_4;Winter;Winter;Winter;Invierno;Invierno;Hiver;Hiver;Inverno;Winter;冬;冬;冬;겨울;Зима
+Ftr_01032_0;Café;Café;Klatsch;De pasatiempos;De pasatiempos;Café;Café;Intrattenimento;Café;咖啡;咖啡;カフェ;카페;Кафе
+Ftr_01032_1;Travel;Travel;Reisen;De viaje;De viaje;Voyage;Voyage;Viaggi;Reizen;旅游;旅遊;トラベル;여행;Путешествия
+Ftr_01032_2;Fashion;Fashion;Mode;De moda;De moda;Mode;Mode;Moda;Mode;时尚;時尚;ファッション;패션;Мода
+Ftr_01032_3;Sports;Sports;Sport;Deportes;Deportes;Sport;Sport;Sport;Sport;体育;體育;スポーツ;스포츠;Спорт
+Ftr_01032_4;Comics;Comics;Comics;Cómics;Cómics;People;Bédés;Fumetti;Strips;漫画;漫畫;マガジン;만화 잡지;Комиксы
+Ftr_01032_5;Kids;Kids;Kinder;Infantiles;Infantiles;Enfants;Enfants;Per bambini;Kids;儿童;兒童;キッズ;아동;Дети
+Ftr_01032_6;Weekly news;Weekly news;Nachrichten;Actualidad;Actualidad;Actualité;Actualité;Settimanale;Wekelijks nieuws;周刊;週刊;週刊誌;주간지;Новости недели
+Ftr_01499_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без банта
+Ftr_01499_1;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_01499_2;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_01499_3;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_01500_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без банта
+Ftr_01500_1;Red stripes;Red stripes;Rote Streifen;Rayas rojas;Rayas rojas;Rayures rouges;Rayures rouges;Righe rosse;Rode strepen;红色粗横纹;紅色粗橫紋;レッドボーダー;레드 스트라이프;Красные полоски
+Ftr_01500_2;Blue stripes;Blue stripes;Blaue Streifen;Rayas azules;Rayas azules;Rayures bleues;Rayures bleues;Righe blu;Blauwe strepen;蓝色粗横纹;藍色粗橫紋;ブルーボーダー;블루 스트라이프;Синие полоски
+Ftr_01500_3;Yellow stripes;Yellow stripes;Gelbe Streifen;Rayas amarillas;Rayas amarillas;Rayures jaunes;Rayures jaunes;Righe gialle;Gele strepen;黄色粗横纹;黃色粗橫紋;イエローボーダー;옐로 스트라이프;Желтые полоски
+Ftr_01501_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без банта
+Ftr_01501_1;Heart;Heart;Herz;Corazón;Corazón;Cœur;Cœur;Cuore;Hart;爱心;愛心;ハート;하트;Сердечко
+Ftr_01501_2;Fish;Fish;Fisch;Pez;Pez;Poisson;Poisson;Pesce;Vis;鱼儿;魚兒;サカナ;물고기;Рыба
+Ftr_01501_3;Star;Star;Stern;Estrella;Estrella;Étoile;Étoile;Stella;Ster;星星;星星;スター;별;Звезда
+Ftr_01504_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без банта
+Ftr_01504_1;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_01504_2;Giant dots;Giant dots;Punkte;Lunares;Lunares;Gros pois;Gros pois;Pois;Reuzenstippen;特大圆点;特大點點;トクダイドット;특대형 도트;В крупный горох
+Ftr_01504_3;Giant stripes;Giant stripes;Streifen;Rayas;Rayas;Rayures;Rayures;Righe;Reuzenstrepen;特大粗横纹;特大粗橫紋;トクダイボーダー;특대형 스트라이프;В крупную полоску
+Ftr_01620_0;Colorful;Colorful;Bunt;Multicolor;Multicolor;Coloré;Coloré;Multicolore;Bont;彩色;彩色;カラフル;컬러풀;Цветной
+Ftr_01620_1;Camouflage;Camouflage;Tarnfarbe;Camuflaje;Camuflaje;Camouflage;Camouflage;Mimetico;Camouflage;伪装;偽裝;カモフラージュ;밀리터리;Камуфляжный
+Ftr_01620_2;Hibiscus flowers;Hibiscus flowers;Hibiskus;Hibiscos;Hibiscos;Fleurs d'hibiscus;Fleurs d'hibiscus;Fiori di ibisco;Hibiscusbloemen;扶桑花;扶桑花;ハイビスカス;히비스커스;Гибискус
+Ftr_01620_3;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_01644_0;None;None;Ohne;Ninguna;Ninguna;Sans;Sans;Senza;Geen;无;無;なし;없음;Простая
+Ftr_01644_1;Familiar logo;Familiar logo;Logo;Marca;Marca;Marque;Autocollant;Familiare;Bekend;熟悉的标志;熟悉Logo;おなじみのロゴ;친숙한 로고;Знакомый логотип
+Ftr_01644_2;Chic logo;Chic logo;Schick;Chic;Chic;Chic;Chic;Chic;Chic;典雅的标志;典雅Logo;シックなロゴ;시크한 로고;Шикарный логотип
+Ftr_01644_3;Rock logo;Rock logo;Hard Rock;Rock duro;Rock pesado;Hard rock;Hard rock;Hard rock;Rock;坚硬的标志;硬派Logo;ハードなロゴ;과격한 로고;Рок-логотип
+Ftr_01644_4;Emblem logo;Emblem logo;Wappen;Emblema;Emblema;Emblème;Emblème;Emblema;Embleem;纹章的标志;徽章Logo;エンブレムなロゴ;엠블렘 로고;Герб
+Ftr_01644_5;Handwritten logo;Handwritten logo;Unterschrift;Firma;Firma;Signature;Signature;Foglietto di carta;Handgeschreven;手写体的标志;手寫風Logo;スクリプトなロゴ;스크립트 로고;Надпись от руки
+Ftr_01644_6;Pop logo;Pop logo;Pop;Pop;Pop;Pop;Pop;Pop;Populair;流行的标志;繽紛Logo;ポップなロゴ;팝 로고;Популярный логотип
+Ftr_01644_7;Cute logo;Cute logo;Niedlich;Adorable;Adorable;Mignon;Mignon;Grazioso;Schattig;可爱的标志;可愛Logo;キュートなロゴ;큐트 로고;Милый логотип
+Ftr_01645_0;None;None;Ohne;Ninguna;Ninguna;Sans;Sans;Senza;Geen;无;無;なし;없음;Простая
+Ftr_01645_1;Familiar logo;Familiar logo;Logo;Marca;Marca;Marque;Autocollant;Familiare;Bekend;熟悉的标志;熟悉Logo;おなじみのロゴ;친숙한 로고;Знакомый логотип
+Ftr_01645_2;Chic logo;Chic logo;Schick;Chic;Chic;Chic;Chic;Chic;Chic;典雅的标志;典雅Logo;シックなロゴ;시크한 로고;Шикарный логотип
+Ftr_01645_3;Rock logo;Rock logo;Hard Rock;Rock duro;Rock pesado;Hard rock;Hard rock;Hard rock;Rock;坚硬的标志;硬派Logo;ハードなロゴ;과격한 로고;Рок-логотип
+Ftr_01645_4;Emblem logo;Emblem logo;Wappen;Emblema;Emblema;Emblème;Emblème;Emblema;Embleem;纹章的标志;徽章Logo;エンブレムなロゴ;엠블렘 로고;Герб
+Ftr_01645_5;Handwritten logo;Handwritten logo;Unterschrift;Firma;Firma;Signature;Signature;Foglietto di carta;Handgeschreven;手写体的标志;手寫風Logo;スクリプトなロゴ;스크립트 로고;Надпись от руки
+Ftr_01645_6;Pop logo;Pop logo;Pop;Pop;Pop;Pop;Pop;Pop;Populair;流行的标志;繽紛Logo;ポップなロゴ;팝 로고;Популярный логотип
+Ftr_01645_7;Cute logo;Cute logo;Niedlich;Adorable;Adorable;Mignon;Mignon;Grazioso;Schattig;可爱的标志;可愛Logo;キュートなロゴ;큐트 로고;Милый логотип
+Ftr_01750_0;Resource documents;Resource documents;Berichte;Informes;Informes;Ressources;Ressources;Risorse;Dataoverzichten;资料;資料;資料;자료;Списки ресурсов
+Ftr_01750_1;Text documents;Text documents;Texte;Textos;Textos;Textes;Textes;Testo;Teksten;文本资料;文字資料;テキスト資料;텍스트 자료;Тексты
+Ftr_01750_2;Exam papers;Exam papers;Klausurformulare;Exámenes;Exámenes;Copies d'examen;Copies d'examen;Prove d'esame;Examens;答题纸;答案紙;解答用紙;답안지;Экзаменационные билеты
+Ftr_01750_3;Storyboards;Storyboards;Storyboards;Guiones gráficos;Guiones gráficos;Storyboards;Storyboards;Storyboard;Storyboards;分镜;分鏡;絵コンテ;콘티;Раскадровки
+Ftr_01778_0;Plain;Plain;Schlicht;Sencilla;Sencilla;Blanc;Blanc;Senza niente;Kaal;无图案;沒有東西;無地;무지;Без рисунка
+Ftr_01778_1;PE shirt;PE shirt;Sportlich;Educación física;Educación física;Sport;Sport;Sport;Sportshirt;运动服;體育服;体操着;체육복;С красной окантовкой
+Ftr_01778_2;Fish;Fish;Fisch;Pez;Pez;Motif poisson;Motif poisson;Pesce;Vis;鱼;魚;サカナ;물고기;С рыбой
+Ftr_01778_3;Carrot;Carrot;Karotte;Zanahoria;Zanahoria;Motif carotte;Motif carotte;Carota;Wortel;胡萝卜;胡蘿蔔;ニンジン;당근;С морковкой
+Ftr_01779_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_01779_1;Brown;Brown;Braun;Marrón;Marrón;Brun;Brun;Marrone;Bruin;棕色;棕色;ブラウン;브라운;Коричневый
+Ftr_01779_2;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_01779_3;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_01779_4;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_01779_5;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_01779_6;Light green;Light green;Hellgrün;Verde claro;Verde claro;Vert clair;Vert clair;Verde chiaro;Lichtgroen;浅绿色;淺綠色;ライトグリーン;라이트 그린;Светло-зеленый
+Ftr_01779_7;Light blue;Light blue;Hellblau;Celeste;Celeste;Bleu clair;Bleu pâle;Blu chiaro;Lichtblauw;浅蓝色;淺藍色;ライトブルー;라이트 블루;Голубой
+Ftr_01783_0;Apple;Apple;Apfel;Manzana;Manzana;Pomme;Pomme;Mela;Appel;苹果;蘋果;アップル;사과;Яблоко
+Ftr_01783_1;Fish;Fish;Fisch;Pez;Pez;Poisson;Poisson;Pesce;Vis;鱼;魚;フィッシュ;물고기;Рыба
+Ftr_01783_2;Flower;Flower;Blume;Flor;Flor;Fleur;Fleur;Fiore;Bloem;花朵;花朵;フラワー;꽃;Цветок
+Ftr_01792_0;White;White;Weiß;Blanca;Blanca;Blanche;Blanche;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_01792_1;Floral;Floral;Blumen;Floral;Floral;Fleurie;Fleurie;Floreale;Gebloemd;花朵;花朵;フラワー;꽃;Цветочный узор
+Ftr_01792_2;Alphabet;Alphabet;Alphabet;Alfabeto;Alfabeto;Alphabet;Alphabet;Alfabeto;Alfabet;字母;字母;アルファベット;알파벳;Алфавит
+Ftr_01792_3;Paisley;Paisley;Paisley;Cachemira;Cachemira;Paisley;Paisley;Paisley;Paisley;变形虫图腾;變形蟲圖騰;ペイズリー;페이즐리;Узор пейсли
+Ftr_01792_4;Rainbow colors;Rainbow colors;Regenbogen;Arcoíris;Arcoíris;Arc-en-ciel;Arc-en-ciel;Arcobaleno;Regenboogkleuren;彩虹色;彩虹;レインボー;무지개;Радуга
+Ftr_01792_5;Pop;Pop;Pop;Pop;Pop;Pop;Pop;Pop;Spetterend;缤纷色;繽紛;ポップ;팝;Яркий
+Ftr_01802_0;Orange juice;Orange juice;Orangensaft;Zumo de naranja;Jugo de naranja;Jus d'orange;Jus d'orange;Succo d'arancia;Sinaasappelsap;橙汁;柳橙汁;オレンジジュース;오렌지 주스;Апельсиновый сок
+Ftr_01802_1;Sports drink;Sports drink;Isodrink;Bebida isotónica;Bebida rehidratante;Boisson énergétique;Breuvage de sport;Bevanda energetica;Sportdrank;运动饮料;運動飲料;スポーツドリンク;스포츠 드링크;Спортивный коктейль
+Ftr_01802_2;Sale;Sale;Angebote;Ofertas;Ofertas;Promo;Aubaine;Offerta;Uitverkoop;特卖;特賣;セール;세일;Распродажа
+Ftr_01802_3;Cute;Cute;Niedlich;Adorable;Adorable;Produit mignon;Produit mignon;Adorabile;Schattig;可爱色;可愛;キュート;큐트;Милый дизайн
+Ftr_01803_0;Smooth white;Smooth white;Mattweiß;Blanco;Blanco;Blanc crémeux;Blanc crémeux;Bianco semplice;Strak wit;流畅白;流暢白;スムースホワイト;스무드 화이트;Матово-белый
+Ftr_01803_1;Glossy black;Glossy black;Glanzschwarz;Negro;Negro;Noir lustré;Noir lustré;Nero lucido;Glanzend zwart;光泽黑;黑蠟;グロスブラック;글로스 블랙;Глянцево-черный
+Ftr_01803_2;Black with logo;Black with logo;Schwarz mit Logo;Negro con logo;Negro con logo;Noir à logo;Noir à logo;Nero con logo;Zwart met logo;黑色标志;黑色Logo;ブラックロゴ;블랙 로고;Черный с логотипом
+Ftr_01803_3;White with logo;White with logo;Weiß mit Logo;Blanco con logo;Blanco con logo;Blanc à logo;Blanc à logo;Bianco con logo;Wit met logo;白色标志;白色Logo;ホワイトロゴ;화이트 로고;Белый с логотипом
+Ftr_01803_4;Rock logo;Rock logo;Hard Rock;Logo grupo de rock;Logo grupo de rock;Logo hard rock;Logo hard rock;Hard rock;Rock-logo;坚硬标志;硬派Logo;ハードロゴ;하드 로고;Рок-логотип
+Ftr_01803_5;Vintage logo;Vintage logo;Vintage;Logo antiguo;Logo antiguo;Logo vintage;Logo vintage;Logo vintage;Vintage logo;复古标志;歷史悠久Logo;ヴィンテージロゴ;빈티지 로고;Классический логотип
+Ftr_01816_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_01816_1;Purple;Purple;Lila;Púrpura;Morado;Violet;Mauve;Viola;Paars;紫色;紫色;パープル;퍼플;Фиолетовый
+Ftr_01816_2;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_01816_3;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_01816_4;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_01816_5;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_01816_6;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_01816_7;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_01838_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_01838_1;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_01838_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_01838_3;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_01849_0;Tic-tac-toe pattern;Tic-tac-toe pattern;Rauten;Almohadillas;Almohadillas;Croisillons;Croisillons;Tris;Hekjes;井字框;井字型;井桁;우물 정자 무늬;Решетка
+Ftr_01849_1;Flowers;Flowers;Blumen;Flores;Flores;Fleuri;Fleuri;Fiori;Bloemen;花;花;花;꽃;Цветы
+Ftr_01849_2;Checkered;Checkered;Hahnentritt;Pata de gallo;Cuadros;Pied-de-poule;Pied-de-poule;Pied-de-poule;Hanenvoeten;格子;格紋;格子;체크;Гусиная лапка
+Ftr_01849_3;Stripes;Stripes;Streifen;Rayas;Rayas;Rayures;Rayures;Righe;Strepen;条纹;條紋;縞;줄무늬;Полоски
+Ftr_01850_0;Desktop;Desktop;Benutzeroberfläche;Fondo de escritorio;Fondo de escritorio;Fond d'écran;Fond d'écran;Desktop;Bureaublad;桌面;桌面;デスクトップ;데스크톱;Рабочий стол
+Ftr_01850_1;Search engine;Search engine;Suchmaschine;Buscador;Buscador;Moteur de recherche;Moteur de recherche;Motore di ricerca;Zoekmachine;搜索引擎;搜尋引擎;サーチエンジン;검색 엔진;Поисковая машина
+Ftr_01850_2;Calculations;Calculations;Statistiken;Hojas de cálculo;Hojas de cálculo;Statistiques;Statistiques;Statistiche;Berekeningen;计算器;試算表;表計算;표 계산;Вычисления
+Ftr_01850_3;Web browsing;Web browsing;Internetbrowser;Navegador de internet;Navegador de internet;Navigateur Internet;Navigateur Internet;Internet;Internetsurfen;互联网;網路;インターネット;인터넷;Просмотр веб-сайтов
+Ftr_01850_4;Online shopping;Online shopping;Onlineshopping;Tienda en línea;Tienda en línea;Shopping en ligne;Magasinage en ligne;Shopping online;Onlineshopping;网络购物;網購;ネット通販;인터넷 쇼핑;Онлайн-шопинг
+Ftr_01850_5;Chat tool;Chat tool;Chat;Chat;Chat;Messagerie instantanée;Messagerie instantanée;Chat;Chatprogramma;聊天工具;通訊軟體;チャットツール;채팅 툴;Чат
+Ftr_01861_0;Gardening;Gardening;Gartenbau;De jardinería;De jardinería;Jardinage;Jardinage;Giardinaggio;Tuinieren;园艺;園藝;園芸;원예;Садоводство
+Ftr_01861_1;Travel;Travel;Reisen;De viaje;De viaje;Voyage;Voyage;Viaggi;Reizen;旅游;旅遊;トラベル;여행;Путешествия
+Ftr_01861_2;Fashion;Fashion;Mode;De moda;De moda;Mode;Mode;Moda;Mode;时尚;時尚;ファッション;패션;Мода
+Ftr_01861_3;Sports;Sports;Sport;Deportes;Deportes;Sport;Sport;Sport;Sport;体育;體育;スポーツ;스포츠;Спорт
+Ftr_01861_4;Comics;Comics;Comics;Cómics;Cómics;People;Bédés;Fumetti;Strips;漫画;漫畫;マガジン;만화 잡지;Комиксы
+Ftr_01861_5;Kids;Kids;Kinder;Infantiles;Infantiles;Enfants;Enfants;Per bambini;Kids;儿童;兒童;キッズ;아동;Дети
+Ftr_01861_6;Weekly news;Weekly news;Nachrichten;Actualidad;Actualidad;Actualité;Actualité;Settimanale;Wekelijks nieuws;周刊;週刊;週刊誌;주간지;Новости недели
+Ftr_01870_0;Plain;Plain;Schlicht;Sencillo;Sencillo;Uni;Uni;Senza niente;Kaal;无;無;なし;없음;Обычный
+Ftr_01870_1;Square logo;Square logo;Quadratisches Logo;Logo cuadrado;Logo cuadrado;Logo carré;Logo carré;Logo quadrato;Vierkant logo;方形标志;四角形Logo;しかくいロゴ;각진 로고;Квадратный логотип
+Ftr_01870_2;Round logo;Round logo;Rundes Logo;Logo redondo;Logo redondo;Logo rond;Logo rond;Logo rotondo;Rond logo;圆形标志;圓形Logo;まるいロゴ;둥근 로고;Круглый логотип
+Ftr_01870_3;Fish;Fish;Fisch;Pez;Pez;Poisson;Poisson;Pesce;Vis;鱼;魚;サカナ;물고기;Рыба
+Ftr_01870_4;Carrot;Carrot;Karotte;Zanahoria;Zanahoria;Carotte;Carotte;Carota;Wortel;胡萝卜;胡蘿蔔;ニンジン;당근;Морковь
+Ftr_01870_5;Cheese;Cheese;Käse;Queso;Queso;Fromage;Fromage;Formaggio;Kaas;奶酪;起司;チーズ;치즈;Сыр
+Ftr_01899_0;Musician's signature;Musician's signature;Musiker;Músico;Músico;Musicien;Musicien;Autografo di musicista;Handtekening van muzikant;音乐家的签名;音樂家簽名;ミュージシャンのサイン;뮤지션 사인;Подпись музыканта
+Ftr_01899_1;Comedian's signature;Comedian's signature;Komiker;Humorista;Humorista;Comédien;Comédien;Autografo d'attore;Handtekening van komiek;喜剧演员的签名;喜劇演員簽名;コメディアンのサイン;코미디언 사인;Подпись юмориста
+Ftr_02020_0;Natural white;Natural white;Weiß;Blanco;Blanco;Blanc naturel;Blanc naturel;Bianco naturale;Natuurlijk wit;自然白色;自然白色;ナチュラルホワイト;내추럴 화이트;Натуральный белый
+Ftr_02020_1;Director black;Director black;Schwarz;Negro;Negro;Noir;Noir;Nero;Management zwart;导演黑色;導演黑色;ディレクターブラック;디렉터 블랙;Режиссерский черный
+Ftr_02020_2;Chic pleather;Chic pleather;Kunstleder;Polipiel;Cuero sintético;Similicuir luxueux;Similicuir luxueux;Ecopelle chic;Chic kunstleer;典雅皮革;典雅皮質;シックレザー;시크 레더;Шикарный кожзам
+Ftr_02561_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_02561_1;Gray;Gray;Grau;Gris;Gris;Gris;Gris;Grigio;Grijs;灰色;灰色;グレー;그레이;Серый
+Ftr_02561_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_02561_3;Light blue;Light blue;Hellblau;Celeste;Celeste;Bleu clair;Bleu pâle;Blu chiaro;Lichtblauw;浅蓝色;淺藍色;ライトブルー;라이트 블루;Голубой
+Ftr_02561_4;Yellow design;Yellow design;Gelbes Design;Amarillo;Amarillo;Jaune;Jaune;Design giallo;Geel ontwerp;黄色图案;黃色圖案;イエローパターン;옐로 패턴;Желтый с узором
+Ftr_02561_5;Green design;Green design;Grünes Design;Verde;Verde;Vert;Vert;Design verde;Groen ontwerp;绿色图案;綠色圖案;グリーンパターン;그린 패턴;Зеленый с узором
+Ftr_02561_6;Orange design;Orange design;Oranges Design;Naranja;Naranja;Orange;Orange;Design arancione;Oranje ontwerp;橘色图案;橘色圖案;オレンジパターン;오렌지 패턴;Оранжевый с узором
+Ftr_02561_7;Navy design;Navy design;Dunkelblaues Design;Azul marino;Azul marino;Bleu foncé;Bleu marine;Design blu marino;Marineblauw ontwerp;海军蓝图案;海軍藍圖案;ネイビーパターン;네이비 패턴;Черно-синий с узором
+Ftr_02605_0;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_02605_1;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_02605_2;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_02605_3;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_02713_0;None;None;Ohne;Ninguna;Ninguna;Sans;Sans;Senza;Geen;无;無;なし;없음;Без наклеек
+Ftr_02713_1;Cute;Cute;Niedlich;Adorables;Adorables;Mignons;Mignons;Graziosi;Schattig;可爱色;可愛;キュート;큐트;Прелесть
+Ftr_02713_2;Rock;Rock;Rock;Rock;Rock;Rock;Rock;Rock;Rock;摇滚;搖滾;ロック;록;Рок-музыка
+Ftr_02713_3;Fruits;Fruits;Obst;Frutas;Frutas;Fruits;Fruits;Frutta;Fruit;水果;水果;フルーツ;과일;Фрукты
+Ftr_02713_4;Notices;Notices;Notizzettel;Avisos;Avisos;Pense-bête;Pense-bête;Promemoria;Briefjes;告示物;告示貼紙;掲示物;게시물;Заметки
+Ftr_03200_0;Navy;Navy;Marineblau;Azul marino;Azul marino;Bleu marine;Bleu marine;Blu marino;Marineblauw;海军蓝;海軍藍;ネイビー;네이비;Черно-синий
+Ftr_03200_1;Blue-gray;Blue-gray;Blau-grau;Azul grisáceo;Azul grisáceo;Bleu-gris;Bleu-gris;Grigio-blu;Blauwgrijs;蓝灰色;藍灰色;ブルーグレー;블루 그레이;Сине-серый
+Ftr_03200_2;Brown;Brown;Braun;Marrón;Marrón;Marron;Brune;Marrone;Bruin;棕色;棕色;ブラウン;브라운;Коричневый
+Ftr_03229_0;White;White;Weiß;Blanca;Blanca;Blanche;Blanche;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_03229_1;Well-used;Well-used;Abgenutzt;Vieja;Vieja;Élimée;Élimée;Da lavoro;Veel gedragen;残旧;殘舊;オンボロ;누더기;В пятнах
+Ftr_03229_2;Blue stripes;Blue stripes;Blaue Streifen;Con rayas azules;Con rayas azules;Rayures bleues;Rayures bleues;Righe blu;Blauwe strepen;蓝色条纹;藍色條紋;ブルーストライプ;블루 스트라이프;В синюю полоску
+Ftr_03229_3;Red plaid;Red plaid;Rote Karos;Roja a cuadros;Roja a cuadros;Carreaux rouges;Carreaux rouges;Rosso scozzese;Rood geruit;红色条纹;紅色格紋;レッドチェック;레드 체크;В красную клетку
+Ftr_03229_4;Green plaid;Green plaid;Grüne Karos;Verde a cuadros;Verde a cuadros;Carreaux verts;Carreaux verts;Verde scozzese;Groen geruit;绿色条纹;綠色格紋;グリーンチェック;그린 체크;В зеленую клетку
+Ftr_03230_0;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅;赤;빨간색;Красный
+Ftr_03230_1;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍;青;파란색;Синий
+Ftr_03230_2;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancione;Oranje;橘色;橘;橙;주황색;Оранжевый
+Ftr_03230_3;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠;緑;초록색;Зеленый
+Ftr_03305_0;Bear;Bear;Bär;Osito;Osito;Ourson;Ourson;Orso;Beer;熊;熊;クマ;곰;Медведь
+Ftr_03305_1;Strawberry;Strawberry;Erdbeere;Fresa;Fresa;Fraise;Fraise;Fragola;Aardbei;草莓;草莓;イチゴ;딸기;Клубника
+Ftr_03305_2;Butterfly;Butterfly;Schmetterling;Mariposa;Mariposa;Papillon;Papillon;Farfalla;Vlinder;蝴蝶;蝴蝶;チョウ;나비;Бабочка
+Ftr_03305_3;Train;Train;Zug;Tren;Tren;Train;Train;Treno;Trein;火车;火車;汽車;기차;Поезд
+Ftr_03305_4;Paw print;Paw print;Tatze;Huella animal;Huella animal;Empreinte;Empreinte;Orma di zampa;Pootafdruk;脚印;腳印;あしあと;발자국;Отпечаток лапы
+Ftr_03307_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_03307_1;Floral;Floral;Blumen;Floral;Floral;Fleuri;Fleuri;Floreale;Gebloemd;花朵;花朵;フラワー;꽃;В цветочек
+Ftr_03307_2;Polka dots;Polka dots;Pünktchen;Lunares;Lunares;À pois;À pois;Pois;Polkadots;圆点;波卡圓點;ポルカドット;도트;В горошек
+Ftr_03307_3;Black stripes;Black stripes;Schwarze Streifen;Rayas negras;Rayas negras;Rayures noires;Rayures noires;Righe nere;Zwart gestreept;黑色条纹;黑色條紋;ブラックストライプ;블랙 스트라이프;В черные полосы
+Ftr_03307_4;Wood;Wood;Gelbe Streifen;Madera;Madera;Bois;Bois;Legno;Hout;黄色条纹;黃色條紋;イエローストライプ;옐로 스트라이프;Под дерево
+Ftr_03439_0;None;None;Ohne;Ninguno;Ninguno;Sans;Sans;Nessuno;Geen;无;無;なし;없음;Без скатерти
+Ftr_03439_1;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_03439_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_03439_3;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03439_4;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_03444_0;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03444_1;Red plaid;Red plaid;Rote Karos;Rojo a cuadros;Rojo a cuadros;Écossais rouge;Écossais rouge;Rosso scozzese;Rood geruit;红色格纹;紅色格紋;レッドチェック;레드 체크;Красная клетка
+Ftr_03444_2;Green plaid;Green plaid;Grüne Karos;Verde a cuadros;Verde a cuadros;Écossais vert;Écossais vert;Verde scozzese;Groen geruit;绿色格纹;綠色格紋;グリーンチェック;그린 체크;Зеленая клетка
+Ftr_03444_3;Beige;Beige;Beige;Beis a cuadros;Beige a cuadros;Écossais beige;Écossais beige;Beige scozzese;Beige;米色;米色;ベージュ;베이지;Бежевый
+Ftr_03444_4;Colorful;Colorful;Bunt;Estrellas multicolor;Estrellas multicolor;Étoiles colorées;Étoiles colorées;Stelle colorate;Bont;彩色;彩色;カラフル;컬러풀;Пестрый
+Ftr_03445_0;Stripes;Stripes;Streifen;Rayas;Rayas;À rayures;À rayures;Righe;Gestreept;粗横纹;粗橫紋;ボーダー;줄무늬;Полоски
+Ftr_03445_1;Dots;Dots;Punkte;Lunares;Lunares;À pois;À pois;Pois;Gestippeld;波点;點點;ドット;도트;Горошек
+Ftr_03445_2;Navy;Navy;Marineblau;Azul oscuro;Azul oscuro;Bleu marine;Bleu marine;Blu marino;Marineblauw;海军蓝;海軍藍;ネイビー;네이비;Черно-синий
+Ftr_03445_3;Red, white, and blue;Red, white, and blue;Rot-weiß-blau;Rojo, blanco y azul;Rojo, blanco y azul;Tricolore;Tricolore;Tre colori;Rood-wit-blauw;三色;三色;トリコロール;삼색;Красно-бело-синий
+Ftr_03449_0;None;None;Ohne;Ninguno;Ninguno;Sans;Sans;Nessuno;Geen;无;無;なし;없음;Без скатерти
+Ftr_03449_1;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_03449_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_03449_3;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03449_4;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_03467_0;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_03467_1;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03467_2;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_03467_3;Gray;Gray;Grau;Gris;Gris;Gris;Gris;Grigio;Grijs;灰色;灰色;グレー;그레이;Серый
+Ftr_03468_0;Cyan zigzags;Cyan zigzags;Zickzack-Streifen;Líneas en zigzag;Líneas en zigzag;Bleue à zigzags;Bleu à zigzags;Righe a zig-zag ciano;Zigzagstrepen;海洋色粗横纹;海軍風粗橫紋;マリンボーダー;마린 보더;Сине-зеленые зигзаги
+Ftr_03468_1;Red stripes;Red stripes;Rote Streifen;Rayas rojas;Rayas rojas;Rouge à rayures;Rouge à rayures;Righe rosse;Rode strepen;红色条纹;紅色條紋;レッドストライプ;레드 스트라이프;Красные полоски
+Ftr_03468_2;Colorful;Colorful;Bunt;Colorido;Colorido;Multicolore;Multicolore;Multicolore;Kleurrijk;彩色;彩色;カラフル;컬러풀;Пестрый
+Ftr_03468_3;Shells;Shells;Muscheln;Conchas;Conchas marinas;Coquillages;Coquillages;Conchiglie;Schelpen;贝壳色;貝殼色;シェル;조개 무늬;Ракушки
+Ftr_03468_4;Blue;Blue;Blau;Azul;Azul;Bleue;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03468_5;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_03468_6;White;White;Weiß;Blanco;Blanco;Blanche;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_03502_0;Brown;Brown;Braun;Marrón;Marrón;Brun;Brun;Marrone;Bruin;棕色;棕色;ブラウン;브라운;Коричневый
+Ftr_03502_1;White;White;Weiß;Blanco;Blanco;Blanche;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_03502_2;Gray;Gray;Grau;Gris;Gris;Gris;Gris;Grigio;Grijs;灰色;灰色;グレー;그레이;Серый
+Ftr_03502_3;Dark brown;Dark brown;Dunkelbraun;Marrón oscuro;Marrón oscuro;Brun foncé;Brun foncé;Marrone scuro;Donkerbruin;深棕色;深棕色;ダークブラウン;다크 브라운;Темно-коричневый
+Ftr_03561_0;Navy;Navy;Marineblau;Azul marino;Azul marino;Bleue;Bleue;Blu marino;Marineblauw;海军蓝;海軍藍;ネイビー;네이비;Черно-синий
+Ftr_03561_1;Shell pink;Shell pink;Muschelrosa;Rosa;Rosa;Rose nacre;Rose nacre;Rosa conchiglia;Lichtroze;贝壳粉红;貝殼粉紅;シェルピンク;파스텔 핑크;Розовый
+Ftr_03586_0;Food;Food;Kochen;De gastronomía;De gastronomía;Culinaire;Culinaire;Cucina;Eten;美食;美食;グルメ;식도락;Кулинария
+Ftr_03586_1;Cars;Cars;Autos;De coches;De autos;Automobile;Automobile;Automobili;Auto's;车辆;車輛;クルマ;자동차;Машины
+Ftr_03586_2;Fashion;Fashion;Mode;De moda;De moda;Mode;Mode;Moda;Mode;时尚;時尚;ファッション;패션;Мода
+Ftr_03586_3;Outdoors;Outdoors;Wandern;De pasatiempos;De pasatiempos;Randonnée;Randonnée;Aria aperta;Outdoor;户外活动;戶外活動;アウトドア;아웃도어;На природе
+Ftr_03586_4;Resorts;Resorts;Reisen;De viajes;De viajes;Hôtels;Hôtels;Villaggi vacanze;Resorts;度假;度假;リゾート;리조트;Курорты
+Ftr_03586_5;Music;Music;Musik;De música;De música;Musique;Musique;Musica;Muziek;音乐;音樂;ミュージック;음악;Музыка
+Ftr_03586_6;Pop stars;Pop stars;Popstars;Juvenil;Juvenil;Pop-stars;Pop-stars;Cantanti;Popsterren;偶像;偶像;アイドル;아이돌;Поп-звезды
+Ftr_03590_0;Desktop;Desktop;Benutzeroberfläche;Fondo de escritorio;Fondo de escritorio;Fond d'écran;Fond d'écran;Desktop;Bureaublad;桌面;桌面;デスクトップ;데스크톱;Рабочий стол
+Ftr_03590_1;Search engine;Search engine;Suchmaschine;Buscador;Buscador;Moteur de recherche;Moteur de recherche;Motore di ricerca;Zoekmachine;搜索引擎;搜尋引擎;サーチエンジン;검색 엔진;Поисковая машина
+Ftr_03590_2;Calculations;Calculations;Statistiken;Hojas de cálculo;Hojas de cálculo;Statistiques;Statistiques;Statistiche;Berekeningen;计算器;試算表;表計算;표 계산;Вычисления
+Ftr_03590_3;Web browsing;Web browsing;Internetbrowser;Navegador de internet;Navegador de internet;Navigateur Internet;Navigateur Internet;Internet;Internetsurfen;互联网;網路;インターネット;인터넷;Просмотр веб-сайтов
+Ftr_03590_4;Programming;Programming;Programmiersoftware;Programación;Programación;Programmation;Programmation;Programmazione;Programmeren;程序;程式;プログラム;프로그램;Программирование
+Ftr_03590_5;Art program;Art program;Zeichensoftware;Programa de arte;Programa de arte;Logiciel de dessin;Logiciel de dessin;Programma di grafica;Creatief project;画图;繪圖軟件;ペイント;페인트;Программа для рисования
+Ftr_03590_6;Digital audio workstation;Digital audio workstation;Musiksoftware;Editor de música;Editor de música;Logiciel de mixage;Logiciel de mixage;Programma audio;Audiomontagesysteem;DAW软件;DAW軟體;DAWソフト;DAW 소프트;Музыкальный редактор
+Ftr_03617_0;None;None;Ohne;Ninguno;Ninguno;Sans;Sans;Senza;Geen;无;無;なし;없음;Бесцветный
+Ftr_03617_1;Green stripes;Green stripes;Grüne Streifen;Rayas verdes;Rayas verdes;Rayures vertes;Rayures vertes;Righe verdi;Groene strepen;绿色条纹;綠色條紋;グリーンストライプ;그린 스트라이프;Зеленые полоски
+Ftr_03617_2;Red stripes;Red stripes;Rote Streifen;Rayas rojas;Rayas rojas;Rayures rouges;Rayures rouges;Righe rosse;Rode strepen;红色条纹;紅色條紋;レッドストライプ;레드 스트라이프;Красные полоски
+Ftr_03617_3;Colorful;Colorful;Bunt;Colorido;Colorido;Coloré;Coloré;Multicolore;Kleurrijk;彩色;彩色;カラフル;컬러풀;Пестрый
+Ftr_03617_4;Waves;Waves;Wellen;Olas;Olas;Vagues;Vagues;Onde;Golven;波浪纹;波浪;ウェーブ;웨이브;Волны
+Ftr_03618_0;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_03618_1;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03618_2;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_03621_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_03621_1;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_03621_2;Light blue;Light blue;Hellblau;Celeste;Celeste;Bleu clair;Bleu pâle;Blu chiaro;Lichtblauw;浅蓝色;淺藍色;ライトブルー;라이트 블루;Голубой
+Ftr_03621_3;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_03621_4;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_03621_5;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_03621_6;Green stripes;Green stripes;Grüne Streifen;Rayas verdes;Rayas verdes;Rayures vertes;Rayures vertes;Righe verdi;Gele strepen;绿色粗横纹;綠色粗橫紋;グリーンボーダー;그린 보더;Зеленые полоски
+Ftr_03621_7;Red stripes;Red stripes;Rote Streifen;Rayas rojas;Rayas rojas;Rayures rouges;Rayures rouges;Righe rosse;Rode strepen;红色粗横纹;紅色粗橫紋;レッドボーダー;레드 보더;Красные полоски
+Ftr_03622_0;Pale grass green;Pale grass green;Blassgrün;Verde;Verde;Vert;Vert;Verde chiaro;Dor grasgroen;草绿色;青草色;草色;풀색;Светло-зеленый
+Ftr_03622_1;Mustard yellow;Mustard yellow;Senfgelb;Amarillo;Amarillo;Ocre;Ocre;Giallo mostarda;Mosterdgeel;芥末绿;芥末黃;からし色;겨자색;Горчично-желтый
+Ftr_03622_2;Peach;Peach;Rosa;Rosa;Rosa;Rose;Rose;Pesca;Perzikkleur;桃红色;桃紅色;桃色;분홍색;Персиковый
+Ftr_03622_3;Deep blue;Deep blue;Tiefblau;Azul;Azul;Bleu;Bleu;Blu scuro;Diepblauw;蓝紫色;紫藍色;紺色;진청색;Темно-синий
+Ftr_03692_0;Pet;Pet;Haustier;Mascota perdida;Mascota perdida;Animal de compagnie;Animal de compagnie;Animale smarrito;Huisdier;宠物;寵物;ペット;동물;Питомец
+Ftr_03692_1;Wanted;Wanted;Gesucht;Se busca;Se busca;Avis de recherche;Avis de recherche;Ricercato;Gezocht;通缉犯;通緝犯;おたずねもの;지명 수배;Разыскивается
+Ftr_03692_2;Ad;Ad;Werbung;Publicidad;Publicidad;Publicité;Publicité;Pubblicità;Reclame;广告;廣告;広告;광고;Реклама
+Ftr_03692_3;Warning;Warning;Warnung;Aviso;Aviso;Interdiction;Interdiction;Divieto;Waarschuwing;警告;警告;警告;경고;Предупреждение
+Ftr_03702_0;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_03702_1;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03702_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_03946_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_03946_1;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_03946_2;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_03946_3;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03946_4;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_03946_5;Light wood;Light wood;Helles Holz;Madera clara;Madera clara;Bois clair;Bois clair;Legno chiaro;Licht hout;浅木色;淺木色;ライトウッド;라이트 우드;Светлое дерево
+Ftr_03946_6;Dark wood;Dark wood;Dunkles Holz;Madera oscura;Madera oscura;Bois foncé;Bois foncé;Legno scuro;Donker hout;深木色;黑木色;ダークウッド;다크 우드;Темное дерево
+Ftr_03947_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_03947_1;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_03947_2;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_03947_3;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_03947_4;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_03947_5;Light wood;Light wood;Helles Holz;Madera clara;Madera clara;Bois clair;Bois clair;Legno chiaro;Licht hout;浅木色;淺木色;ライトウッド;라이트 우드;Светлое дерево
+Ftr_03947_6;Dark wood;Dark wood;Dunkles Holz;Madera oscura;Madera oscura;Bois foncé;Bois foncé;Legno scuro;Donker hout;深木色;黑木色;ダークウッド;다크 우드;Темное дерево
+Ftr_03965_0;Blank;Blank;Leer;En blanco;En blanco;Blanc;Blanc;Niente;Leeg;白纸;白紙;白紙;백지;Чистый лист
+Ftr_03965_1;Smile;Smile;Mädchen;Sonrisa;Sonrisa;Sourire;Sourire;Sorriso;Glimlach;笑脸;笑容;笑顔;미소;Улыбка
+Ftr_03965_2;Bug;Bug;Käfer;Escarabajo;Escarabajo;Insecte;Insecte;Insetto;Insect;虫子;蟲子;ムシ;곤충;Насекомое
+Ftr_03965_3;Still life;Still life;Stillleben;Bodegón;Naturaleza muerta;Nature morte;Nature morte;Natura morta;Stilleven;静物画;靜物畫;静物画;정물화;Натюрморт
+Ftr_04034_0;Essays;Essays;Essays;Informes;Informes;Rapport;Rapport;Rapporti;Essays;文件;文件;文書;문서;Эссе
+Ftr_04034_1;Manuscript paper;Manuscript paper;Manuskripte;Manuscritos;Manuscritos;Feuilles à carreaux;Feuilles à carreaux;Carta quadrettata;Ruitjespapier;原稿纸;原稿紙;原稿用紙;원고지;Линованная бумага
+Ftr_04034_2;Illustrations;Illustrations;Zeichnungen;Ilustraciones;Ilustraciones;Dessins;Dessins;Illustrazioni;Illustraties;插图;插圖;イラスト;일러스트;Иллюстрации
+Ftr_04034_3;Plans;Plans;Pläne;Planos;Planos;Plans;Plans;Progetti;Plannen;设计图;設計圖;設計図;설계도;Схемы
+Ftr_04035_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без подушки
+Ftr_04035_1;Southwestern flair;Southwestern flair;Kelim;Diseño exótico;Diseño exótico;Kilim;Kilim;Kilim;Kelim;基里姆;基里姆;キリム;킬림;Теплые цвета
+Ftr_04035_2;Geometric print;Geometric print;Geometrie-Muster;Diseño étnico;Diseño étnico;Chimayo;Chimayo;Stampa geometrica;Chimayo;奇马约;奇約馬;チマヨ;치마요;Геометрический узор
+Ftr_04035_3;Bears;Bears;Bären;Osos;Osos;Ours;Ours;Orsi;Beren;熊;熊;クマ;곰;Медведи
+Ftr_04035_4;Quilted;Quilted;Quilt;Patchwork;Retazos;Patchwork;Patchwork;Patchwork;Quilt;拼布;拼布;キルト;퀼트;Лоскутный материал
+Ftr_04036_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без подушки
+Ftr_04036_1;Southwestern flair;Southwestern flair;Kelim;Diseño exótico;Diseño exótico;Kilim;Kilim;Kilim;Kelim;基里姆;基里姆;キリム;킬림;Теплые цвета
+Ftr_04036_2;Geometric print;Geometric print;Geometrie-Muster;Diseño étnico;Diseño étnico;Chimayo;Chimayo;Stampa geometrica;Chimayo;奇马约;奇約馬;チマヨ;치마요;Геометрический узор
+Ftr_04036_3;Bears;Bears;Bären;Osos;Osos;Ours;Ours;Orsi;Beren;熊;熊;クマ;곰;Медведи
+Ftr_04036_4;Quilted;Quilted;Quilt;Patchwork;Retazos;Patchwork;Patchwork;Patchwork;Quilt;拼布;拼布;キルト;퀼트;Лоскутный материал
+Ftr_04039_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без подушки
+Ftr_04039_1;Southwestern flair;Southwestern flair;Kelim;Diseño exótico;Diseño exótico;Kilim;Kilim;Kilim;Kelim;基里姆;基里姆;キリム;킬림;Теплые цвета
+Ftr_04039_2;Geometric print;Geometric print;Geometrie-Muster;Diseño étnico;Diseño étnico;Chimayo;Chimayo;Stampa geometrica;Chimayo;奇马约;奇約馬;チマヨ;치마요;Геометрический узор
+Ftr_04039_3;Bears;Bears;Bären;Osos;Osos;Ours;Ours;Orsi;Beren;熊;熊;クマ;곰;Медведи
+Ftr_04039_4;Quilted;Quilted;Quilt;Patchwork;Retazos;Patchwork;Patchwork;Patchwork;Quilt;拼布;拼布;キルト;퀼트;Лоскутный материал
+Ftr_04040_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без подушки
+Ftr_04040_1;Southwestern flair;Southwestern flair;Kelim;Diseño exótico;Diseño exótico;Kilim;Kilim;Kilim;Kelim;基里姆;基里姆;キリム;킬림;Теплые цвета
+Ftr_04040_2;Geometric print;Geometric print;Geometrie-Muster;Diseño étnico;Diseño étnico;Chimayo;Chimayo;Stampa geometrica;Chimayo;奇马约;奇約馬;チマヨ;치마요;Геометрический узор
+Ftr_04040_3;Bears;Bears;Bären;Osos;Osos;Ours;Ours;Orsi;Beren;熊;熊;クマ;곰;Медведи
+Ftr_04040_4;Quilted;Quilted;Quilt;Patchwork;Retazos;Patchwork;Patchwork;Patchwork;Quilt;拼布;拼布;キルト;퀼트;Лоскутный материал
+Ftr_04041_0;Southwestern flair;Southwestern flair;Kelim;Diseño exótico;Diseño exótico;Kilim;Kilim;Kilim;Kelim;基里姆;基里姆;キリム;킬림;Теплые цвета
+Ftr_04041_1;Geometric print;Geometric print;Geometrie-Muster;Diseño étnico;Diseño étnico;Chimayo;Chimayo;Stampa geometrica;Chimayo;奇马约;奇約馬;チマヨ;치마요;Геометрический узор
+Ftr_04041_2;Bears;Bears;Bären;Osos;Osos;Ours;Ours;Orsi;Beren;熊;熊;クマ;곰;Медведи
+Ftr_04041_3;Quilted;Quilted;Quilt;Patchwork;Retazos;Patchwork;Patchwork;Patchwork;Quilt;拼布;拼布;キルト;퀼트;Лоскутный материал
+Ftr_04043_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без подушки
+Ftr_04043_1;Southwestern flair;Southwestern flair;Kelim;Diseño exótico;Diseño exótico;Kilim;Kilim;Kilim;Kelim;基里姆;基里姆;キリム;킬림;Теплые цвета
+Ftr_04043_2;Geometric print;Geometric print;Geometrie-Muster;Diseño étnico;Diseño étnico;Chimayo;Chimayo;Stampa geometrica;Chimayo;奇马约;奇約馬;チマヨ;치마요;Геометрический узор
+Ftr_04043_3;Bears;Bears;Bären;Osos;Osos;Ours;Ours;Orsi;Beren;熊;熊;クマ;곰;Медведи
+Ftr_04043_4;Quilted;Quilted;Quilt;Patchwork;Retazos;Patchwork;Patchwork;Patchwork;Quilt;拼布;拼布;キルト;퀼트;Лоскутный материал
+Ftr_04044_0;None;None;Ohne;No tiene;No tiene;Sans;Sans;Senza;Geen;无;無;なし;없음;Без подушки
+Ftr_04044_1;Southwestern flair;Southwestern flair;Kelim;Diseño exótico;Diseño exótico;Kilim;Kilim;Kilim;Kelim;基里姆;基里姆;キリム;킬림;Теплые цвета
+Ftr_04044_2;Geometric print;Geometric print;Geometrie-Muster;Diseño étnico;Diseño étnico;Chimayo;Chimayo;Stampa geometrica;Chimayo;奇马约;奇約馬;チマヨ;치마요;Геометрический узор
+Ftr_04044_3;Bears;Bears;Bären;Osos;Osos;Ours;Ours;Orsi;Beren;熊;熊;クマ;곰;Медведи
+Ftr_04044_4;Quilted;Quilted;Quilt;Patchwork;Retazos;Patchwork;Patchwork;Patchwork;Quilt;拼布;拼布;キルト;퀼트;Лоскутный материал
+Ftr_04068_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_04068_1;Navy blue;Navy blue;Marineblau;Azul marino;Azul marino;Bleu marine;Bleu marine;Blu marino;Marineblauw;海军蓝;海軍藍;ネイビー;네이비;Черно-синий
+Ftr_04068_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_04068_3;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_04068_4;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_04069_0;White;White;Weiß;Blanca;Blanca;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_04069_1;Black;Black;Schwarz;Negra;Negra;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_04069_2;Red flowers;Red flowers;Rote Blumen;Flores rojas;Flores rojas;Fleurs rouges;Fleurs rouges;Fiori rossi;Rode bloemen;红色花朵;紅色花朵;レッドフラワー;레드 플라워;Красные цветы
+Ftr_04069_3;Blue flowers;Blue flowers;Blaue Blumen;Flores azules;Flores azules;Fleurs bleues;Fleurs bleues;Fiori blu;Blauwe bloemen;蓝色花朵;藍色花朵;ブルーフラワー;블루 플라워;Синие цветы
+Ftr_04069_4;Green flowers;Green flowers;Grüne Blumen;Flores verdes;Flores verdes;Fleurs vertes;Fleurs vertes;Fiori verdi;Groene bloemen;绿色花朵;綠色花朵;グリーンフラワー;그린 플라워;Зеленые цветы
+Ftr_04069_5;Yellow flowers;Yellow flowers;Gelbe Blumen;Flores amarillas;Flores amarillas;Fleurs jaunes;Fleurs jaunes;Fiori gialli;Gele bloemen;黄色花朵;黃色花朵;イエローフラワー;옐로 플라워;Желтые цветы
+Ftr_04069_6;Pink flowers;Pink flowers;Rosa Blumen;Flores rosas;Flores rosas;Fleurs roses;Fleurs roses;Fiori rosa;Roze bloemen;粉红色花朵;粉紅色花朵;ピンクフラワー;핑크 플라워;Розовые цветы
+Ftr_04101_0;Document;Document;Schriftstück;Documento;Documento;Lettre;Lettre;Documento;Document;文件;文件;文書;문서;Документ
+Ftr_04101_1;Graph;Graph;Diagramm;Gráfico;Gráfico;Graphique;Graphique;Grafico;Grafiek;图表;圖表;グラフ;그래프;График
+Ftr_04101_2;Illustration;Illustration;Zeichnung;Dibujo;Dibujo;Illustration;Illustration;Illustrazione;Tekening;插图;插圖;イラスト;일러스트;Иллюстрация
+Ftr_04101_3;Written note;Written note;Notizen;Kanji;Kanji;Note manuscrite;Note manuscrite;Messaggio;Handgeschreven tekst;信息;信息;メッセージ;메시지;Заметка от руки
+Ftr_04102_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_04102_1;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_04102_2;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_04102_3;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_04102_4;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_04122_0;Blank;Blank;Leer;En blanco;En blanco;Vierge;Vierge;Senza niente;Leeg;白纸;白紙;白紙;백지;Чистый лист
+Ftr_04122_1;Comic storyboard;Comic storyboard;Comic-Entwurf;Guion gráfico;Guion gráfico;Ébauche de bédé;Ébauche de bédé;Bozza di fumetto;Stripverhaalschetsen;故事漫画;故事漫畫;ストーリーまんが;스토리 만화;Эскиз комикса
+Ftr_04122_2;Gag comic;Gag comic;Comiczeichnung;Viñetas humorísticas;Viñetas humorísticas;Gags en 4 cases;Gags en 4 cases;Striscia a fumetti;Krantenstrip;四格漫画;4格漫畫;4コマまんが;4컷 만화;Смешной комикс
+Ftr_04140_0;Yellow oil;Yellow oil;Gelbes Öl;Gota amarilla;Gota amarilla;Goutte d'huile jaune;Goutte d'huile jaune;Giallo olio;Gele olie;黄色的油;黃色的油;イエローオイル;옐로 오일;Желтая капля
+Ftr_04140_1;Green with animal;Green with animal;Grün mit Tier;Animal en fondo verde;Animal en fondo verde;Animal sur fond vert;Animal sur fond vert;Verde con animale;Groen met dier;绿色动物;綠色動物;グリーンアニマル;그린 애니멀;Животное на зеленом
+Ftr_04140_2;Black retro;Black retro;Retro-Schwarz;Antiguo;Antiguo;Rétro noire;Rétro noire;Vintage;Zwart retro;黑色复古;黑色復古;ブラックレトロ;블랙 레트로;Черная ретро-лампа
+Ftr_04144_0;Red lines;Red lines;Rote Streifen;Rayas rojas;Rayas rojas;Lignes rouges et vertes;Lignes rouges et vertes;Linee rosse;Rode lijnen;红色线条;紅色線條;ラインレッド;라인 레드;Красные полоски
+Ftr_04144_1;Blue bee;Blue bee;Blaue Biene;Abeja azul;Abeja azul;Abeille bleue;Abeille bleue;Ape blu;Blauwe bij;蓝色蜜蜂;藍色蜜蜂;ブルービー;블루 비;Синяя пчела
+Ftr_04144_2;B & W numeral;B & W numeral;Schwarz-weiße Zahlen;Números en fondo negro;Números en fondo negro;Numéro sur fond noir;Numéro sur fond noir;Numero su sfondo nero;Zwart-wit getal;黑色数字;黑色數字;ブラックナンバー;블랙 넘버;Черно-белый циферблат
+Ftr_04308_0;Sunset;Sunset;Sonnenuntergang;Puesta de sol;Puesta de sol;Coucher de soleil;Coucher de soleil;Tramonto;Zonsondergang;日落;日落;サンセット;석양;Закат
+Ftr_04308_1;Light Through the Trees;Light Through the Trees;Licht durch Blätterdach;Luz entre los árboles;Luz entre los árboles;Lumière dans les arbres;Lumière dans les arbres;Raggi tra gli alberi;Licht door de bomen;日光;陽光;こもれび;햇살;Просвет в лесу
+Ftr_04308_2;Snow;Snow;Schnee;Nieve;Nieve;Paysage enneigé;Paysage enneigé;Neve;Sneeuw;雪景;雪景;スノー;눈;Снег
+Ftr_04308_3;Sepia art;Sepia art;Sepia-Kunstdruck;Foto en tonos sepia;Foto en tonos sepia;Photo sépia;Photo sépia;Disegno in seppia;Sepiatinten;深褐色街景;深褐色街景;セピア;세피아;Сепия
+Ftr_04308_4;Castle;Castle;Burg;Castillo;Castillo;Château;Château;Castello;Kasteel;城堡;城堡;キャッスル;성;Замок
+Ftr_04445_0;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_04445_1;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_04445_2;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_04445_3;Natural wood;Natural wood;Naturholz;Madera natural;Madera natural;Bois naturel;Bois naturel;Legno naturale;Naturel hout;自然木色;自然木色;ナチュラルウッド;내추럴 우드;Натуральное дерево
+Ftr_05338_0;Plain panel;Plain panel;Uni;Sencillo;Sencillo;Panneau standard;Panneau standard;Pannello semplice;Eenvoudig;纯色壁板;無圖案板子;無地パネル;무지 패널;Простая панель
+Ftr_05338_1;Lined panel;Lined panel;Streben;Paneles;Paneles;Panneau renforcé;Panneau renforcé;Pannello rinforzato;Panelen;线条壁板;線條板子;ラインパネル;라인 패널;С полосками
+Ftr_05338_2;Pegboard;Pegboard;Lochplatte;Perforado;Perforado;Panneau perforé;Panneau perforé;Pannello forato;Geperforeerde plaat;冲孔板;洞洞板;パンチングボード;펀칭 보드;Перфорированная панель
+Ftr_05338_3;Horizontal planks;Horizontal planks;Holzfurnier;Tablones;Tablones;Lattes horizontales;Lattes horizontales;Assi orizzontali;Houten planken;横条壁板;橫條板子;横板張り;가로 판자;Дощатая панель
+Ftr_05338_4;Lattice;Lattice;Holzgitter;Celosía;Celosía;Treillis;Treillis;Reticolato;Rasterwerk;格子;格子;格子;격자무늬;Решетка
+Ftr_05338_5;Mud wall;Mud wall;Lehmwand;Barro;Barro;Terre crue;Terre crue;Muro di fango;Leem;土墙;土牆;土壁;토벽;Глинобитная панель
+Ftr_05338_6;Concrete;Concrete;Beton;Cemento;Cemento;Béton;Béton;Cemento;Beton;水泥;水泥;コンクリート;콘크리트;Бетон
+Ftr_05338_7;Gold;Gold;Gold;Oro;Oro;Or;Or;Oro;Goud;金色;金色;ゴールド;골드;Золотой
+Ftr_07047_0;Deep blue;Deep blue;Tiefblau;Azul oscuro;Azul oscuro;Bleu roi;Bleu roi;Blu scuro;Diepblauw;蓝紫色;紫藍;紺;진청색;Темно-синий
+Ftr_07047_1;Indigo;Indigo;Indigo;Índigo;Índigo;Indigo;Indigo;Indaco;Indigo;蓝色;藍;藍;쪽빛;Индиго
+Ftr_07047_2;Azuki red;Azuki red;Bordeauxrot;Rojo;Rojo;Rouge bordeaux;Rouge bordeaux;Rosso bordeaux;Azukirood;红豆;紅豆;小豆;팥색;Красно-коричневый
+Ftr_07047_3;Deep green;Deep green;Dunkelgrün;Verde oscuro;Verde oscuro;Vert bouteille;Vert bouteille;Verde scuro;Diepgroen;深绿色;深綠;深緑;진녹색;Темно-зеленый
+Ftr_07047_4;Goldfish;Goldfish;Goldfisch;Carpas;Carpas;Poissons rouges;Poissons rouges;Pesci rossi;Goudvis;金鱼;金魚;金魚;금붕어;Золотая рыбка
+Ftr_07047_5;Crane;Crane;Kranich;Grulla;Grulla;Grues;Grues;Gru;Kraanvogel;鹤;鶴;鶴;학;Журавль
+Ftr_07047_6;Gold;Gold;Gold;Dorado;Dorado;Doré;Doré;Oro;Goud;金色;金;金;금색;Золотой
+Ftr_07048_0;Deep blue;Deep blue;Tiefblau;Azul oscuro;Azul oscuro;Bleu roi;Bleu roi;Blu scuro;Diepblauw;蓝紫色;紫藍;紺;진청색;Темно-синий
+Ftr_07048_1;Indigo;Indigo;Indigo;Índigo;Índigo;Indigo;Indigo;Indaco;Indigo;蓝色;藍;藍;쪽빛;Индиго
+Ftr_07048_2;Azuki red;Azuki red;Bordeauxrot;Rojo;Rojo;Rouge bordeaux;Rouge bordeaux;Rosso bordeaux;Azukirood;红豆;紅豆;小豆;팥색;Красно-коричневый
+Ftr_07048_3;Deep green;Deep green;Dunkelgrün;Verde oscuro;Verde oscuro;Vert bouteille;Vert bouteille;Verde scuro;Diepgroen;深绿色;深綠;深緑;진녹색;Темно-зеленый
+Ftr_07048_4;Goldfish;Goldfish;Goldfisch;Carpas;Carpas;Poissons rouges;Poissons rouges;Pesci rossi;Goudvis;金鱼;金魚;金魚;금붕어;Золотая рыбка
+Ftr_07048_5;Crane;Crane;Kranich;Grulla;Grulla;Grues;Grues;Gru;Kraanvogel;鹤;鶴;鶴;학;Журавль
+Ftr_07048_6;Gold;Gold;Gold;Dorado;Dorado;Doré;Doré;Oro;Goud;金色;金;金;금색;Золотой
+Ftr_07132_0;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_07132_1;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_07132_2;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_07132_3;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_07133_0;None;None;Ohne;Ninguno;Ninguno;Sans;Sans;Nessuno;Geen;无;無;なし;없음;Без скатерти
+Ftr_07133_1;Orange;Orange;Orange;Naranja;Naranja;Orange;Orange;Arancio;Oranje;橘色;橘色;オレンジ;오렌지;Оранжевый
+Ftr_07133_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+Ftr_07133_3;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_07133_4;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_07150_0;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_07150_1;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_07150_2;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_07150_3;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_07150_4;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_07151_0;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_07151_1;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_07151_2;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_07151_3;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_07151_4;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_07152_0;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+Ftr_07152_1;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+Ftr_07152_2;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+Ftr_07152_3;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+Ftr_07152_4;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+Ftr_07282_0;Calligraphy;Calligraphy;Kalligraphie;Caligrafía;Caligrafía;Calligraphie;Calligraphie;Calligrafia;Kalligrafie;书法;書法;書;서예;Каллиграфия
+Ftr_07282_1;Mountains;Mountains;Berge;Montañas;Montañas;Montagnes;Montagnes;Montagne;Bergen;山水;山水;山;산;Горы
+Ftr_07282_2;Fish;Fish;Fisch;Pez;Pez;Poisson;Poisson;Pesce;Vis;鱼;魚;魚;물고기;Рыба
+Ftr_07282_3;Bird;Bird;Vogel;Gallo;Gallo;Coq;Coq;Uccello;Vogel;鸡;雞;鶏;닭;Птица
+Ftr_07282_4;Flower;Flower;Blume;Flor;Flor;Fleurs;Fleurs;Fiore;Bloem;花;花;花;꽃;Цветок
+Ftr_07531_0;Stripes;Stripes;Streifen;Rayas;Rayas;Rayures;Rayures;Righe;Strepen;粗横纹;粗橫紋;ボーダー;줄무늬;Полоски
+Ftr_07531_1;Checkered;Checkered;Karos;Cuadros;Cuadros;Carreaux;Carreaux;Scacchi;Ruiten;格纹;格紋;チェック;체크;Шахматный узор
+Ftr_07531_2;Dots;Dots;Punkte;Lunares;Lunares;Pois;Pois;Pois;Stippen;波点;點點;ドット;도트;Горошек
+Ftr_07531_3;Leaves;Leaves;Blätter;Hojas;Hojas;Feuilles;Feuilles;Foglie;Bladeren;叶子;葉子;リーフ;잎사귀;Листья
+Ftr_07531_4;Triangles;Triangles;Dreiecke;Triángulos;Triángulos;Triangles;Triangles;Triangoli;Driehoeken;三角形;三角形;トライアングル;삼각형;Треугольники
+Ftr_07681_0;Checkered;Checkered;Karos;Cuadros;Cuadros;À carreaux;À carreaux;Quadri;Geruit;格子;格紋;格子;격자무늬;Шахматный узор
+Ftr_07681_1;Goldfish;Goldfish;Goldfisch;Carpas;Carpas;Poissons;Poissons;Pesci rossi;Goudvis;金鱼;金魚;金魚;금붕어;Золотая рыбка
+Ftr_07681_2;Camellia;Camellia;Kamelie;Camelia;Camelia;Camélias;Camélias;Camelie;Camellia;山茶;山茶花;椿;동백나무;Камелия
+Ftr_07681_3;Chain print;Chain print;Ketten;Cadenas;Cadenas;Motif chaînes;Motif chaînes;Catene;Ketens;锁;鎖;鎖;사슬;Цепи
+Ftr_07682_0;Checkered;Checkered;Karos;Cuadros;Cuadros;À carreaux;À carreaux;Quadri;Geruit;格子;格紋;格子;격자무늬;Шахматный узор
+Ftr_07682_1;Goldfish;Goldfish;Goldfisch;Carpas;Carpas;Poissons;Poissons;Pesci rossi;Goudvis;金鱼;金魚;金魚;금붕어;Золотая рыбка
+Ftr_07682_2;Camellia;Camellia;Kamelie;Camelia;Camelia;Camélias;Camélias;Camelie;Camellia;山茶;山茶花;椿;동백나무;Камелия
+Ftr_07682_3;Chain print;Chain print;Ketten;Cadenas;Cadenas;Motif chaînes;Motif chaînes;Catene;Ketens;锁;鎖;鎖;사슬;Цепи
+Ftr_07802_0;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_07802_1;Moss green;Moss green;Moosgrün;Verde musgo;Verde musgo;Vert mousse;Vert mousse;Verde muschio;Mosgroen;青苔绿;青苔綠;モスグリーン;모스 그린;Болотный
+Ftr_07802_2;Polka dots;Polka dots;Pünktchen;Lunares;Lunares;À pois;À pois;Pois;Polkadots;圆点图案;圓點圖案;水玉柄;물방울무늬;Горошек
+Ftr_07802_3;Checkered;Checkered;Karos;Cuadros;Cuadros;Carreaux;Carreaux;Quadri;Geruit;格子图案;格子圖案;チェック柄;체크무늬;Шахматный узор
+Ftr_07802_4;Floral;Floral;Blumen;Floral;Floral;Floral;Floral;Floreale;Gebloemd;小花图案;碎花圖案;子花柄;잔꽃무늬;Цветы
+Ftr_08096_0;None;None;Ohne;Ninguna;Ninguna;Sans;Sans;Nessun adesivo;Kaal;无;無;なし;없음;Без наклеек
+Ftr_08096_1;Logo;Logo;Logo;Logo;Logo;Logo;Logo;Logo;Logo;标志;Logo;ロゴ;로고;Логотип
+Ftr_08096_2;Sunset;Sunset;Sonnenuntergang;Puesta de sol;Puesta de sol;Coucher de soleil;Coucher de soleil;Tramonto;Zonsondergang;日落;日落;サンセット;선셋;Закат
+Ftr_08096_3;Various;Various;Diverses;Varias;Varias;Divers;Divers;Adesivi vari;Divers;随机;隨機;ランダム;랜덤;Разные наклейки
+Ftr_08298_0;White;White;Weiß;Blanco;Blanco;Blanche;Blanche;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+Ftr_08298_1;Striped;Striped;Streifen;Rayas;Rayas;Rayures;Rayures;Righe;Gestreept;条纹;條紋;ストライプ;스트라이프;В полоску
+Ftr_08298_2;Checkered;Checkered;Karos;Cuadros;Cuadros;Carreaux;Carreaux;Scacchi;Geruit;格子;格紋;チェック;체크;Шахматный узор
+Ftr_08298_3;Space;Space;Weltraum;Espacio;Espacio;Cosmos;Cosmos;Spazio;Ruimte;宇宙;宇宙;コスモ;코스모;Космос
+Ftr_08298_4;Colorful lines;Colorful lines;Bunte Streifen;Líneas de colores;Líneas de colores;Rayures multicolores;Rayures multicolores;Righe multicolore;Gekleurde lijnen;彩条;彩色線條;カラフルライン;컬러풀 라인;Цветные полоски
+Ftr_12410_0;Message;Message;Gruß;Texto;Texto;Message;Message;Messaggio;Bericht;信息;訊息;メッセージ;메시지;Послание
+Ftr_12410_1;Reese & Cyrus;Reese & Cyrus;Rosina & Björn;Al y Paca;Al y Paca;Risette & Serge;Risette & Serge;Alpaca e Merino;Reese en Cyrus;莉咏＆健兆;莉詠＆健兆;リサ＆カイゾー;리사&리포;Риз и Сайрус
+SmartPhone_05397_0;Green;Green;Grün;Verde;Verde;Vert;Vert;Verde;Groen;绿色;綠色;グリーン;그린;Зеленый
+SmartPhone_05397_1;Red;Red;Rot;Rojo;Rojo;Rouge;Rouge;Rosso;Rood;红色;紅色;レッド;레드;Красный
+SmartPhone_05397_2;Pink;Pink;Rosa;Rosa;Rosa;Rose;Rose;Rosa;Roze;粉红;粉紅色;ピンク;핑크;Розовый
+SmartPhone_05397_3;Black;Black;Schwarz;Negro;Negro;Noir;Noir;Nero;Zwart;黑色;黑色;ブラック;블랙;Черный
+SmartPhone_05397_4;White;White;Weiß;Blanco;Blanco;Blanc;Blanc;Bianco;Wit;白色;白色;ホワイト;화이트;Белый
+SmartPhone_05397_5;Blue;Blue;Blau;Azul;Azul;Bleu;Bleu;Blu;Blauw;蓝色;藍色;ブルー;블루;Синий
+SmartPhone_05397_6;Yellow;Yellow;Gelb;Amarillo;Amarillo;Jaune;Jaune;Giallo;Geel;黄色;黃色;イエロー;옐로;Желтый
+SmartPhone_05397_7;Beige;Beige;Beige;Beis;Beige;Beige;Beige;Beige;Beige;米色;米色;ベージュ;베이지;Бежевый

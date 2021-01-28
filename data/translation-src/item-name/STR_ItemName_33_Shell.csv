@@ -1,18 +1,18 @@
-﻿"label","text"
-"ShellDrift_01374","エビスガイ"
-"ShellDrift_01374_pl","エビスガイ"
-"ShellDrift_01375","ホネガイ"
-"ShellDrift_01375_pl","ホネガイ"
-"ShellDrift_01376","ホラガイ"
-"ShellDrift_01376_pl","ホラガイ"
-"ShellDrift_01379","サンドダラー"
-"ShellDrift_01379_pl","サンドダラー"
-"ShellDrift_01380","サンゴ"
-"ShellDrift_01380_pl","サンゴ"
-"ShellDrift_01381","シャコガイ"
-"ShellDrift_01381_pl","シャコガイ"
-"ShellDrift_01382","タカラガイ"
-"ShellDrift_01382_pl","タカラガイ"
-"ShellDrift_05982","なつのかいがら"
-"ShellDrift_05982_pl","なつのかいがら"
-"ShellFish_02567","アサリ"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+ShellDrift_01374;sea snail;sea snail;Kreiselschnecke;caracol de mar;caracol de mar;escargot de mer;escargot de mer;lumaca di mare;zeeslakkenhuis;钟螺壳;鐘螺殼;エビスガイ;방석고둥;ракушка морской улитки
+ShellDrift_01374_pl;sea snails;sea snails;Kreiselschnecken;caracoles de mar;caracoles de mar;escargots de mer;escargots de mer;lumache di mare;zeeslakkenhuizen;钟螺壳;鐘螺殼;エビスガイ;방석고둥;ракушки морских улиток
+ShellDrift_01375;venus comb;venus comb;Stachelschnecke;peine de Venus;peine de Venus;peigne de Vénus;peigne de Vénus;pettine di Venere;venuskam;骨螺壳;骨螺殼;ホネガイ;뮤렉스조개;ракушка мурекса
+ShellDrift_01375_pl;venus combs;venus combs;Stachelschnecken;peines de Venus;peines de Venus;peignes de Vénus;peignes de Vénus;pettini di Venere;venuskammen;骨螺壳;骨螺殼;ホネガイ;뮤렉스조개;ракушки мурексов
+ShellDrift_01376;conch;conch;Tritonshorn;neptunea;neptúnea;conque;conque;strombo;gewone tritonshoren;海螺壳;海螺殼;ホラガイ;소라고둥;спиральная ракушка
+ShellDrift_01376_pl;conches;conches;Tritonshörner;neptuneas;neptúneas;conques;conques;strombi;gewone tritonshorens;海螺壳;海螺殼;ホラガイ;소라고둥;спиральные ракушки
+ShellDrift_01379;sand dollar;sand dollar;Sanddollar;dólar de arena;dólar de arena;clypéastre;clypéastre;dollaro sabbioso;zanddollar;沙钱;沙錢;サンドダラー;연잎성게;панцирь морского ежа
+ShellDrift_01379_pl;sand dollars;sand dollars;Sanddollars;dólares de arena;dólares de arena;clypéastres;clypéastres;dollari sabbiosi;zanddollars;沙钱;沙錢;サンドダラー;연잎성게;панцири морских ежей
+ShellDrift_01380;coral;coral;Koralle;coral;coral;branche de corail;branche de corail;corallo;stuk koraal;珊瑚;珊瑚;サンゴ;산호;коралл
+ShellDrift_01380_pl;coral;coral;Korallen;corales;corales;branches de corail;branches de corail;coralli;stukken koraal;珊瑚;珊瑚;サンゴ;산호;кораллы
+ShellDrift_01381;giant clam;giant clam;Riesenmuschel;almeja gigante;almeja gigante;bénitier géant;bénitier géant;vongola gigante;doopvontschelp;扇贝壳;扇貝殼;シャコガイ;거거;раковина тридакны
+ShellDrift_01381_pl;giant clams;giant clams;Riesenmuscheln;almejas gigantes;almejas gigantes;bénitiers géants;bénitiers géants;vongole giganti;doopvontschelpen;扇贝壳;扇貝殼;シャコガイ;거거;раковины тридакн
+ShellDrift_01382;cowrie;cowrie;Kaurischnecke;cauri;cauri;porcelaine;porcelaine;ciprea;kauri;宝螺壳;寶螺殼;タカラガイ;자패;ракушка ципреи
+ShellDrift_01382_pl;cowries;cowries;Kaurischnecken;cauris;cauris;porcelaines;porcelaines;cipree;kauri's;宝螺壳;寶螺殼;タカラガイ;자패;ракушки ципрей
+ShellDrift_05982;summer shell;summer shell;Sommermuschel;caracola estival;caracola estival;coquillage estival;coquillage estival;conchiglia estiva;zomerschelp;夏天贝壳;夏天貝殼;なつのかいがら;여름 조개껍데기;летняя ракушка
+ShellDrift_05982_pl;summer shells;summer shells;Sommermuscheln;caracolas estivales;caracolas estivales;coquillages estivaux;coquillages estivaux;conchiglie estive;zomerschelpen;夏天贝壳;夏天貝殼;なつのかいがら;여름 조개껍데기;летние ракушки
+ShellFish_02567;manila clam;manila clam;Teppichmuschel;almeja japonesa;almeja japonesa;palourde japonaise;palourde japonaise;vongola filippina;tapijtschelp;蛤蜊;蛤蜊;アサリ;바지락;венерка

@@ -1,71 +1,71 @@
-﻿"label","text"
-"Picture_00002","みごとなめいが"
-"Picture_00006","しなやかなめいが"
-"Picture_00010","おちついためいが"
-"Picture_00014","いさましいめいが"
-"Picture_00018","ゆうめいなめいが"
-"Picture_00020","すばらしいめいが"
-"Picture_00024","たおやかなめいが"
-"Picture_00028","すてきなめいが"
-"Picture_00032","きれいなめいが"
-"Picture_00034","いいかんじのめいが"
-"Picture_00038","いきなめいが"
-"Picture_00042","おもしろいめいが"
-"Picture_00044","よくみるめいが"
-"Picture_00046","にぎやかなめいが"
-"Picture_00048","いいめいが"
-"Picture_00050","たぐいまれなるめいが"
-"Picture_00052","ちからづよいめいが"
-"Picture_00056","すごいめいが"
-"Picture_00066","いなせなめいが"
-"Picture_00068","かちのあるめいが"
-"Picture_00072","おごそかなめいが"
-"Picture_00078","おだやかなめいが"
-"Picture_12618","またたくめいが"
-"Picture_12619","アカデミックなめいが"
-"Picture_12621","しずみゆくめいが"
-"Picture_12622","ちみつなめいが"
-"Picture_12624","ひかりのめいが"
-"Picture_12625","なぞめいためいが"
-"PictureFake_00005","しなやかなめいが"
-"PictureFake_00009","おちついためいが"
-"PictureFake_00013","いさましいめいが"
-"PictureFake_00017","ゆうめいなめいが"
-"PictureFake_00023","たおやかなめいが"
-"PictureFake_00027","すてきなめいが"
-"PictureFake_00031","きれいなめいが"
-"PictureFake_00041","おもしろいめいが"
-"PictureFake_00055","すごいめいが"
-"PictureFake_00065","いなせなめいが"
-"PictureFake_00071","おごそかなめいが"
-"PictureFake_12620","アカデミックなめいが"
-"PictureFake_12623","ちみつなめいが"
-"PictureFake_12629","みごとなめいが"
-"Sculpture_00076","あらぶるめいがのみぎ"
-"Sculpture_01331","ぼせいあふれるちょうこく"
-"Sculpture_01333","りりしいちょうこく"
-"Sculpture_01335","たくましいちょうこく"
-"Sculpture_01337","いにしえのちょうこく"
-"Sculpture_01339","いだいなちょうこく"
-"Sculpture_01341","うつくしいちょうこく"
-"Sculpture_01343","しんぴてきなちょうこく"
-"Sculpture_01345","こうごうしいちょうこく"
-"Sculpture_12533","いしあたまなちょうこく"
-"Sculpture_12535","てがかりのちょうこく"
-"Sculpture_12537","とてつもないちょうこく"
-"Sculpture_12539","もののふのちょうこく"
-"Sculpture_12541","なじみのあるちょうこく"
-"Sculpture_12570","あらぶるめいがのひだり"
-"SculptureFake_00075","あらぶるめいがのみぎ"
-"SculptureFake_01332","ぼせいあふれるちょうこく"
-"SculptureFake_01334","りりしいちょうこく"
-"SculptureFake_01336","たくましいちょうこく"
-"SculptureFake_01338","いにしえのちょうこく"
-"SculptureFake_01342","うつくしいちょうこく"
-"SculptureFake_01344","しんぴてきなちょうこく"
-"SculptureFake_01346","こうごうしいちょうこく"
-"SculptureFake_12534","いしあたまなちょうこく"
-"SculptureFake_12536","てがかりのちょうこく"
-"SculptureFake_12538","とてつもないちょうこく"
-"SculptureFake_12540","もののふのちょうこく"
-"SculptureFake_12571","あらぶるめいがのひだり"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+Picture_00002;scenic painting;scenic painting;Wintergemälde;cuadro invernal;cuadro invernal;toile hivernale;toile hivernale;quadro invernale;winters schilderij;优美的名画;優美的名畫;みごとなめいが;뛰어난 명화;живописная картина
+Picture_00006;graceful painting;graceful painting;Anmutsgemälde;retrato oriental;retrato oriental;toile gracieuse;toile gracieuse;quadro armonioso;sierlijk schilderij;端庄的名画;端莊的名畫;しなやかなめいが;절제된 명화;изящная картина
+Picture_00010;quaint painting;quaint painting;Altertumsgemälde;retrato holandés;retrato holandés;toile charmante;toile charmante;quadro buffo;traditioneel schilderij;平静的名画;平靜的名畫;おちついためいが;침착한 명화;старинная картина
+Picture_00014;basic painting;basic painting;Einfachgemälde;retrato heroico;retrato heroico;toile classique;toile classique;quadro semplice;klassiek schilderij;勇敢的名画;勇敢的名畫;いさましいめいが;용감한 명화;обычная картина
+Picture_00018;famous painting;famous painting;Berühmtgemälde;retrato italiano;retrato italiano;toile célèbre;toile célèbre;quadro famoso;beroemd schilderij;有名的名画;有名的名畫;ゆうめいなめいが;유명한 명화;знаменитая картина
+Picture_00020;perfect painting;perfect painting;Perfektgemälde;bodegón;cuadro perfecto;toile parfaite;toile parfaite;quadro perfetto;kleurrijk schilderij;厉害的名画;厲害的名畫;すばらしいめいが;훌륭한 명화;совершенная картина
+Picture_00024;serene painting;serene painting;Edelgemälde;retrato regio;retrato regio;toile royale;toile royale;quadro simbolico;sereen schilderij;婀娜的名画;婀娜的名畫;たおやかなめいが;아늑한 명화;безмятежная картина
+Picture_00028;wistful painting;wistful painting;Perlengemälde;retrato perla;retrato perla;toile nacrée;toile nacrée;quadro realista;melancholisch schilderij;漂亮的名画;漂亮的名畫;すてきなめいが;근사한 명화;мечтательная картина
+Picture_00032;moving painting;moving painting;Schöngemälde;cuadro alegórico;cuadro alegórico;toile émouvante;toile émouvante;quadro colorato;symbolisch schilderij;动人的名画;動人的名畫;きれいなめいが;예쁜 명화;трогательная картина
+Picture_00034;warm painting;warm painting;Warmgemälde;cuadro clásico;cuadro clásico;toile radieuse;toile radieuse;quadro classico;verleidelijk schilderij;舒适的名画;舒適的名畫;いいかんじのめいが;느낌이 좋은 명화;романтичная картина
+Picture_00038;dynamic painting;dynamic painting;Wellengemälde;cuadro ola;cuadro ola;toile déferlante;toile déferlante;quadro marino;woelig schilderij;磅礴的名画;磅礡的名畫;いきなめいが;멋들어진 명화;волнительная картина
+Picture_00042;jolly painting;jolly painting;Gemüsegemälde;cuadro orgánico;cuadro orgánico;toile potagère;toile potagère;quadro organico;fleurig schilderij;有趣的名画;有趣的名畫;おもしろいめいが;재미있는 명화;веселая картина
+Picture_00044;common painting;common painting;Bekanntgemälde;cuadro segadoras;cuadro segadoras;toile commune;toile commune;quadro povero;landelijk schilderij;常见的名画;常見的名畫;よくみるめいが;평범한 명화;сельская картина
+Picture_00046;proper painting;proper painting;Strenggemälde;cuadro dama;cuadro dama;toile austère;toile austère;quadro austero;formeel schilderij;热闹的名画;熱鬧的名畫;にぎやかなめいが;활기 넘치는 명화;строгая картина
+Picture_00048;nice painting;nice painting;Hübschgemälde;retrato músico;retrato músico;toile magnifique;toile magnifique;quadro antico;muzikaal schilderij;很好的名画;很好的名畫;いいめいが;좋은 명화;приятная картина
+Picture_00050;flowery painting;flowery painting;Blumengemälde;cuadro flores;cuadro flores;toile florale;toile florale;quadro fiorito;zonnig schilderij;珍贵的名画;珍貴的名畫;たぐいまれなるめいが;진귀한 명화;цветочная картина
+Picture_00052;moody painting;moody painting;Kraftgemälde;retrato joven;retrato joven;toile puissante;toile puissante;quadro possente;noest schilderij;强健的名画;強健的名畫;ちからづよいめいが;힘찬 명화;энергичная картина
+Picture_00056;amazing painting;amazing painting;Enormgemälde;cuadro holandés;cuadro holandés;toile incroyable;toile incroyable;quadro stupendo;subliem schilderij;惊人的名画;驚人的名畫;すごいめいが;대단한 명화;потрясающая картина
+Picture_00066;scary painting;scary painting;Furchtgemälde;cuadro japonés;cuadro japonés;toile effrayante;toile effrayante;quadro spaventoso;griezelig schilderij;俊俏的名画;俊俏的名畫;いなせなめいが;씩씩한 명화;страшная картина
+Picture_00068;worthy painting;worthy painting;Wahrgemälde;cuadro romántico;cuadro romántico;toile précieuse;toile précieuse;quadro prezioso;zegevierend schilderij;名贵的名画;名貴的名畫;かちのあるめいが;가치 있는 명화;достойная картина
+Picture_00072;solemn painting;solemn painting;Feierlichgemälde;cuadro español;cuadro español;toile solennelle;toile solennelle;quadro solenne;plechtig schilderij;肃穆的名画;肅穆的名畫;おごそかなめいが;엄숙한 명화;торжественная картина
+Picture_00078;calm painting;calm painting;Ruhegemälde;paisaje francés;paisaje francés;toile apaisante;toile apaisante;quadro riposante;vredig schilderij;和煦的名画;和煦的名畫;おだやかなめいが;평온한 명화;спокойная картина
+Picture_12618;twinkling painting;twinkling painting;Funkelgemälde;paisaje estrellado;paisaje estrellado;toile scintillante;toile scintillante;quadro sfavillante;nachtelijk schilderij;闪烁的名画;閃爍的名畫;またたくめいが;반짝이는 명화;звездная картина
+Picture_12619;academic painting;academic painting;Wissenschaftsgemälde;cuadro anatómico;cuadro anatómico;toile académique;toile académique;quadro accademico;academisch schilderij;学术性的名画;學術性的名畫;アカデミックなめいが;아카데믹한 명화;академическая картина
+Picture_12621;sinking painting;sinking painting;Versinkgemälde;cuadro literario;cuadro literario;toile tragique;toile tragique;quadro acquatico;tragisch schilderij;沉没的名画;沉沒的名畫;しずみゆくめいが;가라앉는 명화;речная картина
+Picture_12622;detailed painting;detailed painting;Detailgemälde;cuadro detallado;cuadro detallado;toile détaillée;toile détaillée;quadro dettagliato;gedetailleerd schilderij;细致的名画;細緻的名畫;ちみつなめいが;섬세한 명화;детальная картина
+Picture_12624;glowing painting;glowing painting;Lichtgemälde;cuadro vespertino;cuadro vespertino;toile crépusculaire;toile crépusculaire;quadro abbagliante;weemoedig schilderij;光线的名画;光線的名畫;ひかりのめいが;빛의 명화;сияющая картина
+Picture_12625;mysterious painting;mysterious painting;Rätselgemälde;cuadro tenebroso;cuadro tenebroso;toile ténébreuse;toile ténébreuse;quadro misterioso;mysterieus schilderij;神秘的名画;神秘的名畫;なぞめいためいが;미스터리한 명화;загадочная картина
+PictureFake_00005;graceful painting;graceful painting;Anmutsgemälde;retrato oriental;retrato oriental;toile gracieuse;toile gracieuse;quadro armonioso;sierlijk schilderij;端庄的名画;端莊的名畫;しなやかなめいが;절제된 명화;изящная картина
+PictureFake_00009;quaint painting;quaint painting;Altertumsgemälde;retrato holandés;retrato holandés;toile charmante;toile charmante;quadro buffo;traditioneel schilderij;平静的名画;平靜的名畫;おちついためいが;침착한 명화;старинная картина
+PictureFake_00013;basic painting;basic painting;Einfachgemälde;retrato heroico;retrato heroico;toile classique;toile classique;quadro semplice;klassiek schilderij;勇敢的名画;勇敢的名畫;いさましいめいが;용감한 명화;обычная картина
+PictureFake_00017;famous painting;famous painting;Berühmtgemälde;retrato italiano;retrato italiano;toile célèbre;toile célèbre;quadro famoso;beroemd schilderij;有名的名画;有名的名畫;ゆうめいなめいが;유명한 명화;знаменитая картина
+PictureFake_00023;serene painting;serene painting;Edelgemälde;retrato regio;retrato regio;toile royale;toile royale;quadro simbolico;sereen schilderij;婀娜的名画;婀娜的名畫;たおやかなめいが;아늑한 명화;безмятежная картина
+PictureFake_00027;wistful painting;wistful painting;Perlengemälde;retrato perla;retrato perla;toile nacrée;toile nacrée;quadro realista;melancholisch schilderij;漂亮的名画;漂亮的名畫;すてきなめいが;근사한 명화;мечтательная картина
+PictureFake_00031;moving painting;moving painting;Schöngemälde;cuadro alegórico;cuadro alegórico;toile émouvante;toile émouvante;quadro colorato;symbolisch schilderij;动人的名画;動人的名畫;きれいなめいが;예쁜 명화;трогательная картина
+PictureFake_00041;jolly painting;jolly painting;Gemüsegemälde;cuadro orgánico;cuadro orgánico;toile potagère;toile potagère;quadro organico;fleurig schilderij;有趣的名画;有趣的名畫;おもしろいめいが;재미있는 명화;веселая картина
+PictureFake_00055;amazing painting;amazing painting;Enormgemälde;cuadro holandés;cuadro holandés;toile incroyable;toile incroyable;quadro stupendo;subliem schilderij;惊人的名画;驚人的名畫;すごいめいが;대단한 명화;потрясающая картина
+PictureFake_00065;scary painting;scary painting;Furchtgemälde;cuadro japonés;cuadro japonés;toile effrayante;toile effrayante;quadro spaventoso;griezelig schilderij;俊俏的名画;俊俏的名畫;いなせなめいが;씩씩한 명화;страшная картина
+PictureFake_00071;solemn painting;solemn painting;Feierlichgemälde;cuadro español;cuadro español;toile solennelle;toile solennelle;quadro solenne;plechtig schilderij;肃穆的名画;肅穆的名畫;おごそかなめいが;엄숙한 명화;торжественная картина
+PictureFake_12620;academic painting;academic painting;Wissenschaftsgemälde;cuadro anatómico;cuadro anatómico;toile académique;toile académique;quadro accademico;academisch schilderij;学术性的名画;學術性的名畫;アカデミックなめいが;아카데믹한 명화;академическая картина
+PictureFake_12623;detailed painting;detailed painting;Detailgemälde;cuadro detallado;cuadro detallado;toile détaillée;toile détaillée;quadro dettagliato;gedetailleerd schilderij;细致的名画;細緻的名畫;ちみつなめいが;섬세한 명화;детальная картина
+PictureFake_12629;scenic painting;scenic painting;Wintergemälde;cuadro invernal;cuadro invernal;toile hivernale;toile hivernale;quadro invernale;winters schilderij;优美的名画;優美的名畫;みごとなめいが;뛰어난 명화;живописная картина
+Sculpture_00076;wild painting right half;wild painting right half;Ungestümgemälde (rechts);cuadro naturaleza (dcha.);cuadro naturaleza (dcha.);partie d. de toile sauvage;partie d. de toile sauvage;quadro intenso (metà dx);onstuimig schilderij (r);粗野的名画右半边;粗野的名畫右半邊;あらぶるめいがのみぎ;혼란스러운 명화의 오른쪽;прав. часть дикой картины
+Sculpture_01331;motherly statue;motherly statue;Wölfinnenstatue;figura materna;figura materna;statue maternelle;statue maternelle;statua leggendaria;moederlijk beeld;充满母爱的雕塑;充滿母愛的雕塑;ぼせいあふれるちょうこく;모성이 느껴지는 조각;материнская статуя
+Sculpture_01333;gallant statue;gallant statue;Galantstatue;estatua majestuosa;estatua majestuosa;statue majestueuse;statue majestueuse;statua maestosa;verheven standbeeld;英挺的雕塑;英挺的雕塑;りりしいちょうこく;늠름한 조각;доблестная статуя
+Sculpture_01335;robust statue;robust statue;Athletenstatue;estatua atlética;estatua atlética;statue athlétique;statue athlétique;statua atletica;atletisch standbeeld;强壮的雕塑;強壯的雕塑;たくましいちょうこく;듬직한 조각;атлетическая статуя
+Sculpture_01337;ancient statue;ancient statue;Uraltstatue;estatua primitiva;estatua primitiva;statuette antique;statuette antique;statua antica;prehistorisch beeldje;远古的雕塑;遠古的雕塑;いにしえのちょうこく;태고의 조각;древняя статуя
+Sculpture_01339;great statue;great statue;Würdestatue;estatua triunfante;estatua triunfante;statue imposante;statue imposante;statua trionfante;majestueus standbeeld;伟大的雕塑;偉大的雕塑;いだいなちょうこく;위대한 조각;великая статуя
+Sculpture_01341;beautiful statue;beautiful statue;Eleganzstatue;estatua femenina;estatua femenina;statue féminine;statue féminine;statua aggraziata;gracieus standbeeld;美丽的雕塑;美麗的雕塑;うつくしいちょうこく;아름다운 조각;прекрасная статуя
+Sculpture_01343;mystic statue;mystic statue;Geheimnisbüste;busto antiguo;busto antiguo;sculpture mystérieuse;sculpture mystérieuse;statua enigmatica;enigmatisch beeld;神秘的雕塑;神祕的雕塑;しんぴてきなちょうこく;신비로운 조각;загадочная статуя
+Sculpture_01345;valiant statue;valiant statue;Erhabenstatue;estatua alada;estatua alada;statue héroïque;statue héroïque;statua eroica;heroïsch standbeeld;神圣的雕塑;神聖的雕塑;こうごうしいちょうこく;거룩한 조각;героическая статуя
+Sculpture_12533;rock-head statue;rock-head statue;Dickkopfskulptur;cabeza colosal;cabeza colosal;sculpture déterminée;sculpture déterminée;testa di roccia;koppig standbeeld;石头颅雕塑;石頭顱雕塑;いしあたまなちょうこく;돌 머리의 조각;твердолобая статуя
+Sculpture_12535;informative statue;informative statue;Hinweisskulptur;piedra políglota;piedra políglota;tablette édifiante;tablette édifiante;pietra informativa;taalkundig standbeeld;线索的雕塑;線索的雕塑;てがかりのちょうこく;단서가 되는 조각;образовательная статуя
+Sculpture_12537;tremendous statue;tremendous statue;Prachtskulptur;urna imponente;urna imponente;sculpture singulière;sculpture singulière;scultura imponente;bijzonder standbeeld;出乎意料的雕塑;出乎意料的雕塑;とてつもないちょうこく;어마어마한 조각;массивная статуя
+Sculpture_12539;warrior statue;warrior statue;Kriegerstatue;escultura guerrera;escultura guerrera;statue guerrière;statue guerrière;statua guerriera;krijgszuchtig standbeeld;武士的雕刻;武士的雕刻;もののふのちょうこく;무사의 조각;воинственная статуя
+Sculpture_12541;familiar statue;familiar statue;Vertrautstatue;estatua pensativa;estatua pensativa;statue pensive;statue pensive;statua pensierosa;peinzend standbeeld;似曾相识的雕塑;似曾相識的雕塑;なじみのあるちょうこく;익숙한 조각;знакомая статуя
+Sculpture_12570;wild painting left half;wild painting left half;Ungestümgemälde (links);cuadro naturaleza (izda.);cuadro naturaleza (izda.);partie g. de toile sauvage;partie g. de toile sauvage;quadro intenso (metà sx);onstuimig schilderij (l);粗野的名画左半边;粗野的名畫左半邊;あらぶるめいがのひだり;혼란스러운 명화의 왼쪽;лев. часть дикой картины
+SculptureFake_00075;wild painting right half;wild painting right half;Ungestümgemälde (rechts);cuadro naturaleza (dcha.);cuadro naturaleza (dcha.);partie d. de toile sauvage;partie d. de toile sauvage;quadro intenso (metà dx);onstuimig schilderij (r);粗野的名画右半边;粗野的名畫右半邊;あらぶるめいがのみぎ;혼란스러운 명화의 오른쪽;прав. часть дикой картины
+SculptureFake_01332;motherly statue;motherly statue;Wölfinnenstatue;figura materna;figura materna;statue maternelle;statue maternelle;statua leggendaria;moederlijk beeld;充满母爱的雕塑;充滿母愛的雕塑;ぼせいあふれるちょうこく;모성이 느껴지는 조각;материнская статуя
+SculptureFake_01334;gallant statue;gallant statue;Galantstatue;estatua majestuosa;estatua majestuosa;statue majestueuse;statue majestueuse;statua maestosa;verheven standbeeld;英挺的雕塑;英挺的雕塑;りりしいちょうこく;늠름한 조각;доблестная статуя
+SculptureFake_01336;robust statue;robust statue;Athletenstatue;estatua atlética;estatua atlética;statue athlétique;statue athlétique;statua atletica;atletisch standbeeld;强壮的雕塑;強壯的雕塑;たくましいちょうこく;듬직한 조각;атлетическая статуя
+SculptureFake_01338;ancient statue;ancient statue;Uraltstatue;estatua primitiva;estatua primitiva;statuette antique;statuette antique;statua antica;prehistorisch beeldje;远古的雕塑;遠古的雕塑;いにしえのちょうこく;태고의 조각;древняя статуя
+SculptureFake_01342;beautiful statue;beautiful statue;Eleganzstatue;estatua femenina;estatua femenina;statue féminine;statue féminine;statua aggraziata;gracieus standbeeld;美丽的雕塑;美麗的雕塑;うつくしいちょうこく;아름다운 조각;прекрасная статуя
+SculptureFake_01344;mystic statue;mystic statue;Geheimnisbüste;busto antiguo;busto antiguo;sculpture mystérieuse;sculpture mystérieuse;statua enigmatica;enigmatisch beeld;神秘的雕塑;神祕的雕塑;しんぴてきなちょうこく;신비로운 조각;загадочная статуя
+SculptureFake_01346;valiant statue;valiant statue;Erhabenstatue;estatua alada;estatua alada;statue héroïque;statue héroïque;statua eroica;heroïsch standbeeld;神圣的雕塑;神聖的雕塑;こうごうしいちょうこく;거룩한 조각;героическая статуя
+SculptureFake_12534;rock-head statue;rock-head statue;Dickkopfskulptur;cabeza colosal;cabeza colosal;sculpture déterminée;sculpture déterminée;testa di roccia;koppig standbeeld;石头颅雕塑;石頭顱雕塑;いしあたまなちょうこく;돌 머리의 조각;твердолобая статуя
+SculptureFake_12536;informative statue;informative statue;Hinweisskulptur;piedra políglota;piedra políglota;tablette édifiante;tablette édifiante;pietra informativa;taalkundig standbeeld;线索的雕塑;線索的雕塑;てがかりのちょうこく;단서가 되는 조각;образовательная статуя
+SculptureFake_12538;tremendous statue;tremendous statue;Prachtskulptur;urna imponente;urna imponente;sculpture singulière;sculpture singulière;scultura imponente;bijzonder standbeeld;出乎意料的雕塑;出乎意料的雕塑;とてつもないちょうこく;어마어마한 조각;массивная статуя
+SculptureFake_12540;warrior statue;warrior statue;Kriegerstatue;escultura guerrera;escultura guerrera;statue guerrière;statue guerrière;statua guerriera;krijgszuchtig standbeeld;武士的雕刻;武士的雕刻;もののふのちょうこく;무사의 조각;воинственная статуя
+SculptureFake_12571;wild painting left half;wild painting left half;Ungestümgemälde (links);cuadro naturaleza (izda.);cuadro naturaleza (izda.);partie g. de toile sauvage;partie g. de toile sauvage;quadro intenso (metà sx);onstuimig schilderij (l);粗野的名画左半边;粗野的名畫左半邊;あらぶるめいがのひだり;혼란스러운 명화의 왼쪽;лев. часть дикой картины

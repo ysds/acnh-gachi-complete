@@ -1,34 +1,34 @@
-﻿"label","text"
-"HousePost_02571","ふつうのポスト"
-"HousePost_05342","しかくいポスト"
-"HousePost_05343","きのポスト"
-"HousePost_05344","おおきなポスト"
-"HousePost_05802","そぼくなポスト"
-"HousePost_08661","あかいふつうのポスト"
-"HousePost_08662","ピンクのふつうのポスト"
-"HousePost_08663","きいろいふつうのポスト"
-"HousePost_08664","みどりのふつうのポスト"
-"HousePost_08665","あおいふつうのポスト"
-"HousePost_08666","しろいふつうのポスト"
-"HousePost_08667","くろいふつうのポスト"
-"HousePost_08672","あかいおおきなポスト"
-"HousePost_08673","ピンクのおおきなポスト"
-"HousePost_08674","きいろいおおきなポスト"
-"HousePost_08675","みどりのおおきなポスト"
-"HousePost_08676","あおいおおきなポスト"
-"HousePost_08677","しろいおおきなポスト"
-"HousePost_08678","くろいおおきなポスト"
-"HousePost_08827","あかいしかくいポスト"
-"HousePost_08828","ピンクのしかくいポスト"
-"HousePost_08829","きいろいしかくいポスト"
-"HousePost_08830","みどりのしかくいポスト"
-"HousePost_08831","あおいしかくいポスト"
-"HousePost_08832","しろいしかくいポスト"
-"HousePost_08833","くろいしかくいポスト"
-"HousePost_08897","シックなきのポスト"
-"HousePost_08898","あかいきのポスト"
-"HousePost_08899","ピンクのきのポスト"
-"HousePost_08900","きいろいきのポスト"
-"HousePost_08901","みどりのきのポスト"
-"HousePost_08902","あおいきのポスト"
-"HousePost_08903","しろいきのポスト"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+HousePost_02571;ordinary mailbox;ordinary mailbox;Standard-Briefkasten;buzón clásico;buzón clásico;boîte aux lettres ordinaire;boîte aux lettres ordinaire;cassetta posta normale;ronde brievenbus;普通信箱;普通郵筒;ふつうのポスト;일반 우편함;простой ящик
+HousePost_05342;square mailbox;square mailbox;Eckigbriefkasten;buzón cuadrado;buzón cuadrado;b.a.l. rectangulaire;b.a.l. rectangulaire;cassetta posta cubica;brievenbus;方形信箱;四角型郵筒;しかくいポスト;사각 우편함;ящик-куб
+HousePost_05343;wooden mailbox;wooden mailbox;Holzbriefkasten;buzón de madera;buzón de madera;boîte aux lettres en bois;b.a.l. en bois;cassetta posta di legno;houten brievenbus;木信箱;木郵筒;きのポスト;나무 우편함;ящик из дерева
+HousePost_05344;large mailbox;large mailbox;Maxi-Briefkasten;buzón para paquetes;buzón para paquetes;grande boîte aux lettres;grande b.a.l.;cassetta posta grande;grote brievenbus;大信箱;大郵筒;おおきなポスト;커다란 우편함;большой ящик
+HousePost_05802;rustic mailbox;rustic mailbox;Rustikalbriefkasten;buzón rústico;buzón rústico;b.a.l. rudimentaire;b.a.l. rudimentaire;cassetta posta grezza;rustieke brievenbus;朴素信箱;樸素郵筒;そぼくなポスト;소박한 우편함;грубый ящик
+HousePost_08661;red ordinary mailbox;red ordinary mailbox;Rot-Briefkasten;buzón clásico rojo;buzón clásico rojo;b.a.l. ordinaire rouge;b.a.l. ordinaire rouge;cassetta posta rossa;rode ronde brievenbus;红色普通信箱;紅色普通郵筒;あかいふつうのポスト;빨간색 일반 우편함;простой красный ящик
+HousePost_08662;pink ordinary mailbox;pink ordinary mailbox;Rosa-Briefkasten;buzón clásico rosa;buzón clásico rosa;b.a.l. ordinaire rose;b.a.l. ordinaire rose;cassetta posta rosa;roze ronde brievenbus;粉红色普通信箱;粉紅色普通郵筒;ピンクのふつうのポスト;핑크색 일반 우편함;простой розовый ящик
+HousePost_08663;yellow ordinary mailbox;yellow ordinary mailbox;Gelb-Briefkasten;buzón clásico ocre;buzón clásico ocre;b.a.l. ordinaire jaune;b.a.l. ordinaire jaune;cassetta posta gialla;gele ronde brievenbus;黄色普通信箱;黃色普通郵筒;きいろいふつうのポスト;노란색 일반 우편함;простой желтый ящик
+HousePost_08664;green ordinary mailbox;green ordinary mailbox;Grün-Briefkasten;buzón clásico verde;buzón clásico verde;b.a.l. ordinaire verte;b.a.l. ordinaire verte;cassetta posta verde;groene ronde brievenbus;绿色普通信箱;綠色普通郵筒;みどりのふつうのポスト;초록색 일반 우편함;простой зеленый ящик
+HousePost_08665;blue ordinary mailbox;blue ordinary mailbox;Blau-Briefkasten;buzón clásico azul;buzón clásico azul;b.a.l. ordinaire bleue;b.a.l. ordinaire bleue;cassetta posta blu;blauwe ronde brievenbus;蓝色普通信箱;藍色普通郵筒;あおいふつうのポスト;파란색 일반 우편함;простой синий ящик
+HousePost_08666;white ordinary mailbox;white ordinary mailbox;Weiß-Briefkasten;buzón clásico blanco;buzón clásico blanco;b.a.l. ordinaire blanche;b.a.l. ordinaire blanche;cassetta posta bianca;witte ronde brievenbus;白色普通信箱;白色普通郵筒;しろいふつうのポスト;하얀색 일반 우편함;простой белый ящик
+HousePost_08667;black ordinary mailbox;black ordinary mailbox;Schwarz-Briefkasten;buzón clásico negro;buzón clásico negro;b.a.l. ordinaire noire;b.a.l. ordinaire noire;cassetta posta nera;zwarte ronde brievenbus;黑色普通信箱;黑色普通郵筒;くろいふつうのポスト;검은색 일반 우편함;простой черный ящик
+HousePost_08672;red large mailbox;red large mailbox;Rot-Maxi-Briefkasten;buzón para paquetes rojo;buzón para paquetes rojo;grande b.a.l. rouge;grande b.a.l. rouge;cassetta grande rossa;rode grote brievenbus;红色大信箱;紅色大郵筒;あかいおおきなポスト;빨간색 커다란 우편함;большой красный ящик
+HousePost_08673;pink large mailbox;pink large mailbox;Rosa-Maxi-Briefkasten;buzón para paquetes rosa;buzón para paquetes rosa;grande b.a.l. rose;grande b.a.l. rose;cassetta grande rosa;roze grote brievenbus;粉红色大信箱;粉紅色大郵筒;ピンクのおおきなポスト;핑크색 커다란 우편함;большой розовый ящик
+HousePost_08674;yellow large mailbox;yellow large mailbox;Gelb-Maxi-Briefkasten;buzón para paquetes ocre;buzón para paquetes ocre;grande b.a.l. jaune;grande b.a.l. jaune;cassetta grande gialla;gele grote brievenbus;黄色大信箱;黃色大郵筒;きいろいおおきなポスト;노란색 커다란 우편함;большой желтый ящик
+HousePost_08675;green large mailbox;green large mailbox;Grün-Maxi-Briefkasten;buzón para paquetes verde;buzón para paquetes verde;grande b.a.l. verte;grande b.a.l. verte;cassetta grande verde;groene grote brievenbus;绿色大信箱;綠色大郵筒;みどりのおおきなポスト;초록색 커다란 우편함;большой зеленый ящик
+HousePost_08676;blue large mailbox;blue large mailbox;Blau-Maxi-Briefkasten;buzón para paquetes azul;buzón para paquetes azul;grande b.a.l. bleue;grande b.a.l. bleue;cassetta grande blu;blauwe grote brievenbus;蓝色大信箱;藍色大郵筒;あおいおおきなポスト;파란색 커다란 우편함;большой синий ящик
+HousePost_08677;white large mailbox;white large mailbox;Weiß-Maxi-Briefkasten;buzón para paquetes blanco;buzón para paquetes blanco;grande b.a.l. blanche;grande b.a.l. blanche;cassetta grande bianca;witte grote brievenbus;白色大信箱;白色大郵筒;しろいおおきなポスト;하얀색 커다란 우편함;большой белый ящик
+HousePost_08678;black large mailbox;black large mailbox;Schwarz-Maxi-Briefkasten;buzón para paquetes negro;buzón para paquetes negro;grande b.a.l. noire;grande b.a.l. noire;cassetta grande nera;zwarte grote brievenbus;黑色大信箱;黑色大郵筒;くろいおおきなポスト;검은색 커다란 우편함;большой черный ящик
+HousePost_08827;red square mailbox;red square mailbox;Rot-Eckigbriefkasten;buzón cuadrado rojo;buzón cuadrado rojo;b.a.l. rectangulaire rouge;b.a.l. rectangulaire rouge;cassetta cubica rossa;rode vierkante brievenbus;红色方形信箱;紅色四角型郵筒;あかいしかくいポスト;빨간색 사각 우편함;красный ящик-куб
+HousePost_08828;pink square mailbox;pink square mailbox;Rosa-Eckigbriefkasten;buzón cuadrado rosa;buzón cuadrado rosa;b.a.l. rectangulaire rose;b.a.l. rectangulaire rose;cassetta cubica rosa;roze brievenbus;粉红色方形信箱;粉紅色四角型郵筒;ピンクのしかくいポスト;핑크색 사각 우편함;розовый ящик-куб
+HousePost_08829;yellow square mailbox;yellow square mailbox;Gelb-Eckigbriefkasten;buzón cuadrado ocre;buzón cuadrado ocre;b.a.l. rectangulaire jaune;b.a.l. rectangulaire jaune;cassetta cubica gialla;gele brievenbus;黄色方形信箱;黃色四角型郵筒;きいろいしかくいポスト;노란색 사각 우편함;желтый ящик-куб
+HousePost_08830;green square mailbox;green square mailbox;Grün-Eckigbriefkasten;buzón cuadrado verde;buzón cuadrado verde;b.a.l. rectangulaire verte;b.a.l. rectangulaire verte;cassetta cubica verde;groene brievenbus;绿色方形信箱;綠色四角型郵筒;みどりのしかくいポスト;초록색 사각 우편함;зеленый ящик-куб
+HousePost_08831;blue square mailbox;blue square mailbox;Blau-Eckigbriefkasten;buzón cuadrado azul;buzón cuadrado azul;b.a.l. rectangulaire bleue;b.a.l. rectangulaire bleue;cassetta cubica blu;blauwe brievenbus;蓝色方形信箱;藍色四角型郵筒;あおいしかくいポスト;파란색 사각 우편함;синий ящик-куб
+HousePost_08832;white square mailbox;white square mailbox;Weiß-Eckigbriefkasten;buzón cuadrado blanco;buzón cuadrado blanco;b.a.l. rectangulaire blanche;b.a.l. rectangulaire blanche;cassetta cubica bianca;witte brievenbus;白色方形信箱;白色四角型郵筒;しろいしかくいポスト;하얀색 사각 우편함;белый ящик-куб
+HousePost_08833;black square mailbox;black square mailbox;Schwarz-Eckigbriefkasten;buzón cuadrado negro;buzón cuadrado negro;b.a.l. rectangulaire noire;b.a.l. rectangulaire noire;cassetta cubica nera;zwarte brievenbus;黑色方形信箱;黑色四角型郵筒;くろいしかくいポスト;검은색 사각 우편함;черный ящик-куб
+HousePost_08897;chic wooden mailbox;chic wooden mailbox;Schick-Holzbriefkasten;buzón de madera marrón;buzón de madera marrón;b.a.l. en bois chic;b.a.l. en bois chic;cassetta di legno chic;chique houten brievenbus;典雅木信箱;典雅木郵筒;シックなきのポスト;세련된 나무 우편함;ящик-люкс из дерева
+HousePost_08898;red wooden mailbox;red wooden mailbox;Rot-Holzbriefkasten;buzón de madera rojo;buzón de madera rojo;b.a.l. en bois rouge;b.a.l. en bois rouge;cassetta di legno rossa;rode houten brievenbus;红色木信箱;紅色木郵筒;あかいきのポスト;빨간색 나무 우편함;красный ящик из дерева
+HousePost_08899;pink wooden mailbox;pink wooden mailbox;Rosa-Holzbriefkasten;buzón de madera rosa;buzón de madera rosa;b.a.l. en bois rose;b.a.l. en bois rose;cassetta di legno rosa;roze houten brievenbus;粉红色木信箱;粉紅色木郵筒;ピンクのきのポスト;핑크색 나무 우편함;розовый ящик из дерева
+HousePost_08900;yellow wooden mailbox;yellow wooden mailbox;Gelb-Holzbriefkasten;buzón de madera ocre;buzón de madera ocre;b.a.l. en bois jaune;b.a.l. en bois jaune;cassetta di legno gialla;gele houten brievenbus;黄色木信箱;黃色木郵筒;きいろいきのポスト;노란색 나무 우편함;желтый ящик из дерева
+HousePost_08901;green wooden mailbox;green wooden mailbox;Grün-Holzbriefkasten;buzón de madera verde;buzón de madera verde;b.a.l. en bois verte;b.a.l. en bois verte;cassetta di legno verde;groene houten brievenbus;绿色木信箱;綠色木郵筒;みどりのきのポスト;초록색 나무 우편함;зеленый ящик из дерева
+HousePost_08902;blue wooden mailbox;blue wooden mailbox;Blau-Holzbriefkasten;buzón de madera azul;buzón de madera azul;b.a.l. en bois bleue;b.a.l. en bois bleue;cassetta di legno blu;blauwe houten brievenbus;蓝色木信箱;藍色木郵筒;あおいきのポスト;파란색 나무 우편함;синий ящик из дерева
+HousePost_08903;white wooden mailbox;white wooden mailbox;Weiß-Holzbriefkasten;buzón de madera blanco;buzón de madera blanco;b.a.l. en bois blanche;b.a.l. en bois blanche;cassetta di legno bianca;witte houten brievenbus;白色木信箱;白色木郵筒;しろいきのポスト;하얀색 나무 우편함;белый ящик из дерева

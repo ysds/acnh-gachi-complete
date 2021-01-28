@@ -393,8 +393,13 @@ export function filterItems(args) {
         return item.seasonEvent === "Fireworks Show";
       }
       // 季節・イベント (カーニバル)
-      else if (nav === "season-carnival") {
-        return false;
+      else if (nav === "season-festivale") {
+        return (
+          item.seasonEvent &&
+          item.seasonEvent.includes("Festivale") &&
+          !item.diy &&
+          item.sourceSheet !== "Other"
+        );
       }
       // 季節・イベント (はるのわかたけ)
       else if (nav === "season-spring") {

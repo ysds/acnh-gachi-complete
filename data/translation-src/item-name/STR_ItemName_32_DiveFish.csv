@@ -1,41 +1,41 @@
-﻿"label","text"
-"DiveFish_02620","ワカメ"
-"DiveFish_02830","ウミブドウ"
-"DiveFish_02831","ウニ"
-"DiveFish_02832","フジツボ"
-"DiveFish_02833","オイスター"
-"DiveFish_02834","サザエ"
-"DiveFish_02835","アワビ"
-"DiveFish_02838","アコヤガイ"
-"DiveFish_02839","ホタテ"
-"DiveFish_02840","イソギンチャク"
-"DiveFish_02841","ヒトデ"
-"DiveFish_02842","ナマコ"
-"DiveFish_02843","ウミウシ"
-"DiveFish_02844","ヒラムシ"
-"DiveFish_02845","シャコ"
-"DiveFish_02846","アマエビ"
-"DiveFish_02847","クルマエビ"
-"DiveFish_02848","イセエビ"
-"DiveFish_02849","ロブスター"
-"DiveFish_02850","ズワイガニ"
-"DiveFish_02852","タラバガニ"
-"DiveFish_02853","タカアシガニ"
-"DiveFish_02854","タコ"
-"DiveFish_02855","チンアナゴ"
-"DiveFish_02856","オウムガイ"
-"DiveFish_02857","カブトガニ"
-"DiveFish_02858","ダイオウグソクムシ"
-"DiveFish_06920","ホタルイカ"
-"DiveFish_07191","ガザミ"
-"DiveFish_07203","コウモリダコ"
-"DiveFish_07214","オオシャコガイ"
-"DiveFish_07228","ホヤ"
-"DiveFish_07245","ミズクラゲ"
-"DiveFish_07252","メンダコ"
-"DiveFish_07267","パイプウニ"
-"DiveFish_07278","バイガイ"
-"DiveFish_07303","センジュナマコ"
-"DiveFish_07308","ダンジネスクラブ"
-"DiveFish_07318","カイロウドウケツ"
-"DiveFish_07411","ムールガイ"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+DiveFish_02620;seaweed;seaweed;Wakame-Alge;alga wakame;alga wakame;wakame;wakamé;alga wakame;zeewier;裙带菜;裙帶菜;ワカメ;미역;морские водоросли
+DiveFish_02830;sea grapes;sea grapes;Kriechsprossalge;uva de mar;uva de mar;algue raisin de mer;algue raisin de mer;vite di mare;zeedruiven;海葡萄;海葡萄;ウミブドウ;바다포도;морской виноград
+DiveFish_02831;sea urchin;sea urchin;Seeigel;erizo de mar;erizo de mar;oursin;oursin;riccio di mare;zee-egel;海胆;海膽;ウニ;성게;морской еж
+DiveFish_02832;acorn barnacle;acorn barnacle;Seepocke;bellota de mar;bellota de mar;balane;balane;dente di cane;zeepok;藤壶;藤壺;フジツボ;따개비;морской желудь
+DiveFish_02833;oyster;oyster;Auster;ostra;ostra;huître;huître;ostrica;oester;牡蛎;牡蠣;オイスター;굴;устрица
+DiveFish_02834;turban shell;turban shell;Turbanschnecke;caracola espinosa;caracola espinosa;turbo;turbo;lumaca turbante;tulbandschelp;角蝾螺;角蠑螺;サザエ;소라;рогатый тюрбан
+DiveFish_02835;abalone;abalone;Seeohr;abulón;abulón;ormeau;ormeau;abalone;abalone;鲍鱼;鮑魚;アワビ;전복;абалон
+DiveFish_02838;pearl oyster;pearl oyster;Perlmuschel;ostra perlera;ostra perlera;huître perlière;huître perlière;ostrica pinctada;pareloester;马氏珠母贝;珠母蛤;アコヤガイ;진주조개;жемчужница
+DiveFish_02839;scallop;scallop;Kammmuschel;vieira;vieira;pétoncle;pétoncle;capasanta;mantelschelp;虾夷扇贝;帆立貝;ホタテ;가리비;гребешок
+DiveFish_02840;sea anemone;sea anemone;Seeanemone;anémona;anémona;anémone de mer;anémone de mer;anemone di mare;zeeanemoon;海葵;海葵;イソギンチャク;말미잘;актиния
+DiveFish_02841;sea star;sea star;Seestern;estrella de mar;estrella de mar;étoile de mer;étoile de mer;stella marina;zeester;海星;海星;ヒトデ;불가사리;морская звезда
+DiveFish_02842;sea cucumber;sea cucumber;Seegurke;pepino de mar;pepino de mar;concombre de mer;concombre de mer;cetriolo di mare;zeekomkommer;海参;海參;ナマコ;해삼;морской огурец
+DiveFish_02843;sea slug;sea slug;Nacktkiemer;babosa de mar;babosa de mar;limace de mer;limace de mer;nudibranchi;zeeslak;海蛞蝓;海蛞蝓;ウミウシ;갯민숭달팽이;голожаберник
+DiveFish_02844;flatworm;flatworm;Meerstrudelwurm;gusano políclado;gusano políclado;ver plat;ver plat;verme piatto;platworm;海扁虫;海扁蟲;ヒラムシ;납작벌레;плоский червь
+DiveFish_02845;mantis shrimp;mantis shrimp;Fangschreckenkrebs;langosta mantis;langosta mantis;crevette-mante;crevette-mante;gambero mantide;mantisgarnaal;虾蛄;蝦蛄;シャコ;갯가재;рак-богомол
+DiveFish_02846;sweet shrimp;sweet shrimp;Botan-Garnele;camarón boreal;camarón boreal;crevette nordique;crevette nordique;gamberetto boreale;Noorse garnaal;甜虾;甜蝦;アマエビ;북쪽분홍새우;северная креветка
+DiveFish_02847;tiger prawn;tiger prawn;Kuruma-Garnele;langostino tigre;langostino tigre;crevette tigrée;crevette tigrée;gambero black tiger;tijgergarnaal;日本对虾;日本囊對蝦;クルマエビ;보리새우;тигровая креветка
+DiveFish_02848;spiny lobster;spiny lobster;Languste;langosta espinosa;langosta espinosa;langouste;langouste;aragosta mediterranea;langoest;伊势龙虾;伊勢龍蝦;イセエビ;닭새우;колючий лангуст
+DiveFish_02849;lobster;lobster;Hummer;bogavante;bogavante;homard;homard;astice;kreeft;龙虾;螯龍蝦;ロブスター;바닷가재;омар
+DiveFish_02850;snow crab;snow crab;Schneekrabbe;cangrejo de nieve;cangrejo de nieve;crabe des neiges;crabe des neiges;granchio della neve;sneeuwkrab;松叶蟹;松葉蟹;ズワイガニ;대게;краб-стригун
+DiveFish_02852;red king crab;red king crab;Königskrabbe;cangrejo boreal;cangrejo boreal;crabe royal;crabe royal;granchio gigante;rode koningskrab;帝王蟹;鱈場蟹;タラバガニ;왕게;камчатский краб
+DiveFish_02853;spider crab;spider crab;Riesenkrabbe;cangrejo gigante japonés;cangrejo gigante japonés;crabe-araignée géant;crabe-araignée géant;granchio gig. del Giappone;reuzenkrab;高脚蟹;高腳蟹;タカアシガニ;키다리게;краб-паук
+DiveFish_02854;octopus;octopus;Oktopus;pulpo;pulpo;poulpe;pieuvre;polpo;octopus;章鱼;章魚;タコ;문어;осьминог
+DiveFish_02855;spotted garden eel;spotted garden eel;Röhrenaal;anguila jardinera;anguila jardinera;anguille de jardin;anguille de jardin;anguilla di giardino;gevlekte buisaal;花园鳗;花園鰻;チンアナゴ;가든일;леопардовый угорь
+DiveFish_02856;chambered nautilus;chambered nautilus;Perlboot;nautilo;nautilo;nautile;nautile;nautilus;nautilus;鹦鹉螺;鸚鵡螺;オウムガイ;앵무조개;наутилус
+DiveFish_02857;horseshoe crab;horseshoe crab;Pfeilschwanzkrebs;cangrejo herradura;cangrejo herradura;limule;limule;granchio ferro di cavallo;degenkrab;鲎;鱟;カブトガニ;투구게;мечехвост
+DiveFish_02858;giant isopod;giant isopod;Riesenassel;isópodo gigante;isópodo gigante;bathynome géant;isopode géant;isopode gigante;reuzenpissebed;大王具足虫;大王具足蟲;ダイオウグソクムシ;자이언트 이소포드;гигантская изопода
+DiveFish_06920;firefly squid;firefly squid;Leuchtkalmar;calamar luciérnaga;calamar luciérnaga;calmar luciole;calmar luciole;calamaro lucciola;vuurvliegpijlinktvis;萤火鱿;螢火魷;ホタルイカ;반딧불오징어;сверкающий кальмар
+DiveFish_07191;gazami crab;gazami crab;Gazami-Krabbe;cangrejo gazami;cangrejo gazami;crabe gazami;crabe gazami;granchio gazami;Japanse blauwe krab;梭子蟹;三疣梭子蟹;ガザミ;꽃게;газами-краб
+DiveFish_07203;vampire squid;vampire squid;Vampirtintenfisch;calamar vampiro;calamar vampiro;vampire des abysses;vampire des abysses;calamaro vampiro;vampierinktvis;吸血鬼乌贼;吸血烏賊;コウモリダコ;흡혈오징어;адский кальмар-вампир
+DiveFish_07214;gigas giant clam;gigas giant clam;Gigas-Riesenmuschel;taclobo gigante;taclobo gigante;bénitier colossal;bénitier colossal;tridacna gigante;reuzendoopvontschelp;大砗磲;大硨磲;オオシャコガイ;대왕거거;гигантская тридакна
+DiveFish_07228;sea pineapple;sea pineapple;Seeananas;piña de mar;piña de mar;halocynthia roretzi;halocynthia roretzi;ananas di mare;zeeananas;海鞘;海鞘;ホヤ;멍게;морской ананас
+DiveFish_07245;moon jellyfish;moon jellyfish;Ohrenqualle;medusa luna;medusa luna;méduse lune;méduse lune;medusa aurelia;oorkwal;海月水母;海月水母;ミズクラゲ;보름달물해파리;ушастая аурелия
+DiveFish_07252;umbrella octopus;umbrella octopus;Regenschirm-Oktopus;pulpo paraguas;pulpo paraguas;pieuvre parapluie;pieuvre parapluie;polpo ombrello;depressa-inktvis;扁面蛸;扁面蛸;メンダコ;우무문어;опистотейтис
+DiveFish_07267;slate pencil urchin;slate pencil urchin;Griffelseeigel;erizo lápiz de pizarra;erizo lápiz de pizarra;oursin crayon;oursin crayon;riccio matita;griffelzee-egel;石笔海胆;石筆海膽;パイプウニ;연필성게;грифельный морск. еж
+DiveFish_07278;whelk;whelk;Babylon-Seeschnecke;buccino;buccino;bulot;bulot;buccino;wulk;花螺;峨螺;バイガイ;수랑;моллюск-трубач
+DiveFish_07303;sea pig;sea pig;Scotoplanes;cerdo de mar;cerdo de mar;cochon de mer;cochon de mer;porcellino di mare;zeevarken;海猪;海豬;センジュナマコ;바다돼지;скотопланес
+DiveFish_07308;Dungeness crab;Dungeness crab;Pazifik-Taschenkrebs;buey del Pacífico;buey del Pacífico;crabe de Dungeness;crabe de Dungeness;granciporro;Dungeness-krab;珍宝蟹;首長黃道蟹;ダンジネスクラブ;던지니스크랩;данженесский краб
+DiveFish_07318;Venus' flower basket;Venus' flower basket;Gießkannenschwamm;canasta de flores de Venus;canasta de flores de Venus;corbeille de Vénus;corbeille de Vénus;cestello di Venere;venusmandje;偕老同穴;偕老同穴;カイロウドウケツ;해로동혈;корзинка Венеры
+DiveFish_07411;mussel;mussel;Miesmuschel;mejillón;mejillón;moule;moule;cozza;mossel;贻贝;貽貝;ムールガイ;지중해담치;мидия

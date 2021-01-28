@@ -1,154 +1,167 @@
-﻿"label","text"
-"Balloon_07869","あおいふうせん"
-"Balloon_13123","あかいふうせん"
-"Balloon_13124","きいろのふうせん"
-"Balloon_13125","みどりのふうせん"
-"Balloon_13126","ピンクのふうせん"
-"BigbagPresent_13836","プレゼントぶくろ"
-"BlowBubble_04386","シャボンだま"
-"BlowBubble_04386_pl","シャボンだま"
-"DummyCardboard_04645","おとどけもの"
-"DummyDIYRecipe_09046","たかとびぼうのDIYレシピ"
-"DummyDIYRecipe_09047","ショボいスコップのDIYレシピ"
-"DummyDIYRecipe_09048","ショボいジョウロのDIYレシピ"
-"DummyDIYRecipe_10309","パチンコのDIYレシピ"
-"DummyDIYRecipe_12294","ショボいオノのDIYレシピ"
-"DummyDIYRecipe_12327","はしごのDIYレシピ"
-"DummyHowtoBook_09049","ポップ！ヘアアレンジBEST8"
-"DummyHowtoBook_09050","クール！ヘアアレンジBEST8"
-"DummyHowtoBook_09051","おしゃれ！ヘアカラーBEST8"
-"DummyHowtoBook_09052","ポケットせいとんテクニック"
-"DummyHowtoBook_09221","フツーにつかえる！どうぐレシピ"
-"DummyHowtoBook_09616","どうぐスッキリ！おきにリング"
-"DummyHowtoBook_11140","ポケットつめこみウルトラテク"
-"DummyHowtoBook_12185","マイデザインPROエディタ"
-"DummyHowtoBook_13256","へんしん！ボディカラーペイント"
-"DummyHowtoBook_13257","みせる！カラーコンタクト"
-"DummyHowtoBook_13610","ナウい！リアクションずかん"
-"DummyHowtoBook_13766","もっと！ヘアアレンジ×6"
-"DummyPresentbox_04480","プレゼント"
-"DummyRecipe_02695","ダミーDIYレシピ"
-"DummyRecipe_05603","はじめてのDIYレシピ"
-"DummyRecipe_05604","チャレンジ！DIYレシピ"
-"DummyRecipe_05605","こんなモノまで？！DIY"
-"DummyRecipe_13787","いろどりサンクスギビングDIY"
-"DummyWrapping_07699","プレゼント"
-"DummyWrapping_07700","プレゼント"
-"DummyWrapping_07701","プレゼント"
-"DummyWrapping_07702","プレゼント"
-"DummyWrapping_07703","プレゼント"
-"DummyWrapping_07704","プレゼント"
-"DummyWrapping_07705","プレゼント"
-"DummyWrapping_07706","プレゼント"
-"DummyWrapping_07707","プレゼント"
-"DummyWrapping_07708","プレゼント"
-"DummyWrapping_07709","プレゼント"
-"DummyWrapping_07710","プレゼント"
-"DummyWrapping_07711","プレゼント"
-"DummyWrapping_07712","プレゼント"
-"DummyWrapping_07713","プレゼント"
-"DummyWrapping_07714","プレゼント"
-"DummyWrapping_13793","プレゼント"
-"FierworkHand_05743","あかいてもちはなび"
-"FierworkHand_05743_pl","あかいてもちはなび"
-"FierworkHand_12974","あおいてもちはなび"
-"FierworkHand_12974_pl","あおいてもちはなび"
-"FireworkM_13106","おきはなび"
-"FishBait_04549","サカナのまきエサ"
-"FishBait_04549_pl","サカナのまきエサ"
-"HandheldPennant_13128","たぬきかいはつのてもちペナント"
-"Honeycomb_03263","ハチのす"
-"Honeycomb_03263_pl","ハチのす"
-"HousingKit_02750","テント"
-"HousingKit_02755","フータさんのテントよていち"
-"HousingKit_02756","おみせのこうじかんばん"
-"HousingKit_02757","n\0のテント"
-"HousingKit_03349","ハウジングキット"
-"HousingKit_04311","さかよていちキット"
-"HousingKit_04411","したてやのこうじかんばん"
-"HousingKit_05166","キャンプサイトこうじキット"
-"HousingKit_05357","n\0・いせつキット"
-"HousingKit_05358","いせつキット"
-"HousingKit_05359","したてや・いせつキット"
-"HousingKit_05360","おみせ・いせつキット"
-"HousingKit_05361","はくぶつかん・いせつキット"
-"HousingKit_06841","キャンプサイト・いせつキット"
-"HousingKit_13346","ひっこしキット"
-"HousingKitBirdge_04310","はしよていちキット"
-"HousingKitBirdge_07211","はしのこうじキット"
-"HousingKitRcoQuest_05827","ハウジングキット・1ごうち"
-"HousingKitRcoQuest_05828","ハウジングキット・2ごうち"
-"HousingKitRcoQuest_05829","ハウジングキット・3ごうち"
-"JuiceFuzzyapple_13835","スパークリングサイダー"
-"LicenseItem_08773","どうろこうじ・いしだたみ"
-"LicenseItem_08774","どうろこうじ・レンガのみち"
-"LicenseItem_08775","どうろこうじ・くろつちのみち"
-"LicenseItem_08776","どうろこうじ・アーチタイル"
-"LicenseItem_08777","どうろこうじ・すなのみち"
-"LicenseItem_08778","どうろこうじ・テラコッタタイル"
-"LicenseItem_08779","どうろこうじ・くみきのみち"
-"LicenseItem_08780","かせんこうじライセンス"
-"LicenseItem_08781","がけこうじライセンス"
-"LicenseItem_09771","どうろこうじ・マイデザイン"
-"Medicine_02777","おくすり"
-"Medicine_02777_pl","おくすり"
-"MessageBottle_05793","メッセージボトル"
-"MessageBottle_12544","たまごのメッセージボトル"
-"MilePlaneTicket_05851","マイルりょこうけん"
-"MilePlaneTicket_05851_pl","マイルりょこうけん"
-"MilePlaneTicket_09964","ベルひきかえけん"
-"MilePlaneTicket_09964_pl","ベルひきかえけん"
-"MilePlaneTicket_13228","ゆめのベルひきかえけん"
-"MilePlaneTicket_13228_pl","ゆめのベルひきかえけん"
-"Ocarina_05320","オカリナ"
-"Panflute_05517","パンフルート"
-"Partyhorn_05742","ふきもどし"
-"PartyPopper_02753","クラッカー"
-"PartyPopper_02753_pl","クラッカー"
-"PitFallSeed_02578","おとしあなのタネ"
-"PitFallSeed_02578_pl","おとしあなのタネ"
-"QuestChristmasPresentbox_13869","だれかのプレゼント"
-"QuestWrapping_04245","はいたつボックス"
-"StickLight_05741","スティックライト"
-"Tambourine_05430","タンバリン"
-"Trash_03466","あきカン"
-"Trash_03469","ながぐつ"
-"Trash_03470","タイヤ"
-"Trash_13107","おきはなびのもえかす"
-"Uchiwa_05319","うちわ"
-"Uchiwa_09762","たぬきかいはつうちわ"
-"Windmill_05744","かざぐるま"
-"WrappingPaper_07683","きいろいラッピングペーパー"
-"WrappingPaper_07683_pl","きいろいラッピングペーパー"
-"WrappingPaper_07684","ピンクのラッピングペーパー"
-"WrappingPaper_07684_pl","ピンクのラッピングペーパー"
-"WrappingPaper_07685","オレンジのラッピングペーパー"
-"WrappingPaper_07685_pl","オレンジのラッピングペーパー"
-"WrappingPaper_07686","きみどりのラッピングペーパー"
-"WrappingPaper_07686_pl","きみどりのラッピングペーパー"
-"WrappingPaper_07687","みどりのラッピングペーパー"
-"WrappingPaper_07687_pl","みどりのラッピングペーパー"
-"WrappingPaper_07688","ミントのラッピングペーパー"
-"WrappingPaper_07688_pl","ミントのラッピングペーパー"
-"WrappingPaper_07689","みずいろのラッピングペーパー"
-"WrappingPaper_07689_pl","みずいろのラッピングペーパー"
-"WrappingPaper_07690","むらさきのラッピングペーパー"
-"WrappingPaper_07690_pl","むらさきのラッピングペーパー"
-"WrappingPaper_07691","こんいろのラッピングペーパー"
-"WrappingPaper_07691_pl","こんいろのラッピングペーパー"
-"WrappingPaper_07692","あおいラッピングペーパー"
-"WrappingPaper_07692_pl","あおいラッピングペーパー"
-"WrappingPaper_07693","しろいラッピングペーパー"
-"WrappingPaper_07693_pl","しろいラッピングペーパー"
-"WrappingPaper_07694","あかいラッピングペーパー"
-"WrappingPaper_07694_pl","あかいラッピングペーパー"
-"WrappingPaper_07695","きんいろのラッピングペーパー"
-"WrappingPaper_07695_pl","きんいろのラッピングペーパー"
-"WrappingPaper_07696","ちゃいろのラッピングペーパー"
-"WrappingPaper_07696_pl","ちゃいろのラッピングペーパー"
-"WrappingPaper_07697","グレーのラッピングペーパー"
-"WrappingPaper_07697_pl","グレーのラッピングペーパー"
-"WrappingPaper_07698","くろいラッピングペーパー"
-"WrappingPaper_07698_pl","くろいラッピングペーパー"
-"WrappingPaper_13792","クリスマスなラッピングペーパー"
-"WrappingPaper_13792_pl","クリスマスなラッピングペーパー"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+Balloon_07869;blue balloon;blue balloon;Ballon (blau);globo azul;globo azul;ballon de baudruche bleu;ballon bleu;palloncino blu;blauwe ballon;蓝色气球;藍色氣球;あおいふうせん;파란색 풍선;синий шарик
+Balloon_13123;red balloon;red balloon;Ballon (rot);globo rojo;globo rojo;ballon de baudruche rouge;ballon rouge;palloncino rosso;rode ballon;红色气球;紅色氣球;あかいふうせん;빨간색 풍선;красный шарик
+Balloon_13124;yellow balloon;yellow balloon;Ballon (gelb);globo amarillo;globo amarillo;ballon de baudruche jaune;ballon jaune;palloncino giallo;gele ballon;黄色气球;黃色氣球;きいろのふうせん;노란색 풍선;желтый шарик
+Balloon_13125;green balloon;green balloon;Ballon (grün);globo verde;globo verde;ballon de baudruche vert;ballon vert;palloncino verde;groene ballon;绿色气球;綠色氣球;みどりのふうせん;초록색 풍선;зеленый шарик
+Balloon_13126;pink balloon;pink balloon;Ballon (rosa);globo rosa;globo rosa;ballon de baudruche rose;ballon rose;palloncino rosa;roze ballon;粉红色气球;粉紅色氣球;ピンクのふうせん;핑크색 풍선;розовый шарик
+BigbagPresent_13836;magic bag;magic bag;Geschenkesack;saco de regalos;bolsa de regalos;sac à cadeaux;sac à cadeaux;sacco dei regali;pakjeszak;礼物袋;禮物袋;プレゼントぶくろ;선물 보따리;волшебный мешок
+BlowBubble_04386;bubble blower;bubble blower;Seifenblasenset;lanzapompas;lanzaburbujas;lance-bulles;lance-bulles;sparabolle;flesje bellenblaas;肥皂泡;肥皂泡;シャボンだま;비눗방울;набор для пузырей
+BlowBubble_04386_pl;bubble blowers;bubble blowers;Seifenblasensets;lanzapompas;lanzaburbujas;lance-bulles;lance-bulles;sparabolle;flesjes bellenblaas;肥皂泡;肥皂泡;シャボンだま;비눗방울;наборы для пузырей
+DummyCardboard_04645;delivery;delivery;Lieferung;paquete;paquete;livraison;livraison;consegna;pakketje;包裹;包裹;おとどけもの;소포;посылка
+DummyDIYRecipe_09046;Vaulting Pole Recipe;Vaulting Pole Recipe;Anleitung (Sprungstab);proyecto pértiga;proyecto garrocha;plan de perche;plan de perche;schema asta da salto;polsstokplan;撑杆跳竿子的DIY手册;撐竿跳竿子的DIY方程式;たかとびぼうのDIYレシピ;높이뛰기 장대 DIY 레시피;инструкция: шест
+DummyDIYRecipe_09047;Flimsy Shovel Recipe;Flimsy Shovel Recipe;Anleitung (Wackelschaufel);proyecto pala endeble;proyecto pala frágil;plan de pelle rudimentaire;plan de pelle rudimentaire;schema pala fragile;breekbare-schep-plan;简陋铲子的DIY手册;簡陋鏟子的DIY方程式;ショボいスコップのDIYレシピ;엉성한 삽 DIY 레시피;инструкция: непр. лопата
+DummyDIYRecipe_09048;Flimsy Watering Can Recipe;Flimsy Watering Can Recipe;Anleitung (Wackelgießk.);proyecto regadera endeble;proyecto regadera frágil;plan d'arrosoir rudimentaire;plan d'arrosoir rudimentaire;schema annaffiatoio fragile;breekbare-gieter-plan;简陋浇花壶的DIY手册;簡陋澆花壺的DIY方程式;ショボいジョウロのDIYレシピ;엉성한 물뿌리개 DIY 레시피;инструкция: непр. лейка
+DummyDIYRecipe_10309;Slingshot Recipe;Slingshot Recipe;Anleitung (Schleuder);proyecto tirachinas;proyecto resortera;plan de lance-pierre;plan de lance-pierre;schema fionda;katapultplan;弹弓的DIY手册;彈弓的DIY方程式;パチンコのDIYレシピ;새총 DIY 레시피;инструкция: рогатка
+DummyDIYRecipe_12294;Flimsy Axe Recipe;Flimsy Axe Recipe;Anleitung (Wackelaxt);proyecto hacha endeble;proyecto hacha frágil;plan de hache rudimentaire;plan de hache rudimentaire;schema ascia fragile;breekbare-bijl-plan;简陋斧头的DIY手册;簡陋斧頭的DIY方程式;ショボいオノのDIYレシピ;엉성한 도끼 DIY 레시피;инструкция: непроч. топор
+DummyDIYRecipe_12327;Ladder Recipe;Ladder Recipe;Anleitung (Leiter);proyecto escalera de mano;proyecto escalera de mano;plan d'échelle;plan d'échelle;schema scala a pioli;ladderplan;梯子的DIY手册;梯子的DIY方程式;はしごのDIYレシピ;사다리 DIY 레시피;инструкция: лестница
+DummyHowtoBook_09049;Top 8 Pop Hairstyles;Top 8 Pop Hairstyles;Die 8 poppigsten Frisuren;Guía de peinados pop;Guía de peinados pop;Le top des coiffures pop;Le top des coiffures pop;I migliori 8 tagli pop;Top 8 van populaire kapsels;流行！最佳发型8款;繽紛！頭髮造型BEST8;ポップ！ヘアアレンジBEST8;발랄하게! 헤어스타일 BEST 8;8 лучших поп-причесок
+DummyHowtoBook_09050;Top 8 Cool Hairstyles;Top 8 Cool Hairstyles;Die 8 coolsten Frisuren;Guía de peinados modernos;Guía de peinados modernos;Le top des coiffures cool;Le top des coiffures cool;I migliori 8 tagli moderni;Top 8 van coole kapsels;帅气！最佳发型8款;酷！頭髮造型BEST8;クール！ヘアアレンジBEST8;쿨하게! 헤어스타일 BEST 8;8 лучших модных причесок
+DummyHowtoBook_09051;Top 8 Stylish Hair Colors;Top 8 Stylish Hair Colors;Die 8 schicksten Haarfarben;Guía de tintes para el pelo;Guía de tintes para el pelo;Les plus belles colorations;Les plus belles colorations;Le 8 tinte per capelli top;Top 8 van haarkleuren;时尚！最佳发色8款;時尚！頭髮顏色BEST8;おしゃれ！ヘアカラーBEST8;화려하게! 헤어 컬러 BEST 8;8 лучших цветов для волос
+DummyHowtoBook_09052;Pocket Organization Guide;Pocket Organization Guide;Taschen richtig nutzen;Organiza tus bolsillos;Organiza tus bolsillos;Savoir s'organiser;Savoir s'organiser;Guida all'uso delle tasche;Orde op zakken;口袋整理技巧;口袋整理技巧;ポケットせいとんテクニック;주머니 정리 테크닉;Организация карманов
+DummyHowtoBook_09221;Pretty Good Tools Recipes;Pretty Good Tools Recipes;Alltagswerkzeuge A–Z;Herramientas apañadas;Herramientas fantásticas;Fabriquer de bons outils;Fabriquer de bons outils;Schemi per strumenti utili;Sterk gereedschap maken;平常就能用！道具手册;平常就能用！道具方程式;フツーにつかえる！どうぐレシピ;언제나 쓸 수 있는 도구 레시피;Неплохие инструменты
+DummyHowtoBook_09616;Tool Ring: It's Essential!;Tool Ring: It's Essential!;Werkzeugring: Ein Muss!;Organiza tus herramientas;Organiza tus herramientas;Guide du panel d'outils;Guide de la roue d'outils;La ruota degli strumenti;De gereedschapsring rond;道具清清爽爽！收藏环;道具不再亂糟糟！收藏環;どうぐスッキリ！おきにリング;도구도 쉽게! 즐겨찾기;Меню инструментов
+DummyHowtoBook_11140;Ultimate Pocket Stuffing;Ultimate Pocket Stuffing;Taschentricks für Profis;Perfecciona tus bolsillos;Optimiza tus bolsillos;Guide du fourre-poches;Guide du fourre-poches;Uso avanzato delle tasche;Zakkenvullen voor experts;口袋满装诀窍;塞滿口袋的究極訣竅;ポケットつめこみウルトラテク;주머니 정리, 고수의 기술;Как набивать карманы
+DummyHowtoBook_12185;Custom Design Pro Editor;Custom Design Pro Editor;Designs: Profi-Edition;Mis diseños profesionales;Mis diseños profesionales;Motifs persos pour pros;Motifs perso pour pros;I miei modelli: versione pro;Speciaal ontwerp - deel 1;我的设计专业版;我的設計專業版;マイデザインPROエディタ;마이 디자인 PRO 에디터;Режим профи-рисунков
+DummyHowtoBook_13256;Body-Paint Costume Tips;Body-Paint Costume Tips;Die Kunst des Bodypainting;Trucos de pintura corporal;Trucos de pintura corporal;ABC de peinture corporelle;ABC de peinture corporelle;L'arte del body painting;Tips voor bodypainten;变身！身体彩绘;變身！身體彩繪;へんしん！ボディカラーペイント;변신! 컬러풀 보디 페인팅;Искусство боди-арта
+DummyHowtoBook_13257;Exploring New Eye Colors;Exploring New Eye Colors;Augenfarben für Gewinner;Guía de lentillas de colores;Guía colores de ojos;Varier la couleur des yeux;Varier la couleur des yeux;Occhi dai mille colori;Oog voor oogkleuren;看看！彩色隐形眼镜;看！彩色隱形眼鏡;みせる！カラーコンタクト;매력 만점! 컬러 렌즈 모음;Новые цвета глаз
+DummyHowtoBook_13610;Hip Reaction Collection;Hip Reaction Collection;Hippe Emotionen;Emociones y actividades;Emociones y actividades;Mimiques sans micmacs;Fanatique des mimiques;Collezione Gran Emozione;Gevoel voor emoties;时下最潮！反应图鉴;時下最熱門！表情圖鑑;ナウい！リアクションずかん;최신 유행! 리액션 도감;Реакции в тренде
+DummyHowtoBook_13766;Top 6 Stylish Hairstyles;Top 6 Stylish Hairstyles;Die 6 trendigsten Frisuren;6 peinados revolucionarios;6 peinados revolucionarios;6 coiffures qui décoiffent;6 coiffures qui décoiffent;I migliori 6 tagli top;Top 6 van stijlvolle kapsels;更多！发型×6;更多！頭髮造型×6;もっと！ヘアアレンジ×6;조금 더! 헤어스타일×6;Топ 6 стильных причесок
+DummyHowtoBook_14030;Viva Festivale Reaction Set;Viva Festivale Reaction Set;Viva-Karneval-Emotionen;Set de emociones Carnaval;Set de emociones Carnaval;lot de mimiques de carnaval;lot de mimiques de carnaval;Set di emozioni Carnevale;Dé emoties voor carnaval;欢乐！狂欢节反应;歡樂！狂歡節表情;ビバ！カーニバルリアクション;비바! 카니발 리액션;Реакции к Карнавалу
+DummyPresentbox_04480;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyRecipe_02695;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ;ダミーDIYレシピ
+DummyRecipe_05603;DIY for Beginners;DIY for Beginners;Mein erstes Bastelbuch;Bricolaje para principiantes;Primeros proyectos;Le b.a.-ba du bricolage;Le b.a.-ba du bricolage;Fai da te per principianti;Doe-het-zelven kun je leren;新手DIY手册;第一次的DIY方程式;はじめてのDIYレシピ;첫 DIY 레시피;Начала «Сделай сам»
+DummyRecipe_05604;Test Your DIY Skills;Test Your DIY Skills;Ideen für Bastler;Bricolaje para expertos;Proyectos para expertos;Bricolage tous azimuts;Bricolage tous azimuts;Fai da te per appassionati;De doe-het-zelfproef;挑战！DIY手册;挑戰！DIY方程式;チャレンジ！DIYレシピ;도전! DIY 레시피;Пробы пера «Сделай сам»
+DummyRecipe_05605;Wildest Dreams DIY;Wildest Dreams DIY;Bist du der Bastelboss?;Bricolaje para epatar;Proyectos para deslumbrar;Brico foldingo;Brico dingo;Fai da te per esperti;De ultieme doe-het-zelver;竟然能这样？！DIY;這種東西也能自己做？！DIY;こんなモノまで？！DIY;무엇이든 뚝딱?! DIY 레시피;«Сделай сам» без границ
+DummyRecipe_13787;Cozy Turkey Day DIY;Cozy Turkey Day DIY;Schlemmfest-Bastelbuch;Bricolaje Día del Pavo;Proyecto Día del Pavo;Bricolages du partage;Bricolages du partage;Fai da te primizie;Doe-het-zelf: Smakenfestijn;多彩多姿感恩节DIY;多彩多姿感恩節DIY;いろどりサンクスギビングDIY;삶에 풍요를! 하베스트 DIY 레시피;«Сделай сам»: изобилие
+DummyWrapping_07699;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07700;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07701;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07702;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07703;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07704;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07705;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07706;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07707;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07708;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07709;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07710;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07711;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07712;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07713;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_07714;present;present;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrapping_13793;gift;gift;Geschenk;regalo;regalo;cadeau;cadeau;regalo;cadeau;礼物;禮物;プレゼント;선물;подарок
+DummyWrappingOtoshidama_14042;lucky money;lucky money;Glücksgeschenk;aguinaldo Año Nuevo Lunar;regalito bayas de la suerte;argent porte chance;argent porte chance;denaro della fortuna;geluksgeld;春节红包;春節紅包;しゅんせつのおとしだま;춘절 세뱃돈;дини на удачу
+DummyWrappingOtoshidama_14043;sebaetdon;sebaetdon;Sebaetdon;aguinaldo de Seollal;regalito de Seollal;sebaetdon;sebaetdon;sebaetdon;nieuwjaarsgeld;韩国新年红包;韓國新年紅包;ソルラルのおとしだま;설날 세뱃돈;подарок «сэбэтон»
+FierworkHand_05743;red sparkler;red sparkler;Rot-Wunderkerze;bengala roja;bengala roja;cierge magique rouge;bougie magique rouge;stella filante rossa; rood sterretje;红色烟花棒;紅色仙女棒;あかいてもちはなび;빨간색 스파클러;красн. бенгальский огонь
+FierworkHand_05743_pl;red sparklers;red sparklers;Rot-Wunderkerzen;bengalas rojas;bengalas rojas;cierges magiques rouges;bougies magiques rouges;stelle filanti rosse; rode sterretjes;红色烟花棒;紅色仙女棒;あかいてもちはなび;빨간색 스파클러;красн. бенгальские огни
+FierworkHand_12974;blue sparkler;blue sparkler;Blau-Wunderkerze;bengala azul;bengala azul;cierge magique bleu;bougie magique bleue;stella filante blu; blauw sterretje;蓝色烟花棒;藍色仙女棒;あおいてもちはなび;파란색 스파클러;син. бенгальский огонь
+FierworkHand_12974_pl;blue sparklers;blue sparklers;Blau-Wunderkerzen;bengalas azules;bengalas azules;cierges magiques bleus;bougies magiques bleues;stelle filanti blu; blauwe sterretjes;蓝色烟花棒;藍色仙女棒;あおいてもちはなび;파란색 스파클러;синие бенгальские огни
+FireworkM_13106;fountain firework;fountain firework;Fontäne;bengala de tubo;bengala de tubo;feu d'artifice fontaine;feu d'artifice fontaine;fuoco d'artificio;sterretjesfontein;地面烟花筒;地面煙火筒;おきはなび;분수 불꽃;фейерверк-фонтан
+FishBait_04549;fish bait;fish bait;Köder;cebo;cebo;appât;appât;esca;aas;鱼饲料;魚飼料;サカナのまきエサ;물고기 떡밥;наживка
+FishBait_04549_pl;fish bait;fish bait;Köder;cebos;cebos;appâts;appâts;esche;aas;鱼饲料;魚飼料;サカナのまきエサ;물고기 떡밥;наживки
+HandheldPennant_13128;Nook Inc. handheld pennant;Nook Inc. handheld pennant;Nook-Inc.-Fähnchen;banderín Nook Inc. portátil;banderín Nook Inc. portátil;fanion portable Nook Inc.;fanion portable Nook Inc.;gagliardetto Nook Inc.;Nook Inc.-vlaggetje;Nook Inc.手持三角旗;Nook Inc.手持三角旗;たぬきかいはつのてもちペナント;Nook Inc. 손 깃발;флажок Nook Inc.
+Honeycomb_03263;wasp nest;wasp nest;Wespennest;avispero;avispero;nid de guêpes;nid de guêpes;vespaio;wespennest;蜂巢;蜂巢;ハチのす;벌집;осиное гнездо
+Honeycomb_03263_pl;wasp nests;wasp nests;Wespennester;avisperos;avisperos;nids de guêpes;nids de guêpes;vespai;wespennesten;蜂巢;蜂巢;ハチのす;벌집;осиные гнезда
+HousingKit_02750;tent;tent;Zelt;tienda de campaña;tienda de campaña;tente;tente;tenda;tent;帐篷;帳篷;テント;텐트;палатка
+HousingKit_02755;Blathers's tent marker;Blathers's tent marker;Markierung für Eugens Zelt;carpa de Sócrates;carpa de Sócrates;site réservé par Thibou;site réservé par Thibou;segnatenda di Blatero;Blathers' tent-afbakening;傅达帐篷用地;傅達帳篷預定地;フータさんのテントよていち;부엉씨의 텐트 위치;знак палатки Блезерса
+HousingKit_02756;shop construction kit;shop construction kit;Laden-Baukit;kit de tienda;kit de tienda;kit chantier boutique;kit chantier boutique;kit negozio;winkelbouwpakket;商店的施工告示牌;商店施工告示牌;おみせのこうじかんばん;상점 공사 키트;набор строителя магазина
+HousingKit_02757;'s tent;'s tent;Zelt von ;tienda de ;tienda ;tente de ;tente de ⁠;tenda di ;tent van ;的帐篷;的帳篷;のテント;의 텐트;палатка 
+HousingKit_03349;housing kit;housing kit;Haus-Baukit;kit de asentamiento;kit de residencia;kit habitation;kit habitation;kit abitativo;huisbouwpakket;盖房子工具组;蓋房子工具組;ハウジングキット;하우징 키트;набор поселенца
+HousingKit_04311;incline marker kit;incline marker kit;Aufgang-Planungskit;kit de rampa;kit de rampa;kit emplacement rampe;kit emplacement rampe;kit progettazione rampa;hellingafbakeningspakket;坡道用地工具组;斜坡預定地工具組;さかよていちキット;비탈길 건축예정지 키트;набор разметки подъема
+HousingKit_04411;tailors construction kit;tailors construction kit;Schneiderei-Baukit;kit de sastrería;kit de atelier;kit chantier atelier couture;kit chantier atelier couture;kit sartoria;kleermakerijbouwpakket;裁缝屋的施工告示牌;裁縫屋施工告示牌;したてやのこうじかんばん;옷가게 공사 키트;набор строителя ателье
+HousingKit_05166;campsite construction kit;campsite construction kit;Campingplatz-Baukit;kit de zona de acampada;kit de zona de campamento;kit camping;kit camping;kit area per campeggio;kampeerplekpakket;露营地施工工具组;露營地施工工具組;キャンプサイトこうじキット;캠핑장 건축예정지 키트;набор кемпинг-строителя
+HousingKit_05357;'s kit;'s kit;Kit von ;kit de ;kit de ;kit de ;kit de ⁠;kit di ;-pakket;搬迁工具组;搬遷工具組;・いせつキット; 이전 키트;набор 
+HousingKit_05358;moving kit;moving kit;Umzugskit;kit de traslado;kit de traslado;kit déménagement;kit déménagement;kit trasloco;verhuispakket;搬迁工具组;搬遷工具組;いせつキット;이전 키트;набор переноса дома
+HousingKit_05359;tailors moving kit;tailors moving kit;Schneiderei-Umzugskit;kit de traslado de sastrería;kit de traslado de atelier;kit déménagement couture;kit déménagement couture;kit trasloco sartoria;kleermakerijverhuispakket;裁缝屋搬迁工具组;裁縫屋搬遷工具組;したてや・いせつキット;옷가게 이전 키트;набор переноса ателье
+HousingKit_05360;shop moving kit;shop moving kit;Laden-Umzugskit;kit de traslado de tienda;kit de traslado de tienda;kit déménagement boutique;kit déménagement boutique;kit trasloco negozio;winkelverhuispakket;商店搬迁工具组;商店搬遷工具組;おみせ・いせつキット;가게 이전 키트;набор переноса магазина
+HousingKit_05361;museum moving kit;museum moving kit;Museums-Umzugskit;kit de traslado de museo;kit de traslado de museo;kit déménagement musée;kit déménagement musée;kit trasloco museo;museumverhuispakket;博物馆搬迁工具组;博物館搬遷工具組;はくぶつかん・いせつキット;박물관 이전 키트;набор переноса музея
+HousingKit_06841;campsite moving kit;campsite moving kit;Campingplatz-Umzugskit;kit de traslado de acampada;kit de traslado campamento;kit déplacement camping;kit déplacement camping;kit trasloco area campeggio;kampeerplekverhuispakket;露营地搬迁工具组;露營地搬遷工具組;キャンプサイト・いせつキット;캠핑장 이전 키트;набор переноса кемпинга
+HousingKit_13346;transfer kit;transfer kit;Transferkit;kit de transferencia;kit de transferencia;kit transfert;kit transfert;kit trasferimento;eilandverhuispakket;转移工具组;轉移工具組;ひっこしキット;이사 키트;набор для переезда
+HousingKitBirdge_04310;bridge marker kit;bridge marker kit;Brücken-Planungskit;señal de puente en obras;señal de puente en obras;kit emplacement pont;kit emplacement pont;kit progettazione ponte;brugafbakeningspakket;桥梁用地工具组;橋樑預定地工具組;はしよていちキット;다리 건축예정지 키트;набор подготовки моста
+HousingKitBirdge_07211;bridge construction kit;bridge construction kit;Brücken-Baukit;kit de puente;kit de puente;kit pont;kit pont;kit creazione ponte;brugbouwpakket;桥梁施工工具组;橋樑施工工具組;はしのこうじキット;다리 공사 키트;набор строителя моста
+HousingKitRcoQuest_05827;plot 1 housing kit;plot 1 housing kit;Haus-1-Baukit;kit de asentamiento: solar 1;kit de residencia: terreno 1;kit habitation 1;kit habitation 1;kit abitativo: terreno 1;huisbouwpakket 1;盖房子工具组·1号地;蓋房子工具組‧1號地;ハウジングキット・1ごうち;하우징 키트 1;набор поселенца 1
+HousingKitRcoQuest_05828;plot 2 housing kit;plot 2 housing kit;Haus-2-Baukit;kit de asentamiento: solar 2;kit de residencia: terreno 2;kit habitation 2;kit habitation 2;kit abitativo: terreno 2;huisbouwpakket 2;盖房子工具组·2号地;蓋房子工具組‧2號地;ハウジングキット・2ごうち;하우징 키트 2;набор поселенца 2
+HousingKitRcoQuest_05829;plot 3 housing kit;plot 3 housing kit;Haus-3-Baukit;kit de asentamiento: solar 3;kit de residencia: terreno 3;kit habitation 3;kit habitation 3;kit abitativo: terreno 3;huisbouwpakket 3;盖房子工具组·3号地;蓋房子工具組‧3號地;ハウジングキット・3ごうち;하우징 키트 3;набор поселенца 3
+JuiceFuzzyapple_13835;sparkling cider;fizzy apple juice;Apfelschorle;zumo de manzana;jugo de manzana;boisson pétillante festive;boisson pétillante festive;cocktail alla frutta;glas appelsap met prik;气泡饮料;氣泡飲料;スパークリングサイダー;스파클링 사이다;игристый напиток
+LicenseItem_08773;stone path permit;stone path permit;Steinweg-Lizenz;permiso camino empedrado;permiso camino empedrado;permis route pavée;permis route pavée;licenza selciato;keienpadvergunning;道路施工许可证·石板路;道路施工許可證‧石板路;どうろこうじ・いしだたみ;돌 도로 공사;лицензия: каменн. дорога
+LicenseItem_08774;brick path permit;brick path permit;Ziegelweg-Lizenz;permiso camino de ladrillo;permiso camino de ladrillo;permis route en briques;permis route en briques;licenza strada di mattoni;klinkerpadvergunning;道路施工许可证·砖块路;道路施工許可證‧磚塊路;どうろこうじ・レンガのみち;벽돌 도로 공사;лицензия: кирп. дорога
+LicenseItem_08775;dark dirt path permit;dark dirt path permit;Schwarzerde-Weg-Lizenz;permiso camino tierra negra;permiso camino tierra negra;permis chemin champêtre;permis chemin champêtre;licenza strada sterrata;veldpadvergunning;道路施工许可证·黑土路;道路施工許可證‧黑土路;どうろこうじ・くろつちのみち;짙은 흙 도로 공사;лицензия: темная тропа
+LicenseItem_08776;arched tile path permit;arched tile path permit;Bogenpflasterweg-Lizenz;permiso camino enlosado;permiso camino enlosado;permis pavage éventail;permis pavage éventail;licenza selciato ad arco;waaierpadvergunning;道路施工许可证·拱形砖路;道路施工許可證‧拱形磚路;どうろこうじ・アーチタイル;아치 타일 도로 공사;лицензия: веерная дорога
+LicenseItem_08777;sand path permit;sand path permit;Sandweg-Lizenz;permiso camino de arena;permiso camino de arena;permis chemin sablonneux;permis chemin sablonneux;licenza strada di sabbia;zandpadvergunning;道路施工许可证·沙子路;道路施工許可證‧沙子路;どうろこうじ・すなのみち;모래 도로 공사;лицензия: песчан. дорога
+LicenseItem_08778;terra-cotta tile permit;terra-cotta tile permit;Terrakottaweg-Lizenz;permiso camino terracota;permiso camino terracota;permis pavés terracotta;permis pavés terracotta;licenza strada di terracotta;terracottapadvergunning;道路施工许可证·陶砖路;道路施工許可證‧陶磚路;どうろこうじ・テラコッタタイル;테라코타 타일 도로 공사;лицензия: террак. дорога
+LicenseItem_08779;wooden path permit;wooden path permit;Holzpfad-Lizenz;permiso camino de madera;permiso camino de madera;permis route pavée bois;permis route pavée bois;licenza strada di legno;plankenpadvergunning;道路施工许可证·木板路;道路施工許可證‧木板路;どうろこうじ・くみきのみち;나무 도로 공사;лицензия: дерев. дорога
+LicenseItem_08780;waterscaping permit;waterscaping permit;Gewässerlizenz;permiso de obras fluviales;permiso de obras fluviales;permis cours d'eau;permis cours d'eau;licenza fiumi e laghi;watervergunning;河流施工许可证;河川施工許可證;かせんこうじライセンス;하천 공사 허가증;лицензия: реки и озера
+LicenseItem_08781;cliff construction permit;cliff construction permit;Plateaulizenz;permiso de elevaciones;permiso de desniveles;permis falaise;permis falaise;licenza rilievi;klifvergunning;悬崖施工许可证;懸崖施工許可證;がけこうじライセンス;절벽 공사 허가증;лицензия: скалы
+LicenseItem_09771;custom design path permit;custom design path permit;Eigenes-Design-Weg-Lizenz;permiso camino de diseño;permiso camino de diseño;permis routes perso;permis routes perso;licenza strada modello pers.;padenontwerpvergunning;道路施工许可证·我的设计;道路施工許可證‧我的設計;どうろこうじ・マイデザイン;마이 디자인 도로 공사;лицензия: индив. рисунок
+MaracasCarnival_13958;maracas;maracas;Maracas;par de maracas;par de maracas;paire de maracas;paire de maracas;paio di maracas;sambaballen;沙锤;沙錘;マラカス;마라카스;маракасы
+Medicine_02777;medicine;medicine;Medizin;medicina;medicamento;remède;remède;medicina;medicijn;药;藥;おくすり;약;лекарство
+Medicine_02777_pl;medicine;medicine;Medizin;medicinas;medicamentos;remèdes;remèdes;medicine;medicijnen;药;藥;おくすり;약;лекарства
+Megaphone_13913;football cheer megaphone;football cheer megaphone;Fan-Megafon „Football“;megáfono fútbol americano;megáfono fútbol americano;mégaphone de supporter;mégaphone de partisan;megafono fan football;Americanfootballmegafoon;助威扩音器·美式足球;加油大聲公‧美式足球;おうえんメガホン・アメフト;미식축구 응원 메가폰;футбольный рупор
+Megaphone_14013;fiery cheer megaphone;fiery cheer megaphone;Fan-Megafon „Feuer“;megáfono ánimo encendido;megáfono ánimo encendido;még. de supporter flammes;még. de partisan flammes;megafono fan con fiamme;vurige megafoon;助威扩音器·火焰;加油大聲公‧火焰;おうえんメガホン・ファイアー;파이어 응원 메가폰;огненный рупор
+Megaphone_14014;starry cheer megaphone;starry cheer megaphone;Fan-Megafon „Sterne“;megáfono de las estrellas;megáfono de las estrellas;még. de supporter étoiles;még. de partisan étoiles;megafono fan con stelle;sterrenmegafoon;助威扩音器·星星;加油大聲公‧星星;おうえんメガホン・スター;스타 응원 메가폰;звездный рупор
+Megaphone_14015;glittery cheer megaphone;glittery cheer megaphone;Fan-Megafon „Glitzer“;megáfono deslumbrante;megáfono deslumbrante;még. de supporter pailleté;még. de partisan pailleté;megafono fan luccicante;glittermegafoon;助威扩音器·闪亮;加油大聲公‧閃亮;おうえんメガホン・グリッター;글리터 응원 메가폰;блестящий рупор
+MessageBottle_05793;message bottle;message bottle;Flaschenpost;botella con mensaje;botella con mensaje;message en bouteille;message en bouteille;bottiglia con messaggio;postfles;瓶中信;瓶中信;メッセージボトル;메시지 보틀;бутылка с письмом
+MessageBottle_12544;egg message bottle;egg message bottle;Ei-Flaschenpost;botella huevo con mensaje;botella huevo con mensaje;message en bouteille œuf;message en bouteille œuf;bottiglia messaggio uovo;eierpostfles;蛋瓶中信;蛋瓶中信;たまごのメッセージボトル;달걀 메시지 보틀;расписная бутылка
+MilePlaneTicket_05851;Nook Miles Ticket;Nook Miles Ticket;Meilenticket;cupón de millas Nook;cupón de millas Nook;ticket Miles Nook;ticket points Nook;coupon miglia di Nook;Nook-miles-bon;里数旅行券;哩數旅行券;マイルりょこうけん;마일 여행권;билет за мили Нука
+MilePlaneTicket_05851_pl;Nook Miles Tickets;Nook Miles Tickets;Meilentickets;cupones de millas;cupones de millas;tickets Miles Nook;tickets points Nook;coupon miglia di Nook;Nook-miles-bonnen;里数旅行券;哩數旅行券;マイルりょこうけん;마일 여행권;билеты за мили Нука
+MilePlaneTicket_09964;Bell voucher;Bell voucher;Sterni-Coupon;cupón de bayas;cupón de bayas;ticket clochettes;ticket clochettes;coupon stelline;klingelbon;铃钱兑换券;鈴錢兌換券;ベルひきかえけん;벨 교환권;ваучер на дини
+MilePlaneTicket_09964_pl;Bell vouchers;Bell vouchers;Sterni-Coupons;cupones de bayas;cupones de bayas;tickets clochettes;tickets clochettes;coupon stelline;klingelbonnen;铃钱兑换券;鈴錢兌換券;ベルひきかえけん;벨 교환권;ваучеры на дини
+MilePlaneTicket_13228;Dream Bell exchange ticket;Dream Bell exchange ticket;Traumsterni-Coupon;cupón de bayas onírico;cupón de bayas onírico;ticket rêve de clochettes ;ticket rêve de clochettes ;coupon onirico;droomklingelbon;梦境铃钱兑换券;夢境鈴錢兌換券;ゆめのベルひきかえけん;꿈의 벨 교환권;чек за сон
+MilePlaneTicket_13228_pl;Dream Bell exchange tickets;Dream Bell exchange tickets;Traumsterni-Coupons;cupones de bayas oníricos;cupones de bayas oníricos;tickets rêve de clochettes;tickets rêve de clochettes;coupon onirici;droomklingelbonnen;梦境铃钱兑换券;夢境鈴錢兌換券;ゆめのベルひきかえけん;꿈의 벨 교환권;чеки за сон
+Ocarina_05320;ocarina;ocarina;Okarina;ocarina;ocarina;ocarina;ocarina;ocarina;ocarina;陶笛;陶笛;オカリナ;오카리나;окарина
+Otoshidama_13954;lucky red envelope;lucky red envelope;Glücksumschlag;sobre rojo de la suerte;sobre rojo de la suerte;hóngbāo porte chance;hóngbāo porte chance;busta della fortuna rossa;rode geluksenvelop;春节红包;春節紅包;しゅんせつのおとしだま;춘절 세뱃돈;красный конверт удачи
+Otoshidama_13954_pl;lucky red envelopes;lucky red envelopes;Glücksumschläge;sobres rojos de la suerte;sobres rojos de la suerte;hóngbāo porte chance;hóngbāo porte chance;buste della fortuna rosse;rode geluksenveloppen;春节红包;春節紅包;しゅんせつのおとしだま;춘절 세뱃돈;красные конверты удачи
+Otoshidama_13955;bokjumeoni lucky pouch;bokjumeoni lucky pouch;Bokjumeoni-Säckchen;bolsita de la suerte;bolsita de la suerte;bokjumeoni porte chance;bokjumeoni porte chance;sacchettino bokjumeoni;gelukszakje;韩国新年红包;韓國新年紅包;ソルラルのおとしだま;설날 세뱃돈;мешочек удачи
+Otoshidama_13955_pl;bokjumeoni lucky pouches;bokjumeoni lucky pouches;Bokjumeoni-Säckchen;bolsitas de la suerte;bolsitas de la suerte;bokjumeoni porte chance;bokjumeoni porte chance;sacchettini bokjumeoni;gelukszakjes;韩国新年红包;韓國新年紅包;ソルラルのおとしだま;설날 세뱃돈;мешочки удачи
+Panflute_05517;pan flute;pan flute;Panflöte;sicu;sicu;flûte de pan;flûte de pan;flauto di Pan;panfluit;排笛;排笛;パンフルート;팬파이프;многоствольная флейта
+Partyhorn_05742;tweeter;tweeter;Tröte;matasuegras;espantasuegras;sans-gêne;sifflet déroulant;trombetta di Capodanno;roltong;派对吹笛;派對吹笛;ふきもどし;코끼리 피리;пищалка
+PartyPopper_02753;party popper;party popper;Partyknaller;cañón de confeti;cañón de confeti;pétard;pétard;sparacoriandoli;confettiknaller;拉炮;拉炮;クラッカー;파티용 폭죽;хлопушка
+PartyPopper_02753_pl;party poppers;party poppers;Partyknaller;cañones de confeti;cañones de confeti;pétards;pétards;sparacoriandoli;confettiknallers;拉炮;拉炮;クラッカー;파티용 폭죽;хлопушки
+PitFallSeed_02578;pitfall seed;pitfall seed;Falle;trampa;trampa;piège;piège;trappola;valkuilzaadje;陷阱种子;陷阱種子;おとしあなのタネ;함정 씨앗;западня
+PitFallSeed_02578_pl;pitfall seeds;pitfall seeds;Fallen;trampas;trampas;pièges;pièges;trappole;valkuilzaadjes;陷阱种子;陷阱種子;おとしあなのタネ;함정 씨앗;западни
+QuestChristmasPresentbox_13869;someone's gift;someone's gift;Geschenk (unbekannt);regalo de alguien;regalo de alguien;cadeau de quelqu'un;cadeau de quelqu'un;regalo da qualcuno;cadeau van iemand;某人的礼物;某人的禮物;だれかのプレゼント;누군가의 선물;чей-то подарок
+QuestWrapping_04245;delivery box;delivery box;Paket;paquete;paquete;caisse de livraison;caisse de livraison;pacchetto;bezorgdoos;邮寄箱;宅配箱;はいたつボックス;배달 박스;коробка с посылкой
+SoySet_13914;bean-tossing kit;bean-tossing kit;Setsubun-Set;caja habichuelas para lanzar;caja habichuelas para lanzar;kit de lancer de haricots;kit de lancer de haricots;set con fagioli da lanciare;bonengooipakket;撒豆组合;撒豆組合;まめまきセット;콩 뿌리기 세트;бобы для разбрасывания
+StickLight_05741;light stick;light stick;Leuchtstab;vara de luz;vara de luz;baguette fluo;baguette fluo;bastoncino luminoso;lichtstaafje;荧光棒;螢光棒;スティックライト;형광봉;светящаяся палочка
+Tambourine_05430;tambourine;tambourine;Tamburin;pandereta;pandereta;tambourin;tambourin;tamburello;tamboerijn;铃鼓;鈴鼓;タンバリン;탬버린;бубен
+Trash_03466;empty can;empty can;Dose;chatarra;chatarra;boîte vide;boîte vide;lattina vuota;leeg blikje;空罐;空罐;あきカン;빈 통조림 캔;консервная банка
+Trash_03469;boot;boot;Stiefel;bota;bota;godasse;vieux soulier;scarpone;laars;长靴;長靴;ながぐつ;장화;башмак
+Trash_03470;old tire;old tire;Reifen;neumático;neumático;vieux pneu;vieux pneu;copertone;oude band;轮胎;輪胎;タイヤ;타이어;старая покрышка
+Trash_13107;used fountain firework;used fountain firework;Fontäne (abgebrannt);bengala de tubo usada;bengala de tubo usada;feu d'artifice fontaine usagé;feu d'artifice fontaine usagé;fuoco d'artificio esaurito;gebruikte sterretjesfontein;地面烟花筒的灰烬;地面煙火筒灰燼;おきはなびのもえかす;분수 불꽃의 재;б/у фейерверк-фонтан
+Uchiwa_05319;uchiwa fan;uchiwa fan;Uchiwa-Fächer;paipay;abanico paipay;éventail uchiwa;éventail uchiwa;ventaglio uchiwa;uchiwa-waaier;扇子;扇子;うちわ;둥글부채;веер утива
+Uchiwa_09762;Nook Inc. uchiwa fan;Nook Inc. uchiwa fan;Nook-Inc.-Uchiwa-Fächer;paipay de Nook Inc.;abanico paipay de Nook Inc.;éventail uchiwa Nook Inc.;éventail uchiwa Nook Inc.;ventaglio uchiwa Nook Inc.;Nook Inc.-uchiwa-waaier;Nook Inc.团扇;Nook Inc.扇子;たぬきかいはつうちわ;Nook Inc. 둥글부채;веер утива Nook Inc.
+Windmill_05744;pinwheel;pinwheel;Windrädchen;molinete;molinito;moulin;moulin;girandola;windmolentje;纸风车;紙風車;かざぐるま;바람개비;вертушка
+WrappingPaper_07683;yellow wrapping paper;yellow wrapping paper;Gelb-Geschenkpapier;papel de regalo amarillo;papel de regalo amarillo;papier cadeau jaune;papier cadeau jaune;carta da regalo gialla;geel cadeaupapier;黄色包装纸;黃色包裝紙;きいろいラッピングペーパー;노란색 포장지;желтая обертка
+WrappingPaper_07683_pl;yellow wrapping paper;yellow wrapping paper;Gelb-Geschenkpapier;papel de regalo amarillo;papel de regalo amarillo;papiers cadeau jaunes;papiers cadeau jaunes;carta da regalo gialla;geel cadeaupapier;黄色包装纸;黃色包裝紙;きいろいラッピングペーパー;노란색 포장지;желтые обертки
+WrappingPaper_07684;pink wrapping paper;pink wrapping paper;Pink-Geschenkpapier;papel de regalo rosa;papel de regalo rosa;papier cadeau rose;papier cadeau rose;carta da regalo rosa;roze cadeaupapier;粉红色包装纸;粉紅色包裝紙;ピンクのラッピングペーパー;핑크색 포장지;розовая обертка
+WrappingPaper_07684_pl;pink wrapping paper;pink wrapping paper;Pink-Geschenkpapier;papel de regalo rosa;papel de regalo rosa;papiers cadeau roses;papiers cadeau roses;carta da regalo rosa;roze cadeaupapier;粉红色包装纸;粉紅色包裝紙;ピンクのラッピングペーパー;핑크색 포장지;розовые обертки
+WrappingPaper_07685;orange wrapping paper;orange wrapping paper;Orange-Geschenkpapier;papel de regalo naranja;papel de regalo naranja;papier cadeau orange;papier cadeau orange;carta da regalo arancione;oranje cadeaupapier;橘色包装纸;橘色包裝紙;オレンジのラッピングペーパー;오렌지색 포장지;оранжевая обертка
+WrappingPaper_07685_pl;orange wrapping paper;orange wrapping paper;Orange-Geschenkpapier;papel de regalo naranja;papel de regalo naranja;papiers cadeau orange;papiers cadeau orange;carta da regalo arancione;oranje cadeaupapier;橘色包装纸;橘色包裝紙;オレンジのラッピングペーパー;오렌지색 포장지;оранжевые обертки
+WrappingPaper_07686;chartreuse wrapping paper;chartreuse wrapping paper;Gelbgrün-Geschenkpapier;papel de regalo lima;papel de regalo verdoso;papier cadeau jaune-vert;papier cadeau jaune-vert;carta da regalo gialloverde;groengeel cadeaupapier;黄绿色包装纸;黃綠色包裝紙;きみどりのラッピングペーパー;연두색 포장지;желто-зеленая обертка
+WrappingPaper_07686_pl;chartreuse wrapping paper;chartreuse wrapping paper;Gelbgrün-Geschenkpapier;papel de regalo lima;papel de regalo verdoso;papiers cadeau jaune-vert;papiers cadeau jaune-vert;carta da regalo gialloverde;groengeel cadeaupapier;黄绿色包装纸;黃綠色包裝紙;きみどりのラッピングペーパー;연두색 포장지;желто-зеленые обертки
+WrappingPaper_07687;green wrapping paper;green wrapping paper;Grün-Geschenkpapier;papel de regalo verde;papel de regalo verde;papier cadeau vert;papier cadeau vert;carta da regalo verde;groen cadeaupapier;绿色包装纸;綠色包裝紙;みどりのラッピングペーパー;초록색 포장지;зеленая обертка
+WrappingPaper_07687_pl;green wrapping paper;green wrapping paper;Grün-Geschenkpapier;papel de regalo verde;papel de regalo verde;papiers cadeau verts;papiers cadeau verts;carta da regalo verde;groen cadeaupapier;绿色包装纸;綠色包裝紙;みどりのラッピングペーパー;초록색 포장지;зеленые обертки
+WrappingPaper_07688;mint wrapping paper;mint wrapping paper;Minzgrün-Geschenkpapier;papel de regalo turquesa;papel de regalo turquesa;papier cadeau menthe;papier cadeau menthe;carta da regalo menta;mintgroen cadeaupapier;薄荷绿包装纸;薄荷綠包裝紙;ミントのラッピングペーパー;민트색 포장지;мятная обертка
+WrappingPaper_07688_pl;mint wrapping paper;mint wrapping paper;Minzgrün-Geschenkpapier;papel de regalo turquesa;papel de regalo turquesa;papiers cadeau menthe;papiers cadeau menthe;carta da regalo menta;mintgroen cadeaupapier;薄荷绿包装纸;薄荷綠包裝紙;ミントのラッピングペーパー;민트색 포장지;мятные обертки
+WrappingPaper_07689;light-blue wrapping paper;light-blue wrapping paper;Hellblau-Geschenkpapier;papel de regalo celeste;papel de regalo celeste;papier cadeau bleu clair;papier cadeau bleu clair;carta da regalo azzurra;lichtblauw cadeaupapier;水蓝色包装纸;水藍色包裝紙;みずいろのラッピングペーパー;하늘색 포장지;голубая обертка
+WrappingPaper_07689_pl;light-blue wrapping paper;light-blue wrapping paper;Hellblau-Geschenkpapier;papel de regalo celeste;papel de regalo celeste;papiers cadeau bleu clair;papiers cadeau bleu clair;carta da regalo azzurra;lichtblauw cadeaupapier;水蓝色包装纸;水藍色包裝紙;みずいろのラッピングペーパー;하늘색 포장지;голубые обертки
+WrappingPaper_07690;purple wrapping paper;purple wrapping paper;Lila-Geschenkpapier;papel de regalo violeta;papel de regalo morado;papier cadeau violet;papier cadeau mauve;carta da regalo viola;paars cadeaupapier;紫色包装纸;紫色包裝紙;むらさきのラッピングペーパー;보라색 포장지;фиолетовая обертка
+WrappingPaper_07690_pl;purple wrapping paper;purple wrapping paper;Lila-Geschenkpapier;papel de regalo violeta;papel de regalo morado;papiers cadeau violets;papiers cadeau mauves;carta da regalo viola;paars cadeaupapier;紫色包装纸;紫色包裝紙;むらさきのラッピングペーパー;보라색 포장지;фиолетовые обертки
+WrappingPaper_07691;navy wrapping paper;navy wrapping paper;Nachtblau-Geschenkpapier;papel de regalo índigo;papel de regalo índigo;papier cadeau bleu marine;papier cadeau bleu marine;carta da regalo blu marino;marineblauw cadeaupapier;紫蓝色包装纸;紫藍色包裝紙;こんいろのラッピングペーパー;남색 포장지;черно-синяя обертка
+WrappingPaper_07691_pl;navy wrapping paper;navy wrapping paper;Nachtblau-Geschenkpapier;papel de regalo índigo;papel de regalo índigo;papiers cadeau bleu marine;papiers cadeau bleu marine;carta da regalo blu marino;marineblauw cadeaupapier;紫蓝色包装纸;紫藍色包裝紙;こんいろのラッピングペーパー;남색 포장지;черно-синие обертки
+WrappingPaper_07692;blue wrapping paper;blue wrapping paper;Blau-Geschenkpapier;papel de regalo azul;papel de regalo azul;papier cadeau bleu;papier cadeau bleu;carta da regalo blu;blauw cadeaupapier;蓝色包装纸;藍色包裝紙;あおいラッピングペーパー;파란색 포장지;синяя обертка
+WrappingPaper_07692_pl;blue wrapping paper;blue wrapping paper;Blau-Geschenkpapier;papel de regalo azul;papel de regalo azul;papiers cadeau bleus;papiers cadeau bleus;carta da regalo blu;blauw cadeaupapier;蓝色包装纸;藍色包裝紙;あおいラッピングペーパー;파란색 포장지;синие обертки
+WrappingPaper_07693;white wrapping paper;white wrapping paper;Weiß-Geschenkpapier;papel de regalo blanco;papel de regalo blanco;papier cadeau blanc;papier cadeau blanc;carta da regalo bianca;wit cadeaupapier;白色包装纸;白色包裝紙;しろいラッピングペーパー;하얀색 포장지;белая обертка
+WrappingPaper_07693_pl;white wrapping paper;white wrapping paper;Weiß-Geschenkpapier;papel de regalo blanco;papel de regalo blanco;papiers cadeau blancs;papiers cadeau blancs;carta da regalo bianca;wit cadeaupapier;白色包装纸;白色包裝紙;しろいラッピングペーパー;하얀색 포장지;белые обертки
+WrappingPaper_07694;red wrapping paper;red wrapping paper;Rot-Geschenkpapier;papel de regalo rojo;papel de regalo rojo;papier cadeau rouge;papier cadeau rouge;carta da regalo rossa;rood cadeaupapier;红色包装纸;紅色包裝紙;あかいラッピングペーパー;빨간색 포장지;красная обертка
+WrappingPaper_07694_pl;red wrapping paper;red wrapping paper;Rot-Geschenkpapier;papel de regalo rojo;papel de regalo rojo;papiers cadeau rouges;papiers cadeau rouges;carta da regalo rossa;rood cadeaupapier;红色包装纸;紅色包裝紙;あかいラッピングペーパー;빨간색 포장지;красные обертки
+WrappingPaper_07695;gold wrapping paper;gold wrapping paper;Gold-Geschenkpapier;papel de regalo dorado;papel de regalo dorado;papier cadeau doré;papier cadeau doré;carta da regalo dorata;gouden cadeaupapier;金色包装纸;金色包裝紙;きんいろのラッピングペーパー;금색 포장지;золотая обертка
+WrappingPaper_07695_pl;gold wrapping paper;gold wrapping paper;Gold-Geschenkpapier;papel de regalo dorado;papel de regalo dorado;papiers cadeau dorés;papiers cadeau dorés;carta da regalo dorata;gouden cadeaupapier;金色包装纸;金色包裝紙;きんいろのラッピングペーパー;금색 포장지;золотые обертки
+WrappingPaper_07696;brown wrapping paper;brown wrapping paper;Braun-Geschenkpapier;papel de regalo marrón;papel de regalo marrón;papier cadeau marron;papier cadeau brun;carta da regalo marrone;bruin cadeaupapier;茶色包装纸;茶色包裝紙;ちゃいろのラッピングペーパー;갈색 포장지;коричневая обертка
+WrappingPaper_07696_pl;brown wrapping paper;brown wrapping paper;Braun-Geschenkpapier;papel de regalo marrón;papel de regalo marrón;papiers cadeau marron;papiers cadeau bruns;carta da regalo marrone;bruin cadeaupapier;茶色包装纸;茶色包裝紙;ちゃいろのラッピングペーパー;갈색 포장지;коричневые обертки
+WrappingPaper_07697;gray wrapping paper;gray wrapping paper;Grau-Geschenkpapier;papel de regalo gris;papel de regalo gris;papier cadeau gris;papier cadeau gris;carta da regalo grigia;grijs cadeaupapier;灰色包装纸;灰色包裝紙;グレーのラッピングペーパー;회색 포장지;серая обертка
+WrappingPaper_07697_pl;gray wrapping paper;gray wrapping paper;Grau-Geschenkpapier;papel de regalo gris;papel de regalo gris;papiers cadeau gris;papiers cadeau gris;carta da regalo grigia;grijs cadeaupapier;灰色包装纸;灰色包裝紙;グレーのラッピングペーパー;회색 포장지;серые обертки
+WrappingPaper_07698;black wrapping paper;black wrapping paper;Schwarz-Geschenkpapier;papel de regalo negro;papel de regalo negro;papier cadeau noir;papier cadeau noir;carta da regalo nera;zwart cadeaupapier;黑色包装纸;黑色包裝紙;くろいラッピングペーパー;검은색 포장지;черная обертка
+WrappingPaper_07698_pl;black wrapping paper;black wrapping paper;Schwarz-Geschenkpapier;papel de regalo negro;papel de regalo negro;papiers cadeau noirs;papiers cadeau noirs;carta da regalo nera;zwart cadeaupapier;黑色包装纸;黑色包裝紙;くろいラッピングペーパー;검은색 포장지;черные обертки
+WrappingPaper_13792;festive wrapping paper;festive wrapping paper;Festtagsgeschenkpapier;papel de regalo festivo;papel de regalo festivo;papier cadeau festif;papier cadeau festif;carta da regalo festiva;speelgoeddagcadeaupapier;圣诞包装纸;聖誕包裝紙;クリスマスなラッピングペーパー;크리스마스 포장지;новогодняя обертка
+WrappingPaper_13792_pl;festive wrapping paper;festive wrapping paper;Festtagsgeschenkpapier;papel de regalo festivo;papel de regalo festivo;papiers cadeau festifs;papiers cadeau festifs;carta da regalo festiva;speelgoeddagcadeaupapier;圣诞包装纸;聖誕包裝紙;クリスマスなラッピングペーパー;크리스마스 포장지;новогодние обертки

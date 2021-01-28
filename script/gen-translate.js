@@ -14,8 +14,9 @@ const csvParse = require("csv-parse/lib/sync");
   for (let i = 0; i < fileList.length; i++) {
     const content = fs.readFileSync(`${dir}/${fileList[i]}`);
     const contentArray = csvParse(content, {
-      bom: true,
-      from_line: 2
+      from_line: 2,
+      delimiter: ";",
+      quote: false
     });
 
     for (let j = 0; j < contentArray.length; j++) {
@@ -28,7 +29,7 @@ const csvParse = require("csv-parse/lib/sync");
           return parseInt(strArray[1], 10);
         }
       })();
-      contentJson[key] = rowData[1];
+      contentJson[key] = rowData[12] || rowData[1];
     }
   }
 
@@ -47,8 +48,9 @@ const csvParse = require("csv-parse/lib/sync");
     `./data/translation-src/variant-remake/STR_Remake_BodyColor.csv`
   );
   const contentArray = csvParse(content, {
-    bom: true,
-    from_line: 2
+    from_line: 2,
+    delimiter: ";",
+    quote: false
   });
 
   for (let j = 0; j < contentArray.length; j++) {
@@ -57,7 +59,7 @@ const csvParse = require("csv-parse/lib/sync");
       const strArray = rowData[0].split("_");
       return `${parseInt(strArray[1], 10)}_${parseInt(strArray[2], 10)}`;
     })();
-    let value = rowData[1].replace(/\r\n/g, "");
+    let value = rowData[12].replace(/\r\n/g, "");
     // eslint-disable-next-line no-control-regex
     value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
     contentJson[key] = value;
@@ -78,8 +80,9 @@ const csvParse = require("csv-parse/lib/sync");
     `./data/translation-src/variant-remake/STR_Remake_FabricColor.csv`
   );
   const contentArray = csvParse(content, {
-    bom: true,
-    from_line: 2
+    from_line: 2,
+    delimiter: ";",
+    quote: false
   });
 
   for (let j = 0; j < contentArray.length; j++) {
@@ -88,7 +91,7 @@ const csvParse = require("csv-parse/lib/sync");
       const strArray = rowData[0].split("_");
       return `${parseInt(strArray[1], 10)}`;
     })();
-    let value = rowData[1].replace(/\r\n/g, "");
+    let value = rowData[12].replace(/\r\n/g, "");
     // eslint-disable-next-line no-control-regex
     value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
 
@@ -115,8 +118,9 @@ const csvParse = require("csv-parse/lib/sync");
   for (let i = 0; i < fileList.length; i++) {
     const content = fs.readFileSync(`${dir}/${fileList[i]}`);
     const contentArray = csvParse(content, {
-      bom: true,
-      from_line: 2
+      from_line: 2,
+      delimiter: ";",
+      quote: false
     });
 
     for (let j = 0; j < contentArray.length; j++) {
@@ -125,7 +129,7 @@ const csvParse = require("csv-parse/lib/sync");
         const strArray = rowData[0].split("_");
         return `${parseInt(strArray[2], 10)}`;
       })();
-      contentJson[key] = rowData[1];
+      contentJson[key] = rowData[12];
     }
   }
 
@@ -143,13 +147,14 @@ const csvParse = require("csv-parse/lib/sync");
     "./data/translation-src/reaction/STR_Emoticon.csv"
   );
   const contentArray = csvParse(content, {
-    bom: true,
-    from_line: 2
+    from_line: 2,
+    delimiter: ";",
+    quote: false
   });
 
   for (let i = 0; i < contentArray.length; i++) {
     const rowData = contentArray[i];
-    contentJson[rowData[0]] = rowData[1];
+    contentJson[rowData[0]] = rowData[12];
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
@@ -176,7 +181,7 @@ const csvParse = require("csv-parse/lib/sync");
       return `${parseInt(strArray[0], 10)}`;
     })();
 
-    const rawValue = rowData[1].replace(/\r/g, "");;
+    const rawValue = rowData[1].replace(/\r/g, "");
 
     const rubiHeader = "\u000e\\0\\0";
     let pos = rawValue.indexOf(rubiHeader);

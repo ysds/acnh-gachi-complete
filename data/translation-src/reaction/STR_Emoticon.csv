@@ -1,56 +1,60 @@
-﻿"label","text"
-"AbsentMindedness","そうぞうちゅう"
-"AddExcited","ワクワク"
-"AddGymnastics","たいそう"
-"AddHereYouGo","さぁどうぞ"
-"AddPraise","たたえる"
-"AddPrank","おどかす"
-"AddScaring","こわがらせる"
-"AddSitDown","すわる"
-"AddSmell","クンクン"
-"AddTakePictures","パシャリ"
-"AddWaveHands","バイバイ"
-"AddYoga","ヨガのポーズ"
-"Aha","あっ！"
-"Apologize","ペコリ"
-"Assent","まかせて！"
-"Blushing","テレる"
-"BrokenHeart","しつれん"
-"Cheering","ガンバレー！"
-"Clapping","パチパチ"
-"ColdChill","ヒュー"
-"Crying","わーん"
-"Dance","クルリンパ"
-"Frantic","あせる"
-"Greeting","やぁ！"
-"Grin","ニヤリ"
-"HappyDance","ウキウキ"
-"HappyFlower","ハッピー"
-"Hello","ねっ"
-"Hesitate","もじもじ"
-"IdeaBulb","ひらめく"
-"Laughing","わらう"
-"Love","ラブ"
-"Negative","イヤイヤ"
-"Nodding","うんうん"
-"OhGeez","ヤレヤレ"
-"Oops","しまった！"
-"Outraged","ムカッ"
-"Pardon","えっ？"
-"QuestionMark","はて？"
-"SadSpiral","がっくり"
-"Scheming","わるだくみ"
-"Shaki","シャキーン"
-"Shaking","ブルブル"
-"Shocked","ハッ！"
-"Sighing","ためいき"
-"Silent","ジロッ"
-"Sleep","すやすや"
-"Sleepy","あくび"
-"Smiling","ニコニコ"
-"SmugFace","ドヤ！"
-"Sneezing","くしゃみ"
-"Surprised","ガーン！"
-"Thinking","うーん"
-"Worried","こまる"
-"WrySmile","にがわらい"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+Smiling;Happiness;Happiness;Zufriedenheit;Sonrisa;Sonrisa;Sourire;Sourire;Felicità;Glimlachen;笑眯眯;笑瞇瞇;ニコニコ;싱글벙글;Счастье
+Laughing;Laughter;Laughter;Lachen;Risa;Risa;Rire;Rire;Riso;Lachen;笑哈哈;笑哈哈;わらう;웃기;Смех
+HappyFlower;Joy;Joy;Freude;Dicha;Dicha;Joie;Joie;Gioia;Blijdschap;开心;開心;ハッピー;해피;Радость
+Love;Love;Love;Liebe;Amor;Amor;Amour;Amour;Amore;Liefde;喜欢;喜歡;ラブ;러브;Обожание
+HappyDance;Glee;Glee;Begeisterung;Júbilo;Júbilo;Euphorie;Euphorie;Allegria;Enthousiasme;兴高采烈;高興;ウキウキ;신바람;Ликование
+Outraged;Aggravation;Aggravation;Wut;Cabreo;Enojo;Fureur;Fureur;Rabbia;Woede;生气;生氣;ムカッ;버럭;Ярость
+Worried;Worry;Worry;Sorge;Preocupación;Preocupación;Tracas;Tracas;Preoccupazione;Bezorgdheid;烦恼;煩惱;こまる;곤란;Расстройство
+Sighing;Sighing;Sighing;Enttäuschung;Suspiro;Suspiro;Soupir;Soupir;Delusione;Zuchten;叹气;嘆氣;ためいき;한숨;Вздох
+Thinking;Thought;Thought;Denken;Cavilación;Reflexión;Réflexion;Réflexion;Riflessione;Nadenken;思考;思考中;うーん;고민;Размышление
+SadSpiral;Sadness;Sadness;Traurigkeit;Tristeza;Tristeza;Déprime;Déprime;Sconforto;Verdriet;失落;失落;がっくり;실망;Грусть
+Frantic;Distress;Distress;Panik;Apuro;Angustia;Détresse;Détresse;Agitazione;Paniek;紧张;緊張;あせる;당황;Беспокойство
+Crying;Sorrow;Sorrow;Leid;Llanto;Llanto;Pleurs;Pleurs;Tristezza;Huilen;大哭;大哭;わーん;울기;Плач
+Shocked;Amazed;Amazed;Erstaunen;Fascinación;Fascinación;Stupéfaction;Stupéfaction;Stupore;Verbazing;惊！;驚！;ハッ！;깜짝!;Изумление
+Aha;Surprise;Surprise;Unglaube;Asombro;Asombro;Étonnement;Étonnement;Sorpresa;Verrassing;啊！;啊！;あっ！;아하!;Удивление
+Surprised;Shocked;Shocked;Schock;Sorpresa;Sorpresa;Surprise;Surprise;Shock;Verbijstering;吓一跳！;嚇一跳！;ガーン！;뜨악!;Шок
+ColdChill;Cold Chill;Cold Chill;Schaudern;Escalofrío;Escalofrío;Vent glacial;Vent glacial;Gelo;Bibberen;咻～;咻～;ヒュー;씁쓸;Озноб
+Shaking;Fearful;Fearful;Angst;Tembleque;Tiritera;Frisson;Frisson;Brivido;Angst;瑟瑟发抖;顫抖;ブルブル;덜덜덜;Дрожь
+Nodding;Agreement;Agreement;Zustimmung;Asentimiento;Asentimiento;Acquiescement;Acquiescement;Approvazione;Knikken;点头;點頭;うんうん;끄덕끄덕;Согласие
+IdeaBulb;Inspiration;Inspiration;Inspiration;Inspiración;Inspiración;Trouvaille;Trouvaille;Ispirazione;Inspiratie;灵光一闪;靈光乍現;ひらめく;번뜩;Вдохновение
+QuestionMark;Curiosity;Curiosity;Neugier;Curiosidad;Curiosidad;Curiosité;Curiosité;Curiosità;Nieuwsgierigheid;什么？;什麼？;はて？;응?;Любопытство
+BrokenHeart;Heartbreak;Heartbreak;Herzschmerz;Decepción;Decepción;Cœur brisé;Cœur brisé;Cuore infranto;Gebroken hart;心碎;心碎;しつれん;실연;Разбитое сердце
+Sleepy;Sleepy;Sleepy;Ermüdung;Bostezo;Bostezo;Sommeil;Sommeil;Sonno;Gapen;打哈欠;打呵欠;あくび;하품;Сонливость
+Blushing;Bashfulness;Bashfulness;Schüchternheit;Sonrojo;Sonrojo;Embarras;Embarras;Imbarazzo;Blozen;害羞;害羞;テレる;부끄럼;Робость
+OhGeez;Resignation;Resignation;Resignation;Resignación;Resignación;Dépit;Dépit;Rassegnazione;Opgeven;好了好了;算了;ヤレヤレ;나참…;Смирение
+Scheming;Mischief;Mischief;Hinterhältigkeit;Maquinación;Travesura;Malice;Malice;Malizia;Kattenkwaad;坏笑;奸笑;わるだくみ;꿍꿍이;Озорство
+Clapping;Delight;Delight;Entzücken;Aplauso;Aplauso;Applaudissements;Applaudissements;Applauso;Applaudisseren;拍手;拍手;パチパチ;박수;Восхищение
+Sneezing;Sneezing;Sneezing;Niesen;Estornudo;Estornudo;Éternuement;Éternuement;Starnuto;Niezen;阿嚏;打噴嚏;くしゃみ;재채기;Чихание
+Greeting;Greetings;Greetings;Winken;Saludo;Saludo;Salut;Salut;Saluto;Zwaaien;你好！;嗨！;やぁ！;안녕!;Приветствие
+SmugFace;Pride;Pride;Stolz;Orgullo;Orgullo;Fierté;Fierté;Orgoglio;Trots;得意！;得意！;ドヤ！;잘난체;Гордость
+WrySmile;Sheepishness;Sheepishness;Schmunzeln;Sonrisa pícara;Sonrisa pícara;Dérision;Dérision;Sarcasmo;Spotten;苦笑;苦笑;にがわらい;쓴웃음;Насмешка
+Hesitate;Shyness;Shyness;Verlegenheit;Timidez;Timidez;Timidité;Timidité;Timidezza;Verlegenheid;不好意思;不好意思;もじもじ;머뭇;Застенчивость
+Negative;Disagreement;Disagreement;Ablehnung;Desacuerdo;Desacuerdo;Désaccord;Désaccord;Disaccordo;Weigeren;不行不行;不要;イヤイヤ;절레절레;Несогласие
+Oops;Mistaken;Mistaken;Missgeschick;Equivocación;Equivocación;Gaffe;Gaffe;Goffaggine;Vergissing;糟糕！;糟了！;しまった！;아차!;Оплошность
+Dance;Flourish;Flourish;Pirouette;Pirueta;Pirueta;Pirouette;Pirouette;Piroetta;Pirouette;舞动;轉轉～將！;クルリンパ;댄스;Хвастовство
+AbsentMindedness;Daydreaming;Daydreaming;Tagtraum;Ensoñación;Ensoñación;Rêverie;Rêverie;Sogno ad occhi aperti;Dromen;想象中;想像中;そうぞうちゅう;상상;Мечтательность
+Shaki;Showmanship;Showmanship;Angeberei;Descaro;Descaro;Esbroufe;Esbroufe;Spavalderia;Pronken;看我的;看我的;シャキーン;짜잔!;Бахвальство
+Grin;Smirking;Smirking;Grinsen;Sonrisa socarrona;Sonrisa socarrona;Rire suffisant;Rire fourbe;Sogghigno;Grinniken;微笑;微笑;ニヤリ;씨익;Ухмылка
+Hello;Pleased;Pleased;Begrüßung;Agrado;Agrado;Enthousiasme;Enthousiasme;Contentezza;Groeten;对吧！;對吧！;ねっ;까딱;Удовольствие
+Assent;Confident;Confident;Verlässlichkeit;Confianza;Confianza;Confiance en soi;Confiance en soi;Autostima;Zelfvertrouwen;交给我;交給我;まかせて！;맡겨줘!;Решимость
+Pardon;Bewilderment;Bewilderment;Überraschung;Incredulidad;Incredulidad;Perplexité;Perplexité;Incredulità;Nadruk;嗯？;嗯？;えっ？;뭐?;Недоумение
+Apologize;Apologetic;Apologetic;Entschuldigung;Disculpa;Disculpa;Excuse;Excuse;Scusa;Buigen;鞠躬;鞠躬;ペコリ;꾸벅;Извинение
+Sleep;Dozing;Dozing;Einnicken;Sueño;Sueño;Somnolence;Somnolence;Sonnolenza;Slapen;睡着了;睡著了;すやすや;쿨쿨;Дремота
+Cheering;Encouraging;Encouraging;Anfeuern;Ánimo;Ánimo;Encouragement;Encouragement;Incoraggiamento;Aanmoedigen;加油～！;加油～！;ガンバレー！;힘내!;Ободрение
+Silent;Intense;Intense;Starren;Impasibilidad;Seriedad;Regard intense;Regard intense;Occhiataccia;Staren;瞪;瞪;ジロッ;조용;Напряжение
+AddPrank;Scare;Scare;Erschrecken;Susto;Susto;Épouvante;Épouvante;Spavento;Bang maken;吓唬;驚嚇;おどかす;왁!;Устрашение
+AddScaring;Haunt;Haunt;Schocken;Espanto;Espanto;Envoûtement;Envoûtement;Terrore;Spoken;惊吓;嚇人;こわがらせる;겁주기;Испуг
+AddSitDown;Sit Down;Sit Down;Hinsetzen;Asiento;Asiento;S'asseoir;S'asseoir;Sedersi;Zitten;坐;坐;すわる;앉기;Сидение
+AddWaveHands;Wave Goodbye;Wave Goodbye;Verabschieden;Despedida;Despedida;Bye bye;Bye bye;Arrivederci;Uitzwaaien;再见;掰掰;バイバイ;바이바이;Прощание
+AddGymnastics;Work Out;Work Out;Trainieren;Gimnasia;Gimnasia;Gymnastique;Gymnastique;Allenamento;Rekken en strekken;体操;體操;たいそう;체조;Тренировка
+AddYoga;Yoga;Yoga;Yoga;Yoga;Yoga;Yoga;Yoga;Yoga;Yoga;瑜伽姿势;瑜珈姿勢;ヨガのポーズ;요가;Йога
+AddHereYouGo;Here You Go;Here You Go;Bitte schön;Para ti;Para ti;Et voilà !;Et voilà!;Ecco qua;Alsjeblieft;请;請;さぁどうぞ;자 여기!;Вуаля
+AddTakePictures;Take a Picture;Take a Picture;Fotografieren;Fotografías;Fotografías;Photo;Photo;Foto;Foto's maken;拍照;拍照;パシャリ;찰칵!;Фотосъемка
+AddSmell;Sniff Sniff;Sniff Sniff;Schnüffeln;Olfateo;Olfateo;Snif snif;Snif snif;Annusare;Ruiken;闻闻;聞;クンクン;킁킁;Принюхивание
+AddPraise;Ta-da;Ta-da;Loben;Entusiasmo;Entusiasmo;Ta-daaa !;Ta-daaa!;Lode;Prijzen;夸奖;誇獎;たたえる;대단해!;Похвала
+AddExcited;Excited;Excited;Aufregung;Alegría;Alegría;Enthousiasme;Enthousiasme;Entusiasmo;Voorpret;期待;期待;ワクワク;두근두근;Предвкушение
+AddDance;Feelin' It;Feelin' It;Rhythmus im Blut;Coreografía;Coreografía;Samba;En rythme;Ritmo nel sangue;Swingende heupenpas;跟着节奏;跟著節奏;リズムにのる;리듬 타기;В ритме
+AddEntice;Let's Go;Let's Go;Aufforderung zum Tanz;Vamos;Vamos;Avec moi !;Avec moi!;Coinvolgimento;Swingende hinkpas;炒热气氛;炒熱氣氛;もりあげる;분위기 업;Танцуем!
+AddViva;Viva;Viva;Viva;Viva;Viva;Viva !;Viva!;Viva;Pavé-pas;欢乐！;歡樂！;ビバ！;비바!;Вива!
+AddConfetti;Confetti;Confetti;Konfetti;Confeti;Confeti;Confettis;Confettis;Coriandoli;Confetti;撒纸片;撒紙片;かみふぶき;종이 꽃가루;Конфетти

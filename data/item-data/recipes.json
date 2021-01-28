@@ -17170,5 +17170,62 @@
     "materials": {
       "stone": 30
     }
+  },
+  {
+    "sourceSheet": "Recipes",
+    "name": "rainbow feather",
+    "image": "https://acnhcdn.com/latest/DIYRecipeIcon/FeatherRainbow.png",
+    "buy": -1,
+    "sell": 200,
+    "exchangePrice": null,
+    "exchangeCurrency": null,
+    "source": ["Pavé"],
+    "sourceNotes": "Talk to Pavé during the Festivale event",
+    "seasonEvent": "Festivale",
+    "seasonEventExclusive": true,
+    "versionAdded": "1.7.0",
+    "unlocked": false,
+    "recipesToUnlock": 0,
+    "category": "Other",
+    "craftedItemInternalId": 3548,
+    "cardColor": "yellow",
+    "diyIconFilename": "FeatherRainbow",
+    "serialId": 7690,
+    "internalId": 755,
+    "uniqueEntryId": "BXQ4FMQPBSYP7THhq",
+    "materials": {
+      "red feather": 1,
+      "blue feather": 1,
+      "green feather": 1,
+      "purple feather": 1
+    }
+  },
+  {
+    "sourceSheet": "Recipes",
+    "name": "mermaid fence",
+    "image": "https://acnhcdn.com/latest/DIYRecipeIcon/ItemFenceMermaid.png",
+    "buy": -1,
+    "sell": 200,
+    "exchangePrice": null,
+    "exchangeCurrency": null,
+    "source": ["Pascal"],
+    "sourceNotes": null,
+    "seasonEvent": null,
+    "seasonEventExclusive": false,
+    "versionAdded": "1.7.0",
+    "unlocked": true,
+    "recipesToUnlock": 0,
+    "category": "Other",
+    "craftedItemInternalId": 14278,
+    "cardColor": "white",
+    "diyIconFilename": "ItemFenceMermaid",
+    "serialId": 3890,
+    "internalId": 776,
+    "uniqueEntryId": "x9XotaLpqFgcFeYBX",
+    "materials": {
+      "pearl": 1,
+      "coral": 5,
+      "sand dollar": 5
+    }
   }
 ]

@@ -1,48 +1,48 @@
-﻿"label","text"
-"1000","くさあみリュック"
-"1001","ハードシェルリュック"
-"1150","たぬきかいはつナップサック"
-"1185","ＤＡＬのバッグ"
-"1203","イースターなバッグ"
-"1233","ぶどうのしゅうかくおけ"
-"1268","こあくまなつばさバッグ"
-"957","タウンリュック"
-"958","トラベルポーチ"
-"962","メッセンジャーバッグ"
-"963","ドライサック"
-"964","レザーショルダー"
-"965","おさかなポシェット"
-"966","フィッシングバッグ"
-"967","ムシかご"
-"968","フェイクファーバッグ"
-"969","フリンジレザーバッグ"
-"970","てあみポーチ"
-"971","ボディバッグ"
-"972","レザーボディバッグ"
-"973","ななめかけボストン"
-"974","はるのみずたまショルダー"
-"975","はんぷショルダー"
-"976","ラタンポシェット"
-"977","スターなポシェット"
-"978","さくらのポシェット"
-"979","もみじのポシェット"
-"980","どんぐりポシェット"
-"981","スノーフレークポシェット"
-"982","かいがらポシェット"
-"983","ツールバッグ"
-"984","スポーツバッグ"
-"985","サコッシュ"
-"986","パーティーバッグ"
-"987","せおいばしご"
-"988","たびびとのリュック"
-"989","しかくいリュック"
-"990","アウトドアリュック"
-"991","ちょうちょのバッグ"
-"992","スタッズリュック"
-"993","ミニレザーバッグ"
-"994","おおきめザック"
-"995","しょいこ"
-"996","ふたつきリュック"
-"997","ナップサック"
-"998","はんぷリュック"
-"999","ははのナップサック"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+1000;knitted-grass backpack;knitted-grass backpack;Grasgeflecht-Rucksack;mochila de mimbre;mochila de mimbre;sac à dos végétal tressé;sac à dos végétal tressé;zaino di maglia;rugzak van geweven gras;草编双肩包;草編後背包;くさあみリュック;풀잎 니트 배낭;плетеный рюкзак
+1001;hard-shell backpack;hard-shell backpack;Hartschalenrucksack;mochila rígida;mochila rígida;sac à dos rigide;sac à dos rigide;zaino a guscio;harde rugzak;硬壳双肩包;硬殼後背包;ハードシェルリュック;하드 케이스 배낭;твердый рюкзак
+1150;Nook Inc. knapsack;Nook Inc. knapsack;Nook-Inc.-Beutel;mochila saco de Nook Inc.;mochila de Nook Inc.;sac à dos Nook Inc.;sac à dos Nook Inc.;sacca Nook Inc.;Nook Inc.-rugzak;Nook Inc.束口双肩包;Nook Inc.束口後背包;たぬきかいはつナップサック;Nook Inc. 주머니 가방;рюкзак Nook Inc.
+1185;DAL backpack;DAL backpack;DAL-Rucksack;mochila de DAL;mochila de DAL;sac à dos Dodo Airlines;sac à dos Dodo Airlines;zaino DAL;DAL-rugzak;DAL包包;DAL包包;ＤＡＬのバッグ;DAL 가방;рюкзак DAL
+1203;Bunny Day bag;Bunny Day bag;Häschentag-Rucksack;mochila Caza del Huevo;mochila Caza del Huevo;sac fête des œufs;sac fête des œufs;zaino caccia all'uovo;eiertas;复活节包包;復活節包包;イースターなバッグ;이스터 가방;сумка на День зайцев
+1233;grape-harvest basket;grape-harvest basket;Traubenlese-Korb;mochila vendimia;mochila vendimia;hotte à raisin;panier à raisin;canestro da vendemmia;druivenoogstmand;葡萄采收桶;葡萄採收桶;ぶどうのしゅうかくおけ;포도 수확 바구니;кузовок для винограда
+1268;impish wings;impish wings;Dämonenflügelpaar;par de alas de diablillo;par de alas de diablito;paire d'ailes de diablotin;paire d'ailes de diablotin;paio di ali da diavoletto;duivelse vleugelrugzak;小恶魔翅膀背包;小惡魔翅膀包包;こあくまなつばさバッグ;꼬마 악마 날개 가방;крылышки бесенка
+957;town backpack;town backpack;Urban-Rucksack;mochila escolar;mochila escolar;sac à dos urbain;sac à dos urbain;zaino urbano;simpele rugzak;都市双肩包;都市後背包;タウンリュック;타운 배낭;городской рюкзак
+958;travel pouch;travel pouch;Reisetäschchen;bolsito de viaje;bolsita de viaje;sacoche de voyage;sacoche de voyage;borsa da viaggio;reistasje;旅行包;旅行收納袋;トラベルポーチ;여행 파우치;сумочка туриста
+962;messenger bag;messenger bag;Kuriertasche;bolso de mensajero;bolsa de mensajero;besace;besace;borsa da postino;koerierstas;邮差包;郵差包;メッセンジャーバッグ;메신저백;курьерская сумка
+963;dry bag;dry bag;Regenrucksack;mochila impermeable;mochila impermeable;sac imperméable;sac imperméable;borsa impermeabile;waterdichte rugzak;防水背包;防水背包;ドライサック;드라이백;непромокаемый мешок
+964;pleather shoulder bag;pleather shoulder bag;Kunstlederhandtasche;bolsa de polipiel;bolsa de cuero sintético;sac à bandoulière similicuir;sac à bandoulière similicuir;borsa ecopelle a bandoliera;kunstleren schoudertas;皮革单肩包;皮革肩背包;レザーショルダー;가죽 숄더백;плечевая сумка
+965;fish pochette;fish pochette;Fischlein-Pochette;bolsito pez;bolsita pez;pochette poisson;pochette poisson;pochette pesce;vissentasje;鱼形斜挎包;魚兒斜背包;おさかなポシェット;물고기 미니백;сумочка-рыба
+966;tackle bag;tackle bag;Anglertasche;bolsa de pesca;bolsa de pesca;sac de pêche;sac de pêche;borsa da pesca;vistas;钓鱼包;釣魚包;フィッシングバッグ;낚시 가방;ящик для наживки
+967;bug cage;bug cage;Insektenfangtasche;jaula para bichos;jaula para insectos;cage à insectes;cage à insecte;gabbia degli insetti;insectenkooi;虫虫观察箱;蟲子觀察箱;ムシかご;채집통;коробочка для насекомых
+968;faux-fur bag;faux-fur bag;Kunstfelltäschchen;bolso de pelo sintético;bolsa de piel sintética;sac en fausse fourrure;sac en fausse fourrure;borsa di ecopelliccia;tas van imitatiebont;仿毛皮包;仿毛皮包;フェイクファーバッグ;인조털 가방;сумка «под мех»
+969;pleather fringe bag;pleather fringe bag;Kunstlederfransentasche;bolsita con flecos;bolsita con flecos;sac à franges;sac à franges;borsa ecopelle con frange;kunstleren tas met franje;皮革流苏包;皮革流蘇包;フリンジレザーバッグ;가죽 프린지백;сумка с бахромой
+970;hand-knit pouch;hand-knit pouch;Häkelhandtasche;bolso de punto;bolsa tejida;pochette tricotée;pochette tricotée;borsa di maglia;handgebreide schoudertas;编织斜挎包;手編側背包;てあみポーチ;손뜨개 파우치;сумка макраме
+971;crossbody bag;crossbody bag;Hüfttasche;riñonera al hombro;mochila al hombro;sac transversal;sac transversal;borsa a tracolla;crossbodytas;腰包;腰包;ボディバッグ;슬링백;сумка кросс-боди
+972;pleather crossbody bag;pleather crossbody bag;Kunstleder-Umhängetasche;mochilita polipiel al hombro;mochila al hombro sintética;sac transversal similicuir;sac transversal similicuir;borsa ecopelle a tracolla;kunstleren crossbodytas;皮革胸包;皮革腰包;レザーボディバッグ;가죽 슬링백;кросс-боди из кожзама
+973;crossbody boston bag;crossbody boston bag;Sporttasche;bolsa gimnasio al hombro;bolsa gimnasio al hombro;sac Boston en bandoulière;sac Boston en bandoulière;borsa Boston a tracolla;sporttas;斜挎圆筒运动包;斜背圓筒運動包;ななめかけボストン;크로스 보스턴백;кросс-боди с ручками
+974;gumdrop shoulder bag;gumdrop shoulder bag;Frühlings-Umhängetasche;bandolera esferas;bolsa bandolera esferas;sac bandoulière bonbons;sac bandoulière bonbons;borsa gommosa bandoliera;schoudertas met stippen;春天波点单肩包;春天圓點肩背包;はるのみずたまショルダー;봄의 물방울 숄더백;наплечная сумка в горох
+975;cloth shoulder bag;cloth shoulder bag;Leinenumhängetasche;bandolera de tela;bolsa bandolera de tela;sac bandoulière en toile;sac bandoulière en toile;borsa di tela a bandoliera;katoenen schoudertas;帆布单肩包;帆布肩背包;はんぷショルダー;옥스퍼드 숄더백;наплечная сумка из ткани
+976;straw pochette;straw pochette;Rattan-Pochette;bolsita de cáñamo;bolsita de cáñamo;pochette en paille;pochette en paille;pochette paglia;rotan schoudertas;藤编斜挎包;藤編側背包;ラタンポシェット;라탄 미니백;плетеная сумочка
+977;star pochette;star pochette;Sternchen-Pochette;bolsito estrella;bolsita estrella;pochette étoile;pochette étoile;pochette stella;sterrentasje;星星斜挎包;星星側背包;スターなポシェット;별무늬 미니백;сумочка-звезда
+978;cherry-blossom pochette;cherry-blossom pochette;Kirschblüten-Pochette;bolsito flor de cerezo;bolsita flor de cerezo;pochette fleur de cerisier;pochette fleur de cerisier;pochette fiore di ciliegio;kersenbloesemtasje;樱花斜挎包;櫻花側背包;さくらのポシェット;벚꽃 미니백;сумочка «Лепестки вишни»
+979;maple-leaf pochette;maple-leaf pochette;Ahorn-Pochette;bolsito hoja de arce;bolsita hoja de arce;pochette feuille d'érable;pochette feuille d'érable;pochette foglia d'acero;esdoornbladtasje;枫叶斜挎包;楓葉側背包;もみじのポシェット;단풍 미니백;сумочка «Кленовый лист»
+980;acorn pochette;acorn pochette;Eichel-Pochette;bolsito bellota;bolsita bellota;pochette gland;pochette gland;pochette ghianda;eikeltasje;橡栗斜挎包;橡栗側背包;どんぐりポシェット;도토리 미니백;сумочка-желудь
+981;snowflake pochette;snowflake pochette;Schneeflocken-Pochette;bolsito copo de nieve;bolsita copo de nieve;pochette flocon;pochette flocon;pochette fiocco di neve;sneeuwvloktasje;雪花斜挎包;雪花側背包;スノーフレークポシェット;눈꽃 미니백;сумочка-снежинка
+982;shellfish pochette;shellfish pochette;Muschel-Pochette;bolsito concha marina;bolsita concha marina;pochette coquillage;pochette coquillage;pochette guscio;schelpentasje;贝壳斜挎包;貝殼側背包;かいがらポシェット;조개 미니백;сумочка-моллюск
+983;tool bag;tool bag;Werkzeugtasche;bolsa de herramientas;bolsa de herramientas;sac à outils;sac à outils;borsa degli strumenti;gereedschapstas;工具包;工具包;ツールバッグ;공구 가방;сумка для инструментов
+984;retro sports bag;retro sports bag;Retro-Sporttasche;bolsa deportiva retro;bolsa deportiva retro;sac sport rétro;sac sport rétro;borsa sportiva rétro;retrosporttas;运动包;運動包;スポーツバッグ;스포츠백;спортивная ретро-сумка
+985;sacoche bag;sacoche bag;Minitasche;minibolsa;minibolsa;sacoche;sacoche;borsello;sacoche;随身小包;旅行隨身小包;サコッシュ;사코슈;мягкая сумочка
+986;evening bag;evening bag;Abendhandtasche;bolso de noche;bolso de noche;sac de soirée;sac de soirée;borsetta da sera;avondtas;晚宴包;晚宴包;パーティーバッグ;파티 가방;вечерняя сумочка
+987;log pack;log pack;Holzfällerrucksack;mochila troncos;mochila troncos;claie de portage;sac à dos de portage;zaino con telaio;boomstammenrugzak;背架;背薪架;せおいばしご;지게;вязанка дров
+988;traveler's backpack;traveler's backpack;Wanderrucksack;mochila de trotamundos;mochila de trotamundos;sac à dos de randonnée;sac à dos de voyage;zaino da viaggio;reisrugzak;旅人双肩包;旅人後背包;たびびとのリュック;여행자의 배낭;рюкзак туриста
+989;square backpack;square backpack;Kastenrucksack;mochila rectangular;mochila rectangular;sac à dos cube;sac à dos cube;zaino squadrato;vierkante rugzak;方形双肩包;四角型後背包;しかくいリュック;사각 배낭;квадратный рюкзак
+990;outdoor backpack;outdoor backpack;Outdoor-Rucksack;mochila de acampada;mochila de paseo;sac à dos tout-terrain;sac à dos de randonnée;zaino da escursionismo;kampeerrugzak;户外双肩包;戶外後背包;アウトドアリュック;아웃도어 배낭;походный рюкзак
+991;butterfly backpack;butterfly backpack;Schmetterlingsrucksack;mochila mariposa;mochila mariposa;sac à dos papillon;sac à dos papillon;zaino farfalla;vlinderrugzak;蝴蝶双肩包;蝴蝶後背包;ちょうちょのバッグ;나비 가방;рюкзак-бабочка
+992;studded backpack;studded backpack;Nietenrucksack;mochila con tachuelas;mochila con tachuelas;sac à dos clouté;sac à dos clouté;zaino borchiato;rugzak met studs;铆钉双肩包;鉚釘後背包;スタッズリュック;스터드 배낭;рюкзак с заклепками
+993;mini pleather bag;mini pleather bag;Kunstleder-Rucksäckchen;mochilita de polipiel;mochilita de cuero sintético;mini-sac en similicuir;mini-sac en similicuir;borsetta ecopelle;kunstleren rugzak;迷你皮革双肩包;迷你皮革後背包;ミニレザーバッグ;미니 가죽 가방;рюкзак из кожзама
+994;extra-large backpack;extra-large backpack;Trekking-Rucksack;mochila de senderismo;mochila de senderismo;sac à dos XL;sac à dos XL;zaino grande;trekkersrugzak;登山大背包;登山大背包;おおきめザック;커다란 배낭;макси-рюкзак
+995;basket pack;basket pack;Tragekorb;mochila cesta;mochila cesta;claie à panier;claie à panier;cesta;mandrugzak;背篓;後背架;しょいこ;바구니 가방;заплечная корзина
+996;foldover-top backpack;foldover-top backpack;Faltverschluss-Rucksack;mochila de cierre sellado;mochila de cierre sellado;sac à dos à rabat;sac à dos à rabat;zaino apertura ripiegabile;rugzak met flap;翻盖双肩包;掀蓋後背包;ふたつきリュック;폴드오버 배낭;рюкзак «роллтоп»
+997;knapsack;knapsack;Turnbeutel;mochila saco;mochila bolso;sac à dos à cordon;sac à dos à cordon;sacca morbida;koordrugzak;束口双肩包;束口後背包;ナップサック;주머니 가방;заплечный мешок
+998;canvas backpack;canvas backpack;Leinenrucksack;mochila de lona;mochila de lona;sac à dos en toile;sac à dos en toile;zaino di tela;canvasrugzak;帆布双肩包;帆布後背包;はんぷリュック;옥스퍼드 배낭;матерчатый рюкзак
+999;Mom's knapsack;Mom's knapsack;Beutel von Mama;mochila de mamá;mochila de mamá;sac à dos de maman;sac à dos de maman;zainetto di mamma;mama's rugzak;菱格缝线束口双肩包;媽媽手作束口後背包;ははのナップサック;엄마의 주머니 가방;мамин рюкзак

@@ -1,81 +1,81 @@
-﻿"label","text"
-"Insect_00582","アブラゼミ"
-"Insect_00583","アゲハチョウ"
-"Insect_00584","アカエリトリバネアゲハ"
-"Insect_00585","アキアカネ"
-"Insect_00586","アレキサンドラトリバネアゲハ"
-"Insect_00587","アメンボ"
-"Insect_00588","アリ"
-"Insect_00590","ダンゴムシ"
-"Insect_00591","フナムシ"
-"Insect_00592","ガ"
-"Insect_00594","ゲンゴロウ"
-"Insect_00595","ギンヤンマ"
-"Insect_00596","ゴライアスオオツノハナムグリ"
-"Insect_00597","ハエ"
-"Insect_00598","ハナカマキリ"
-"Insect_00599","ハンミョウ"
-"Insect_00600","ヘラクレスオオカブト"
-"Insect_00601","ヒグラシ"
-"Insect_00602","ホソアカクワガタ"
-"Insect_00603","ホタル"
-"Insect_00604","フンコロガシ"
-"Insect_00605","イナゴ"
-"Insect_00606","カ"
-"Insect_00607","カマキリ"
-"Insect_00608","カメムシ"
-"Insect_00609","ゴマダラカミキリ"
-"Insect_00610","カラスアゲハ"
-"Insect_00611","カタツムリ"
-"Insect_00612","カブトムシ"
-"Insect_00613","キリギリス"
-"Insect_00614","オオセンチコガネ"
-"Insect_00615","コーカサスオオカブト"
-"Insect_00616","コノハムシ"
-"Insect_00617","コオロギ"
-"Insect_00618","クマゼミ"
-"Insect_00619","クモ"
-"Insect_00620","ミイロタテハ"
-"Insect_00621","ミンミンゼミ"
-"Insect_00622","ミノムシ"
-"Insect_00623","ミツバチ"
-"Insect_00624","ミヤマクワガタ"
-"Insect_00625","モンキチョウ"
-"Insect_00626","モンシロチョウ"
-"Insect_00627","モルフォチョウ"
-"Insect_00628","ムカデ"
-"Insect_00630","ナナフシ"
-"Insect_00631","ニジイロクワガタ"
-"Insect_00632","ノコギリクワガタ"
-"Insect_00633","ノミ"
-"Insect_00634","オケラ"
-"Insect_00635","オニヤンマ"
-"Insect_00636","オオカバマダラ"
-"Insect_00637","オオクワガタ"
-"Insect_00638","オウゴンオニクワガタ"
-"Insect_00639","プラチナコガネ"
-"Insect_00640","サソリ"
-"Insect_00641","セミのぬけがら"
-"Insect_00642","スズムシ"
-"Insect_00643","ハチ"
-"Insect_00644","ショウリョウバッタ"
-"Insect_00645","タマムシ"
-"Insect_00646","タランチュラ"
-"Insect_00647","テントウムシ"
-"Insect_00648","トノサマバッタ"
-"Insect_00649","ツクツクホウシ"
-"Insect_00650","バイオリンムシ"
-"Insect_00651","ヤドカリ"
-"Insect_00652","ヨナグニサン"
-"Insect_00653","ゾウカブト"
-"Insect_03477","アオスジアゲハ"
-"Insect_03478","オオゴマダラ"
-"Insect_03479","オオムラサキ"
-"Insect_03480","カナブン"
-"Insect_03482","ギラファノコギリクワガタ"
-"Insect_03483","ジンメンカメムシ"
-"Insect_03484","ニシキオオツバメガ"
-"Insect_03485","ホウセキゾウムシ"
-"Insect_03487","ルリボシカミキリ"
-"Insect_05157","タガメ"
-"Insect_05339","イトトンボ"
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+Insect_00582;brown cicada;brown cicada;Braunzikade;cigarra marrón;cigarra marrón;cigale cercope;cigale cercope;cicala marrone;bruine cicade;油蝉;油蟬;アブラゼミ;유지매미;коричневая цикада
+Insect_00583;tiger butterfly;tiger butterfly;Schwalbenschwanz;mariposa tigre;mariposa tigre;machaon;machaon;farfalla tigre;koninginnenpage;凤蝶;鳳蝶;アゲハチョウ;호랑나비;махаон
+Insect_00584;Rajah Brooke's birdwing;Rajah Brooke's birdwing;Troides brookiana;mariposa alas de Brooke;mariposa alas de Brooke;troides brookiana;troides brookiana;farfalla Raja Brooke;Rajah Brooke-vlinder;红颈凤蝶;紅頸鳳蝶;アカエリトリバネアゲハ;붉은목도리비단나비;трогоноптера Брука
+Insect_00585;red dragonfly;red dragonfly;Feuerlibelle;libélula roja;libélula roja;sympetrum;libellule rouge;libellula rossa;rode libel;红蜻蜓;紅蜻蜓;アキアカネ;고추잠자리;красная стрекоза
+Insect_00586;Queen Alexandra's birdwing;Queen Alexandra's birdwing;Vogelfalter;mariposa alas de pájaro;mariposa alas de pájaro;troides alexandrae;troides alexandrae;farfalla regina Alessandra;Alexandra's vogelvlinder;亚历山大凤蝶;亞歷山大鳳蝶;アレキサンドラトリバネアゲハ;알렉산드라비단제비나비;птицекрылка Александры
+Insect_00587;pondskater;pondskater;Wasserläufer;zapatero;zapatero;patineur;patineur;gerride;schaatsenrijder;水黾;水黽;アメンボ;소금쟁이;водомерка
+Insect_00588;ant;ant;Ameise;hormiga;hormiga;fourmi;fourmi;formica;mier;蚂蚁;螞蟻;アリ;개미;муравей
+Insect_00590;pill bug;pill bug;Kugelassel;cochinilla;cochinilla;cloporte;cloporte;porcellino di terra;rolpissebed;鼠妇;鼠婦;ダンゴムシ;공벌레;мокрица
+Insect_00591;wharf roach;wharf roach;Ligia exotica;cochinilla de arena;cochinilla de arena;ligie;ligie;ligia exotica;strandpissebed;海蟑螂;海蟑螂;フナムシ;갯강구;морской таракан
+Insect_00592;moth;moth;Motte;polilla;polilla;papillon de nuit;papillon de nuit;falena;mot;飞蛾;飛蛾;ガ;나방;павлиноглазка
+Insect_00594;diving beetle;diving beetle;Schwimmkäfer;escarabajo nadador;escarabajo nadador;dytique;dytique;ditisco;waterroofkever;龙虱;龍蝨;ゲンゴロウ;물방개;плавунец
+Insect_00595;darner dragonfly;darner dragonfly;Königslibelle;libélula caballito del diablo;libélula caballito del diablo;anax napolitain;anax napolitain;libellula depressa;zuidelijke keizerlibel;绿胸晏蜓;綠胸晏蜓;ギンヤンマ;왕잠자리;дозорщик
+Insect_00596;goliath beetle;goliath beetle;Goliathkäfer;goliat;goliat;scarabée Goliath;scarabée Goliath;scarabeo Golia;goliathkever;歌利亚大角花金龟;哥利亞大角花金龜;ゴライアスオオツノハナムグリ;골리앗왕꽃무지;жук-голиаф
+Insect_00597;fly;fly;Fliege;mosca;mosca;mouche;mouche;mosca;vlieg;苍蝇;蒼蠅;ハエ;파리;муха
+Insect_00598;orchid mantis;orchid mantis;Orchideenmantis;mantis orquídea;mantis orquídea;mante orchidée;mante orchidée;mantide orchidea;orchidee-bidsprinkhaan;兰花螳螂;蘭花螳螂;ハナカマキリ;연꽃사마귀;орхидейный богомол
+Insect_00599;tiger beetle;tiger beetle;Sandlaufkäfer;escarabajo tigre;escarabajo tigre;cicindèle;cicindèle;cicindela;zandloopkever;虎甲虫;虎甲蟲;ハンミョウ;길앞잡이;жук-скакун
+Insect_00600;horned hercules;horned hercules;Herkuleskäfer;escarabajo astado hércules;escarabajo astado hércules;scarabée Hercule;scarabée Hercule;scarabeo Ercole;herculeskever;长戟大兜虫;長戟大兜蟲;ヘラクレスオオカブト;헤라클레스장수풍뎅이;жук-геркулес
+Insect_00601;evening cicada;evening cicada;Abendzikade;cigarrilla;cigarra;cigale higurashi;cigale higurashi;cicala notturna;avondcicade;暮蝉;暮蟬;ヒグラシ;쓰르라미;ночная цикада
+Insect_00602;cyclommatus stag;cyclommatus stag;Cyclommatus;esc. ciervo cyclommatus;esc. ciervo cyclommatus;lucane cyclommatus;lucane cyclommatus;coleottero cyclommatus;vliegend hert;细身赤锹形虫;細身赤鍬形蟲;ホソアカクワガタ;엘라푸스가위사슴벌레;жук-рогач
+Insect_00603;firefly;firefly;Leuchtkäfer;luciérnaga;luciérnaga;luciole;luciole;lucciola;vuurvliegje;萤火虫;螢火蟲;ホタル;반디;светлячок
+Insect_00604;dung beetle;dung beetle;Mistkäfer;escarabajo pelotero;escarabajo pelotero;bousier;bousier;scarabeo stercorario;mestkever;蜣螂;糞金龜;フンコロガシ;쇠똥구리;жук-навозник
+Insect_00605;rice grasshopper;rice grasshopper;Heuschrecke;langosta;langosta;criquet;criquet;locusta;rijstsprinkhaan;稻蝗;稻蝗;イナゴ;메뚜기;рисовая кобылка
+Insect_00606;mosquito;mosquito;Mücke;mosquito;mosquito;moustique;moustique;zanzara;mug;蚊子;蚊子;カ;모기;комар
+Insect_00607;mantis;mantis;Gottesanbeterin;mantis religiosa;mantis religiosa;mante religieuse;mante religieuse;mantide;bidsprinkhaan;螳螂;螳螂;カマキリ;사마귀;богомол
+Insect_00608;stinkbug;stinkbug;Stinkwanze;chinche;chinche;punaise;punaise;cimice;schildwants;椿象;椿象;カメムシ;노린재;щитник
+Insect_00609;citrus long-horned beetle;citrus long-horned beetle;Fichtenbock;longicornio asiático;longicornio asiático;capricorne des agrumes;capricorne des agrumes;tarlo asiatico;Aziatische boktor;星天牛;星天牛;ゴマダラカミキリ;알락하늘소;цитрусовый усач
+Insect_00610;peacock butterfly;peacock butterfly;Ritterfalter;mariposa bianor;mariposa bianor;papilio bianor;papilio bianor;farfalla vanessa io;pauwenpage;乌鸦凤蝶;烏鴉鳳蝶;カラスアゲハ;제비나비;бианор
+Insect_00611;snail;snail;Schnecke;caracol;caracol;escargot;escargot;chiocciola;slak;蜗牛;蝸牛;カタツムリ;달팽이;улитка
+Insect_00612;horned dynastid;horned dynastid;Nashornkäfer;escarabajo astado japonés;escarabajo astado japonés;scarabée kabuto;scarabée kabuto;scarabeo kabutomushi;neushoornkever;独角仙;獨角仙;カブトムシ;장수풍뎅이;дупляк
+Insect_00613;grasshopper;grasshopper;Grashüpfer;saltamontes;saltamontes;sauterelle;sauterelle;cavalletta;sprinkhaan;蚱蜢;蚱蜢;キリギリス;여치;кузнечик
+Insect_00614;earth-boring dung beetle;earth-boring dung beetle;Gold-Mistkäfer;escarabajo geotrúpido;escarabajo geotrúpido;geotrupidae;géotrupe;geotrupidae;echte mestkever;雪隐金龟;雪隱金龜;オオセンチコガネ;보라금풍뎅이;навозник-землерой
+Insect_00615;horned atlas;horned atlas;Atlaskäfer;escarabajo astado atlas;escarabajo astado atlas;scarabée Atlas;scarabée Atlas;scarabeo atlas;atlaskever;高卡萨斯南洋大兜虫;高卡薩斯南洋大兜蟲;コーカサスオオカブト;코카서스장수풍뎅이;жук-атлас
+Insect_00616;walking leaf;walking leaf;Blattschrecke;insecto hoja;insecto hoja;phyllie;phyllie;insetto foglia;wandelend blad;叶竹节虫;葉竹節蟲;コノハムシ;잎사귀벌레;листотел
+Insect_00617;cricket;cricket;Grille;grillo común;grillo común;grillon des prés;grillon des prés;grillo;krekel;蟋蟀;蟋蟀;コオロギ;귀뚜라미;сверчок
+Insect_00618;giant cicada;giant cicada;Riesenzikade;cigarra gigante;cigarra gigante;cigale géante;cigale géante;cicala gigante;reuzencicade;熊蝉;熊蟬;クマゼミ;곰매미;гигантская цикада
+Insect_00619;spider;spider;Spinne;araña;araña;araignée;araignée;ragno;spin;蜘蛛;蜘蛛;クモ;거미;паук
+Insect_00620;agrias butterfly;agrias butterfly;Agrias-Falter;mariposa narciso;mariposa narciso;agrias;agrias;farfalla agrias;agriasvlinder;彩袄蛱蝶;彩襖蛺蝶;ミイロタテハ;아그리아스나비;агриас клаудина
+Insect_00621;robust cicada;robust cicada;Hyalessa-Zikade;cigarra oriental;cigarra oriental;cigale hyalessa;cigale hyalessa;cicala robusta;minmin-cicade;斑透翅蝉;斑透翅蟬;ミンミンゼミ;참매미;певчая цикада
+Insect_00622;bagworm;bagworm;Sackträger;oruga de bolsón;oruga de bolsón;psyché;psyché;bruco dal fodero;zakjesdrager;蓑衣虫;蓑衣蟲;ミノムシ;도롱이벌레;мешочница
+Insect_00623;honeybee;honeybee;Honigbiene;abeja melífera;abeja melífera;abeille naine;abeille naine;ape operaia;honingbij;蜜蜂;蜜蜂;ミツバチ;꿀벌;восковая пчела
+Insect_00624;miyama stag;miyama stag;Hirschkäfer;escarabajo ciervo Miyama;escarabajo ciervo Miyama;lucane miyama;lucane miyama;coleottero lucanide;Miyama-hertkever;深山锹形虫;深山鍬形蟲;ミヤマクワガタ;사슴벌레;горный жук-олень
+Insect_00625;yellow butterfly;yellow butterfly;Zitronenfalter;mariposa colias;mariposa colias;citrin;citrin;farfalla gialla;citroenvlinder;斑缘点粉蝶;斑緣點粉蝶;モンキチョウ;노랑나비;желтушка
+Insect_00626;common butterfly;common butterfly;Kohlweißling;mariposa común;mariposa común;piéride de la rave;piéride de la rave;farfalla comune;koolwitje;白粉蝶;白粉蝶;モンシロチョウ;배추흰나비;белянка
+Insect_00627;emperor butterfly;emperor butterfly;Himmelsfalter;mariposa celeste;mariposa celeste;morpho bleu;morpho bleu;farfalla morfo blu;blauwe morpho;大蓝闪蝶;大藍閃蝶;モルフォチョウ;몰포나비;морфо менелай
+Insect_00628;centipede;centipede;Hundertfüßer;ciempiés;ciempiés;mille-pattes;mille-pattes;centopiedi;duizendpoot;蜈蚣;蜈蚣;ムカデ;지네;многоножка
+Insect_00630;walking stick;walking stick;Stabschrecke;insecto palo;insecto palo;phasme;phasme;insetto stecco;wandelende tak;竹节虫;竹節蟲;ナナフシ;긴수염대벌레;палочник
+Insect_00631;rainbow stag;rainbow stag;Pracht-Hirschkäfer;escarabajo ciervo arcoíris;escarabajo ciervo arcoíris;lucane copris irisé;lucane copris irisé;coleottero arcobaleno;regenbooghertkever;彩虹锹形虫;彩虹鍬形蟲;ニジイロクワガタ;뮤엘러리사슴벌레;радужный жук-олень
+Insect_00632;saw stag;saw stag;Sägezahn-Hirschkäfer;escarabajo ciervo sierra;escarabajo ciervo sierra;lucane inclinatus;lucane inclinatus;coleottero cervo;zaaghertkever;锯锹形虫;鋸鍬形蟲;ノコギリクワガタ;톱사슴벌레;жук-олень
+Insect_00633;flea;flea;Floh;pulga;pulga;puce;puce;pulce;vlo;跳蚤;跳蚤;ノミ;벼룩;блоха
+Insect_00634;mole cricket;mole cricket;Maulwurfsgrille;grillo cebollero;grillo cebollero;taupe-grillon;taupe-grillon;grillotalpa;veenmol;蝼蛄;螻蛄;オケラ;땅강아지;медведка
+Insect_00635;banded dragonfly;banded dragonfly;Quelljungfer;libélula tigre;libélula tigre;cordulégastre;cordulégastre;libellula striata;bronlibel;无霸勾蜓;無霸勾蜓;オニヤンマ;장수잠자리;кордулегастер
+Insect_00636;monarch butterfly;monarch butterfly;Monarchfalter;mariposa monarca;mariposa monarca;monarque;monarque;farfalla monarca;monarchvlinder;大桦斑蝶;大樺斑蝶;オオカバマダラ;왕나비;монарх
+Insect_00637;giant stag;giant stag;Riesen-Hirschkäfer;escarabajo ciervo gigante;escarabajo ciervo gigante;lucane cerf-volant;lucane cerf-volant;coleottero gigante;reuzenhertkever;大锹形虫;大鍬形蟲;オオクワガタ;왕사슴벌레;гигантский жук-олень
+Insect_00638;golden stag;golden stag;Allotopus rosenbergi;escarabajo ciervo tornasol;escarabajo ciervo tornasol;lucane lamprima;lucane lamprima;coleottero dorato;gouden hertkever;黄金鬼锹形虫;黃金鬼鍬形蟲;オウゴンオニクワガタ;황금사슴벌레;ламприма
+Insect_00639;scarab beetle;scarab beetle;Goldskarabäus;escarabajo oro;escarabajo oro;scarabée;scarabée;chrysina resplendens;scarabee;宝石金龟;寶石金龜;プラチナコガネ;보석풍뎅이;золотой скарабей
+Insect_00640;scorpion;scorpion;Skorpion;escorpión;escorpión;scorpion;scorpion;scorpione;schorpioen;蝎子;蠍子;サソリ;전갈;скорпион
+Insect_00641;cicada shell;cicada shell;Zikadenlarvenhaut;muda de cigarra;carcasa de cigarra;mue de cigale;mue de cigale;esuvia di cicala;cicadehuid;蝉蜕;蟬蛻;セミのぬけがら;매미 허물;кокон цикады
+Insect_00642;bell cricket;bell cricket;Singgrille;grillo campana;grillo campana;grillon du Midi;grillon du Midi;suzumushi;belkrekel;铃虫;鈴蟲;スズムシ;방울벌레;домашний сверчок
+Insect_00643;wasp;wasp;Wespe;avispa;avispa;guêpe;guêpe;vespa;wesp;黄蜂;黃蜂;ハチ;벌;оса
+Insect_00644;long locust;long locust;Nasenschrecke;langosta alargada;langosta alargada;acrida cinerea;acrida cinerea;acrida cinerea;veldsprinkhaan;中华剑角蝗;中華劍角蝗;ショウリョウバッタ;방아깨비;акрида
+Insect_00645;jewel beetle;jewel beetle;Prachtkäfer;escarabajo joya;escarabajo joya;bupreste;bupreste;stigmodera;prachtkever;吉丁虫;吉丁蟲;タマムシ;비단벌레;златка
+Insect_00646;tarantula;tarantula;Vogelspinne;tarántula;tarántula;tarentule;tarentule;tarantola;vogelspin;狼蛛;狼蛛;タランチュラ;타란툴라;паук-птицеед
+Insect_00647;ladybug;ladybug;Marienkäfer;mariquita;catarina;coccinelle;coccinelle;coccinella;lieveheersbeestje;瓢虫;瓢蟲;テントウムシ;무당벌레;божья коровка
+Insect_00648;migratory locust;migratory locust;Wanderschrecke;langosta migratoria;langosta migratoria;criquet pèlerin;criquet pèlerin;locusta migratoria;treksprinkhaan;飞蝗;飛蝗;トノサマバッタ;섬풀무치;перелетная саранча
+Insect_00649;walker cicada;walker cicada;Bergzikade;cigarra común;cigarra común;cigale cicadelle;cigale cicadelle;cicala sputacchina;bergcicade;寒蝉;寒蟬;ツクツクホウシ;애매미;горная цикада
+Insect_00650;violin beetle;violin beetle;Geigenkäfer;escarabajo violín;escarabajo violín;mormolyce;mormolyce;carabo violino;vioolkever;提琴虫;提琴蟲;バイオリンムシ;바이올린벌레;листовидная жужелица
+Insect_00651;hermit crab;hermit crab;Einsiedlerkrebs;cangrejo ermitaño;cangrejo ermitaño;bernard-l'ermite;bernard-l'ermite;granchio paguro;heremietkreeft;寄居蟹;寄居蟹;ヤドカリ;소라게;рак-отшельник
+Insect_00652;Atlas moth;Atlas moth;Atlasspinner;polilla atlas;polilla atlas;attacus Atlas;attacus Atlas;farfalla cobra;atlasvlinder;皇蛾;皇蛾;ヨナグニサン;아틀라스나방;павлиноглазка атлас
+Insect_00653;horned elephant;horned elephant;Elefantenkäfer;escarabajo astado elefante;escarabajo astado elefante;scarabée éléphant;scarabée éléphant;scarabeo elefante;olifantkever;象兜虫;象兜蟲;ゾウカブト;코끼리장수풍뎅이;жук-слон
+Insect_03477;common bluebottle;common bluebottle;Kolibrifalter;mariposa triángulo azul;mariposa triángulo azul;graphium sarpedon;graphium sarpedon;graphium sarpedon;blauwe driehoek;青带凤蝶;青帶鳳蝶;アオスジアゲハ;청띠제비나비;графиум сарпедон
+Insect_03478;paper kite butterfly;paper kite butterfly;Weiße Baumnymphe;mariposa cometa de papel;mariposa papel de arroz;grand planeur;grand planeur;farfalla carta di riso;papiervlinder;大白斑蝶;大白斑蝶;オオゴマダラ;왕얼룩나비;идея левконоя
+Insect_03479;great purple emperor;great purple emperor;Japan-Schillerfalter;marip. emperador japonés;marip. emperador japonés;sasakia charonda;grand empereur pourpre;farfalla imperatore viola;paarse keizervlinder;大紫蛱蝶;大紫蛺蝶;オオムラサキ;왕오색나비;сасакия харонда
+Insect_03480;drone beetle;drone beetle;Japan-Rosenkäfer;escarabajo verde japonés;escarabajo verde japonés;pseudotorynorrhina;cétoine dorée;cetonia dorata;bladsprietkever;日铜锣花金龟;日銅鑼花金龜;カナブン;풍이;бронзовка
+Insect_03482;giraffe stag;giraffe stag;Giraffenhirschkäfer;escarabajo ciervo jirafa;escarabajo ciervo jirafa;lucane girafe;lucane girafe;coleottero giraffa;girafhertkever;长颈鹿锯锹形虫;長頸鹿鋸鍬形蟲;ギラファノコギリクワガタ;기라파톱사슴벌레;рогач-жираф
+Insect_03483;man-faced stink bug;man-faced stink bug;Gesichtswanze;chinche con rostro humano;chinche con rostro humano;catacanthus;catacanthus;catacanthus;gezichtschildwants;人面椿象;人面椿象;ジンメンカメムシ;인면노린재;щитник с лицом
+Insect_03484;Madagascan sunset moth;Madagascan sunset moth;Regenbogenfalter;polilla crepuscular;polilla crepuscular;chrysiridia rhipheus;adriandolo;urania del Madagascar;adriandolo;日落蛾;日落蛾;ニシキオオツバメガ;마다가스카르비단제비나방;урания мадагаскарская
+Insect_03485;blue weevil beetle;blue weevil beetle;Blaurüsselkäfer;gorgojo azul;gorgojo azul;charançon bleu;charançon bleu;coleottero Schoenherr;blauwe snuitkever;宝石象鼻虫;寶石象鼻蟲;ホウセキゾウムシ;유포루스바구미;синий долгоносик
+Insect_03487;rosalia batesi beetle;rosalia batesi beetle;Alpenbock;escarabajo rosalia batesi;escarabajo rosalia batesi;rosalia batesi;rosalia batesi;coleottero rosalia batesi;alpenboktor;琉璃星天牛;琉璃星天牛;ルリボシカミキリ;루리하늘소;розалия
+Insect_05157;giant water bug;giant water bug;Riesenwanze;chinche acuática gigante;chinche acuática gigante;punaise d'eau géante;punaise d'eau géante;cimice d'acqua gigante;reuzenwaterwants;田鳖;田鱉;タガメ;물장군;водяной клоп-гигант
+Insect_05339;damselfly;damselfly;Wasserjungfer;libélula damisela;libélula damisela;demoiselle;demoiselle;zigottero;juffer;豆娘;豆娘;イトトンボ;실잠자리;равнокрылая стрекоза

@@ -392,6 +392,15 @@ export function filterItems(args) {
       else if (nav === "season-fireworks") {
         return item.seasonEvent === "Fireworks Show";
       }
+      // 季節・イベント (カーニバル)
+      else if (nav === "season-festivale") {
+        return (
+          item.seasonEvent &&
+          item.seasonEvent.includes("Festivale") &&
+          !item.diy &&
+          item.sourceSheet !== "Other"
+        );
+      }
       // 季節・イベント (はるのわかたけ)
       else if (nav === "season-spring") {
         return (
@@ -537,6 +546,10 @@ export function filterItems(args) {
       // バージョン 1.6.0
       else if (nav === "versions-160") {
         return item.versionAdded === "1.6.0";
+      }
+      // バージョン 1.7.0
+      else if (nav === "versions-170") {
+        return item.versionAdded === "1.7.0";
       }
 
       return true;

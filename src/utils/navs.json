@@ -258,110 +258,116 @@
         "order": 4
       },
       {
+        "id": "season-festivale",
+        "text": "カーニバル",
+        "subtext": "2/1〜2/15",
+        "order": 5
+      },
+      {
         "id": "season-spring",
         "text": "はるのわかたけ",
         "subtext": "2/25〜5/31",
-        "order": 5
+        "order": 6
       },
       {
         "id": "season-sakura",
         "text": "さくらのはなびら",
         "subtext": "4/1〜4/10",
-        "order": 6
+        "order": 7
       },
       {
         "id": "season-easter",
         "text": "イースター",
         "subtext": "4/1〜4/12",
-        "order": 7
+        "order": 8
       },
       {
         "id": "season-mayday",
         "text": "メーデー",
         "subtext": "5/1〜5/7",
-        "order": 8
+        "order": 9
       },
       {
         "id": "season-museum",
         "text": "国際ミュージアムデー",
         "subtext": "5/18〜5/31",
-        "order": 9
+        "order": 10
       },
       {
         "id": "season-wedding",
         "text": "ジューンブライド",
         "subtext": "6/1〜6/30",
-        "order": 10
+        "order": 11
       },
       {
         "id": "season-summer",
         "text": "なつのかいがら",
         "subtext": "6/1〜8/31",
-        "order": 11
+        "order": 12
       },
       {
         "id": "season-fall",
         "text": "どんぐり/まつぼっくり",
         "subtext": "9/1〜12/10",
-        "order": 12
+        "order": 13
       },
       {
         "id": "season-halloween",
         "text": "ハロウィン",
         "subtext": "10/1〜10/31",
-        "order": 13
+        "order": 14
       },
       {
         "id": "season-mushroom",
         "text": "キノコ",
         "subtext": "11/1〜11/30",
-        "order": 14
+        "order": 15
       },
       {
         "id": "season-maple",
         "text": "もみじのはっぱ",
         "subtext": "11/16～11/25",
-        "order": 15
+        "order": 16
       },
       {
         "id": "season-turkey",
         "text": "サンクスギビングデー",
         "subtext": "11/26～11/30",
-        "order": 16
+        "order": 17
       },
       {
         "id": "season-toy",
         "text": "クリスマス",
         "subtext": "12/1～12/25",
-        "order": 17
+        "order": 18
       },
       {
         "id": "season-winter",
         "text": "ゆきのけっしょう",
         "subtext": "12/11〜2/24",
-        "order": 18
+        "order": 19
       },
       {
         "id": "season-festive",
         "text": "オーナメント",
         "subtext": "12/15〜1/6",
-        "order": 19
+        "order": 20
       },
       {
         "id": "season-countdown",
         "text": "カウントダウン",
         "subtext": "12/31",
-        "order": 20
+        "order": 21
       },
       {
         "id": "season-birthday",
         "text": "誕生日",
-        "order": 21
+        "order": 22
       },
       {
         "id": "season-mother",
         "text": "ははシリーズ",
-        "order": 22
+        "order": 23
       }
     ]
   },
@@ -377,6 +383,10 @@
     "id": "versions",
     "text": "バージョン",
     "subnavs": [
+      {
+        "id": "versions-170",
+        "text": "1.7.0"
+      },
       {
         "id": "versions-160",
         "text": "1.6.0"

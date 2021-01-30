@@ -94,7 +94,7 @@
       class="message"
       style="font-weight: 400; font-size: 12px;"
     >
-      バージョンカテゴリは、「素材」や「消費アイテム」、「植物」を含む、そのバージョンで追加されたすべてのアイテムを表示します。
+      バージョンカテゴリは、「素材」や「消費アイテム」、「植物」などコレクション要素がないアイテムを含む、そのバージョンで追加されたすべてのアイテムを表示します。
     </div>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">

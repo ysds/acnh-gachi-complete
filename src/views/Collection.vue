@@ -90,7 +90,7 @@
       </template>
     </infinite-loading>
     <div
-      v-if="isVersion"
+      v-if="isVersion && !isSearchMode"
       class="message"
       style="font-weight: 400; font-size: 12px;"
     >

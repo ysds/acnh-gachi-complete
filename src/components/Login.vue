@@ -67,6 +67,8 @@
 <script>
 import firebase from "../plugins/firebase";
 import Auth from "../utils/auth";
+import { syncCollectedData } from "../utils/db.js";
+
 import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
 import Card from "../components/Card";
@@ -109,6 +111,7 @@ export default {
       Auth.login(provider);
     },
     logout() {
+      syncCollectedData();
       Auth.logout();
       this.$vlf.clear(() => {
         window.location.reload();

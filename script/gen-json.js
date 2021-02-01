@@ -449,8 +449,15 @@ function conversion(str) {
 allItems.sort(function(a, b) {
   const ca = conversion(a.displayName);
   const cb = conversion(b.displayName);
-  if (ca == cb) return 0;
-  if (ca > cb) {
+  if (ca == cb) {
+    if (a.displayName == b.displayName) {
+      return 0;
+    } else if (a.displayName > b.displayName) {
+      return 1;
+    } else {
+      return -1;
+    }
+  } else if (ca > cb) {
     return 1;
   } else {
     return -1;

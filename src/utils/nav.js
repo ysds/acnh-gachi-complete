@@ -640,6 +640,20 @@ export function allCollectedLength(collected) {
   return calcCollectedLength(collected, collectedItems);
 }
 
+export function providableLength(args) {
+  const { collected, nav, typeFilter } = args;
+  const collectedItems = filterItems({
+    collected,
+    nav,
+    filter: {
+      typeFilter: typeFilter,
+      collectedFilter: "2"
+    }
+  });
+
+  return calcCollectedLength(collected, collectedItems);
+}
+
 export function getNavText(nav) {
   let navText = "";
   navs.forEach(link => {

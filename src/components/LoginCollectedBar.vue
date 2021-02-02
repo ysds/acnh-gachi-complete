@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { percentage } from "../utils/utils";
+
 export default {
   prop: {
     text: "",
@@ -36,14 +38,7 @@ export default {
     totalValue: 0,
     isAll: false
   },
-  percentage(value, totalValue) {
-    if (totalValue === 0) {
-      return "0.0%";
-    } else {
-      const percentage = (Math.floor((value / totalValue) * 1000) / 1000) * 100;
-      return `${percentage.toFixed(1)}%`;
-    }
-  },
+  percentage,
   isComplete(value, totalValue) {
     return totalValue !== 0 && value === totalValue;
   },

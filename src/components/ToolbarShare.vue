@@ -31,7 +31,7 @@
             <Button
               cta
               :href="
-                `https://twitter.com/intent/tweet?text=${navText}%0a${twitterURL}%0a%0a%23あつ森ガチコンプ`
+                `https://twitter.com/intent/tweet?text=${tweetString}%0a%0a${tweetURL}%0a%0a${tweetTags}`
               "
             >
               Twitter に投稿する
@@ -44,8 +44,14 @@
 </template>
 
 <script>
-import { getNavText } from "../utils/nav.js";
+import {
+  getNavText,
+  totalLength,
+  collectedLength,
+  providableLength
+} from "../utils/nav.js";
 import { syncCollectedData } from "../utils/db.js";
+import { percentage } from "../utils/utils";
 import Button from "./Button";
 import Modal from "./Modal";
 
@@ -58,12 +64,17 @@ export default {
     return {
       isShowShareModal: false,
       shareURL: "",
-      twitterURL: ""
+      tweetString: "",
+      tweetURL: "",
+      tweetTags: ""
     };
   },
   computed: {
     activeNav() {
       return this.$store.getters.activeNav;
+    },
+    collected() {
+      return this.$store.getters.localCollectedData;
     },
     user() {
       return this.$store.getters.user;
@@ -77,9 +88,49 @@ export default {
       syncCollectedData();
       const shareURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.activeNav}/?uid=${this.user.uid}`;
       this.shareURL = shareURL;
-      this.twitterURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.activeNav}/?uid=${this.user.uid}`;
+      this.initTweetString();
+      this.initTweetTags();
+      this.tweetURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.activeNav}/?uid=${this.user.uid}`;
       this.$copyText(shareURL);
       this.isShowShareModal = true;
+    },
+    initTweetString() {
+      const _totalLength = totalLength({
+        nav: this.activeNav,
+        typeFilter: "all"
+      });
+      const _collectedLength = collectedLength({
+        collected: Object.assign({}, this.collected),
+        nav: this.activeNav,
+        typeFilter: "all"
+      });
+      const _providableLength = providableLength({
+        collected: Object.assign({}, this.collected),
+        nav: this.activeNav,
+        typeFilter: "all"
+      });
+
+      this.tweetString = `${
+        this.navText
+      }（全${_totalLength}種）%0a%0a取得済：${_collectedLength}（${percentage(
+        _collectedLength,
+        _totalLength
+      )}25）%0a配布可：${_providableLength}`;
+    },
+    initTweetTags() {
+      this.tweetTags = "%23あつ森ガチコンプ%0a%23あつ森";
+      const nav = this.activeNav;
+      if (nav === "recipes") {
+        this.tweetTags +=
+          "%0a%23あつ森交換%0a%23レシピ交換%0a%23DIYレシピチェッカー";
+      } else if (nav === "photos") {
+        this.tweetTags += "%0a%23あつ森交換%0a%23写真交換";
+      } else if (nav === "posters") {
+        this.tweetTags += "%0a%23あつ森交換%0a%23ポスター交換";
+      } else if (nav.indexOf("housewares") > -1) {
+        this.tweetTags +=
+          "%0a%23あつ森おさわり%0a%23あつ森交換%0a%23家具交換%0a%23家具チェッカー";
+      }
     }
   }
 };

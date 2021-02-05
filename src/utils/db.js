@@ -70,7 +70,8 @@ export function loadFirebaseData() {
       .then(function(doc) {
         if (doc.exists) {
           const data = doc.data();
-          const collectedValue = data.collected || {};
+
+          const collectedValue = data.collected || "";
           const collected = JSON.parse(
             LZString.decompressFromUTF16(collectedValue)
           );

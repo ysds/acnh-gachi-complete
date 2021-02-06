@@ -593,6 +593,24 @@ export function filterItems(args) {
         });
       }
     }
+
+    //
+    // 名前順ソート(たぬきマイレージのみ)
+    //
+
+    if (!isSearchMode && nav === "achievements" && filter.order !== "id") {
+      items.sort(function(itemA, itemB) {
+        const ca = normalizeText(itemA.yomigana);
+        const cb = normalizeText(itemB.yomigana);
+        if (ca > cb) {
+          return 1;
+        }
+        if (ca < cb) {
+          return -1;
+        }
+        return 0;
+      });
+    }
   }
 
   return items;
@@ -667,15 +685,29 @@ export function getNavText(nav) {
   return navText;
 }
 
-export function toDisplayItemName(item, islandName) {
-  // 島名を置換
-  if (
-    islandName &&
-    (item.name === "(island name) Icons" ||
-      item.name === "(island name) Miles!")
-  ) {
-    return item.displayName.replace("○○", islandName);
-  } else {
-    return item.displayName;
-  }
+export function replaceIslandName(islandName) {
+  // たぬきマイレージの島名を置換する
+  itemsJson
+    .filter(item => item.sourceSheet === "Achievements")
+    .filter(
+      item =>
+        item.name === "(island name) Icons" ||
+        item.name === "(island name) Miles!"
+    )
+    .forEach(item => {
+      // アイテム表示名
+      if (!item.originalDisplayName) {
+        item.originalDisplayName = item.displayName;
+      }
+      item.displayName = islandName
+        ? item.originalDisplayName.replace("○○", islandName)
+        : item.originalDisplayName;
+      // よみがな
+      if (!item.originalYomigana) {
+        item.originalYomigana = item.yomigana;
+      }
+      item.yomigana = islandName
+        ? item.originalYomigana.replace("〓", islandName)
+        : item.originalYomigana;
+    });
 }

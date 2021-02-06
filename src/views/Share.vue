@@ -74,7 +74,6 @@
         :filter="filter"
         :isStatic="true"
         :renderStartDate="renderStartDate"
-        :islandName="sharedIslandName"
         @showModal="onShowModal"
       />
     </ul>
@@ -94,7 +93,7 @@
     </infinite-loading>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
-        <template slot="header">{{ modalItemName }}</template>
+        <template slot="header">{{ modalItem.displayName }}</template>
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
       </template>
     </Modal>
@@ -111,7 +110,7 @@ import {
   collectedLength,
   getNavText,
   navs,
-  toDisplayItemName
+  replaceIslandName
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
 import { syncCollectedData } from "../utils/db.js";
@@ -216,9 +215,6 @@ export default {
     isLogin() {
       return this.$store.getters.isLogin;
     },
-    modalItemName() {
-      return toDisplayItemName(this.modalItem, this.sharedIslandName);
-    },
     navText() {
       return getNavText(this.nav);
     },
@@ -309,6 +305,10 @@ export default {
         this.message = "";
       } else {
         this.message = "データは非公開です。";
+      }
+      // アイテムデータの島名を書き換える
+      if (this.sharedIslandName) {
+        replaceIslandName(this.sharedIslandName);
       }
       this.isLoaded = true;
       this.updateShowItems();

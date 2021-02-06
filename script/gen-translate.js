@@ -254,13 +254,13 @@ const csvParse = require("csv-parse/lib/sync");
     // 島名を置換
     value = value.replace('\u000en"\\0', "○○島");
 
-    // 読みの島名は名前順で先頭になるように「ぁ」で置換
-    yomi = yomi.replace('\u000en"\\0', "ぁ");
+    // 読みの島名は〓(代替文字)に置換
+    yomi = yomi.replace('\u000en"\\0', "〓");
     // 読みの「ディーアイワイ」の特殊な長音符を置換
     yomi = yomi.replace(/\ue221/g, "ー");
-    // 読みからひらがな・カタカナ・長音符・英数字以外を削除
+    // 読みからひらがな・カタカナ・長音符・英数字・〓(島名)以外を削除
     yomi = yomi.replace(
-      /[^\u3041-\u3093\u30A1-\u30F6ーA-Za-z0-9Ａ-Ｚａ-ｚ０-９]/g,
+      /[^\u3041-\u3093\u30A1-\u30F6ーA-Za-z0-9Ａ-Ｚａ-ｚ０-９〓]/g,
       ""
     );
 

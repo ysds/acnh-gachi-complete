@@ -15,7 +15,7 @@
         />
       </div>
       <div class="item-center">
-        {{ itemName }}
+        {{ item.displayName }}
         <template>
           <div
             class="item-variants"
@@ -53,7 +53,7 @@
           v-long-press
         >
           <CheckForTile
-            :name="i === 0 ? itemName : ''"
+            :name="i === 0 ? item.displayName : ''"
             :image="variantImages[index]"
             :value="getChecks(index)"
             :variant="item.variants[index]"
@@ -68,7 +68,7 @@
       <ul v-else class="tile-variants">
         <li class="t" v-long-press>
           <CheckForTile
-            :name="itemName"
+            :name="item.displayName"
             :image="itemImage"
             :value="getChecks(0)"
             :isRecipe="item.sourceSheet === 'Recipes'"
@@ -87,7 +87,6 @@
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
-import { toDisplayItemName } from "../utils/nav";
 
 export default {
   name: "Item",
@@ -109,8 +108,7 @@ export default {
     filter: Object,
     isSearchMode: Boolean,
     renderStartDate: Number,
-    isStatic: Boolean,
-    islandName: String
+    isStatic: Boolean
   },
   directives: {
     "long-press": {
@@ -130,9 +128,6 @@ export default {
     };
   },
   computed: {
-    itemName() {
-      return toDisplayItemName(this.item, this.islandName);
-    },
     itemImage() {
       const item = this.item;
       if (item.variants) {

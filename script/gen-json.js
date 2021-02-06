@@ -136,8 +136,8 @@ allItems.forEach(item => {
     item.achievementDescription =
       translation.achievements[item.internalId].desc;
 
-    // displayNameYomi
-    item.displayNameYomi = translation.achievements[item.internalId].yomi;
+    // よみがな
+    item.yomigana = translation.achievements[item.internalId].yomi;
 
     // parseInt num
     item.num = parseInt(item.num, 10);
@@ -450,8 +450,8 @@ function conversion(str) {
 
 // 日本語ソート
 allItems.sort(function(a, b) {
-  const ca = conversion(a.displayNameYomi ? a.displayNameYomi : a.displayName);
-  const cb = conversion(b.displayNameYomi ? b.displayNameYomi : b.displayName);
+  const ca = conversion(a.yomigana ? a.yomigana : a.displayName);
+  const cb = conversion(b.yomigana ? b.yomigana : b.displayName);
   if (ca == cb) {
     if (a.displayName == b.displayName) {
       return 0;
@@ -478,12 +478,6 @@ allItems.sort(function(a, b) {
     return 1;
   }
   return 0;
-});
-
-// Remove displayNameYomi
-allItems = allItems.map(item => {
-  delete item["displayNameYomi"];
-  return item;
 });
 
 //

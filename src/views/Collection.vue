@@ -224,7 +224,11 @@ export default {
       // アイテムデータの島名を書き換える
       replaceIslandName(this.islandName);
       // たぬきマイレージのみ島名反映後にソートさせたいため表示更新
-      if (this.activeNav === "achievements") {
+      if (
+        this.activeNav === "achievements" &&
+        this.filter &&
+        this.filter.order !== "id"
+      ) {
         this.updateShowItems();
       }
     }

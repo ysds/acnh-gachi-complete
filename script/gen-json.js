@@ -25,7 +25,9 @@ let allItems = [].concat(
 const translation = {
   itemName: require("../data/translation-json/item-name.json"),
   variantBody: require("../data/translation-json/variant-body.json"),
+  variantBodyTitle: require("../data/translation-json/variant-body-title.json"),
   variantPattern: require("../data/translation-json/variant-pattern.json"),
+  variantPatternTitle: require("../data/translation-json/variant-pattern-title.json"),
   variantFassion: require("../data/translation-json/variant-fassion.json"),
   reaction: require("../data/translation-json/reaction.json"),
   achievements: require("../data/translation-json/achievements.json"),
@@ -72,6 +74,10 @@ allItems.forEach(item => {
         console.log(`NoCustomizeVariant: ${item.name} : ${variant.variation}`);
       }
     });
+    item.bodyTitle = translation.variantBodyTitle[item.variants[0].internalId];
+    if (!translation.variantBodyTitle[item.variants[0].internalId]) {
+      console.log(`NoCustomizeVariantTitle: ${item.name}`);
+    }
     item.customizeVariants = customizeVariants;
     item.variants.length = 1;
   }
@@ -104,6 +110,11 @@ allItems.forEach(item => {
     if (!translation.variantPattern[item.variants[0].internalId]) {
       console.log(`NoPatternVariant: ${item.name}`);
     }
+    item.patternTitle =
+      translation.variantPatternTitle[item.variants[0].internalId];
+    if (!translation.variantPatternTitle[item.variants[0].internalId]) {
+      console.log(`NoPatternVariantTitle: ${item.name}`);
+    }
     item.variants = newVariants;
   }
 
@@ -120,6 +131,10 @@ allItems.forEach(item => {
         console.log(`NoBodyVariant: ${item.name} : ${variant.variation}`);
       }
     });
+    item.bodyTitle = translation.variantBodyTitle[item.variants[0].internalId];
+    if (!translation.variantBodyTitle[item.variants[0].internalId]) {
+      console.log(`NoBodyVariantTitle: ${item.name}`);
+    }
     item.bodyVariants = bodyVariants;
     item.bodyCustomize = true;
     if (item.diy || item.catalog === "For sale" || item.catalog === true) {
@@ -348,7 +363,6 @@ allItems.forEach(item => {
   delete item["numOfTiers"];
   delete item["outdoor"];
   delete item["paneType"];
-  delete item["patternTitle"];
   delete item["primaryShape"];
   delete item["recipesToUnlock"];
   delete item["seasonalAvailability"];

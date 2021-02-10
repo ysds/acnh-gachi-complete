@@ -1,0 +1,337 @@
+label;English;English (Europe);German;Spanish;Spanish (US);French;French (US);Italian;Dutch;Chinese;Chinese (Traditional);Japanese;Korean;Russian
+Bromide_06426;Frame;Frame;Rahmen;Marco;Marco;Cadre;Cadre;Tipo;Lijst;边框;邊框;フレーム;프레임;Рамка
+ChangeStick_07588;Mushroom type;Mushroom type;Pilzart;Hongo;Hongo;Type de champignon;Type de champignon;Tipo di fungo;Paddenstoelsoort;蘑菇品种;蘑菇品種;キノコの品種;버섯 품종;Тип гриба
+DoorDeco_04377;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+DoorDeco_04751;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+DoorDeco_04752;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+DoorDeco_04764;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+DoorDeco_05310;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+DoorDeco_05716;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+DoorDeco_05717;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+DoorDeco_05718;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+DoorDeco_05719;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+FishingRod_02377;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+FishingRod_08471;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+FishingRod_08472;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+FishingRod_08473;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_00080;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_00083;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_00088;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_00131;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_00144;Cover design;Cover design;Design;Diseño de la tapa;Diseño de la tapa;Type de plaque;Type de plaque;Design del tombino;Dekselontwerp;盖子设计;蓋子設計;フタのデザイン;뚜껑 디자인;Крышка
+Ftr_00331;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_00333;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_00383;Body;Body;Korpus;Color;Color;Modèle;Modèle;Modello;Body;主体;主體;ボディ;몸체;Корпус
+Ftr_00530;Season;Season;Jahreszeit;Diseño;Diseño;Saison;Saison;Stagione;Seizoen;季节;季節;季節;계절;Время года
+Ftr_00531;Season;Season;Jahreszeit;Diseño;Diseño;Saison;Saison;Stagione;Seizoen;季节;季節;季節;계절;Время года
+Ftr_00532;Season;Season;Jahreszeit;Diseño;Diseño;Saison;Saison;Stagione;Seizoen;季节;季節;季節;계절;Время года
+Ftr_00533;Season;Season;Jahreszeit;Diseño;Diseño;Saison;Saison;Stagione;Seizoen;季节;季節;季節;계절;Время года
+Ftr_00669;Body;Body;Korpus;Color;Color;Modèle;Modèle;Modello;Body;主体;主體;ボディ;몸체;Корпус
+Ftr_00676;Stone;Stone;Steinart;Piedra;Piedra;Type de pierre;Type de pierre;Pietra;Steensoort;石材;石材;石材;석재;Камень
+Ftr_00677;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_00682;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_00685;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_00688;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_00690;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_00710;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_00739;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_00805;Mushroom type;Mushroom type;Pilzart;Hongo;Hongo;Type de champignon;Type de champignon;Tipo di fungo;Paddenstoelsoort;蘑菇品种;蘑菇品種;キノコの品種;버섯 품종;Тип гриба
+Ftr_00808;Mushroom type;Mushroom type;Pilzart;Hongo;Hongo;Type de champignon;Type de champignon;Tipo di fungo;Paddenstoelsoort;蘑菇品种;蘑菇品種;キノコの品種;버섯 품종;Тип гриба
+Ftr_00865;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_00891;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_01032;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_01058;Body;Body;Korpus;Color;Color;Modèle;Modèle;Modello;Body;主体;主體;ボディ;몸체;Корпус
+Ftr_01103;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_01111;Stone;Stone;Steinart;Piedra;Piedra;Type de pierre;Type de pierre;Pietra;Steensoort;石材;石材;石材;석재;Камень
+Ftr_01157;Brick color;Brick color;Steinfarbe;Ladrillo;Ladrillo;Couleur de la brique;Coloris des briques;Colore dei mattoni;Steenkleur;砖块颜色;磚塊顏色;レンガの色;벽돌 색상;Цвет кирпича
+Ftr_01170;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_01189;Tire color;Tire color;Reifenfarbe;Neumático;Neumático;Couleur des pneus;Couleur des pneus;Tipo pneumatico;Bandenkleur;轮胎颜色;輪胎顏色;タイヤの色;타이어 색상;Цвет шин
+Ftr_01241;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_01263;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_01504;Fabric;Fabric;Stoff;Tela;Tela;Type de fourrure;Type de fourrure;Tessuto;Stof;面料;布料;生地;옷감;Материал
+Ftr_01509;Coating;Coating;Lackierung;Color;Color;Laquage;Laquage;Laccatura;Lak;涂装;塗裝;塗装;코팅;Покрытие
+Ftr_01557;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_01558;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_01559;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_01561;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_01565;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_01625;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_01626;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_01627;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_01652;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_01753;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_01759;Genre;Genre;Genre;Género;Género;Genre;Genre;Genere;Genre;书籍类型;書本類型;本のジャンル;책의 장르;Жанр
+Ftr_01797;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_01799;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_01823;Bag color;Bag color;Taschenfarbe;Color de las bolsas;Color de las bolsas;Couleur des sacs;Couleur des sacs;Colore dei sacchi;Zakkleur;袋子颜色;袋子顏色;袋の色;비닐 색상;Цвет мешков
+Ftr_01913;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_02319;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_02326;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore principale;Hoofdkleur;整体颜色;整體顏色;本体色;본체 색상;Цвет корпуса
+Ftr_02329;Tire color;Tire color;Reifenfarbe;Neumático;Neumático;Couleur des pneus;Couleur des pneus;Tipo pneumatico;Bandenkleur;轮胎颜色;輪胎顏色;タイヤの色;타이어 색상;Цвет шин
+Ftr_02553;Coating;Coating;Lackierung;Color;Color;Laquage;Laquage;Laccatura;Lak;涂装;塗裝;塗装;코팅;Покрытие
+Ftr_02558;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_02559;Design;Design;Design;Diseño;Diseño;Style;Style;Modello;Ontwerp;外型;外型;模様;디자인;Дизайн
+Ftr_02560;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_02586;Chair back and seat;Chair back and seat;Rückenlehne & Sitzfläche;Asiento y respaldo;Asiento y respaldo;Siège et dossier;Siège et dossier;Modello;Leuning en zitting;靠背＆椅面;靠背＆坐墊;背もたれ＆座面;나무 색상;Спинка и сидение стула
+Ftr_02596;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_02605;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03122;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03191;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03193;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03194;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03195;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03196;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03200;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03205;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_03206;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_03208;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_03270;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03271;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03275;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03340;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03396;Tabletop;Tabletop;Tischplatte;Tablero;Tablero;Plateau de table;Plateau de table;Piano del tavolo;Tafelblad;桌面;桌面;天板;상판;Столешница
+Ftr_03406;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03407;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03436;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03438;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03439;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03445;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_03446;Stone;Stone;Steinart;Piedra;Piedra;Type de pierre;Type de pierre;Pietra;Steensoort;石材;石材;石材;석재;Камень
+Ftr_03449;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03490;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_03497;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03498;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03499;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03500;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03501;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03502;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03503;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03504;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03505;Illumination;Illumination;Beleuchtung;Iluminación;Iluminación;Illumination;Coloris;Illuminazione;Verlichting;灯饰;燈飾;イルミネーション;일루미네이션;Подсветка
+Ftr_03509;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03551;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_03553;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_03554;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_03556;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_03557;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_03558;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_03559;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_03560;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_03561;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_03562;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_03563;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_03581;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03587;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03588;Navigation;Navigation;Wegweiserart;Lugar indicado;Lugar indicado;Lieu indiqué;Lieu indiqué;Indicazione;Wegwijzers;指示牌;指示牌;案内物;안내판;Направление
+Ftr_03591;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03592;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03593;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03594;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03617;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03618;Finish;Finish;Oberfläche;Barniz;Barniz;Couleur du bois;Couleur du bois;Rifinitura;Vernis;完工;完成;仕上げ;마무리;Лак
+Ftr_03658;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_03675;Hay condition;Hay condition;Strohzustand;Heno;Heno;État de la paille;État de la paille;Paglia;Hooidroogte;草的干燥程度;草的乾燥程度;草の干し具合;풀의 건조 상태;Цвет сена
+Ftr_03683;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_03692;Sign;Sign;Schildart;Tablón;Letrero;Type;Type;Tipo di cartello;Bordtype;告示牌;招牌;看板;간판;Вывеска
+Ftr_03699;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_03773;Frame;Frame;Rahmen;Marco;Marco;Cadre;Cadre;Tipo;Lijst;边框;邊框;フレーム;프레임;Рамка
+Ftr_03775;Frame;Frame;Rahmen;Marco;Marco;Cadre;Cadre;Tipo;Lijst;边框;邊框;フレーム;프레임;Рамка
+Ftr_03776;Brick color;Brick color;Steinfarbe;Ladrillo;Ladrillo;Couleur de la brique;Coloris des briques;Colore dei mattoni;Steenkleur;砖块颜色;磚塊顏色;レンガの色;벽돌 색상;Цвет кирпича
+Ftr_03785;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_03805;Mushroom type;Mushroom type;Pilzart;Hongo;Hongo;Type de champignon;Type de champignon;Tipo di fungo;Paddenstoelsoort;蘑菇品种;蘑菇品種;キノコの品種;버섯 품종;Тип гриба
+Ftr_03806;Mushroom type;Mushroom type;Pilzart;Hongo;Hongo;Type de champignon;Type de champignon;Tipo di fungo;Paddenstoelsoort;蘑菇品种;蘑菇品種;キノコの品種;버섯 품종;Тип гриба
+Ftr_03808;Mushroom type;Mushroom type;Pilzart;Hongo;Hongo;Type de champignon;Type de champignon;Tipo di fungo;Paddenstoelsoort;蘑菇品种;蘑菇品種;キノコの品種;버섯 품종;Тип гриба
+Ftr_03819;Barrel color;Barrel color;Fassfarbe;Barril;Barril;Couleur du baril;Couleur du baril;Colore del fusto;Tonkleur;汽油桶颜色;汽油桶顏色;ドラム缶の色;드럼통 색상;Цвет бака
+Ftr_03943;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_03966;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_03975;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_03976;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_03977;Shell color;Shell color;Muschelfarbe;Color;Color;Couleur des coquillages;Couleur des coquillages;Colore della conchiglia;Schelpenkleur;贝壳颜色;貝殼顏色;貝がらの色;조개껍데기 색상;Цвет раковины
+Ftr_03978;Shell color;Shell color;Muschelfarbe;Color;Color;Couleur des coquillages;Couleur des coquillages;Colore della conchiglia;Schelpenkleur;贝壳颜色;貝殼顏色;貝がらの色;조개껍데기 색상;Цвет раковины
+Ftr_03979;Shell color;Shell color;Muschelfarbe;Color;Color;Couleur des coquillages;Couleur des coquillages;Colore della conchiglia;Schelpenkleur;贝壳颜色;貝殼顏色;貝がらの色;조개껍데기 색상;Цвет раковины
+Ftr_03980;Shell color;Shell color;Muschelfarbe;Color;Color;Couleur des coquillages;Couleur des coquillages;Colore della conchiglia;Schelpenkleur;贝壳颜色;貝殼顏色;貝がらの色;조개껍데기 색상;Цвет раковины
+Ftr_03982;Shell color;Shell color;Muschelfarbe;Color;Color;Couleur des coquillages;Couleur des coquillages;Colore della conchiglia;Schelpenkleur;贝壳颜色;貝殼顏色;貝がらの色;조개껍데기 색상;Цвет раковины
+Ftr_03983;Shell color;Shell color;Muschelfarbe;Color;Color;Couleur des coquillages;Couleur des coquillages;Colore della conchiglia;Schelpenkleur;贝壳颜色;貝殼顏色;貝がらの色;조개껍데기 색상;Цвет раковины
+Ftr_03984;Shell color;Shell color;Muschelfarbe;Color;Color;Couleur des coquillages;Couleur des coquillages;Colore della conchiglia;Schelpenkleur;贝壳颜色;貝殼顏色;貝がらの色;조개껍데기 색상;Цвет раковины
+Ftr_03991;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_03992;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_04011;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_04012;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_04025;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_04027;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_04035;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04036;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04037;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04038;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04039;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04040;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04041;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04042;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04043;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04044;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04066;Light color;Light color;Beleuchtung;Color de las luces;Color de las luces;Lumière;Couleur de la lumière;Colore della luce;Lichtkleur;灯光颜色;燈光顏色;ライトカラー;라이트 컬러;Цвет подсветки
+Ftr_04067;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_04073;Design;Design;Design;Diseño;Diseño;Style;Style;Modello;Ontwerp;外型;外型;模様;디자인;Дизайн
+Ftr_04074;Light color;Light color;Beleuchtung;Color de las luces;Color de las luces;Lumière;Couleur de la lumière;Colore della luce;Lichtkleur;灯光颜色;燈光顏色;ライトカラー;라이트 컬러;Цвет подсветки
+Ftr_04075;Frame;Frame;Rahmen;Marco;Marco;Cadre;Cadre;Tipo;Lijst;边框;邊框;フレーム;프레임;Рамка
+Ftr_04078;Plate color;Plate color;Farbe der Gewichte;Color de las pesas;Color de las pesas;Couleur des poids;Couleur des poids;Colore dei pesi;Gewichtkleur;铁饼颜色;鐵餅顏色;プレートカラー;플레이트 컬러;Цвет блинов
+Ftr_04083;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_04084;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_04086;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_04087;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_04088;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_04089;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_04090;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_04092;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_04093;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_04104;Dish;Dish;Pfanneninhalt;Contenido;Contenido;Contenu;Contenu;Contenuto;Gerecht;菜式;菜式;献立;메뉴;Блюдо
+Ftr_04108;Light color;Light color;Beleuchtung;Color de las luces;Color de las luces;Lumière;Couleur de la lumière;Colore della luce;Lichtkleur;灯光颜色;燈光顏色;ライトカラー;라이트 컬러;Цвет подсветки
+Ftr_04124;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_04125;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_04127;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_04128;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_04131;Light color;Light color;Beleuchtung;Color de las luces;Color de las luces;Lumière;Couleur de la lumière;Colore della luce;Lichtkleur;灯光颜色;燈光顏色;ライトカラー;라이트 컬러;Цвет подсветки
+Ftr_04134;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_04279;Flavor;Flavor;Geschmacksrichtung;Sabor;Sabor;Goût;Goût;Gusto;Smaak;口味;口味;フレーバー;맛;Вкус
+Ftr_04309;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_04546;Fruit type;Fruit type;Fruchtart;Fruta;Fruta;Type de fruit;Type de fruit;Tipo di frutta;Fruitsoort;水果品种;水果品種;フルーツの品種;과일 품종;Тип фрукта
+Ftr_04708;Mushroom type;Mushroom type;Pilzart;Hongo;Hongo;Type de champignon;Type de champignon;Tipo di fungo;Paddenstoelsoort;蘑菇品种;蘑菇品種;キノコの品種;버섯 품종;Тип гриба
+Ftr_05150;Shell color;Shell color;Muschelfarbe;Color;Color;Couleur des coquillages;Couleur des coquillages;Colore della conchiglia;Schelpenkleur;贝壳颜色;貝殼顏色;貝がらの色;조개껍데기 색상;Цвет раковины
+Ftr_05337;Knit-cap color;Knit-cap color;Mützenfarbe;Gorro;Gorro;Couleur du bonnet;Couleur de la tuque;Colore del berretto;Mutskleur;针织帽颜色;針織帽顏色;ニット帽の色;니트 모자 색상;Цвет вязаной шапки
+Ftr_05543;Block color;Block color;Blockfarbe;Color de los bloques;Color de los bloques;Couleur des blocs;Couleur des blocs;Colore dei blocchi;Blokkenkleur;积木颜色;積木顏色;つみきの色;나무블록 색상;Цвет блоков
+Ftr_05635;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_05636;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_05931;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_05972;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_05973;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_05976;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_05978;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_06075;Nut color;Nut color;Baumfruchtfarbe;Color;Color;Couleur des fruits;Couleur des fruits;Colore;Kleur;坚果颜色;堅果顏色;きのみの色;나무 열매 색상;Цвет ореха
+Ftr_06078;Nut color;Nut color;Baumfruchtfarbe;Color;Color;Couleur des fruits;Couleur des fruits;Colore;Kleur;坚果颜色;堅果顏色;きのみの色;나무 열매 색상;Цвет ореха
+Ftr_06079;Nut color;Nut color;Baumfruchtfarbe;Color;Color;Couleur des fruits;Couleur des fruits;Colore;Kleur;坚果颜色;堅果顏色;きのみの色;나무 열매 색상;Цвет ореха
+Ftr_06080;Nut color;Nut color;Baumfruchtfarbe;Color;Color;Couleur des fruits;Couleur des fruits;Colore;Kleur;坚果颜色;堅果顏色;きのみの色;나무 열매 색상;Цвет ореха
+Ftr_06081;Nut color;Nut color;Baumfruchtfarbe;Color;Color;Couleur des fruits;Couleur des fruits;Colore;Kleur;坚果颜色;堅果顏色;きのみの色;나무 열매 색상;Цвет ореха
+Ftr_06818;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_06826;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_06827;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_06829;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_06831;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_06832;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_07045;Can;Can;Dosenart;Lata;Lata;Type de conserve;Type de conserve;Latta;Blik;罐头;罐頭;缶;캔;Жестянка
+Ftr_07132;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_07133;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_07134;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_07137;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_07138;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_07139;Art;Art;Motiv;Motivo;Motivo;Titre;Titre;Soggetto;Onderwerp;作品;作品;作品;작품;Мотив
+Ftr_07140;Cover pattern;Cover pattern;Musterung;Diseño;Diseño;Motif;Motif;Motivo;Patroon;套上图案;套上圖案;カバーの柄;커버 무늬;Узор
+Ftr_07141;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_07143;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_07144;Cover pattern;Cover pattern;Musterung;Diseño;Diseño;Motif;Motif;Motivo;Patroon;套上图案;套上圖案;カバーの柄;커버 무늬;Узор
+Ftr_07145;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_07146;Decorations;Decorations;Dekoration;Decoración;Decoración;Déco;Déco;Decorazioni;Decoratie;装饰;裝飾;デコレーション;장식;Украшения
+Ftr_07147;Name;Name;Name;Nombre;Nombre;Nom;Nom;Nome;Naam;名字;名字;名前;이름;Прозвище
+Ftr_07159;Cardboard;Cardboard;Karton;Cartón;Cartón;Carton;Carton;Tipo di cartone;Karton;纸箱;紙箱;ダンボール;종이 박스;Картон
+Ftr_07160;Cardboard;Cardboard;Karton;Cartón;Cartón;Carton;Carton;Tipo di cartone;Karton;纸箱;紙箱;ダンボール;종이 박스;Картон
+Ftr_07161;Cardboard;Cardboard;Karton;Cartón;Cartón;Carton;Carton;Tipo di cartone;Karton;纸箱;紙箱;ダンボール;종이 박스;Картон
+Ftr_07163;Cardboard;Cardboard;Karton;Cartón;Cartón;Carton;Carton;Tipo di cartone;Karton;纸箱;紙箱;ダンボール;종이 박스;Картон
+Ftr_07230;Flower color;Flower color;Blumenfarbe;Color;Color;Couleur de la fleur;Couleur de la fleur;Colore del fiore;Bloemenkleur;花朵颜色;花朵顏色;花の色;꽃 색상;Цвет цветов
+Ftr_07231;Flower color;Flower color;Blumenfarbe;Color;Color;Couleur de la fleur;Couleur de la fleur;Colore del fiore;Bloemenkleur;花朵颜色;花朵顏色;花の色;꽃 색상;Цвет цветов
+Ftr_07232;Flower color;Flower color;Blumenfarbe;Color;Color;Couleur de la fleur;Couleur de la fleur;Colore del fiore;Bloemenkleur;花朵颜色;花朵顏色;花の色;꽃 색상;Цвет цветов
+Ftr_07233;Flower color;Flower color;Blumenfarbe;Color;Color;Couleur de la fleur;Couleur de la fleur;Colore del fiore;Bloemenkleur;花朵颜色;花朵顏色;花の色;꽃 색상;Цвет цветов
+Ftr_07234;Flower color;Flower color;Blumenfarbe;Color;Color;Couleur de la fleur;Couleur de la fleur;Colore del fiore;Bloemenkleur;花朵颜色;花朵顏色;花の色;꽃 색상;Цвет цветов
+Ftr_07235;Flower color;Flower color;Blumenfarbe;Color;Color;Couleur de la fleur;Couleur de la fleur;Colore del fiore;Bloemenkleur;花朵颜色;花朵顏色;花の色;꽃 색상;Цвет цветов
+Ftr_07236;Flower color;Flower color;Blumenfarbe;Color;Color;Couleur de la fleur;Couleur de la fleur;Colore del fiore;Bloemenkleur;花朵颜色;花朵顏色;花の色;꽃 색상;Цвет цветов
+Ftr_07237;Flower color;Flower color;Blumenfarbe;Color;Color;Couleur de la fleur;Couleur de la fleur;Colore del fiore;Bloemenkleur;花朵颜色;花朵顏色;花の色;꽃 색상;Цвет цветов
+Ftr_07238;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_07247;Roof color;Roof color;Dachfarbe;Tejado;Tejado;Couleur du toit;Couleur du toit;Colore del tetto;Dakkleur;屋顶颜色;屋頂顏色;屋根の色;지붕 색상;Цвет крыши
+Ftr_07253;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_07258;Creation;Creation;Kreation;Diseño;Diseño;Création;Création;Creazione;Creatie;作品;作品;作品;작품;Творение
+Ftr_07259;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_07281;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_07284;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_07317;Stone;Stone;Steinart;Piedra;Piedra;Type de pierre;Type de pierre;Pietra;Steensoort;石材;石材;石材;석재;Камень
+Ftr_07390;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_07393;Stone;Stone;Steinart;Piedra;Piedra;Type de pierre;Type de pierre;Pietra;Steensoort;石材;石材;石材;석재;Камень
+Ftr_07454;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_07527;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_07535;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_07788;Food;Food;Essen;Comida;Comida;Nourriture;Nourriture;Cibo;Snack;烧烤;燒烤材料;焼くもの;음식;Еда
+Ftr_07795;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_07805;Lumber type;Lumber type;Holzart;Madera;Madera;Type de bois;Type de bois;Tipo di legno;Houtkleur;树木品种;樹木品種;樹種;나무 품종;Тип древесины
+Ftr_07867;Navigation;Navigation;Wegweiserart;Lugar indicado;Lugar indicado;Lieu indiqué;Lieu indiqué;Indicazione;Wegwijzers;指示牌;指示牌;案内物;안내판;Направление
+Ftr_08031;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_08419;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_08826;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_09642;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_10742;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_10743;Bamboo;Bamboo;Bambusart;Bambú;Bambú;Type de bambou;Type de bambou;Tipo di bambù;Bamboe;竹子种类;竹子種類;竹の種類;대나무 품종;Бамбук
+Ftr_11941;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_11942;Paint color;Paint color;Farbe;Color de la pintura;Color de la pintura;Coloris;Coloris;Modello;Lak;油漆;油漆;ペイント;페인트;Цвет краски
+Ftr_11943;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_12140;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_12332;Tabletop;Tabletop;Tischplatte;Tablero;Tablero;Plateau de table;Plateau de table;Piano del tavolo;Tafelblad;桌面;桌面;天板;상판;Столешница
+Ftr_12372;Paint;Paint;Lackierung;Lacado;Lacado;Motif;Motif;Verniciatura;Lak;油漆;油漆;ペイント;페인트;Цвет
+Ftr_12373;Paint;Paint;Lackierung;Lacado;Lacado;Motif;Motif;Verniciatura;Lak;油漆;油漆;ペイント;페인트;Цвет
+Ftr_12401;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12402;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12403;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12404;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12405;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12406;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12407;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12408;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12409;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_12410;Easel;Easel;Staffelei;Caballete;Caballete;Chevalet;Chevalet;Cavalletto;Standaard;画架;畫架;イーゼル;이젤;Мольберт
+Ftr_12411;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_12543;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con;Joy-Con
+Ftr_12741;Map center;Map center;Kartenzentrierung;Centro del mapa;Centro del mapa;Centre de la carte;Centre de la carte;Centro del planisfero;Wereldkaartmiddelpunt;地图的中心;地圖中心;地図の中心;지도 중앙;Центр карты
+Ftr_12949;Pumpkin color;Pumpkin color;Kürbisfarbe;Color de la calabaza;Color de la calabaza;Couleur de citrouille;Couleur de citrouille;Colore della zucca;Pompoenkleur;南瓜的颜色;南瓜顏色;かぼちゃの色;호박 색상;Цвет тыквы
+Ftr_12951;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_13222;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_13223;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Ftr_13242;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_13243;Fabric;Fabric;Stoff;Tela;Tela;Type de fourrure;Type de fourrure;Tessuto;Stof;面料;布料;生地;옷감;Материал
+Ftr_13244;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13245;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13246;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13247;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_13249;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13250;Race-car colors;Race-car colors;Autofarben;Color de los coches;Color de los autos;Couleur des bolides;Couleur des bolides;Colore delle macchinine;Kleur van de raceauto's;模型车颜色;模型車顏色;ミニカーの色;미니카 색상;Гоночная расцветка
+Ftr_13251;Body color;Body color;Hauptfarbe;Color principal;Color principal;Couleur principale;Couleur principale;Colore;Kleur;主体颜色;主體顏色;ボディカラー;몸체 컬러;Цвет корпуса
+Ftr_13252;Roof color;Roof color;Dachfarbe;Tejado;Tejado;Couleur du toit;Couleur du toit;Colore del tetto;Dakkleur;屋顶颜色;屋頂顏色;屋根の色;지붕 색상;Цвет крыши
+Ftr_13447;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13448;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13449;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13450;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13453;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13488;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13767;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13770;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13772;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13773;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13774;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13775;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13776;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13777;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13778;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Ftr_13818;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13819;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13820;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_13930;Design;Design;Design;Diseño;Diseño;Modèle;Modèle;Design;Ontwerp;设计;設計;デザイン;디자인;Рисунок
+Ftr_14029;Variation;Variation;Variante;Variación;Variación;Variation;Variation;Colore;Variant;种类;種類;バリエーション;변형;Вариант
+Net_05784;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Net_08176;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Net_08177;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Net_08178;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Shovel_02099;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Shovel_08575;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Shovel_08576;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Shovel_08577;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Slingshot_02822;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Slingshot_08579;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Slingshot_08580;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Watering_02379;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Watering_08534;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Watering_08535;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет
+Watering_08536;Color;Color;Farbe;Color;Color;Couleur;Couleur;Colore;Kleur;颜色;顏色;カラー;컬러;Цвет

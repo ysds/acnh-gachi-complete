@@ -14,7 +14,7 @@
     </div>
     <div class="info" v-if="modalItem.customize">
       <div class="info-label info-5">
-        リメイク
+        {{ modalItem.bodyTitle }}
       </div>
       <div class="info-text">
         {{ modalItem.customizeVariants.join("、") }}
@@ -22,7 +22,7 @@
     </div>
     <div class="info" v-if="modalItem.bodyCustomize">
       <div class="info-label info-5">
-        リメイク<template v-if="modalItem.patternCustomize">1</template>
+        {{ modalItem.bodyTitle }}
       </div>
       <div class="info-text">
         {{ modalItem.bodyVariants.join("、") }}
@@ -30,7 +30,7 @@
     </div>
     <div class="info" v-if="modalItem.patternCustomize">
       <div class="info-label info-5">
-        リメイク<template v-if="modalItem.bodyCustomize">2</template>
+        {{ modalItem.patternTitle }}
       </div>
       <div class="info-text">
         {{ modalItem.patternVariants.join("、") }}

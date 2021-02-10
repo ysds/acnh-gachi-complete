@@ -21,7 +21,7 @@ const normalizeText = function(string) {
   return result;
 };
 
-// たぬきマイレージ：ふりがなソート用の正規化
+// たぬきマイレージ：よみがなソート用の正規化
 const normalizeYomigana = function(item, islandName) {
   let yomigana = item.yomigana;
   // 島名を置換

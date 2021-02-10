@@ -74,26 +74,26 @@ allItems.forEach(item => {
         console.log(`NoCustomizeVariant: ${item.name} : ${variant.variation}`);
       }
     });
+    item.customizeVariants = customizeVariants;
     item.bodyTitle = translation.variantBodyTitle[item.variants[0].internalId];
     if (!translation.variantBodyTitle[item.variants[0].internalId]) {
       console.log(`NoCustomizeVariantTitle: ${item.name}`);
     }
-    item.customizeVariants = customizeVariants;
     item.variants.length = 1;
   }
 
   // Photos の 日本語リメイク名配列を追加とリメイクバリエーションの削除 (customizeVariants)
   if (item.sourceSheet === "Photos") {
-    item.customizeVariants = [
-      "ナチュラルウッド",
-      "ダークウッド",
-      "パステル",
-      "ホワイト",
-      "ポップ",
-      "カラフル",
-      "シルバー",
-      "ゴールド"
-    ];
+    // しゃしんはinternalIdの最小値6426(さくらじま)しか翻訳データが無い
+    const photoInternalId = "6426";
+    const customizeVariants = [];
+    for (let i = 0; i < item.variants.length; i++) {
+      customizeVariants.push(
+        translation.variantBody[photoInternalId + "_" + i]
+      );
+    }
+    item.customizeVariants = customizeVariants;
+    item.bodyTitle = translation.variantBodyTitle[photoInternalId];
     item.variants.length = 1;
   }
 
@@ -131,11 +131,11 @@ allItems.forEach(item => {
         console.log(`NoBodyVariant: ${item.name} : ${variant.variation}`);
       }
     });
+    item.bodyVariants = bodyVariants;
     item.bodyTitle = translation.variantBodyTitle[item.variants[0].internalId];
     if (!translation.variantBodyTitle[item.variants[0].internalId]) {
       console.log(`NoBodyVariantTitle: ${item.name}`);
     }
-    item.bodyVariants = bodyVariants;
     item.bodyCustomize = true;
     if (item.diy || item.catalog === "For sale" || item.catalog === true) {
       item.variants.length = 1;

@@ -21,6 +21,16 @@ const normalizeText = function(string) {
   return result;
 };
 
+// たぬきマイレージ：ふりがなソート用の正規化
+const normalizeYomigana = function(item, islandName) {
+  let yomigana = item.yomigana;
+  // 島名を置換
+  if (islandName && hasIslandName(item)) {
+    yomigana = yomigana.replace("〓", islandName);
+  }
+  return normalizeText(yomigana);
+};
+
 // アイテムが「低木」であるかの判定
 const isBush = function(item) {
   return (
@@ -50,6 +60,13 @@ const filterOtherItem = function(item) {
     // Otherシート：花/低木のみコンプ率に含める
     return isFlower(item) || isBush(item);
   }
+};
+
+// アイテム名が島名置換対象であるかの判定
+const hasIslandName = function(item) {
+  return (
+    item.name === "(island name) Icons" || item.name === "(island name) Miles!"
+  );
 };
 
 const calcTotalLength = function(items) {
@@ -92,7 +109,15 @@ export function filterItems(args) {
     args
   );
 
-  let { collected, myCollected, nav, filter, isSearchMode, searchText } = args;
+  let {
+    collected,
+    myCollected,
+    nav,
+    filter,
+    isSearchMode,
+    searchText,
+    islandName
+  } = args;
 
   //
   // 検索
@@ -600,8 +625,8 @@ export function filterItems(args) {
 
     if (!isSearchMode && nav === "achievements" && filter.order !== "id") {
       items.sort(function(itemA, itemB) {
-        const ca = normalizeText(itemA.yomigana);
-        const cb = normalizeText(itemB.yomigana);
+        const ca = normalizeYomigana(itemA, islandName);
+        const cb = normalizeYomigana(itemB, islandName);
         if (ca > cb) {
           return 1;
         }
@@ -685,29 +710,11 @@ export function getNavText(nav) {
   return navText;
 }
 
-export function replaceIslandName(islandName) {
-  // たぬきマイレージの島名を置換する
-  itemsJson
-    .filter(item => item.sourceSheet === "Achievements")
-    .filter(
-      item =>
-        item.name === "(island name) Icons" ||
-        item.name === "(island name) Miles!"
-    )
-    .forEach(item => {
-      // アイテム表示名
-      if (!item.originalDisplayName) {
-        item.originalDisplayName = item.displayName;
-      }
-      item.displayName = islandName
-        ? item.originalDisplayName.replace("○○", islandName)
-        : item.originalDisplayName;
-      // よみがな
-      if (!item.originalYomigana) {
-        item.originalYomigana = item.yomigana;
-      }
-      item.yomigana = islandName
-        ? item.originalYomigana.replace("〓", islandName)
-        : item.originalYomigana;
-    });
+export function toDisplayItemName(item, islandName) {
+  // 島名を置換
+  if (islandName && hasIslandName(item)) {
+    return item.displayName.replace("○○", islandName);
+  } else {
+    return item.displayName;
+  }
 }

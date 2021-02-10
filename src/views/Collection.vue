@@ -67,6 +67,7 @@
         :isSearchMode="isSearchMode"
         :key="item.name + item.sourceSheet"
         :renderStartDate="renderStartDate"
+        :islandName="islandName"
         @change="onChangeItemCheck"
         @showModal="onShowModal"
       />
@@ -97,7 +98,7 @@
     </div>
     <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
-        <template slot="header">{{ modalItem.displayName }}</template>
+        <template slot="header">{{ modalItemName }}</template>
         <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
       </template>
     </Modal>
@@ -113,7 +114,7 @@ import {
   navs,
   totalLength,
   collectedLength,
-  replaceIslandName
+  toDisplayItemName
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
 
@@ -188,6 +189,9 @@ export default {
     islandName() {
       return this.$store.getters.islandName;
     },
+    modalItemName() {
+      return toDisplayItemName(this.modalItem, this.islandName);
+    },
     isVersion() {
       if (this.activeNav) {
         if (this.activeNav.indexOf("versions") !== -1) return true;
@@ -221,8 +225,6 @@ export default {
       this.onChangeNav();
     },
     islandName() {
-      // アイテムデータの島名を書き換える
-      replaceIslandName(this.islandName);
       // たぬきマイレージのみ島名反映後にソートさせたいため表示更新
       if (
         this.activeNav === "achievements" &&
@@ -235,8 +237,6 @@ export default {
   },
   async mounted() {
     await this.initNavFilter();
-    // アイテムデータの島名を初期化(シェア画面から自画面遷移時の初期化)
-    replaceIslandName(this.islandName);
     this.updateShowItems();
   },
   methods: {
@@ -415,7 +415,8 @@ export default {
         nav: this.activeNav,
         filter: this.filter,
         isSearchMode: this.isSearchMode,
-        searchText: this.searchText
+        searchText: this.searchText,
+        islandName: this.islandName
       });
 
       // 表示対象バリエーションのインデックスを保持する

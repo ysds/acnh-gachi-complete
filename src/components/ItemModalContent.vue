@@ -187,24 +187,31 @@ export default {
         let image = "";
         if (this.modalItem.variants) {
           image =
-            this.modalItem.variants[0].image ||
-            this.modalItem.variants[0].storageImage ||
-            this.modalItem.variants[0].albumImage ||
-            this.modalItem.variants[0].inventoryImage;
+            this.modalItem.variants[
+              // DIY家具、しゃしん、道具はバリエーションが1に固定されており、
+              // variants.lengthを超えてエラーになるためMath.min()で対策
+              Math.min(
+                this.bodyVariantIndex,
+                this.modalItem.variants.length - 1
+              )
+            ].image ||
+            this.modalItem.variants[this.bodyVariantIndex].storageImage ||
+            this.modalItem.variants[this.bodyVariantIndex].albumImage ||
+            this.modalItem.variants[this.bodyVariantIndex].inventoryImage;
+          if (this.bodyVariantIndex > 0 || this.patternVariantIndex > 0) {
+            image = image.replace(
+              /(.+Remake)_\d_\d\.png$/,
+              "$1_" +
+                this.bodyVariantIndex +
+                "_" +
+                this.patternVariantIndex +
+                ".png"
+            );
+          }
         } else if (this.modalItem.sourceSheet === "Recipes") {
           image = this.modalItem.image;
         } else if (this.modalItem.iconImage) {
           image = this.modalItem.iconImage;
-        }
-        if (this.bodyVariantIndex > 0 || this.patternVariantIndex > 0) {
-          image = image.replace(
-            /(.+)_\d_\d\.png$/,
-            "$1_" +
-              this.bodyVariantIndex +
-              "_" +
-              this.patternVariantIndex +
-              ".png"
-          );
         }
         return "https://acnhcdn.com/latest/" + image;
       } else {

@@ -50,7 +50,7 @@
           class="t"
           v-for="(index, i) in filteredCheckIndexes"
           :key="item.variants[index].uniqueEntryId"
-          v-long-press
+          v-long-press="index"
         >
           <CheckForTile
             :name="i === 0 ? itemName : ''"
@@ -115,10 +115,18 @@ export default {
   directives: {
     "long-press": {
       bind: function(el, binding, vnode) {
-        el.addEventListener("long-press", vnode.context.showModal);
+        const listener = e => {
+          vnode.context.showModal(e, binding.value);
+        };
+        vnode.context.longPressBound[binding.value] = listener;
+        el.addEventListener("long-press", listener);
       },
       unbind: function(el, binding, vnode) {
-        el.removeEventListener("long-press", vnode.context.showModal);
+        el.removeEventListener(
+          "long-press",
+          vnode.context.longPressBound[binding.value]
+        );
+        delete vnode.context.longPressBound[binding.value];
       }
     }
   },
@@ -126,7 +134,8 @@ export default {
     return {
       checks: {},
       myChecks: {},
-      filteredCheckIndexes: null
+      filteredCheckIndexes: null,
+      longPressBound: {}
     };
   },
   computed: {
@@ -303,9 +312,9 @@ export default {
         this.updateCollected();
       }
     },
-    showModal: function(event) {
+    showModal: function(event, index) {
       event.preventDefault();
-      this.$emit("showModal", this.item);
+      this.$emit("showModal", this.item, index ? parseInt(index, 10) : 0);
     },
     getChecks(index) {
       if (this.filter.collectedFilter === "5") {

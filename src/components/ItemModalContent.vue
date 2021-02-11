@@ -1,15 +1,35 @@
 <template>
   <div>
-    <div class="info" v-if="modalItem.buy">
-      <div class="info-label info-1">買値</div>
-      <div class="info-text">
-        {{ modalItem.buy === -1 ? "非売品" : modalItem.buy }}
+    <div style="display: flex;">
+      <div>
+        <div class="info" v-if="modalItem.buy || modalItem.sell">
+          <div class="info-label info-1">買値</div>
+          <div class="info-text">
+            {{
+              modalItem.buy
+                ? modalItem.buy === -1
+                  ? "非売品"
+                  : modalItem.buy
+                : "－"
+            }}
+          </div>
+        </div>
+        <div class="info" v-if="modalItem.buy || modalItem.sell">
+          <div class="info-label info-2">売値</div>
+          <div class="info-text">
+            {{ modalItem.sell ? modalItem.sell : "－" }}
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="info" v-if="modalItem.sell">
-      <div class="info-label info-2">売値</div>
-      <div class="info-text">
-        {{ modalItem.sell }}
+      <div v-if="bodyVariantImage" id="info-image">
+        <div style="position:relative">
+          <img v-bind:src="bodyVariantImage" />
+          <img
+            class="t-img-recipe"
+            src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
+            v-if="modalItem.sourceSheet === 'Recipes'"
+          />
+        </div>
       </div>
     </div>
     <div class="info" v-if="modalItem.customize">
@@ -17,7 +37,15 @@
         リメイク
       </div>
       <div class="info-text">
-        {{ modalItem.customizeVariants.join("、") }}
+        <Button
+          sm
+          @click="bodyVariantIndex = index"
+          v-for="(variant, index) in modalItem.customizeVariants"
+          :key="modalItem.customizeVariants[index]"
+          :class="{ active: index === bodyVariantIndex }"
+        >
+          {{ variant }}
+        </Button>
       </div>
     </div>
     <div class="info" v-if="modalItem.bodyCustomize">
@@ -25,7 +53,15 @@
         リメイク<template v-if="modalItem.patternCustomize">1</template>
       </div>
       <div class="info-text">
-        {{ modalItem.bodyVariants.join("、") }}
+        <Button
+          sm
+          @click="bodyVariantIndex = index"
+          v-for="(variant, index) in modalItem.bodyVariants"
+          :key="modalItem.bodyVariants[index]"
+          :class="{ active: index === bodyVariantIndex }"
+        >
+          {{ variant }}
+        </Button>
       </div>
     </div>
     <div class="info" v-if="modalItem.patternCustomize">
@@ -33,7 +69,15 @@
         リメイク<template v-if="modalItem.bodyCustomize">2</template>
       </div>
       <div class="info-text">
-        {{ modalItem.patternVariants.join("、") }}
+        <Button
+          sm
+          @click="patternVariantIndex = index"
+          v-for="(variant, index) in modalItem.patternVariants"
+          :key="modalItem.patternVariants[index]"
+          :class="{ active: index === patternVariantIndex }"
+        >
+          {{ variant }}
+        </Button>
       </div>
     </div>
     <div class="info" v-if="modalItem.sourceJa">
@@ -59,38 +103,42 @@
           １年中
         </template>
         <template v-else>
-          北半球:
-          <span
-            v-for="month in modalItem.activeMonths.northern"
-            :key="`${modalItem.name}Northern${month.month}`"
-          >
-            {{ month.month }} </span
-          >月<br />
-          南半球:
-          <span
-            v-for="month in modalItem.activeMonths.southern"
-            :key="`${modalItem.name}Southern${month.month}`"
-          >
-            {{ month.month }} </span
-          >月
+          <span>
+            北半球:
+            <span
+              v-for="month in modalItem.activeMonths.northern"
+              :key="`${modalItem.name}Northern${month.month}`"
+            >
+              {{ month.month }} </span
+            >月<br />
+            南半球:
+            <span
+              v-for="month in modalItem.activeMonths.southern"
+              :key="`${modalItem.name}Southern${month.month}`"
+            >
+              {{ month.month }} </span
+            >月
+          </span>
         </template>
       </div>
     </div>
     <div class="info" v-if="modalItem.activeMonths">
       <div class="info-label info-4">時間帯</div>
       <div class="info-text">
-        <template v-if="modalItem.activeMonths.northern[0].isAllDay">
-          １日中
-        </template>
-        <template v-else>
-          {{ modalItem.activeMonths.northern[0].activeHours[0][0] }} -
-          {{ modalItem.activeMonths.northern[0].activeHours[0][1] }}時
-          <template v-if="modalItem.activeMonths.northern[0].activeHours[1]"
-            ><br />
-            {{ modalItem.activeMonths.northern[0].activeHours[1][0] }} -
-            {{ modalItem.activeMonths.northern[0].activeHours[1][1] }}時
+        <span>
+          <template v-if="modalItem.activeMonths.northern[0].isAllDay">
+            １日中
           </template>
-        </template>
+          <template v-else>
+            {{ modalItem.activeMonths.northern[0].activeHours[0][0] }} -
+            {{ modalItem.activeMonths.northern[0].activeHours[0][1] }}時
+            <template v-if="modalItem.activeMonths.northern[0].activeHours[1]"
+              ><br />
+              {{ modalItem.activeMonths.northern[0].activeHours[1][0] }} -
+              {{ modalItem.activeMonths.northern[0].activeHours[1][1] }}時
+            </template>
+          </template>
+        </span>
       </div>
     </div>
     <div class="info" v-if="modalItem.weather">
@@ -113,8 +161,57 @@
 </template>
 
 <script>
+import Button from "../components/Button";
+
 export default {
-  props: ["modalItem"]
+  components: { Button },
+  props: {
+    modalItem: Object,
+    modalBodyIndex: Number
+  },
+  data() {
+    return {
+      bodyVariantIndex: 0,
+      patternVariantIndex: 0
+    };
+  },
+  watch: {
+    modalItem: function() {
+      this.bodyVariantIndex = this.modalBodyIndex;
+      this.patternVariantIndex = 0;
+    }
+  },
+  computed: {
+    bodyVariantImage() {
+      if (this.modalItem.buy || this.modalItem.sell) {
+        let image = "";
+        if (this.modalItem.variants) {
+          image =
+            this.modalItem.variants[0].image ||
+            this.modalItem.variants[0].storageImage ||
+            this.modalItem.variants[0].albumImage ||
+            this.modalItem.variants[0].inventoryImage;
+        } else if (this.modalItem.sourceSheet === "Recipes") {
+          image = this.modalItem.image;
+        } else if (this.modalItem.iconImage) {
+          image = this.modalItem.iconImage;
+        }
+        if (this.bodyVariantIndex > 0 || this.patternVariantIndex > 0) {
+          image = image.replace(
+            /(.+)_\d_\d\.png$/,
+            "$1_" +
+              this.bodyVariantIndex +
+              "_" +
+              this.patternVariantIndex +
+              ".png"
+          );
+        }
+        return "https://acnhcdn.com/latest/" + image;
+      } else {
+        return "";
+      }
+    }
+  }
 };
 </script>
 
@@ -131,7 +228,7 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   flex-shrink: 0;
-  padding: 0.2rem;
+  padding: 0.6rem 0.2rem;
   width: 80px;
   border-radius: 4px;
   color: #fff;
@@ -161,5 +258,42 @@ export default {
 
 .info-text {
   padding: 0.2rem 0.4rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.info-text button.active {
+  background-color: #ff9baf;
+}
+
+.info-text button {
+  margin: 0.2em;
+}
+
+#info-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+#info-image img {
+  width: 96px;
+  height: 96px;
+  pointer-events: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+#info-image img.t-img-recipe {
+  position: absolute;
+  bottom: -10px;
+  right: -20px;
+  width: 62px;
+  height: 62px;
+  pointer-events: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 </style>

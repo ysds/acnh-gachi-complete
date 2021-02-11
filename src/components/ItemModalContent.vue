@@ -39,10 +39,10 @@
       <div class="info-text">
         <Button
           sm
-          @click="bodyVariantIndex = index"
+          @click="$emit('updateModalBodyIndex', index)"
           v-for="(variant, index) in modalItem.customizeVariants"
           :key="modalItem.customizeVariants[index]"
-          :class="{ active: index === bodyVariantIndex }"
+          :class="{ active: index === modalBodyIndex }"
         >
           {{ variant }}
         </Button>
@@ -55,10 +55,10 @@
       <div class="info-text">
         <Button
           sm
-          @click="bodyVariantIndex = index"
+          @click="$emit('updateModalBodyIndex', index)"
           v-for="(variant, index) in modalItem.bodyVariants"
           :key="modalItem.bodyVariants[index]"
-          :class="{ active: index === bodyVariantIndex }"
+          :class="{ active: index === modalBodyIndex }"
         >
           {{ variant }}
         </Button>
@@ -71,10 +71,10 @@
       <div class="info-text">
         <Button
           sm
-          @click="patternVariantIndex = index"
+          @click="$emit('updateModalPatternIndex', index)"
           v-for="(variant, index) in modalItem.patternVariants"
           :key="modalItem.patternVariants[index]"
-          :class="{ active: index === patternVariantIndex }"
+          :class="{ active: index === modalPatternIndex }"
         >
           {{ variant }}
         </Button>
@@ -167,19 +167,8 @@ export default {
   components: { Button },
   props: {
     modalItem: Object,
-    modalBodyIndex: Number
-  },
-  data() {
-    return {
-      bodyVariantIndex: 0,
-      patternVariantIndex: 0
-    };
-  },
-  watch: {
-    modalItem: function() {
-      this.bodyVariantIndex = this.modalBodyIndex;
-      this.patternVariantIndex = 0;
-    }
+    modalBodyIndex: Number,
+    modalPatternIndex: Number
   },
   computed: {
     bodyVariantImage() {
@@ -190,21 +179,18 @@ export default {
             this.modalItem.variants[
               // DIY家具、しゃしん、道具はバリエーションが1に固定されており、
               // variants.lengthを超えてエラーになるためMath.min()で対策
-              Math.min(
-                this.bodyVariantIndex,
-                this.modalItem.variants.length - 1
-              )
+              Math.min(this.modalBodyIndex, this.modalItem.variants.length - 1)
             ].image ||
-            this.modalItem.variants[this.bodyVariantIndex].storageImage ||
-            this.modalItem.variants[this.bodyVariantIndex].albumImage ||
-            this.modalItem.variants[this.bodyVariantIndex].inventoryImage;
-          if (this.bodyVariantIndex > 0 || this.patternVariantIndex > 0) {
+            this.modalItem.variants[this.modalBodyIndex].storageImage ||
+            this.modalItem.variants[this.modalBodyIndex].albumImage ||
+            this.modalItem.variants[this.modalBodyIndex].inventoryImage;
+          if (this.modalBodyIndex > 0 || this.modalPatternIndex > 0) {
             image = image.replace(
               /(.+Remake)_\d_\d\.png$/,
               "$1_" +
-                this.bodyVariantIndex +
+                this.modalBodyIndex +
                 "_" +
-                this.patternVariantIndex +
+                this.modalPatternIndex +
                 ".png"
             );
           }

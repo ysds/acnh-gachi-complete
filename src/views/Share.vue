@@ -92,19 +92,16 @@
         <div class="message">{{ message }}</div>
       </template>
     </infinite-loading>
-    <Modal
-      :show="isShowModal"
-      @close="
-        isShowModal = false;
-        modalItem = {};
-      "
-    >
+    <Modal :show="isShowModal" @close="isShowModal = false">
       <template v-if="modalItem">
         <template slot="header">{{ modalItemName }}</template>
         <div slot="body">
           <ItemModalContent
             :modalItem="modalItem"
             :modalBodyIndex="modalBodyIndex"
+            :modalPatternIndex="modalPatternIndex"
+            @updateModalBodyIndex="modalBodyIndex = $event"
+            @updateModalPatternIndex="modalPatternIndex = $event"
           />
         </div>
       </template>
@@ -168,6 +165,7 @@ export default {
       isShowModal: false,
       modalItem: {},
       modalBodyIndex: 0,
+      modalPatternIndex: 0,
       message: ""
     };
   },
@@ -344,6 +342,7 @@ export default {
     },
     onShowModal: function(item, index) {
       this.modalBodyIndex = index;
+      this.modalPatternIndex = 0;
       this.modalItem = item;
       this.isShowModal = true;
     },

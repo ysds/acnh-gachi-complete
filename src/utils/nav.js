@@ -138,13 +138,20 @@ export function filterItems(args) {
       items.sort(function(itemA, itemB) {
         const ca = normalizeYomigana(itemA, islandName);
         const cb = normalizeYomigana(itemB, islandName);
-        if (ca > cb) {
-          return 1;
-        }
-        if (ca < cb) {
+        // アルファベットで始まるアイテムは最後尾へ
+        if (ca.match(/^[A-Za-z]/) && !cb.match(/^[A-Za-z]/)) {
           return -1;
+        } else if (!ca.match(/^[A-Za-z]/) && cb.match(/^[A-Za-z]/)) {
+          return 1;
+        } else {
+          if (ca > cb) {
+            return 1;
+          }
+          if (ca < cb) {
+            return -1;
+          }
+          return 0;
         }
-        return 0;
       });
     }
   } else {

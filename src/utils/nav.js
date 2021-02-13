@@ -23,7 +23,7 @@ const normalizeText = function(string) {
 
 // たぬきマイレージ：よみがなソート用の正規化
 const normalizeYomigana = function(item, islandName) {
-  let yomigana = item.yomigana;
+  let yomigana = item.yomigana || item.displayName;
   // 島名を置換
   if (islandName && hasIslandName(item)) {
     yomigana = yomigana.replace("〓", islandName);
@@ -123,14 +123,30 @@ export function filterItems(args) {
   // 検索
   //
   if (isSearchMode) {
+    const normalizedSearchText = normalizeText(searchText);
     items = items.filter(item => {
       if (searchText === "") {
         return false;
       }
-      const normalizedDisplayName = normalizeText(item.displayName);
-      const normalizedSearchText = normalizeText(searchText);
+      const normalizedDisplayName = normalizeText(
+        toDisplayItemName(item, islandName)
+      );
       return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
     });
+    // 島名を含む場合は名前順でソート
+    if (islandName && items.some(item => hasIslandName(item))) {
+      items.sort(function(itemA, itemB) {
+        const ca = normalizeYomigana(itemA, islandName);
+        const cb = normalizeYomigana(itemB, islandName);
+        if (ca > cb) {
+          return 1;
+        }
+        if (ca < cb) {
+          return -1;
+        }
+        return 0;
+      });
+    }
   } else {
     if (filter) {
       //

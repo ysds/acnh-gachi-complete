@@ -70,6 +70,41 @@ const csvParse = require("csv-parse/lib/sync");
 })();
 
 //
+// BodyTitle
+//
+
+(() => {
+  let contentJson = {};
+
+  const content = fs.readFileSync(
+    `./data/translation-src/variant-remake/STR_Remake_BodyParts.csv`
+  );
+  const contentArray = csvParse(content, {
+    from_line: 2,
+    delimiter: ";",
+    quote: false
+  });
+
+  for (let j = 0; j < contentArray.length; j++) {
+    const rowData = contentArray[j];
+    const key = (() => {
+      const strArray = rowData[0].split("_");
+      return `${parseInt(strArray[1], 10)}`;
+    })();
+    let value = rowData[12].replace(/\r\n/g, "");
+    // eslint-disable-next-line no-control-regex
+    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
+    contentJson[key] = value;
+  }
+
+  contentJson = JSON.stringify(contentJson, null, 2);
+  fs.writeFileSync(
+    "./data/translation-json/variant-body-title.json",
+    contentJson
+  );
+})();
+
+//
 // PatternColor
 //
 
@@ -103,6 +138,42 @@ const csvParse = require("csv-parse/lib/sync");
 
   contentJson = JSON.stringify(contentJson, null, 2);
   fs.writeFileSync("./data/translation-json/variant-pattern.json", contentJson);
+})();
+
+//
+// PatternTitle
+//
+
+(() => {
+  let contentJson = {};
+
+  const content = fs.readFileSync(
+    `./data/translation-src/variant-remake/STR_Remake_FabricParts.csv`
+  );
+  const contentArray = csvParse(content, {
+    from_line: 2,
+    delimiter: ";",
+    quote: false
+  });
+
+  for (let j = 0; j < contentArray.length; j++) {
+    const rowData = contentArray[j];
+    const key = (() => {
+      const strArray = rowData[0].split("_");
+      return `${parseInt(strArray[1], 10)}`;
+    })();
+    let value = rowData[12].replace(/\r\n/g, "");
+    // eslint-disable-next-line no-control-regex
+    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
+
+    contentJson[key] = value;
+  }
+
+  contentJson = JSON.stringify(contentJson, null, 2);
+  fs.writeFileSync(
+    "./data/translation-json/variant-pattern-title.json",
+    contentJson
+  );
 })();
 
 //

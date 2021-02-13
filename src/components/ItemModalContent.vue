@@ -14,7 +14,8 @@
     </div>
     <div class="info" v-if="modalItem.customize">
       <div class="info-label info-5">
-        {{ modalItem.bodyTitle }}
+        リメイク
+        <div class="info-label-sub">（{{ modalItem.bodyTitle }}）</div>
       </div>
       <div class="info-text">
         {{ modalItem.customizeVariants.join("、") }}
@@ -22,7 +23,8 @@
     </div>
     <div class="info" v-if="modalItem.bodyCustomize">
       <div class="info-label info-5">
-        {{ modalItem.bodyTitle }}
+        リメイク
+        <div class="info-label-sub">（{{ modalItem.bodyTitle }}）</div>
       </div>
       <div class="info-text">
         {{ modalItem.bodyVariants.join("、") }}
@@ -30,7 +32,8 @@
     </div>
     <div class="info" v-if="modalItem.patternCustomize">
       <div class="info-label info-5">
-        {{ modalItem.patternTitle }}
+        リメイク
+        <div class="info-label-sub">（{{ modalItem.patternTitle }}）</div>
       </div>
       <div class="info-text">
         {{ modalItem.patternVariants.join("、") }}
@@ -127,9 +130,9 @@ export default {
 
 .info-label {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   flex-shrink: 0;
   padding: 0.2rem;
   width: 80px;
@@ -137,6 +140,10 @@ export default {
   color: #fff;
   font-weight: 700;
   text-align: center;
+}
+
+.info-label-sub {
+  font-size: 12px;
 }
 
 .info-1 {
@@ -160,6 +167,8 @@ export default {
 }
 
 .info-text {
+  display: flex;
+  align-items: center;
   padding: 0.2rem 0.4rem;
 }
 </style>

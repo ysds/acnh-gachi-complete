@@ -11,6 +11,7 @@
       'btn-cta': cta,
       'btn-block': block,
       'btn-sm': sm,
+      'btn-xs': xs,
       'btn-form': form,
       'btn-nav': nav,
       'btn-pill': pill,
@@ -48,6 +49,7 @@ export default {
     block: Boolean,
     active: Boolean,
     sm: Boolean,
+    xs: Boolean,
     form: Boolean,
     nav: Boolean,
     pill: Boolean,
@@ -167,6 +169,14 @@ export default {
 
 .btn-sm {
   --height: 34px;
+  --bg-color: #f6f6f6;
+  font-size: 13px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.btn-xs {
+  --height: 28px;
   --bg-color: #f6f6f6;
   font-size: 13px;
   margin-right: 2px;

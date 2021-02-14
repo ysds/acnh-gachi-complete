@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask" v-show="show" @click="$emit('close')">
+    <div class="modal" v-show="show" @click="$emit('close')" ref="modal">
       <div class="modal-wrapper">
         <div class="modal-container" @click="e => e.stopPropagation()">
           <div class="modal-header">
@@ -9,6 +9,11 @@
                 No data
               </slot>
             </h3>
+            <CloseButton
+              v-if="closeButton"
+              @click="$emit('close')"
+              class="close"
+            />
           </div>
           <div class="modal-body">
             <slot name="body">
@@ -22,42 +27,58 @@
 </template>
 
 <script>
+import CloseButton from "./CloseButton";
+
 export default {
-  name: "Modal",
+  components: {
+    CloseButton
+  },
   props: {
-    show: Boolean
+    show: Boolean,
+    closeButton: Boolean
+  },
+  watch: {
+    show(newValue) {
+      if (newValue) {
+        this.$nextTick(function() {
+          this.$refs.modal.scrollTop = 0;
+        });
+      }
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.modal-mask {
+.modal {
   position: fixed;
   z-index: 9998;
   top: 0;
   left: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 0.3s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .modal-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  margin: 15px;
+  min-height: calc(100% - 30px);
+  width: auto;
   max-width: 400px;
-  margin: 0 20px;
+
+  @media (min-width: 460px) {
+    margin: 15px auto;
+  }
 }
 
 .modal-container {
   flex-grow: 1;
-  margin: 0 auto;
   padding: 20px 30px;
   background-color: #fff;
   border-radius: 8px;
@@ -68,8 +89,19 @@ export default {
   text-align: left;
 }
 
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+}
+
 .modal-header h3 {
   font-size: 1.25rem;
+}
+
+.close {
+  margin-left: auto;
+  margin-top: -0.5rem;
+  margin-right: -1rem;
 }
 
 .modal-body /deep/ {

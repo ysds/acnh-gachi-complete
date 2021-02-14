@@ -92,10 +92,18 @@
         <div class="message">{{ message }}</div>
       </template>
     </infinite-loading>
-    <Modal :show="isShowModal" @close="isShowModal = false">
+    <Modal :show="isShowModal" @close="isShowModal = false" closeButton>
       <template v-if="modalItem">
         <template slot="header">{{ modalItemName }}</template>
-        <div slot="body"><ItemModalContent :modalItem="modalItem" /></div>
+        <div slot="body">
+          <ItemModalContent
+            :modalItem="modalItem"
+            :modalBodyIndex="modalBodyIndex"
+            :modalPatternIndex="modalPatternIndex"
+            @updateModalBodyIndex="modalBodyIndex = $event"
+            @updateModalPatternIndex="modalPatternIndex = $event"
+          />
+        </div>
       </template>
     </Modal>
     <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
@@ -155,7 +163,9 @@ export default {
       isLoaded: false,
       isOpenLogin: false,
       isShowModal: false,
-      modalItem: null,
+      modalItem: {},
+      modalBodyIndex: 0,
+      modalPatternIndex: 0,
       message: ""
     };
   },
@@ -330,9 +340,11 @@ export default {
       this.filter = Object.assign({}, activeFilter);
       this.updateShowItems();
     },
-    onShowModal: function(item) {
-      this.isShowModal = true;
+    onShowModal: function(item, index) {
+      this.modalBodyIndex = index;
+      this.modalPatternIndex = 0;
       this.modalItem = item;
+      this.isShowModal = true;
     },
     changeNav(category) {
       // Reset typeFilter

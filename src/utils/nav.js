@@ -2,6 +2,8 @@ import itemsJson from "../assets/items.json";
 import navs from "./navs.json";
 import { typeFilter } from "./filter";
 
+const { convertForSorting, sortItemsByName } = require("../../script/sort.js");
+
 const kata2Hira = function(string) {
   return string.replace(/[\u30A1-\u30FA]/g, ch =>
     String.fromCharCode(ch.charCodeAt(0) - 0x60)
@@ -28,7 +30,7 @@ const normalizeYomigana = function(item, islandName) {
   if (islandName && hasIslandName(item)) {
     yomigana = yomigana.replace("〓", islandName);
   }
-  return normalizeText(yomigana);
+  return convertForSorting(yomigana);
 };
 
 // アイテムが「低木」であるかの判定
@@ -135,23 +137,8 @@ export function filterItems(args) {
     });
     // 島名を含む場合は名前順でソート
     if (islandName && items.some(item => hasIslandName(item))) {
-      items.sort(function(itemA, itemB) {
-        const ca = normalizeYomigana(itemA, islandName);
-        const cb = normalizeYomigana(itemB, islandName);
-        // アルファベットで始まるアイテムは最後尾へ
-        if (ca.match(/^[A-Za-z]/) && !cb.match(/^[A-Za-z]/)) {
-          return -1;
-        } else if (!ca.match(/^[A-Za-z]/) && cb.match(/^[A-Za-z]/)) {
-          return 1;
-        } else {
-          if (ca > cb) {
-            return 1;
-          }
-          if (ca < cb) {
-            return -1;
-          }
-          return 0;
-        }
+      sortItemsByName(items, item => {
+        return normalizeYomigana(item, islandName);
       });
     }
   } else {
@@ -647,16 +634,8 @@ export function filterItems(args) {
     //
 
     if (!isSearchMode && nav === "achievements" && filter.order !== "id") {
-      items.sort(function(itemA, itemB) {
-        const ca = normalizeYomigana(itemA, islandName);
-        const cb = normalizeYomigana(itemB, islandName);
-        if (ca > cb) {
-          return 1;
-        }
-        if (ca < cb) {
-          return -1;
-        }
-        return 0;
+      sortItemsByName(items, item => {
+        return normalizeYomigana(item, islandName);
       });
     }
   }

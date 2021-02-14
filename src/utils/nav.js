@@ -2,6 +2,8 @@ import itemsJson from "../assets/items.json";
 import navs from "./navs.json";
 import { typeFilter } from "./filter";
 
+const { convertForSorting, sortItemsByName } = require("../../script/sort.js");
+
 const kata2Hira = function(string) {
   return string.replace(/[\u30A1-\u30FA]/g, ch =>
     String.fromCharCode(ch.charCodeAt(0) - 0x60)
@@ -19,6 +21,16 @@ const normalizeText = function(string) {
   result = kata2Hira(result);
   result = hankaku2Zenkaku(result);
   return result;
+};
+
+// たぬきマイレージ：よみがなソート用の正規化
+const normalizeYomigana = function(item, islandName) {
+  let yomigana = item.yomigana || item.displayName;
+  // 島名を置換
+  if (islandName && hasIslandName(item)) {
+    yomigana = yomigana.replace("〓", islandName);
+  }
+  return convertForSorting(yomigana);
 };
 
 // アイテムが「低木」であるかの判定
@@ -50,6 +62,13 @@ const filterOtherItem = function(item) {
     // Otherシート：花/低木のみコンプ率に含める
     return isFlower(item) || isBush(item);
   }
+};
+
+// アイテム名が島名置換対象であるかの判定
+const hasIslandName = function(item) {
+  return (
+    item.name === "(island name) Icons" || item.name === "(island name) Miles!"
+  );
 };
 
 const calcTotalLength = function(items) {
@@ -92,20 +111,36 @@ export function filterItems(args) {
     args
   );
 
-  let { collected, myCollected, nav, filter, isSearchMode, searchText } = args;
+  let {
+    collected,
+    myCollected,
+    nav,
+    filter,
+    isSearchMode,
+    searchText,
+    islandName
+  } = args;
 
   //
   // 検索
   //
   if (isSearchMode) {
+    const normalizedSearchText = normalizeText(searchText);
     items = items.filter(item => {
       if (searchText === "") {
         return false;
       }
-      const normalizedDisplayName = normalizeText(item.displayName);
-      const normalizedSearchText = normalizeText(searchText);
+      const normalizedDisplayName = normalizeText(
+        toDisplayItemName(item, islandName)
+      );
       return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
     });
+    // 島名を含む場合は名前順でソート
+    if (islandName && items.some(item => hasIslandName(item))) {
+      sortItemsByName(items, item => {
+        return normalizeYomigana(item, islandName);
+      });
+    }
   } else {
     if (filter) {
       //
@@ -559,7 +594,7 @@ export function filterItems(args) {
     // 実機順ソート
     //
 
-    if (!isSearchMode && nav && filter.order === "id") {
+    if (nav && filter.order === "id") {
       // いきもの、リアクション、たぬきマイレージ
       if (
         nav.indexOf("creatures") > -1 ||
@@ -592,6 +627,16 @@ export function filterItems(args) {
           return 0;
         });
       }
+    }
+
+    //
+    // 名前順ソート(たぬきマイレージのみ)
+    //
+
+    if (nav === "achievements" && filter.order === "name") {
+      sortItemsByName(items, item => {
+        return normalizeYomigana(item, islandName);
+      });
     }
   }
 
@@ -669,11 +714,7 @@ export function getNavText(nav) {
 
 export function toDisplayItemName(item, islandName) {
   // 島名を置換
-  if (
-    islandName &&
-    (item.name === "(island name) Icons" ||
-      item.name === "(island name) Miles!")
-  ) {
+  if (islandName && hasIslandName(item)) {
     return item.displayName.replace("○○", islandName);
   } else {
     return item.displayName;

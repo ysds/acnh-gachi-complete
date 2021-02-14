@@ -363,7 +363,8 @@ export default {
         filter: this.filter,
         isSearchMode: false,
         searchText: "",
-        false: false
+        false: false,
+        islandName: this.sharedIslandName
       });
 
       this.showItems = [];

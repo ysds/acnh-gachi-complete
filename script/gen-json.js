@@ -1,14 +1,6 @@
 const fs = require("fs");
-const {
-  hiraToKana,
-  hanEisuToZenEisu,
-  daku_conv,
-  choon_conv,
-  tsu_conv,
-  yoon_conv,
-  array_move,
-  numberWithCommas
-} = require("./utils.js");
+const { array_move, numberWithCommas } = require("./utils.js");
+const { convertForSorting, sortItemsByName } = require("./sort.js");
 
 //
 // Load Json
@@ -147,9 +139,12 @@ allItems.forEach(item => {
   //
 
   if (item.sourceSheet === "Achievements") {
-    // displayName and description
+    // description
     item.achievementDescription =
       translation.achievements[item.internalId].desc;
+
+    // よみがな
+    item.yomigana = translation.achievements[item.internalId].yomi;
 
     // parseInt num
     item.num = parseInt(item.num, 10);
@@ -449,46 +444,8 @@ allItems = allItems.map(function(item) {
 // Sort items
 //
 
-function conversion(str) {
-  str = hiraToKana(str);
-  str = hanEisuToZenEisu(str);
-  str = tsu_conv(str);
-  str = choon_conv(str);
-  str = yoon_conv(str);
-  str = daku_conv(str);
-  return str;
-}
-
-// 日本語ソート
-allItems.sort(function(a, b) {
-  const ca = conversion(a.displayName);
-  const cb = conversion(b.displayName);
-  if (ca == cb) {
-    if (a.displayName == b.displayName) {
-      return 0;
-    } else if (a.displayName > b.displayName) {
-      return 1;
-    } else {
-      return -1;
-    }
-  } else if (ca > cb) {
-    return 1;
-  } else {
-    return -1;
-  }
-});
-
-// 数字で始まるアイテムを先頭に持ってくる（例：１ごうのしゃしん）
-allItems.sort(function(a, b) {
-  const isAlfabetA = a.displayName.slice(0, 1).match(/[^0-9０-９]/gi);
-  const isAlfabetB = b.displayName.slice(0, 1).match(/[^0-9０-９]/gi);
-  if (!isAlfabetA && isAlfabetB) {
-    return -1;
-  }
-  if (isAlfabetA && !isAlfabetB) {
-    return 1;
-  }
-  return 0;
+sortItemsByName(allItems, item => {
+  return convertForSorting(item.yomigana || item.displayName);
 });
 
 //

@@ -1,6 +1,7 @@
 <template>
   <transition name="modal">
     <div class="modal" v-show="show" @click="$emit('close')" ref="modal">
+      <div class="modal-mask" />
       <div class="modal-wrapper">
         <div class="modal-container" @click="e => e.stopPropagation()">
           <div class="modal-header">
@@ -57,10 +58,18 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 0.3s ease;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-wrapper {

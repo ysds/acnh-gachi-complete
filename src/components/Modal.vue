@@ -79,7 +79,7 @@ export default {
 
 .modal-container {
   flex-grow: 1;
-  padding: 20px 30px;
+  padding: 20px 15px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
@@ -87,6 +87,11 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   user-select: none;
   text-align: left;
+
+  @media (min-width: 321px) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
 }
 
 .modal-header {
@@ -101,7 +106,11 @@ export default {
 .close {
   margin-left: auto;
   margin-top: -0.5rem;
-  margin-right: -1rem;
+  margin-right: -0.5rem;
+
+  @media (min-width: 321px) {
+    margin-right: -1rem;
+  }
 }
 
 .modal-body /deep/ {

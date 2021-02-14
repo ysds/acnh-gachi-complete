@@ -176,11 +176,13 @@ export default {
 }
 
 .btn-xs {
-  --height: 28px;
+  --height: 26px;
   --bg-color: #f6f6f6;
   font-size: 13px;
   margin-right: 2px;
   margin-left: 2px;
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
 }
 
 .btn-form {

@@ -9,6 +9,11 @@
                 No data
               </slot>
             </h3>
+            <CloseButton
+              v-if="closeButton"
+              @click="$emit('close')"
+              class="close"
+            />
           </div>
           <div class="modal-body">
             <slot name="body">
@@ -22,9 +27,15 @@
 </template>
 
 <script>
+import CloseButton from "./CloseButton";
+
 export default {
+  components: {
+    CloseButton
+  },
   props: {
-    show: Boolean
+    show: Boolean,
+    closeButton: Boolean
   },
   watch: {
     show(newValue) {
@@ -78,8 +89,19 @@ export default {
   text-align: left;
 }
 
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+}
+
 .modal-header h3 {
   font-size: 1.25rem;
+}
+
+.close {
+  margin-left: auto;
+  margin-top: -0.5rem;
+  margin-right: -1rem;
 }
 
 .modal-body /deep/ {

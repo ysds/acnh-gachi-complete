@@ -21,9 +21,9 @@
           </div>
         </div>
       </div>
-      <div v-if="bodyVariantImage" id="info-image">
+      <div v-if="itemImage" id="info-image">
         <div style="position:relative">
-          <img v-bind:src="bodyVariantImage" />
+          <img v-bind:src="itemImage" />
           <img
             class="t-img-recipe"
             src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
@@ -162,28 +162,33 @@
 
 <script>
 import Button from "../components/Button";
+import stampUrls from "../mixins/stampUrls";
 
 export default {
   components: { Button },
+  mixins: [stampUrls],
   props: {
     modalItem: Object,
     modalBodyIndex: Number,
     modalPatternIndex: Number
   },
   computed: {
-    bodyVariantImage() {
-      if (this.modalItem.buy || this.modalItem.sell) {
-        let image = "";
-        if (this.modalItem.variants) {
+    itemImage() {
+      const variants = this.modalItem.variants;
+      let image = "";
+      if (variants) {
+        if (variants[0].stampImage) {
+          return this.stampUrls[variants[this.modalBodyIndex].stampImage];
+        } else {
           image =
-            this.modalItem.variants[
+            variants[
               // DIY家具、しゃしん、道具はバリエーションが1に固定されており、
               // variants.lengthを超えてエラーになるためMath.min()で対策
               Math.min(this.modalBodyIndex, this.modalItem.variants.length - 1)
             ].image ||
-            this.modalItem.variants[this.modalBodyIndex].storageImage ||
-            this.modalItem.variants[this.modalBodyIndex].albumImage ||
-            this.modalItem.variants[this.modalBodyIndex].inventoryImage;
+            variants[this.modalBodyIndex].storageImage ||
+            variants[this.modalBodyIndex].albumImage ||
+            variants[this.modalBodyIndex].inventoryImage;
           if (this.modalBodyIndex > 0 || this.modalPatternIndex > 0) {
             image = image.replace(
               /(.+Remake)_\d_\d\.png$/,
@@ -194,15 +199,18 @@ export default {
                 ".png"
             );
           }
-        } else if (this.modalItem.sourceSheet === "Recipes") {
-          image = this.modalItem.image;
-        } else if (this.modalItem.iconImage) {
-          image = this.modalItem.iconImage;
         }
-        return "https://acnhcdn.com/latest/" + image;
+      } else if (
+        this.modalItem.sourceSheet === "Recipes" ||
+        this.modalItem.sourceSheet === "Reactions"
+      ) {
+        image = this.modalItem.image;
+      } else if (this.modalItem.iconImage) {
+        image = this.modalItem.iconImage;
       } else {
         return "";
       }
+      return "https://acnhcdn.com/latest/" + image;
     }
   }
 };

@@ -633,7 +633,7 @@ export function filterItems(args) {
     // 名前順ソート(たぬきマイレージのみ)
     //
 
-    if (!isSearchMode && nav === "achievements" && filter.order !== "id") {
+    if (!isSearchMode && nav === "achievements" && filter.order === "name") {
       sortItemsByName(items, item => {
         return normalizeYomigana(item, islandName);
       });

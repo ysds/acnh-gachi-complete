@@ -229,7 +229,7 @@ export default {
       if (
         this.activeNav === "achievements" &&
         this.filter &&
-        this.filter.order !== "id"
+        this.filter.order === "name"
       ) {
         this.updateShowItems();
       }

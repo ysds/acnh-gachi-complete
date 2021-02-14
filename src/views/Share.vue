@@ -92,7 +92,7 @@
         <div class="message">{{ message }}</div>
       </template>
     </infinite-loading>
-    <Modal :show="isShowModal" @close="isShowModal = false">
+    <Modal :show="isShowModal" @close="isShowModal = false" closeButton>
       <template v-if="modalItem">
         <template slot="header">{{ modalItemName }}</template>
         <div slot="body">

@@ -96,7 +96,7 @@
     >
       バージョンカテゴリは、「素材」や「消費アイテム」、「植物」などコレクション要素がないアイテムを含む、そのバージョンで追加されたすべてのアイテムを表示します。
     </div>
-    <Modal :show="isShowModal" @close="isShowModal = false">
+    <Modal :show="isShowModal" @close="isShowModal = false" closeButton>
       <template v-if="modalItem">
         <template slot="header">{{ modalItemName }}</template>
         <div slot="body">

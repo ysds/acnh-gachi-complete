@@ -1,35 +1,29 @@
 <template>
   <div>
-    <div style="display: flex;">
-      <div>
-        <div class="info" v-if="modalItem.buy || modalItem.sell">
-          <div class="info-label info-1">買値</div>
-          <div class="info-text">
-            {{
-              modalItem.buy
-                ? modalItem.buy === -1
-                  ? "非売品"
-                  : modalItem.buy
-                : "－"
-            }}
-          </div>
-        </div>
-        <div class="info" v-if="modalItem.buy || modalItem.sell">
-          <div class="info-label info-2">売値</div>
-          <div class="info-text">
-            {{ modalItem.sell ? modalItem.sell : "－" }}
-          </div>
-        </div>
+    <div v-if="itemImage" class="info-image">
+      <img :src="itemImage" class="info-image-img" />
+      <img
+        class="info-image-recipe"
+        src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
+        v-if="modalItem.sourceSheet === 'Recipes'"
+      />
+    </div>
+    <div class="info" v-if="modalItem.buy || modalItem.sell">
+      <div class="info-label info-1">買値</div>
+      <div class="info-text">
+        {{
+          modalItem.buy
+            ? modalItem.buy === -1
+              ? "非売品"
+              : modalItem.buy
+            : "－"
+        }}
       </div>
-      <div v-if="itemImage" id="info-image">
-        <div style="position:relative">
-          <img v-bind:src="itemImage" />
-          <img
-            class="t-img-recipe"
-            src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
-            v-if="modalItem.sourceSheet === 'Recipes'"
-          />
-        </div>
+    </div>
+    <div class="info" v-if="modalItem.buy || modalItem.sell">
+      <div class="info-label info-2">売値</div>
+      <div class="info-text">
+        {{ modalItem.sell ? modalItem.sell : "－" }}
       </div>
     </div>
     <div class="info" v-if="modalItem.customize">
@@ -37,12 +31,13 @@
         リメイク
         <div class="info-label-sub">（{{ modalItem.bodyTitle }}）</div>
       </div>
-      <div class="info-text">
+      <div class="info-text info-text-btns">
         <Button
-          sm
+          xs
           @click="$emit('updateModalBodyIndex', index)"
           v-for="(variant, index) in modalItem.customizeVariants"
           :key="modalItem.customizeVariants[index]"
+          class="info-btn"
           :class="{ active: index === modalBodyIndex }"
         >
           {{ variant }}
@@ -54,12 +49,13 @@
         リメイク
         <div class="info-label-sub">（{{ modalItem.bodyTitle }}）</div>
       </div>
-      <div class="info-text">
+      <div class="info-text info-text-btns">
         <Button
-          sm
+          xs
           @click="$emit('updateModalBodyIndex', index)"
           v-for="(variant, index) in modalItem.bodyVariants"
           :key="modalItem.bodyVariants[index]"
+          class="info-btn"
           :class="{ active: index === modalBodyIndex }"
         >
           {{ variant }}
@@ -71,12 +67,13 @@
         リメイク
         <div class="info-label-sub">（{{ modalItem.patternTitle }}）</div>
       </div>
-      <div class="info-text">
+      <div class="info-text info-text-btns">
         <Button
-          sm
+          xs
           @click="$emit('updateModalPatternIndex', index)"
           v-for="(variant, index) in modalItem.patternVariants"
           :key="modalItem.patternVariants[index]"
+          class="info-btn"
           :class="{ active: index === modalPatternIndex }"
         >
           {{ variant }}
@@ -232,7 +229,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 0.6rem 0.2rem;
+  padding: 0.2rem;
   width: 80px;
   border-radius: 4px;
   color: #fff;
@@ -267,43 +264,39 @@ export default {
 .info-text {
   display: flex;
   align-items: center;
-  padding: 0.2rem 0.4rem;
-  display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  padding: 0.2rem 0.4rem;
 }
 
-.info-text button.active {
-  background-color: #ff9baf;
+.info-text-btns {
+  padding: 0 0.2rem;
 }
 
-.info-text button {
-  margin: 0.2em;
+.info-btn {
+  margin: 0.2rem;
+
+  &.active {
+    background-color: #ffc79f;
+  }
 }
 
-#info-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-}
-
-#info-image img {
+.info-image {
+  position: relative;
   width: 96px;
   height: 96px;
-  pointer-events: none;
-  user-select: none;
-  -webkit-touch-callout: none;
+  margin: -1rem auto 20px;
 }
 
-#info-image img.t-img-recipe {
+.info-image-img {
+  width: 100%;
+  height: 100%;
+}
+
+.info-image-recipe {
   position: absolute;
   bottom: -10px;
   right: -20px;
   width: 62px;
   height: 62px;
-  pointer-events: none;
-  user-select: none;
-  -webkit-touch-callout: none;
 }
 </style>

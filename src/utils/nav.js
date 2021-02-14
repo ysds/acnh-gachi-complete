@@ -594,7 +594,7 @@ export function filterItems(args) {
     // 実機順ソート
     //
 
-    if (!isSearchMode && nav && filter.order === "id") {
+    if (nav && filter.order === "id") {
       // いきもの、リアクション、たぬきマイレージ
       if (
         nav.indexOf("creatures") > -1 ||
@@ -633,7 +633,7 @@ export function filterItems(args) {
     // 名前順ソート(たぬきマイレージのみ)
     //
 
-    if (!isSearchMode && nav === "achievements" && filter.order === "name") {
+    if (nav === "achievements" && filter.order === "name") {
       sortItemsByName(items, item => {
         return normalizeYomigana(item, islandName);
       });

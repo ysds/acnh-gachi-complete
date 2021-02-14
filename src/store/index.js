@@ -95,6 +95,7 @@ export default new Vuex.Store({
     },
     updateIslandName(state, name) {
       state.islandName = name;
+      localforage.setItem("islandName", name);
     },
     updateSharedCollected(state, data) {
       state.sharedCollected = data;

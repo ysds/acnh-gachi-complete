@@ -187,8 +187,7 @@ export function filterItems(args) {
         // もらえる
         else if (filterVal === "5") {
           return (
-            /[0-9A-J]/g.test(collectedData) &&
-            myCollectedData.length < itemLength
+            /[A-J]/g.test(collectedData) && myCollectedData.length < itemLength
           );
         }
         // ゆずれる

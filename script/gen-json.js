@@ -444,9 +444,7 @@ allItems = allItems.map(function(item) {
 // Sort items
 //
 
-sortItemsByName(allItems, item => {
-  return convertForSorting(item.yomigana || item.displayName);
-});
+sortItemsByName(allItems);
 
 //
 // Write file

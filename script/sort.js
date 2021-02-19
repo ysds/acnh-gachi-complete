@@ -1,15 +1,20 @@
-function hiraToKana(str) {
+function kana_conv(str) {
   return str.replace(/[\u3041-\u3096]/g, function(match) {
     const chr = match.charCodeAt(0) + 0x60;
     return String.fromCharCode(chr);
   });
 }
 
-function hanEisuToZenEisu(str) {
-  return str.replace(/[A-Za-z0-9]/g, function(match) {
+function zen_han_conv(str) {
+  str = str.replace(/[０-９]/g, function(match) {
+    const chr = match.charCodeAt(0) - 0xfee0;
+    return String.fromCharCode(chr);
+  });
+  str = str.replace(/[A-Za-z]/g, function(match) {
     const chr = match.charCodeAt(0) + 0xfee0;
     return String.fromCharCode(chr);
   });
+  return str;
 }
 
 function daku_conv(str) {
@@ -42,46 +47,83 @@ function choon_conv(str) {
   return a;
 }
 
-function tsu_conv(str) {
+function sutegana_conv(str) {
+  str = str.replace("ァ", "ア");
+  str = str.replace("ィ", "イ");
+  str = str.replace("ゥ", "ウ");
+  str = str.replace("ェ", "エ");
+  str = str.replace("ォ", "オ");
   str = str.replace("ッ", "ツ");
-  return str;
-}
-
-function yoon_conv(str) {
   str = str.replace("ャ", "ヤ");
   str = str.replace("ュ", "ユ");
   str = str.replace("ョ", "ヨ");
+  str = str.replace("ヮ", "ワ");
+  return str;
+}
+
+function symbol_conv(str) {
+  return str.replace(/[^\u0020-\u007D〓ァ-ヶＡ-Ｚａ-ｚ]/g, "");
+}
+
+function convertForSorting(str) {
+  // ひらがな⇒カタカナ
+  str = kana_conv(str);
+  // 数字⇒半角、アルファベット⇒全角
+  str = zen_han_conv(str);
+  // 長音変換（ポスター⇒ポスタア）
+  str = choon_conv(str);
+  // 捨て仮名変換（ッ⇒ツ）
+  str = sutegana_conv(str);
+  // 濁点削除（ブドウ⇒フトウ）
+  str = daku_conv(str);
+  // 中黒（・）などの全角記号削除（島名読み仮名の〓は削除しない）
+  str = symbol_conv(str);
   return str;
 }
 
 module.exports = {
-  convertForSorting: function(str) {
-    str = hiraToKana(str);
-    str = hanEisuToZenEisu(str);
-    str = tsu_conv(str);
-    str = choon_conv(str);
-    str = yoon_conv(str);
-    str = daku_conv(str);
-    return str;
-  },
   sortItemsByName: function(items, converter) {
     items.sort(function(a, b) {
-      const ca = converter(a);
-      const cb = converter(b);
-      // 数字で始まるアイテムを先頭に持ってくる（例：１ごうのしゃしん）
-      if (ca.match(/^[0-9０-９]/) && !cb.match(/^[0-9０-９]/)) {
-        return -1;
-      } else if (!ca.match(/^[0-9０-９]/) && cb.match(/^[0-9０-９]/)) {
-        return 1;
-      } else if (ca == cb) {
-        if (a.displayName == b.displayName) {
-          return 0;
-        } else if (a.displayName > b.displayName) {
+      // 変換前
+      const oa = a.yomigana || a.displayName;
+      const ob = b.yomigana || b.displayName;
+      // 変換後
+      const ca = convertForSorting(converter ? converter(oa, a) : oa);
+      const cb = convertForSorting(converter ? converter(ob, b) : ob);
+      // 1文字単位で判定
+      for (let i = 0; i < ca.length; ) {
+        if (i === cb.length) {
           return 1;
-        } else {
-          return -1;
         }
-      } else if (ca > cb) {
+        const sa = ca.substring(i, i + 1);
+        const sb = cb.substring(i, i + 1);
+        if (sa.match(/[0-9]/) && sb.match(/[0-9]/)) {
+          // 数字同士は連続した数字の大小で比較
+          // 例「12つぶのぶどう」と「１ごうのしゃしん」なら12と1を比較
+          const na = parseInt(ca.substring(i).match(/[0-9]+/g)[0], 10);
+          const nb = parseInt(cb.substring(i).match(/[0-9]+/g)[0], 10);
+          if (na > nb) {
+            return 1;
+          } else if (na < nb) {
+            return -1;
+          } else {
+            i += na.toString(10).length;
+          }
+        } else if (sa > sb) {
+          return 1;
+        } else if (sa < sb) {
+          return -1;
+        } else {
+          i++;
+        }
+      }
+      if (ca.length < cb.length) {
+        return -1;
+      }
+      // 変換前の値で比較
+      if (oa === ob) {
+        return 0;
+      } else if (oa > ob) {
         return 1;
       } else {
         return -1;

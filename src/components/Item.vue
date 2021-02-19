@@ -48,7 +48,7 @@
         <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
         <li
           class="t"
-          v-for="(index, i) in filteredCheckIndexes"
+          v-for="(index, i) in matchedVariants"
           :key="item.variants[index].uniqueEntryId"
           v-long-press="index"
         >
@@ -101,14 +101,9 @@ export default {
       type: [String, Array],
       default: ""
     },
-    myCollected: {
-      type: [String, Array],
-      default: ""
-    },
     item: Object,
     filter: Object,
     isSearchMode: Boolean,
-    renderStartDate: Number,
     isStatic: Boolean,
     islandName: String
   },
@@ -133,8 +128,6 @@ export default {
   data() {
     return {
       checks: {},
-      myChecks: {},
-      filteredCheckIndexes: null,
       longPressBound: {}
     };
   },
@@ -198,21 +191,25 @@ export default {
     },
     isShowDropdown() {
       return this.$store.getters.isShowDropdown;
+    },
+    matchedVariants() {
+      const item = this.item;
+      if (!item.variants) return null;
+
+      if (!this.isSearchMode && item.matchedVariants) {
+        return item.matchedVariants;
+      } else {
+        return "0123456789".substring(0, item.variants.length).split("");
+      }
     }
   },
   watch: {
     collected: function() {
       this.checks = this.updateChecks(this.collected);
-      this.myChecks = this.updateChecks(this.myCollected);
-    },
-    renderStartDate: function() {
-      this.filteredCheckIndexes = this.updateFilteredCheckIndexes();
     }
   },
   mounted() {
     this.checks = this.updateChecks(this.collected);
-    this.myChecks = this.updateChecks(this.myCollected);
-    this.filteredCheckIndexes = this.updateFilteredCheckIndexes();
   },
   methods: {
     updateChecks: function(collected) {
@@ -254,44 +251,6 @@ export default {
         }
       }
       this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
-    },
-    updateFilteredCheckIndexes() {
-      let result = [];
-      const collectedFilter = this.filter.collectedFilter;
-      const isSearchMode = this.isSearchMode || false;
-      const checks = this.checks;
-      const myChecks = this.myChecks;
-
-      Object.keys(checks).forEach(function(key) {
-        if (collectedFilter === "0" || isSearchMode) {
-          result.push(key);
-        } else if (collectedFilter === "1" && checks[key] === 1) {
-          result.push(key);
-        } else if (collectedFilter === "2" && checks[key] === 2) {
-          result.push(key);
-        } else if (
-          collectedFilter === "3" &&
-          (checks[key] === 1 || checks[key] === 2)
-        ) {
-          result.push(key);
-        } else if (collectedFilter === "4" && checks[key] === 0) {
-          result.push(key);
-        } else if (
-          collectedFilter === "5" &&
-          checks[key] === 2 &&
-          myChecks[key] === 0
-        ) {
-          result.push(key);
-        } else if (
-          collectedFilter === "6" &&
-          checks[key] === 0 &&
-          myChecks[key] === 2
-        ) {
-          result.push(key);
-        }
-      });
-
-      return result;
     },
     onChangeCheck: function(index) {
       if (!this.isShowDropdown && !this.isStatic) {

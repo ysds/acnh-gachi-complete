@@ -66,7 +66,6 @@
         :filter="filter"
         :isSearchMode="isSearchMode"
         :key="item.name + item.sourceSheet"
-        :renderStartDate="renderStartDate"
         :islandName="islandName"
         @change="onChangeItemCheck"
         @showModal="onShowModal"
@@ -165,7 +164,6 @@ export default {
       },
       showItems: [],
       resultItems: [],
-      resultVariations: {},
       queueItems: [],
       isSearchMode: false,
       renderStartDate: new Date().getTime(),
@@ -329,20 +327,18 @@ export default {
       }
       function createVariationCollected(item, values) {
         const collected = self.disassembleCollected(item);
-        if (
-          self.filter.viewMode === "list" ||
-          self.filter.collectedFilter === "0"
-        ) {
-          // リストビュー or タイルビューの「すべて」：全バリエーションを更新
-          [...Array(item.variants.length).keys()].forEach(
-            i => (collected[i] = collectedValue(values, i))
-          );
-        } else if (self.resultVariations[item.name]) {
-          // タイルビューの「すべて」以外：表示中バリエーションを更新
-          self.resultVariations[item.name].forEach(
-            i => (collected[i] = collectedValue(values, i))
-          );
+
+        let matchedVariants = "0123456789"
+          .substring(0, item.variants.length)
+          .split("");
+
+        if (self.filter.viewMode === "tile" && item.matchedVariants) {
+          matchedVariants = item.matchedVariants;
         }
+
+        matchedVariants.forEach(
+          i => (collected[i] = collectedValue(values, i))
+        );
         return collected.join("");
       }
       this.resultItems.forEach(item => {
@@ -436,39 +432,9 @@ export default {
         filter: this.filter,
         isSearchMode: this.isSearchMode,
         searchText: this.searchText,
-        islandName: this.islandName
+        islandName: this.islandName,
+        updateMatchedVariants: true
       });
-
-      // 表示対象バリエーションのインデックスを保持する
-      this.resultVariations = {};
-      this.resultItems
-        .filter(item => !item.uniqueEntryId)
-        .map(item => {
-          const collected = this.disassembleCollected(item);
-          let indexes = [];
-          if (this.filter.collectedFilter === "1") {
-            // 取得済
-            collected.forEach((c, i) => {
-              if (c.match(/[0-9]/)) indexes.push(i);
-            });
-          } else if (this.filter.collectedFilter === "2") {
-            // 配布可
-            collected.forEach((c, i) => {
-              if (c.match(/[A-J]/)) indexes.push(i);
-            });
-          } else if (this.filter.collectedFilter === "3") {
-            // 取＋配
-            collected.forEach((c, i) => {
-              if (c.match(/[0-9A-J]/)) indexes.push(i);
-            });
-          } else if (this.filter.collectedFilter === "4") {
-            // 未取得
-            collected.forEach((c, i) => {
-              if (c === "") indexes.push(i);
-            });
-          }
-          if (indexes.length) this.resultVariations[item.name] = indexes;
-        });
 
       this.showItems = [];
       this.renderStartDate = new Date().getTime();

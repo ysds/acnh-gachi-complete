@@ -70,10 +70,8 @@
         :key="item.name + item.sourceSheet"
         :item="item"
         :collected="getCollected(item)"
-        :myCollected="getMyCollected(item)"
         :filter="filter"
         :isStatic="true"
-        :renderStartDate="renderStartDate"
         :islandName="sharedIslandName"
         @showModal="onShowModal"
       />
@@ -364,7 +362,8 @@ export default {
         isSearchMode: false,
         searchText: "",
         false: false,
-        islandName: this.sharedIslandName
+        islandName: this.sharedIslandName,
+        updateMatchedVariants: true
       });
 
       this.showItems = [];

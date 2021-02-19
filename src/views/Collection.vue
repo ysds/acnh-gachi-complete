@@ -62,7 +62,11 @@
       <Item
         v-for="item in showItems"
         :item="item"
-        :collected="getCollected(item)"
+        :collected="
+          item.uniqueEntryId
+            ? collected[item.uniqueEntryId]
+            : collected[item.name]
+        "
         :filter="filter"
         :isSearchMode="isSearchMode"
         :key="item.name + item.sourceSheet"
@@ -409,11 +413,6 @@ export default {
     },
     changeNav(nav) {
       this.$store.commit("changeNav", nav);
-    },
-    getCollected: function(item) {
-      return item.uniqueEntryId
-        ? this.collected[item.uniqueEntryId]
-        : this.collected[item.name];
     },
     disassembleCollected: function(item) {
       // collectedを分解して配列にする

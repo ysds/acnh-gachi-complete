@@ -109,14 +109,14 @@ export default {
   },
   directives: {
     "long-press": {
-      bind: function(el, binding, vnode) {
+      bind(el, binding, vnode) {
         const listener = e => {
           vnode.context.showModal(e, binding.value);
         };
         vnode.context.longPressBound[binding.value] = listener;
         el.addEventListener("long-press", listener);
       },
-      unbind: function(el, binding, vnode) {
+      unbind(el, binding, vnode) {
         el.removeEventListener(
           "long-press",
           vnode.context.longPressBound[binding.value]
@@ -174,7 +174,7 @@ export default {
       }
       return images;
     },
-    allCheckState: function() {
+    allCheckState() {
       const checks = Object.values(this.checks);
       let count2 = 0;
       for (let i = 0; i < checks.length; i++) {
@@ -204,7 +204,7 @@ export default {
     }
   },
   watch: {
-    collected: function() {
+    collected() {
       this.checks = this.updateChecks(this.collected);
     }
   },
@@ -212,7 +212,7 @@ export default {
     this.checks = this.updateChecks(this.collected);
   },
   methods: {
-    updateChecks: function(collected) {
+    updateChecks(collected) {
       let result = {};
       const item = this.item;
       collected = typeof collected === "string" ? collected : "";
@@ -252,7 +252,7 @@ export default {
       }
       this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
     },
-    onChangeCheck: function(index) {
+    onChangeCheck(index) {
       if (!this.isShowDropdown && !this.isStatic) {
         const currentValue = this.checks[index];
         const nextValue = currentValue === 2 ? 0 : currentValue + 1;
@@ -260,7 +260,7 @@ export default {
         this.updateCollected();
       }
     },
-    onClickAllCheck: function() {
+    onClickAllCheck() {
       if (!this.isShowDropdown && !this.isStatic) {
         const nextState = this.allCheckState === 2 ? 0 : this.allCheckState + 1;
         let result = {};
@@ -271,7 +271,7 @@ export default {
         this.updateCollected();
       }
     },
-    showModal: function(event, index) {
+    showModal(event, index) {
       event.preventDefault();
       this.$emit("showModal", this.item, index ? parseInt(index, 10) : 0);
     },

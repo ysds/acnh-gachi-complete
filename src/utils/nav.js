@@ -103,21 +103,13 @@ export { navs };
 
 export function filterItems(args) {
   let items = itemsJson;
-  args = Object.assign(
-    {
-      isSearchMode: false,
-      searchText: ""
-    },
-    args
-  );
-
   let {
-    collected,
-    myCollected,
+    collected = {},
+    myCollected = {},
     nav,
     filter,
-    isSearchMode,
-    searchText,
+    isSearchMode = false,
+    searchText = "",
     islandName
   } = args;
 
@@ -155,18 +147,11 @@ export function filterItems(args) {
 
       items = items.filter(item => {
         const filterVal = filter.collectedFilter;
-        const itemUid = item.uniqueEntryId;
-        const itemLength = itemUid ? 1 : item.variants.length;
+        const itemKey = item.uniqueEntryId || item.name;
+        const itemLength = item.variants ? item.variants.length : 1;
 
-        collected = collected || {};
-        myCollected = myCollected || {};
-
-        const collectedData =
-          (itemUid ? collected[itemUid] : collected[item.name]) || "";
-
-        myCollected = myCollected || {};
-        const myCollectedData =
-          (itemUid ? myCollected[itemUid] : myCollected[item.name]) || "";
+        const collectedData = collected[itemKey] || "";
+        const myCollectedData = myCollected[itemKey] || "";
 
         // 取得のみ
         if (filterVal === "1") {

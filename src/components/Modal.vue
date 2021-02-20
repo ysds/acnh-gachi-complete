@@ -146,4 +146,9 @@ export default {
 .modal-leave-active .modal-container {
   transform: scale(1.1);
 }
+
+.modal-enter .modal-container,
+.modal-enter-active .modal-container {
+  pointer-events: none;
+}
 </style>

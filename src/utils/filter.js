@@ -1,4 +1,6 @@
-export const typeFilters = [
+import seasonEventData from "../../data/translation-custom/seasonEvent.json";
+
+const typeFilters = [
   {
     id: "all",
     label: "すべて",
@@ -112,6 +114,36 @@ export const typeFilters = [
     }
   }
 ];
+
+const seasonEvents = [
+  "Spring shopping",
+  "Summer shopping",
+  "Fall shopping",
+  "Winter shopping",
+  "Setsubun (Able Sisters)",
+  "Festivale (ready days); Festivale",
+  "Fireworks Show",
+  "Halloween (ready days); Halloween",
+  "Festive shopping",
+  "Toy Day (ready days phase 2); Toy Day; Toy Day (day after)"
+];
+
+seasonEvents.forEach((value, index) => {
+  typeFilters.push({
+    id: `fashion-${index}`,
+    label: seasonEventData[value] || value,
+    show: ["fashion"],
+    filter: function(item) {
+      return (
+        item.seasonEvent &&
+        item.seasonEvent.includes(value) &&
+        item.catalog === "For sale"
+      );
+    }
+  });
+});
+
+export { typeFilters };
 
 export const collectedFilters = [
   {

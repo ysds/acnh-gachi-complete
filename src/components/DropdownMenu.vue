@@ -14,14 +14,18 @@
 }
 
 .dropdown-menu {
-  margin-top: 3px;
   display: flex;
   flex-direction: column;
+  max-width: calc(100vw - 10px);
+  max-height: 73vh;
+  margin-top: 3px;
   padding: 0.375rem;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   font-size: 14px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 </style>
 

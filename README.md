@@ -26,8 +26,8 @@ npm run build
 
 ### 2. 翻訳情報の取得
 
-* [acnh-strings](https://github.com/alexislours/acnh-strings) から最新のメッセージデータを取得し、`data/translation-src` 内の該当ファイルを上書きする
-* `NookMilage_List.csv` は、[acnh-message](https://github.com/alexislours/acnh-message) の `System_JPja` から最新のメッセージデータを取得する。
+* Discord の ACNH Spreadsheet [#Resources](https://discord.com/channels/701573691426996324/701577157503352983) で公開されているMSBTアーカイブファイル（msbt.zip）を取得し、適当なディレクトリに保存する
+* `npm run translate[ -- 1で保存したmsbt.zipのパス]` を実行して翻訳データを最新化する
 
 ### 3. `items.json` のビルド
 

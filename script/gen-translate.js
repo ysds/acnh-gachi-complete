@@ -1,5 +1,4 @@
 const fs = require("fs");
-const csvParse = require("csv-parse/lib/sync");
 
 //
 // Item name
@@ -9,27 +8,21 @@ const csvParse = require("csv-parse/lib/sync");
   const dir = "./data/translation-src/item-name";
   let contentJson = {};
   let fileList = fs.readdirSync(dir);
-  fileList = fileList.filter(RegExp.prototype.test, /.*\.csv$/);
+  fileList = fileList.filter(RegExp.prototype.test, /.*\.json$/);
 
   for (let i = 0; i < fileList.length; i++) {
-    const content = fs.readFileSync(`${dir}/${fileList[i]}`);
-    const contentArray = csvParse(content, {
-      from_line: 2,
-      delimiter: ";",
-      quote: false
-    });
+    const content = require(`.${dir}/${fileList[i]}`);
 
-    for (let j = 0; j < contentArray.length; j++) {
-      const rowData = contentArray[j];
+    for (const [k, v] of Object.entries(content)) {
       const key = (() => {
-        const strArray = rowData[0].split("_");
+        const strArray = k.split("_");
         if (strArray.length === 1) {
           return `Fassion_${parseInt(strArray[0], 10)}`;
         } else {
           return parseInt(strArray[1], 10);
         }
       })();
-      contentJson[key] = rowData[12] || rowData[1];
+      contentJson[key] = v;
     }
   }
 
@@ -44,25 +37,18 @@ const csvParse = require("csv-parse/lib/sync");
 (() => {
   let contentJson = {};
 
-  const content = fs.readFileSync(
-    `./data/translation-src/variant-remake/STR_Remake_BodyColor.csv`
-  );
-  const contentArray = csvParse(content, {
-    from_line: 2,
-    delimiter: ";",
-    quote: false
-  });
+  const content = require(`../data/translation-src/variant-remake/STR_Remake_BodyColor.json`);
 
-  for (let j = 0; j < contentArray.length; j++) {
-    const rowData = contentArray[j];
+  for (const [k, v] of Object.entries(content)) {
     const key = (() => {
-      const strArray = rowData[0].split("_");
+      const strArray = k.split("_");
       return `${parseInt(strArray[1], 10)}_${parseInt(strArray[2], 10)}`;
     })();
-    let value = rowData[12].replace(/\r\n/g, "");
-    // eslint-disable-next-line no-control-regex
-    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
-    contentJson[key] = value;
+    contentJson[key] = v.replace(
+      // eslint-disable-next-line no-control-regex
+      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+      ""
+    );
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
@@ -76,25 +62,18 @@ const csvParse = require("csv-parse/lib/sync");
 (() => {
   let contentJson = {};
 
-  const content = fs.readFileSync(
-    `./data/translation-src/variant-remake/STR_Remake_BodyParts.csv`
-  );
-  const contentArray = csvParse(content, {
-    from_line: 2,
-    delimiter: ";",
-    quote: false
-  });
+  const content = require(`../data/translation-src/variant-remake/STR_Remake_BodyParts.json`);
 
-  for (let j = 0; j < contentArray.length; j++) {
-    const rowData = contentArray[j];
+  for (const [k, v] of Object.entries(content)) {
     const key = (() => {
-      const strArray = rowData[0].split("_");
+      const strArray = k.split("_");
       return `${parseInt(strArray[1], 10)}`;
     })();
-    let value = rowData[12].replace(/\r\n/g, "");
-    // eslint-disable-next-line no-control-regex
-    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
-    contentJson[key] = value;
+    contentJson[key] = v.replace(
+      // eslint-disable-next-line no-control-regex
+      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+      ""
+    );
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
@@ -111,24 +90,18 @@ const csvParse = require("csv-parse/lib/sync");
 (() => {
   let contentJson = {};
 
-  const content = fs.readFileSync(
-    `./data/translation-src/variant-remake/STR_Remake_FabricColor.csv`
-  );
-  const contentArray = csvParse(content, {
-    from_line: 2,
-    delimiter: ";",
-    quote: false
-  });
+  const content = require(`../data/translation-src/variant-remake/STR_Remake_FabricColor.json`);
 
-  for (let j = 0; j < contentArray.length; j++) {
-    const rowData = contentArray[j];
+  for (const [k, v] of Object.entries(content)) {
     const key = (() => {
-      const strArray = rowData[0].split("_");
+      const strArray = k.split("_");
       return `${parseInt(strArray[1], 10)}`;
     })();
-    let value = rowData[12].replace(/\r\n/g, "");
-    // eslint-disable-next-line no-control-regex
-    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
+    const value = v.replace(
+      // eslint-disable-next-line no-control-regex
+      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+      ""
+    );
 
     if (!contentJson[key]) {
       contentJson[key] = [];
@@ -147,26 +120,18 @@ const csvParse = require("csv-parse/lib/sync");
 (() => {
   let contentJson = {};
 
-  const content = fs.readFileSync(
-    `./data/translation-src/variant-remake/STR_Remake_FabricParts.csv`
-  );
-  const contentArray = csvParse(content, {
-    from_line: 2,
-    delimiter: ";",
-    quote: false
-  });
+  const content = require(`../data/translation-src/variant-remake/STR_Remake_FabricParts.json`);
 
-  for (let j = 0; j < contentArray.length; j++) {
-    const rowData = contentArray[j];
+  for (const [k, v] of Object.entries(content)) {
     const key = (() => {
-      const strArray = rowData[0].split("_");
+      const strArray = k.split("_");
       return `${parseInt(strArray[1], 10)}`;
     })();
-    let value = rowData[12].replace(/\r\n/g, "");
-    // eslint-disable-next-line no-control-regex
-    value = value.replace(/\u000e.*?[\u3041-\u3096]+/g, "");
-
-    contentJson[key] = value;
+    contentJson[key] = v.replace(
+      // eslint-disable-next-line no-control-regex
+      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+      ""
+    );
   }
 
   contentJson = JSON.stringify(contentJson, null, 2);
@@ -184,23 +149,17 @@ const csvParse = require("csv-parse/lib/sync");
   const dir = "./data/translation-src/variant-fassion";
   let contentJson = {};
   let fileList = fs.readdirSync(dir);
-  fileList = fileList.filter(RegExp.prototype.test, /.*\.csv$/);
+  fileList = fileList.filter(RegExp.prototype.test, /.*\.json$/);
 
   for (let i = 0; i < fileList.length; i++) {
-    const content = fs.readFileSync(`${dir}/${fileList[i]}`);
-    const contentArray = csvParse(content, {
-      from_line: 2,
-      delimiter: ";",
-      quote: false
-    });
+    const content = require(`.${dir}/${fileList[i]}`);
 
-    for (let j = 0; j < contentArray.length; j++) {
-      const rowData = contentArray[j];
+    for (const [k, v] of Object.entries(content)) {
       const key = (() => {
-        const strArray = rowData[0].split("_");
+        const strArray = k.split("_");
         return `${parseInt(strArray[2], 10)}`;
       })();
-      contentJson[key] = rowData[12];
+      contentJson[key] = v;
     }
   }
 
@@ -214,21 +173,8 @@ const csvParse = require("csv-parse/lib/sync");
 
 (() => {
   let contentJson = {};
-  const content = fs.readFileSync(
-    "./data/translation-src/reaction/STR_Emoticon.csv"
-  );
-  const contentArray = csvParse(content, {
-    from_line: 2,
-    delimiter: ";",
-    quote: false
-  });
-
-  for (let i = 0; i < contentArray.length; i++) {
-    const rowData = contentArray[i];
-    contentJson[rowData[0]] = rowData[12];
-  }
-
-  contentJson = JSON.stringify(contentJson, null, 2);
+  const content = require("../data/translation-src/reaction/STR_Emoticon.json");
+  contentJson = JSON.stringify(content, null, 2);
   fs.writeFileSync("./data/translation-json/reaction.json", contentJson);
 })();
 
@@ -238,23 +184,15 @@ const csvParse = require("csv-parse/lib/sync");
 
 (() => {
   let contentJson = {};
-  const content = fs.readFileSync("./data/translation-src/NookMilage_List.csv");
-  const contentArray = csvParse(content, {
-    bom: true,
-    from_line: 2
-  });
+  const content = require("../data/translation-src/NookMilage_List.json");
 
-  for (let i = 0; i < contentArray.length; i++) {
-    const rowData = contentArray[i];
-    const csvKey = rowData[0];
+  for (const [k, v] of Object.entries(content)) {
     const key = (() => {
-      const strArray = rowData[0].split("_");
+      const strArray = k.split("_");
       return `${parseInt(strArray[0], 10)}`;
     })();
 
-    // \r(\u000d)はオリジナルのメッセージファイル(MSBTファイル)に存在しないため削除する
-    // MSBT→CSV変換時に改行コード変換(\n→\r\n)されているのが原因と思われる
-    const rawValue = rowData[1].replace(/\r/g, "");
+    const rawValue = v;
 
     // ルビ制御タグの構造
     // 参考: https://github.com/Kinnay/Nintendo-File-Formats/wiki/MSBT-File-Format
@@ -271,7 +209,7 @@ const csvParse = require("csv-parse/lib/sync");
     // 0x0:2:ルビ対象文字列(漢字文字列)のUTF-16でのバイト数
     // 0x2:2:ルビ文字列(ひらがな文字列)のUTF-16でのバイト数
     // 0x4:n-4:ルビ文字列
-    const rubiHeader = "\u000e\\0\\0";
+    const rubiHeader = "\u000e\u0000\u0000";
     let pos = rawValue.indexOf(rubiHeader);
 
     // オリジナル文字列からルビ文字列(ひらがな文字列)を削除した文字列
@@ -314,7 +252,7 @@ const csvParse = require("csv-parse/lib/sync");
 
     // ルビ以外の制御用タグを削除
     // eslint-disable-next-line no-control-regex
-    value = value.replace(/\u000e\\0.../g, "");
+    value = value.replace(/\u000e\u0000.../g, "");
     // 絵文字を削除（釣り大会、ムシとり大会）
     value = value.replace(/\ue20a/g, "");
     value = value.replace(/\ue20b/g, "");
@@ -323,10 +261,10 @@ const csvParse = require("csv-parse/lib/sync");
     // 全角スペース削除
     value = value.replace(/\u3000/g, "");
     // 島名を置換
-    value = value.replace('\u000en"\\0', "○○島");
+    value = value.replace('\u000en"\u0000', "○○島");
 
     // 読みの島名は〓(代替文字)に置換
-    yomi = yomi.replace('\u000en"\\0', "〓");
+    yomi = yomi.replace('\u000en"\u0000', "〓");
     // 読みの「ディーアイワイ」の特殊な長音符を置換
     yomi = yomi.replace(/\ue221/g, "ー");
     // 読みからひらがな・カタカナ・長音符・英数字・〓(島名)以外を削除
@@ -336,7 +274,7 @@ const csvParse = require("csv-parse/lib/sync");
     );
 
     if (contentJson[key] === undefined) contentJson[key] = {};
-    if (csvKey.indexOf("_0") > -1) {
+    if (k.indexOf("_0") > -1) {
       contentJson[key].name = value;
       contentJson[key].yomi = yomi;
     } else {

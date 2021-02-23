@@ -5,12 +5,16 @@ const zstd = require("node-zstandard");
 const sarcExtractor = require("sarc-extractor");
 const msbt2json = require("msbt2json");
 
-const msbtZipPath = process.argv[2];
-if (!msbtZipPath) {
-  console.log(
-    "Usage: node ./script/gen-translate-src <MSBT zip archive file path>"
+const msbtZipPath = path.resolve("", process.argv[2] || "./msbt.zip");
+
+// Zipファイルの存在チェック
+try {
+  fs.accessSync(msbtZipPath);
+} catch (err) {
+  console.error(
+    `No file: "${msbtZipPath}".\nUsage: node ./script/gen-translate-src <MSBT zip file path> (default: "./msbt.zip")'>`
   );
-  return;
+  process.exit(1);
 }
 
 // Zipファイルの展開先ディレクトリ

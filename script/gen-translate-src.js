@@ -13,9 +13,6 @@ if (!msbtZipPath) {
   return;
 }
 
-// Zstdファイル別のJSONファイルコピー先定義(./data/translation-src/のサブディレクトリにコピー)
-const targetZstd = require("./gen-translate-src.json");
-
 // Zipファイルの展開先ディレクトリ
 const unzipDir = path.join(
   path.dirname(msbtZipPath),
@@ -23,19 +20,35 @@ const unzipDir = path.join(
 );
 
 (async () => {
+  // 処理結果フラグ
+  let result = true;
+  // ZSファイル別のJSONファイルコピー先定義(./data/translation-src/のサブディレクトリにコピー)
+  const targetZstd = require("./gen-translate-src.json");
   // Zipファイルを展開する
   await extractZip(msbtZipPath, { dir: unzipDir });
   // Zstandard -> sarc -> mtbs -> json -> translation-srcへコピーする
   await readSarcSarcFiles(unzipDir, async zsFilePath => {
+    const zsFileName = path.basename(zsFilePath);
+    const jsonCopyDest = targetZstd[zsFileName];
     // JSONファイルコピー先定義があるファイルのみ展開処理する
-    const jsonCopyDest = targetZstd[path.basename(zsFilePath)];
     if (jsonCopyDest) {
       await decompressZstd(zsFilePath, jsonCopyDest);
+      // 見つからなかったJSONファイル名を表示
+      for (const key in jsonCopyDest) {
+        console.log("No file: " + zsFileName + " > " + key);
+        result = false;
+      }
+      delete targetZstd[zsFileName];
     }
   });
+  // 見つからなかったZSファイル名を表示
+  for (const key in targetZstd) {
+    console.log("No file: " + key);
+    result = false;
+  }
   // Zipファイルの展開先ディレクトリを削除する
   fs.rmdir(unzipDir, { recursive: true }, () => {
-    console.log("Finish.");
+    console.log(result ? "Success." : "Error.");
   });
 })();
 
@@ -91,6 +104,6 @@ function convertMsbt(msbtFilePath, jsonCopyDest) {
     const jsonFilePath = msbt2json.convert(msbtFilePath);
     const destFile = path.join("./data/translation-src", destDir, jsonFileName);
     fs.copyFileSync(jsonFilePath, destFile);
-    console.log("Output: " + destFile);
+    delete jsonCopyDest[jsonFileName];
   }
 }

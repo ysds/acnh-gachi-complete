@@ -7,7 +7,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "gen": "node script/gen-translate && node script/gen-json",
+    "translate": "node script/gen-translate-src",
+    "posttranslate": "node script/gen-translate",
+    "gen": "node script/gen-json",
     "format": "prettier --write src/assets/items.json"
   },
   "dependencies": {

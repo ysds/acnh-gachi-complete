@@ -496,7 +496,7 @@ export function filterItems(args) {
           item.sourceSheet !== "Other"
         );
       }
-      // 季節・イベント （聖パトリックの祝日)
+      // 季節・イベント （シャムロックデー)
       else if (nav === "season-shamrock") {
         return (
           item.seasonEvent &&

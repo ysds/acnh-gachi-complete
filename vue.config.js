@@ -147,7 +147,7 @@ module.exports = {
                 "/share2/season-fireworks": "花火大会",
                 "/share2/season-festivale": "カーニバル",
                 "/share2/season-spring": "はるのわかたけ",
-                "/share2/season-shamrock": "聖パトリックの祝日",
+                "/share2/season-shamrock": "シャムロックデー",
                 "/share2/season-sakura": "さくらのはなびら",
                 "/share2/season-easter": "イースター",
                 "/share2/season-mayday": "メーデー",

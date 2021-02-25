@@ -496,6 +496,14 @@ export function filterItems(args) {
           item.sourceSheet !== "Other"
         );
       }
+      // 季節・イベント （聖パトリックの祝日)
+      else if (nav === "season-shamrock") {
+        return (
+          item.seasonEvent === "Shamrock Day" &&
+          !item.diy &&
+          item.sourceSheet !== "Other"
+        );
+      }
       // 季節・イベント (さくら)
       else if (nav === "season-sakura") {
         return (
@@ -637,6 +645,10 @@ export function filterItems(args) {
       // バージョン 1.7.0
       else if (nav === "versions-170") {
         return item.versionAdded === "1.7.0";
+      }
+      // バージョン 1.8.0
+      else if (nav === "versions-180") {
+        return item.versionAdded === "1.8.0";
       }
 
       return true;

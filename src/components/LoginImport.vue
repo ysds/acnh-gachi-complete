@@ -1,5 +1,5 @@
 <template>
-  <Card title="インポート">
+  <Card title="チェッカーからインポート">
     <p class="small">
       「<a
         target="_blank"
@@ -198,8 +198,6 @@ export default {
         let variantIndex = key.match(/_.*/g)[0];
         variantIndex = variantIndex.replace("_", "");
 
-        console.log(collected[name]);
-
         const currentCollected = collected[name] || "";
         const moduCollected = moduArray[index];
         let newCollected = currentCollected;
@@ -229,7 +227,7 @@ export default {
     },
     ready() {
       this.message =
-        "あつ森ガチコンプにもデータが存在する場合、チェック状態の高い方（配布可>取得済>未取得）が優先されて統合されます。";
+        "あつ森ガチコンプに既にデータが存在する場合、チェック状態の高い方（配布可>取得済）が優先されて統合されます。";
       this.isEnableButton = true;
     },
     error() {

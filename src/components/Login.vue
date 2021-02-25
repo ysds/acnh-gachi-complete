@@ -51,6 +51,7 @@
         </Card>
       </template>
 
+      <LoginCatalogScanner />
       <LoginImport />
 
       <template v-if="isLogin && user">
@@ -77,6 +78,7 @@ import LoginIslandName from "../components/LoginIslandName";
 import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
+import LoginCatalogScanner from "../components/LoginCatalogScanner";
 
 const db = firebase.firestore();
 
@@ -90,7 +92,8 @@ export default {
     LoginIslandName,
     LoginShare,
     LoginImport,
-    LoginCollected
+    LoginCollected,
+    LoginCatalogScanner
   },
   computed: {
     user() {

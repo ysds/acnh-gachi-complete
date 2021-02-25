@@ -6,3 +6,14 @@ export function percentage(value, totalValue) {
     return `${percentage.toFixed(1)}%`;
   }
 }
+
+export function zen_han_conv(str) {
+  str = str.replace(/[０-９Ａ-Ｚａ-ｚ]/g, function(match) {
+    const chr = match.charCodeAt(0) - 0xfee0;
+    return String.fromCharCode(chr);
+  });
+  str = str.replace(/（/g, "(");
+  str = str.replace(/）/g, ")");
+  str = str.replace(/~/g, "～");
+  return str;
+}

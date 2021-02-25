@@ -499,7 +499,8 @@ export function filterItems(args) {
       // 季節・イベント （聖パトリックの祝日)
       else if (nav === "season-shamrock") {
         return (
-          item.seasonEvent === "Shamrock Day" &&
+          item.seasonEvent &&
+          item.seasonEvent.includes("Shamrock Day") &&
           !item.diy &&
           item.sourceSheet !== "Other"
         );

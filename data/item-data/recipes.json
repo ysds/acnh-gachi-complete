@@ -10366,7 +10366,7 @@
     "internalId": 473,
     "uniqueEntryId": "6HtNgH3LKjQA5kxtg",
     "materials": {
-      "bells": 50000
+      "50,000 Bells": 1
     }
   },
   {
@@ -12568,7 +12568,7 @@
     "seasonEvent": "Festivale",
     "seasonEventExclusive": true,
     "versionAdded": "1.7.0",
-    "unlocked": false,
+    "unlocked": true,
     "recipesToUnlock": 0,
     "category": "Other",
     "craftedItemInternalId": 3548,
@@ -18504,6 +18504,35 @@
     "uniqueEntryId": "236xGcHiXbpCRfWba",
     "materials": {
       "stone": 30
+    }
+  },
+  {
+    "sourceSheet": "Recipes",
+    "name": "shamrock wand",
+    "image": "https://acnhcdn.com/latest/DIYRecipeIcon/ToolStickShamrock.png",
+    "imageSh": null,
+    "buy": -1,
+    "sell": 200,
+    "exchangePrice": null,
+    "exchangeCurrency": null,
+    "source": ["Balloons"],
+    "sourceNotes": null,
+    "seasonEvent": "Shamrock Day",
+    "seasonEventExclusive": true,
+    "versionAdded": "1.8.0",
+    "unlocked": false,
+    "recipesToUnlock": 0,
+    "category": "Tools",
+    "craftedItemInternalId": 14239,
+    "cardColor": "green",
+    "diyIconFilename": "ToolStickShamrock",
+    "diyIconFilenameSh": null,
+    "serialId": 1292,
+    "internalId": 774,
+    "uniqueEntryId": "8zBmGTvSx4dcXAJhj",
+    "materials": {
+      "clump of weeds": 3,
+      "star fragment": 3
     }
   }
 ]

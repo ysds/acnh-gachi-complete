@@ -122,6 +122,7 @@ const seasonEvents = [
   "Winter shopping",
   "Setsubun (Able Sisters)",
   "Festivale (ready days); Festivale",
+  "Shamrock Day (Able Sisters)",
   "Fireworks Show",
   "Halloween (ready days); Halloween",
   "Festive shopping",

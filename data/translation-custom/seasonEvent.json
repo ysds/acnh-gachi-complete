@@ -25,6 +25,7 @@
   "Halloween": "10/31（ハロウィン当日）",
   "Halloween (ready days)": "10/1〜10/30（ハロウィン準備期間）",
   "Halloween (ready days); Halloween": "10/1〜10/31（ハロウィン）",
+  "Hinamatsuri": "2/25〜3/2（雛祭り）",
   "International Children's Day": "6/1〜6/30（国際こどもの日）",
   "International Museum Day": "5/18〜5/31（国際ミュージアムデー）",
   "Leo": "7/23〜8/22（しし座の時期）",
@@ -46,6 +47,8 @@
   "Seollal": "2/10〜2/17（ソルラル）",
   "Setsubun": "1/25〜2/3（節分）",
   "Setsubun (Able Sisters)": "2/1〜2/3（節分:エイブル）",
+  "Shamrock Day": "3/10〜3/17（聖パトリックの祝日）",
+  "Shamrock Day (Able Sisters)": "3/10〜3/17（聖パトリックの祝日）",
   "Shōgatsu (1)": "1/1〜1/15（お正月）",
   "Shōgatsu (2)": "1/1〜1/15（お正月）",
   "Shōgatsu (3)": "1/1〜1/15（お正月）",
@@ -54,6 +57,7 @@
   "Summer Solstice (northern hemisphere); Summer Solstice (southern hemisphere)": "北: 6/7〜7/6, 南: 12/1〜12/31（夏至）",
   "Summer shopping": "北: 6/1〜8/31, 南: 12/1〜2/29（夏）",
   "Summer shopping; Fireworks Show": "8月毎週日曜日（花火大会）、または北: 6/1〜8/31, 南: 12/1〜2/29（夏）",
+  "Super Mario Bros.": "3/1〜12/1（スーパーマリオブラザーズ35周年）",
   "Tanabata": "7/1〜7/31（七夕）",
   "Taurus": "4/20〜5/20（おうし座の時期）",
   "Toy Day": "12/24（クリスマスイブ当日）",
@@ -77,5 +81,6 @@
   "snowflakes": "北: 12/11〜2/24, 南: 6/11〜8/24（ゆきのけっしょう）",
   "summer shells": "北: 6/1〜8/31, 南: 12/1〜2/29（なつのかいがら）",
   "young spring bamboo": "北: 2/25〜5/31, 南: 8/25〜11/30（はるのわかたけ）",
-  "Ōmisoka": "12/26〜12/31（大晦日）"
+  "Ōmisoka": "12/26〜12/31（大晦日）",
+  "π Day": "3/1〜3/14（πの日）"
 }

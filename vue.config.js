@@ -73,6 +73,7 @@ module.exports = {
               "/share2/season-spring",
               "/share2/season-shamrock",
               "/share2/season-sakura",
+              "/share2/season-easter",
               "/share2/season-mayday",
               "/share2/season-museum",
               "/share2/season-wedding",

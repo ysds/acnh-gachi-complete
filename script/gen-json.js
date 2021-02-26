@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { array_move, numberWithCommas } = require("./utils.js");
-const { convertForSorting, sortItemsByName } = require("./sort.js");
+const { sortItemsByName } = require("./sort.js");
 
 //
 // Load Json

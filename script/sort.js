@@ -48,21 +48,30 @@ function choon_conv(str) {
 }
 
 function sutegana_conv(str) {
-  str = str.replace("ァ", "ア");
-  str = str.replace("ィ", "イ");
-  str = str.replace("ゥ", "ウ");
-  str = str.replace("ェ", "エ");
-  str = str.replace("ォ", "オ");
-  str = str.replace("ッ", "ツ");
-  str = str.replace("ャ", "ヤ");
-  str = str.replace("ュ", "ユ");
-  str = str.replace("ョ", "ヨ");
-  str = str.replace("ヮ", "ワ");
+  str = str.replace(/ァ/g, "ア");
+  str = str.replace(/ィ/g, "イ");
+  str = str.replace(/ゥ/g, "ウ");
+  str = str.replace(/ェ/g, "エ");
+  str = str.replace(/ォ/g, "オ");
+  str = str.replace(/ッ/g, "ツ");
+  str = str.replace(/ャ/g, "ヤ");
+  str = str.replace(/ュ/g, "ユ");
+  str = str.replace(/ョ/g, "ヨ");
+  str = str.replace(/ヮ/g, "ワ");
+  str = str.replace(/ヵ/g, "カ");
+  str = str.replace(/ヶ/g, "ケ");
   return str;
 }
 
 function symbol_conv(str) {
-  return str.replace(/[^\u0020-\u007D〓ァ-ヶＡ-Ｚａ-ｚ]/g, "");
+  if (str.length >= 2) {
+    return (
+      str.substring(0, 1) +
+      str.substring(1).replace(/[^\u0020-\u007Dァ-ヶＡ-Ｚａ-ｚ]/g, "")
+    );
+  } else {
+    return str;
+  }
 }
 
 function convertForSorting(str) {
@@ -76,13 +85,14 @@ function convertForSorting(str) {
   str = sutegana_conv(str);
   // 濁点削除（ブドウ⇒フトウ）
   str = daku_conv(str);
-  // 中黒（・）などの全角記号削除（島名読み仮名の〓は削除しない）
+  // 先頭以外の全角記号削除
   str = symbol_conv(str);
   return str;
 }
 
 module.exports = {
   sortItemsByName: function(items, converter) {
+    const reSymbol = /[^\u0020-\u007D〓ァ-ヶＡ-Ｚａ-ｚ]/;
     items.sort(function(a, b) {
       // 変換前
       const oa = a.yomigana || a.displayName;
@@ -91,6 +101,7 @@ module.exports = {
       const ca = convertForSorting(converter ? converter(oa, a) : oa);
       const cb = convertForSorting(converter ? converter(ob, b) : ob);
       // 1文字単位で判定
+      // 島名読み仮名の〓以外の全角記号は最後尾へ
       for (let i = 0; i < ca.length; ) {
         if (i === cb.length) {
           return 1;
@@ -109,6 +120,10 @@ module.exports = {
           } else {
             i += na.toString(10).length;
           }
+        } else if (reSymbol.test(sa) && !reSymbol.test(sb)) {
+          return 1;
+        } else if (!reSymbol.test(sa) && reSymbol.test(sb)) {
+          return -1;
         } else if (sa > sb) {
           return 1;
         } else if (sa < sb) {

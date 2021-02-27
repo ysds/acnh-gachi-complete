@@ -14,6 +14,6 @@ export function zen_han_conv(str) {
   });
   str = str.replace(/（/g, "(");
   str = str.replace(/）/g, ")");
-  str = str.replace(/~/g, "～");
+  str = str.replace(/～/g, "~");
   return str;
 }

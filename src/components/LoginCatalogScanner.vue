@@ -114,9 +114,11 @@ export default {
           const failedNames = [];
 
           for (const name of names) {
+            const catalogName = zen_han_conv(name);
             const item = itemsJson.find(item => {
               const isMatchName =
-                zen_han_conv(item.displayName) === name || item.name === name;
+                zen_han_conv(item.displayName) === catalogName ||
+                item.name === name;
               if (isRecipe) {
                 return isMatchName && item.sourceSheet === "Recipes";
               } else {

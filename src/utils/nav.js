@@ -651,6 +651,10 @@ export function filterItems(args) {
       else if (nav === "versions-180") {
         return item.versionAdded === "1.8.0";
       }
+      // バージョン 1.9.0
+      else if (nav === "versions-190") {
+        return item.versionAdded === "1.9.0";
+      }
 
       return true;
     });

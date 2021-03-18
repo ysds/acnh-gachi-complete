@@ -276,15 +276,15 @@
         "order": 7
       },
       {
-        "id": "season-sakura",
-        "text": "さくらのはなびら",
-        "subtext": "4/1〜4/10",
+        "id": "season-easter",
+        "text": "イースター",
+        "subtext": "3/28〜4/4",
         "order": 8
       },
       {
-        "id": "season-easter",
-        "text": "イースター",
-        "subtext": "4/1〜4/12",
+        "id": "season-sakura",
+        "text": "さくらのはなびら",
+        "subtext": "4/1〜4/10",
         "order": 9
       },
       {
@@ -389,6 +389,10 @@
     "id": "versions",
     "text": "バージョン",
     "subnavs": [
+      {
+        "id": "versions-190",
+        "text": "1.9.0"
+      },
       {
         "id": "versions-180",
         "text": "1.8.0"

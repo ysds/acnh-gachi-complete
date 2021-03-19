@@ -14,7 +14,7 @@ function zen_han_conv(str) {
     const chr = match.charCodeAt(0) + 0xfee0;
     return String.fromCharCode(chr);
   });
-  return str;
+  return str.toUpperCase();
 }
 
 function daku_conv(str) {
@@ -77,7 +77,7 @@ function symbol_conv(str) {
 function convertForSorting(str) {
   // ひらがな⇒カタカナ
   str = kana_conv(str);
-  // 数字⇒半角、アルファベット⇒全角
+  // 数字⇒半角、アルファベット⇒全角大文字
   str = zen_han_conv(str);
   // 長音変換（ポスター⇒ポスタア）
   str = choon_conv(str);

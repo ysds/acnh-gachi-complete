@@ -157,6 +157,17 @@
       <div class="info-label info-4">説明</div>
       <div class="info-text">{{ modalItem.achievementDescription }}</div>
     </div>
+    <div
+      class="info"
+      v-if="
+        modalItem.exchangePrice &&
+          modalItem.source &&
+          modalItem.source.indexOf('NookLink') >= 0
+      "
+    >
+      <div class="info-label info-4">タヌポイント</div>
+      <div class="info-text">{{ modalItem.exchangePrice }}</div>
+    </div>
   </div>
 </template>
 

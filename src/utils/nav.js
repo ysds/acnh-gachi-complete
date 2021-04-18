@@ -631,6 +631,10 @@ export function filterItems(args) {
       else if (nav === "achievements") {
         return item.sourceSheet === "Achievements";
       }
+      // タヌポイント
+      else if (nav === "nookpoints") {
+        return item.source && item.source.includes("NookLink");
+      }
       // バージョン 1.4.0
       else if (nav === "versions-140") {
         return item.versionAdded === "1.4.0";

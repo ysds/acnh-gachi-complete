@@ -332,9 +332,9 @@ export function filterItems(args) {
       else if (nav === "fashion-headwear") {
         return item.sourceSheet === "Headwear";
       }
-      // ファッション (Accessories)
+      // ファッション (Equipment)
       else if (nav === "fashion-accessories") {
-        return item.sourceSheet === "Accessories";
+        return item.sourceSheet === "Equipment";
       }
       // ファッション (Socks)
       else if (nav === "fashion-socks") {
@@ -658,6 +658,10 @@ export function filterItems(args) {
       // バージョン 1.9.0
       else if (nav === "versions-190") {
         return item.versionAdded === "1.9.0";
+      }
+      // バージョン 1.10.0
+      else if (nav === "versions-1100") {
+        return item.versionAdded === "1.10.0";
       }
 
       return true;

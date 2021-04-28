@@ -394,6 +394,14 @@
     "text": "バージョン",
     "subnavs": [
       {
+        "id": "versions-1100",
+        "text": "1.10.0"
+      },
+      {
+        "id": "versions-190",
+        "text": "1.9.0"
+      },
+      {
         "id": "versions-190",
         "text": "1.9.0"
       },

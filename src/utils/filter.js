@@ -124,6 +124,7 @@ const seasonEvents = [
   "Festivale (ready days); Festivale",
   "Shamrock Day (Able Sisters)",
   "Prom (Able Sisters)",
+  "Wedding Season (Able Sisters)",
   "Fireworks Show",
   "Halloween (ready days); Halloween",
   "Festive shopping",

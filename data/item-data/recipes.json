@@ -6252,8 +6252,8 @@
     "internalId": 663,
     "uniqueEntryId": "M67DJhFjbWusf3xXk",
     "materials": {
-      "axe": 1,
-      "gold nugget": 1
+      "gold nugget": 1,
+      "axe": 1
     }
   },
   {
@@ -6450,8 +6450,8 @@
     "internalId": 658,
     "uniqueEntryId": "cnQ4qLNgFDK7F4NQJ",
     "materials": {
-      "net": 1,
-      "gold nugget": 1
+      "gold nugget": 1,
+      "net": 1
     }
   },
   {
@@ -6479,8 +6479,8 @@
     "internalId": 662,
     "uniqueEntryId": "FTWgTtoCgm3jNGhM4",
     "materials": {
-      "fishing rod": 1,
-      "gold nugget": 1
+      "gold nugget": 1,
+      "fishing rod": 1
     }
   },
   {
@@ -6536,8 +6536,8 @@
     "internalId": 660,
     "uniqueEntryId": "aEtPEYkwgj9BJ48Et",
     "materials": {
-      "shovel": 1,
-      "gold nugget": 1
+      "gold nugget": 1,
+      "shovel": 1
     }
   },
   {
@@ -6565,8 +6565,8 @@
     "internalId": 661,
     "uniqueEntryId": "W7WY5fpjB4Lc36YYs",
     "materials": {
-      "slingshot": 1,
-      "gold nugget": 1
+      "gold nugget": 1,
+      "slingshot": 1
     }
   },
   {
@@ -6679,8 +6679,8 @@
     "internalId": 659,
     "uniqueEntryId": "HShnyCLB3cPL5xNTx",
     "materials": {
-      "watering can": 1,
-      "gold nugget": 1
+      "gold nugget": 1,
+      "watering can": 1
     }
   },
   {
@@ -7432,10 +7432,10 @@
     "internalId": 203,
     "uniqueEntryId": "S8meymsrnGbZRN5XM",
     "materials": {
-      "gold ornament": 6,
-      "iron nugget": 6,
       "red ornament": 8,
-      "blue ornament": 8
+      "blue ornament": 8,
+      "gold ornament": 6,
+      "iron nugget": 6
     }
   },
   {

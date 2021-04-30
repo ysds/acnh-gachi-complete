@@ -1106,7 +1106,7 @@
     "name": "Decorated Decorator",
     "achievementDescription": "You got an S ranking from the Happy Home Academy! Your decorating skills are truly an inspiration, and you deserve some Nook Miles.",
     "achievementCriteria": "Get an S ranking from the Happy Home Academy",
-    "num": "30",
+    "num": 30,
     "internalId": "40",
     "internalName": "GetSRankonHHA",
     "internalCategory": "Event",

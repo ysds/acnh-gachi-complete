@@ -332,9 +332,9 @@ export function filterItems(args) {
       else if (nav === "fashion-headwear") {
         return item.sourceSheet === "Headwear";
       }
-      // ファッション (Equipment)
+      // ファッション (Accessories)
       else if (nav === "fashion-accessories") {
-        return item.sourceSheet === "Equipment";
+        return item.sourceSheet === "Accessories";
       }
       // ファッション (Socks)
       else if (nav === "fashion-socks") {

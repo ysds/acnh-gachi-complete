@@ -50,7 +50,7 @@ import {
   collectedLength,
   providableLength
 } from "../utils/nav.js";
-import { syncCollectedData } from "../utils/db.js";
+import { syncData } from "../utils/db.js";
 import { percentage } from "../utils/utils";
 import Button from "./Button";
 import Modal from "./Modal";
@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     showShareModal() {
-      syncCollectedData();
+      syncData();
       const shareURL = `https://ysds.github.io/acnh-gachi-complete/share2/${this.activeNav}/?uid=${this.user.uid}`;
       this.shareURL = shareURL;
       this.initTweetString();

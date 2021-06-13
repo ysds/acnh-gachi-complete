@@ -36,7 +36,12 @@
       v-show="!isSearchMode && activeNav"
     />
     <div v-show="!isSearchMode && activeNav">
-      <div class="d-flex">
+      <div
+        class="d-flex"
+        :style="{
+          'margin-bottom': activeNav === 'exchange' ? '1rem' : null
+        }"
+      >
         <div class="toolbar">
           <ToolbarFilter
             :filter="filter"
@@ -51,7 +56,11 @@
           />
         </div>
       </div>
-      <CollectedBar :totalValue="totalLength" :value="collectedLength" />
+      <CollectedBar
+        v-if="activeNav !== 'exchange'"
+        :totalValue="totalLength"
+        :value="collectedLength"
+      />
     </div>
     <ul
       class="items"
@@ -107,8 +116,10 @@
             :modalItem="modalItem"
             :modalBodyIndex="modalBodyIndex"
             :modalPatternIndex="modalPatternIndex"
+            isShowWishlistButton
             @updateModalBodyIndex="modalBodyIndex = $event"
             @updateModalPatternIndex="modalPatternIndex = $event"
+            @updateWishlist="onUpdateWishlist"
           />
         </div>
       </template>
@@ -230,7 +241,10 @@ export default {
           typeFilter: this.filter.typeFilter
         });
       }
-    }
+    },
+    wishlist() {
+      return this.$store.getters.wishlist;
+    },
   },
   watch: {
     activeNav(newValue, oldValue) {
@@ -286,7 +300,8 @@ export default {
           typeFilter: "all",
           collectedFilter: "0",
           viewMode: "tile",
-          order: "name"
+          order: "name",
+          exchangeType: "wishlist"
         },
         filter
       );
@@ -411,6 +426,12 @@ export default {
       this.modalItem = item;
       this.isShowModal = true;
     },
+    onUpdateWishlist() {
+      if (this.activeNav === "exchange") {
+        this.updateShowItems();
+      }
+      this.isShowModal = false;
+    },
     changeNav(nav) {
       this.$store.commit("changeNav", nav);
     },
@@ -432,7 +453,8 @@ export default {
         isSearchMode: this.isSearchMode,
         searchText: this.searchText,
         islandName: this.islandName,
-        updateMatchedVariants: true
+        updateMatchedVariants: true,
+        wishlist: this.wishlist
       });
 
       this.showItems = [];
@@ -481,6 +503,7 @@ export default {
         this.filter.typeFilter = "all";
         this.$vlf.setItem("filter", this.filter);
       }
+      this.filter.exchangeType = "wishlist";
     }
   }
 };

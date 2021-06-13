@@ -20,7 +20,49 @@
         </DropdownMenu>
       </Popper>
     </span>
-    <template v-if="!isShareView">
+    <template v-if="activeNav === 'exchange'">
+      <div>
+        <Button
+          sm
+          style="margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;"
+          @click="onClickExchangeType('wishlist')"
+          :active="filter.exchangeType === 'wishlist'"
+          :primary="filter.exchangeType === 'wishlist'"
+        >
+          欲しいもの
+        </Button>
+        <Button
+          sm
+          style="margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;"
+          @click="onClickExchangeType('providable')"
+          :active="filter.exchangeType === 'providable'"
+          :primary="filter.exchangeType === 'providable'"
+        >
+          配布可
+        </Button>
+      </div>
+      <div class="buttons" style="margin-top: 0.5rem;" v-if="isShareView">
+        <Button
+          pill
+          @click="onClickCollectedFilter(filter.collectedFilter === '0' ? '6' : '0')"
+          :class="{ active: filter.collectedFilter === '6' }"
+          v-if="filter.exchangeType === 'wishlist'"
+          style="width: auto"
+        >
+          ゆずれるものだけ表示
+        </Button>
+        <Button
+          pill
+          @click="onClickCollectedFilter(filter.collectedFilter === '2' ? '5' : '2')"
+          :class="{ active: filter.collectedFilter === '5' }"
+          v-if="filter.exchangeType === 'providable'"
+          style="width: auto"
+        >
+          もらえるものだけ表示
+        </Button>
+      </div>
+    </template>
+    <template v-else-if="!isShareView">
       <Popper ref="collectedFilter">
         <template slot="reference">
           <Button dropdown sm :active="isOpenCollectedFilter()">
@@ -163,6 +205,14 @@ export default {
     },
     onClickOrderButton(value) {
       this.$emit("change", Object.assign(this.filter, { order: value }));
+    },
+    onClickExchangeType(value) {
+      this.$emit("change", Object.assign(this.filter, { exchangeType: value }));
+      if (value === "wishlist") {
+        this.onClickCollectedFilter('0');
+      } else {
+        this.onClickCollectedFilter('2');
+      }
     },
     isOpenTypeFilter() {
       if (!this.$refs.typeFilter) return false;

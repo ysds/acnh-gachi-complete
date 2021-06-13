@@ -55,12 +55,13 @@
           <CheckForTile
             :name="i === 0 ? itemName : ''"
             :image="variantImages[index]"
-            :value="getChecks(index)"
+            :value="checks[index]"
             :variant="item.variants[index]"
             :variants="item.variants"
             :isRemake="
               item.customize || item.bodyCustomize || item.patternCustomize
             "
+            :isInWishlist="inWishlistFlags[i]"
             @click="onChangeCheck(index)"
           />
         </li>
@@ -70,11 +71,12 @@
           <CheckForTile
             :name="itemName"
             :image="itemImage"
-            :value="getChecks(0)"
+            :value="checks[0]"
             :isRecipe="item.sourceSheet === 'Recipes'"
             :isRemake="
               item.customize || item.bodyCustomize || item.patternCustomize
             "
+            :isInWishlist="inWishlistFlags[0]"
             @click="onClickAllCheck"
           />
         </li>
@@ -88,6 +90,7 @@ import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
 import { toDisplayItemName } from "../utils/nav";
+import { inWishlistFlags } from "../utils/utils";
 
 export default {
   name: "Item",
@@ -105,6 +108,10 @@ export default {
     filter: Object,
     isSearchMode: Boolean,
     isStatic: Boolean,
+    isShared: {
+      type: Boolean,
+      default: false
+    },
     islandName: String
   },
   directives: {
@@ -201,6 +208,9 @@ export default {
       } else {
         return "0123456789".substring(0, item.variants.length).split("");
       }
+    },
+    inWishlistFlags() {
+      return inWishlistFlags(this.item, this.isShared);
     }
   },
   watch: {
@@ -274,14 +284,6 @@ export default {
     showModal(event, index) {
       event.preventDefault();
       this.$emit("showModal", this.item, index ? parseInt(index, 10) : 0);
-    },
-    getChecks(index) {
-      if (this.filter.collectedFilter === "5") {
-        return 0;
-      } else if (this.filter.collectedFilter === "6") {
-        return 2;
-      }
-      return this.checks[index];
     }
   }
 };

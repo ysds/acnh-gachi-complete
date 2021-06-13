@@ -29,6 +29,7 @@
         </template>
       </template>
     </div>
+    <div v-if="props.isInWishlist" class="t-dot" />
   </button>
 </template>
 <script>
@@ -41,7 +42,8 @@ export default {
     "variant",
     "variants",
     "isRecipe",
-    "isRemake"
+    "isRemake",
+    "isInWishlist"
   ]
 };
 </script>
@@ -132,5 +134,15 @@ export default {
   height: 32px;
   pointer-events: none;
   user-select: none;
+}
+
+.t-dot {
+  position: absolute;
+  right: 6px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  margin-bottom: 0.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23eb486b'%3E%3Cpath d='M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z'/%3E%3C/svg%3E");
 }
 </style>

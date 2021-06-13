@@ -55,7 +55,7 @@
           <CheckForTile
             :name="i === 0 ? itemName : ''"
             :image="variantImages[index]"
-            :value="getChecks(index)"
+            :value="checks[index]"
             :variant="item.variants[index]"
             :variants="item.variants"
             :isRemake="
@@ -70,7 +70,7 @@
           <CheckForTile
             :name="itemName"
             :image="itemImage"
-            :value="getChecks(0)"
+            :value="checks[0]"
             :isRecipe="item.sourceSheet === 'Recipes'"
             :isRemake="
               item.customize || item.bodyCustomize || item.patternCustomize
@@ -274,14 +274,6 @@ export default {
     showModal(event, index) {
       event.preventDefault();
       this.$emit("showModal", this.item, index ? parseInt(index, 10) : 0);
-    },
-    getChecks(index) {
-      if (this.filter.collectedFilter === "5") {
-        return 0;
-      } else if (this.filter.collectedFilter === "6") {
-        return 2;
-      }
-      return this.checks[index];
     }
   }
 };

@@ -98,7 +98,8 @@ module.exports = {
               "/share2/versions-170",
               "/share2/versions-160",
               "/share2/versions-150",
-              "/share2/versions-140"
+              "/share2/versions-140",
+              "/share2/exchange"
             ],
             postProcess(context) {
               const categories = {
@@ -178,7 +179,8 @@ module.exports = {
                 "/share2/versions-170": "1.7.0",
                 "/share2/versions-160": "1.6.0",
                 "/share2/versions-150": "1.5.0",
-                "/share2/versions-140": "1.4.0"
+                "/share2/versions-140": "1.4.0",
+                "/share2/exchange": "欲しいもの＆配布可",
               };
               context.html = context.html.replace(
                 /content="【あつ森ガチコンプ】アイテムの取得状況を管理・共有できるウェブアプリ"/g,

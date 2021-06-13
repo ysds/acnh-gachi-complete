@@ -83,15 +83,17 @@ export default {
     toggleDrawer() {
       this.$store.commit("toggleDrawer");
     },
-    loadLocalStorageData: async function() {
+    async loadLocalStorageData() {
       const self = this;
-      let [collected, updateIndex] = await Promise.all([
+      let [collected, updateIndex, wishlist] = await Promise.all([
         self.$vlf.getItem("collected"),
-        self.$vlf.getItem("updateIndex")
+        self.$vlf.getItem("updateIndex"),
+        self.$vlf.getItem("wishlist")
       ]);
       collected = collected || {};
       updateIndex = updateIndex || 0;
       self.$store.commit("initLocalCollectedData", { collected, updateIndex });
+      self.$store.commit("initWishlist", wishlist);
       return self.localCollected;
     }
   }

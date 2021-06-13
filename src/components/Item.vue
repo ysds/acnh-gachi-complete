@@ -61,6 +61,7 @@
             :isRemake="
               item.customize || item.bodyCustomize || item.patternCustomize
             "
+            :isInWishlist="inWishlistFlags[i]"
             @click="onChangeCheck(index)"
           />
         </li>
@@ -75,6 +76,7 @@
             :isRemake="
               item.customize || item.bodyCustomize || item.patternCustomize
             "
+            :isInWishlist="inWishlistFlags[0]"
             @click="onClickAllCheck"
           />
         </li>
@@ -88,6 +90,7 @@ import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
 import { toDisplayItemName } from "../utils/nav";
+import { inWishlistFlags } from "../utils/utils";
 
 export default {
   name: "Item",
@@ -105,6 +108,10 @@ export default {
     filter: Object,
     isSearchMode: Boolean,
     isStatic: Boolean,
+    isShared: {
+      type: Boolean,
+      default: false
+    },
     islandName: String
   },
   directives: {
@@ -201,6 +208,9 @@ export default {
       } else {
         return "0123456789".substring(0, item.variants.length).split("");
       }
+    },
+    inWishlistFlags() {
+      return inWishlistFlags(this.item, this.isShared);
     }
   },
   watch: {

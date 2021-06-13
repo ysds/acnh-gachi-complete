@@ -36,7 +36,12 @@
       :sharedIslandName="sharedIslandName"
       style="padding: 0.5rem 1rem;"
     />
-    <div class="d-flex">
+    <div
+      class="d-flex"
+      :style="{
+        'margin-bottom': nav === 'exchange' ? '1rem' : null
+      }"
+    >
       <div class="toolbar">
         <ToolbarFilter
           isShareView
@@ -46,7 +51,10 @@
         />
       </div>
     </div>
-    <div v-show="parseInt(filter.collectedFilter, 10) <= 4" class="mb-5">
+    <div
+      v-show="parseInt(filter.collectedFilter, 10) <= 4 && nav !== 'exchange'"
+      class="mb-5"
+    >
       <CollectedBar :totalValue="totalLength" :value="collectedLength" />
     </div>
     <div v-show="parseInt(filter.collectedFilter, 10) > 4" class="description">
@@ -72,6 +80,7 @@
         :collected="getCollected(item)"
         :filter="filter"
         :isStatic="true"
+        :isShared="true"
         :islandName="sharedIslandName"
         @showModal="onShowModal"
       />
@@ -151,7 +160,8 @@ export default {
         typeFilter: "all",
         collectedFilter: "0",
         viewMode: "tile",
-        order: "id"
+        order: "id",
+        exchangeType: "wishlist"
       },
       showItems: [],
       resultItems: [],
@@ -248,6 +258,9 @@ export default {
     },
     isDoneSyncCloudFirstTime() {
       return this.$store.getters.isDoneSyncCloudFirstTime;
+    },
+    sharedWishlist() {
+      return this.$store.getters.sharedWishlist;
     }
   },
   mounted() {
@@ -275,17 +288,23 @@ export default {
         .get()
         .then(function(doc) {
           if (doc.exists) {
-            const collectedValue = doc.data().collected || {};
+            const data = doc.data();
+            const collectedValue = data.collected || "";
             const collected = JSON.parse(
               LZString.decompressFromUTF16(collectedValue)
             );
             self.$store.commit("updateSharedCollected", collected);
-            self.$store.commit("updateSharedUserName", doc.data().userName);
-            self.$store.commit("updateSharedIslandName", doc.data().islandName);
+            self.$store.commit("updateSharedUserName", data.userName);
+            self.$store.commit("updateSharedIslandName", data.islandName);
             self.$store.commit(
               "updateSharedShareCategories",
-              doc.data().shareCategories
+              data.shareCategories
             ) || [];
+            const wishlistValue = data.wishlist || "";
+            const wishlist = JSON.parse(
+              LZString.decompressFromUTF16(wishlistValue)
+            );
+            self.$store.commit("updateSharedWishlist", wishlist);
             self.finishMounted(self.sharedShareCategories);
           } else {
             self.message =
@@ -363,7 +382,8 @@ export default {
         searchText: "",
         false: false,
         islandName: this.sharedIslandName,
-        updateMatchedVariants: true
+        updateMatchedVariants: true,
+        wishlist: this.sharedWishlist
       });
 
       this.showItems = [];

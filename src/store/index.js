@@ -22,7 +22,10 @@ export default new Vuex.Store({
     shareCategories: [],
     sharedShareCategories: [],
     isShowDropdown: false,
-    isDoneSyncCloudFirstTime: false
+    isDoneSyncCloudFirstTime: false,
+    wishlist: [],
+    cloudWishlist: [],
+    sharedWishlist: [],
   },
   mutations: {
     changeNav(state, nextNav) {
@@ -45,6 +48,9 @@ export default new Vuex.Store({
     initCloudCollectedData(state, payload) {
       state.cloudCollectedData = payload.collected;
       state.cloudUpdateIndex = payload.updateIndex;
+    },
+    initWishlist(state, array) {
+      if (array) state.wishlist = array;
     },
     updateLocalCollectedDataByItem(state, payload) {
       if (payload.itemCollectedData === "") {
@@ -112,12 +118,41 @@ export default new Vuex.Store({
     updateSharedShareCategories(state, data) {
       state.sharedShareCategories = data;
     },
+    updateWishlist(state, array) {
+      if (array) state.wishlist = array;
+      localforage.setItem("wishlist", state.wishlist);
+    },
+    updateCloudWishlist(state, array) {
+      if (array) state.cloudWishlist = array;
+    },
+    updateSharedWishlist(state, array) {
+      if (array) state.sharedWishlist = array;
+    },
     isShowDropdown(state, isShow) {
       state.isShowDropdown = isShow;
     },
     isDoneSyncCloudFirstTime(state, payload) {
       state.isDoneSyncCloudFirstTime = payload;
-    }
+    },
+    addWishlist(state, entryId) {
+      const wishlist = state.wishlist;
+      if (!wishlist.includes(entryId)) {
+        wishlist.push(entryId);
+        localforage.setItem("wishlist", wishlist);
+        state.localUpdateIndex++;
+        localforage.setItem("updateIndex", state.localUpdateIndex);
+      }
+    },
+    removeWishlist(state, entryId) {
+      const wishlist = state.wishlist;
+      const index = wishlist.indexOf(entryId);
+      if (index !== -1) {
+        wishlist.splice(index, 1);
+        localforage.setItem("wishlist", wishlist);
+        state.localUpdateIndex++;
+        localforage.setItem("updateIndex", state.localUpdateIndex);
+      }
+    },
   },
   getters: {
     activeNav(state) {
@@ -170,6 +205,15 @@ export default new Vuex.Store({
     },
     isDoneSyncCloudFirstTime(state) {
       return state.isDoneSyncCloudFirstTime;
-    }
-  }
+    },
+    wishlist(state) {
+      return state.wishlist;
+    },
+    cloudWishlist(state) {
+      return state.cloudWishlist;
+    },
+    sharedWishlist(state) {
+      return state.sharedWishlist;
+    },
+  },
 });

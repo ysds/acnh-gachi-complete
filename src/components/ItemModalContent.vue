@@ -8,6 +8,39 @@
         v-if="modalItem.sourceSheet === 'Recipes'"
       />
     </div>
+    <div
+      v-if="isShowWishlistButton"
+      style="text-align: center; margin-bottom: 1rem"
+    >
+      <Button v-if="!isInWishlist" xs primary @click="onClickWishButton('add')">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
+          />
+        </svg>
+        欲しいものリストに追加
+      </Button>
+      <Button v-else xs danger @click="onClickWishButton('remove')">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
+          />
+        </svg>
+        欲しいものリストから削除
+      </Button>
+    </div>
     <div class="info" v-if="modalItem.buy || modalItem.sell">
       <div class="info-label info-1">買値</div>
       <div class="info-text">
@@ -174,6 +207,7 @@
 <script>
 import Button from "../components/Button";
 import stampUrls from "../mixins/stampUrls";
+import { isInWishlist } from "../utils/utils";
 
 export default {
   components: { Button },
@@ -181,7 +215,11 @@ export default {
   props: {
     modalItem: Object,
     modalBodyIndex: Number,
-    modalPatternIndex: Number
+    modalPatternIndex: Number,
+    isShowWishlistButton: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     itemImage() {
@@ -222,6 +260,21 @@ export default {
         return "";
       }
       return "https://acnhcdn.com/latest/" + image;
+    },
+    isInWishlist() {
+      return isInWishlist(this.modalItem, this.modalBodyIndex);
+    }
+  },
+  methods: {
+    onClickWishButton(type) {
+      const item = this.modalItem;
+      const itemKey = item.uniqueEntryId || item.name;
+      const entryId = item.variants
+        ? `${itemKey}_${this.modalBodyIndex}`
+        : itemKey;
+
+      this.$store.commit(`${type}Wishlist`, entryId);
+      this.$emit("updateWishlist");
     }
   }
 };

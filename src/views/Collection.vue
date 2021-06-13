@@ -96,6 +96,10 @@
       <div slot="no-more"></div>
       <template slot="no-results">
         <div v-if="isSearchMode && searchText === ''" class="message"></div>
+        <div v-else-if="filter.exchangeType === 'wishlist'" class="message">
+          <p>欲しいものリストが登録されていません。</p>
+          <p>アイテムを長押しして表示されるダイアログから、「欲しいものリスト」に追加できます。</p>
+        </div>
         <div v-else class="message">
           表示するアイテムがありません。
         </div>

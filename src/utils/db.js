@@ -45,7 +45,7 @@ const updateLocalData = function() {
   });
 };
 
-export function syncCollectedData() {
+export function syncData() {
   initDataFromStore();
 
   if (

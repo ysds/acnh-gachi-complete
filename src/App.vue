@@ -29,7 +29,7 @@
 </template>
 <script>
 import { navs } from "./utils/nav.js";
-import { syncCollectedData, loadFirebaseData } from "./utils/db.js";
+import { syncData, loadFirebaseData } from "./utils/db.js";
 import Drawer from "./components/Drawer.vue";
 import Button from "./components/Button.vue";
 
@@ -70,7 +70,7 @@ export default {
     },
     cloudUpdateIndex() {
       if (!this.isDoneSyncCloudFirstTime) {
-        syncCollectedData();
+        syncData();
         this.$store.commit("isDoneSyncCloudFirstTime", true);
       }
     }

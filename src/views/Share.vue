@@ -120,7 +120,7 @@ import {
   toDisplayItemName
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
-import { syncCollectedData } from "../utils/db.js";
+import { syncData } from "../utils/db.js";
 
 import Item from "../components/Item.vue";
 import ToolbarFilter from "../components/ToolbarFilter.vue";
@@ -256,7 +256,7 @@ export default {
     // シェアページを直接開いたときは同期処理を実行しないが、
     // ブラウザナビゲーションなどシェアダイアログを通らないケースを考慮
     if (this.isDoneSyncCloudFirstTime) {
-      syncCollectedData();
+      syncData();
     }
   },
   watch: {

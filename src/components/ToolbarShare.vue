@@ -81,6 +81,9 @@ export default {
     },
     navText() {
       return getNavText(this.activeNav);
+    },
+    wishlist() {
+      return this.$store.getters.wishlist;
     }
   },
   methods: {
@@ -110,12 +113,17 @@ export default {
         typeFilter: "all"
       });
 
-      this.tweetString = `${
-        this.navText
-      }（全${_totalLength}種）%0a%0a取得済：${_collectedLength}（${percentage(
-        _collectedLength,
-        _totalLength
-      )}25）%0a配布可：${_providableLength}`;
+      if (this.activeNav === "exchange") {
+        const wishlistLength = this.wishlist.length;
+        this.tweetString = `${this.navText}%0a%0a欲しいもの：${wishlistLength}%0a配布可：${_providableLength}`;
+      } else {
+        this.tweetString = `${
+          this.navText
+        }（全${_totalLength}種）%0a%0a取得済：${_collectedLength}（${percentage(
+          _collectedLength,
+          _totalLength
+        )}25）%0a配布可：${_providableLength}`;
+      }
     },
     initTweetTags() {
       this.tweetTags = "%23あつ森ガチコンプ%0a%23あつ森";

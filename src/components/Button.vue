@@ -8,6 +8,7 @@
       active: active,
       'btn-primary': primary,
       'btn-secondary': secondary,
+      'btn-danger': danger,
       'btn-cta': cta,
       'btn-block': block,
       'btn-sm': sm,
@@ -45,6 +46,7 @@ export default {
   props: {
     primary: Boolean,
     secondary: Boolean,
+    danger: Boolean,
     cta: Boolean,
     block: Boolean,
     active: Boolean,
@@ -140,6 +142,13 @@ export default {
   --color: #007bff;
   --hover-bg-color: #bddcfd;
   font-weight: 400;
+}
+
+.btn-danger {
+  --color: #fff;
+  --bg-color: #eb486b !important;
+  --hover-bg-color: #eb486b;
+  font-weight: 700;
 }
 
 .btn-cta {

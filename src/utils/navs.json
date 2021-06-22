@@ -221,19 +221,19 @@
       },
       {
         "id": "special-gulliver",
-        "text": "ジョニー家具",
+        "text": "ジョニー",
         "subtext": "ジョニー",
         "order": 8
       },
       {
         "id": "special-gullivarrr",
-        "text": "海賊家具",
+        "text": "海賊シリーズ",
         "subtext": "海賊ジョニー",
         "order": 9
       },
       {
         "id": "special-pascal",
-        "text": "マーメイド家具",
+        "text": "マーメイドシリーズ",
         "subtext": "ラコスケ",
         "order": 10
       }

@@ -115,29 +115,28 @@ export default {
 
       if (this.activeNav === "exchange") {
         const wishlistLength = this.wishlist.length;
-        this.tweetString = `${this.navText}%0a%0a欲しいもの：${wishlistLength}%0a配布可：${_providableLength}`;
+        this.tweetString = `あつ森『${this.navText}』チェッカー%0a%0a欲しいもの：${wishlistLength}%0a`;
       } else {
-        this.tweetString = `${
+        this.tweetString = `あつ森${
           this.navText
-        }（全${_totalLength}種）%0a%0a取得済：${_collectedLength}（${percentage(
+        }チェッカー（全${_totalLength}種）%0a%0a取得済：${_collectedLength}（${percentage(
           _collectedLength,
           _totalLength
-        )}25）%0a配布可：${_providableLength}`;
+        )}25）%0a`;
       }
+      this.tweetString += `配布可：${_providableLength}`;
     },
     initTweetTags() {
       this.tweetTags = "%23あつ森ガチコンプ%0a%23あつ森";
       const nav = this.activeNav;
       if (nav === "recipes") {
-        this.tweetTags +=
-          "%0a%23あつ森交換%0a%23レシピ交換%0a%23DIYレシピチェッカー";
+        this.tweetTags += "%0a%23あつ森交換%0a%23レシピ交換";
       } else if (nav === "photos") {
         this.tweetTags += "%0a%23あつ森交換%0a%23写真交換";
       } else if (nav === "posters") {
         this.tweetTags += "%0a%23あつ森交換%0a%23ポスター交換";
       } else if (nav.indexOf("housewares") > -1) {
-        this.tweetTags +=
-          "%0a%23あつ森おさわり%0a%23あつ森交換%0a%23家具交換%0a%23家具チェッカー";
+        this.tweetTags += "%0a%23あつ森おさわり%0a%23あつ森交換%0a%23家具交換";
       }
     }
   }

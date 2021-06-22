@@ -44,7 +44,9 @@
       <div class="buttons" style="margin-top: 0.5rem;" v-if="isShareView">
         <Button
           pill
-          @click="onClickCollectedFilter(filter.collectedFilter === '0' ? '6' : '0')"
+          @click="
+            onClickCollectedFilter(filter.collectedFilter === '0' ? '6' : '0')
+          "
           :class="{ active: filter.collectedFilter === '6' }"
           v-if="filter.exchangeType === 'wishlist'"
           style="width: auto"
@@ -53,7 +55,9 @@
         </Button>
         <Button
           pill
-          @click="onClickCollectedFilter(filter.collectedFilter === '2' ? '5' : '2')"
+          @click="
+            onClickCollectedFilter(filter.collectedFilter === '2' ? '5' : '2')
+          "
           :class="{ active: filter.collectedFilter === '5' }"
           v-if="filter.exchangeType === 'providable'"
           style="width: auto"
@@ -187,7 +191,8 @@ export default {
         (this.activeNav && this.activeNav.indexOf("creatures") > -1) ||
         this.activeNav === "reactions" ||
         this.activeNav === "housewares-nookmiles" ||
-        this.activeNav === "achievements"
+        this.activeNav === "achievements" ||
+        this.activeNav === "recipes"
       );
     }
   },
@@ -209,9 +214,9 @@ export default {
     onClickExchangeType(value) {
       this.$emit("change", Object.assign(this.filter, { exchangeType: value }));
       if (value === "wishlist") {
-        this.onClickCollectedFilter('0');
+        this.onClickCollectedFilter("0");
       } else {
-        this.onClickCollectedFilter('2');
+        this.onClickCollectedFilter("2");
       }
     },
     isOpenTypeFilter() {

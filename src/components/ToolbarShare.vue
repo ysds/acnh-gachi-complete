@@ -112,14 +112,12 @@ export default {
         nav: this.activeNav,
         typeFilter: "all"
       });
-
+      this.tweetString = `あつ森ガチコンプ『${this.navText}』チェッカー`;
       if (this.activeNav === "exchange") {
         const wishlistLength = this.wishlist.length;
-        this.tweetString = `あつ森『${this.navText}』チェッカー%0a%0a欲しいもの：${wishlistLength}%0a`;
+        this.tweetString += `%0a%0a欲しいもの：${wishlistLength}%0a`;
       } else {
-        this.tweetString = `あつ森${
-          this.navText
-        }チェッカー（全${_totalLength}種）%0a%0a取得済：${_collectedLength}（${percentage(
+        this.tweetString += `（全${_totalLength}種）%0a%0a取得済：${_collectedLength}（${percentage(
           _collectedLength,
           _totalLength
         )}25）%0a`;
@@ -127,7 +125,7 @@ export default {
       this.tweetString += `配布可：${_providableLength}`;
     },
     initTweetTags() {
-      this.tweetTags = "%23あつ森ガチコンプ%0a%23あつ森";
+      this.tweetTags = "%23あつ森%0a%23ガチコンプ";
       const nav = this.activeNav;
       if (nav === "recipes") {
         this.tweetTags += "%0a%23あつ森交換%0a%23レシピ交換";

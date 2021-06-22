@@ -179,52 +179,62 @@
     "subnavs": [
       {
         "id": "special-fishmodels",
-        "text": "ジャスティン",
+        "text": "魚の模型",
+        "subtext": "ジャスティン",
         "order": 1
       },
       {
         "id": "special-bugmodels",
-        "text": "レックス",
+        "text": "虫の模型",
+        "subtext": "レックス",
         "order": 2
       },
       {
-        "id": "special-saharah",
-        "text": "ローラン",
+        "id": "special-art",
+        "text": "美術品",
+        "subtext": "つねきち",
         "order": 3
       },
       {
-        "id": "special-gulliver",
-        "text": "ジョニー",
+        "id": "special-saharah",
+        "text": "ローラン壁紙/床板/ラグ",
+        "subtext": "ローラン",
         "order": 4
       },
       {
-        "id": "special-gullivarrr",
-        "text": "海賊ジョニー",
-        "order": 5
-      },
-      {
-        "id": "special-celeste",
-        "text": "フーコ",
-        "order": 6
-      },
-      {
-        "id": "special-art",
-        "text": "つねきち",
-        "order": 7
-      },
-      {
-        "id": "special-pascal",
-        "text": "ラコスケ",
-        "order": 8
-      },
-      {
         "id": "special-labelle",
-        "text": "ことの",
-        "order": 9
+        "text": "ケイトシリーズ",
+        "subtext": "ことの",
+        "order": 5
       },
       {
         "id": "special-kicks",
         "text": "シャンク",
+        "subtext": "シャンク",
+        "order": 6
+      },
+      {
+        "id": "special-celeste",
+        "text": "フーコレシピ",
+        "subtext": "フーコ",
+        "order": 7
+      },
+      {
+        "id": "special-gulliver",
+        "text": "ジョニー家具",
+        "subtext": "ジョニー",
+        "order": 8
+      },
+      {
+        "id": "special-gullivarrr",
+        "text": "海賊家具",
+        "subtext": "海賊ジョニー",
+        "order": 9
+      },
+      {
+        "id": "special-pascal",
+        "text": "マーメイド家具",
+        "subtext": "ラコスケ",
         "order": 10
       }
     ]

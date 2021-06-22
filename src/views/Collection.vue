@@ -255,10 +255,15 @@ export default {
     },
     wishlist() {
       return this.$store.getters.wishlist;
-    },
+    }
   },
   watch: {
     activeNav(newValue, oldValue) {
+      if (newValue === "exchange" || oldValue === "exchange") {
+        this.filter.exchangeType = "wishlist";
+        this.filter.collectedFilter = "0";
+        this.$vlf.setItem("filter", this.filter);
+      }
       if (oldValue !== null) {
         this.onChangeNav();
       }
@@ -514,7 +519,6 @@ export default {
         this.filter.typeFilter = "all";
         this.$vlf.setItem("filter", this.filter);
       }
-      this.filter.exchangeType = "wishlist";
     }
   }
 };

@@ -199,6 +199,14 @@ allItems.forEach(item => {
     });
   }
 
+  // 特殊レシピの serialId の設定
+  if (
+    item.name === "bridge construction kit" ||
+    item.name === "campsite construction kit"
+  ) {
+    item.serialId = item.serialId + 10000;
+  }
+
   //
   // 翻訳
   //
@@ -365,7 +373,6 @@ allItems.forEach(item => {
   delete item["seasonEventExclusive"];
   delete item["secondaryShape"];
   delete item["sequential"];
-  delete item["serialId"];
   delete item["series"];
   delete item["set"];
   delete item["size"];

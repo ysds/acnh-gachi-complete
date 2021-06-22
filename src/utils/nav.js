@@ -5,13 +5,13 @@ import { typeFilter } from "./filter";
 const { sortItemsByName } = require("../../script/sort.js");
 
 const kata2Hira = function(string) {
-  return string.replace(/[\u30A1-\u30FA]/g, (ch) =>
+  return string.replace(/[\u30A1-\u30FA]/g, ch =>
     String.fromCharCode(ch.charCodeAt(0) - 0x60)
   );
 };
 
 const hankaku2Zenkaku = function(string) {
-  return string.replace(/[Ａ-Ｚａ-ｚ０-９]/g, (ch) =>
+  return string.replace(/[Ａ-Ｚａ-ｚ０-９]/g, ch =>
     String.fromCharCode(ch.charCodeAt(0) - 0xfee0)
   );
 };
@@ -102,7 +102,7 @@ const calcCollectedLength = function(collected, items) {
 // 配布可を提供可にする（0B2 => 012）
 const providable2collected = function(text) {
   return String.fromCharCode(
-    ...text.split("").map((char) => {
+    ...text.split("").map(char => {
       const shift = /[A-J]/.test(char) ? -17 : 0;
       return char.charCodeAt() + shift;
     })
@@ -122,7 +122,7 @@ export function filterItems(args) {
     searchText = "",
     islandName,
     updateMatchedVariants = false,
-    wishlist = [],
+    wishlist = []
   } = args;
 
   //
@@ -130,7 +130,7 @@ export function filterItems(args) {
   //
   if (isSearchMode) {
     const normalizedSearchText = normalizeText(searchText);
-    items = items.filter((item) => {
+    items = items.filter(item => {
       if (searchText === "") {
         return false;
       }
@@ -140,7 +140,7 @@ export function filterItems(args) {
       return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
     });
     // 島名を含む場合は名前順でソート
-    if (islandName && items.some((item) => hasIslandName(item))) {
+    if (islandName && items.some(item => hasIslandName(item))) {
       sortItemsByName(items, (itemName, item) => {
         return replaceIslandName(itemName, item, islandName);
       });
@@ -151,13 +151,13 @@ export function filterItems(args) {
       // 分類フィルター
       //
 
-      items = items.filter((item) => typeFilter(item, filter.typeFilter));
+      items = items.filter(item => typeFilter(item, filter.typeFilter));
 
       //
       // 取得フィルター
       //
 
-      items = items.filter((item) => {
+      items = items.filter(item => {
         const filterVal = filter.collectedFilter;
         const itemKey = item.uniqueEntryId || item.name;
         const itemLength = item.variants ? item.variants.length : 1;
@@ -259,7 +259,7 @@ export function filterItems(args) {
     // Nav
     //
 
-    items = items.filter((item) => {
+    items = items.filter(item => {
       // 家具（すべて）
       if (nav === "housewares-all") {
         return item.sourceSheet.match(
@@ -684,7 +684,7 @@ export function filterItems(args) {
               isMatch = true;
             } else if (updateMatchedVariants) {
               matchedVariants = matchedVariants.filter(
-                (value) => value !== index
+                value => value !== index
               );
             }
           });
@@ -739,6 +739,20 @@ export function filterItems(args) {
           return 0;
         });
       }
+      // レシピ
+      else if (nav === "recipes") {
+        items.sort(function(itemA, itemB) {
+          const ca = itemA.serialId;
+          const cb = itemB.serialId;
+          if (ca > cb) {
+            return 1;
+          }
+          if (ca < cb) {
+            return -1;
+          }
+          return 0;
+        });
+      }
     }
 
     //
@@ -760,8 +774,8 @@ export function totalLength(args) {
   const items = filterItems({
     nav,
     filter: {
-      typeFilter: typeFilter,
-    },
+      typeFilter: typeFilter
+    }
   });
 
   return calcTotalLength(items);
@@ -780,8 +794,8 @@ export function collectedLength(args) {
     nav,
     filter: {
       typeFilter: typeFilter,
-      collectedFilter: "3",
-    },
+      collectedFilter: "3"
+    }
   });
 
   return calcCollectedLength(collected, collectedItems);
@@ -790,7 +804,7 @@ export function collectedLength(args) {
 export function allCollectedLength(collected) {
   let collectedItems = filterItems({
     collected,
-    filter: { collectedFilter: "3" },
+    filter: { collectedFilter: "3" }
   });
   collectedItems = collectedItems.filter(filterOtherItem);
 
@@ -804,8 +818,8 @@ export function providableLength(args) {
     nav,
     filter: {
       typeFilter: typeFilter,
-      collectedFilter: "2",
-    },
+      collectedFilter: "2"
+    }
   });
 
   return calcCollectedLength(collected, collectedItems);
@@ -813,10 +827,10 @@ export function providableLength(args) {
 
 export function getNavText(nav) {
   let navText = "";
-  navs.forEach((link) => {
+  navs.forEach(link => {
     if (link.id === nav) navText = link.text;
     if (link.subnavs) {
-      link.subnavs.forEach((sublink) => {
+      link.subnavs.forEach(sublink => {
         if (sublink.id === nav) navText = sublink.text;
       });
     }

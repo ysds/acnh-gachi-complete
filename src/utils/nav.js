@@ -664,6 +664,10 @@ export function filterItems(args) {
       else if (nav === "versions-1100") {
         return item.versionAdded === "1.10.0";
       }
+      // バージョン 1.11.0
+      else if (nav === "versions-1110") {
+        return item.versionAdded === "1.11.0";
+      }
       //
       // 欲しい物リスト
       //

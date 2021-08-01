@@ -9,6 +9,8 @@
     "lint": "vue-cli-service lint",
     "translate": "node script/gen-translate-src",
     "posttranslate": "node script/gen-translate",
+    "translate-alt": "node script/gen-translate-src-alt",
+    "posttranslate-alt": "node script/gen-translate",
     "gen": "node script/gen-json",
     "format": "prettier --write src/assets/items.json"
   },

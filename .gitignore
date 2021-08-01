@@ -2,6 +2,7 @@
 node_modules
 /dist
 msbt.zip
+acnh-data-master-MSBT-JSON_merged.zip
 
 # local env files
 .env.local

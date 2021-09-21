@@ -19,7 +19,7 @@
       <div
         class="bar-value"
         :class="{
-          'bar-comp': $options.isComplete(props.value, props.totalValue)
+          'bar-comp': $options.isComplete(props.value, props.totalValue),
         }"
         :style="$options.style(props.value, props.totalValue)"
       />
@@ -40,7 +40,7 @@ export default {
   style(value, totalValue) {
     const width = totalValue !== 0 ? (value / totalValue) * 100 + "%" : 0;
     return `width: ${width}`;
-  }
+  },
 };
 </script>
 

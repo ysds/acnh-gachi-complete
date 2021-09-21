@@ -16,20 +16,20 @@
 export default {
   model: {
     prop: "checked",
-    event: "change"
+    event: "change",
   },
   props: {
     checked: {
       type: [Array, Boolean],
-      default: false
+      default: false,
     },
     value: {
-      default: null
+      default: null,
     },
     id: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     proxyChecked: {
@@ -38,9 +38,9 @@ export default {
       },
       set(val) {
         this.$emit("change", val);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

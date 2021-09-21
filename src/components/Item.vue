@@ -38,7 +38,7 @@
           class="item-check"
           :class="{
             'item-check-1': allCheckState === 1,
-            'item-check-2': allCheckState === 2
+            'item-check-2': allCheckState === 2,
           }"
         />
       </button>
@@ -96,13 +96,13 @@ export default {
   name: "Item",
   components: {
     CheckForList,
-    CheckForTile
+    CheckForTile,
   },
   mixins: [stampUrls],
   props: {
     collected: {
       type: [String, Array],
-      default: ""
+      default: "",
     },
     item: Object,
     filter: Object,
@@ -110,14 +110,14 @@ export default {
     isStatic: Boolean,
     isShared: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    islandName: String
+    islandName: String,
   },
   directives: {
     "long-press": {
       bind(el, binding, vnode) {
-        const listener = e => {
+        const listener = (e) => {
           vnode.context.showModal(e, binding.value);
         };
         vnode.context.longPressBound[binding.value] = listener;
@@ -129,13 +129,13 @@ export default {
           vnode.context.longPressBound[binding.value]
         );
         delete vnode.context.longPressBound[binding.value];
-      }
-    }
+      },
+    },
   },
   data() {
     return {
       checks: {},
-      longPressBound: {}
+      longPressBound: {},
     };
   },
   computed: {
@@ -162,7 +162,7 @@ export default {
       const variants = this.item.variants;
       let images = [];
       if (variants) {
-        variants.forEach(variant => {
+        variants.forEach((variant) => {
           let image = "";
           if (variant.stampImage) {
             image = this.stampUrls[variant.stampImage];
@@ -211,12 +211,12 @@ export default {
     },
     inWishlistFlags() {
       return inWishlistFlags(this.item, this.isShared);
-    }
+    },
   },
   watch: {
     collected() {
       this.checks = this.updateChecks(this.collected);
-    }
+    },
   },
   mounted() {
     this.checks = this.updateChecks(this.collected);
@@ -239,7 +239,7 @@ export default {
           result[i] = 0;
         }
         if (collected !== "") {
-          [].forEach.call(collected, function(string) {
+          [].forEach.call(collected, function (string) {
             if (!isNaN(string)) {
               result[parseInt(string, 10)] = 1;
             } else {
@@ -274,7 +274,7 @@ export default {
       if (!this.isShowDropdown && !this.isStatic) {
         const nextState = this.allCheckState === 2 ? 0 : this.allCheckState + 1;
         let result = {};
-        Object.keys(this.checks).forEach(key => {
+        Object.keys(this.checks).forEach((key) => {
           result[key] = nextState;
         });
         this.checks = result;
@@ -284,8 +284,8 @@ export default {
     showModal(event, index) {
       event.preventDefault();
       this.$emit("showModal", this.item, index ? parseInt(index, 10) : 0);
-    }
-  }
+    },
+  },
 };
 </script>
 

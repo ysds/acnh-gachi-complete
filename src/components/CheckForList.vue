@@ -18,7 +18,7 @@
 <script>
 export default {
   name: "CheckForList",
-  props: ["value", "variant", "variants"]
+  props: ["value", "variant", "variants"],
 };
 </script>
 <style lang="scss" scoped>

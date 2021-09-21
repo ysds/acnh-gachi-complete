@@ -10,28 +10,28 @@ const routes = [
   {
     path: "/",
     name: "Collection",
-    component: Collection
+    component: Collection,
   },
   {
     path: "/about",
     name: "About",
-    component: () => import("../views/About.vue")
+    component: () => import("../views/About.vue"),
   },
   {
     path: "/policy",
     name: "Policy",
-    component: () => import("../views/Policy.vue")
+    component: () => import("../views/Policy.vue"),
   },
   {
     path: "/share2/:category/",
     name: "Share2",
-    component: Share
+    component: Share,
   },
   {
     path: "/shares/",
     name: "Shares",
-    component: Share
-  }
+    component: Share,
+  },
 ];
 
 const router = new VueRouter({
@@ -44,7 +44,7 @@ const router = new VueRouter({
     } else {
       return { x: 0, y: 0 };
     }
-  }
+  },
 });
 
 router.afterEach((to, from) => {

@@ -5,9 +5,7 @@
         <template v-if="isLogin">
           <img :src="user.photoURL" alt="Avatar" class="avatar" />
         </template>
-        <template v-else-if="isLogin === false">
-          ログイン
-        </template>
+        <template v-else-if="isLogin === false"> ログイン </template>
       </Button>
       <Button @click="onChangeView">
         <template v-if="filter.viewMode !== 'list'">
@@ -39,7 +37,7 @@
       <div
         class="d-flex"
         :style="{
-          'margin-bottom': activeNav === 'exchange' ? '1rem' : null
+          'margin-bottom': activeNav === 'exchange' ? '1rem' : null,
         }"
       >
         <div class="toolbar">
@@ -84,9 +82,7 @@
         @showModal="onShowModal"
       />
     </ul>
-    <div v-if="!isLoadComplete" class="message loading">
-      読み込み中...
-    </div>
+    <div v-if="!isLoadComplete" class="message loading">読み込み中...</div>
     <infinite-loading
       v-if="isLoadComplete !== null"
       :identifier="renderStartDate"
@@ -107,15 +103,13 @@
             アイテムを長押しして表示されるダイアログから、「欲しいものリスト」に追加できます。
           </p>
         </div>
-        <div v-else class="message">
-          表示するアイテムがありません。
-        </div>
+        <div v-else class="message">表示するアイテムがありません。</div>
       </template>
     </infinite-loading>
     <div
       v-if="isVersion && !isSearchMode"
       class="message"
-      style="font-weight: 400; font-size: 12px;"
+      style="font-weight: 400; font-size: 12px"
     >
       バージョンカテゴリは、「素材」や「消費アイテム」、「植物」などコレクション要素がないアイテムを含む、そのバージョンで追加されたすべてのアイテムを表示します。
     </div>
@@ -147,7 +141,7 @@ import {
   navs,
   totalLength,
   collectedLength,
-  toDisplayItemName
+  toDisplayItemName,
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
 
@@ -178,7 +172,7 @@ export default {
     Item,
     Modal,
     CollectedBar,
-    ItemModalContent
+    ItemModalContent,
   },
   data() {
     return {
@@ -186,7 +180,7 @@ export default {
         typeFilter: null,
         collectedFilter: null,
         viewMode: null,
-        order: null
+        order: null,
       },
       showItems: [],
       resultItems: [],
@@ -201,7 +195,7 @@ export default {
       modalItem: {},
       modalBodyIndex: 0,
       modalPatternIndex: 0,
-      pins: {}
+      pins: {},
     };
   },
   computed: {
@@ -238,7 +232,7 @@ export default {
       } else {
         return totalLength({
           nav: this.activeNav,
-          typeFilter: this.filter.typeFilter
+          typeFilter: this.filter.typeFilter,
         });
       }
     },
@@ -249,13 +243,13 @@ export default {
         return collectedLength({
           collected: Object.assign({}, this.collected),
           nav: this.activeNav,
-          typeFilter: this.filter.typeFilter
+          typeFilter: this.filter.typeFilter,
         });
       }
     },
     wishlist() {
       return this.$store.getters.wishlist;
-    }
+    },
   },
   watch: {
     activeNav(newValue, oldValue) {
@@ -278,7 +272,7 @@ export default {
       ) {
         this.updateShowItems();
       }
-    }
+    },
   },
   async mounted() {
     await this.initNavFilter();
@@ -286,13 +280,13 @@ export default {
     this.updateShowItems();
   },
   methods: {
-    initNavFilter: async function() {
+    initNavFilter: async function () {
       // Load data from localStrage
       const self = this;
       let [nav, filter, pins] = await Promise.all([
         self.$vlf.getItem("nav"),
         self.$vlf.getItem("filter"),
-        self.$vlf.getItem("pins")
+        self.$vlf.getItem("pins"),
       ]);
 
       if (filter && filter.typeFilter === null) {
@@ -317,7 +311,7 @@ export default {
           collectedFilter: "0",
           viewMode: "tile",
           order: "name",
-          exchangeType: "wishlist"
+          exchangeType: "wishlist",
         },
         filter
       );
@@ -327,10 +321,10 @@ export default {
         // 保存されている nav 値が navs に存在しない場合、null にする
         if (nav) {
           let isDefinedNav = false;
-          navs.forEach(link => {
+          navs.forEach((link) => {
             if (link.id === nav) isDefinedNav = true;
             if (link.subnavs) {
-              link.subnavs.forEach(sublink => {
+              link.subnavs.forEach((sublink) => {
                 if (sublink.id === nav) isDefinedNav = true;
               });
             }
@@ -347,13 +341,13 @@ export default {
       const islandName = await this.$vlf.getItem("islandName");
       this.$store.commit("updateIslandName", islandName);
     },
-    onChangeItemCheck: function(itemName, itemCollectedData) {
+    onChangeItemCheck: function (itemName, itemCollectedData) {
       this.$store.commit("updateLocalCollectedDataByItem", {
         itemName,
-        itemCollectedData
+        itemCollectedData,
       });
     },
-    onClickItemCheckBatchAction: function(value) {
+    onClickItemCheckBatchAction: function (value) {
       let items = [];
       let collectedArray = [];
       let self = this;
@@ -372,11 +366,11 @@ export default {
         }
 
         matchedVariants.forEach(
-          i => (collected[i] = collectedValue(values, i))
+          (i) => (collected[i] = collectedValue(values, i))
         );
         return collected.join("");
       }
-      this.resultItems.forEach(item => {
+      this.resultItems.forEach((item) => {
         items.push(item.uniqueEntryId || item.name);
         let values = "";
         if (value === "allCollected") {
@@ -392,7 +386,7 @@ export default {
       });
       this.$store.commit("updateLocalCollectedDataBatch", {
         items,
-        collectedArray
+        collectedArray,
       });
     },
     onClickCopyName(nav) {
@@ -412,31 +406,31 @@ export default {
       this.resetTypeFilter();
       this.updateShowItems();
     },
-    onChangeView: function() {
+    onChangeView: function () {
       const newViewMode = this.filter.viewMode === "tile" ? "list" : "tile";
       if (this.filter.viewMode === newViewMode) return;
       this.filter = Object.assign({}, this.filter, { viewMode: newViewMode });
       this.$vlf.setItem("filter", this.filter);
     },
-    onChangeFilter: function(activeFilter) {
+    onChangeFilter: function (activeFilter) {
       this.filter = activeFilter;
       this.updateShowItems();
       this.$vlf.setItem("filter", this.filter);
     },
-    onChangePin: function(currentNav, value) {
+    onChangePin: function (currentNav, value) {
       this.pins[currentNav] = value;
       this.$vlf.setItem("pins", this.pins);
       this.updateNavOrder();
     },
-    onClickSearchBtn: function() {
+    onClickSearchBtn: function () {
       this.isSearchMode = !this.isSearchMode;
       this.updateShowItems();
     },
-    onInputSearchBox: function(text) {
+    onInputSearchBox: function (text) {
       this.searchText = text;
       this.updateShowItems();
     },
-    onShowModal: function(item, index) {
+    onShowModal: function (item, index) {
       this.modalBodyIndex = index;
       this.modalPatternIndex = 0;
       this.modalItem = item;
@@ -451,16 +445,16 @@ export default {
     changeNav(nav) {
       this.$store.commit("changeNav", nav);
     },
-    disassembleCollected: function(item) {
+    disassembleCollected: function (item) {
       // collectedを分解して配列にする
       const collected = new Array(item.variants.length).fill("");
-      (this.collected[item.name] || "").split("").forEach(c => {
+      (this.collected[item.name] || "").split("").forEach((c) => {
         // 未取得アイテム以外の取得状態を設定
         collected[!isNaN(c) ? parseInt(c, 10) : c.charCodeAt() - 65] = c;
       });
       return collected;
     },
-    updateShowItems: function() {
+    updateShowItems: function () {
       this.isLoadComplete = false;
       this.resultItems = filterItems({
         collected: this.collected,
@@ -470,7 +464,7 @@ export default {
         searchText: this.searchText,
         islandName: this.islandName,
         updateMatchedVariants: true,
-        wishlist: this.wishlist
+        wishlist: this.wishlist,
       });
 
       this.showItems = [];
@@ -494,19 +488,19 @@ export default {
       this.queueItems.splice(0, count);
       this.isLoadComplete = true;
     },
-    updateNavOrder: function() {
+    updateNavOrder: function () {
       // Re-order navs
       const navs = this.navs;
       for (let i = 0; i < navs.length; i++) {
         if (navs[i].subnavs) {
-          navs[i].subnavs.sort(function(a, b) {
+          navs[i].subnavs.sort(function (a, b) {
             if (a.order < b.order) return -1;
             if (a.order > b.order) return 1;
             return 0;
           });
 
           const pins = this.pins;
-          navs[i].subnavs.sort(function(a, b) {
+          navs[i].subnavs.sort(function (a, b) {
             if (pins[a.id] && !pins[b.id]) return -1;
             if (!pins[a.id] && pins[b.id]) return 1;
             return 0;
@@ -519,8 +513,8 @@ export default {
         this.filter.typeFilter = "all";
         this.$vlf.setItem("filter", this.filter);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

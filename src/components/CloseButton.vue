@@ -19,8 +19,8 @@ import Button from "./Button";
 export default {
   name: "CloseButton",
   components: {
-    Button
-  }
+    Button,
+  },
 };
 </script>
 <style lang="scss" scoped>

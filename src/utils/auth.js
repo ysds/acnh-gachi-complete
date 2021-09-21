@@ -4,12 +4,12 @@ import firebase from "../plugins/firebase";
 export default {
   init() {
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-    firebase.auth().onAuthStateChanged(_user => {
+    firebase.auth().onAuthStateChanged((_user) => {
       const user = Object.assign({}, _user);
 
       // Update latest data
       if (user.providerData) {
-        user.providerData.forEach(function(profile) {
+        user.providerData.forEach(function (profile) {
           user.displayName = profile.displayName;
           user.photoURL = profile.photoURL;
         });
@@ -30,5 +30,5 @@ export default {
     firebase.auth().signOut();
     store.commit("authStateChange", {});
     store.commit("loginStateChange", false);
-  }
+  },
 };

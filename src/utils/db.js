@@ -14,7 +14,7 @@ let localWishlist;
 let cloudWishlist;
 let lastSyncWishlist;
 
-const initDataFromStore = function() {
+const initDataFromStore = function () {
   user = store.getters.user;
   localCollected = store.getters.localCollectedData;
   localUpdateIndex = store.getters.localUpdateIndex;
@@ -24,7 +24,7 @@ const initDataFromStore = function() {
   cloudWishlist = store.getters.cloudWishlist;
 };
 
-const updateCloudData = function() {
+const updateCloudData = function () {
   if (user && user.uid) {
     const updateIndex = localUpdateIndex;
     db.collection("users")
@@ -35,8 +35,8 @@ const updateCloudData = function() {
         wishlist: LZString.compressToUTF16(JSON.stringify(localWishlist)),
         updateIndex,
       })
-      .then(function() {})
-      .catch(function() {});
+      .then(function () {})
+      .catch(function () {});
     store.commit("updateCloudCollectedData", {
       collected: localCollected,
       updateIndex,
@@ -45,7 +45,7 @@ const updateCloudData = function() {
   }
 };
 
-const updateLocalData = function() {
+const updateLocalData = function () {
   store.commit("updateLocalCollectedData", {
     collected: cloudCollected,
     updateIndex: cloudUpdateIndex,
@@ -79,7 +79,7 @@ export function loadFirebaseData() {
     db.collection("users")
       .doc(user.uid)
       .get()
-      .then(function(doc) {
+      .then(function (doc) {
         if (doc.exists) {
           const data = doc.data();
 
@@ -104,18 +104,15 @@ export function loadFirebaseData() {
           store.commit("updateIslandName", islandName);
           store.commit("updateShareCategories", shareCategories);
           store.commit("updateCloudWishlist", wishlist);
-
         } else {
           const userName = user.displayName || null;
-          db.collection("users")
-            .doc(user.uid)
-            .set({
-              userName,
-            });
+          db.collection("users").doc(user.uid).set({
+            userName,
+          });
           store.commit("updateUserName", userName);
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }

@@ -5,9 +5,7 @@
         <template v-if="isLogin">
           <img :src="myUser.photoURL" alt="Avatar" class="avatar" />
         </template>
-        <template v-else-if="isLogin === false">
-          ログイン
-        </template>
+        <template v-else-if="isLogin === false"> ログイン </template>
       </Button>
     </div>
     <h1 v-if="!isShares" class="heading">
@@ -34,12 +32,12 @@
       v-if="isLoaded"
       :sharedUserName="sharedUserName"
       :sharedIslandName="sharedIslandName"
-      style="padding: 0.5rem 1rem;"
+      style="padding: 0.5rem 1rem"
     />
     <div
       class="d-flex"
       :style="{
-        'margin-bottom': nav === 'exchange' ? '1rem' : null
+        'margin-bottom': nav === 'exchange' ? '1rem' : null,
       }"
     >
       <div class="toolbar">
@@ -58,9 +56,7 @@
       <CollectedBar :totalValue="totalLength" :value="collectedLength" />
     </div>
     <div v-show="parseInt(filter.collectedFilter, 10) > 4" class="description">
-      <div v-if="!isLogin">
-        ログインすると自分のデータと比較できます。
-      </div>
+      <div v-if="!isLogin">ログインすると自分のデータと比較できます。</div>
       <div v-show="filter.collectedFilter === '5'">
         相手が配布可で自分が未取得のアイテム
       </div>
@@ -85,9 +81,7 @@
         @showModal="onShowModal"
       />
     </ul>
-    <div v-if="!isLoadComplete" class="message loading">
-      読み込み中...
-    </div>
+    <div v-if="!isLoadComplete" class="message loading">読み込み中...</div>
     <infinite-loading
       v-if="isLoadComplete !== null"
       :identifier="renderStartDate"
@@ -126,7 +120,7 @@ import {
   collectedLength,
   getNavText,
   navs,
-  toDisplayItemName
+  toDisplayItemName,
 } from "../utils/nav.js";
 import { isAvailableFilter } from "../utils/filter";
 import { syncData } from "../utils/db.js";
@@ -151,7 +145,7 @@ export default {
     Button,
     Modal,
     ItemModalContent,
-    SharedUserName
+    SharedUserName,
   },
   data() {
     return {
@@ -161,7 +155,7 @@ export default {
         collectedFilter: "0",
         viewMode: "tile",
         order: "id",
-        exchangeType: "wishlist"
+        exchangeType: "wishlist",
       },
       showItems: [],
       resultItems: [],
@@ -174,7 +168,7 @@ export default {
       modalItem: {},
       modalBodyIndex: 0,
       modalPatternIndex: 0,
-      message: ""
+      message: "",
     };
   },
   computed: {
@@ -198,9 +192,9 @@ export default {
         this.$store.getters.sharedShareCategories || [];
 
       let correctOrder = [];
-      navs.forEach(nav => {
+      navs.forEach((nav) => {
         if (nav.subnavs) {
-          nav.subnavs.forEach(subnav => {
+          nav.subnavs.forEach((subnav) => {
             correctOrder.push(subnav.id);
           });
         } else {
@@ -208,10 +202,10 @@ export default {
         }
       });
       correctOrder = correctOrder.filter(
-        category => category !== "season-snowboy"
+        (category) => category !== "season-snowboy"
       );
       let reOrder = [];
-      correctOrder.forEach(id => {
+      correctOrder.forEach((id) => {
         if (sharedShareCategories.includes(id)) {
           reOrder.push(id);
         }
@@ -246,14 +240,14 @@ export default {
     totalLength() {
       return totalLength({
         nav: this.nav,
-        typeFilter: this.filter.typeFilter
+        typeFilter: this.filter.typeFilter,
       });
     },
     collectedLength() {
       return collectedLength({
         collected: Object.assign({}, this.sharedCollected),
         nav: this.nav,
-        typeFilter: this.filter.typeFilter
+        typeFilter: this.filter.typeFilter,
       });
     },
     isDoneSyncCloudFirstTime() {
@@ -261,7 +255,7 @@ export default {
     },
     sharedWishlist() {
       return this.$store.getters.sharedWishlist;
-    }
+    },
   },
   mounted() {
     this.loadOtherFirebaseData();
@@ -278,15 +272,15 @@ export default {
       if (collectedFilter === "5" || collectedFilter === "6") {
         this.updateShowItems;
       }
-    }
+    },
   },
   methods: {
-    loadOtherFirebaseData: function() {
+    loadOtherFirebaseData: function () {
       const self = this;
       db.collection("users")
         .doc(self.sharedUid)
         .get()
-        .then(function(doc) {
+        .then(function (doc) {
           if (doc.exists) {
             const data = doc.data();
             const collectedValue = data.collected || "";
@@ -314,7 +308,7 @@ export default {
             self.updateShowItems();
           }
         })
-        .catch(function(e) {
+        .catch(function (e) {
           self.message = "データを読み込めませんでした。";
           self.isLoaded = true;
           self.$store.commit("updateSharedCollected", {});
@@ -343,21 +337,21 @@ export default {
     getNavText(id) {
       return getNavText(id);
     },
-    getCollected: function(item) {
+    getCollected: function (item) {
       return item.uniqueEntryId
         ? this.sharedCollected[item.uniqueEntryId]
         : this.sharedCollected[item.name];
     },
-    getMyCollected: function(item) {
+    getMyCollected: function (item) {
       return item.uniqueEntryId
         ? this.myCollected[item.uniqueEntryId]
         : this.myCollected[item.name];
     },
-    onChangeFilter: function(activeFilter) {
+    onChangeFilter: function (activeFilter) {
       this.filter = Object.assign({}, activeFilter);
       this.updateShowItems();
     },
-    onShowModal: function(item, index) {
+    onShowModal: function (item, index) {
       this.modalBodyIndex = index;
       this.modalPatternIndex = 0;
       this.modalItem = item;
@@ -371,7 +365,7 @@ export default {
       this.nav = category;
       this.updateShowItems();
     },
-    updateShowItems: function() {
+    updateShowItems: function () {
       this.isLoadComplete = false;
       this.resultItems = filterItems({
         collected: this.sharedCollected,
@@ -383,7 +377,7 @@ export default {
         false: false,
         islandName: this.sharedIslandName,
         updateMatchedVariants: true,
-        wishlist: this.sharedWishlist
+        wishlist: this.sharedWishlist,
       });
 
       this.showItems = [];
@@ -406,8 +400,8 @@ export default {
 
       this.queueItems.splice(0, count);
       this.isLoadComplete = true;
-    }
-  }
+    },
+  },
 };
 </script>
 

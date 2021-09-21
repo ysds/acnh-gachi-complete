@@ -1,10 +1,8 @@
 <template>
   <Card title="コンプ率">
-    <div v-if="!isLoadComplete">
-      計算中...
-    </div>
+    <div v-if="!isLoadComplete">計算中...</div>
     <div v-if="isLoadComplete">
-      <div style="margin-bottom: 1rem;">
+      <div style="margin-bottom: 1rem">
         <LoginCollectedBar
           text="全体"
           :value="allCollectedLength"
@@ -44,7 +42,7 @@ import {
   totalLength,
   collectedLength,
   allTotalLength,
-  allCollectedLength
+  allCollectedLength,
 } from "../utils/nav";
 import Card from "./Card";
 import LoginCollectedBar from "./LoginCollectedBar";
@@ -57,17 +55,17 @@ export default {
       collectedLengths: null,
       allTotalLength: null,
       allCollectedLength: null,
-      navs: navs
+      navs: navs,
     };
   },
   components: {
     Card,
-    LoginCollectedBar
+    LoginCollectedBar,
   },
   computed: {
     collected() {
       return this.$store.getters.localCollectedData;
-    }
+    },
   },
   created() {
     setTimeout(() => {
@@ -81,11 +79,11 @@ export default {
   methods: {
     getLengths(isCollected) {
       const result = {};
-      navs.forEach(nav => {
+      navs.forEach((nav) => {
         const subnavs = nav.subnavs;
         const collected = this.collected;
         if (subnavs) {
-          subnavs.forEach(subnav => {
+          subnavs.forEach((subnav) => {
             result[subnav.id] = isCollected
               ? collectedLength({ nav: subnav.id, collected })
               : totalLength({ nav: subnav.id });
@@ -97,8 +95,8 @@ export default {
         }
       });
       return result;
-    }
-  }
+    },
+  },
 };
 </script>
 

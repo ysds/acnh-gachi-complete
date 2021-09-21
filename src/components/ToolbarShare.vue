@@ -20,7 +20,7 @@
       <Modal :show="isShowShareModal" @close="isShowShareModal = false">
         <template slot="header">{{ navText }}のコンプ状況をシェア</template>
         <div slot="body">
-          <p style="word-break: break-all;">
+          <p style="word-break: break-all">
             公開ページの URL<br />
             <router-link :to="`/share2/${activeNav}/?uid=${user.uid}`">
               {{ shareURL }}
@@ -30,9 +30,7 @@
           <div>
             <Button
               cta
-              :href="
-                `https://twitter.com/intent/tweet?text=${tweetString}%0a%0a${tweetURL}%0a%0a${tweetTags}`
-              "
+              :href="`https://twitter.com/intent/tweet?text=${tweetString}%0a%0a${tweetURL}%0a%0a${tweetTags}`"
             >
               Twitter に投稿する
             </Button>
@@ -48,7 +46,7 @@ import {
   getNavText,
   totalLength,
   collectedLength,
-  providableLength
+  providableLength,
 } from "../utils/nav.js";
 import { syncData } from "../utils/db.js";
 import { percentage } from "../utils/utils";
@@ -58,7 +56,7 @@ import Modal from "./Modal";
 export default {
   components: {
     Button,
-    Modal
+    Modal,
   },
   data() {
     return {
@@ -66,7 +64,7 @@ export default {
       shareURL: "",
       tweetString: "",
       tweetURL: "",
-      tweetTags: ""
+      tweetTags: "",
     };
   },
   computed: {
@@ -84,7 +82,7 @@ export default {
     },
     wishlist() {
       return this.$store.getters.wishlist;
-    }
+    },
   },
   methods: {
     showShareModal() {
@@ -100,17 +98,17 @@ export default {
     initTweetString() {
       const _totalLength = totalLength({
         nav: this.activeNav,
-        typeFilter: "all"
+        typeFilter: "all",
       });
       const _collectedLength = collectedLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
-        typeFilter: "all"
+        typeFilter: "all",
       });
       const _providableLength = providableLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
-        typeFilter: "all"
+        typeFilter: "all",
       });
       this.tweetString = `あつ森ガチコンプ『${this.navText}』チェッカー`;
       if (this.activeNav === "exchange") {
@@ -136,8 +134,8 @@ export default {
       } else if (nav.indexOf("housewares") > -1) {
         this.tweetTags += "%0a%23あつ森おさわり%0a%23あつ森交換%0a%23家具交換";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -23,7 +23,7 @@
         >壁掛け家具チェッカー</a
       >」から、データをインポートすることができます。
     </p>
-    <p class="small" style="font-weight: 700; margin-bottom: .5rem;">
+    <p class="small" style="font-weight: 700; margin-bottom: 0.5rem">
       このテキストボックスに、発行した URL
       を貼り付けて、インポートボタンを押してください。
     </p>
@@ -38,15 +38,13 @@
       {{ messageCategory }}
     </p>
     <div class="small">{{ message }}</div>
-    <div style="text-align: center;">
+    <div style="text-align: center">
       <Button cta :disabled="!isEnableButton" @click="runImport">
         インポート
       </Button>
     </div>
     <Modal :show="isShowModal" @close="isShowModal = false">
-      <template slot="header">
-        データをインポートしました。
-      </template>
+      <template slot="header"> データをインポートしました。 </template>
       <template slot="body">
         <div class="batch-modal-body">
           <Button primary class="batch-btn" @click="isShowModal = false">
@@ -75,7 +73,7 @@ export default {
     Button,
     Card,
     Input,
-    Modal
+    Modal,
   },
   data() {
     return {
@@ -86,13 +84,13 @@ export default {
       category: "",
       moduArray: [],
       isEnableButton: false,
-      isShowModal: false
+      isShowModal: false,
     };
   },
   computed: {
     collected() {
       return this.$store.getters.localCollectedData;
-    }
+    },
   },
   methods: {
     onInput() {
@@ -127,7 +125,7 @@ export default {
         this.version = splittedArray[0];
         const moduCheckText = splittedArray[2];
         const moduArray = [];
-        [].forEach.call(moduCheckText, function(str) {
+        [].forEach.call(moduCheckText, function (str) {
           moduArray.push(str);
         });
         this.moduArray = moduArray;
@@ -172,7 +170,7 @@ export default {
         });
         this.$store.commit("updateLocalCollectedDataBatch", {
           items: moduDiyMap,
-          collectedArray: newCollectedArray
+          collectedArray: newCollectedArray,
         });
       } else if (this.category === "家具") {
         this.runFTRImport(moduHousewaresMap);
@@ -222,7 +220,7 @@ export default {
       });
       this.$store.commit("updateLocalCollectedDataBatch", {
         items: newModuMap,
-        collectedArray: newCollectedArray
+        collectedArray: newCollectedArray,
       });
     },
     ready() {
@@ -244,8 +242,8 @@ export default {
       this.moduArray = [].slice();
       this.isEnableButton = false;
       this.messageCategory = "";
-    }
-  }
+    },
+  },
 };
 </script>
 

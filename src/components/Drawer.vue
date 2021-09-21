@@ -27,7 +27,7 @@ export default {
   props: {
     active: String,
     navs: Array,
-    pins: Object
+    pins: Object,
   },
   methods: {
     toggleDrawer() {
@@ -38,10 +38,10 @@ export default {
       this.$store.commit("changeNav", id);
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

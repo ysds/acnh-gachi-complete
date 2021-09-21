@@ -29,20 +29,20 @@ export default {
   name: "DropdownItem",
   props: {
     active: Boolean,
-    selectable: Boolean
+    selectable: Boolean,
   },
   methods: {
-    onClick: function() {
+    onClick: function () {
       this.$emit("click");
     },
-    onTouchStart: function(event) {
+    onTouchStart: function (event) {
       const button = event.currentTarget;
       button.classList.add("pressed");
-      setTimeout(function() {
+      setTimeout(function () {
         button.classList.remove("pressed");
       }, 300);
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped lang="scss">

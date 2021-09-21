@@ -10,7 +10,7 @@ var config = {
   projectId: "acnh-gachi-complete",
   storageBucket: "acnh-gachi-complete.appspot.com",
   messagingSenderId: "281864586378",
-  appId: "1:281864586378:web:c362cf8f36675c36c89973"
+  appId: "1:281864586378:web:c362cf8f36675c36c89973",
 };
 
 firebase.initializeApp(config);

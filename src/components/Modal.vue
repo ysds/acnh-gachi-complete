@@ -3,12 +3,10 @@
     <div class="modal" v-show="show" @click="$emit('close')" ref="modal">
       <div class="modal-mask" />
       <div class="modal-wrapper">
-        <div class="modal-container" @click="e => e.stopPropagation()">
+        <div class="modal-container" @click="(e) => e.stopPropagation()">
           <div class="modal-header">
             <h3>
-              <slot name="header">
-                No data
-              </slot>
+              <slot name="header"> No data </slot>
             </h3>
             <CloseButton
               v-if="closeButton"
@@ -17,9 +15,7 @@
             />
           </div>
           <div class="modal-body">
-            <slot name="body">
-              No data
-            </slot>
+            <slot name="body"> No data </slot>
           </div>
         </div>
       </div>
@@ -32,21 +28,21 @@ import CloseButton from "./CloseButton";
 
 export default {
   components: {
-    CloseButton
+    CloseButton,
   },
   props: {
     show: Boolean,
-    closeButton: Boolean
+    closeButton: Boolean,
   },
   watch: {
     show(newValue) {
       if (newValue) {
-        this.$nextTick(function() {
+        this.$nextTick(function () {
           this.$refs.modal.scrollTop = 0;
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

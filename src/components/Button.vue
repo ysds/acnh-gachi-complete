@@ -16,7 +16,7 @@
       'btn-form': form,
       'btn-nav': nav,
       'btn-pill': pill,
-      'btn-dropdown': dropdown
+      'btn-dropdown': dropdown,
     }"
     @click="onClick"
     @touchstart="onTouchStart"
@@ -56,25 +56,25 @@ export default {
     nav: Boolean,
     pill: Boolean,
     dropdown: Boolean,
-    href: String
+    href: String,
   },
   computed: {
     tag() {
       return this.href ? "a" : "button";
-    }
+    },
   },
   methods: {
-    onClick: function() {
+    onClick: function () {
       this.$emit("click");
     },
-    onTouchStart: function(event) {
+    onTouchStart: function (event) {
       const button = event.currentTarget;
       button.classList.add("pressed");
-      setTimeout(function() {
+      setTimeout(function () {
         button.classList.remove("pressed");
       }, 300);
-    }
-  }
+    },
+  },
 };
 </script>
 

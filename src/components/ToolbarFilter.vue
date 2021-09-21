@@ -24,7 +24,11 @@
       <div>
         <Button
           sm
-          style="margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;"
+          style="
+            margin-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          "
           @click="onClickExchangeType('wishlist')"
           :active="filter.exchangeType === 'wishlist'"
           :primary="filter.exchangeType === 'wishlist'"
@@ -33,7 +37,11 @@
         </Button>
         <Button
           sm
-          style="margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;"
+          style="
+            margin-left: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          "
           @click="onClickExchangeType('providable')"
           :active="filter.exchangeType === 'providable'"
           :primary="filter.exchangeType === 'providable'"
@@ -41,7 +49,7 @@
           配布可
         </Button>
       </div>
-      <div class="buttons" style="margin-top: 0.5rem;" v-if="isShareView">
+      <div class="buttons" style="margin-top: 0.5rem" v-if="isShareView">
         <Button
           pill
           @click="
@@ -97,7 +105,7 @@
           :class="{ active: filter.collectedFilter === collectedFilterItem.id }"
         />
       </div>
-      <div class="buttons" style="margin-top: 0.5rem;">
+      <div class="buttons" style="margin-top: 0.5rem">
         <Button
           pill
           @click="onClickCollectedFilter('5')"
@@ -142,7 +150,7 @@ import DropdownItem from "./DropdownItem";
 import {
   typeFilters,
   collectedFilters,
-  getTypeFilterItems
+  getTypeFilterItems,
 } from "../utils/filter";
 
 export default {
@@ -150,22 +158,22 @@ export default {
     Popper,
     Button,
     DropdownMenu,
-    DropdownItem
+    DropdownItem,
   },
   props: {
     filter: Object,
     activeNav: String,
-    isShareView: Boolean
+    isShareView: Boolean,
   },
   data() {
     return {
-      collectedFilterItems: collectedFilters
+      collectedFilterItems: collectedFilters,
     };
   },
   computed: {
     typeFilterLabel() {
       const matchedFilters = typeFilters.filter(
-        obj => obj.id === this.filter.typeFilter
+        (obj) => obj.id === this.filter.typeFilter
       );
       if (matchedFilters.length === 1) {
         return matchedFilters[0].btnLabel || matchedFilters[0].label;
@@ -178,7 +186,7 @@ export default {
     },
     collectedFilterLabel() {
       const matchedFilters = collectedFilters.filter(
-        obj => obj.id === this.filter.collectedFilter
+        (obj) => obj.id === this.filter.collectedFilter
       );
       if (matchedFilters.length === 1) {
         return matchedFilters[0].btnLabel || matchedFilters[0].label;
@@ -194,7 +202,7 @@ export default {
         this.activeNav === "achievements" ||
         this.activeNav === "recipes"
       );
-    }
+    },
   },
   methods: {
     onClickTypeFilter(value) {
@@ -226,8 +234,8 @@ export default {
     isOpenCollectedFilter() {
       if (!this.$refs.collectedFilter) return false;
       return this.$refs.collectedFilter.isShowPopper();
-    }
-  }
+    },
+  },
 };
 </script>
 

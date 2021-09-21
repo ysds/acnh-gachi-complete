@@ -20,7 +20,7 @@
         Google 翻訳を開きます)
       </a>
     </p>
-    <p style="font-weight: 700; margin-bottom: .5rem;">
+    <p style="font-weight: 700; margin-bottom: 0.5rem">
       このテキストボックスに、発行された URL
       を貼り付けて、インポートボタンを押してください。あつ森ガチコンプに既にデータが存在する場合は上書きされません。
     </p>
@@ -42,7 +42,7 @@
         <li v-for="name in failedNames" :key="name">{{ name }}</li>
       </ul>
     </template>
-    <div style="text-align: center;">
+    <div style="text-align: center">
       <Button cta @click="onClickImport">インポート</Button>
     </div>
   </Card>
@@ -64,19 +64,19 @@ export default {
   components: {
     Card,
     Button,
-    Input
+    Input,
   },
   data() {
     return {
       inputValue: "",
       message: "",
-      failedNames: []
+      failedNames: [],
     };
   },
   computed: {
     collected() {
       return this.$store.getters.localCollectedData;
-    }
+    },
   },
   methods: {
     onInput() {},
@@ -99,7 +99,7 @@ export default {
 
       functions
         .httpsCallable("catalogScan")({ hash })
-        .then(res => {
+        .then((res) => {
           if (res.data.data.error || res.data.status !== 200) {
             this.message =
               "インポートに失敗しました。URL に問題があるか、予期せぬエラーです。";
@@ -115,7 +115,7 @@ export default {
 
           for (const name of names) {
             const catalogName = zen_han_conv(name);
-            const item = itemsJson.find(item => {
+            const item = itemsJson.find((item) => {
               const isMatchName =
                 zen_han_conv(item.displayName) === catalogName ||
                 item.name === name;
@@ -150,18 +150,18 @@ export default {
 
           this.$store.commit("updateLocalCollectedDataBatch", {
             items: Object.keys(updateItemsData),
-            collectedArray: Object.values(updateItemsData)
+            collectedArray: Object.values(updateItemsData),
           });
         })
-        .catch(error => {
+        .catch((error) => {
           // Getting the Error details.
           this.massge = error.code;
           this.massge += error.message;
           this.massge += error.details;
           // ...
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

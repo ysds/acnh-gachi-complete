@@ -408,13 +408,13 @@ export default {
   display: inline;
   padding-left: 0;
 
-  /deep/ .t:first-child .t {
+  ::v-deep .t:first-child .t {
     border-left: 1px solid #fff;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
 
-  /deep/ .t:last-child .t {
+  ::v-deep .t:last-child .t {
     border-right: 1px solid #fff;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

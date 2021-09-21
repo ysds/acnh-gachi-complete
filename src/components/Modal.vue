@@ -122,7 +122,7 @@ export default {
   }
 }
 
-.modal-body /deep/ {
+.modal-body ::v-deep {
   margin: 20px 0;
 
   a {

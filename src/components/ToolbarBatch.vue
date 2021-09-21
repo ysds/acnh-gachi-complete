@@ -45,9 +45,7 @@
             }}」 は省略しました。
           </p>
           <div class="modal-footer">
-            <Button primary @click="closeModal">
-              OK
-            </Button>
+            <Button primary @click="closeModal"> OK </Button>
           </div>
         </template>
       </Modal>
@@ -83,22 +81,22 @@ export default {
     Button,
     DropdownMenu,
     DropdownItem,
-    Modal
+    Modal,
   },
   props: {
-    items: Array
+    items: Array,
   },
   data() {
     return {
       isShowCopyModal: false,
       isShowBatchModal: false,
-      batchAction: null
+      batchAction: null,
     };
   },
   computed: {
     activeNav() {
       return this.$store.getters.activeNav;
-    }
+    },
   },
   methods: {
     onClickCopyName() {
@@ -121,8 +119,8 @@ export default {
     },
     closeModal() {
       this.isShowCopyModal = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

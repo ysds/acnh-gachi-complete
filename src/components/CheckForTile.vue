@@ -43,8 +43,8 @@ export default {
     "variants",
     "isRecipe",
     "isRemake",
-    "isInWishlist"
-  ]
+    "isInWishlist",
+  ],
 };
 </script>
 <style lang="scss" scoped>

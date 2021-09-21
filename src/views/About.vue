@@ -10,7 +10,7 @@
           width: '400',
           tweetLimit: '1',
           chrome: 'noheader nofooter',
-          lang: 'ja'
+          lang: 'ja',
         }"
       />
     </div>
@@ -22,9 +22,7 @@
     <p>
       このアプリは、あつ森のアイテムの取得状況を管理できるウェブアプリです。来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。<br />
     </p>
-    <p>
-      あつ森のバージョン 1.11 に対応しています。
-    </p>
+    <p>あつ森のバージョン 1.11 に対応しています。</p>
     <h2>対象アイテム</h2>
     <p>
       あつ森のほとんどすべてのアイテムの管理ができますが、「素材」、「消費アイテム」、「一部の植物」、「店売りと
@@ -36,7 +34,7 @@
       <img
         class="img"
         src="../assets/remake.svg"
-        style="width:26px; height: 26px; margin-top: -4px; margin-left: -4px;"
+        style="width: 26px; height: 26px; margin-top: -4px; margin-left: -4px"
       />
       アイコンが表示されます。
     </p>
@@ -49,9 +47,7 @@
         <span class="check-state">配布可</span>
       </div>
     </div>
-    <p style="margin-top: 1rem;">
-      タップすると状態を切り替えられます。
-    </p>
+    <p style="margin-top: 1rem">タップすると状態を切り替えられます。</p>
     <p>
       同じアイテムが別のカテゴリで表示されることがありますが、それぞれのチェック状態は同期しています。
     </p>
@@ -96,26 +92,24 @@
     <img
       class="img"
       src="../assets/doc_shares.jpg"
-      style="max-width: 300px; margin-bottom: 1rem;"
+      style="max-width: 300px; margin-bottom: 1rem"
     />
     <h2>アイテム情報</h2>
     <img
       class="img"
       src="../assets/doc_item_info.jpg"
-      style="max-width: 300px; margin-bottom: 1rem;"
+      style="max-width: 300px; margin-bottom: 1rem"
     />
     <p>
       アイテムの画像を長押しすると、アイテムの入手方法やリメイクバリエーションなどの情報を表示できます。
     </p>
     <h2>リスト表示</h2>
     <img class="img" src="../assets/list.svg" style="margin: -1rem 0 1rem" />
-    <p>
-      リストアイコンを押すとリスト表示に切り替えることができます。
-    </p>
+    <p>リストアイコンを押すとリスト表示に切り替えることができます。</p>
     <img
       class="img"
       src="../assets/doc_list.jpg"
-      style="max-width: 300px; margin-bottom: 1rem;"
+      style="max-width: 300px; margin-bottom: 1rem"
     />
     <p>
       カタログと照らし合わせながらチェックするなど、一気にチェックする場合はリスト表示の方が効率的にチェックいただけます。
@@ -194,13 +188,11 @@
           >Bootstrap Icons</a
         >
       </li>
-      <li class="thd-list-item">
-        For others, see the Git repository.
-      </li>
+      <li class="thd-list-item">For others, see the Git repository.</li>
     </ul>
 
     <div class="links">
-      <a href="https://twitter.com/dmnmd55" style="margin-right: 2rem;">
+      <a href="https://twitter.com/dmnmd55" style="margin-right: 2rem">
         <img src="../assets/Twitter_Logo_Blue.svg" width="60px" height="60px" />
       </a>
       <a href="https://github.com/ysds/acnh-gachi-complete">
@@ -219,8 +211,8 @@ import { Timeline } from "vue-tweet-embed";
 
 export default {
   components: {
-    Timeline
-  }
+    Timeline,
+  },
 };
 </script>
 

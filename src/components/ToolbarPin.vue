@@ -20,19 +20,19 @@ export default {
   components: {
     Button,
     IconPin,
-    IconPinned
+    IconPinned,
   },
   props: {
     pins: {
       type: Object,
       default: () => {
         return {};
-      }
-    }
+      },
+    },
   },
   data() {
     return {
-      isPinned: false
+      isPinned: false,
     };
   },
   computed: {
@@ -47,21 +47,21 @@ export default {
         }
       }
       return false;
-    }
+    },
   },
   mounted() {
     this.isPinned = this.pins[this.activeNav];
   },
   watch: {
-    activeNav: function() {
+    activeNav: function () {
       this.isPinned = this.pins[this.activeNav];
-    }
+    },
   },
   methods: {
     onClickPin() {
       this.isPinned = !this.isPinned;
       this.$emit("changePin", this.activeNav, this.isPinned);
-    }
-  }
+    },
+  },
 };
 </script>

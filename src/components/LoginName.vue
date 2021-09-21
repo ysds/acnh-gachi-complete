@@ -1,7 +1,7 @@
 <template>
   <Card title="名前">
     <template slot="action">
-      <Button @click="onEdit" style="margin-left: auto;">
+      <Button @click="onEdit" style="margin-left: auto">
         <svg
           width="1em"
           height="1em"
@@ -22,16 +22,12 @@
     </div>
     <div class="mb-4 edit" v-else>
       <Input v-model="value" ref="input" class="mb-4" />
-      <Button form secondary @click="onCancel">
-        キャンセル
-      </Button>
-      <Button form primary @click="onSave" style="margin-left: 1rem;">
+      <Button form secondary @click="onCancel"> キャンセル </Button>
+      <Button form primary @click="onSave" style="margin-left: 1rem">
         保存
       </Button>
     </div>
-    <p class="small">
-      シェア機能使用時に相手に表示されます。
-    </p>
+    <p class="small">シェア機能使用時に相手に表示されます。</p>
   </Card>
 </template>
 
@@ -44,22 +40,22 @@ export default {
   components: {
     Button,
     Card,
-    Input
+    Input,
   },
   props: {
-    userName: String
+    userName: String,
   },
   data() {
     return {
       isEdit: false,
-      value: ""
+      value: "",
     };
   },
   methods: {
     onEdit() {
       this.value = this.userName;
       this.isEdit = true;
-      this.$nextTick(function() {
+      this.$nextTick(function () {
         this.$refs.input.focus();
       });
     },
@@ -69,7 +65,7 @@ export default {
     onSave() {
       this.$emit("change", this.value);
       this.isEdit = false;
-    }
-  }
+    },
+  },
 };
 </script>

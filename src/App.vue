@@ -36,12 +36,12 @@ import Button from "./components/Button.vue";
 export default {
   components: {
     Drawer,
-    Button
+    Button,
   },
   data() {
     return {
       isLoadComplete: null,
-      navs
+      navs,
     };
   },
   computed: {
@@ -62,7 +62,7 @@ export default {
     },
     isDoneSyncCloudFirstTime() {
       return this.$store.getters.isDoneSyncCloudFirstTime;
-    }
+    },
   },
   watch: {
     isLogin() {
@@ -73,7 +73,7 @@ export default {
         syncData();
         this.$store.commit("isDoneSyncCloudFirstTime", true);
       }
-    }
+    },
   },
   async created() {
     await Promise.all([this.loadLocalStorageData()]);
@@ -88,15 +88,15 @@ export default {
       let [collected, updateIndex, wishlist] = await Promise.all([
         self.$vlf.getItem("collected"),
         self.$vlf.getItem("updateIndex"),
-        self.$vlf.getItem("wishlist")
+        self.$vlf.getItem("wishlist"),
       ]);
       collected = collected || {};
       updateIndex = updateIndex || 0;
       self.$store.commit("initLocalCollectedData", { collected, updateIndex });
       self.$store.commit("initWishlist", wishlist);
       return self.localCollected;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -12,9 +12,9 @@
     :options="{
       modifiers: {
         preventOverflow: {
-          boundariesElement: 'window'
-        }
-      }
+          boundariesElement: 'window',
+        },
+      },
     }"
   >
     <template slot="reference">
@@ -29,11 +29,11 @@ import Popper from "vue-popperjs";
 
 export default {
   components: {
-    Popper
+    Popper,
   },
   data() {
     return {
-      showPopper: false
+      showPopper: false,
     };
   },
   created() {
@@ -57,8 +57,8 @@ export default {
     },
     isShowPopper() {
       return this.$refs.popper.showPopper;
-    }
-  }
+    },
+  },
 };
 </script>
 

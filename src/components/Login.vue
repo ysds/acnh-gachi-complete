@@ -14,7 +14,7 @@
         <img :src="user.photoURL" alt="Avatar" class="avatar" />
       </template>
       <div v-else-if="isLogin === false" class="mb-6">
-        <p style="font-size: 14px;">
+        <p style="font-size: 14px">
           ログインすると、データが自動的にクラウドに保存され、シェア機能を使えるようになります。
         </p>
         <Button block @click="login('google')">
@@ -31,7 +31,7 @@
             src="../assets/Twitter_Logo_Blue.svg"
             width="40px"
             height="40px"
-            style="margin-right: .5rem"
+            style="margin-right: 0.5rem"
           />
           Twitter でログイン
         </Button>
@@ -55,9 +55,7 @@
       <LoginImport />
 
       <template v-if="isLogin && user">
-        <Button block @click="logout">
-          ログアウト
-        </Button>
+        <Button block @click="logout"> ログアウト </Button>
         <p class="small mt-4">
           ログアウトするとブラウザに保存されているデータはクリアされます。再度ログインすることで、クラウドからデータを復元できます。
         </p>
@@ -93,7 +91,7 @@ export default {
     LoginShare,
     LoginImport,
     LoginCollected,
-    LoginCatalogScanner
+    LoginCatalogScanner,
   },
   computed: {
     user() {
@@ -107,7 +105,7 @@ export default {
     },
     isLogin() {
       return this.$store.getters.isLogin;
-    }
+    },
   },
   methods: {
     login(provider) {
@@ -124,22 +122,18 @@ export default {
       this.$emit("close");
     },
     saveName(newName) {
-      db.collection("users")
-        .doc(this.user.uid)
-        .update({
-          userName: newName
-        });
+      db.collection("users").doc(this.user.uid).update({
+        userName: newName,
+      });
       this.$store.commit("updateUserName", newName);
     },
     saveIslandName(newName) {
-      db.collection("users")
-        .doc(this.user.uid)
-        .update({
-          islandName: newName
-        });
+      db.collection("users").doc(this.user.uid).update({
+        islandName: newName,
+      });
       this.$store.commit("updateIslandName", newName);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

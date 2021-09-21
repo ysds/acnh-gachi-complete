@@ -12,7 +12,7 @@
       <div
         class="bar-value"
         :class="{
-          'bar-comp': $options.isComplete(props.value, props.totalValue)
+          'bar-comp': $options.isComplete(props.value, props.totalValue),
         }"
         :style="$options.style(props.value, props.totalValue)"
       />
@@ -20,7 +20,7 @@
     <img
       class="img"
       :class="{
-        'img-comp': $options.isComplete(props.value, props.totalValue)
+        'img-comp': $options.isComplete(props.value, props.totalValue),
       }"
       src="../assets/complete.svg"
       alt=""
@@ -36,7 +36,7 @@ export default {
     text: "",
     value: 0,
     totalValue: 0,
-    isAll: false
+    isAll: false,
   },
   percentage,
   isComplete(value, totalValue) {
@@ -45,7 +45,7 @@ export default {
   style(value, totalValue) {
     const width = totalValue !== 0 ? (value / totalValue) * 100 + "%" : 0;
     return `width: ${width}`;
-  }
+  },
 };
 </script>
 

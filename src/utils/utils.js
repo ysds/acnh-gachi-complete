@@ -10,7 +10,7 @@ export function percentage(value, totalValue) {
 }
 
 export function zen_han_conv(str) {
-  str = str.replace(/[０-９Ａ-Ｚａ-ｚ]/g, function(match) {
+  str = str.replace(/[０-９Ａ-Ｚａ-ｚ]/g, function (match) {
     const chr = match.charCodeAt(0) - 0xfee0;
     return String.fromCharCode(chr);
   });

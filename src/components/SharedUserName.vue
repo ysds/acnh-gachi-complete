@@ -32,8 +32,8 @@
 export default {
   props: {
     sharedUserName: String,
-    sharedIslandName: String
-  }
+    sharedIslandName: String,
+  },
 };
 </script>
 

@@ -22,7 +22,7 @@ Vue.use(VueLazyload);
 Vue.use(VueClipboard);
 Vue.use(VueAnalytics, {
   id: "UA-173561585-1",
-  router
+  router,
 });
 Vue.use(InfiniteLoading);
 Vue.use(PortalVue);
@@ -30,5 +30,5 @@ Vue.use(PortalVue);
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

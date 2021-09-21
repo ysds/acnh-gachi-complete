@@ -53,34 +53,34 @@ import Button from "../components/Button";
 export default {
   name: "SearchBox",
   components: {
-    Button
+    Button,
   },
   props: {
     isSearchMode: Boolean,
     searchText: {
       type: String,
-      default: ""
+      default: "",
     },
     change: Function,
-    input: Function
+    input: Function,
   },
   data() {
     return {
-      isShowInput: true
+      isShowInput: true,
     };
   },
   watch: {
-    isSearchMode: function(isSearchMode) {
+    isSearchMode: function (isSearchMode) {
       if (isSearchMode) {
-        this.$nextTick(function() {
+        this.$nextTick(function () {
           this.$refs.input.focus();
           this.$emit("input", "");
         });
       }
-    }
+    },
   },
   methods: {
-    onClickClearButton: function() {
+    onClickClearButton: function () {
       // Use fakeinput for workaround iOS issue
       // https://bugs.webkit.org/show_bug.cgi?id=215736
       const fakeInput = document.createElement("input");
@@ -98,15 +98,15 @@ export default {
         fakeInput.remove();
       }, 100);
     },
-    onClickCloseButton: function() {
+    onClickCloseButton: function () {
       this.$emit("close");
     },
-    onSearchInput: function(event) {
+    onSearchInput: function (event) {
       if (this.searchText !== event.target.value) {
         this.$emit("input", event.target.value);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

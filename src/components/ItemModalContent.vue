@@ -194,8 +194,8 @@
       class="info"
       v-if="
         modalItem.exchangePrice &&
-          modalItem.source &&
-          modalItem.source.indexOf('NookLink') >= 0
+        modalItem.source &&
+        modalItem.source.indexOf('NookLink') >= 0
       "
     >
       <div class="info-label info-4">タヌポイント</div>
@@ -218,8 +218,8 @@ export default {
     modalPatternIndex: Number,
     isShowWishlistButton: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     itemImage() {
@@ -263,7 +263,7 @@ export default {
     },
     isInWishlist() {
       return isInWishlist(this.modalItem, this.modalBodyIndex);
-    }
+    },
   },
   methods: {
     onClickWishButton(type) {
@@ -275,8 +275,8 @@ export default {
 
       this.$store.commit(`${type}Wishlist`, entryId);
       this.$emit("updateWishlist");
-    }
-  }
+    },
+  },
 };
 </script>
 

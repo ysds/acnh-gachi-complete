@@ -32,17 +32,17 @@ import isEqual from "lodash/isEqual";
 
 export default {
   components: {
-    IconPinned
+    IconPinned,
   },
   props: {
     active: String,
     navs: Array,
-    pins: Object
+    pins: Object,
   },
   computed: {
     navText() {
       if (this.active) {
-        const activeNavObj = this.navs.filter(nav => {
+        const activeNavObj = this.navs.filter((nav) => {
           return this.active.includes(nav.id);
         });
         if (activeNavObj.length > 0) {
@@ -51,9 +51,9 @@ export default {
       }
       return "";
     },
-    subnavs: function() {
+    subnavs: function () {
       if (this.active) {
-        const activeNavObj = this.navs.filter(nav => {
+        const activeNavObj = this.navs.filter((nav) => {
           return this.active.includes(nav.id);
         });
         if (activeNavObj.length > 0) {
@@ -61,24 +61,24 @@ export default {
         }
       }
       return null;
-    }
+    },
   },
   watch: {
     subnavs(value, oldValue) {
       if (!isEqual(value, oldValue) && this.$refs.subnav) {
         this.$refs.subnav.scrollLeft = 0;
       }
-    }
+    },
   },
   methods: {
     changeNav(id) {
       this.$store.commit("changeNav", id);
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -119,6 +119,7 @@ export default {
   font-size: 15px;
   font-weight: 700;
   border-bottom: 3px solid transparent;
+  color: #333;
 
   &.active {
     color: #42b983;

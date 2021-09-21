@@ -7,12 +7,10 @@
         }}</a
       >
     </div>
-    <div class="mb-4" style="text-align: center;">
+    <div class="mb-4" style="text-align: center">
       <Button
         cta
-        :href="
-          `https://twitter.com/intent/tweet?text=取得状況%0ahttps://ysds.github.io/acnh-gachi-complete/shares/?uid=${user.uid}%0a%0a%23あつ森ガチコンプ`
-        "
+        :href="`https://twitter.com/intent/tweet?text=取得状況%0ahttps://ysds.github.io/acnh-gachi-complete/shares/?uid=${user.uid}%0a%0a%23あつ森ガチコンプ`"
       >
         Twitter に投稿する
       </Button>
@@ -22,7 +20,7 @@
       を他の人に伝えることで、任意のカテゴリを一括でシェアできます。公開したいカテゴリを以下から選択してください。
     </p>
 
-    <div style="text-align: center;">
+    <div style="text-align: center">
       <Button
         v-if="!isOpen"
         @click="isOpen = !isOpen"
@@ -30,12 +28,10 @@
       >
         一括公開するカテゴリの設定
       </Button>
-      <div v-else style="margin-bottom: .5rem;">
+      <div v-else style="margin-bottom: 0.5rem">
         <div>
-          <Button secondary form @click="cancel">
-            キャンセル
-          </Button>
-          <Button primary form @click="save" style="margin-left: 1rem;">
+          <Button secondary form @click="cancel"> キャンセル </Button>
+          <Button primary form @click="save" style="margin-left: 1rem">
             保存
           </Button>
         </div>
@@ -78,14 +74,14 @@ export default {
   components: {
     VSwitch,
     Button,
-    Card
+    Card,
   },
   data() {
     return {
       navs: navs,
       isOpen: false,
       checks: [],
-      baseURL
+      baseURL,
     };
   },
   computed: {
@@ -94,26 +90,24 @@ export default {
     },
     user() {
       return this.$store.getters.user;
-    }
+    },
   },
   mounted() {
     this.checks = this.shareCategories.slice();
   },
   methods: {
     save() {
-      db.collection("users")
-        .doc(this.user.uid)
-        .update({
-          shareCategories: this.checks
-        });
+      db.collection("users").doc(this.user.uid).update({
+        shareCategories: this.checks,
+      });
       this.$store.commit("updateShareCategories", this.checks);
       this.isOpen = false;
     },
     cancel() {
       this.checks = this.shareCategories.slice();
       this.isOpen = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

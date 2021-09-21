@@ -80,8 +80,8 @@ export default {
         negative,
         plant,
         shrubberyHubbery,
-        smartphone
-      }
+        smartphone,
+      },
     };
-  }
+  },
 };

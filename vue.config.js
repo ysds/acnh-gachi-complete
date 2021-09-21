@@ -9,8 +9,8 @@ module.exports = {
   pages: {
     index: {
       entry: "src/main.js",
-      title: "あつ森ガチコンプ"
-    }
+      title: "あつ森ガチコンプ",
+    },
   },
   configureWebpack: () => {
     if (process.env.NODE_ENV === "production") {
@@ -19,7 +19,7 @@ module.exports = {
           new PrerenderSPAPlugin({
             staticDir: path.join(__dirname, "docs"),
             renderer: new Renderer({
-              maxConcurrentRoutes: 4
+              maxConcurrentRoutes: 4,
             }),
             routes: [
               "/shares",
@@ -100,7 +100,7 @@ module.exports = {
               "/share2/versions-160",
               "/share2/versions-150",
               "/share2/versions-140",
-              "/share2/exchange"
+              "/share2/exchange",
             ],
             postProcess(context) {
               const categories = {
@@ -182,7 +182,7 @@ module.exports = {
                 "/share2/versions-160": "1.6.0",
                 "/share2/versions-150": "1.5.0",
                 "/share2/versions-140": "1.4.0",
-                "/share2/exchange": "欲しいもの＆配布可"
+                "/share2/exchange": "欲しいもの＆配布可",
               };
               context.html = context.html.replace(
                 /content="【あつ森ガチコンプ】アイテムの取得状況を管理・共有できるウェブアプリ"/g,
@@ -193,10 +193,10 @@ module.exports = {
                 ""
               );
               return context;
-            }
-          })
-        ]
+            },
+          }),
+        ],
       };
     }
-  }
+  },
 };

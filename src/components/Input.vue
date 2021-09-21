@@ -13,20 +13,20 @@ export default {
   inheritAttrs: false,
   props: ["value"],
   computed: {
-    inputListeners: function() {
+    inputListeners: function () {
       var vm = this;
       return Object.assign({}, this.$listeners, {
-        input: function(event) {
+        input: function (event) {
           vm.$emit("input", event.target.value);
-        }
+        },
       });
-    }
+    },
   },
   methods: {
     focus() {
       this.$refs.input.focus();
-    }
-  }
+    },
+  },
 };
 </script>
 

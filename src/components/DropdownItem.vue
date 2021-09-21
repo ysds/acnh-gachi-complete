@@ -56,6 +56,7 @@ export default {
   text-align: left;
   transition: background-color 0.15s;
   white-space: nowrap;
+  color: #333;
 
   &:active,
   &.pressed {

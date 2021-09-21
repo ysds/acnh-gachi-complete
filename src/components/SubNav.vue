@@ -119,6 +119,7 @@ export default {
   font-size: 15px;
   font-weight: 700;
   border-bottom: 3px solid transparent;
+  color: #333;
 
   &.active {
     color: #42b983;

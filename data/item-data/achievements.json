@@ -1028,7 +1028,7 @@
   {
     "sourceSheet": "Achievements",
     "name": "Cast Master",
-    "achievementDescription": "Cast your line carefully if you want to reel in this reward — you'll need to nab a bunch of fish in a row without a single one getting away to earn these miles.",
+    "achievementDescription": "Cast your line carefully if you want to reel in this reward—you'll need to nab a bunch of fish in a row without a single one getting away to earn these miles.",
     "achievementCriteria": "Fish a specified number of fish in a single streak without any getting away",
     "num": "28",
     "internalId": "2",
@@ -1066,7 +1066,7 @@
   {
     "sourceSheet": "Achievements",
     "name": "Dream House",
-    "achievementDescription": "A home that you build yourself gives you greater livability — it's on a whole other level! I'll give Nook Miles to those who build or expand their home to taste the good life.",
+    "achievementDescription": "A home that you build yourself gives you greater livability—it's on a whole other level! I'll give Nook Miles to those who build or expand their home to taste the good life.",
     "achievementCriteria": "Expand your home a specified number of times",
     "num": "29",
     "internalId": "82",
@@ -2016,7 +2016,7 @@
   {
     "sourceSheet": "Achievements",
     "name": "Netting Better!",
-    "achievementDescription": "It's so impressive when someone can catch five wasps in a row — so impressive, in fact, that you'll earn some Nook Miles if you can do it!",
+    "achievementDescription": "It's so impressive when someone can catch five wasps in a row—so impressive, in fact, that you'll earn some Nook Miles if you can do it!",
     "achievementCriteria": "Awarded the first time you catch five wasps in a row without running away or getting stung",
     "num": "54",
     "internalId": "71",
@@ -2434,7 +2434,7 @@
   {
     "sourceSheet": "Achievements",
     "name": "Exterior Decorator",
-    "achievementDescription": "You can display furniture outside, right? Well, here's a little incentive for you to show off what you've got — you'll earn Nook Miles based on the number of furniture items you set up outside.",
+    "achievementDescription": "You can display furniture outside, right? Well, here's a little incentive for you to show off what you've got—you'll earn Nook Miles based on the number of furniture items you set up outside.",
     "achievementCriteria": "Awarded the first time you place some furniture outside",
     "num": "65",
     "internalId": "64",
@@ -2928,7 +2928,7 @@
   {
     "sourceSheet": "Achievements",
     "name": "Countdown Celebration",
-    "achievementDescription": "The only thing better than ringing in the new year is ringing in the new year with some Nook Miles! May you live to see many more — years and miles!",
+    "achievementDescription": "The only thing better than ringing in the new year is ringing in the new year with some Nook Miles! May you live to see many more—years and miles!",
     "achievementCriteria": "Awarded for attending the new year holiday event",
     "num": "78",
     "internalId": "48",

@@ -2,6 +2,7 @@
   "String_JPja.sarc.zs": {
     "STR_ItemName_00_Ftr.json": "item-name",
     "STR_ItemName_01_Art.json": "item-name",
+    "STR_ItemName_02_Dishes.json": "item-name",
     "STR_ItemName_19_Umbrella.json": "item-name",
     "STR_ItemName_20_Tool.json": "item-name",
     "STR_ItemName_30_Insect.json": "item-name",
@@ -9,6 +10,7 @@
     "STR_ItemName_32_DiveFish.json": "item-name",
     "STR_ItemName_33_Shell.json": "item-name",
     "STR_ItemName_34_Fossil.json": "item-name",
+    "STR_ItemName_35_Gyroid.json": "item-name",
     "STR_ItemName_36_InsectToy.json": "item-name",
     "STR_ItemName_37_FishToy.json": "item-name",
     "STR_ItemName_40_Plant.json": "item-name",

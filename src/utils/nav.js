@@ -277,6 +277,7 @@ export function filterItems(args) {
       else if (nav === "housewares-miscellaneous") {
         return (
           item.sourceSheet === "Miscellaneous" ||
+          item.sourceSheet === "Food" ||
           (item.sourceSheet === "Art" && item.category === "Miscellaneous")
         );
       }
@@ -286,6 +287,10 @@ export function filterItems(args) {
           item.sourceSheet === "Wall-mounted" ||
           (item.sourceSheet === "Art" && item.category === "Wall-mounted")
         );
+      }
+      // 家具（天井）
+      else if (nav === "housewares-ceiling") {
+        return item.sourceSheet === "Ceiling Decor";
       }
       // 家具（マイル家具）
       else if (nav === "housewares-nookmiles") {
@@ -307,7 +312,7 @@ export function filterItems(args) {
       else if (nav === "walletc-rugs") {
         return item.sourceSheet === "Rugs";
       }
-      // ラグ
+      // 柵
       else if (nav === "walletc-fencing") {
         return item.sourceSheet === "Fencing";
       }
@@ -360,6 +365,10 @@ export function filterItems(args) {
       // かせき
       else if (nav === "fossils") {
         return item.sourceSheet === "Fossils";
+      }
+      // はにわ
+      else if (nav === "gyroids") {
+        return item.sourceSheet === "Gyroids";
       }
       // 曲
       else if (nav === "music") {

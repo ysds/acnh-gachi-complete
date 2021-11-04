@@ -21,6 +21,10 @@
         "text": "壁かけ"
       },
       {
+        "id": "housewares-ceiling",
+        "text": "天井"
+      },
+      {
         "id": "housewares-nookmiles",
         "text": "マイル家具"
       }
@@ -102,6 +106,10 @@
   {
     "id": "fossils",
     "text": "かせき"
+  },
+  {
+    "id": "gyroids",
+    "text": "はにわ"
   },
   {
     "id": "music",

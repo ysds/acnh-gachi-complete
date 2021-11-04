@@ -404,6 +404,10 @@
     "text": "バージョン",
     "subnavs": [
       {
+        "id": "versions-200",
+        "text": "2.0.0"
+      },
+      {
         "id": "versions-1110",
         "text": "1.11.0"
       },

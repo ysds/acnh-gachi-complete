@@ -475,5 +475,60 @@
     "tier3Icon": "diving",
     "tier4Icon": "diving",
     "tier5Icon": "diving"
+  },
+  "105": {
+    "tier1Icon": "cooking",
+    "tier2Icon": "cooking",
+    "tier3Icon": "cooking"
+  },
+  "107": {
+    "tier1Icon": "cooking",
+    "tier2Icon": "cooking",
+    "tier3Icon": "cooking",
+    "tier4Icon": "cooking",
+    "tier5Icon": "cooking"
+  },
+  "106": {
+    "tier1Icon": "hha"
+  },
+  "104": {
+    "tier1Icon": "hha",
+    "tier2Icon": "hha",
+    "tier3Icon": "hha"
+  },
+  "100": {
+    "tier1Icon": "vegetable",
+    "tier2Icon": "vegetable",
+    "tier3Icon": "vegetable",
+    "tier4Icon": "vegetable",
+    "tier5Icon": "vegetable"
+  },
+  "102": {
+    "tier1Icon": "vegetable",
+    "tier2Icon": "vegetable",
+    "tier3Icon": "vegetable",
+    "tier4Icon": "vegetable",
+    "tier5Icon": "vegetable"
+  },
+  "103": {
+    "tier1Icon": "communication",
+    "tier2Icon": "communication",
+    "tier3Icon": "communication",
+    "tier4Icon": "communication",
+    "tier5Icon": "communication"
+  },
+  "108": {
+    "tier1Icon": "communication",
+    "tier2Icon": "communication",
+    "tier3Icon": "communication",
+    "tier4Icon": "communication",
+    "tier5Icon": "communication"
+  },
+  "109": {
+    "tier1Icon": "communication",
+    "tier2Icon": "communication",
+    "tier3Icon": "communication",
+    "tier4Icon": "communication",
+    "tier5Icon": "communication"
   }
 }

@@ -201,6 +201,10 @@
       <div class="info-label info-4">タヌポイント</div>
       <div class="info-text">{{ modalItem.exchangePrice }}</div>
     </div>
+    <div class="info" v-if="modalItem.versionAdded">
+      <div class="info-label info-6">追加されたバージョン</div>
+      <div class="info-text">{{ modalItem.versionAdded }}</div>
+    </div>
   </div>
 </template>
 
@@ -323,6 +327,10 @@ export default {
 
 .info-5 {
   background-color: #ff7626;
+}
+
+.info-6 {
+  background-color: #888;
 }
 
 .info-text {

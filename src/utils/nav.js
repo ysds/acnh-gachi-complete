@@ -1,6 +1,7 @@
 import itemsJson from "../assets/items.json";
 import navs from "./navs.json";
 import { typeFilter } from "./filter";
+import store from "../store";
 
 const { sortItemsByName } = require("../../script/sort.js");
 
@@ -125,6 +126,8 @@ export function filterItems(args) {
     wishlist = [],
   } = args;
 
+  const isShowV2 = store.getters.isShowV2;
+
   //
   // 検索
   //
@@ -132,6 +135,9 @@ export function filterItems(args) {
     const normalizedSearchText = normalizeText(searchText);
     items = items.filter((item) => {
       if (searchText === "") {
+        return false;
+      }
+      if (!isShowV2 && item.versionAdded === "2.0.0") {
         return false;
       }
       const normalizedDisplayName = normalizeText(
@@ -260,6 +266,10 @@ export function filterItems(args) {
     //
 
     items = items.filter((item) => {
+      if (!isShowV2 && item.versionAdded === "2.0.0") {
+        return false;
+      }
+
       // 家具（すべて）
       if (nav === "housewares-all") {
         return item.sourceSheet.match(

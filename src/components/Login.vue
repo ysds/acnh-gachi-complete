@@ -39,6 +39,8 @@
 
       <LoginCollected />
 
+      <LoginV2 :isShowV2="isShowV2" @change="changeIsShowV2" />
+
       <template v-if="isLogin && user">
         <LoginName :userName="userName" @change="saveName" />
         <LoginIslandName :islandName="islandName" @change="saveIslandName" />
@@ -71,6 +73,7 @@ import { syncData } from "../utils/db.js";
 import CloseButton from "../components/CloseButton";
 import Button from "../components/Button";
 import Card from "../components/Card";
+import LoginV2 from "../components/LoginV2";
 import LoginName from "../components/LoginName";
 import LoginIslandName from "../components/LoginIslandName";
 import LoginShare from "../components/LoginShare";
@@ -86,6 +89,7 @@ export default {
     CloseButton,
     Button,
     Card,
+    LoginV2,
     LoginName,
     LoginIslandName,
     LoginShare,
@@ -105,6 +109,9 @@ export default {
     },
     isLogin() {
       return this.$store.getters.isLogin;
+    },
+    isShowV2() {
+      return this.$store.getters.isShowV2;
     },
   },
   methods: {
@@ -132,6 +139,9 @@ export default {
         islandName: newName,
       });
       this.$store.commit("updateIslandName", newName);
+    },
+    changeIsShowV2(newValue) {
+      this.$store.commit("isShowV2", newValue);
     },
   },
 };

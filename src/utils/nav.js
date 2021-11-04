@@ -1,6 +1,7 @@
 import itemsJson from "../assets/items.json";
 import navs from "./navs.json";
 import { typeFilter } from "./filter";
+import store from "../store";
 
 const { sortItemsByName } = require("../../script/sort.js");
 
@@ -125,6 +126,8 @@ export function filterItems(args) {
     wishlist = [],
   } = args;
 
+  const isShowV2 = store.getters.isShowV2;
+
   //
   // 検索
   //
@@ -132,6 +135,9 @@ export function filterItems(args) {
     const normalizedSearchText = normalizeText(searchText);
     items = items.filter((item) => {
       if (searchText === "") {
+        return false;
+      }
+      if (!isShowV2 && item.versionAdded === "2.0.0") {
         return false;
       }
       const normalizedDisplayName = normalizeText(
@@ -260,6 +266,10 @@ export function filterItems(args) {
     //
 
     items = items.filter((item) => {
+      if (!isShowV2 && item.versionAdded === "2.0.0") {
+        return false;
+      }
+
       // 家具（すべて）
       if (nav === "housewares-all") {
         return item.sourceSheet.match(
@@ -277,6 +287,7 @@ export function filterItems(args) {
       else if (nav === "housewares-miscellaneous") {
         return (
           item.sourceSheet === "Miscellaneous" ||
+          item.sourceSheet === "Food" ||
           (item.sourceSheet === "Art" && item.category === "Miscellaneous")
         );
       }
@@ -286,6 +297,10 @@ export function filterItems(args) {
           item.sourceSheet === "Wall-mounted" ||
           (item.sourceSheet === "Art" && item.category === "Wall-mounted")
         );
+      }
+      // 家具（天井）
+      else if (nav === "housewares-ceiling") {
+        return item.sourceSheet === "Ceiling Decor";
       }
       // 家具（マイル家具）
       else if (nav === "housewares-nookmiles") {
@@ -307,7 +322,7 @@ export function filterItems(args) {
       else if (nav === "walletc-rugs") {
         return item.sourceSheet === "Rugs";
       }
-      // ラグ
+      // 柵
       else if (nav === "walletc-fencing") {
         return item.sourceSheet === "Fencing";
       }
@@ -360,6 +375,10 @@ export function filterItems(args) {
       // かせき
       else if (nav === "fossils") {
         return item.sourceSheet === "Fossils";
+      }
+      // はにわ
+      else if (nav === "gyroids") {
+        return item.sourceSheet === "Gyroids";
       }
       // 曲
       else if (nav === "music") {
@@ -667,6 +686,10 @@ export function filterItems(args) {
       // バージョン 1.11.0
       else if (nav === "versions-1110") {
         return item.versionAdded === "1.11.0";
+      }
+      // バージョン 2.0.0
+      else if (nav === "versions-200") {
+        return item.versionAdded === "2.0.0";
       }
       //
       // 欲しい物リスト

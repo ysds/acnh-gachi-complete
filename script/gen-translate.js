@@ -159,7 +159,11 @@ const fs = require("fs");
         const strArray = k.split("_");
         return `${parseInt(strArray[2], 10)}`;
       })();
-      contentJson[key] = v;
+      contentJson[key] = v.replace(
+        // eslint-disable-next-line no-control-regex
+        /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+        ""
+      );
     }
   }
 

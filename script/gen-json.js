@@ -315,6 +315,14 @@ allItems.forEach(item => {
   }
 
   //
+  // タンク（家具）の同名問題の対処
+  //
+
+  if (item.name === "tank" && item.sourceSheet === "Housewares") {
+    item.name = "tankHousewares";
+  }
+
+  //
   // Remove keys
   //
 

@@ -1,16 +1,16 @@
 function kana_conv(str) {
-  return str.replace(/[\u3041-\u3096]/g, function(match) {
+  return str.replace(/[\u3041-\u3096]/g, function (match) {
     const chr = match.charCodeAt(0) + 0x60;
     return String.fromCharCode(chr);
   });
 }
 
 function zen_han_conv(str) {
-  str = str.replace(/[０-９]/g, function(match) {
-    const chr = match.charCodeAt(0) - 0xfee0;
+  str = str.replace(/[0-9]/g, function (match) {
+    const chr = match.charCodeAt(0) + 0xfee0;
     return String.fromCharCode(chr);
   });
-  str = str.replace(/[A-Za-z]/g, function(match) {
+  str = str.replace(/[A-Za-z]/g, function (match) {
     const chr = match.charCodeAt(0) + 0xfee0;
     return String.fromCharCode(chr);
   });
@@ -64,20 +64,20 @@ function sutegana_conv(str) {
 }
 
 function symbol_conv(str) {
-  if (str.length >= 2) {
-    return (
-      str.substring(0, 1) +
-      str.substring(1).replace(/[^\u0020-\u007Dァ-ヶＡ-Ｚａ-ｚ]/g, "")
-    );
-  } else {
-    return str;
-  }
+  return str.replace(/[&・（）]/g, "");
+}
+
+function hannum(str) {
+  return str.replace(/[０-９]/g, function (match) {
+    const chr = match.charCodeAt(0) - 0xfee0;
+    return String.fromCharCode(chr);
+  });
 }
 
 function convertForSorting(str) {
   // ひらがな⇒カタカナ
   str = kana_conv(str);
-  // 数字⇒半角、アルファベット⇒全角大文字
+  // 数字⇒全角、アルファベット⇒全角大文字
   str = zen_han_conv(str);
   // 長音変換（ポスター⇒ポスタア）
   str = choon_conv(str);
@@ -85,15 +85,15 @@ function convertForSorting(str) {
   str = sutegana_conv(str);
   // 濁点削除（ブドウ⇒フトウ）
   str = daku_conv(str);
-  // 先頭以外の全角記号削除
+  // ソートに影響している記号削除
   str = symbol_conv(str);
   return str;
 }
 
 module.exports = {
-  sortItemsByName: function(items, converter) {
+  sortItemsByName: function (items, converter) {
     const reSymbol = /[^\u0020-\u007D〓ァ-ヶＡ-Ｚａ-ｚ]/;
-    items.sort(function(a, b) {
+    items.sort(function (a, b) {
       // 変換前
       const oa = a.yomigana || a.displayName;
       const ob = b.yomigana || b.displayName;
@@ -108,11 +108,17 @@ module.exports = {
         }
         const sa = ca.substring(i, i + 1);
         const sb = cb.substring(i, i + 1);
-        if (sa.match(/[0-9]/) && sb.match(/[0-9]/)) {
+        if (sa.match(/[０-９]/) && sb.match(/[０-９]/)) {
           // 数字同士は連続した数字の大小で比較
           // 例「12つぶのぶどう」と「１ごうのしゃしん」なら12と1を比較
-          const na = parseInt(ca.substring(i).match(/[0-9]+/g)[0], 10);
-          const nb = parseInt(cb.substring(i).match(/[0-9]+/g)[0], 10);
+          const na = parseInt(
+            hannum(ca.substring(i).match(/[０-９]+/g)[0]),
+            10
+          );
+          const nb = parseInt(
+            hannum(cb.substring(i).match(/[０-９]+/g)[0]),
+            10
+          );
           if (na > nb) {
             return 1;
           } else if (na < nb) {
@@ -144,5 +150,5 @@ module.exports = {
         return -1;
       }
     });
-  }
+  },
 };

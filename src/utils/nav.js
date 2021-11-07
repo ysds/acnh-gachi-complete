@@ -154,6 +154,14 @@ export function filterItems(args) {
   } else {
     if (filter) {
       //
+      // V2
+      //
+
+      if (filter.v2Only && !nav.includes("version")) {
+        items = items.filter((item) => item.versionAdded === "2.0.0");
+      }
+
+      //
       // 分類フィルター
       //
 
@@ -819,11 +827,12 @@ export function filterItems(args) {
 }
 
 export function totalLength(args) {
-  const { nav, typeFilter } = args;
+  const { nav, typeFilter, v2Only } = args;
   const items = filterItems({
     nav,
     filter: {
       typeFilter: typeFilter,
+      v2Only: v2Only,
     },
   });
 
@@ -837,13 +846,14 @@ export function allTotalLength() {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, typeFilter } = args;
+  const { collected, nav, typeFilter, v2Only } = args;
   const collectedItems = filterItems({
     collected,
     nav,
     filter: {
       typeFilter: typeFilter,
       collectedFilter: "3",
+      v2Only: v2Only,
     },
   });
 

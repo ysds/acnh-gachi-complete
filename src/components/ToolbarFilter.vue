@@ -1,25 +1,52 @@
 <template>
   <div class="d-flex" :class="{ 'toolbar-share': isShareView }">
-    <span v-show="typeFilterItems.length > 0">
-      <Popper ref="typeFilter">
-        <template slot="reference">
-          <Button dropdown sm :active="isOpenTypeFilter()">
-            <span v-html="typeFilterLabel" />
-          </Button>
-        </template>
-        <DropdownMenu>
-          <DropdownItem
-            v-for="typeFilterItem in typeFilterItems"
-            selectable
-            :active="filter.typeFilter === typeFilterItem.id"
-            :key="typeFilterItem.id"
-            @click="onClickTypeFilter(typeFilterItem.id)"
-          >
-            <span v-html="typeFilterItem.label"></span>
-          </DropdownItem>
-        </DropdownMenu>
-      </Popper>
-    </span>
+    <div class="d-flex" >
+      <Button
+        sm
+        @click="onClickV2Only()"
+        :active="filter.v2Only"
+        :primary="filter.v2Only"
+        v-if="activeNav && !activeNav.includes('version')"
+      >
+        V2のみ
+      </Button>
+      <span v-show="typeFilterItems.length > 0">
+        <Popper ref="typeFilter">
+          <template slot="reference">
+            <Button dropdown sm :active="isOpenTypeFilter()">
+              <span v-html="typeFilterLabel" />
+            </Button>
+          </template>
+          <DropdownMenu>
+            <DropdownItem
+              v-for="typeFilterItem in typeFilterItems"
+              selectable
+              :active="filter.typeFilter === typeFilterItem.id"
+              :key="typeFilterItem.id"
+              @click="onClickTypeFilter(typeFilterItem.id)"
+            >
+              <span v-html="typeFilterItem.label"></span>
+            </DropdownItem>
+          </DropdownMenu>
+        </Popper>
+      </span>
+    <template v-if="isShowOrderChanger && isShareView">
+      <Button
+        sm
+        v-if="filter.order === 'name'"
+        @click="onClickOrderButton('id')"
+      >
+        名前順
+      </Button>
+      <Button
+        sm
+        v-else-if="filter.order === 'id'"
+        @click="onClickOrderButton('name')"
+      >
+        実機順
+      </Button>
+    </template>
+    </div>
     <template v-if="activeNav === 'exchange'">
       <div>
         <Button
@@ -122,7 +149,7 @@
         </Button>
       </div>
     </template>
-    <template v-if="isShowOrderChanger">
+    <template v-if="isShowOrderChanger && !isShareView">
       <Button
         sm
         v-if="filter.order === 'name'"
@@ -205,6 +232,10 @@ export default {
     },
   },
   methods: {
+    onClickV2Only() {
+      const newValue = !this.filter.v2Only;
+      this.$emit("change", Object.assign(this.filter, { v2Only: newValue }));
+    },
     onClickTypeFilter(value) {
       if (this.$refs.typeFilter) this.$refs.typeFilter.doClose();
       this.$emit("change", Object.assign(this.filter, { typeFilter: value }));

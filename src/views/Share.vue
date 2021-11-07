@@ -151,6 +151,7 @@ export default {
     return {
       nav: null,
       filter: {
+        v2Only: false,
         typeFilter: "all",
         collectedFilter: "0",
         viewMode: "tile",
@@ -241,6 +242,7 @@ export default {
       return totalLength({
         nav: this.nav,
         typeFilter: this.filter.typeFilter,
+        v2Only: this.filter.v2Only,
       });
     },
     collectedLength() {
@@ -248,6 +250,7 @@ export default {
         collected: Object.assign({}, this.sharedCollected),
         nav: this.nav,
         typeFilter: this.filter.typeFilter,
+        v2Only: this.filter.v2Only,
       });
     },
     isDoneSyncCloudFirstTime() {

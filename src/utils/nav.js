@@ -438,13 +438,17 @@ export function filterItems(args) {
       else if (nav === "special-art") {
         return item.sourceSheet === "Art";
       }
-      // 来訪者 (ローラン)
+      // 来訪者 (来訪ローラン)
       else if (nav === "special-saharah") {
         return (
           item.source &&
           item.source.includes("Saharah") &&
           item.sourceSheet !== "Other"
         );
+      }
+      // 来訪者 (ローラン店)
+      else if (nav === "special-saharah-commune") {
+        return item.source && item.source.includes("Saharah's Commune");
       }
       // 来訪者 (ことの)
       else if (nav === "special-labelle") {
@@ -483,6 +487,20 @@ export function filterItems(args) {
             item.source.includes("Pascal") &&
             item.sourceSheet !== "Other") ||
           (item.source && item.source.includes("Pascal"))
+        );
+      }
+      // 来訪者 (いなりくじ店)
+      else if (nav === "special-redd-commune") {
+        return item.source && item.source.includes("Redd's Commune Raffle");
+      }
+      // 来訪者 (いなりくじ花火大会)
+      else if (nav === "special-redd-fireworks") {
+        return item.source && item.source.includes("Redd's Raffle");
+      }
+      // 来訪者 (ハッケミィ)
+      else if (nav === "special-katrina") {
+        return (
+          item.source && item.source.includes("Katrina's Cleansing Service")
         );
       }
       // 季節・イベント (たぬきショッピング)

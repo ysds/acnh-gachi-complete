@@ -183,7 +183,7 @@
   },
   {
     "id": "special",
-    "text": "来訪者",
+    "text": "来訪者/パニー島広場",
     "subnavs": [
       {
         "id": "special-fishmodels",
@@ -205,14 +205,14 @@
       },
       {
         "id": "special-saharah",
-        "text": "ローラン壁紙/ラグ",
-        "subtext": "ローラン",
+        "text": "ローラン壁紙/床/ラグ",
+        "subtext": "来訪ローラン",
         "order": 4
       },
       {
-        "id": "special-labelle",
-        "text": "ケイトシリーズ",
-        "subtext": "ことの",
+        "id": "special-saharah-commune",
+        "text": "新ローラン壁紙/床/ラグ",
+        "subtext": "ローランの店",
         "order": 5
       },
       {
@@ -222,28 +222,52 @@
         "order": 6
       },
       {
+        "id": "special-labelle",
+        "text": "ケイトシリーズ",
+        "subtext": "ことの",
+        "order": 7
+      },
+      {
         "id": "special-celeste",
         "text": "フーコレシピ",
         "subtext": "フーコ",
-        "order": 7
+        "order": 8
       },
       {
         "id": "special-gulliver",
         "text": "ジョニー",
         "subtext": "ジョニー",
-        "order": 8
+        "order": 9
       },
       {
         "id": "special-gullivarrr",
         "text": "海賊シリーズ",
         "subtext": "海賊ジョニー",
-        "order": 9
+        "order": 10
       },
       {
         "id": "special-pascal",
         "text": "マーメイドシリーズ",
         "subtext": "ラコスケ",
-        "order": 10
+        "order": 11
+      },
+      {
+        "id": "special-redd-commune",
+        "text": "いなりくじ（パニー島）",
+        "subtext": "つねきち",
+        "order": 12
+      },
+      {
+        "id": "special-redd-fireworks",
+        "text": "いなりくじ（花火大会）",
+        "subtext": "つねきち",
+        "order": 13
+      },
+      {
+        "id": "special-katrina",
+        "text": "ハッケミィ家具",
+        "subtext": "ハッケミィ",
+        "order": 14
       }
     ]
   },

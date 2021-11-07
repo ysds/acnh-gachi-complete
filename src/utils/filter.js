@@ -60,7 +60,11 @@ const typeFilters = [
     label: "シャンク",
     show: ["fashion"],
     filter: function (item) {
-      return item.source && item.source.includes("Kicks");
+      return (
+        item.source &&
+        (item.source.includes("Kicks") ||
+          item.source.includes("Kick's Commune"))
+      );
     },
   },
   {

@@ -456,7 +456,11 @@ export function filterItems(args) {
       }
       // 来訪者 (シャンク)
       else if (nav === "special-kicks") {
-        return item.source && item.source.includes("Kicks");
+        return (
+          item.source &&
+          (item.source.includes("Kicks") ||
+            item.source.includes("Kick's Commune"))
+        );
       }
       // 来訪者 (フーコ)
       else if (nav === "special-celeste") {

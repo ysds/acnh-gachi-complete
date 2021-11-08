@@ -1,6 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import localforage from "localforage";
+import {
+  makeCompatibleCollection,
+  makeCompatibleWishlist,
+} from "../utils/utils.js";
 
 Vue.use(Vuex);
 
@@ -43,15 +47,20 @@ export default new Vuex.Store({
       state.isLogin = nextState;
     },
     initLocalCollectedData(state, payload) {
+      payload.collected = makeCompatibleCollection(payload.collected);
       state.localCollectedData = Object.assign({}, payload.collected);
       state.localUpdateIndex = payload.updateIndex;
     },
     initCloudCollectedData(state, payload) {
+      payload.collected = makeCompatibleCollection(payload.collected);
       state.cloudCollectedData = payload.collected;
       state.cloudUpdateIndex = payload.updateIndex;
     },
     initWishlist(state, array) {
-      if (array) state.wishlist = array;
+      if (array) {
+        array = makeCompatibleWishlist(array);
+        state.wishlist = array;
+      }
     },
     updateLocalCollectedDataByItem(state, payload) {
       if (payload.itemCollectedData === "") {
@@ -105,6 +114,7 @@ export default new Vuex.Store({
       localforage.setItem("islandName", name);
     },
     updateSharedCollected(state, data) {
+      data = makeCompatibleCollection(data);
       state.sharedCollected = data;
     },
     updateSharedUserName(state, data) {
@@ -127,7 +137,10 @@ export default new Vuex.Store({
       if (array) state.cloudWishlist = array;
     },
     updateSharedWishlist(state, array) {
-      if (array) state.sharedWishlist = array;
+      if (array) {
+        array = makeCompatibleWishlist(array);
+        state.sharedWishlist = array;
+      }
     },
     isShowDropdown(state, isShow) {
       state.isShowDropdown = isShow;

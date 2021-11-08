@@ -44,6 +44,8 @@ const customTranslations = [
 
 const customAchievementData = require("../data/item-data-custom/achievements.json");
 
+const oldItems = require("../src/assets/items.json");
+
 //
 // items データ生成
 //
@@ -460,6 +462,23 @@ allItems = allItems.map(function(item) {
 //
 
 sortItemsByName(allItems);
+
+//
+// Rename check
+//
+
+const renamedItems = oldItems.filter((item) => {
+  const name = item.name;
+  const find = allItems.find((newItem) => newItem.name === name);
+  const isRenamed = find ? false : true;
+
+  return isRenamed;
+});
+
+if (renamedItems.length > 0) {
+  console.log("Renamed Items:");
+  console.log(renamedItems);
+}
 
 //
 // Write file

@@ -281,7 +281,7 @@ export function filterItems(args) {
       // 家具（すべて）
       if (nav === "housewares-all") {
         return item.sourceSheet.match(
-          /Housewares|Miscellaneous|Wall-mounted|Art/g
+          /Housewares|Miscellaneous|Wall-mounted|Art|Food|Ceiling Decor/g
         );
       }
       // 家具（家具）

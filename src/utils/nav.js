@@ -456,7 +456,7 @@ export function filterItems(args) {
       }
       // 来訪者 (ローラン店)
       else if (nav === "special-saharah-commune") {
-        return item.source && item.source.includes("Saharah's Commune");
+        return item.source && item.source.includes("Saharah's Co-op");
       }
       // 来訪者 (ことの)
       else if (nav === "special-labelle") {
@@ -471,7 +471,7 @@ export function filterItems(args) {
         return (
           item.source &&
           (item.source.includes("Kicks") ||
-            item.source.includes("Kick's Commune"))
+            item.source.includes("Kicks' Co-op"))
         );
       }
       // 来訪者 (フーコ)
@@ -499,7 +499,7 @@ export function filterItems(args) {
       }
       // 来訪者 (いなりくじ店)
       else if (nav === "special-redd-commune") {
-        return item.source && item.source.includes("Redd's Commune Raffle");
+        return item.source && item.source.includes("Redd's Co-op Raffle");
       }
       // 来訪者 (いなりくじ花火大会)
       else if (nav === "special-redd-fireworks") {

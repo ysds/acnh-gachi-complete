@@ -57,3 +57,49 @@ export function isInWishlist(item, index) {
 
   return wishlist.includes(entryId);
 }
+
+const RENAME_MAP = {
+  "paper bag": "paper-bag hood",
+  "olive desert-tile wall": "olive Moroccan wall",
+  "olive desert-tile flooring": "olive Moroccan flooring",
+  "blue desert-tile wall": "blue Moroccan wall",
+  "blue desert-tile flooring": "blue Moroccan flooring",
+  "beige desert-tile wall": "beige Moroccan wall",
+  "beige desert-tile flooring": "beige Moroccan flooring",
+  "teacup ride": "plaza teacup ride",
+  "purple desert-tile wall": "purple Moroccan wall",
+  "purple desert-tile flooring": "purple Moroccan flooring",
+  "Green Nook Inc. aloha shirt": "green Nook Inc. aloha shirt",
+  "Coral Nook Inc. aloha shirt": "coral Nook Inc. aloha shirt",
+  "Shrubbery Hububbery": "Shrubbery Hubbubbery",
+  "Pit-y Party!": "Pit-y Party",
+};
+
+export function makeCompatibleCollection(collected) {
+  const newCollected = Object.assign({}, collected);
+
+  Object.keys(RENAME_MAP).forEach((oldName) => {
+    const newName = RENAME_MAP[oldName];
+    if (newCollected[oldName]) {
+      if (!newCollected[newName]) {
+        newCollected[newName] = newCollected[oldName];
+      }
+      delete newCollected[oldName];
+    }
+  });
+
+  return newCollected;
+}
+
+export function makeCompatibleWishlist(wishlist) {
+  const newWishlist = wishlist.map((wishdata) => {
+    const wishdataArray = wishdata.split("_");
+    const name = wishdataArray[0];
+    const variant = wishdataArray[1];
+    const newName = RENAME_MAP[name];
+
+    return newName ? `${newName}_${variant}` : wishdata;
+  });
+
+  return newWishlist;
+}

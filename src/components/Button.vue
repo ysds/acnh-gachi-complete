@@ -82,7 +82,7 @@ export default {
 .btn {
   --color: #444;
   --bg-color: transparent;
-  --hover-bg-color: #e3e3e3;
+  --hover-bg-color: rgba(0, 0, 0, 0.08);
   --height: 44px;
   display: inline-block;
   flex-shrink: 0;

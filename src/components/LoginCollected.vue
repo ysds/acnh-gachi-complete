@@ -1,6 +1,11 @@
 <template>
   <Card title="コンプ率">
-    <div v-if="!isLoadComplete">計算中...</div>
+    <div v-if="!isLoadComplete" style="text-align: center; margin-bottom: 2rem">
+      <Button block @click="startGetLength">
+        <span v-show="!isGetting">コンプ率を表示</span>
+        <span v-show="isGetting">計算中...</span>
+      </Button>
+    </div>
     <div v-if="isLoadComplete">
       <div style="margin-bottom: 1rem">
         <LoginCollectedBar
@@ -46,10 +51,12 @@ import {
 } from "../utils/nav";
 import Card from "./Card";
 import LoginCollectedBar from "./LoginCollectedBar";
+import Button from "./Button";
 
 export default {
   data() {
     return {
+      isGetting: false,
       isLoadComplete: null,
       totalLengths: null,
       collectedLengths: null,
@@ -61,22 +68,25 @@ export default {
   components: {
     Card,
     LoginCollectedBar,
+    Button,
   },
   computed: {
     collected() {
       return this.$store.getters.localCollectedData;
     },
   },
-  created() {
-    setTimeout(() => {
-      this.totalLengths = this.getLengths();
-      this.collectedLengths = this.getLengths(true);
-      this.allTotalLength = allTotalLength();
-      this.allCollectedLength = allCollectedLength(this.collected);
-      this.isLoadComplete = true;
-    }, 0);
-  },
   methods: {
+    startGetLength() {
+      this.isGetting = true;
+      setTimeout(() => {
+        this.totalLengths = this.getLengths();
+        this.collectedLengths = this.getLengths(true);
+        this.allTotalLength = allTotalLength();
+        this.allCollectedLength = allCollectedLength(this.collected);
+        this.isLoadComplete = true;
+        this.isGetting = false;
+      }, 0);
+    },
     getLengths(isCollected) {
       const result = {};
       navs.forEach((nav) => {

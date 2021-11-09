@@ -6,10 +6,7 @@
         rel="noopener"
         href="https://nook.lol/"
         >カタログスキャナー</a
-      >」からデータをインポートすることができます。
-    </p>
-    <p>
-      「カタログ」「レシピ」「いきもの図鑑」「リアクション」「曲」に対応しています。ただし、家具やファッションのバリエーションのあるアイテムは、動画から解析できないためインポートされません。
+      >」からデータをインポートすることができます。「カタログ」「レシピ」「いきもの図鑑」「リアクション」「曲」に対応しています。
     </p>
     <p>
       <a
@@ -20,9 +17,28 @@
         Google 翻訳を開きます)
       </a>
     </p>
+    <div class="mb-4">
+      <h5>バリエーションがあるアイテムについて</h5>
+      <p>
+        あつ森の仕様上、カタログ画面を撮影した動画ではアイテムのバリエーションが判別できないため、バリエーションの取得情報を正確にインポートできません。バリエーションがあるアイテムをどのようにインポートするか設定してください。
+      </p>
+      <ButtonRadio
+        :active="isImportVariants === false"
+        @click="onChangeImportVariants(false)"
+        >バリエーションのあるアイテムのチェック状態をインポートしない</ButtonRadio
+      >
+      <ButtonRadio
+        :active="isImportVariants"
+        @click="onChangeImportVariants(true)"
+        >カイゾーリメイクできる場合、全バリエーションを取得済でインポートする（既に配布可でチェックされているバリエーションはそのまま）</ButtonRadio
+      >
+    </div>
     <p style="font-weight: 700; margin-bottom: 0.5rem">
-      このテキストボックスに、発行された URL
-      を貼り付けて、インポートボタンを押してください。あつ森ガチコンプに既にデータが存在する場合は上書きされません。
+      以下のテキストボックスに、発行された URL
+      を貼り付けて、インポートボタンを押してください。<span
+        style="font-weight: 400"
+        >あつ森ガチコンプで既にチェックされているアイテムの状態はそのまま維持されますので、何度でもインポート可能です。カタログを撮影した動画の解析がうまくいかない場合、Switchの本体言語を英語にすると成功率が上がる可能性があります。</span
+      >
     </p>
     <Input
       placeholder="https://nook.lol/..."
@@ -52,6 +68,7 @@
 import Card from "./Card";
 import Button from "./Button";
 import Input from "./Input";
+import ButtonRadio from "./ButtonRadio";
 
 import itemsJson from "../assets/items.json";
 import { zen_han_conv } from "../utils/utils";
@@ -65,12 +82,14 @@ export default {
     Card,
     Button,
     Input,
+    ButtonRadio,
   },
   data() {
     return {
       inputValue: "",
       message: "",
       failedNames: [],
+      isImportVariants: null,
     };
   },
   computed: {
@@ -78,8 +97,16 @@ export default {
       return this.$store.getters.localCollectedData;
     },
   },
+  async created() {
+    this.isImportVariants =
+      (await this.$vlf.getItem("isImportVariants")) || false;
+  },
   methods: {
     onInput() {},
+    onChangeImportVariants(state) {
+      this.isImportVariants = state;
+      this.$vlf.setItem("isImportVariants", state);
+    },
     onClickImport() {
       this.message = "";
       this.failedNames = [];
@@ -112,6 +139,7 @@ export default {
           const collected = Object.assign({}, this.collected);
           const updateItemsData = {};
           const failedNames = [];
+          let hasVariableItem = 0;
 
           for (const name of names) {
             const catalogName = zen_han_conv(name);
@@ -136,15 +164,34 @@ export default {
                   newCollected = "0";
                 }
                 updateItemsData[itemkey] = newCollected;
+              } else if (this.isImportVariants) {
+                const currentCollected = collected[itemkey] || "";
+                let newCollected = "0123456789".substring(0, itemLength);
+                const providableCollected = currentCollected.replace(
+                  /[0123456789]/g,
+                  ""
+                );
+                [...providableCollected].forEach((char) => {
+                  const hasChar = char.charCodeAt() - 65;
+                  newCollected.replace(hasChar, "");
+                  newCollected += providableCollected;
+                });
+                updateItemsData[itemkey] = newCollected;
+              } else {
+                hasVariableItem++;
               }
             } else {
               failedNames.push(name);
             }
           }
 
-          this.message = `${
+          this.message = `全 ${names.length} 個のデータから ${
             Object.keys(updateItemsData).length
           } 個のチェックデータをインポートしました。`;
+
+          if (hasVariableItem.length > 0) {
+            this.message += `バリエーションがある ${hasVariableItem} 個のアイテムは除外しました。`;
+          }
 
           this.failedNames = failedNames;
 

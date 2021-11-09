@@ -30,6 +30,15 @@
         @input="onInputSearchBox"
       />
     </div>
+    <div class="banner" v-if="isShowBanner" v-show="!isSearchMode">
+      <div>
+        「タイル（コンパクト）」表示モードや、動画を撮影してチェック状態をインポートできる機能をご存知でしょうか？ 詳しくは<router-link
+          to="/about"
+          >使い方</router-link
+        >をご覧ください。
+      </div>
+      <CloseButton white @click="onCloseBanner" />
+    </div>
     <SubNav
       :navs="navs"
       :active="activeNav"
@@ -153,6 +162,7 @@ import { isAvailableFilter } from "../utils/filter";
 import SubNav from "../components/SubNav.vue";
 import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
+import CloseButton from "../components/CloseButton.vue";
 import SearchBox from "../components/SearchBox.vue";
 import ToolbarFilter from "../components/ToolbarFilter.vue";
 import ToolbarShare from "../components/ToolbarShare.vue";
@@ -169,6 +179,7 @@ export default {
     SubNav,
     Login,
     Button,
+    CloseButton,
     SearchBox,
     ToolbarFilter,
     ToolbarShare,
@@ -202,6 +213,7 @@ export default {
       modalBodyIndex: 0,
       modalPatternIndex: 0,
       pins: {},
+      isShowBanner: false,
     };
   },
   computed: {
@@ -291,6 +303,7 @@ export default {
   async mounted() {
     await this.initNavFilter();
     await this.initIslandName();
+    await this.showBanner();
     this.updateShowItems();
   },
   methods: {
@@ -359,6 +372,14 @@ export default {
       const islandName = await this.$vlf.getItem("islandName");
       this.$store.commit("updateIslandName", islandName);
     },
+    async showBanner() {
+      this.isShowBanner = (await this.$vlf.getItem("isShowBanner"));
+      if (this.isShowBanner === null) this.isShowBanner = true;
+    },
+    onCloseBanner() {
+      this.isShowBanner = false;
+      this.$vlf.setItem("isShowBanner", false);
+    },
     onChangeItemCheck: function (itemName, itemCollectedData) {
       this.$store.commit("updateLocalCollectedDataByItem", {
         itemName,
@@ -379,7 +400,11 @@ export default {
           .substring(0, item.variants.length)
           .split("");
 
-        if ((self.filter.viewMode === "tile" || self.filter.viewMode === "tile2") && item.matchedVariants) {
+        if (
+          (self.filter.viewMode === "tile" ||
+            self.filter.viewMode === "tile2") &&
+          item.matchedVariants
+        ) {
           matchedVariants = item.matchedVariants;
         }
 
@@ -620,6 +645,25 @@ export default {
   &::after {
     content: "";
     padding-left: 1rem;
+  }
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem;
+  padding: 0.75rem;
+  background-color: #007bff;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+
+  a {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: underline;
   }
 }
 </style>

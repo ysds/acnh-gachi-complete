@@ -30,6 +30,7 @@ export default {
   border-radius: 5px;
   background-color: #eee;
   font-size: 13px;
+  color: #444;
   user-select: none;
   transition: transform 0.1s, background-color 0.2s;
 

@@ -28,6 +28,9 @@
           {{ props.variant.genuine }}
         </template>
       </template>
+      <template v-if="props.length && props.length > 1">
+        {{ props.length }}種
+      </template>
     </div>
     <div v-if="props.isInWishlist" class="t-dot" />
   </button>
@@ -44,6 +47,7 @@ export default {
     "isRecipe",
     "isRemake",
     "isInWishlist",
+    "length"
   ],
 };
 </script>

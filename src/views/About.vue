@@ -103,17 +103,38 @@
     <p>
       アイテムの画像を長押しすると、アイテムの入手方法やリメイクバリエーションなどの情報を表示できます。
     </p>
-    <h2>リスト表示</h2>
-    <img class="img" src="../assets/list.svg" style="margin: -1rem 0 1rem" />
-    <p>リストアイコンを押すとリスト表示に切り替えることができます。</p>
+    <h2>表示モード</h2>
+    <p>表示モードアイコンを押すと表示モードを切り替えることができます。</p>
+    <h3>タイルビュー</h3>
+    <img class="img" src="../assets/tile.svg" style="margin: -1rem 0 1rem" />
+    <p>
+      デフォルトの表示モードです。DIYリメイクできないバリエーションを別のタイルで表示します。ジョニー家具などの店売りまたはDIY家具ではないアイテムのバリエーションは、DIYリメイクできる場合でも別のタイルで表示します。
+    </p>
     <img
       class="img"
-      src="../assets/doc_list.jpg"
+      src="../assets/doc_view_tile.png"
       style="max-width: 300px; margin-bottom: 1rem"
     />
+    <h3>タイルビュー（コンパクト）</h3>
+    <img class="img" src="../assets/tile2.svg" style="margin: -1rem 0 1rem" />
     <p>
-      カタログと照らし合わせながらチェックするなど、一気にチェックする場合はリスト表示の方が効率的にチェックいただけます。
+      カイゾーにリメイクしてもらえるアイテムを１つのタイルで表示するモードです。チェック状態はすべてのバリエーションに反映されます。
     </p>
+    <img
+      class="img"
+      src="../assets/doc_view_tile2.png"
+      style="max-width: 300px; margin-bottom: 1rem"
+    />
+    <h3>リストビュー</h3>
+    <img class="img" src="../assets/list.svg" style="margin: -1rem 0 1rem" />
+    <p>
+      バリエーション毎またはバリエーション全体を一括でチェックできる表示モードです。カタログを見ながらチェックするなど、一気にチェックする場合はリスト表示の方が効率的にチェックいただけます。
+    </p>
+    <img
+      class="img"
+      src="../assets/doc_view_list.png"
+      style="max-width: 300px; margin-bottom: 1rem"
+    />
     <h2>サブカテゴリのピン留め</h2>
     <svg
       width="28px"
@@ -240,7 +261,7 @@ h2 {
 h3 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 p {

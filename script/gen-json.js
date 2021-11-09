@@ -113,7 +113,7 @@ allItems.forEach(item => {
   }
 
   // 家具の日本語リメイク名配列を追加とリメイクバリエーションの削除 (bodyVariants)
-  if (item.variants && item.variants[0].bodyCustomize) {
+  if (item.variants && item.variants.length > 1 && item.cyrusCustomizePrice ) {
     const bodyVariants = [];
     item.variants.forEach(variant => {
       const variantIdArray = variant.variantId.slice("_");
@@ -130,9 +130,11 @@ allItems.forEach(item => {
     if (!translation.variantBodyTitle[item.variants[0].internalId]) {
       console.log(`NoBodyVariantTitle: ${item.name}`);
     }
-    item.bodyCustomize = true;
-    if (item.diy || item.catalog === "For sale" || item.catalog === true) {
-      item.variants.length = 1;
+    if (item.variants[0].bodyCustomize) {
+      item.bodyCustomize = true;
+      if (item.diy || item.catalog === "For sale" || item.catalog === true) {
+        item.variants.length = 1;
+      }
     }
   }
 
@@ -349,7 +351,6 @@ allItems.forEach(item => {
   delete item["curtainColor"];
   delete item["curtainType"];
   delete item["customizationKitCost"];
-  delete item["cyrusCustomizePrice"];
   delete item["description"];
   delete item["diyIconFilename"];
   delete item["doorDeco"];

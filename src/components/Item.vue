@@ -43,8 +43,15 @@
         />
       </button>
     </template>
-    <template v-if="filter.viewMode === 'tile'">
-      <ul v-if="item.variants" class="tile-variants">
+    <template v-else>
+      <ul
+        v-if="
+          item.variants &&
+          (filter.viewMode === 'tile' ||
+            (filter.viewMode === 'tile2' && !item.cyrusCustomizePrice))
+        "
+        class="tile-variants"
+      >
         <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
         <li
           class="t"
@@ -71,12 +78,13 @@
           <CheckForTile
             :name="itemName"
             :image="itemImage"
-            :value="checks[0]"
+            :value="item.variants ? allCheckState : checks[0]"
             :isRecipe="item.sourceSheet === 'Recipes'"
             :isRemake="
               item.customize || item.bodyCustomize || item.patternCustomize
             "
             :isInWishlist="inWishlistFlags[0]"
+            :length="item.variants ? item.variants.length : undefined"
             @click="onClickAllCheck"
           />
         </li>

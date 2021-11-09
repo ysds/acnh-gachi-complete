@@ -8,11 +8,14 @@
         <template v-else-if="isLogin === false"> ログイン </template>
       </Button>
       <Button @click="onChangeView">
-        <template v-if="filter.viewMode !== 'list'">
+        <template v-if="filter.viewMode == 'list'">
           <img src="../assets/list.svg" />
         </template>
-        <template v-else>
+        <template v-else-if="filter.viewMode == 'tile'">
           <img src="../assets/tile.svg" />
+        </template>
+        <template v-else>
+          <img src="../assets/tile2.svg" />
         </template>
       </Button>
       <Button @click="onClickSearchBtn">
@@ -62,7 +65,9 @@
     </div>
     <ul
       class="items"
-      :class="{ tiles: filter.viewMode === 'tile' }"
+      :class="{
+        tiles: filter.viewMode === 'tile' || filter.viewMode === 'tile2',
+      }"
       v-if="showItems && showItems.length > 0"
       v-show="!isOpenLogin"
     >
@@ -374,7 +379,7 @@ export default {
           .substring(0, item.variants.length)
           .split("");
 
-        if (self.filter.viewMode === "tile" && item.matchedVariants) {
+        if ((self.filter.viewMode === "tile" || self.filter.viewMode === "tile2") && item.matchedVariants) {
           matchedVariants = item.matchedVariants;
         }
 
@@ -420,7 +425,14 @@ export default {
       this.updateShowItems();
     },
     onChangeView: function () {
-      const newViewMode = this.filter.viewMode === "tile" ? "list" : "tile";
+      let newViewMode;
+      if (this.filter.viewMode === "list") {
+        newViewMode = "tile";
+      } else if (this.filter.viewMode === "tile") {
+        newViewMode = "tile2";
+      } else {
+        newViewMode = "list";
+      }
       if (this.filter.viewMode === newViewMode) return;
       this.filter = Object.assign({}, this.filter, { viewMode: newViewMode });
       this.$vlf.setItem("filter", this.filter);

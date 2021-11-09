@@ -164,7 +164,7 @@ export default {
                   newCollected = "0";
                 }
                 updateItemsData[itemkey] = newCollected;
-              } else if (this.isImportVariants) {
+              } else if (this.isImportVariants && item.cyrusCustomizePrice) {
                 const currentCollected = collected[itemkey] || "";
                 let newCollected = "0123456789".substring(0, itemLength);
                 const providableCollected = currentCollected.replace(
@@ -189,8 +189,12 @@ export default {
             Object.keys(updateItemsData).length
           } 個のチェックデータをインポートしました。`;
 
-          if (hasVariableItem.length > 0) {
-            this.message += `バリエーションがある ${hasVariableItem} 個のアイテムは除外しました。`;
+          if (hasVariableItem > 0) {
+            if (this.isImportVariants) {
+              this.message += `カイゾーリメイクできないバリエーションがある ${hasVariableItem} 個のアイテムは除外しました。`;
+            } else {
+              this.message += `バリエーションがある ${hasVariableItem} 個のアイテムは除外しました。`;
+            }
           }
 
           this.failedNames = failedNames;

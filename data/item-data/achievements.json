@@ -763,7 +763,7 @@
     "sourceSheet": "Achievements",
     "name": "Gyroid Getter",
     "achievementDescription": "Collect different kinds of gyroids, and earn miles in return! I suspect once you experience life in their presence, you'll find it hard to resist hunting for more, hm?",
-    "achievementCriteria": "Dig up specified number of unique gyroids",
+    "achievementCriteria": "Touch specified number of unique gyroids",
     "num": 21,
     "internalId": 104,
     "internalName": "FillGyroidList",

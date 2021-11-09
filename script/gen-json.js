@@ -349,6 +349,7 @@ allItems.forEach(item => {
   delete item["curtainColor"];
   delete item["curtainType"];
   delete item["customizationKitCost"];
+  delete item["cyrusCustomizePrice"];
   delete item["description"];
   delete item["diyIconFilename"];
   delete item["doorDeco"];

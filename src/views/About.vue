@@ -51,16 +51,20 @@
     <p>
       同じアイテムが別のカテゴリで表示されることがありますが、それぞれのチェック状態は同期しています。
     </p>
-    <h2>インポート</h2>
+    <h2>チェック状態のインポート</h2>
     <p>
-      ゲームの動画を撮影して取得状態をインポートしたり、「<a
-        target="_blank"
-        rel="noopener"
-        href="https://modunogay.github.io/DIY/index.html"
-        >DIYレシピチェッカー</a
-      >」などからデータをインポートしたりすることができます。詳しくは、「ログイン」ボタンまたはプロフィール画像を押したら表示される画面の下部を参照してください。
+      ゲーム動画を撮影して取得状態をインポートすることができます。実際の操作は
+      <Button sm primary @click="isOpenLogin = true">設定画面</Button>
+      で行っていただけます。
     </p>
-
+    <Tweet
+      id="1420979604353798145"
+      :options="{
+        width: '400',
+        align: 'center',
+        lang: 'ja',
+      }"
+    />
     <h2>ログイン</h2>
     <p>
       ログインすると、データが自動的にクラウドに保存され、シェア機能を使えるようになります。複数のデバイスでログインすることで、データを同期させることができます。最新のデータをクラウドからダウンロードするにはページを再読み込みする必要があります。複数のデバイスで同時に操作すると、意図通りに同期されない可能性があります。
@@ -81,13 +85,19 @@
     </svg>
     <p>
       ログインしている場合、ページ上部にシェアボタンが表示されます。カテゴリごとに取得状態を公開するための
-      URL
-      を表示できます。シェアページで表示されるユーザー名や島名は、プロフィール画像を押したら表示される「設定」画面で変更できます。
+      URL を表示できます。シェアページで表示されるユーザー名や島名は
+      <Button sm primary @click="isOpenLogin = true">設定画面</Button>
+      で変更できます。
     </p>
     <h3>一括シェア</h3>
     <p>
-      複数のカテゴリを一括で公開したい場合、「設定」画面で一括シェア用の URL
-      を使用することもできます。
+      複数のカテゴリを一括で公開したい場合、<Button
+        sm
+        primary
+        @click="isOpenLogin = true"
+        >設定画面</Button
+      >
+      で一括シェア用の URL を使用することもできます。
     </p>
     <img
       class="img"
@@ -224,15 +234,26 @@
     <footer>
       <div class="copyright">@ysds 2020</div>
     </footer>
+    <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
   </div>
 </template>
 
 <script>
-import { Timeline } from "vue-tweet-embed";
+import { Timeline, Tweet } from "vue-tweet-embed";
+import Login from "../components/Login.vue";
+import Button from "../components/Button.vue";
 
 export default {
   components: {
     Timeline,
+    Tweet,
+    Login,
+    Button,
+  },
+  data() {
+    return {
+      isOpenLogin: false,
+    };
   },
 };
 </script>

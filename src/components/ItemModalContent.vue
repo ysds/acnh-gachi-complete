@@ -59,7 +59,7 @@
         {{ modalItem.sell ? modalItem.sell : "－" }}
       </div>
     </div>
-    <div class="info" v-if="modalItem.customize">
+    <div class="info" v-if="modalItem.customizeVariants">
       <div class="info-label info-5">
         リメイク
         <div class="info-label-sub">（{{ modalItem.bodyTitle }}）</div>
@@ -77,8 +77,18 @@
         </Button>
       </div>
     </div>
-    <div class="info" v-if="modalItem.bodyCustomize">
+    <div class="info" v-if="modalItem.bodyVariants">
       <div class="info-label info-5">
+        <div
+          class="info-label-mini"
+          v-if="
+            !modalItem.bodyCustomize &&
+            !modalItem.customize &&
+            modalItem.cyrusCustomizePrice
+          "
+        >
+          カイゾーのみ
+        </div>
         リメイク
         <div class="info-label-sub">（{{ modalItem.bodyTitle }}）</div>
       </div>
@@ -307,6 +317,11 @@ export default {
 
 .info-label-sub {
   font-size: 12px;
+}
+
+.info-label-mini {
+  font-size: 11px;
+  font-weight: 400;
 }
 
 .info-1 {

@@ -2,6 +2,7 @@
   {
     "id": "housewares",
     "text": "家具",
+    "class": "nav-item-items",
     "subnavs": [
       {
         "id": "housewares-all",
@@ -33,6 +34,7 @@
   {
     "id": "fashion",
     "text": "ファッション",
+    "class": "nav-item-items",
     "subnavs": [
       {
         "id": "fashion-all",
@@ -83,7 +85,8 @@
   },
   {
     "id": "walletc",
-    "text": "壁紙/床板/ラグ/柵",
+    "text": "壁紙/床板/ラグ",
+    "class": "nav-item-items",
     "subnavs": [
       {
         "id": "walletc-wall",
@@ -96,40 +99,61 @@
       {
         "id": "walletc-rugs",
         "text": "ラグ"
-      },
-      {
-        "id": "walletc-fencing",
-        "text": "柵"
       }
     ]
   },
   {
+    "id": "tools",
+    "text": "道具・グッズ",
+    "class": "nav-item-items",
+    "subnavs": [
+      {
+        "id": "tools-all",
+        "text": "道具",
+        "alttext": "すべて",
+        "order": 1
+      },
+      {
+        "id": "tools-wand",
+        "text": "ステッキ",
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "fencing",
+    "class": "nav-item-items",
+    "text": "柵"
+  },
+  {
     "id": "fossils",
-    "text": "かせき"
+    "text": "かせき",
+    "class": "nav-item-items"
   },
   {
     "id": "gyroids",
-    "text": "はにわ"
+    "text": "はにわ",
+    "class": "nav-item-items"
   },
   {
     "id": "music",
-    "text": "曲"
+    "text": "曲",
+    "class": "nav-item-items"
   },
   {
     "id": "posters",
-    "text": "ポスター"
+    "text": "ポスター",
+    "class": "nav-item-items"
   },
   {
     "id": "photos",
-    "text": "写真"
-  },
-  {
-    "id": "recipes",
-    "text": "レシピ"
+    "text": "写真",
+    "class": "nav-item-items"
   },
   {
     "id": "creatures",
     "text": "いきもの",
+    "class": "nav-item-items",
     "subnavs": [
       {
         "id": "creatures-insects",
@@ -149,25 +173,9 @@
     ]
   },
   {
-    "id": "tools",
-    "text": "道具",
-    "subnavs": [
-      {
-        "id": "tools-all",
-        "text": "道具",
-        "alttext": "すべて",
-        "order": 1
-      },
-      {
-        "id": "tools-wand",
-        "text": "ステッキ",
-        "order": 2
-      }
-    ]
-  },
-  {
     "id": "plants",
     "text": "花/低木",
+    "class": "nav-item-items",
     "subnavs": [
       {
         "id": "plants-flowers",
@@ -182,8 +190,72 @@
     ]
   },
   {
+    "id": "separator1",
+    "separator": true
+  },
+  {
+    "id": "recipes",
+    "text": "レシピ",
+    "class": "nav-item-collection"
+  },
+  {
+    "id": "reactions",
+    "text": "リアクション",
+    "class": "nav-item-collection"
+  },
+  {
+    "id": "achievements",
+    "text": "たぬきマイレージ",
+    "class": "nav-item-collection"
+  },
+  {
+    "id": "nookpoints",
+    "text": "タヌポイント",
+    "class": "nav-item-collection"
+  },
+  {
+    "id": "hhp",
+    "text": "ハピパラ",
+    "class": "nav-item-collection",
+    "subnavs": [
+      {
+        "id": "hhp-office",
+        "text": "タクミライフ"
+      },
+      {
+        "id": "hhp-cafe",
+        "text": "カフェ"
+      },
+      {
+        "id": "hhp-lottie",
+        "text": "タクミ"
+      },
+      {
+        "id": "hhp-niko",
+        "text": "ニコ"
+      },
+      {
+        "id": "hhp-wardell",
+        "text": "ナッティー"
+      },
+      {
+        "id": "hhp-bottles",
+        "text": "メッセージボトル（ハピパラ・かっぺい離島）"
+      },
+      {
+        "id": "hhp-kk",
+        "text": "とたけけフェス"
+      }
+    ]
+  },
+  {
+    "id": "separator2",
+    "separator": true
+  },
+  {
     "id": "special",
-    "text": "来訪者/パニー島広場",
+    "text": "来訪者・パニー島広場など",
+    "class": "nav-item-special",
     "subnavs": [
       {
         "id": "special-fishmodels",
@@ -252,14 +324,14 @@
         "order": 11
       },
       {
-        "id": "special-redd-commune",
-        "text": "いなりくじ（パニー島）",
+        "id": "special-redd-fireworks",
+        "text": "いなりくじ（花火大会）",
         "subtext": "つねきち",
         "order": 12
       },
       {
-        "id": "special-redd-fireworks",
-        "text": "いなりくじ（花火大会）",
+        "id": "special-redd-commune",
+        "text": "いなりくじ（パニー島）",
         "subtext": "つねきち",
         "order": 13
       },
@@ -268,12 +340,31 @@
         "text": "ハッケミィ家具",
         "subtext": "ハッケミィ",
         "order": 14
+      },
+      {
+        "id": "special-brewster",
+        "text": "マスター家具",
+        "subtext": "マスター",
+        "order": 15
+      },
+      {
+        "id": "special-radio",
+        "text": "ラジオ体操",
+        "subtext": "広場",
+        "order": 16
+      },
+      {
+        "id": "special-kappn",
+        "text": "かっぺいの離島",
+        "subtext": "かっぺい",
+        "order": 17
       }
     ]
   },
   {
     "id": "season",
     "text": "季節/イベント",
+    "class": "nav-item-special",
     "subnavs": [
       {
         "id": "season-nook",
@@ -420,20 +511,9 @@
     ]
   },
   {
-    "id": "reactions",
-    "text": "リアクション"
-  },
-  {
-    "id": "achievements",
-    "text": "たぬきマイレージ"
-  },
-  {
-    "id": "nookpoints",
-    "text": "タヌポイント"
-  },
-  {
     "id": "versions",
     "text": "バージョン",
+    "class": "nav-item-special",
     "subnavs": [
       {
         "id": "versions-200",
@@ -474,7 +554,12 @@
     ]
   },
   {
+    "id": "separator3",
+    "separator": true
+  },
+  {
     "id": "exchange",
-    "text": "欲しいもの＆配布可"
+    "text": "欲しいもの＆配布可",
+    "class": "nav-item-wishlist"
   }
 ]

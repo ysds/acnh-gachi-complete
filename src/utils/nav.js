@@ -331,7 +331,7 @@ export function filterItems(args) {
         return item.sourceSheet === "Rugs";
       }
       // 柵
-      else if (nav === "walletc-fencing") {
+      else if (nav === "fencing") {
         return item.sourceSheet === "Fencing";
       }
       // ファッション (すべて)
@@ -511,6 +511,22 @@ export function filterItems(args) {
           item.source && item.source.includes("Katrina's Cleansing Service")
         );
       }
+      // 来訪者 (マスター)
+      else if (nav === "special-brewster") {
+        return item.source && item.source.includes("Brewster");
+      }
+      // 来訪者 (ラジオ体操)
+      else if (nav === "special-radio") {
+        return item.source && item.source.includes("Group Stretching");
+      }
+      // 来訪者 (かっぺい)
+      else if (nav === "special-kappn") {
+        return (
+          item.source &&
+          (item.source.includes("Kapp'n island bottles") ||
+            item.source.includes("Kapp'n island"))
+        );
+      }
       // 季節・イベント (たぬきショッピング)
       else if (nav === "season-nook") {
         return (
@@ -684,6 +700,34 @@ export function filterItems(args) {
       // タヌポイント
       else if (nav === "nookpoints") {
         return item.source && item.source.includes("NookLink");
+      }
+      // HHP（事務所）
+      else if (nav === "hhp-office") {
+        return item.source && item.source.includes("HHP Office");
+      }
+      // HHP（カフェ）
+      else if (nav === "hhp-cafe") {
+        return item.source && item.source.includes("HHP Café");
+      }
+      // HHP（タクミ）
+      else if (nav === "hhp-lottie") {
+        return item.source && item.source.includes("Lottie");
+      }
+      // HHP（ニコ）
+      else if (nav === "hhp-niko") {
+        return item.source && item.source.includes("Niko");
+      }
+      // HHP（ナッティ）
+      else if (nav === "hhp-wardell") {
+        return item.source && item.source.includes("Wardell");
+      }
+      // HHP（メッセージボトル）
+      else if (nav === "hhp-bottles") {
+        return item.source && item.source.includes("HHP island bottles");
+      }
+      // HHP（とたけけフェス）
+      else if (nav === "hhp-kk") {
+        return item.source && item.source.includes("DJ KK concert");
       }
       // バージョン 1.4.0
       else if (nav === "versions-140") {

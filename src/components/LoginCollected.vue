@@ -62,7 +62,6 @@ export default {
       collectedLengths: null,
       allTotalLength: null,
       allCollectedLength: null,
-      navs: navs,
     };
   },
   components: {
@@ -73,6 +72,11 @@ export default {
   computed: {
     collected() {
       return this.$store.getters.localCollectedData;
+    },
+    navs() {
+      return navs.filter((nav) => {
+        return nav.id !== "exchange";
+      });
     },
   },
   methods: {

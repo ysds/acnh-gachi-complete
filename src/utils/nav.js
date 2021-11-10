@@ -310,6 +310,10 @@ export function filterItems(args) {
       else if (nav === "housewares-ceiling") {
         return item.sourceSheet === "Ceiling Decor";
       }
+      // 家具（料理）
+      else if (nav === "housewares-food") {
+        return item.sourceSheet === "Food";
+      }
       // 家具（マイル家具）
       else if (nav === "housewares-nookmiles") {
         return (

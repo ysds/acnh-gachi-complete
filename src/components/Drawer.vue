@@ -1,29 +1,50 @@
 <template>
   <div class="drawer">
-    <nav class="nav">
-      <router-link
-        v-for="nav in navs"
-        :key="nav.id"
-        class="nav-item"
-        :class="{ active: active && active.includes(nav.id) }"
-        to="/"
-        @click.native="changeNav(nav.subnavs ? nav.subnavs[0].id : nav.id)"
-      >
-        {{ nav.text }}
-      </router-link>
-      <router-link
-        class="nav-item nav-item-about"
-        to="/about"
-        @click.native="toggleDrawer"
-      >
-        使い方
-      </router-link>
-    </nav>
+    <div class="navs">
+      <nav class="nav">
+        <router-link
+          v-for="nav in navs"
+          :key="nav.id"
+          class="nav-item"
+          :class="[
+            {
+              active: active && active.includes(nav.id),
+              separator: nav.separator,
+            },
+            nav.class,
+          ]"
+          to="/"
+          @click.native="
+            !nav.separator
+              ? changeNav(nav.subnavs ? nav.subnavs[0].id : nav.id)
+              : undefined
+          "
+          :tabindex="nav.separator ? -1 : undefined"
+        >
+          <template v-if="!nav.separator">
+            <inline-svg :src="require(`../assets/nav/${nav.id}.svg`)" />
+            {{ nav.text }}
+          </template>
+        </router-link>
+        <router-link
+          class="nav-item nav-item-about"
+          to="/about"
+          @click.native="toggleDrawer"
+        >
+          使い方
+        </router-link>
+      </nav>
+    </div>
   </div>
 </template>
 
 <script>
+import InlineSvg from "vue-inline-svg";
+
 export default {
+  components: {
+    InlineSvg,
+  },
   props: {
     active: String,
     navs: Array,
@@ -53,30 +74,105 @@ export default {
   left: 0;
   z-index: 1010;
   background-color: #fff;
+}
+
+.navs {
+  display: flex;
+  justify-content: center;
   padding: 0 8px 1rem;
 }
 
 .nav {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 0.5rem;
+
+  @media (max-width: 374.98px) {
+    padding: 0;
+  }
 }
 
 .nav-item {
-  margin: 0.25rem 0.33rem;
-  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  margin: 0.125rem;
+  padding: 5px 12px;
   outline: none;
+  font-size: 12px;
   font-weight: bold;
   text-decoration: none;
   color: #444;
   touch-action: manipulation;
+  background-color: #eee;
+  border-radius: 12px;
 
   &.active {
+    color: #fff;
+
+    svg {
+      color: #fff;
+    }
+  }
+
+  @media (max-width: 374.98px) {
+    padding: 3px 10px;
+    min-width: none;
+    font-size: 11px;
+  }
+}
+
+.nav-item-items {
+  &.active {
+    background-color: #42b983;
+  }
+
+  svg {
     color: #42b983;
   }
 }
 
+.nav-item-collection {
+  &.active {
+    background-color: #ff7626;
+  }
+
+  svg {
+    color: #ff7626;
+  }
+}
+
+.nav-item-special {
+  &.active {
+    background-color: #ab47bc;
+  }
+
+svg {
+    color: #ab47bc;
+  }
+}
+
+.nav-item-wishlist {
+  &.active {
+    background-color: #ff617c;
+  }
+
+svg {
+    color: #ff617c;
+  }
+}
+
 .nav-item-about {
+  font-size: 14px;
   color: #ff617c;
+}
+
+.separator {
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 </style>

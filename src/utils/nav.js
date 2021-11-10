@@ -408,7 +408,7 @@ export function filterItems(args) {
       }
       // 道具 (すべて)
       else if (nav === "tools-all") {
-        return item.sourceSheet === "Tools";
+        return item.sourceSheet === "Tools" && item.name !== "magic bag";
       }
       // 道具 (ステッキ)
       else if (nav === "tools-wand") {

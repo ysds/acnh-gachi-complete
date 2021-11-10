@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   max-width: calc(100vw - 10px);
-  max-height: 73vh;
+  max-height: 50vh;
   margin-top: 3px;
   padding: 0.375rem;
   background-color: #fff;

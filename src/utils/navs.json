@@ -218,12 +218,47 @@
     "class": "nav-item-collection"
   },
   {
+    "id": "hhp",
+    "text": "ハピパラ",
+    "class": "nav-item-collection",
+    "subnavs": [
+      {
+        "id": "hhp-office",
+        "text": "タクミライフ"
+      },
+      {
+        "id": "hhp-cafe",
+        "text": "カフェ"
+      },
+      {
+        "id": "hhp-lottie",
+        "text": "タクミ"
+      },
+      {
+        "id": "hhp-niko",
+        "text": "ニコ"
+      },
+      {
+        "id": "hhp-wardell",
+        "text": "ナッティー"
+      },
+      {
+        "id": "hhp-bottles",
+        "text": "メッセージボトル（ハピパラ・かっぺい離島）"
+      },
+      {
+        "id": "hhp-kk",
+        "text": "とたけけフェス"
+      }
+    ]
+  },
+  {
     "id": "separator2",
     "separator": true
   },
   {
     "id": "special",
-    "text": "来訪者/パニー島広場",
+    "text": "来訪者・パニー島広場など",
     "class": "nav-item-special",
     "subnavs": [
       {
@@ -293,14 +328,14 @@
         "order": 11
       },
       {
-        "id": "special-redd-commune",
-        "text": "いなりくじ（パニー島）",
+        "id": "special-redd-fireworks",
+        "text": "いなりくじ（花火大会）",
         "subtext": "つねきち",
         "order": 12
       },
       {
-        "id": "special-redd-fireworks",
-        "text": "いなりくじ（花火大会）",
+        "id": "special-redd-commune",
+        "text": "いなりくじ（パニー島）",
         "subtext": "つねきち",
         "order": 13
       },
@@ -309,6 +344,24 @@
         "text": "ハッケミィ家具",
         "subtext": "ハッケミィ",
         "order": 14
+      },
+      {
+        "id": "special-brewster",
+        "text": "マスター家具",
+        "subtext": "マスター",
+        "order": 15
+      },
+      {
+        "id": "special-radio",
+        "text": "ラジオ体操",
+        "subtext": "広場",
+        "order": 16
+      },
+      {
+        "id": "special-kappn",
+        "text": "かっぺいの離島",
+        "subtext": "かっぺい",
+        "order": 17
       }
     ]
   },

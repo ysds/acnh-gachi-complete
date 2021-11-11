@@ -75,7 +75,7 @@ export default {
     },
     navs() {
       return navs.filter((nav) => {
-        return nav.id !== "exchange";
+        return nav.id !== "exchange" && nav.id.indexOf("separator");
       });
     },
   },

@@ -78,12 +78,16 @@ export default {
 .left {
   position: relative;
   z-index: 2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .right {
   position: relative;
   z-index: 2;
   margin-left: auto;
+  white-space: nowrap;
 }
 
 .img {

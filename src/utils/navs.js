@@ -345,13 +345,6 @@ const navs = [
         },
       },
       {
-        id: "other-interior",
-        text: "内装",
-        filter: function (item) {
-          return item.sourceSheet === "Interior Structures";
-        },
-      },
-      {
         id: "other-plant",
         text: "植物",
         filter: function (item) {
@@ -360,6 +353,13 @@ const navs = [
             item.tag === "Plants" &&
             item.variants[0].storageImage
           );
+        },
+      },
+      {
+        id: "other-interior",
+        text: "内装",
+        filter: function (item) {
+          return item.sourceSheet === "Interior Structures";
         },
       },
       {

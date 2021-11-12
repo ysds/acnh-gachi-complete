@@ -354,7 +354,7 @@ const { navsFlat } = require("../src/utils/navs");
 let uncategorizedItems = allItems;
 
 Object.values(navsFlat).forEach(nav => {
-  if (!nav.id.match(/versions/) && !nav.id.match(/xyz-/) && nav.filter !== undefined) {
+  if (!nav.id.match(/special|season|hhp|versions/) && nav.filter !== undefined) {
     uncategorizedItems = uncategorizedItems.filter(item => {
       return !nav.filter(item);
     })

@@ -35,14 +35,6 @@ const replaceIslandName = function (itemName, item, islandName) {
   }
 };
 
-// コンプ率の計算対象アイテムの判定
-const filterOtherItem = function (item) {
-  if (item.sourceSheet === "Other") {
-    return navsFlat["plants-flowers"].filter(item) || navsFlat["plants-bushes"].filter(item)
-  }
-  return true;
-};
-
 const calcTotalLength = function (items) {
   let result = 0;
   for (let i = 0; i < items.length; i++) {
@@ -368,9 +360,7 @@ export function totalLength(args) {
 }
 
 export function allTotalLength() {
-  const items = itemsJson.filter(filterOtherItem);
-
-  return calcTotalLength(items);
+  return calcTotalLength(itemsJson);
 }
 
 export function collectedLength(args) {
@@ -393,7 +383,6 @@ export function allCollectedLength(collected) {
     collected,
     filter: { collectedFilter: "3" },
   });
-  collectedItems = collectedItems.filter(filterOtherItem);
 
   return calcCollectedLength(collected, collectedItems);
 }

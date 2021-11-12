@@ -336,8 +336,42 @@ allItems.forEach(item => {
       delete item[key];
     }
   });
+});
 
-  // Unused
+//
+// 特殊アイテムの削除
+//
+
+const removeItems = require("../data/item-data-custom/removeItems.json");
+allItems = allItems.filter(item => !(removeItems[item.name] && item.sourceSheet !== "Recipes"));
+
+//
+// どのカテゴリにも属さないアイテムの抽出
+//
+
+const { navsFlat } = require("../src/utils/navs");
+
+let uncategorizedItems = allItems;
+
+Object.values(navsFlat).forEach(nav => {
+  if (!nav.id.match(/versions/) && !nav.id.match(/xyz-/) && nav.filter !== undefined) {
+    uncategorizedItems = uncategorizedItems.filter(item => {
+      return !nav.filter(item);
+    })
+  }
+});
+
+if (uncategorizedItems.length > 0) {
+  console.log(`Uncategorized Items: ${uncategorizedItems.length}`);
+  uncategorizedItems.forEach(item => {
+    console.log(item.name)
+  });
+}
+
+//
+// Remove Unused Keys 
+//
+allItems.forEach(item => {
   delete item["achievementCriteria"];
   delete item["cardColor"];
   delete item["catchDifficulty"];
@@ -399,7 +433,6 @@ allItems.forEach(item => {
   delete item["style1"];
   delete item["style2"];
   delete item["surface"];
-  delete item["tag"];
   delete item["totalCatchesToUnlock"];
   delete item["unlocked"];
   delete item["unlockNotes"];
@@ -412,6 +445,10 @@ allItems.forEach(item => {
   delete item["vision"];
   delete item["windowColor"];
   delete item["windowType"];
+
+  if (item.sourceSheet !== "Other") {
+    delete item["tag"];
+  }
 
   for (let i = 1; i < 7; i++) {
     delete item[`tier${i}`];

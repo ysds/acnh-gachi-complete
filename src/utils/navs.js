@@ -326,6 +326,56 @@ const navs = [
     ],
   },
   {
+    id: "other",
+    text: "その他",
+    class: "nav-item-items",
+    subnavs: [
+      {
+        id: "other-all",
+        text: "すべてのその他",
+        alttext: "すべて",
+        filter: function (item) {
+          return (
+            item.sourceSheet === "Tools" ||
+            (item.sourceSheet === "Other" &&
+              item.variants[0].storageImage &&
+              item.tag !== "Unnecessary") ||
+            item.sourceSheet === "Interior Structures"
+          );
+        },
+      },
+      {
+        id: "other-interior",
+        text: "内装",
+        filter: function (item) {
+          return item.sourceSheet === "Interior Structures";
+        },
+      },
+      {
+        id: "other-plant",
+        text: "植物",
+        filter: function (item) {
+          return (
+            item.sourceSheet === "Other" &&
+            item.tag === "Plants" &&
+            item.variants[0].storageImage
+          );
+        },
+      },
+      {
+        id: "other-etc",
+        text: "その他",
+        filter: function (item) {
+          return (
+            item.sourceSheet === "Other" &&
+            (item.tag === "Etc" ||
+              item.name.match(/(vine|gyroid fragment|glowing moss)$/g))
+          );
+        },
+      },
+    ],
+  },
+  {
     id: "separator1",
     separator: true,
   },

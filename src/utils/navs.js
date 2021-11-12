@@ -591,6 +591,15 @@ const navs = [
     class: "nav-item-special",
     subnavs: [
       {
+        id: "season-nook",
+        text: "たぬきショッピング",
+        subtext: "スペシャル（シーズン）",
+        order: 1,
+        filter: function (item) {
+          return inSource(item, "Nook Shopping Seasonal");
+        },
+      },
+      {
         id: "season-fish",
         text: "魚釣り大会",
         subtext: "1, 4, 7, 10月",

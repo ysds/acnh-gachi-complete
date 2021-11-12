@@ -117,12 +117,11 @@ import firebase from "../plugins/firebase";
 import {
   filterItems,
   totalLength,
-  collectedLength,
-  getNavText,
-  navs,
-  toDisplayItemName,
-} from "../utils/nav.js";
+  collectedLength
+} from "../utils/filterItems";
+import { navs, getNavText } from "../utils/navs";
 import { isAvailableFilter } from "../utils/filter";
+import { toDisplayItemName } from "../utils/utils";
 import { syncData } from "../utils/db.js";
 
 import Item from "../components/Item.vue";

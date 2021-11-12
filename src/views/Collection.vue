@@ -152,12 +152,12 @@
 <script>
 import {
   filterItems,
-  navs,
   totalLength,
   collectedLength,
-  toDisplayItemName,
-} from "../utils/nav.js";
+} from "../utils/filterItems.js";
+import { navs } from "../utils/navs";
 import { isAvailableFilter } from "../utils/filter";
+import { toDisplayItemName } from "../utils/utils";
 
 import SubNav from "../components/SubNav.vue";
 import Login from "../components/Login.vue";

@@ -43,12 +43,12 @@
 
 <script>
 import {
-  navs,
   totalLength,
   collectedLength,
   allTotalLength,
   allCollectedLength,
-} from "../utils/nav";
+} from "../utils/filterItems";
+import { navs } from "../utils/navs";
 import Card from "./Card";
 import LoginCollectedBar from "./LoginCollectedBar";
 import Button from "./Button";

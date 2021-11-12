@@ -103,3 +103,19 @@ export function makeCompatibleWishlist(wishlist) {
 
   return newWishlist;
 }
+
+// アイテム名が島名置換対象であるかの判定
+export function hasIslandName(item) {
+  return (
+    item.name === "(island name) Icons" || item.name === "(island name) Miles!"
+  );
+};
+
+export function toDisplayItemName(item, islandName) {
+  // 島名を置換
+  if (islandName && hasIslandName(item)) {
+    return item.displayName.replace("○○", islandName);
+  } else {
+    return item.displayName;
+  }
+}

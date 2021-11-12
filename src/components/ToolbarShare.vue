@@ -43,11 +43,11 @@
 
 <script>
 import {
-  getNavText,
   totalLength,
   collectedLength,
   providableLength,
-} from "../utils/nav.js";
+} from "../utils/filterItems.js";
+import { getNavText } from "../utils/navs";
 import { syncData } from "../utils/db.js";
 import { percentage } from "../utils/utils";
 import Button from "./Button";

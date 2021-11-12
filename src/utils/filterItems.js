@@ -1,6 +1,7 @@
 import itemsJson from "../assets/items.json";
-import { navs, navsFlat } from "./navs.js";
+import { navsFlat } from "./navs";
 import { typeFilter } from "./filter";
+import { hasIslandName, toDisplayItemName } from "./utils";
 import store from "../store";
 
 const { sortItemsByName } = require("../../script/sort.js");
@@ -42,13 +43,6 @@ const filterOtherItem = function (item) {
   return true;
 };
 
-// アイテム名が島名置換対象であるかの判定
-const hasIslandName = function (item) {
-  return (
-    item.name === "(island name) Icons" || item.name === "(island name) Miles!"
-  );
-};
-
 const calcTotalLength = function (items) {
   let result = 0;
   for (let i = 0; i < items.length; i++) {
@@ -86,8 +80,6 @@ const providable2collected = function (text) {
     })
   );
 };
-
-export { navs };
 
 export function filterItems(args) {
   let items = itemsJson;
@@ -418,26 +410,4 @@ export function providableLength(args) {
   });
 
   return calcCollectedLength(collected, collectedItems);
-}
-
-export function getNavText(nav) {
-  let navText = "";
-  navs.forEach((link) => {
-    if (link.id === nav) navText = link.text;
-    if (link.subnavs) {
-      link.subnavs.forEach((sublink) => {
-        if (sublink.id === nav) navText = sublink.text;
-      });
-    }
-  });
-  return navText;
-}
-
-export function toDisplayItemName(item, islandName) {
-  // 島名を置換
-  if (islandName && hasIslandName(item)) {
-    return item.displayName.replace("○○", islandName);
-  } else {
-    return item.displayName;
-  }
 }

@@ -60,7 +60,7 @@
 
 <script>
 import firebase from "../plugins/firebase";
-import { navs } from "../utils/nav.js";
+import { navs } from "../utils/navs";
 
 import VSwitch from "../components/VSwitch";
 import Button from "../components/Button";

@@ -32,10 +32,8 @@
     </div>
     <div class="banner" v-if="isShowBanner" v-show="!isSearchMode">
       <div>
-        「タイル（コンパクト）」表示モードや、動画を撮影してチェック状態をインポートできる機能をご存知でしょうか？ 詳しくは<router-link
-          to="/about"
-          >使い方</router-link
-        >をご覧ください。
+        「タイル（コンパクト）」表示モードや、動画を撮影してチェック状態をインポートできる機能をご存知でしょうか？
+        詳しくは<router-link to="/about">使い方</router-link>をご覧ください。
       </div>
       <CloseButton white @click="onCloseBanner" />
     </div>
@@ -121,11 +119,11 @@
       </template>
     </infinite-loading>
     <div
-      v-if="isVersion && !isSearchMode"
+      v-if="this.activeNav === 'other-all' && !isSearchMode"
       class="message"
       style="font-weight: 400; font-size: 12px"
     >
-      バージョンカテゴリは、「素材」や「消費アイテム」、「植物」などコレクション要素がないアイテムを含む、そのバージョンで追加されたすべてのアイテムを表示します。
+      ゲーム内の収納の「そのほか」と一致させるために、ここには「道具・グッズ」も含まれています。「道具・グッズ」だけを見たい場合は「道具・グッズ」カテゴリを参照してください。
     </div>
     <Modal :show="isShowModal" @close="isShowModal = false" closeButton>
       <template v-if="modalItem">
@@ -237,12 +235,6 @@ export default {
     },
     modalItemName() {
       return toDisplayItemName(this.modalItem, this.islandName);
-    },
-    isVersion() {
-      if (this.activeNav) {
-        if (this.activeNav.indexOf("versions") !== -1) return true;
-      }
-      return false;
     },
     totalLength() {
       if (this.activeNav === null || this.filter.typeFilter === null) {
@@ -373,7 +365,7 @@ export default {
       this.$store.commit("updateIslandName", islandName);
     },
     async showBanner() {
-      this.isShowBanner = (await this.$vlf.getItem("isShowBanner"));
+      this.isShowBanner = await this.$vlf.getItem("isShowBanner");
       if (this.isShowBanner === null) this.isShowBanner = true;
     },
     onCloseBanner() {

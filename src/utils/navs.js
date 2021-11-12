@@ -289,7 +289,7 @@ const navs = [
     subnavs: [
       {
         id: "plants-flowers",
-        text: "花のかぶ",
+        text: "花",
         filter: function (item) {
           return (
             item.sourceSheet === "Other" &&

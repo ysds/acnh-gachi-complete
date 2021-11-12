@@ -1,5 +1,5 @@
 import itemsJson from "../assets/items.json";
-import navs from "./navs.json";
+import { navs, navsFlat } from "./navs.js";
 import { typeFilter } from "./filter";
 import store from "../store";
 
@@ -34,35 +34,12 @@ const replaceIslandName = function (itemName, item, islandName) {
   }
 };
 
-// アイテムが「低木」であるかの判定
-const isBush = function (item) {
-  return (
-    item.sourceSheet === "Other" &&
-    item.source &&
-    item.source.includes("Digging up a fully grown bush")
-  );
-};
-
-// アイテムが「花」であるかの判定
-const isFlower = function (item) {
-  return (
-    item.sourceSheet === "Other" &&
-    item.source &&
-    (item.source.includes("Seed bag") ||
-      item.source.includes("Breeding") ||
-      item.source.includes("5-star town status"))
-  );
-};
-
 // コンプ率の計算対象アイテムの判定
 const filterOtherItem = function (item) {
-  if (item.sourceSheet !== "Other") {
-    // Otherシート以外：ミュージックの「はずれ01～03」を除外
-    return item.name.indexOf("Hazure") === -1;
-  } else {
-    // Otherシート：花/低木のみコンプ率に含める
-    return isFlower(item) || isBush(item);
+  if (item.sourceSheet === "Other") {
+    return navsFlat["plants-flowers"].filter(item) || navsFlat["plants-bushes"].filter(item)
   }
+  return true;
 };
 
 // アイテム名が島名置換対象であるかの判定
@@ -273,535 +250,50 @@ export function filterItems(args) {
     // Nav
     //
 
-    items = items.filter((item) => {
-      if (!isShowV2 && item.versionAdded === "2.0.0") {
-        return false;
-      }
-
-      // 家具（すべて）
-      if (nav === "housewares-all") {
-        return item.sourceSheet.match(
-          /Housewares|Miscellaneous|Wall-mounted|Art|Food|Ceiling Decor/g
-        );
-      }
-      // 家具（家具）
-      else if (nav === "housewares") {
-        return (
-          item.sourceSheet === "Housewares" ||
-          (item.sourceSheet === "Art" && item.category === "Housewares")
-        );
-      }
-      // 家具（小物）
-      else if (nav === "housewares-miscellaneous") {
-        return (
-          item.sourceSheet === "Miscellaneous" ||
-          item.sourceSheet === "Food" ||
-          (item.sourceSheet === "Art" && item.category === "Miscellaneous")
-        );
-      }
-      // 家具（壁かけ）
-      else if (nav === "housewares-wallmounted") {
-        return (
-          item.sourceSheet === "Wall-mounted" ||
-          (item.sourceSheet === "Art" && item.category === "Wall-mounted")
-        );
-      }
-      // 家具（天井）
-      else if (nav === "housewares-ceiling") {
-        return item.sourceSheet === "Ceiling Decor";
-      }
-      // 家具（マイル家具）
-      else if (nav === "housewares-nookmiles") {
-        return (
-          item.sourceSheet === "Housewares" &&
-          item.source &&
-          item.source.includes("Nook Miles Redemption")
-        );
-      }
-      // 壁紙
-      else if (nav === "walletc-wall") {
-        return item.sourceSheet === "Wallpaper";
-      }
-      // 床板
-      else if (nav === "walletc-floors") {
-        return item.sourceSheet === "Floors";
-      }
-      // ラグ
-      else if (nav === "walletc-rugs") {
-        return item.sourceSheet === "Rugs";
-      }
-      // 柵
-      else if (nav === "fencing") {
-        return item.sourceSheet === "Fencing";
-      }
-      // ファッション (すべて)
-      else if (nav === "fashion-all") {
-        return item.sourceSheet.match(
-          /Tops|Bottoms|Dress-Up|Headwear|Accessories|Socks|Shoes|Bags|Umbrellas|Clothing Other/g
-        );
-      }
-      // ファッション (Tops)
-      else if (nav === "fashion-tops") {
-        return item.sourceSheet === "Tops";
-      }
-      // ファッション (Bottoms)
-      else if (nav === "fashion-bottoms") {
-        return item.sourceSheet === "Bottoms";
-      }
-      // ファッション (Dress)
-      else if (nav === "fashion-dress") {
-        return item.sourceSheet === "Dress-Up";
-      }
-      // ファッション (Headwear)
-      else if (nav === "fashion-headwear") {
-        return item.sourceSheet === "Headwear";
-      }
-      // ファッション (Accessories)
-      else if (nav === "fashion-accessories") {
-        return item.sourceSheet === "Accessories";
-      }
-      // ファッション (Socks)
-      else if (nav === "fashion-socks") {
-        return item.sourceSheet === "Socks";
-      }
-      // ファッション (Shoes)
-      else if (nav === "fashion-shoes") {
-        return item.sourceSheet === "Shoes";
-      }
-      // ファッション (Bags)
-      else if (nav === "fashion-bags") {
-        return item.sourceSheet === "Bags";
-      }
-      // ファッション (Umbrellas)
-      else if (nav === "fashion-umbrellas") {
-        return item.sourceSheet === "Umbrellas";
-      }
-      // ファッション (Clothing Other')
-      else if (nav === "fashion-other") {
-        return item.sourceSheet === "Clothing Other";
-      }
-      // かせき
-      else if (nav === "fossils") {
-        return item.sourceSheet === "Fossils";
-      }
-      // はにわ
-      else if (nav === "gyroids") {
-        return item.sourceSheet === "Gyroids";
-      }
-      // 曲
-      else if (nav === "music") {
-        return (
-          item.sourceSheet === "Music" && item.name.indexOf("Hazure") === -1
-        );
-      }
-      // 写真
-      else if (nav === "photos") {
-        return item.sourceSheet === "Photos";
-      }
-      // ポスター
-      else if (nav === "posters") {
-        return item.sourceSheet === "Posters";
-      }
-      // レシピ
-      else if (nav === "recipes") {
-        return item.sourceSheet === "Recipes";
-      }
-      // 道具 (すべて)
-      else if (nav === "tools-all") {
-        return item.sourceSheet === "Tools" && item.name !== "magic bag";
-      }
-      // 道具 (ステッキ)
-      else if (nav === "tools-wand") {
-        return item.sourceSheet === "Tools" && item.name.indexOf("wand") >= 0;
-      }
-      // 生き物 (虫)
-      else if (nav === "creatures-insects") {
-        return item.sourceSheet === "Insects";
-      }
-      // 生き物 (魚)
-      else if (nav === "creatures-fish") {
-        return item.sourceSheet === "Fish";
-      }
-      // 生き物 (海の幸)
-      else if (nav === "creatures-sea") {
-        return item.sourceSheet === "Sea Creatures";
-      }
-      // 来訪者 (ジャスティン)
-      else if (nav === "special-fishmodels") {
-        return (
-          item.source &&
-          item.source.includes("C.J.") &&
-          item.seasonEvent !== "Fishing Tourney"
-        );
-      }
-      // 来訪者 (レックス)
-      else if (nav === "special-bugmodels") {
-        return (
-          item.source &&
-          item.source.includes("Flick") &&
-          item.seasonEvent !== "Bug-Off"
-        );
-      }
-      // 来訪者 (つねきち)
-      else if (nav === "special-art") {
-        return item.sourceSheet === "Art";
-      }
-      // 来訪者 (来訪ローラン)
-      else if (nav === "special-saharah") {
-        return (
-          item.source &&
-          item.source.includes("Saharah") &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 来訪者 (ローラン店)
-      else if (nav === "special-saharah-commune") {
-        return item.source && item.source.includes("Saharah's Co-op");
-      }
-      // 来訪者 (ことの)
-      else if (nav === "special-labelle") {
-        return (
-          item.source &&
-          item.source.includes("Label") &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 来訪者 (シャンク)
-      else if (nav === "special-kicks") {
-        return (
-          item.source &&
-          (item.source.includes("Kicks") ||
-            item.source.includes("Kicks' Co-op"))
-        );
-      }
-      // 来訪者 (フーコ)
-      else if (nav === "special-celeste") {
-        return item.source && item.source.includes("Celeste");
-      }
-      // 来訪者 (ジョニー)
-      else if (nav === "special-gulliver") {
-        return item.source && item.source.includes("Gulliver");
-      }
-      // 来訪者 (海賊ジョニー)
-      else if (nav === "special-gullivarrr") {
-        return item.source && item.source.includes("Gullivarrr");
-      }
-      // 来訪者 (ラコスケ)
-      else if (nav === "special-pascal") {
-        return (
-          (item.series === "mermaid" && !item.variants) ||
-          (!item.diy &&
-            item.source &&
-            item.source.includes("Pascal") &&
-            item.sourceSheet !== "Other") ||
-          (item.source && item.source.includes("Pascal"))
-        );
-      }
-      // 来訪者 (いなりくじ店)
-      else if (nav === "special-redd-commune") {
-        return item.source && item.source.includes("Redd's Co-op Raffle");
-      }
-      // 来訪者 (いなりくじ花火大会)
-      else if (nav === "special-redd-fireworks") {
-        return item.source && item.source.includes("Redd's Raffle");
-      }
-      // 来訪者 (ハッケミィ)
-      else if (nav === "special-katrina") {
-        return (
-          item.source && item.source.includes("Katrina's Cleansing Service")
-        );
-      }
-      // 来訪者 (マスター)
-      else if (nav === "special-brewster") {
-        return item.source && item.source.includes("Brewster");
-      }
-      // 来訪者 (ラジオ体操)
-      else if (nav === "special-radio") {
-        return item.source && item.source.includes("Group Stretching");
-      }
-      // 来訪者 (かっぺい)
-      else if (nav === "special-kappn") {
-        return (
-          item.source &&
-          (item.source.includes("Kapp'n island bottles") ||
-            item.source.includes("Kapp'n island"))
-        );
-      }
-      // 季節・イベント (たぬきショッピング)
-      else if (nav === "season-nook") {
-        return (
-          item.source && item.source.join(",").match(/Nook Shopping Seasonal/gi)
-        );
-      }
-      // 季節・イベント (魚釣り大会)
-      else if (nav === "season-fish") {
-        return item.seasonEvent === "Fishing Tourney";
-      }
-      // 季節・イベント (虫取り大会)
-      else if (nav === "season-bug") {
-        return item.seasonEvent === "Bug-Off";
-      }
-      // 季節・イベント (花火大会)
-      else if (nav === "season-fireworks") {
-        return item.seasonEvent === "Fireworks Show";
-      }
-      // 季節・イベント (カーニバル)
-      else if (nav === "season-festivale") {
-        return (
-          item.seasonEvent &&
-          item.seasonEvent.includes("Festivale") &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (はるのわかたけ)
-      else if (nav === "season-spring") {
-        return (
-          item.seasonEvent === "young spring bamboo" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント （シャムロックデー)
-      else if (nav === "season-shamrock") {
-        return (
-          item.seasonEvent &&
-          item.seasonEvent.includes("Shamrock Day") &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (さくら)
-      else if (nav === "season-sakura") {
-        return (
-          item.seasonEvent === "cherry-blossom petals" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (イースター)
-      else if (nav === "season-easter") {
-        return (
-          item.seasonEvent &&
-          item.seasonEvent.includes("Bunny Day") &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (メーデー)
-      else if (nav === "season-mayday") {
-        return item.seasonEvent === "May Day" && item.sourceSheet !== "Tools";
-      }
-      // 季節・イベント (国際ミュージアムデー)
-      else if (nav === "season-museum") {
-        return item.seasonEvent === "International Museum Day";
-      }
-      // 季節・イベント (ジューンブライト)
-      else if (nav === "season-wedding") {
-        return (
-          item.seasonEvent === "Wedding Season" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (なつのかいがら)
-      else if (nav === "season-summer") {
-        return (
-          item.seasonEvent === "summer shells" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (どんぐり/まつぼっくり)
-      else if (nav === "season-fall") {
-        return (
-          item.seasonEvent === "acorns and pine cones" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (ハロウィン)
-      else if (nav === "season-halloween") {
-        return item.seasonEvent && item.seasonEvent.includes("Halloween");
-      }
-      // 季節・イベント (きのこ)
-      else if (nav === "season-mushroom") {
-        return (
-          item.seasonEvent === "mushrooms" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (もみじ)
-      else if (nav === "season-maple") {
-        return (
-          item.seasonEvent === "maple leaves" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (サンクスギビングデー)
-      else if (nav === "season-turkey") {
-        return item.seasonEvent && item.seasonEvent.includes("Turkey Day");
-      }
-      // 季節・イベント (クリスマス)
-      else if (nav === "season-toy") {
-        return (
-          item.seasonEvent &&
-          item.seasonEvent.includes("Toy Day") &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (ゆきのけっしょう)
-      else if (nav === "season-winter") {
-        return (
-          item.seasonEvent === "snowflakes" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (オーナメント)
-      else if (nav === "season-festive") {
-        return (
-          item.seasonEvent === "ornaments" &&
-          !item.diy &&
-          item.sourceSheet !== "Other"
-        );
-      }
-      // 季節・イベント (カウントダウン)
-      else if (nav === "season-countdown") {
-        return item.seasonEvent === "Countdown";
-      }
-      // 季節・イベント (誕生日)
-      else if (nav === "season-birthday") {
-        return item.seasonEvent === "Birthday";
-      }
-      // 季節・イベント (ははシリーズ)
-      else if (nav === "season-mother") {
-        return item.source && item.source.includes("Mom");
-      }
-      // リアクション
-      else if (nav === "reactions") {
-        return item.sourceSheet === "Reactions";
-      }
-      // 花
-      else if (nav === "plants-flowers") {
-        return isFlower(item);
-      }
-      // 低木
-      else if (nav === "plants-bushes") {
-        return isBush(item);
-      }
-      // たぬきマイレージ
-      else if (nav === "achievements") {
-        return item.sourceSheet === "Achievements";
-      }
-      // タヌポイント
-      else if (nav === "nookpoints") {
-        return item.source && item.source.includes("NookLink");
-      }
-      // HHP（事務所）
-      else if (nav === "hhp-office") {
-        return item.source && item.source.includes("HHP Office");
-      }
-      // HHP（カフェ）
-      else if (nav === "hhp-cafe") {
-        return item.source && item.source.includes("HHP Café");
-      }
-      // HHP（タクミ）
-      else if (nav === "hhp-lottie") {
-        return item.source && item.source.includes("Lottie");
-      }
-      // HHP（ニコ）
-      else if (nav === "hhp-niko") {
-        return item.source && item.source.includes("Niko");
-      }
-      // HHP（ナッティ）
-      else if (nav === "hhp-wardell") {
-        return item.source && item.source.includes("Wardell");
-      }
-      // HHP（メッセージボトル）
-      else if (nav === "hhp-bottles") {
-        return item.source && item.source.includes("HHP island bottles");
-      }
-      // HHP（とたけけフェス）
-      else if (nav === "hhp-kk") {
-        return item.source && item.source.includes("DJ KK concert");
-      }
-      // バージョン 1.4.0
-      else if (nav === "versions-140") {
-        return item.versionAdded === "1.4.0";
-      }
-      // バージョン 1.5.0
-      else if (nav === "versions-150") {
-        return item.versionAdded === "1.5.0";
-      }
-      // バージョン 1.6.0
-      else if (nav === "versions-160") {
-        return item.versionAdded === "1.6.0";
-      }
-      // バージョン 1.7.0
-      else if (nav === "versions-170") {
-        return item.versionAdded === "1.7.0";
-      }
-      // バージョン 1.8.0
-      else if (nav === "versions-180") {
-        return item.versionAdded === "1.8.0";
-      }
-      // バージョン 1.9.0
-      else if (nav === "versions-190") {
-        return item.versionAdded === "1.9.0";
-      }
-      // バージョン 1.10.0
-      else if (nav === "versions-1100") {
-        return item.versionAdded === "1.10.0";
-      }
-      // バージョン 1.11.0
-      else if (nav === "versions-1110") {
-        return item.versionAdded === "1.11.0";
-      }
-      // バージョン 2.0.0
-      else if (nav === "versions-200") {
-        return item.versionAdded === "2.0.0";
-      }
-      //
-      // 欲しい物リスト
-      //
-      else if (nav === "exchange" && filter.exchangeType === "wishlist") {
-        const itemKey = item.uniqueEntryId || item.name;
-        let isMatch = false;
-
-        if (item.variants) {
-          let defaultMatchedVariants = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-          defaultMatchedVariants.length = item.variants.length;
-          let matchedVariants = item.matchedVariants || defaultMatchedVariants;
-
-          item.variants.forEach((variant, index) => {
-            const entryId = `${itemKey}_${index}`;
-            const isInList = wishlist.includes(entryId);
-
-            if (isInList) {
-              isMatch = true;
-            } else if (updateMatchedVariants) {
-              matchedVariants = matchedVariants.filter(
-                (value) => value !== index
-              );
-            }
-          });
-
-          if (updateMatchedVariants) {
-            item.matchedVariants = matchedVariants;
-          }
-        } else {
-          isMatch = wishlist.includes(itemKey);
+    if (nav) {
+      items = items.filter((item) => {
+        if (!isShowV2 && item.versionAdded === "2.0.0") {
+          return false;
         }
 
-        return isMatch;
-      }
+        if (nav !== "exchange") {
+          return navsFlat[nav].filter(item);
+        } else if (filter.exchangeType === "wishlist") {
+          const itemKey = item.uniqueEntryId || item.name;
+          let isMatch = false;
 
-      return true;
-    });
+          if (item.variants) {
+            let defaultMatchedVariants = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            defaultMatchedVariants.length = item.variants.length;
+            let matchedVariants =
+              item.matchedVariants || defaultMatchedVariants;
+
+            item.variants.forEach((variant, index) => {
+              const entryId = `${itemKey}_${index}`;
+              const isInList = wishlist.includes(entryId);
+
+              if (isInList) {
+                isMatch = true;
+              } else if (updateMatchedVariants) {
+                matchedVariants = matchedVariants.filter(
+                  (value) => value !== index
+                );
+              }
+            });
+
+            if (updateMatchedVariants) {
+              item.matchedVariants = matchedVariants;
+            }
+          } else {
+            isMatch = wishlist.includes(itemKey);
+          }
+
+          return isMatch;
+        }
+
+        return true;
+      });
+    }
 
     //
     // 実機順ソート

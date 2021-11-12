@@ -78,7 +78,6 @@ export default {
   },
   data() {
     return {
-      navs: navs,
       isOpen: false,
       checks: [],
       baseURL,
@@ -90,6 +89,11 @@ export default {
     },
     user() {
       return this.$store.getters.user;
+    },
+    navs() {
+      return navs.filter((nav) => {
+        return nav.id.indexOf("separator");
+      });
     },
   },
   mounted() {

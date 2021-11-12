@@ -511,21 +511,22 @@ export default {
 }
 
 .nav-item {
-  padding: 0.1rem 0.5rem;
-  font-size: 20px;
-  font-weight: 600;
+  padding: 0.75rem 0.75rem;
+  margin: 0 .125rem;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(#000, 0.9);
+  background-color: #eee;
   border: 0;
-  background-color: transparent;
-  color: rgba(#000, 0.6);
+  border-radius: 12px;
 
   &:focus {
     outline: 0;
   }
 
   &.active {
-    font-weight: 700;
-    font-size: 28px;
-    color: #000;
+    color: #fff;
+    background-color: #42b983;
   }
 }
 </style>

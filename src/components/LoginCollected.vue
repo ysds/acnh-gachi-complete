@@ -93,7 +93,7 @@ export default {
     },
     getLengths(isCollected) {
       const result = {};
-      navs.forEach((nav) => {
+      this.navs.forEach((nav) => {
         const subnavs = nav.subnavs;
         const collected = this.collected;
         if (subnavs) {

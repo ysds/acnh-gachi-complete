@@ -283,49 +283,6 @@ const navs = [
     ],
   },
   {
-    id: "plants",
-    text: "植物",
-    class: "nav-item-items",
-    subnavs: [
-      {
-        id: "plants-flowers",
-        text: "花",
-        filter: function (item) {
-          return (
-            item.sourceSheet === "Other" &&
-            inSource(item, "Seed bag|Breeding|5-star town status")
-          );
-        },
-      },
-      {
-        id: "plants-bushes",
-        text: "低木",
-        filter: function (item) {
-          return (
-            item.sourceSheet === "Other" &&
-            inSource(item, "Digging up a fully grown bush")
-          );
-        },
-      },
-      {
-        id: "plants-veg",
-        text: "野菜",
-        filter: function (item) {
-          return item.name.match(/^ripe /g);
-        },
-      },
-      {
-        id: "plants-woods",
-        text: "木",
-        filter: function (item) {
-          return item.name.match(
-            /hardwood tree|cedar tree|orange tree|cherry tree|pear tree|peach tree|coconut tree|apple tree|bamboo tree|money tree/g
-          );
-        },
-      },
-    ],
-  },
-  {
     id: "other",
     text: "その他",
     class: "nav-item-items",
@@ -346,7 +303,8 @@ const navs = [
       },
       {
         id: "other-plant",
-        text: "植物",
+        text: "その他（植物）",
+        alttext: "植物",
         filter: function (item) {
           return (
             item.sourceSheet === "Other" &&
@@ -357,14 +315,16 @@ const navs = [
       },
       {
         id: "other-interior",
-        text: "内装",
+        text: "その他（内装）",
+        alttext: "内装",
         filter: function (item) {
           return item.sourceSheet === "Interior Structures";
         },
       },
       {
         id: "other-etc",
-        text: "その他",
+        text: "その他（その他）",
+        alttext: "その他",
         filter: function (item) {
           return (
             item.sourceSheet === "Other" &&
@@ -404,12 +364,47 @@ const navs = [
     },
   },
   {
-    id: "nookpoints",
-    text: "タヌポイント",
+    id: "plants",
+    text: "植物",
     class: "nav-item-collection",
-    filter: function (item) {
-      return inSource(item, "NookLink");
-    },
+    subnavs: [
+      {
+        id: "plants-flowers",
+        text: "花",
+        filter: function (item) {
+          return (
+            item.sourceSheet === "Other" &&
+            inSource(item, "Seed bag|Breeding|5-star town status")
+          );
+        },
+      },
+      {
+        id: "plants-bushes",
+        text: "低木",
+        filter: function (item) {
+          return (
+            item.sourceSheet === "Other" &&
+            inSource(item, "Digging up a fully grown bush")
+          );
+        },
+      },
+      {
+        id: "plants-veg",
+        text: "野菜",
+        filter: function (item) {
+          return item.name.match(/^ripe /g);
+        },
+      },
+      {
+        id: "plants-woods",
+        text: "木",
+        filter: function (item) {
+          return item.name.match(
+            /hardwood tree|cedar tree|orange tree|cherry tree|pear tree|peach tree|coconut tree|apple tree|bamboo tree|money tree/g
+          );
+        },
+      },
+    ],
   },
   {
     id: "licenses",
@@ -857,6 +852,14 @@ const navs = [
         },
       },
     ],
+  },
+  {
+    id: "nookpoints",
+    text: "タヌポイント",
+    class: "nav-item-special",
+    filter: function (item) {
+      return inSource(item, "NookLink");
+    },
   },
   {
     id: "hhp",

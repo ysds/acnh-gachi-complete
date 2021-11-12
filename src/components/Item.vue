@@ -97,8 +97,7 @@
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
-import { toDisplayItemName } from "../utils/nav";
-import { inWishlistFlags } from "../utils/utils";
+import { inWishlistFlags, toDisplayItemName } from "../utils/utils";
 
 export default {
   name: "Item",

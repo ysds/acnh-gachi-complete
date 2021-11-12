@@ -51,7 +51,7 @@
   </div>
 </template>
 <script>
-import { navs } from "./utils/nav.js";
+import { navs } from "./utils/navs";
 import { syncData, loadFirebaseData } from "./utils/db.js";
 import Drawer from "./components/Drawer.vue";
 import Button from "./components/Button.vue";

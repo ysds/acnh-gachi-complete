@@ -60,7 +60,7 @@
 
 <script>
 import firebase from "../plugins/firebase";
-import { navs } from "../utils/nav.js";
+import { navs } from "../utils/navs";
 
 import VSwitch from "../components/VSwitch";
 import Button from "../components/Button";
@@ -78,7 +78,6 @@ export default {
   },
   data() {
     return {
-      navs: navs,
       isOpen: false,
       checks: [],
       baseURL,
@@ -90,6 +89,11 @@ export default {
     },
     user() {
       return this.$store.getters.user;
+    },
+    navs() {
+      return navs.filter((nav) => {
+        return nav.id.indexOf("separator");
+      });
     },
   },
   mounted() {

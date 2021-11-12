@@ -35,20 +35,17 @@
         </template>
       </div>
     </div>
-    <p class="note">
-      一部のカテゴリに「素材」や「消費アイテム」、「植物」が例外的に含まれていますが、これらのコンプ状況は「全体」のコンプ率の計算対象には含まれていません。
-    </p>
   </Card>
 </template>
 
 <script>
 import {
-  navs,
   totalLength,
   collectedLength,
   allTotalLength,
   allCollectedLength,
-} from "../utils/nav";
+} from "../utils/filterItems";
+import { navs } from "../utils/navs";
 import Card from "./Card";
 import LoginCollectedBar from "./LoginCollectedBar";
 import Button from "./Button";
@@ -93,7 +90,7 @@ export default {
     },
     getLengths(isCollected) {
       const result = {};
-      navs.forEach((nav) => {
+      this.navs.forEach((nav) => {
         const subnavs = nav.subnavs;
         const collected = this.collected;
         if (subnavs) {

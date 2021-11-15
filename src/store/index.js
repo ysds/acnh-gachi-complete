@@ -26,6 +26,7 @@ export default new Vuex.Store({
     shareCategories: [],
     sharedShareCategories: [],
     isShowDropdown: false,
+    isSearchMode: false,
     isDoneSyncCloudFirstTime: false,
     wishlist: [],
     cloudWishlist: [],
@@ -144,6 +145,9 @@ export default new Vuex.Store({
     isShowDropdown(state, isShow) {
       state.isShowDropdown = isShow;
     },
+    isSearchMode(state, isSearchMode) {
+      state.isSearchMode = isSearchMode;
+    },
     isDoneSyncCloudFirstTime(state, payload) {
       state.isDoneSyncCloudFirstTime = payload;
     },
@@ -215,6 +219,9 @@ export default new Vuex.Store({
     },
     isShowDropdown(state) {
       return state.isShowDropdown;
+    },
+    isSearchMode(state) {
+      return state.isSearchMode;
     },
     isDoneSyncCloudFirstTime(state) {
       return state.isDoneSyncCloudFirstTime;

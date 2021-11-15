@@ -260,7 +260,10 @@ allItems.forEach(item => {
   customTranslations.forEach(key => {
     const value = item[key];
     if (value) {
-      const ja = translation[key][value];
+      let ja = translation[key][value];
+      if (typeof ja === "object") {
+        ja = translation[key][value].text;
+      }
       if (ja !== undefined) {
         if (ja !== "") {
           item[`${key}Ja`] = ja;
@@ -310,11 +313,12 @@ allItems.forEach(item => {
     });
   }
 
-  // 本物/偽物
+  // 本物/偽物 ＆　Egg balloon を Egg balloons に統合
   if (item.variants) {
     item.variants.forEach((variant, i) => {
       if (variant.genuine === true) item.variants[i].genuine = "本物";
       if (variant.genuine === false) item.variants[i].genuine = "偽物";
+      if (variant.source && variant.source[0] === "Egg balloon") item.variants[i].source[0] = "Egg balloons";
     });
   }
 
@@ -537,21 +541,23 @@ fs.writeFileSync("./src/assets/items.json", allItems);
 
 customTranslations.push("source");
 customTranslations.forEach(translationKey => {
-  const unordered = newTranslation[translationKey];
+  let output = newTranslation[translationKey];
 
   Object.keys(removeTranslation[translationKey]).forEach(function(key) {
-    delete unordered[key];
+    delete output[key];
   });
 
-  const ordered = Object.keys(unordered)
+  if (translationKey === "sourceNotes") {
+    output = Object.keys(output)
     .sort()
     .reduce(function(result, key) {
-      result[key] = unordered[key];
+      result[key] = output[key];
       return result;
     }, {});
+  }
 
   fs.writeFileSync(
     `./data/translation-custom/${translationKey}.json`,
-    JSON.stringify(ordered, null, 2)
+    JSON.stringify(output, null, 2)
   );
 });

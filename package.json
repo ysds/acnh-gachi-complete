@@ -21,6 +21,7 @@
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "lz-string": "^1.4.4",
+    "natsort": "^2.0.3",
     "portal-vue": "^2.1.7",
     "vlf": "^1.1.0",
     "vue": "^2.6.14",

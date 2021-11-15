@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ isSearchMode: isSearchMode }">
     <transition name="slide">
       <Drawer :navs="navs" :active="activeNav" v-show="isOpenDrawer" />
     </transition>
     <transition name="fade">
       <span class="backdrop" v-show="isOpenDrawer" @click="toggleDrawer" />
     </transition>
-    <div class="nav">
+    <div class="nav" v-show="!isSearchMode">
       <Button @click="toggleDrawer">
         <img v-show="!isOpenDrawer" src="./assets/menu.svg" />
         <svg
@@ -63,6 +63,9 @@ export default {
     isDoneSyncCloudFirstTime() {
       return this.$store.getters.isDoneSyncCloudFirstTime;
     },
+    isSearchMode() {
+      return this.$store.getters.isSearchMode;
+    },
   },
   watch: {
     isLogin() {
@@ -85,12 +88,11 @@ export default {
     },
     async loadLocalStorageData() {
       const self = this;
-      let [collected, updateIndex, wishlist] =
-        await Promise.all([
-          self.$vlf.getItem("collected"),
-          self.$vlf.getItem("updateIndex"),
-          self.$vlf.getItem("wishlist"),
-        ]);
+      let [collected, updateIndex, wishlist] = await Promise.all([
+        self.$vlf.getItem("collected"),
+        self.$vlf.getItem("updateIndex"),
+        self.$vlf.getItem("wishlist"),
+      ]);
       collected = collected || {};
       updateIndex = updateIndex || 0;
       self.$store.commit("initLocalCollectedData", { collected, updateIndex });
@@ -108,6 +110,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+
+  &.isSearchMode {
+    padding-top: 0;
+  }
 }
 
 .nav {

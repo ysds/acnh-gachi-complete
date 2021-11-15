@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" :class="{ isSearchMode: isSearchMode }">
     <div class="view-btn-wrapper" v-show="!isSearchMode && !isOpenDrawer">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
@@ -28,6 +28,7 @@
         :isSearchMode="isSearchMode"
         @close="onClickSearchBtn"
         @input="onInputSearchBox"
+        @changeAdFilter="onChangeAdFilter"
       />
     </div>
     <div class="banner" v-if="isShowBanner" v-show="!isSearchMode">
@@ -200,7 +201,6 @@ export default {
       showItems: [],
       resultItems: [],
       queueItems: [],
-      isSearchMode: false,
       renderStartDate: new Date().getTime(),
       isLoadComplete: null,
       searchText: "",
@@ -212,9 +212,13 @@ export default {
       modalPatternIndex: 0,
       pins: {},
       isShowBanner: false,
+      adFilters: {},
     };
   },
   computed: {
+    isSearchMode() {
+      return this.$store.getters.isSearchMode;
+    },
     isOpenDrawer() {
       return this.$store.getters.isOpenDrawer;
     },
@@ -459,11 +463,15 @@ export default {
       this.updateNavOrder();
     },
     onClickSearchBtn: function () {
-      this.isSearchMode = !this.isSearchMode;
+      this.$store.commit("isSearchMode", !this.isSearchMode);
       this.updateShowItems();
     },
     onInputSearchBox: function (text) {
       this.searchText = text;
+      this.updateShowItems();
+    },
+    onChangeAdFilter(filters) {
+      this.adFilters = filters;
       this.updateShowItems();
     },
     onShowModal: function (item, index) {
@@ -498,6 +506,7 @@ export default {
         filter: this.filter,
         isSearchMode: this.isSearchMode,
         searchText: this.searchText,
+        adFilters: this.adFilters,
         islandName: this.islandName,
         updateMatchedVariants: true,
         wishlist: this.wishlist,
@@ -559,14 +568,25 @@ export default {
   text-align: left;
   margin-bottom: 4rem;
   user-select: none;
+
+  &.isSearchMode {
+    padding-top: 100px;
+  }
 }
 
 .items {
   margin: 0;
   padding: 0;
+  background-color: #fff;
 
   &.tiles {
     text-align: center;
+  }
+
+  &.isSearchMode {
+    position: relative;
+    z-index: 1010;
+    padding-top: 50px;
   }
 }
 
@@ -608,9 +628,8 @@ export default {
 
 .search-wrapper {
   position: absolute;
-  z-index: 1050;
-  right: 12px;
   top: 4px;
+  right: 12px;
   left: 12px;
 }
 

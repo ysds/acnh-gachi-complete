@@ -81,6 +81,7 @@ export function filterItems(args) {
     filter,
     isSearchMode = false,
     searchText = "",
+    adFilters = {},
     islandName,
     updateMatchedVariants = false,
     wishlist = [],
@@ -91,15 +92,23 @@ export function filterItems(args) {
   //
   if (isSearchMode) {
     const normalizedSearchText = normalizeText(searchText);
-    items = items.filter((item) => {
-      if (searchText === "") {
-        return false;
-      }
-      const normalizedDisplayName = normalizeText(
-        toDisplayItemName(item, islandName)
-      );
-      return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
-    });
+    const filterFuncs = Object.values(adFilters).filter((filter) => filter);
+
+    if (searchText !== "") {
+      items = items.filter((item) => {
+        const normalizedDisplayName = normalizeText(
+          toDisplayItemName(item, islandName)
+        );
+        return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
+      });
+    }
+
+    if (filterFuncs.length > 0) {
+      filterFuncs.forEach((filter) => {
+        items = items.filter(item => filter(item))
+      });
+    }
+
     // 島名を含む場合は名前順でソート
     if (islandName && items.some((item) => hasIslandName(item))) {
       sortItemsByName(items, (itemName, item) => {

@@ -30,7 +30,6 @@ export default new Vuex.Store({
     wishlist: [],
     cloudWishlist: [],
     sharedWishlist: [],
-    isShowV2: false,
   },
   mutations: {
     changeNav(state, nextNav) {
@@ -167,10 +166,6 @@ export default new Vuex.Store({
         localforage.setItem("updateIndex", state.localUpdateIndex);
       }
     },
-    isShowV2(state, newValue) {
-      state.isShowV2 = newValue;
-      localforage.setItem("isShowV2", newValue);
-    },
   },
   getters: {
     activeNav(state) {
@@ -232,9 +227,6 @@ export default new Vuex.Store({
     },
     sharedWishlist(state) {
       return state.sharedWishlist;
-    },
-    isShowV2(state) {
-      return state.isShowV2;
     },
   },
 });

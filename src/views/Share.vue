@@ -258,9 +258,6 @@ export default {
     sharedWishlist() {
       return this.$store.getters.sharedWishlist;
     },
-    isShowV2() {
-      return this.$store.getters.isShowV2;
-    },
   },
   mounted() {
     this.loadOtherFirebaseData();
@@ -277,9 +274,6 @@ export default {
       if (collectedFilter === "5" || collectedFilter === "6") {
         this.updateShowItems;
       }
-    },
-    isShowV2() {
-      this.updateShowItems();
     },
   },
   methods: {

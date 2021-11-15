@@ -262,9 +262,6 @@ export default {
     wishlist() {
       return this.$store.getters.wishlist;
     },
-    isShowV2() {
-      return this.$store.getters.isShowV2;
-    },
   },
   watch: {
     activeNav(newValue, oldValue) {
@@ -287,9 +284,6 @@ export default {
       ) {
         this.updateShowItems();
       }
-    },
-    isShowV2() {
-      this.updateShowItems();
     },
   },
   async mounted() {

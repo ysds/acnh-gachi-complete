@@ -25,29 +25,6 @@
       </Button>
     </div>
     <router-view v-if="isLoadComplete" />
-    <Modal :show="isShowV2Confirm" @close="isShowV2Confirm = false">
-      <template slot="header">
-        <img
-          src="./assets/v2.svg"
-          class="modal-img"
-        />
-        <div>あつ森バージョン 2.0.0 のアイテムを表示しますか？</div>
-      </template>
-      <template slot="body">
-        <p>
-          本サービスはあつ森のバージョン 2.0.0 に対応しているため、ネタバレ防止のためにこの確認メッセージを表示しています。
-        </p>
-        <p>
-          後で変更するには、設定画面（ログインまたはアカウント画像をタップしたら表示される画面）から行えます。
-        </p>
-        <div class="modal-footer">
-          <Button secondary @click="setIsShowConfirm(false)">
-            まだ表示しない
-          </Button>
-          <Button danger @click="setIsShowConfirm(true)"> 表示する </Button>
-        </div>
-      </template>
-    </Modal>
   </div>
 </template>
 <script>
@@ -55,19 +32,16 @@ import { navs } from "./utils/navs";
 import { syncData, loadFirebaseData } from "./utils/db.js";
 import Drawer from "./components/Drawer.vue";
 import Button from "./components/Button.vue";
-import Modal from "./components/Modal.vue";
 
 export default {
   components: {
     Drawer,
     Button,
-    Modal,
   },
   data() {
     return {
       isLoadComplete: null,
       navs,
-      isShowV2Confirm: false,
     };
   },
   computed: {
@@ -111,28 +85,17 @@ export default {
     },
     async loadLocalStorageData() {
       const self = this;
-      let [collected, updateIndex, wishlist, isShowV2, isShowV2Confirm] =
+      let [collected, updateIndex, wishlist] =
         await Promise.all([
           self.$vlf.getItem("collected"),
           self.$vlf.getItem("updateIndex"),
           self.$vlf.getItem("wishlist"),
-          self.$vlf.getItem("isShowV2"),
-          self.$vlf.getItem("isShowV2Confirm"),
         ]);
       collected = collected || {};
       updateIndex = updateIndex || 0;
-      if (isShowV2Confirm === null) isShowV2Confirm = true;
-      self.isShowV2Confirm = isShowV2Confirm;
-      self.$store.commit("isShowV2", isShowV2 || false);
       self.$store.commit("initLocalCollectedData", { collected, updateIndex });
       self.$store.commit("initWishlist", wishlist);
       return self.localCollected;
-    },
-    setIsShowConfirm(state) {
-      this.isShowV2Confirm = false;
-      this.$vlf.setItem("isShowV2Confirm", false);
-      this.$vlf.setItem("isShowV2", state);
-      this.$store.commit("isShowV2", state);
     },
   },
 };
@@ -197,29 +160,5 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-}
-
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: -20px;
-
-  > * {
-    margin-left: 1rem;
-  }
-}
-
-.modal-img {
-  position: absolute;
-  left: 50%;
-  margin-top: -80px;
-  width: 120px;
-  height: 120px;
-  transform: translateX(-50%);
-
-  + div {
-    margin-top: 50px;
-    text-align: center;
-  }
 }
 </style>

@@ -28,6 +28,7 @@ export default new Vuex.Store({
     isShowDropdown: false,
     isSearchMode: false,
     isDoneSyncCloudFirstTime: false,
+    isWishlistMode: false,
     wishlist: [],
     cloudWishlist: [],
     sharedWishlist: [],
@@ -151,6 +152,9 @@ export default new Vuex.Store({
     isDoneSyncCloudFirstTime(state, payload) {
       state.isDoneSyncCloudFirstTime = payload;
     },
+    toggleWishlistMode(state) {
+      state.isWishlistMode = !state.isWishlistMode;
+    },
     addWishlist(state, entryId) {
       const wishlist = state.wishlist;
       if (!wishlist.includes(entryId)) {
@@ -225,6 +229,9 @@ export default new Vuex.Store({
     },
     isDoneSyncCloudFirstTime(state) {
       return state.isDoneSyncCloudFirstTime;
+    },
+    isWishlistMode(state) {
+      return state.isWishlistMode;
     },
     wishlist(state) {
       return state.wishlist;

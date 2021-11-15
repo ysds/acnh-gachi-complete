@@ -40,6 +40,12 @@
         </svg>
         欲しいものリストから削除
       </Button>
+      <Button xs @click="onClickWishModeButton" style="margin-top: 1rem">
+        <template v-if="!isWishlistMode">
+          欲しいもの一括チェックモードを ON
+        </template>
+        <template v-else> 欲しいもの一括チェックモードを OFF </template>
+      </Button>
     </div>
     <div class="info" v-if="modalItem.buy || modalItem.sell">
       <div class="info-label info-1">買値</div>
@@ -278,6 +284,9 @@ export default {
     isInWishlist() {
       return isInWishlist(this.modalItem, this.modalBodyIndex);
     },
+    isWishlistMode() {
+      return this.$store.getters.isWishlistMode;
+    },
   },
   methods: {
     onClickWishButton(type) {
@@ -288,6 +297,10 @@ export default {
         : itemKey;
 
       this.$store.commit(`${type}Wishlist`, entryId);
+      this.$emit("updateWishlist");
+    },
+    onClickWishModeButton() {
+      this.$store.commit("toggleWishlistMode");
       this.$emit("updateWishlist");
     },
   },

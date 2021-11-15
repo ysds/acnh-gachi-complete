@@ -1,5 +1,8 @@
 <template>
-  <div class="home" :class="{ isSearchMode: isSearchMode }">
+  <div
+    class="home"
+    :class="{ isSearchMode: isSearchMode, isWishlistMode: isWishlistMode }"
+  >
     <div class="view-btn-wrapper" v-show="!isSearchMode && !isOpenDrawer">
       <Button @click="isOpenLogin = true">
         <template v-if="isLogin">
@@ -93,6 +96,7 @@
         :islandName="islandName"
         @change="onChangeItemCheck"
         @showModal="onShowModal"
+        @updateWishlist="onUpdateWishlist"
       />
     </ul>
     <div v-if="!isLoadComplete" class="message loading">読み込み中...</div>
@@ -134,7 +138,7 @@
             :modalItem="modalItem"
             :modalBodyIndex="modalBodyIndex"
             :modalPatternIndex="modalPatternIndex"
-            isShowWishlistButton
+            :isShowWishlistButton="this.filter.viewMode !== 'list'"
             @updateModalBodyIndex="modalBodyIndex = $event"
             @updateModalPatternIndex="modalPatternIndex = $event"
             @updateWishlist="onUpdateWishlist"
@@ -142,6 +146,13 @@
         </div>
       </template>
     </Modal>
+    <div class="wishlist-mode" v-if="isWishlistMode">
+      <div>
+        <b>【欲しいもの一括チェックモード】</b>
+        <div>チェックする代わりに欲しいものリストに追加/削除できます。</div>
+      </div>
+      <CloseButton white @click="onCloseWishlistMode" />
+    </div>
     <portal-target name="shareModal"></portal-target>
     <portal-target name="batchModal"></portal-target>
     <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
@@ -266,6 +277,9 @@ export default {
     wishlist() {
       return this.$store.getters.wishlist;
     },
+    isWishlistMode() {
+      return this.$store.getters.isWishlistMode;
+    },
   },
   watch: {
     activeNav(newValue, oldValue) {
@@ -370,6 +384,9 @@ export default {
       this.isShowBanner = false;
       this.$vlf.setItem("isShowBanner", false);
     },
+    onCloseWishlistMode() {
+      this.$store.commit("toggleWishlistMode");
+    },
     onChangeItemCheck: function (itemName, itemCollectedData) {
       this.$store.commit("updateLocalCollectedDataByItem", {
         itemName,
@@ -447,6 +464,7 @@ export default {
         newViewMode = "tile2";
       } else {
         newViewMode = "list";
+        this.$store.commit("toggleWishlistMode");
       }
       if (this.filter.viewMode === newViewMode) return;
       this.filter = Object.assign({}, this.filter, { viewMode: newViewMode });
@@ -572,6 +590,10 @@ export default {
   &.isSearchMode {
     padding-top: 100px;
   }
+
+  &.isWishlistMode {
+    margin-bottom: 7rem;
+  }
 }
 
 .items {
@@ -670,5 +692,22 @@ export default {
     color: #fff;
     text-decoration: underline;
   }
+}
+
+.wishlist-mode {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem;
+  padding: 0.75rem;
+  background-color: #007bff;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
 }
 </style>

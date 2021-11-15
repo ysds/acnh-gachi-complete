@@ -69,7 +69,7 @@
               item.customize || item.bodyCustomize || item.patternCustomize
             "
             :isInWishlist="inWishlistFlags[i]"
-            @click="onChangeCheck(index)"
+            @click="onChangeCheck(index, i)"
           />
         </li>
       </ul>
@@ -85,7 +85,7 @@
             "
             :isInWishlist="inWishlistFlags[0]"
             :length="item.variants ? item.variants.length : undefined"
-            @click="onClickAllCheck"
+            @click="onClickAllCheck(true)"
           />
         </li>
       </ul>
@@ -219,6 +219,9 @@ export default {
     inWishlistFlags() {
       return inWishlistFlags(this.item, this.isShared);
     },
+    isWishlistMode() {
+      return this.$store.getters.isWishlistMode;
+    },
   },
   watch: {
     collected() {
@@ -269,24 +272,41 @@ export default {
       }
       this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
     },
-    onChangeCheck(index) {
+    onChangeCheck(index, i) {
       if (!this.isShowDropdown && !this.isStatic) {
+        if (this.isWishlistMode && i !== undefined) {
+          this.updateWishlist(index, i);
+        } else {
         const currentValue = this.checks[index];
         const nextValue = currentValue === 2 ? 0 : currentValue + 1;
         this.checks[index] = nextValue;
         this.updateCollected();
       }
+      }
     },
-    onClickAllCheck() {
+    onClickAllCheck(isTile) {
       if (!this.isShowDropdown && !this.isStatic) {
-        const nextState = this.allCheckState === 2 ? 0 : this.allCheckState + 1;
+        if (this.isWishlistMode && isTile === true) {
+          this.updateWishlist(0, 0);
+        } else {
+          const nextState =
+            this.allCheckState === 2 ? 0 : this.allCheckState + 1;
         let result = {};
         Object.keys(this.checks).forEach((key) => {
           result[key] = nextState;
         });
         this.checks = result;
         this.updateCollected();
+        }
       }
+    },
+    updateWishlist(index, i) {
+      const item = this.item;
+      const itemKey = item.uniqueEntryId || item.name;
+      const entryId = item.variants ? `${itemKey}_${index}` : itemKey;
+      const type = this.inWishlistFlags[i] ? "remove" : "add";
+      this.$store.commit(`${type}Wishlist`, entryId);
+      this.$emit("updateWishlist");
     },
     showModal(event, index) {
       event.preventDefault();

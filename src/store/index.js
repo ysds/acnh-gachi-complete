@@ -155,6 +155,9 @@ export default new Vuex.Store({
     toggleWishlistMode(state) {
       state.isWishlistMode = !state.isWishlistMode;
     },
+    updateWishlistMode(state, payload) {
+      state.isWishlistMode = payload;
+    },
     addWishlist(state, entryId) {
       const wishlist = state.wishlist;
       if (!wishlist.includes(entryId)) {

@@ -157,34 +157,6 @@ const navs = [
     ],
   },
   {
-    id: "walletc",
-    text: "壁紙/床板/ラグ",
-    class: "nav-item-items",
-    subnavs: [
-      {
-        id: "walletc-wall",
-        text: "壁紙",
-        filter: function (item) {
-          return item.sourceSheet === "Wallpaper";
-        },
-      },
-      {
-        id: "walletc-floors",
-        text: "床板",
-        filter: function (item) {
-          return item.sourceSheet === "Floors";
-        },
-      },
-      {
-        id: "walletc-rugs",
-        text: "ラグ",
-        filter: function (item) {
-          return item.sourceSheet === "Rugs";
-        },
-      },
-    ],
-  },
-  {
     id: "tools",
     text: "道具・グッズ",
     class: "nav-item-items",
@@ -213,6 +185,34 @@ const navs = [
     filter: function (item) {
       return item.sourceSheet === "Fencing";
     },
+  },
+  {
+    id: "walletc",
+    text: "壁紙/床板/ラグ",
+    class: "nav-item-items",
+    subnavs: [
+      {
+        id: "walletc-wall",
+        text: "壁紙",
+        filter: function (item) {
+          return item.sourceSheet === "Wallpaper";
+        },
+      },
+      {
+        id: "walletc-floors",
+        text: "床板",
+        filter: function (item) {
+          return item.sourceSheet === "Floors";
+        },
+      },
+      {
+        id: "walletc-rugs",
+        text: "ラグ",
+        filter: function (item) {
+          return item.sourceSheet === "Rugs";
+        },
+      },
+    ],
   },
   {
     id: "fossils",

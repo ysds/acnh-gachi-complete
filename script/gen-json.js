@@ -56,7 +56,7 @@ allItems.forEach(item => {
   //
 
   // Tools の 日本語リメイク名配列を追加とリメイクバリエーションの削除 (customizeVariants)
-  if (item.customize && item.sourceSheet === "Tools") {
+  if (item.customize && item.sourceSheet === "Tools/Goods") {
     const customizeVariants = [];
     item.variants.forEach(variant => {
       const variantIdArray = variant.variantId.slice("_");

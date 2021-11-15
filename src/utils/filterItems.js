@@ -121,7 +121,7 @@ export function filterItems(args) {
       // V2
       //
 
-      if (!nav.includes("version")) {
+      if (filter.version && !nav.includes("version")) {
         if (filter.version === 2) {
           items = items.filter((item) => item.versionAdded === "2.0.0");
         } else if (filter.version === 1) {

@@ -25,7 +25,7 @@ const navs = [
         filter: function (item) {
           return (
             item.sourceSheet === "Housewares" ||
-            (item.sourceSheet === "Art" && item.category === "Housewares")
+            (item.sourceSheet === "Artwork" && item.category === "Housewares")
           );
         },
       },
@@ -36,7 +36,7 @@ const navs = [
           return (
             item.sourceSheet === "Miscellaneous" ||
             item.sourceSheet === "Food" ||
-            (item.sourceSheet === "Art" && item.category === "Miscellaneous")
+            (item.sourceSheet === "Artwork" && item.category === "Miscellaneous")
           );
         },
       },
@@ -46,7 +46,7 @@ const navs = [
         filter: function (item) {
           return (
             item.sourceSheet === "Wall-mounted" ||
-            (item.sourceSheet === "Art" && item.category === "Wall-mounted")
+            (item.sourceSheet === "Artwork" && item.category === "Wall-mounted")
           );
         },
       },
@@ -194,14 +194,14 @@ const navs = [
         text: "道具",
         alttext: "すべて",
         filter: function (item) {
-          return item.sourceSheet === "Tools";
+          return item.sourceSheet === "Tools/Goods";
         },
       },
       {
         id: "tools-wand",
         text: "ステッキ",
         filter: function (item) {
-          return item.sourceSheet === "Tools" && item.name.indexOf("wand") >= 0;
+          return item.sourceSheet === "Tools/Goods" && item.name.indexOf("wand") >= 0;
         },
       },
     ],
@@ -293,7 +293,7 @@ const navs = [
         alttext: "すべて",
         filter: function (item) {
           return (
-            item.sourceSheet === "Tools" ||
+            item.sourceSheet === "Tools/Goods" ||
             (item.sourceSheet === "Other" &&
               item.variants[0].storageImage &&
               item.tag !== "Unnecessary") ||
@@ -449,7 +449,7 @@ const navs = [
         subtext: "つねきち",
         order: 3,
         filter: function (item) {
-          return item.sourceSheet === "Art";
+          return item.sourceSheet === "Artwork";
         },
       },
       {
@@ -700,7 +700,7 @@ const navs = [
         subtext: "4/29〜5/7",
         order: 10,
         filter: function (item) {
-          return item.seasonEvent === "May Day" && item.sourceSheet !== "Tools";
+          return item.seasonEvent === "May Day" && item.sourceSheet !== "Tools/Goods";
         },
       },
       {
@@ -887,6 +887,13 @@ const navs = [
         text: "カフェ",
         filter: function (item) {
           return inSource(item, "HHP Café");
+        },
+      },
+      {
+        id: "hhp-apparel",
+        text: "服屋",
+        filter: function (item) {
+          return inSource(item, "HHP Apparel Shop");
         },
       },
       {

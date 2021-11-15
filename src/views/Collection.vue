@@ -192,7 +192,7 @@ export default {
   data() {
     return {
       filter: {
-        v2Only: null,
+        version: null,
         typeFilter: null,
         collectedFilter: null,
         viewMode: null,
@@ -247,7 +247,7 @@ export default {
         return totalLength({
           nav: this.activeNav,
           typeFilter: this.filter.typeFilter,
-          v2Only: this.filter.v2Only,
+          version: this.filter.version,
         });
       }
     },
@@ -259,7 +259,7 @@ export default {
           collected: Object.assign({}, this.collected),
           nav: this.activeNav,
           typeFilter: this.filter.typeFilter,
-          v2Only: this.filter.v2Only,
+          version: this.filter.version,
         });
       }
     },
@@ -306,8 +306,8 @@ export default {
         self.$vlf.getItem("pins"),
       ]);
 
-      if (filter && filter.v2Only === null) {
-        filter.v2Only = "false";
+      if (filter && filter.version === null) {
+        filter.version = false;
       }
       if (filter && filter.typeFilter === null) {
         filter.typeFilter = "all";
@@ -327,7 +327,7 @@ export default {
 
       this.filter = Object.assign(
         {
-          v2Only: false,
+          version: false,
           typeFilter: "all",
           collectedFilter: "0",
           viewMode: "tile",

@@ -1,14 +1,14 @@
 <template>
   <div class="d-flex" :class="{ 'toolbar-share': isShareView }">
-    <div class="d-flex" >
+    <div class="d-flex">
       <Button
         sm
-        @click="onClickV2Only()"
-        :active="filter.v2Only"
-        :primary="filter.v2Only"
+        @click="onClickVersion()"
         v-if="activeNav && !activeNav.includes('version')"
       >
-        V2のみ
+        <template v-if="filter.version === 1">V1のみ</template>
+        <template v-else-if="filter.version === 2">V2のみ</template>
+        <template v-else>バージョン</template>
       </Button>
       <span v-show="typeFilterItems.length > 0">
         <Popper ref="typeFilter">
@@ -30,22 +30,22 @@
           </DropdownMenu>
         </Popper>
       </span>
-    <template v-if="isShowOrderChanger && isShareView">
-      <Button
-        sm
-        v-if="filter.order === 'name'"
-        @click="onClickOrderButton('id')"
-      >
-        名前順
-      </Button>
-      <Button
-        sm
-        v-else-if="filter.order === 'id'"
-        @click="onClickOrderButton('name')"
-      >
-        実機順
-      </Button>
-    </template>
+      <template v-if="isShowOrderChanger && isShareView">
+        <Button
+          sm
+          v-if="filter.order === 'name'"
+          @click="onClickOrderButton('id')"
+        >
+          名前順
+        </Button>
+        <Button
+          sm
+          v-else-if="filter.order === 'id'"
+          @click="onClickOrderButton('name')"
+        >
+          実機順
+        </Button>
+      </template>
     </div>
     <template v-if="activeNav === 'exchange'">
       <div>
@@ -232,9 +232,14 @@ export default {
     },
   },
   methods: {
-    onClickV2Only() {
-      const newValue = !this.filter.v2Only;
-      this.$emit("change", Object.assign(this.filter, { v2Only: newValue }));
+    onClickVersion() {
+      const newValue =
+        this.filter.version === false
+          ? 1
+          : this.filter.version === 1
+          ? 2
+          : false;
+      this.$emit("change", Object.assign(this.filter, { version: newValue }));
     },
     onClickTypeFilter(value) {
       if (this.$refs.typeFilter) this.$refs.typeFilter.doClose();

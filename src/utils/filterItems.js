@@ -105,7 +105,7 @@ export function filterItems(args) {
 
     if (filterFuncs.length > 0) {
       filterFuncs.forEach((filter) => {
-        items = items.filter(item => filter(item))
+        items = items.filter((item) => filter(item));
       });
     }
 
@@ -121,8 +121,12 @@ export function filterItems(args) {
       // V2
       //
 
-      if (filter.v2Only && !nav.includes("version")) {
-        items = items.filter((item) => item.versionAdded === "2.0.0");
+      if (!nav.includes("version")) {
+        if (filter.version === 2) {
+          items = items.filter((item) => item.versionAdded === "2.0.0");
+        } else if (filter.version === 1) {
+          items = items.filter((item) => item.versionAdded !== "2.0.0");
+        }
       }
 
       //
@@ -346,12 +350,12 @@ export function filterItems(args) {
 }
 
 export function totalLength(args) {
-  const { nav, typeFilter, v2Only } = args;
+  const { nav, typeFilter, version } = args;
   const items = filterItems({
     nav,
     filter: {
       typeFilter: typeFilter,
-      v2Only: v2Only,
+      version: version,
     },
   });
 
@@ -363,14 +367,14 @@ export function allTotalLength() {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, typeFilter, v2Only } = args;
+  const { collected, nav, typeFilter, version } = args;
   const collectedItems = filterItems({
     collected,
     nav,
     filter: {
       typeFilter: typeFilter,
       collectedFilter: "3",
-      v2Only: v2Only,
+      version: version,
     },
   });
 

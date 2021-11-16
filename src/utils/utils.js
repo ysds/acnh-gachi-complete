@@ -100,7 +100,6 @@ export function makeCompatibleCollection(collected) {
       }
     }
   })
-  console.log(newCollected)
 
   return newCollected;
 }

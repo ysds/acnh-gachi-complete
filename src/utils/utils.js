@@ -1,4 +1,5 @@
 import store from "../store";
+import items from "../assets/items.json";
 
 export function percentage(value, totalValue) {
   if (totalValue === 0) {
@@ -88,17 +89,35 @@ export function makeCompatibleCollection(collected) {
     }
   });
 
+  // ペットボトル飲料など一時的にバリエーションが多かったアイテムの対応
+  items.forEach(item => {
+    if (newCollected[item.name]) {
+      const variantsLength = item.variants ? item.variants.length : 1;
+      if (variantsLength > 1) {
+        if (newCollected[item.name].length > variantsLength) {
+          newCollected[item.name] = newCollected[item.name].substring(0, variantsLength);
+        }
+      }
+    }
+  })
+  console.log(newCollected)
+
   return newCollected;
 }
 
 export function makeCompatibleWishlist(wishlist) {
-  const newWishlist = wishlist.map((wishdata) => {
+  let newWishlist = wishlist.map((wishdata) => {
     const wishdataArray = wishdata.split("_");
     const name = wishdataArray[0];
     const variant = wishdataArray[1];
     const newName = RENAME_MAP[name];
 
     return newName ? `${newName}_${variant}` : wishdata;
+  });
+
+  // ペットボトル飲料など一時的にバリエーションが多かったアイテムの対応
+  newWishlist = newWishlist.filter((wishdata) => {
+    return wishdata.indexOf("_undefined") === -1;
   });
 
   return newWishlist;
@@ -109,7 +128,7 @@ export function hasIslandName(item) {
   return (
     item.name === "(island name) Icons" || item.name === "(island name) Miles!"
   );
-};
+}
 
 export function toDisplayItemName(item, islandName) {
   // 島名を置換

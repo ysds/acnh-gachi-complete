@@ -161,7 +161,11 @@ import DropdownMenu from "./DropdownMenu";
 import DropdownItem from "./DropdownItem";
 import ToolbarFilterCollected from "./ToolbarFilterCollected";
 
-import { typeFilters, getTypeFilterItems } from "../utils/filter";
+import {
+  typeFilters,
+  collectedFilters,
+  getTypeFilterItems,
+} from "../utils/filter";
 
 export default {
   components: {
@@ -175,6 +179,11 @@ export default {
     filter: Object,
     activeNav: String,
     isShareView: Boolean,
+  },
+  data() {
+    return {
+      collectedFilterItems: collectedFilters,
+    };
   },
   computed: {
     typeFilterLabel() {

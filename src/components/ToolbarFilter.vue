@@ -102,24 +102,10 @@
       </div>
     </template>
     <template v-else-if="!isShareView">
-      <Popper ref="collectedFilter">
-        <template slot="reference">
-          <Button dropdown sm :active="isOpenCollectedFilter()">
-            <span v-html="collectedFilterLabel" />
-          </Button>
-        </template>
-        <DropdownMenu>
-          <DropdownItem
-            v-for="collectedFilterItem in collectedFilterItems"
-            selectable
-            :active="filter.collectedFilter === collectedFilterItem.id"
-            :key="collectedFilterItem.id"
-            @click="onClickCollectedFilter(collectedFilterItem.id)"
-          >
-            <span v-html="collectedFilterItem.label"></span>
-          </DropdownItem>
-        </DropdownMenu>
-      </Popper>
+      <ToolbarFilterCollected
+        :activeCollectedFilter="filter.collectedFilter"
+        @change="onClickCollectedFilter"
+      />
     </template>
     <template v-else>
       <div class="buttons">
@@ -173,12 +159,9 @@ import Popper from "./Popper";
 import Button from "./Button";
 import DropdownMenu from "./DropdownMenu";
 import DropdownItem from "./DropdownItem";
+import ToolbarFilterCollected from "./ToolbarFilterCollected";
 
-import {
-  typeFilters,
-  collectedFilters,
-  getTypeFilterItems,
-} from "../utils/filter";
+import { typeFilters, getTypeFilterItems } from "../utils/filter";
 
 export default {
   components: {
@@ -186,16 +169,12 @@ export default {
     Button,
     DropdownMenu,
     DropdownItem,
+    ToolbarFilterCollected,
   },
   props: {
     filter: Object,
     activeNav: String,
     isShareView: Boolean,
-  },
-  data() {
-    return {
-      collectedFilterItems: collectedFilters,
-    };
   },
   computed: {
     typeFilterLabel() {
@@ -210,16 +189,6 @@ export default {
     },
     typeFilterItems() {
       return getTypeFilterItems(this.activeNav);
-    },
-    collectedFilterLabel() {
-      const matchedFilters = collectedFilters.filter(
-        (obj) => obj.id === this.filter.collectedFilter
-      );
-      if (matchedFilters.length === 1) {
-        return matchedFilters[0].btnLabel || matchedFilters[0].label;
-      } else {
-        return "";
-      }
     },
     isShowOrderChanger() {
       return (
@@ -246,7 +215,6 @@ export default {
       this.$emit("change", Object.assign(this.filter, { typeFilter: value }));
     },
     onClickCollectedFilter(value) {
-      if (this.$refs.collectedFilter) this.$refs.collectedFilter.doClose();
       this.$emit(
         "change",
         Object.assign(this.filter, { collectedFilter: value })
@@ -266,10 +234,6 @@ export default {
     isOpenTypeFilter() {
       if (!this.$refs.typeFilter) return false;
       return this.$refs.typeFilter.isShowPopper();
-    },
-    isOpenCollectedFilter() {
-      if (!this.$refs.collectedFilter) return false;
-      return this.$refs.collectedFilter.isShowPopper();
     },
   },
 };

@@ -88,32 +88,145 @@ export function filterItems(args) {
   } = args;
 
   //
+  // 取得フィルター
+  //
+
+  const filterVal = isSearchMode ? adFilters.collected : filter.collectedFilter;
+  if (filterVal !== null && filterVal !== "0") {
+    items = items.filter((item) => {
+      const itemKey = item.uniqueEntryId || item.name;
+      const itemLength = item.variants ? item.variants.length : 1;
+      let collectedData = collected[itemKey] || "";
+      let myCollectedData = myCollected[itemKey] || "";
+
+      let isMatch = true;
+      // 条件に一致したバリエーションの index の配列
+      // すべてマッチする場合やバリエーションがない場合は undefined
+      let matchedVariants;
+
+      // 取得のみ
+      if (filterVal === "1") {
+        isMatch = /[0-9]/g.test(collectedData);
+        if (updateMatchedVariants && isMatch && item.variants) {
+          matchedVariants = collectedData.match(/[0-9]/g);
+        }
+      }
+      // 配布可のみ
+      else if (filterVal === "2") {
+        const regex = /[A-J]/g;
+        isMatch = regex.test(collectedData);
+        if (updateMatchedVariants && isMatch && item.variants) {
+          let providableIndexes = providable2collected(
+            collectedData.replace(/[0-9]/g, "")
+          );
+          matchedVariants = providableIndexes.match(/[0-9]/g);
+        }
+      }
+      // 取得or配布
+      else if (filterVal === "3") {
+        isMatch = /[0-9A-J]/g.test(collectedData);
+        if (updateMatchedVariants && isMatch && item.variants) {
+          let bothIndexes = providable2collected(collectedData);
+          matchedVariants = bothIndexes.match(/[0-9]/g);
+        }
+      }
+      // 未取得
+      else if (filterVal === "4") {
+        isMatch = collectedData.length < itemLength;
+        if (updateMatchedVariants && isMatch && item.variants) {
+          const allIndexes = "0123456789".substring(0, itemLength);
+          let bothIndexes = providable2collected(collectedData);
+          const regexp = new RegExp(`[^${bothIndexes}]`, "g");
+          matchedVariants = allIndexes.match(regexp);
+        }
+      }
+      // もらえる
+      else if (filterVal === "5") {
+        isMatch =
+          /[A-J]/g.test(collectedData) && myCollectedData.length < itemLength;
+        if (updateMatchedVariants && isMatch && item.variants) {
+          const providableIndexes = providable2collected(
+            collectedData.replace(/[0-9]/g, "")
+          );
+
+          const allIndexes = "0123456789".substring(0, itemLength);
+          let bothIndexes = providable2collected(myCollectedData);
+          let regexp = new RegExp(`[${bothIndexes}]`, "g");
+          const unCollectedIndex = allIndexes.replace(regexp, "");
+
+          regexp = new RegExp(`[${providableIndexes}]`, "g");
+          matchedVariants = unCollectedIndex.match(regexp);
+          if (matchedVariants === null) {
+            isMatch = false;
+          }
+        }
+      }
+      // ゆずれる
+      else if (filterVal === "6") {
+        isMatch =
+          collectedData.length < itemLength && /[A-J]/g.test(myCollectedData);
+        if (updateMatchedVariants && isMatch && item.variants) {
+          const providableIndexes = providable2collected(
+            myCollectedData.replace(/[0-9]/g, "")
+          );
+
+          const allIndexes = "0123456789".substring(0, itemLength);
+          let bothIndexes = providable2collected(collectedData);
+          let regexp = new RegExp(`[${bothIndexes}]`, "g");
+          const unCollectedIndex = allIndexes.replace(regexp, "");
+
+          regexp = new RegExp(`[${providableIndexes}]`, "g");
+          matchedVariants = unCollectedIndex.match(regexp);
+          if (matchedVariants === null) {
+            isMatch = false;
+          }
+        }
+      }
+
+      if (updateMatchedVariants) {
+        item.matchedVariants = matchedVariants;
+      }
+      return isMatch;
+    });
+  }
+
+  //
   // 検索
   //
   if (isSearchMode) {
     const normalizedSearchText = normalizeText(searchText);
     const filterFuncs = Object.values(adFilters).filter((filter) => filter);
 
-    if (searchText !== "") {
-      items = items.filter((item) => {
-        const normalizedDisplayName = normalizeText(
-          toDisplayItemName(item, islandName)
-        );
-        return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
-      });
-    }
+    if (searchText === "" && filterFuncs.length === 0) {
+      return [];
+    } else {
+      if (filterFuncs.length > 0) {
+        filterFuncs.forEach((filter) => {
+          items = items.filter((item) => {
+            if (typeof filter === "function") {
+              return filter(item);
+            } else {
+              return true;
+            }
+          });
+        });
+      }
 
-    if (filterFuncs.length > 0) {
-      filterFuncs.forEach((filter) => {
-        items = items.filter((item) => filter(item));
-      });
-    }
+      if (searchText !== "") {
+        items = items.filter((item) => {
+          const normalizedDisplayName = normalizeText(
+            toDisplayItemName(item, islandName)
+          );
+          return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
+        });
+      }
 
-    // 島名を含む場合は名前順でソート
-    if (islandName && items.some((item) => hasIslandName(item))) {
-      sortItemsByName(items, (itemName, item) => {
-        return replaceIslandName(itemName, item, islandName);
-      });
+      // 島名を含む場合は名前順でソート
+      if (islandName && items.some((item) => hasIslandName(item))) {
+        sortItemsByName(items, (itemName, item) => {
+          return replaceIslandName(itemName, item, islandName);
+        });
+      }
     }
   } else {
     if (filter) {
@@ -134,107 +247,6 @@ export function filterItems(args) {
       //
 
       items = items.filter((item) => typeFilter(item, filter.typeFilter));
-
-      //
-      // 取得フィルター
-      //
-
-      items = items.filter((item) => {
-        const filterVal = filter.collectedFilter;
-        const itemKey = item.uniqueEntryId || item.name;
-        const itemLength = item.variants ? item.variants.length : 1;
-        let collectedData = collected[itemKey] || "";
-        let myCollectedData = myCollected[itemKey] || "";
-
-        let isMatch = true;
-        // 条件に一致したバリエーションの index の配列
-        // すべてマッチする場合やバリエーションがない場合は undefined
-        let matchedVariants;
-
-        // 取得のみ
-        if (filterVal === "1") {
-          isMatch = /[0-9]/g.test(collectedData);
-          if (updateMatchedVariants && isMatch && item.variants) {
-            matchedVariants = collectedData.match(/[0-9]/g);
-          }
-        }
-        // 配布可のみ
-        else if (filterVal === "2") {
-          const regex = /[A-J]/g;
-          isMatch = regex.test(collectedData);
-          if (updateMatchedVariants && isMatch && item.variants) {
-            let providableIndexes = providable2collected(
-              collectedData.replace(/[0-9]/g, "")
-            );
-            matchedVariants = providableIndexes.match(/[0-9]/g);
-          }
-        }
-        // 取得or配布
-        else if (filterVal === "3") {
-          isMatch = /[0-9A-J]/g.test(collectedData);
-          if (updateMatchedVariants && isMatch && item.variants) {
-            let bothIndexes = providable2collected(collectedData);
-            matchedVariants = bothIndexes.match(/[0-9]/g);
-          }
-        }
-        // 未取得
-        else if (filterVal === "4") {
-          isMatch = collectedData.length < itemLength;
-          if (updateMatchedVariants && isMatch && item.variants) {
-            const allIndexes = "0123456789".substring(0, itemLength);
-            let bothIndexes = providable2collected(collectedData);
-            const regexp = new RegExp(`[^${bothIndexes}]`, "g");
-            matchedVariants = allIndexes.match(regexp);
-          }
-        }
-        // もらえる
-        else if (filterVal === "5") {
-          isMatch =
-            /[A-J]/g.test(collectedData) && myCollectedData.length < itemLength;
-          if (updateMatchedVariants && isMatch && item.variants) {
-            const providableIndexes = providable2collected(
-              collectedData.replace(/[0-9]/g, "")
-            );
-
-            const allIndexes = "0123456789".substring(0, itemLength);
-            let bothIndexes = providable2collected(myCollectedData);
-            let regexp = new RegExp(`[${bothIndexes}]`, "g");
-            const unCollectedIndex = allIndexes.replace(regexp, "");
-
-            regexp = new RegExp(`[${providableIndexes}]`, "g");
-            matchedVariants = unCollectedIndex.match(regexp);
-            if (matchedVariants === null) {
-              isMatch = false;
-            }
-          }
-        }
-        // ゆずれる
-        else if (filterVal === "6") {
-          isMatch =
-            collectedData.length < itemLength && /[A-J]/g.test(myCollectedData);
-          if (updateMatchedVariants && isMatch && item.variants) {
-            const providableIndexes = providable2collected(
-              myCollectedData.replace(/[0-9]/g, "")
-            );
-
-            const allIndexes = "0123456789".substring(0, itemLength);
-            let bothIndexes = providable2collected(collectedData);
-            let regexp = new RegExp(`[${bothIndexes}]`, "g");
-            const unCollectedIndex = allIndexes.replace(regexp, "");
-
-            regexp = new RegExp(`[${providableIndexes}]`, "g");
-            matchedVariants = unCollectedIndex.match(regexp);
-            if (matchedVariants === null) {
-              isMatch = false;
-            }
-          }
-        }
-
-        if (updateMatchedVariants) {
-          item.matchedVariants = matchedVariants;
-        }
-        return isMatch;
-      });
     }
 
     //

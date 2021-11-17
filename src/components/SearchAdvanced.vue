@@ -1,5 +1,9 @@
 <template>
   <div class="advanced-search">
+    <ToolbarFilterCollected
+      :activeCollectedFilter="activeCollected"
+      @change="onChangeCollected"
+    />
     <Popper ref="categoryFilter">
       <template slot="reference">
         <Button dropdown sm @click="scrollIntoView">
@@ -13,7 +17,7 @@
           <template v-else>種類</template>
         </Button>
       </template>
-      <DropdownMenu ref="categoryDropdown">
+      <DropdownMenu ref="categoryDropdown" fixFirst>
         <DropdownItem
           v-for="category in categoryItems"
           selectable
@@ -30,16 +34,37 @@
         </DropdownItem>
       </DropdownMenu>
     </Popper>
+    <Popper ref="versionFilter">
+      <template slot="reference">
+        <Button dropdown sm maxWidth @click="scrollIntoView">
+          <template v-if="activeVersion">
+            {{ activeVersion }}
+          </template>
+          <template v-else>バージョン</template>
+        </Button>
+      </template>
+      <DropdownMenu fixFirst>
+        <DropdownItem
+          v-for="version in versionItems"
+          selectable
+          :active="activeVersion === version"
+          :key="version"
+          @click="onChangeVersion(version)"
+        >
+          <span>{{ version }}</span>
+        </DropdownItem>
+      </DropdownMenu>
+    </Popper>
     <Popper ref="sourceFilter">
       <template slot="reference">
-        <Button dropdown sm @click="scrollIntoView">
+        <Button dropdown sm maxWidth @click="scrollIntoView">
           <template v-if="activeSource">
             {{ activeSource.text }}
           </template>
           <template v-else>入手方法</template>
         </Button>
       </template>
-      <DropdownMenu>
+      <DropdownMenu fixFirst>
         <DropdownItem
           v-for="source in sourceItems"
           selectable
@@ -53,14 +78,14 @@
     </Popper>
     <Popper ref="seasonFilter">
       <template slot="reference">
-        <Button dropdown sm @click="scrollIntoView">
+        <Button dropdown sm maxWidth @click="scrollIntoView">
           <template v-if="activeSeason">
             {{ activeSeason.text }}
           </template>
           <template v-else>入手時期</template>
         </Button>
       </template>
-      <DropdownMenu>
+      <DropdownMenu fixFirst>
         <DropdownItem
           v-for="season in seasonItems"
           selectable
@@ -72,6 +97,27 @@
         </DropdownItem>
       </DropdownMenu>
     </Popper>
+    <Popper ref="seriesFilter">
+      <template slot="reference">
+        <Button dropdown sm maxWidth @click="scrollIntoView">
+          <template v-if="activeSeries">
+            {{ activeSeries.text }}
+          </template>
+          <template v-else>シリーズ</template>
+        </Button>
+      </template>
+      <DropdownMenu fixFirst>
+        <DropdownItem
+          v-for="series in seriesItems"
+          selectable
+          :active="activeSeries && series.id === activeSeries.id"
+          :key="series.id"
+          @click="onChangeSeries(series)"
+        >
+          <span v-html="series.text"></span>
+        </DropdownItem>
+      </DropdownMenu>
+    </Popper>
   </div>
 </template>
 
@@ -79,13 +125,16 @@
 import InlineSvg from "vue-inline-svg";
 
 import { navsFlat } from "../utils/navs";
+import { itemNameCompare } from "../../script/sort";
 import sources from "../../data/translation-custom/source.json";
 import seasons from "../../data/translation-custom/seasonEvent.json";
+import series from "../../data/translation-custom/series.json";
 
 import Button from "../components/Button";
 import Popper from "../components/Popper";
 import DropdownMenu from "../components/DropdownMenu";
 import DropdownItem from "../components/DropdownItem";
+import ToolbarFilterCollected from "../components/ToolbarFilterCollected";
 
 export default {
   name: "SearchBox",
@@ -95,6 +144,7 @@ export default {
     Popper,
     DropdownMenu,
     DropdownItem,
+    ToolbarFilterCollected,
   },
   props: {
     isSearchMode: Boolean,
@@ -104,11 +154,33 @@ export default {
       activeCategory: null,
       activeSource: null,
       activeSeason: null,
+      activeCollected: null,
+      activeVersion: null,
+      activeSeries: null,
       adFilters: {
         category: null,
         source: null,
         season: null,
+        collected: null,
+        version: null,
+        series: null,
       },
+      versionItems: [
+        "クリア",
+        "2.0.0",
+        "1.11.0",
+        "1.10.0",
+        "1.9.0",
+        "1.8.0",
+        "1.7.0",
+        "1.6.0",
+        "1.5.0",
+        "1.4.0",
+        "1.3.0",
+        "1.2.0",
+        "1.1.0",
+        "1.0.0",
+      ],
     };
   },
   watch: {
@@ -117,10 +189,16 @@ export default {
         this.activeCategory = null;
         this.activeSource = null;
         this.activeSeason = null;
+        this.activeCollected = null;
+        this.activeVersion = null;
+        this.activeSeries = null;
         this.adFilters = {
           category: null,
           source: null,
           season: null,
+          collected: null,
+          version: null,
+          series: null,
         };
         this.$emit("change", this.adFilters);
       }
@@ -136,7 +214,7 @@ export default {
       dropdownItems.forEach((category) => {
         category.parentsId = category.id.split("-")[0];
       });
-      return [{ id: "null", text: "すべて" }, ...dropdownItems];
+      return [{ id: "null", text: "クリア" }, ...dropdownItems];
     },
     sourceItems() {
       const dropdownItems = [];
@@ -160,7 +238,7 @@ export default {
       });
 
       // すべてを追加
-      dropdownItems.unshift({ id: "null", text: "すべて" });
+      dropdownItems.unshift({ id: "null", text: "クリア" });
 
       return dropdownItems;
     },
@@ -205,7 +283,25 @@ export default {
       dropdownItems = dropdownItems.filter((item) => !item.remove);
 
       // すべてを追加
-      dropdownItems.unshift({ id: "null", text: "すべて" });
+      dropdownItems.unshift({ id: "null", text: "クリア" });
+
+      return dropdownItems;
+    },
+    seriesItems() {
+      const dropdownItems = [];
+      Object.keys(series).forEach((id) => {
+        const text = series[id];
+        if (text !== "") {
+          dropdownItems.push({
+            id,
+            text,
+          });
+        }
+      });
+      dropdownItems.sort(itemNameCompare());
+
+      // すべてを追加
+      dropdownItems.unshift({ id: "null", text: "クリア" });
 
       return dropdownItems;
     },
@@ -249,6 +345,39 @@ export default {
       }
       this.$emit("change", this.adFilters);
     },
+    onChangeCollected(collected) {
+      this.activeCollected = collected;
+      this.adFilters.collected = collected;
+      this.$emit("change", this.adFilters);
+    },
+    onChangeVersion(version) {
+      this.$refs.versionFilter.doClose();
+      if (version !== "null" && version !== "クリア") {
+        this.activeVersion = version;
+        const filter = function (item) {
+          return item.versionAdded === version;
+        };
+        this.adFilters.source = filter;
+      } else {
+        this.activeVersion = null;
+        this.adFilters.version = null;
+      }
+      this.$emit("change", this.adFilters);
+    },
+    onChangeSeries(series) {
+      this.$refs.seriesFilter.doClose();
+      if (series.id !== "null") {
+        this.activeSeries = series;
+        const filter = function (item) {
+          return item.series === series.id;
+        };
+        this.adFilters.series = filter;
+      } else {
+        this.activeSeries = null;
+        this.adFilters.series = null;
+      }
+      this.$emit("change", this.adFilters);
+    },
     scrollIntoView() {
       setTimeout(() => {
         const dropdowns = document.getElementsByClassName("dropdown-menu");
@@ -256,7 +385,7 @@ export default {
           const dropdown = dropdowns[dropdowns.length - 1];
           const activeItem = dropdown.getElementsByClassName("active")[0];
           if (activeItem) {
-            dropdown.scrollTop = activeItem.offsetTop - 100;
+            dropdown.scrollTop = activeItem.offsetTop - 166;
           }
         }
       }, 0);

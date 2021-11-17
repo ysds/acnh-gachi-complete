@@ -49,7 +49,7 @@ export default {
 .dropdown-item {
   position: relative;
   padding: 0.4rem 0.5rem;
-  background-color: transparent;
+  background-color: #fff;
   border: 0;
   border-radius: 8px;
   outline: 0;

@@ -423,7 +423,6 @@ allItems.forEach(item => {
   delete item["seasonEventExclusive"];
   delete item["secondaryShape"];
   delete item["sequential"];
-  delete item["series"];
   delete item["set"];
   delete item["size"];
   delete item["sizeCategory"];

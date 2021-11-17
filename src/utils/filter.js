@@ -130,7 +130,7 @@ const seasonEvents = [
 seasonEvents.forEach((value, index) => {
   typeFilters.push({
     id: `fashion-${index}`,
-    label: seasonEventData[value] || value,
+    label: seasonEventData[value].text || value,
     show: ["fashion"],
     filter: function (item) {
       return (

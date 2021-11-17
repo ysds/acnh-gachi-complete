@@ -277,35 +277,42 @@ export default {
         if (this.isWishlistMode && i !== undefined) {
           this.updateWishlist(index, i);
         } else {
-        const currentValue = this.checks[index];
-        const nextValue = currentValue === 2 ? 0 : currentValue + 1;
-        this.checks[index] = nextValue;
-        this.updateCollected();
-      }
-      }
-    },
-    onClickAllCheck(isTile) {
-      if (!this.isShowDropdown && !this.isStatic) {
-        if (this.isWishlistMode && isTile === true) {
-          this.updateWishlist(0, 0);
-        } else {
-          const nextState =
-            this.allCheckState === 2 ? 0 : this.allCheckState + 1;
-        let result = {};
-        Object.keys(this.checks).forEach((key) => {
-          result[key] = nextState;
-        });
-        this.checks = result;
-        this.updateCollected();
+          const currentValue = this.checks[index];
+          const nextValue = currentValue === 2 ? 0 : currentValue + 1;
+          this.checks[index] = nextValue;
+          this.updateCollected();
         }
       }
     },
-    updateWishlist(index, i) {
+    onClickAllCheck(isTile2) {
+      if (!this.isShowDropdown && !this.isStatic) {
+        if (this.isWishlistMode && isTile2 === true) {
+          this.updateWishlist(0, 0, isTile2);
+        } else {
+          const nextState =
+            this.allCheckState === 2 ? 0 : this.allCheckState + 1;
+          let result = {};
+          Object.keys(this.checks).forEach((key) => {
+            result[key] = nextState;
+          });
+          this.checks = result;
+          this.updateCollected();
+        }
+      }
+    },
+    updateWishlist(index, i, isTile2) {
       const item = this.item;
       const itemKey = item.uniqueEntryId || item.name;
-      const entryId = item.variants ? `${itemKey}_${index}` : itemKey;
       const type = this.inWishlistFlags[i] ? "remove" : "add";
-      this.$store.commit(`${type}Wishlist`, entryId);
+      if (isTile2 && type === "remove" && item.variants) {
+        item.variants.forEach((variant, index) => {
+          const entryId = `${itemKey}_${index}`;
+          this.$store.commit("removeWishlist", entryId);
+        });
+      } else {
+        const entryId = item.variants ? `${itemKey}_${index}` : itemKey;
+        this.$store.commit(`${type}Wishlist`, entryId);
+      }
       this.$emit("updateWishlist");
     },
     showModal(event, index) {

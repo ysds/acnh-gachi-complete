@@ -357,7 +357,7 @@ export default {
         const filter = function (item) {
           return item.versionAdded === version;
         };
-        this.adFilters.source = filter;
+        this.adFilters.version = filter;
       } else {
         this.activeVersion = null;
         this.adFilters.version = null;

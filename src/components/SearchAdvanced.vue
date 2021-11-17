@@ -110,7 +110,7 @@ export default {
       activeCategory: null,
       activeSource: null,
       activeSeason: null,
-      activeCollected: "0",
+      activeCollected: null,
       adFilters: {
         category: null,
         source: null,
@@ -124,7 +124,7 @@ export default {
         this.activeCategory = null;
         this.activeSource = null;
         this.activeSeason = null;
-        this.activeCollected = "0";
+        this.activeCollected = null;
         this.adFilters = {
           category: null,
           source: null,
@@ -144,7 +144,7 @@ export default {
       dropdownItems.forEach((category) => {
         category.parentsId = category.id.split("-")[0];
       });
-      return [{ id: "null", text: "すべて" }, ...dropdownItems];
+      return [{ id: "null", text: "クリア" }, ...dropdownItems];
     },
     sourceItems() {
       const dropdownItems = [];
@@ -168,7 +168,7 @@ export default {
       });
 
       // すべてを追加
-      dropdownItems.unshift({ id: "null", text: "すべて" });
+      dropdownItems.unshift({ id: "null", text: "クリア" });
 
       return dropdownItems;
     },
@@ -213,7 +213,7 @@ export default {
       dropdownItems = dropdownItems.filter((item) => !item.remove);
 
       // すべてを追加
-      dropdownItems.unshift({ id: "null", text: "すべて" });
+      dropdownItems.unshift({ id: "null", text: "クリア" });
 
       return dropdownItems;
     },

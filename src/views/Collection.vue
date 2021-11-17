@@ -108,7 +108,10 @@
     >
       <div slot="no-more"></div>
       <template slot="no-results">
-        <div v-if="isSearchMode && searchText === ''" class="message"></div>
+        <div
+          v-if="isSearchMode && searchText === '' && adFilterLength === 0"
+          class="message"
+        ></div>
         <div
           v-else-if="
             activeNav === 'exchange' && filter.exchangeType === 'wishlist'
@@ -279,6 +282,9 @@ export default {
     },
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
+    },
+    adFilterLength() {
+      return Object.values(this.adFilters).filter((filter) => filter).length;
     },
   },
   watch: {

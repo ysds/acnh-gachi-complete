@@ -92,7 +92,7 @@ export function filterItems(args) {
   //
 
   const filterVal = isSearchMode ? adFilters.collected : filter.collectedFilter;
-  if (filterVal !== "0") {
+  if (filterVal !== null && filterVal !== "0") {
     items = items.filter((item) => {
       const itemKey = item.uniqueEntryId || item.name;
       const itemLength = item.variants ? item.variants.length : 1;
@@ -195,33 +195,38 @@ export function filterItems(args) {
   //
   if (isSearchMode) {
     const normalizedSearchText = normalizeText(searchText);
-    const filterFuncs = Object.values(adFilters).filter((filter) => {
-      if (typeof filter === "object") {
-        return filter;
+    const filterFuncs = Object.values(adFilters).filter((filter) => filter);
+
+    if (searchText === "" && filterFuncs.length === 0) {
+      return [];
+    } else {
+      if (filterFuncs.length > 0) {
+        filterFuncs.forEach((filter) => {
+          items = items.filter((item) => {
+            if (typeof filter === "function") {
+              return filter(item);
+            } else {
+              return true;
+            }
+          });
+        });
       }
-      return false;
-    });
 
-    if (searchText !== "") {
-      items = items.filter((item) => {
-        const normalizedDisplayName = normalizeText(
-          toDisplayItemName(item, islandName)
-        );
-        return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
-      });
-    }
+      if (searchText !== "") {
+        items = items.filter((item) => {
+          const normalizedDisplayName = normalizeText(
+            toDisplayItemName(item, islandName)
+          );
+          return normalizedDisplayName.indexOf(normalizedSearchText) !== -1;
+        });
+      }
 
-    if (filterFuncs.length > 0) {
-      filterFuncs.forEach((filter) => {
-        items = items.filter((item) => filter(item));
-      });
-    }
-
-    // 島名を含む場合は名前順でソート
-    if (islandName && items.some((item) => hasIslandName(item))) {
-      sortItemsByName(items, (itemName, item) => {
-        return replaceIslandName(itemName, item, islandName);
-      });
+      // 島名を含む場合は名前順でソート
+      if (islandName && items.some((item) => hasIslandName(item))) {
+        sortItemsByName(items, (itemName, item) => {
+          return replaceIslandName(itemName, item, islandName);
+        });
+      }
     }
   } else {
     if (filter) {

@@ -9,7 +9,10 @@
       <DropdownItem
         v-for="collectedFilterItem in collectedFilterItems"
         selectable
-        :active="activeCollectedFilter === collectedFilterItem.id"
+        :active="
+          activeCollectedFilter &&
+          activeCollectedFilter === collectedFilterItem.id
+        "
         :key="collectedFilterItem.id"
         @click="onClickCollectedFilter(collectedFilterItem.id)"
       >
@@ -37,21 +40,30 @@ export default {
   props: {
     activeCollectedFilter: String,
   },
-  data() {
-    return {
-      collectedFilterItems: collectedFilters,
-    };
-  },
+
   computed: {
+    collectedFilterItems() {
+      if (this.isSearchMode) {
+        let array = [...collectedFilters];
+        array.shift();
+        array.unshift({ id: null, label: "クリア", btnLabel: "状態" });
+        return array;
+      } else {
+        return collectedFilters;
+      }
+    },
     collectedFilterLabel() {
       const matchedFilters = collectedFilters.filter(
-        (obj) => obj.id === this.activeCollectedFilter
+        (obj) => obj.id === (this.activeCollectedFilter || "0")
       );
       if (matchedFilters.length === 1) {
         return matchedFilters[0].btnLabel || matchedFilters[0].label;
       } else {
         return "";
       }
+    },
+    isSearchMode() {
+      return this.$store.getters.isSearchMode;
     },
   },
   methods: {

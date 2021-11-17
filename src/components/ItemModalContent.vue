@@ -217,6 +217,14 @@
       <div class="info-label info-4">タヌポイント</div>
       <div class="info-text">{{ modalItem.exchangePrice }}</div>
     </div>
+    <div class="info" v-if="modalItem.materialsJa">
+      <div class="info-label info-7">素材</div>
+      <div class="info-materials">
+        <span v-for="(value, name) in modalItem.materialsJa" :key="name">
+          {{ name }} x {{ value }}<br />
+        </span>
+      </div>
+    </div>
     <div class="info" v-if="modalItem.versionAdded">
       <div class="info-label info-6">追加されたバージョン</div>
       <div class="info-text">{{ modalItem.versionAdded }}</div>
@@ -361,10 +369,18 @@ export default {
   background-color: #888;
 }
 
+.info-7 {
+  background-color: #888;
+}
+
 .info-text {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0.2rem 0.4rem;
+}
+
+.info-materials {
   padding: 0.2rem 0.4rem;
 }
 

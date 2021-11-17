@@ -1,5 +1,9 @@
 <template>
   <div class="advanced-search">
+    <ToolbarFilterCollected
+      :activeCollectedFilter="activeCollected"
+      @change="onChangeCollected"
+    />
     <Popper ref="categoryFilter">
       <template slot="reference">
         <Button dropdown sm @click="scrollIntoView">
@@ -86,6 +90,7 @@ import Button from "../components/Button";
 import Popper from "../components/Popper";
 import DropdownMenu from "../components/DropdownMenu";
 import DropdownItem from "../components/DropdownItem";
+import ToolbarFilterCollected from "../components/ToolbarFilterCollected";
 
 export default {
   name: "SearchBox",
@@ -95,6 +100,7 @@ export default {
     Popper,
     DropdownMenu,
     DropdownItem,
+    ToolbarFilterCollected,
   },
   props: {
     isSearchMode: Boolean,
@@ -104,6 +110,7 @@ export default {
       activeCategory: null,
       activeSource: null,
       activeSeason: null,
+      activeCollected: "0",
       adFilters: {
         category: null,
         source: null,
@@ -117,6 +124,7 @@ export default {
         this.activeCategory = null;
         this.activeSource = null;
         this.activeSeason = null;
+        this.activeCollected = "0";
         this.adFilters = {
           category: null,
           source: null,
@@ -247,6 +255,11 @@ export default {
         this.activeSeason = null;
         this.adFilters.season = null;
       }
+      this.$emit("change", this.adFilters);
+    },
+    onChangeCollected(collected) {
+      this.activeCollected = collected;
+      this.adFilters.collected = collected;
       this.$emit("change", this.adFilters);
     },
     scrollIntoView() {

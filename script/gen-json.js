@@ -29,7 +29,7 @@ const translation = {
   shadow: require("../data/translation-custom/shadow.json"),
   whereHow: require("../data/translation-custom/whereHow.json"),
   weather: require("../data/translation-custom/weather.json"),
-  fixData: require("../data/translation-custom/fix.json")
+  fixData: require("../data/translation-custom/fix.json"),
 };
 
 const removeTranslation = JSON.parse(JSON.stringify(translation));
@@ -39,18 +39,33 @@ const customTranslations = [
   "seasonEvent",
   "shadow",
   "whereHow",
-  "weather"
+  "weather",
 ];
 
 const customAchievementData = require("../data/item-data-custom/achievements.json");
 
 const oldItems = require("../src/assets/items.json");
 
+// DIY素材翻訳処理用のname->internalId変換辞書
+// ※「タンク」と「タンクトップ」などnameが同じアイテムは今のところ素材にならないので考慮しない
+const internalIdDict = {};
+allItems.forEach((item) => {
+  if (item.sourceSheet === "Recipes") {
+    return;
+  } else if (item.clothGroupId) {
+    internalIdDict[item.name] = "Fassion_" + item.clothGroupId;
+  } else if (item.internalId) {
+    internalIdDict[item.name] = item.internalId;
+  } else if (item.variants && item.variants.length > 0) {
+    internalIdDict[item.name] = item.variants[0].internalId;
+  }
+});
+
 //
 // items データ生成
 //
 
-allItems.forEach(item => {
+allItems.forEach((item) => {
   //
   // リメイクバリエーションの整理
   //
@@ -58,7 +73,7 @@ allItems.forEach(item => {
   // Tools の 日本語リメイク名配列を追加とリメイクバリエーションの削除 (customizeVariants)
   if (item.customize && item.sourceSheet === "Tools/Goods") {
     const customizeVariants = [];
-    item.variants.forEach(variant => {
+    item.variants.forEach((variant) => {
       const variantIdArray = variant.variantId.slice("_");
       const variantId = `${variant.internalId}_${variantIdArray[0]}`;
       customizeVariants.push(
@@ -94,7 +109,7 @@ allItems.forEach(item => {
   // 家具の日本語リメイク名配列を追加とリメイクバリエーションの削除 (patternVariants)
   if (item.variants && item.patternCustomize) {
     let prevVariation = "";
-    let newVariants = item.variants.filter(variant => {
+    let newVariants = item.variants.filter((variant) => {
       const result = prevVariation !== variant.variation;
       prevVariation = variant.variation;
       return result;
@@ -113,9 +128,9 @@ allItems.forEach(item => {
   }
 
   // 家具の日本語リメイク名配列を追加とリメイクバリエーションの削除 (bodyVariants)
-  if (item.variants && item.variants.length > 1 && item.cyrusCustomizePrice ) {
+  if (item.variants && item.variants.length > 1 && item.cyrusCustomizePrice) {
     const bodyVariants = [];
-    item.variants.forEach(variant => {
+    item.variants.forEach((variant) => {
       const variantIdArray = variant.variantId.slice("_");
       const variantId = `${variant.internalId}_${variantIdArray[0]}`;
       bodyVariants.push(
@@ -186,7 +201,7 @@ allItems.forEach(item => {
   if (item.variants) {
     const copyKeys = ["source", "buy", "sell"];
     const variant = item.variants[0];
-    copyKeys.forEach(key => {
+    copyKeys.forEach((key) => {
       if (variant[key]) {
         item[key] = variant[key];
       }
@@ -218,7 +233,7 @@ allItems.forEach(item => {
   // Add displayName
   let itemName;
   if (item.sourceSheet === "Recipes") {
-    const items = allItems.filter(craftedItem => {
+    const items = allItems.filter((craftedItem) => {
       return craftedItem.name === item.name;
     });
     itemName = items[0].displayName;
@@ -246,7 +261,7 @@ allItems.forEach(item => {
   // Source
   if (item.source) {
     item.sourceJa = [];
-    item.source.forEach(source => {
+    item.source.forEach((source) => {
       if (source !== "" && translation.source[source] === undefined) {
         newTranslation.source[source] = "";
       } else {
@@ -256,8 +271,32 @@ allItems.forEach(item => {
     });
   }
 
+  // Materials(DIY素材)
+  if (item.materials) {
+    const materialsJa = {};
+    for (const [k, v] of Object.entries(item.materials)) {
+      if (internalIdDict[k]) {
+        const materialJa = translation.itemName[internalIdDict[k]];
+        if (materialJa) {
+          materialsJa[materialJa] = v;
+        } else {
+          console.log(`NoMaterialName: ${k}`);
+        }
+      } else {
+        if (k.endsWith("Bells")) {
+          materialsJa[k.split(" ")[0] + "ベル"] = v;
+        } else if (k.endsWith("turnips")) {
+          materialsJa[k.split(" ")[0] + "カブ"] = v;
+        } else {
+          console.log(`NoInternalId: ${k}`);
+        }
+      }
+    }
+    item.materialsJa = materialsJa;
+  }
+
   // customTranslations
-  customTranslations.forEach(key => {
+  customTranslations.forEach((key) => {
     const value = item[key];
     if (value) {
       let ja = translation[key][value];
@@ -318,7 +357,8 @@ allItems.forEach(item => {
     item.variants.forEach((variant, i) => {
       if (variant.genuine === true) item.variants[i].genuine = "本物";
       if (variant.genuine === false) item.variants[i].genuine = "偽物";
-      if (variant.source && variant.source[0] === "Egg balloon") item.variants[i].source[0] = "Egg balloons";
+      if (variant.source && variant.source[0] === "Egg balloon")
+        item.variants[i].source[0] = "Egg balloons";
     });
   }
 
@@ -335,7 +375,7 @@ allItems.forEach(item => {
   //
 
   // false and null keys
-  Object.keys(item).forEach(key => {
+  Object.keys(item).forEach((key) => {
     if (item[key] === false || item[key] === null) {
       delete item[key];
     }
@@ -347,7 +387,9 @@ allItems.forEach(item => {
 //
 
 const removeItems = require("../data/item-data-custom/removeItems.json");
-allItems = allItems.filter(item => !(removeItems[item.name] && item.sourceSheet !== "Recipes"));
+allItems = allItems.filter(
+  (item) => !(removeItems[item.name] && item.sourceSheet !== "Recipes")
+);
 
 //
 // どのカテゴリにも属さないアイテムの抽出
@@ -357,25 +399,48 @@ const { navsFlat } = require("../src/utils/navs");
 
 let uncategorizedItems = allItems;
 
-Object.values(navsFlat).forEach(nav => {
-  if (!nav.id.match(/special|season|nookpoints|hhp|versions/) && nav.filter !== undefined) {
-    uncategorizedItems = uncategorizedItems.filter(item => {
+Object.values(navsFlat).forEach((nav) => {
+  if (
+    !nav.id.match(/special|season|nookpoints|hhp|versions/) &&
+    nav.filter !== undefined
+  ) {
+    uncategorizedItems = uncategorizedItems.filter((item) => {
       return !nav.filter(item);
-    })
+    });
   }
 });
 
 if (uncategorizedItems.length > 0) {
   console.log(`Uncategorized Items: ${uncategorizedItems.length}`);
-  uncategorizedItems.forEach(item => {
-    console.log(item.name)
+  uncategorizedItems.forEach((item) => {
+    console.log(item.name);
   });
 }
 
 //
-// Remove Unused Keys 
+// Materials(DIY素材)を作成後アイテムにもコピー
 //
-allItems.forEach(item => {
+allItems.forEach((item) => {
+  if (item.diy) {
+    let materialsJa = null;
+    allItems.forEach((recipe) => {
+      if (recipe.craftedItemInternalId === item.variants[0].internalId) {
+        materialsJa = recipe.materialsJa;
+        return;
+      }
+    });
+    if (materialsJa === null) {
+      console.log(`NoMaterialsJa: ${item.name}`);
+    } else {
+      item.materialsJa = materialsJa;
+    }
+  }
+});
+
+//
+// Remove Unused Keys
+//
+allItems.forEach((item) => {
   delete item["achievementCriteria"];
   delete item["cardColor"];
   delete item["catchDifficulty"];
@@ -462,7 +527,7 @@ allItems.forEach(item => {
   }
 
   if (item.variants) {
-    item.variants.forEach(variant => {
+    item.variants.forEach((variant) => {
       delete variant["bodyCustomize"];
       delete variant["bodyTitle"];
       delete variant["buy"];
@@ -486,14 +551,14 @@ allItems.forEach(item => {
 // Sort keys
 //
 
-allItems = allItems.map(function(item) {
+allItems = allItems.map(function (item) {
   const keys = Object.keys(item);
   array_move(keys, keys.indexOf("displayName"), 2);
   array_move(keys, keys.indexOf("source"), 3);
   array_move(keys, keys.indexOf("buy"), 4);
   array_move(keys, keys.indexOf("sell"), 5);
   const newItem = {};
-  keys.forEach(x => {
+  keys.forEach((x) => {
     newItem[x] = item[x];
   });
   return newItem;
@@ -539,20 +604,20 @@ fs.writeFileSync("./src/assets/items.json", allItems);
 //
 
 customTranslations.push("source");
-customTranslations.forEach(translationKey => {
+customTranslations.forEach((translationKey) => {
   let output = newTranslation[translationKey];
 
-  Object.keys(removeTranslation[translationKey]).forEach(function(key) {
+  Object.keys(removeTranslation[translationKey]).forEach(function (key) {
     delete output[key];
   });
 
   if (translationKey === "sourceNotes") {
     output = Object.keys(output)
-    .sort()
-    .reduce(function(result, key) {
-      result[key] = output[key];
-      return result;
-    }, {});
+      .sort()
+      .reduce(function (result, key) {
+        result[key] = output[key];
+        return result;
+      }, {});
   }
 
   fs.writeFileSync(

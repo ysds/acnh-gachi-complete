@@ -17,7 +17,7 @@
           <template v-else>種類</template>
         </Button>
       </template>
-      <DropdownMenu ref="categoryDropdown">
+      <DropdownMenu ref="categoryDropdown" fixFirst>
         <DropdownItem
           v-for="category in categoryItems"
           selectable
@@ -36,14 +36,14 @@
     </Popper>
     <Popper ref="sourceFilter">
       <template slot="reference">
-        <Button dropdown sm @click="scrollIntoView">
+        <Button dropdown sm maxWidth @click="scrollIntoView">
           <template v-if="activeSource">
             {{ activeSource.text }}
           </template>
           <template v-else>入手方法</template>
         </Button>
       </template>
-      <DropdownMenu>
+      <DropdownMenu fixFirst>
         <DropdownItem
           v-for="source in sourceItems"
           selectable
@@ -57,14 +57,14 @@
     </Popper>
     <Popper ref="seasonFilter">
       <template slot="reference">
-        <Button dropdown sm @click="scrollIntoView">
+        <Button dropdown sm maxWidth @click="scrollIntoView">
           <template v-if="activeSeason">
             {{ activeSeason.text }}
           </template>
           <template v-else>入手時期</template>
         </Button>
       </template>
-      <DropdownMenu>
+      <DropdownMenu fixFirst>
         <DropdownItem
           v-for="season in seasonItems"
           selectable
@@ -269,7 +269,7 @@ export default {
           const dropdown = dropdowns[dropdowns.length - 1];
           const activeItem = dropdown.getElementsByClassName("active")[0];
           if (activeItem) {
-            dropdown.scrollTop = activeItem.offsetTop - 100;
+            dropdown.scrollTop = activeItem.offsetTop - 166;
           }
         }
       }, 0);

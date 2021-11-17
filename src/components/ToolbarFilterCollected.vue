@@ -5,7 +5,7 @@
         <span v-html="collectedFilterLabel" />
       </Button>
     </template>
-    <DropdownMenu>
+    <DropdownMenu :fixFirst="isSearchMode">
       <DropdownItem
         v-for="collectedFilterItem in collectedFilterItems"
         selectable
@@ -40,7 +40,6 @@ export default {
   props: {
     activeCollectedFilter: String,
   },
-
   computed: {
     collectedFilterItems() {
       if (this.isSearchMode) {

@@ -17,6 +17,7 @@
       'btn-nav': nav,
       'btn-pill': pill,
       'btn-dropdown': dropdown,
+      'btn-max-width': maxWidth,
     }"
     @click="onClick"
     @touchstart="onTouchStart"
@@ -57,6 +58,7 @@ export default {
     pill: Boolean,
     dropdown: Boolean,
     href: String,
+    maxWidth: Boolean,
   },
   computed: {
     tag() {
@@ -238,5 +240,12 @@ export default {
 
 .bi-chevron-down {
   margin-left: -1px;
+}
+
+.btn-max-width {
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 </style>

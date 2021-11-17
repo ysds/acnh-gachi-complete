@@ -90,65 +90,70 @@ function convertForSorting(str) {
   return str;
 }
 
-module.exports = {
-  sortItemsByName: function (items, converter) {
-    const reSymbol = /[^\u0020-\u007D〓ァ-ヶＡ-Ｚａ-ｚ]/;
-    items.sort(function (a, b) {
-      // 変換前
-      const oa = a.yomigana || a.displayName;
-      const ob = b.yomigana || b.displayName;
-      // 変換後
-      const ca = convertForSorting(converter ? converter(oa, a) : oa);
-      const cb = convertForSorting(converter ? converter(ob, b) : ob);
-      // 1文字単位で判定
-      // 島名読み仮名の〓以外の全角記号は最後尾へ
-      for (let i = 0; i < ca.length; ) {
-        if (i === cb.length) {
+function itemNameCompare(converter) {
+  const reSymbol = /[^\u0020-\u007D〓ァ-ヶＡ-Ｚａ-ｚ]/;
+  return function (a, b) {
+    // 変換前
+    const oa = a.yomigana || a.displayName || a.text;
+    const ob = b.yomigana || b.displayName || b.text;
+    // 変換後
+    const ca = convertForSorting(converter ? converter(oa, a) : oa);
+    const cb = convertForSorting(converter ? converter(ob, b) : ob);
+    // 1文字単位で判定
+    // 島名読み仮名の〓以外の全角記号は最後尾へ
+    for (let i = 0; i < ca.length; ) {
+      if (i === cb.length) {
+        return 1;
+      }
+      const sa = ca.substring(i, i + 1);
+      const sb = cb.substring(i, i + 1);
+      if (sa.match(/[０-９]/) && sb.match(/[０-９]/)) {
+        // 数字同士は連続した数字の大小で比較
+        // 例「12つぶのぶどう」と「１ごうのしゃしん」なら12と1を比較
+        const na = parseInt(
+          hannum(ca.substring(i).match(/[０-９]+/g)[0]),
+          10
+        );
+        const nb = parseInt(
+          hannum(cb.substring(i).match(/[０-９]+/g)[0]),
+          10
+        );
+        if (na > nb) {
           return 1;
-        }
-        const sa = ca.substring(i, i + 1);
-        const sb = cb.substring(i, i + 1);
-        if (sa.match(/[０-９]/) && sb.match(/[０-９]/)) {
-          // 数字同士は連続した数字の大小で比較
-          // 例「12つぶのぶどう」と「１ごうのしゃしん」なら12と1を比較
-          const na = parseInt(
-            hannum(ca.substring(i).match(/[０-９]+/g)[0]),
-            10
-          );
-          const nb = parseInt(
-            hannum(cb.substring(i).match(/[０-９]+/g)[0]),
-            10
-          );
-          if (na > nb) {
-            return 1;
-          } else if (na < nb) {
-            return -1;
-          } else {
-            i += na.toString(10).length;
-          }
-        } else if (reSymbol.test(sa) && !reSymbol.test(sb)) {
-          return 1;
-        } else if (!reSymbol.test(sa) && reSymbol.test(sb)) {
-          return -1;
-        } else if (sa > sb) {
-          return 1;
-        } else if (sa < sb) {
+        } else if (na < nb) {
           return -1;
         } else {
-          i++;
+          i += na.toString(10).length;
         }
-      }
-      if (ca.length < cb.length) {
-        return -1;
-      }
-      // 変換前の値で比較
-      if (oa === ob) {
-        return 0;
-      } else if (oa > ob) {
+      } else if (reSymbol.test(sa) && !reSymbol.test(sb)) {
         return 1;
-      } else {
+      } else if (!reSymbol.test(sa) && reSymbol.test(sb)) {
         return -1;
+      } else if (sa > sb) {
+        return 1;
+      } else if (sa < sb) {
+        return -1;
+      } else {
+        i++;
       }
-    });
+    }
+    if (ca.length < cb.length) {
+      return -1;
+    }
+    // 変換前の値で比較
+    if (oa === ob) {
+      return 0;
+    } else if (oa > ob) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }
+}
+
+module.exports = {
+  sortItemsByName: function (items, converter) {
+    items.sort(itemNameCompare(converter));
   },
+  itemNameCompare
 };

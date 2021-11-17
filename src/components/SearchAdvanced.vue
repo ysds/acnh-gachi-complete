@@ -34,6 +34,27 @@
         </DropdownItem>
       </DropdownMenu>
     </Popper>
+    <Popper ref="versionFilter">
+      <template slot="reference">
+        <Button dropdown sm maxWidth @click="scrollIntoView">
+          <template v-if="activeVersion">
+            {{ activeVersion }}
+          </template>
+          <template v-else>バージョン</template>
+        </Button>
+      </template>
+      <DropdownMenu fixFirst>
+        <DropdownItem
+          v-for="version in versionItems"
+          selectable
+          :active="activeVersion === version"
+          :key="version"
+          @click="onChangeVersion(version)"
+        >
+          <span>{{ version }}</span>
+        </DropdownItem>
+      </DropdownMenu>
+    </Popper>
     <Popper ref="sourceFilter">
       <template slot="reference">
         <Button dropdown sm maxWidth @click="scrollIntoView">
@@ -76,6 +97,27 @@
         </DropdownItem>
       </DropdownMenu>
     </Popper>
+    <Popper ref="seriesFilter">
+      <template slot="reference">
+        <Button dropdown sm maxWidth @click="scrollIntoView">
+          <template v-if="activeSeries">
+            {{ activeSeries.text }}
+          </template>
+          <template v-else>シリーズ</template>
+        </Button>
+      </template>
+      <DropdownMenu fixFirst>
+        <DropdownItem
+          v-for="series in seriesItems"
+          selectable
+          :active="activeSeries && series.id === activeSeries.id"
+          :key="series.id"
+          @click="onChangeSeries(series)"
+        >
+          <span v-html="series.text"></span>
+        </DropdownItem>
+      </DropdownMenu>
+    </Popper>
   </div>
 </template>
 
@@ -83,8 +125,10 @@
 import InlineSvg from "vue-inline-svg";
 
 import { navsFlat } from "../utils/navs";
+import { itemNameCompare } from "../../script/sort";
 import sources from "../../data/translation-custom/source.json";
 import seasons from "../../data/translation-custom/seasonEvent.json";
+import series from "../../data/translation-custom/series.json";
 
 import Button from "../components/Button";
 import Popper from "../components/Popper";
@@ -111,11 +155,32 @@ export default {
       activeSource: null,
       activeSeason: null,
       activeCollected: null,
+      activeVersion: null,
+      activeSeries: null,
       adFilters: {
         category: null,
         source: null,
         season: null,
+        collected: null,
+        version: null,
+        series: null,
       },
+      versionItems: [
+        "クリア",
+        "2.0.0",
+        "1.11.0",
+        "1.10.0",
+        "1.9.0",
+        "1.8.0",
+        "1.7.0",
+        "1.6.0",
+        "1.5.0",
+        "1.4.0",
+        "1.3.0",
+        "1.2.0",
+        "1.1.0",
+        "1.0.0",
+      ],
     };
   },
   watch: {
@@ -125,10 +190,15 @@ export default {
         this.activeSource = null;
         this.activeSeason = null;
         this.activeCollected = null;
+        this.activeVersion = null;
+        this.activeSeries = null;
         this.adFilters = {
           category: null,
           source: null,
           season: null,
+          collected: null,
+          version: null,
+          series: null,
         };
         this.$emit("change", this.adFilters);
       }
@@ -217,6 +287,24 @@ export default {
 
       return dropdownItems;
     },
+    seriesItems() {
+      const dropdownItems = [];
+      Object.keys(series).forEach((id) => {
+        const text = series[id];
+        if (text !== "") {
+          dropdownItems.push({
+            id,
+            text,
+          });
+        }
+      });
+      dropdownItems.sort(itemNameCompare());
+
+      // すべてを追加
+      dropdownItems.unshift({ id: "null", text: "クリア" });
+
+      return dropdownItems;
+    },
   },
   methods: {
     onChangeCategory(category, filter) {
@@ -260,6 +348,34 @@ export default {
     onChangeCollected(collected) {
       this.activeCollected = collected;
       this.adFilters.collected = collected;
+      this.$emit("change", this.adFilters);
+    },
+    onChangeVersion(version) {
+      this.$refs.versionFilter.doClose();
+      if (version !== "null" && version !== "クリア") {
+        this.activeVersion = version;
+        const filter = function (item) {
+          return item.versionAdded === version;
+        };
+        this.adFilters.source = filter;
+      } else {
+        this.activeVersion = null;
+        this.adFilters.version = null;
+      }
+      this.$emit("change", this.adFilters);
+    },
+    onChangeSeries(series) {
+      this.$refs.seriesFilter.doClose();
+      if (series.id !== "null") {
+        this.activeSeries = series;
+        const filter = function (item) {
+          return item.series === series.id;
+        };
+        this.adFilters.series = filter;
+      } else {
+        this.activeSeries = null;
+        this.adFilters.series = null;
+      }
       this.$emit("change", this.adFilters);
     },
     scrollIntoView() {

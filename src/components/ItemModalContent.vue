@@ -221,6 +221,7 @@
       <div class="info-label info-7">素材</div>
       <div class="info-materials">
         <div
+          class="info-material"
           v-for="(material, index) in modalItem.materialsJa"
           :key="`${modalItem.name}Material${index}`"
         >
@@ -396,6 +397,10 @@ export default {
   padding: 0.2rem 0.4rem;
 }
 
+.info-material {
+  display: flex;  
+}
+
 .info-text-btns {
   padding: 0 0.2rem;
 }
@@ -429,8 +434,11 @@ export default {
 }
 
 .info-image-material {
+  flex-shrink: 0;
   width: 28px;
   height: 28px;
+  margin-left: -4px;
+  margin-top: -4px;
   pointer-events: none;
   user-select: none;
 }

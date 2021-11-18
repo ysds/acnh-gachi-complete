@@ -46,19 +46,37 @@ const customAchievementData = require("../data/item-data-custom/achievements.jso
 
 const oldItems = require("../src/assets/items.json");
 
-// DIY素材翻訳処理用のname->internalId変換辞書
+// DIY素材辞書
 // ※「タンク」と「タンクトップ」などnameが同じアイテムは今のところ素材にならないので考慮しない
-const internalIdDict = {};
+const materialsDict = {};
 allItems.forEach((item) => {
-  if (item.sourceSheet === "Recipes") {
+  let internalId;
+  let image;
+  if (
+    item.sourceSheet === "Recipes" ||
+    item.sourceSheet === "Reactions" ||
+    item.sourceSheet === "Achievements"
+  ) {
+    // 素材にならないアイテムは除外
     return;
   } else if (item.clothGroupId) {
-    internalIdDict[item.name] = "Fassion_" + item.clothGroupId;
+    // 「ゴールデンアーマー」などのファッションアイテム
+    internalId = "Fassion_" + item.clothGroupId;
+    image = item.variants[0].storageImage;
   } else if (item.internalId) {
-    internalIdDict[item.name] = item.internalId;
+    // 「ヒラメ」などの生き物
+    internalId = item.internalId;
+    image = item.iconImage;
   } else if (item.variants && item.variants.length > 0) {
-    internalIdDict[item.name] = item.variants[0].internalId;
+    // 上記以外の素材
+    internalId = item.variants[0].internalId;
+    image =
+      item.variants[0].image ||
+      item.variants[0].storageImage ||
+      item.variants[0].albumImage ||
+      item.variants[0].inventoryImage;
   }
+  materialsDict[item.name] = { internalId: internalId, image: image };
 });
 
 //
@@ -273,26 +291,43 @@ allItems.forEach((item) => {
 
   // Materials(DIY素材)
   if (item.materials) {
-    const materialsJa = {};
+    const materialsJa = [];
     for (const [k, v] of Object.entries(item.materials)) {
-      if (internalIdDict[k]) {
-        const materialJa = translation.itemName[internalIdDict[k]];
-        if (materialJa) {
-          materialsJa[materialJa] = v;
-        } else {
+      let materialName;
+      let image;
+      if (materialsDict[k] && materialsDict[k].internalId) {
+        materialName = translation.itemName[materialsDict[k].internalId];
+        if (!materialName) {
           console.log(`NoMaterialName: ${k}`);
+          continue;
         }
+        image = materialsDict[k].image;
       } else {
         if (k.endsWith("Bells")) {
-          materialsJa[k.split(" ")[0] + "ベル"] = v;
+          // 「おさつのやま」などのベル素材
+          materialName = k.split(" ")[0] + "ベル";
+          image = materialsDict["Bell bag"].image;
         } else if (k.endsWith("turnips")) {
-          materialsJa[k.split(" ")[0] + "カブ"] = v;
+          // 「せんまいづけのたる」などのカブ素材
+          materialName = k.split(" ")[0] + "カブ";
+          image = materialsDict["turnips"].image;
         } else {
           console.log(`NoInternalId: ${k}`);
+          continue;
         }
       }
+      materialsJa.push({ name: materialName, image: image, num: v });
     }
     item.materialsJa = materialsJa;
+    // 作成後アイテムにも設定
+    allItems.forEach((craftedItem) => {
+      if (
+        craftedItem.diy &&
+        item.craftedItemInternalId === craftedItem.variants[0].internalId
+      ) {
+        craftedItem.materialsJa = materialsJa;
+      }
+    });
   }
 
   // customTranslations
@@ -352,7 +387,7 @@ allItems.forEach((item) => {
     });
   }
 
-  // 本物/偽物 ＆　Egg balloon を Egg balloons に統合
+  // 本物/偽物 ＆ Egg balloon を Egg balloons に統合
   if (item.variants) {
     item.variants.forEach((variant, i) => {
       if (variant.genuine === true) item.variants[i].genuine = "本物";
@@ -416,26 +451,6 @@ if (uncategorizedItems.length > 0) {
     console.log(item.name);
   });
 }
-
-//
-// Materials(DIY素材)を作成後アイテムにもコピー
-//
-allItems.forEach((item) => {
-  if (item.diy) {
-    let materialsJa = null;
-    allItems.forEach((recipe) => {
-      if (recipe.craftedItemInternalId === item.variants[0].internalId) {
-        materialsJa = recipe.materialsJa;
-        return;
-      }
-    });
-    if (materialsJa === null) {
-      console.log(`NoMaterialsJa: ${item.name}`);
-    } else {
-      item.materialsJa = materialsJa;
-    }
-  }
-});
 
 //
 // Remove Unused Keys

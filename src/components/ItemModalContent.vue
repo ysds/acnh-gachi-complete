@@ -220,9 +220,13 @@
     <div class="info" v-if="modalItem.materialsJa">
       <div class="info-label info-7">素材</div>
       <div class="info-materials">
-        <span v-for="(value, name) in modalItem.materialsJa" :key="name">
-          {{ name }} x {{ value }}<br />
-        </span>
+        <div
+          v-for="(material, index) in modalItem.materialsJa"
+          :key="`${modalItem.name}Material${index}`"
+        >
+          <img :src="materialImage(index)" class="info-image-material" />
+          {{ material.name }} x {{ material.num }}
+        </div>
       </div>
     </div>
     <div class="info" v-if="modalItem.versionAdded">
@@ -294,6 +298,14 @@ export default {
     },
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
+    },
+    materialImage() {
+      return function (index) {
+        return (
+          "https://acnhcdn.com/latest/" +
+          this.modalItem.materialsJa[index].image
+        );
+      };
     },
   },
   methods: {
@@ -414,5 +426,12 @@ export default {
   right: -20px;
   width: 62px;
   height: 62px;
+}
+
+.info-image-material {
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  user-select: none;
 }
 </style>

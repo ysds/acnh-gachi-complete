@@ -43,7 +43,7 @@ export default {
     navText() {
       if (this.active) {
         const activeNavObj = this.navs.filter((nav) => {
-          return this.active.includes(nav.id);
+          return this.active.startsWith(nav.id);
         });
         if (activeNavObj.length > 0) {
           return activeNavObj[0].text;
@@ -54,7 +54,7 @@ export default {
     subnavs: function () {
       if (this.active) {
         const activeNavObj = this.navs.filter((nav) => {
-          return this.active.includes(nav.id);
+          return this.active.startsWith(nav.id);
         });
         if (activeNavObj.length > 0) {
           return activeNavObj[0].subnavs;

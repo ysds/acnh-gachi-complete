@@ -8,7 +8,7 @@
           class="nav-item"
           :class="[
             {
-              active: active && active.includes(nav.id),
+              active: active && active.startsWith(nav.id),
               separator: nav.separator,
             },
             nav.class,
@@ -150,7 +150,7 @@ export default {
     background-color: #ab47bc;
   }
 
-svg {
+  svg {
     color: #ab47bc;
   }
 }
@@ -160,7 +160,7 @@ svg {
     background-color: #ff617c;
   }
 
-svg {
+  svg {
     color: #ff617c;
   }
 }

@@ -472,7 +472,6 @@ allItems.forEach((item) => {
   delete item["description"];
   delete item["diyIconFilename"];
   delete item["doorDeco"];
-  delete item["exchangeCurrency"];
   delete item["fossilGroup"];
   delete item["furnitureFilename"];
   delete item["furnitureImage"];

@@ -54,15 +54,18 @@
           modalItem.buy
             ? modalItem.buy === -1
               ? "非売品"
-              : modalItem.buy
+              : `${modalItem.buy}ベル`
             : "－"
         }}
+        <template v-if="modalItem.exchangeCurrency === 'Poki' && modalItem.exchangePrice">
+          , {{modalItem.exchangePrice}}ポキ
+        </template>
       </div>
     </div>
     <div class="info" v-if="modalItem.buy || modalItem.sell">
       <div class="info-label info-2">売値</div>
       <div class="info-text">
-        {{ modalItem.sell ? modalItem.sell : "－" }}
+        {{ modalItem.sell ? `${modalItem.sell}ベル` : "－" }}
       </div>
     </div>
     <div class="info" v-if="modalItem.customizeVariants">
@@ -208,11 +211,7 @@
     </div>
     <div
       class="info"
-      v-if="
-        modalItem.exchangePrice &&
-        modalItem.source &&
-        modalItem.source.indexOf('NookLink') >= 0
-      "
+      v-if="modalItem.exchangeCurrency && modalItem.exchangePrice"
     >
       <div class="info-label info-4">タヌポイント</div>
       <div class="info-text">{{ modalItem.exchangePrice }}</div>
@@ -398,7 +397,7 @@ export default {
 }
 
 .info-material {
-  display: flex;  
+  display: flex;
 }
 
 .info-text-btns {

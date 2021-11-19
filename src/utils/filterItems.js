@@ -188,6 +188,12 @@ export function filterItems(args) {
       }
       return isMatch;
     });
+  } else {
+    items.forEach((item) => {
+      if (updateMatchedVariants) {
+        item.matchedVariants = undefined;
+      }
+    });
   }
 
   //

@@ -211,7 +211,7 @@
     </div>
     <div
       class="info"
-      v-if="modalItem.exchangeCurrency && modalItem.exchangePrice"
+      v-if="modalItem.exchangeCurrency === 'Nook Points' && modalItem.exchangePrice"
     >
       <div class="info-label info-4">タヌポイント</div>
       <div class="info-text">{{ modalItem.exchangePrice }}</div>

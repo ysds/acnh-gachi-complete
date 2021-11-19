@@ -79,6 +79,54 @@ allItems.forEach((item) => {
   materialsDict[item.name] = { internalId: internalId, image: image };
 });
 
+// 写真に追加する住民データ辞書
+const npcDict = {};
+[]
+  .concat(
+    require("../data/npc-data/NmlNpcParam.bcsv.json"),
+    require("../data/npc-data/SpNpcParam.bcsv.json")
+  )
+  .forEach((npc) => {
+    // 性格（ノーマル住民のみ）
+    let personality = null;
+    if (npc.NpcLooks) {
+      switch (npc.NpcLooks) {
+        case "Boy_active":
+          personality = "ハキハキ";
+          break;
+        case "Boy_normal":
+          personality = "ぼんやり";
+          break;
+        case "Boy_pride":
+          personality = "コワイ";
+          break;
+        case "Boy_snobby":
+          personality = "キザ";
+          break;
+        case "Girl_active":
+          personality = "元気";
+          break;
+        case "Girl_big_sis":
+          personality = "アネキ";
+          break;
+        case "Girl_normal":
+          personality = "普通";
+          break;
+        case "Girl_pride":
+          personality = "オトナ";
+          break;
+        default:
+          console.log(`UnknowPpersonality: ${npc.NpcLooks}`);
+      }
+    }
+    // 誕生日
+    const birthday = npc.BirthMonth + "月" + npc.BirthMDay + "日";
+    npcDict[npc.BromideItemId] = {
+      personality: personality,
+      birthday: birthday,
+    };
+  });
+
 //
 // items データ生成
 //
@@ -110,6 +158,7 @@ allItems.forEach((item) => {
   }
 
   // Photos の 日本語リメイク名配列を追加とリメイクバリエーションの削除 (customizeVariants)
+  // 性格と誕生日もついでに追加
   if (item.sourceSheet === "Photos") {
     // しゃしんはinternalIdの最小値6426(さくらじま)しか翻訳データが無い
     const photoInternalId = "6426";
@@ -122,6 +171,13 @@ allItems.forEach((item) => {
     item.customizeVariants = customizeVariants;
     item.bodyTitle = translation.variantBodyTitle[photoInternalId];
     item.variants.length = 1;
+    const npc = npcDict[item.variants[0].internalId];
+    if (npc) {
+      item.personality = npc.personality;
+      item.birthday = npc.birthday;
+    } else {
+      console.log(`NoNpcData: ${item.name}`);
+    }
   }
 
   // 家具の日本語リメイク名配列を追加とリメイクバリエーションの削除 (patternVariants)

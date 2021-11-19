@@ -5,7 +5,15 @@ const typeFilters = [
     id: "all",
     label: "すべて",
     btnLabel: "フィルタ",
-    show: ["housewares", "fashion", "tools", "walletc", "music", "flowers"],
+    show: [
+      "housewares",
+      "fashion",
+      "tools",
+      "walletc",
+      "music",
+      "flowers",
+      "photos",
+    ],
   },
   {
     id: "catalog-buyable",
@@ -36,7 +44,7 @@ const typeFilters = [
     label: "非売品（DIYを除く）",
     show: ["housewares", "fashion", "tools", "walletc"],
     filter: function (item) {
-      return item.catalog !== "For sale"&& !item.diy;
+      return item.catalog !== "For sale" && !item.diy;
     },
   },
   {
@@ -107,6 +115,78 @@ const typeFilters = [
     show: ["flowers"],
     filter: function (item) {
       return item.source && item.source.includes("5-star town status");
+    },
+  },
+  {
+    id: "personality-jock",
+    label: "ハキハキ",
+    show: ["photos"],
+    filter: function (item) {
+      return item.personality === "ハキハキ";
+    },
+  },
+  {
+    id: "personality-lazy",
+    label: "ぼんやり",
+    show: ["photos"],
+    filter: function (item) {
+      return item.personality === "ぼんやり";
+    },
+  },
+  {
+    id: "personality-cranky",
+    label: "コワイ",
+    show: ["photos"],
+    filter: function (item) {
+      return item.personality === "コワイ";
+    },
+  },
+  {
+    id: "personality-smug",
+    label: "キザ",
+    show: ["photos"],
+    filter: function (item) {
+      return item.personality === "キザ";
+    },
+  },
+  {
+    id: "personality-peppy",
+    label: "元気",
+    show: ["photos"],
+    filter: function (item) {
+      return item.personality === "元気";
+    },
+  },
+  {
+    id: "personality-big-sister",
+    label: "アネキ",
+    show: ["photos"],
+    filter: function (item) {
+      return item.personality === "アネキ";
+    },
+  },
+  {
+    id: "personality-normal",
+    label: "普通",
+    show: ["photos"],
+    filter: function (item) {
+      return item.personality === "普通";
+    },
+  },
+  {
+    id: "personality-snooty",
+    label: "オトナ",
+    show: ["photos"],
+    filter: function (item) {
+      return item.personality === "オトナ";
+    },
+  },
+  {
+    id: "personality-none",
+    label: "SP住民",
+    show: ["photos"],
+    filter: function (item) {
+      return !item.personality;
     },
   },
 ];

@@ -57,8 +57,12 @@
               : `${modalItem.buy}ベル`
             : "－"
         }}
-        <template v-if="modalItem.exchangeCurrency === 'Poki' && modalItem.exchangePrice">
-          , {{modalItem.exchangePrice}}ポキ
+        <template
+          v-if="
+            modalItem.exchangeCurrency === 'Poki' && modalItem.exchangePrice
+          "
+        >
+          , {{ modalItem.exchangePrice }}ポキ
         </template>
       </div>
     </div>
@@ -211,7 +215,9 @@
     </div>
     <div
       class="info"
-      v-if="modalItem.exchangeCurrency === 'Nook Points' && modalItem.exchangePrice"
+      v-if="
+        modalItem.exchangeCurrency === 'Nook Points' && modalItem.exchangePrice
+      "
     >
       <div class="info-label info-4">タヌポイント</div>
       <div class="info-text">{{ modalItem.exchangePrice }}</div>
@@ -228,6 +234,14 @@
           {{ material.name }} x {{ material.num }}
         </div>
       </div>
+    </div>
+    <div class="info" v-if="modalItem.personality">
+      <div class="info-label info-8">性格</div>
+      <div class="info-text">{{ modalItem.personality }}</div>
+    </div>
+    <div class="info" v-if="modalItem.birthday">
+      <div class="info-label info-9">誕生日</div>
+      <div class="info-text">{{ modalItem.birthday }}</div>
     </div>
     <div class="info" v-if="modalItem.versionAdded">
       <div class="info-label info-6">追加されたバージョン</div>
@@ -382,6 +396,14 @@ export default {
 }
 
 .info-7 {
+  background-color: #888;
+}
+
+.info-8 {
+  background-color: #888;
+}
+
+.info-9 {
   background-color: #888;
 }
 

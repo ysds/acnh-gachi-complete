@@ -297,7 +297,7 @@ allItems.forEach((item) => {
     item.name === "bridge construction kit" ||
     item.name === "campsite construction kit"
   ) {
-    item.serialId = item.serialId + 10000;
+    item.serialId = item.serialId + 20000;
   }
 
   //

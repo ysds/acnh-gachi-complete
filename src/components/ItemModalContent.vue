@@ -48,7 +48,7 @@
       </Button>
     </div>
     <div class="info" v-if="modalItem.buy || modalItem.sell">
-      <div class="info-label info-1">買値</div>
+      <div class="info-label info-buy">買値</div>
       <div class="info-text">
         {{
           modalItem.buy
@@ -67,13 +67,13 @@
       </div>
     </div>
     <div class="info" v-if="modalItem.buy || modalItem.sell">
-      <div class="info-label info-2">売値</div>
+      <div class="info-label info-sell">売値</div>
       <div class="info-text">
         {{ modalItem.sell ? `${modalItem.sell}ベル` : "－" }}
       </div>
     </div>
     <div class="info" v-if="modalItem.customizeVariants">
-      <div class="info-label info-5">
+      <div class="info-label info-remake">
         リメイク
         <div class="info-label-sub">（{{ modalItem.bodyTitle }}）</div>
       </div>
@@ -91,7 +91,7 @@
       </div>
     </div>
     <div class="info" v-if="modalItem.bodyVariants">
-      <div class="info-label info-5">
+      <div class="info-label info-remake">
         <div
           class="info-label-mini"
           v-if="
@@ -119,7 +119,7 @@
       </div>
     </div>
     <div class="info" v-if="modalItem.patternCustomize">
-      <div class="info-label info-5">
+      <div class="info-label info-remake">
         リメイク
         <div class="info-label-sub">（{{ modalItem.patternTitle }}）</div>
       </div>
@@ -137,7 +137,7 @@
       </div>
     </div>
     <div class="info" v-if="modalItem.sourceJa">
-      <div class="info-label info-3">入手</div>
+      <div class="info-label info-source">入手</div>
       <div class="info-text">
         <template v-if="modalItem.sourceJa">
           {{ modalItem.sourceJa.join("、") }}
@@ -145,15 +145,15 @@
       </div>
     </div>
     <div class="info" v-if="modalItem.sourceNotesJa">
-      <div class="info-label info-4">入手メモ</div>
+      <div class="info-label info-source-note">入手メモ</div>
       <div class="info-text">{{ modalItem.sourceNotesJa }}</div>
     </div>
     <div class="info" v-if="modalItem.seasonEventJa">
-      <div class="info-label info-4">入手時期</div>
+      <div class="info-label info-source-note">入手時期</div>
       <div class="info-text">{{ modalItem.seasonEventJa }}</div>
     </div>
     <div class="info" v-if="modalItem.activeMonths">
-      <div class="info-label info-4">時期</div>
+      <div class="info-label info-source-note">時期</div>
       <div class="info-text">
         <template v-if="modalItem.activeMonths.northern.length === 12">
           １年中
@@ -179,7 +179,7 @@
       </div>
     </div>
     <div class="info" v-if="modalItem.activeMonths">
-      <div class="info-label info-4">時間帯</div>
+      <div class="info-label info-source-note">時間帯</div>
       <div class="info-text">
         <span>
           <template v-if="modalItem.activeMonths.northern[0].isAllDay">
@@ -198,19 +198,19 @@
       </div>
     </div>
     <div class="info" v-if="modalItem.weather">
-      <div class="info-label info-4">天候</div>
+      <div class="info-label info-source-note">天候</div>
       <div class="info-text">{{ modalItem.weatherJa }}</div>
     </div>
     <div class="info" v-if="modalItem.whereHow">
-      <div class="info-label info-4">場所</div>
+      <div class="info-label info-source-note">場所</div>
       <div class="info-text">{{ modalItem.whereHowJa }}</div>
     </div>
     <div class="info" v-if="modalItem.shadow">
-      <div class="info-label info-4">魚影</div>
+      <div class="info-label info-source-note">魚影</div>
       <div class="info-text">{{ modalItem.shadowJa }}</div>
     </div>
     <div class="info" v-if="modalItem.achievementDescription">
-      <div class="info-label info-4">説明</div>
+      <div class="info-label info-source-note">説明</div>
       <div class="info-text">{{ modalItem.achievementDescription }}</div>
     </div>
     <div
@@ -219,11 +219,11 @@
         modalItem.exchangeCurrency === 'Nook Points' && modalItem.exchangePrice
       "
     >
-      <div class="info-label info-4">タヌポイント</div>
+      <div class="info-label info-source-note">タヌポイント</div>
       <div class="info-text">{{ modalItem.exchangePrice }}</div>
     </div>
     <div class="info" v-if="modalItem.materialsJa">
-      <div class="info-label info-7">素材</div>
+      <div class="info-label info-other">素材</div>
       <div class="info-materials">
         <div
           class="info-material"
@@ -236,15 +236,15 @@
       </div>
     </div>
     <div class="info" v-if="modalItem.personality">
-      <div class="info-label info-8">性格</div>
+      <div class="info-label info-other">性格</div>
       <div class="info-text">{{ modalItem.personality }}</div>
     </div>
     <div class="info" v-if="modalItem.birthday">
-      <div class="info-label info-9">誕生日</div>
+      <div class="info-label info-other">誕生日</div>
       <div class="info-text">{{ modalItem.birthday }}</div>
     </div>
     <div class="info" v-if="modalItem.versionAdded">
-      <div class="info-label info-6">追加されたバージョン</div>
+      <div class="info-label info-other">追加されたバージョン</div>
       <div class="info-text">{{ modalItem.versionAdded }}</div>
     </div>
   </div>
@@ -371,39 +371,27 @@ export default {
   font-weight: 400;
 }
 
-.info-1 {
+.info-buy {
   background-color: #ec407a;
 }
 
-.info-2 {
+.info-sell {
   background-color: #1e88e5;
 }
 
-.info-3 {
+.info-source {
   background-color: #ab47bc;
 }
 
-.info-4 {
+.info-source-note {
   background-color: #7e57c2;
 }
 
-.info-5 {
+.info-remake {
   background-color: #ff7626;
 }
 
-.info-6 {
-  background-color: #888;
-}
-
-.info-7 {
-  background-color: #888;
-}
-
-.info-8 {
-  background-color: #888;
-}
-
-.info-9 {
+.info-other {
   background-color: #888;
 }
 

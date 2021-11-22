@@ -1,5 +1,6 @@
 module.exports = {
-  array_move: function(arr, old_index, new_index) {
+  array_move: function (arr, old_index, new_index) {
+    if (arr.length <= new_index) return arr;
     if (new_index >= arr.length) {
       var k = new_index - arr.length + 1;
       while (k--) {
@@ -9,7 +10,7 @@ module.exports = {
     arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
     return arr;
   },
-  numberWithCommas: function(x) {
+  numberWithCommas: function (x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  },
 };

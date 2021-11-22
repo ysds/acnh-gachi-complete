@@ -19,7 +19,10 @@
         <template>
           <div
             class="item-variants"
-            v-if="item.variants && item.variants.length > 1"
+            v-if="
+              item.variants &&
+              (item.variants.length > 1 || item.variants[0].request)
+            "
           >
             <CheckForList
               v-for="(variant, index) in item.variants"
@@ -29,7 +32,11 @@
               :variants="item.variants"
               @click="onChangeCheck(index)"
             />
-            <span class="item-length">{{ item.variants.length }}種</span>
+            <span
+              class="item-length"
+              v-if="item.variants && item.variants.length > 1"
+              >{{ item.variants.length }}種</span
+            >
           </div>
         </template>
       </div>

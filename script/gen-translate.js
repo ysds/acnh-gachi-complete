@@ -289,3 +289,26 @@ const fs = require("fs");
   contentJson = JSON.stringify(contentJson, null, 2);
   fs.writeFileSync("./data/translation-json/achievements.json", contentJson);
 })();
+
+//
+// Request
+//
+
+(() => {
+  const items = require("../data/translation-src/OneRoom_ThemeName.msbt.json");
+  const output = {};
+
+  items.forEach((item) => {
+    let en = item.locale.USen;
+    let ja = item.locale.JPja;
+    en = en.replace(/\{\{.*?\}\}/gi, "");
+    ja = ja.replace(/\{\{.*?\}\}/gi, "");
+    ja = ja.replace(/\s/gi, "");
+    output[en] = ja;
+  });
+
+  fs.writeFileSync(
+    `./data/translation-json/request.json`,
+    JSON.stringify(output, null, 2)
+  );
+})();

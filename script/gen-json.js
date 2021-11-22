@@ -11,7 +11,8 @@ let allItems = [].concat(
   require("../data/item-data/recipes.json"),
   require("../data/item-data/creatures.json"),
   require("../data/item-data/reactions.json"),
-  require("../data/item-data/achievements.json")
+  require("../data/item-data/achievements.json"),
+  require("../data/item-data/request.json")
 );
 
 const translation = {
@@ -29,6 +30,8 @@ const translation = {
   shadow: require("../data/translation-custom/shadow.json"),
   whereHow: require("../data/translation-custom/whereHow.json"),
   weather: require("../data/translation-custom/weather.json"),
+  npcName: require("../data/translation-src/npc/STR_NNpcName.json"),
+  request: require("../data/translation-json/request.json"),
   fixData: require("../data/translation-custom/fix.json"),
 };
 
@@ -43,6 +46,7 @@ const customTranslations = [
 ];
 
 const customAchievementData = require("../data/item-data-custom/achievements.json");
+const customNpcImageData = require("../data/item-data-custom/npc-icon.json");
 
 const oldItems = require("../src/assets/items.json");
 
@@ -311,6 +315,8 @@ allItems.forEach((item) => {
       return craftedItem.name === item.name;
     });
     itemName = items[0].displayName;
+  } else if (item.sourceSheet === "Paradise Planning") {
+    itemName = translation.npcName[item.filename];
   } else if (item.sourceSheet === "Reactions") {
     itemName = translation.reaction[item.iconFilename];
   } else if (item.sourceSheet === "Achievements") {
@@ -443,6 +449,20 @@ allItems.forEach((item) => {
     });
   }
 
+  //
+  // ハピパラプランニングデータ生成
+  //
+
+  // 画像に住民アイコン画像を設定
+  if (item.sourceSheet === "Paradise Planning") {
+    const variant = {
+      uniqueEntryId: 0,
+      image: customNpcImageData[item.name],
+      request: translation.request[item.request],
+    };
+    item.variants = [variant];
+  }
+
   // 本物/偽物 ＆ Egg balloon を Egg balloons に統合
   if (item.variants) {
     item.variants.forEach((variant, i) => {
@@ -492,8 +512,9 @@ let uncategorizedItems = allItems;
 
 Object.values(navsFlat).forEach((nav) => {
   if (
-    !nav.id.match(/special|season|nookpoints|hhp|versions/) &&
-    nav.filter !== undefined
+    (!nav.id.match(/special|season|nookpoints|hhp|versions/) &&
+      nav.filter !== undefined) ||
+    nav.id === "hhp-request"
   ) {
     uncategorizedItems = uncategorizedItems.filter((item) => {
       return !nav.filter(item);
@@ -583,6 +604,12 @@ allItems.forEach((item) => {
   delete item["vision"];
   delete item["windowColor"];
   delete item["windowType"];
+  delete item["furnitureNameList"];
+  delete item["furnitureList"];
+  delete item["filename"];
+  delete item["thoughtBubble"];
+  delete item["song"];
+  delete item["request"];
 
   if (item.sourceSheet !== "Other") {
     delete item["tag"];

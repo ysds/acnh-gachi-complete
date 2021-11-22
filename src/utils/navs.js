@@ -36,7 +36,8 @@ const navs = [
           return (
             item.sourceSheet === "Miscellaneous" ||
             item.sourceSheet === "Food" ||
-            (item.sourceSheet === "Artwork" && item.category === "Miscellaneous")
+            (item.sourceSheet === "Artwork" &&
+              item.category === "Miscellaneous")
           );
         },
       },
@@ -173,7 +174,9 @@ const navs = [
         id: "tools-wand",
         text: "ステッキ",
         filter: function (item) {
-          return item.sourceSheet === "Tools/Goods" && item.name.indexOf("wand") >= 0;
+          return (
+            item.sourceSheet === "Tools/Goods" && item.name.indexOf("wand") >= 0
+          );
         },
       },
     ],
@@ -700,7 +703,9 @@ const navs = [
         subtext: "4/29〜5/7",
         order: 10,
         filter: function (item) {
-          return item.seasonEvent === "May Day" && item.sourceSheet !== "Tools/Goods";
+          return (
+            item.seasonEvent === "May Day" && item.sourceSheet !== "Tools/Goods"
+          );
         },
       },
       {
@@ -876,6 +881,13 @@ const navs = [
     class: "nav-item-special",
     subnavs: [
       {
+        id: "hhp-request",
+        text: "お仕事（別荘）",
+        filter: function (item) {
+          return item.sourceSheet === "Paradise Planning";
+        },
+      },
+      {
         id: "hhp-office",
         text: "タクミライフ",
         filter: function (item) {
@@ -891,7 +903,7 @@ const navs = [
       },
       {
         id: "hhp-apparel",
-        text: "服屋",
+        text: "アパレルショップ",
         filter: function (item) {
           return inSource(item, "HHP Apparel Shop");
         },

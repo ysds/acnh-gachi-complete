@@ -27,6 +27,9 @@
         <template v-if="props.variant.genuine">
           {{ props.variant.genuine }}
         </template>
+        <template v-if="props.variant.request">
+          {{ props.variant.request }}
+        </template>
       </template>
       <template v-if="props.length && props.length > 1">
         {{ props.length }}種
@@ -47,7 +50,7 @@ export default {
     "isRecipe",
     "isRemake",
     "isInWishlist",
-    "length"
+    "length",
   ],
 };
 </script>
@@ -95,7 +98,7 @@ export default {
   margin-top: 2px;
   font-size: 10px;
   font-weight: 600;
-  height: 1.6rem;
+  height: 1.5rem;
   line-height: 1.1;
   pointer-events: none;
   user-select: none;

@@ -13,6 +13,9 @@
     <template v-if="props.variant.genuine">
       {{ props.variant.genuine }}
     </template>
+    <template v-if="props.variant.request">
+      {{ props.variant.request }}
+    </template>
   </button>
 </template>
 <script>

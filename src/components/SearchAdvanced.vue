@@ -208,8 +208,9 @@ export default {
     categoryItems() {
       const dropdownItems = Object.values(navsFlat).filter(
         (nav) =>
-          !nav.id.match(/special|season|nookpoints|hhp|versions/) &&
-          nav.filter !== undefined
+          (!nav.id.match(/special|season|nookpoints|hhp|versions/) &&
+            nav.filter !== undefined) ||
+          nav.id === "hhp-request"
       );
       dropdownItems.forEach((category) => {
         category.parentsId = category.id.split("-")[0];

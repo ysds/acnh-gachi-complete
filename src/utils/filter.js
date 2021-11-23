@@ -17,23 +17,31 @@ const typeFilters = [
   },
   {
     id: "catalog-buyable",
-    label: "カタログ購入可",
+    label: "カタログ購入可（いつでも）",
     show: ["housewares", "fashion", "tools", "walletc", "music"],
     filter: function (item) {
       return item.catalog === "For sale";
     },
   },
   {
-    id: "not-for-sale",
-    label: "非売品",
+    id: "catalog-seasoonal",
+    label: "カタログ購入可（期間制限あり）",
     show: ["housewares", "fashion", "tools", "walletc", "music"],
     filter: function (item) {
-      return item.catalog !== "For sale";
+      return item.catalog === "Seasonal";
+    },
+  },
+  {
+    id: "not-for-sale",
+    label: "ひばいひん",
+    show: ["housewares", "fashion", "tools", "walletc", "music"],
+    filter: function (item) {
+      return item.catalog !== "For sale" && item.catalog !== "Seasonal";
     },
   },
   {
     id: "not-for-sale-diy",
-    label: "非売品（DIY）",
+    label: "ひばいひん（DIY）",
     show: ["housewares", "fashion", "tools", "walletc"],
     filter: function (item) {
       return item.catalog !== "For sale" && item.diy;
@@ -41,10 +49,12 @@ const typeFilters = [
   },
   {
     id: "not-for-sale-other",
-    label: "非売品（DIYを除く）",
+    label: "ひばいひん（DIYを除く）",
     show: ["housewares", "fashion", "tools", "walletc"],
     filter: function (item) {
-      return item.catalog !== "For sale" && !item.diy;
+      return (
+        item.catalog !== "For sale" && !item.diy && item.catalog !== "Seasonal"
+      );
     },
   },
   {

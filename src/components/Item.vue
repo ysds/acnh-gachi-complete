@@ -26,11 +26,23 @@
           <div v-html="infoActiveMonths" />
           <div>
             <span v-html="infoActiveTimes" />
-            <template v-if="item.weatherJa">, {{item.weatherJa}}</template>
-            <template v-if="item.whereHowJa">, 場所: {{item.whereHowJa}}</template>
-            <template v-if="item.shadowJa">, 魚影: {{item.shadowJa}}</template>
+            <template v-if="item.weatherJa">, {{ item.weatherJa }}</template>
+            <template v-if="item.whereHowJa"
+              >, 場所: {{ item.whereHowJa }}</template
+            >
+            <template v-if="item.shadowJa"
+              >, 魚影: {{ item.shadowJa }}</template
+            >
           </div>
         </div>
+        <template v-if="item.sourceSheet === 'Photos'">
+          <div class="item-note" v-if="item.personality">
+            性格: {{ item.personality }}
+          </div>
+          <div class="item-note" v-if="item.birthday">
+            誕生日: {{ item.birthday }}
+          </div>
+        </template>
         <template>
           <div
             class="item-variants"

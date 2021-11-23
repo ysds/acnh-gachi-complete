@@ -243,6 +243,17 @@
       <div class="info-label info-other">誕生日</div>
       <div class="info-text">{{ modalItem.birthday }}</div>
     </div>
+    <div
+      class="info"
+      v-if="
+        modalItem.variants &&
+        modalItem.variants.length > 0 &&
+        modalItem.variants[0].request
+      "
+    >
+      <div class="info-label info-other">テーマ</div>
+      <div class="info-text">{{ modalItem.variants[0].request }}</div>
+    </div>
     <div class="info" v-if="modalItem.versionAdded">
       <div class="info-label info-other">追加されたバージョン</div>
       <div class="info-text">{{ modalItem.versionAdded }}</div>

@@ -461,6 +461,10 @@ allItems.forEach((item) => {
       request: translation.request[item.request],
     };
     item.variants = [variant];
+    // 追加バージョンを設定
+    if (!item.versionAdded) {
+      item.versionAdded = "2.0.0";
+    }
   }
 
   // 本物/偽物 ＆ Egg balloon を Egg balloons に統合

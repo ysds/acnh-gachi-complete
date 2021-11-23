@@ -15,7 +15,22 @@
         />
       </div>
       <div class="item-center">
-        {{ itemName }}
+        <div>{{ itemName }}</div>
+        <div class="item-note" v-if="item.sourceJa">
+          {{ item.sourceJa.join("、") }}
+        </div>
+        <div class="item-note" v-if="item.seasonEventJa">
+          {{ item.seasonEventJa }}
+        </div>
+        <div class="item-note" v-if="item.activeMonths">
+          <div v-html="infoActiveMonths" />
+          <div>
+            <span v-html="infoActiveTimes" />
+            <template v-if="item.weatherJa">, {{item.weatherJa}}</template>
+            <template v-if="item.whereHowJa">, 場所: {{item.whereHowJa}}</template>
+            <template v-if="item.shadowJa">, 魚影: {{item.shadowJa}}</template>
+          </div>
+        </div>
         <template>
           <div
             class="item-variants"
@@ -229,6 +244,40 @@ export default {
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
     },
+    infoActiveMonths() {
+      const item = this.item;
+      if (!item.activeMonths) {
+        return null;
+      } else if (item.activeMonths.northern.length === 12) {
+        return "一年中";
+      } else {
+        const north = item.activeMonths.northern
+          .map((month) => month.month)
+          .join(", ");
+        const south = item.activeMonths.southern
+          .map((month) => month.month)
+          .join(", ");
+        return `北半球: ${north}月<br>南半球: ${south}月`;
+      }
+    },
+    infoActiveTimes() {
+      const item = this.item;
+      if (!item.activeMonths) {
+        return null;
+      } else if (item.activeMonths.northern[0].isAllDay) {
+        return "１日中";
+      } else {
+        const from1 = item.activeMonths.northern[0].activeHours[0][0];
+        const to1 = item.activeMonths.northern[0].activeHours[0][1];
+        if (item.activeMonths.northern[0].activeHours[1]) {
+          const from2 = item.activeMonths.northern[0].activeHours[1][0];
+          const to2 = item.activeMonths.northern[0].activeHours[1][1];
+          return `${from1}〜${to1}時, ${from2}〜${to2}時`;
+        } else {
+          return `${from1}〜${to1}時`;
+        }
+      }
+    },
   },
   watch: {
     collected() {
@@ -389,6 +438,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: 2px;
 }
 
 .item-length {
@@ -437,6 +487,11 @@ export default {
     background-color: #3790ff;
     border-color: transparent;
   }
+}
+
+.item-note {
+  font-weight: 400;
+  font-size: 10px;
 }
 
 // Tile

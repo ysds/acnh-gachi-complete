@@ -154,48 +154,11 @@
     </div>
     <div class="info" v-if="modalItem.activeMonths">
       <div class="info-label info-source-note">時期</div>
-      <div class="info-text">
-        <template v-if="modalItem.activeMonths.northern.length === 12">
-          １年中
-        </template>
-        <template v-else>
-          <span>
-            北半球:
-            <span
-              v-for="month in modalItem.activeMonths.northern"
-              :key="`${modalItem.name}Northern${month.month}`"
-            >
-              {{ month.month }} </span
-            >月<br />
-            南半球:
-            <span
-              v-for="month in modalItem.activeMonths.southern"
-              :key="`${modalItem.name}Southern${month.month}`"
-            >
-              {{ month.month }} </span
-            >月
-          </span>
-        </template>
-      </div>
+      <div class="info-text" v-html="infoActiveMonths" />
     </div>
     <div class="info" v-if="modalItem.activeMonths">
       <div class="info-label info-source-note">時間帯</div>
-      <div class="info-text">
-        <span>
-          <template v-if="modalItem.activeMonths.northern[0].isAllDay">
-            １日中
-          </template>
-          <template v-else>
-            {{ modalItem.activeMonths.northern[0].activeHours[0][0] }} -
-            {{ modalItem.activeMonths.northern[0].activeHours[0][1] }}時
-            <template v-if="modalItem.activeMonths.northern[0].activeHours[1]"
-              ><br />
-              {{ modalItem.activeMonths.northern[0].activeHours[1][0] }} -
-              {{ modalItem.activeMonths.northern[0].activeHours[1][1] }}時
-            </template>
-          </template>
-        </span>
-      </div>
+      <div class="info-text" v-html="infoActiveTimes" />
     </div>
     <div class="info" v-if="modalItem.weather">
       <div class="info-label info-source-note">天候</div>
@@ -331,6 +294,40 @@ export default {
           this.modalItem.materialsJa[index].image
         );
       };
+    },
+    infoActiveMonths() {
+      const item = this.modalItem;
+      if (!item.activeMonths) {
+        return null;
+      } else if (item.activeMonths.northern.length === 12) {
+        return "一年中";
+      } else {
+        const north = item.activeMonths.northern
+          .map((month) => month.month)
+          .join(", ");
+        const south = item.activeMonths.southern
+          .map((month) => month.month)
+          .join(", ");
+        return `北半球: ${north}月<br>南半球: ${south}月`;
+      }
+    },
+    infoActiveTimes() {
+      const item = this.modalItem;
+      if (!item.activeMonths) {
+        return null;
+      } else if (item.activeMonths.northern[0].isAllDay) {
+        return "１日中";
+      } else {
+        const from1 = item.activeMonths.northern[0].activeHours[0][0];
+        const to1 = item.activeMonths.northern[0].activeHours[0][1];
+        if (item.activeMonths.northern[0].activeHours[1]) {
+          const from2 = item.activeMonths.northern[0].activeHours[1][0];
+          const to2 = item.activeMonths.northern[0].activeHours[1][1];
+          return `${from1}〜${to1}時<br>${from2}〜${to2}時`;
+        } else {
+          return `${from1}〜${to1}時`;
+        }
+      }
     },
   },
   methods: {

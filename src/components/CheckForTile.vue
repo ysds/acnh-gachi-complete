@@ -35,7 +35,10 @@
         {{ props.length }}種
       </template>
     </div>
-    <div v-if="props.isInWishlist" class="t-dot" />
+    <div v-if="props.isInWishlist" class="t-heart" />
+    <div v-if="props.stock && props.stock > 1" class="t-stock">
+      {{ props.stock }}
+    </div>
   </button>
 </template>
 <script>
@@ -51,6 +54,7 @@ export default {
     "isRemake",
     "isInWishlist",
     "length",
+    "stock",
   ],
 };
 </script>
@@ -128,7 +132,7 @@ export default {
 .t-img-remake {
   position: absolute;
   bottom: 20px;
-  right: 2px;
+  right: 4px;
   pointer-events: none;
   user-select: none;
 }
@@ -143,7 +147,7 @@ export default {
   user-select: none;
 }
 
-.t-dot {
+.t-heart {
   position: absolute;
   right: 6px;
   top: 24px;
@@ -151,5 +155,22 @@ export default {
   height: 12px;
   margin-bottom: 0.2rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23eb486b'%3E%3Cpath d='M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z'/%3E%3C/svg%3E");
+}
+
+.t-stock {
+  position: absolute;
+  right: 4px;
+  top: 39px;
+  height: 16px;
+  padding-right: 4px;
+  padding-left: 4px;
+  min-width: 16px;
+  margin-bottom: 0.2rem;
+  background-color: #4c8cda;
+  color: #fff;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17px;
 }
 </style>

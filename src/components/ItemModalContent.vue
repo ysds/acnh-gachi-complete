@@ -47,6 +47,40 @@
         <template v-else> 欲しいもの一括チェックモードを OFF </template>
       </Button>
     </div>
+    <div
+      v-if="isShowWishlistButton"
+      style="text-align: center; margin-bottom: 1rem"
+    >
+      <Button sm @click="onClickChangeStock('remove')">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 10C2 9.44772 2.44772 9 3 9H17C17.5523 9 18 9.44772 18 10C18 10.5523 17.5523 11 17 11H3C2.44772 11 2 10.5523 2 10Z"
+            fill="#444444"
+          />
+        </svg>
+      </Button>
+      <span class="stock-count">配布可能な在庫:&nbsp;&nbsp;{{ stock }} </span>
+      <Button sm @click="onClickChangeStock('add')">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11 3C11 2.44772 10.5523 2 10 2C9.44771 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44771 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44771 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9H11V3Z"
+            fill="#444444"
+          />
+        </svg>
+      </Button>
+    </div>
     <div class="info" v-if="modalItem.buy || modalItem.sell">
       <div class="info-label info-buy">買値</div>
       <div class="info-text">
@@ -227,7 +261,7 @@
 <script>
 import Button from "../components/Button";
 import stampUrls from "../mixins/stampUrls";
-import { isInWishlist } from "../utils/utils";
+import { isInWishlist, stockCount } from "../utils/utils";
 
 export default {
   components: { Button },
@@ -239,6 +273,10 @@ export default {
     isShowWishlistButton: {
       type: Boolean,
       default: false,
+    },
+    collected: {
+      type: [String, Array],
+      default: "",
     },
   },
   computed: {
@@ -286,6 +324,12 @@ export default {
     },
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
+    },
+    stock() {
+      return (
+        stockCount(this.modalItem, this.modalBodyIndex) ||
+        (this.isProvidable() ? 1 : 0)
+      );
     },
     materialImage() {
       return function (index) {
@@ -344,6 +388,63 @@ export default {
     onClickWishModeButton() {
       this.$store.commit("toggleWishlistMode");
       this.$emit("updateWishlist");
+    },
+    onClickChangeStock(type) {
+      const item = this.modalItem;
+      const itemKey = item.uniqueEntryId || item.name;
+      const entryId = item.variants
+        ? `${itemKey}_${this.modalBodyIndex}`
+        : itemKey;
+
+      if (type === "add" && this.stock === 0) {
+        this.toProvidable();
+        return;
+      } else if (type === "remove" && this.stock === 1) {
+        this.toCollected();
+      }
+
+      this.$store.commit(`${type}Stocklist`, entryId);
+      this.$emit("updateStocklist");
+    },
+    toCollected() {
+      const item = this.modalItem;
+      const searchStr = String.fromCharCode(this.modalBodyIndex + 65);
+      const newStr = this.modalBodyIndex;
+      let newCollected = this.collected.split("");
+
+      newCollected = newCollected.map((str) => {
+        return str === searchStr ? newStr : str;
+      });
+
+      this.$emit(
+        "updateCollected",
+        item.uniqueEntryId || item.name,
+        newCollected.join("")
+      );
+    },
+    toProvidable() {
+      const item = this.modalItem;
+      const searchStr = this.modalBodyIndex;
+      const newStr = String.fromCharCode(this.modalBodyIndex + 65);
+      let newCollected = this.collected.split("");
+
+      if (newCollected.includes(searchStr)) {
+        newCollected = newCollected.map((str) => {
+          return str === searchStr ? newStr : str;
+        });
+      } else {
+        newCollected.push(newStr);
+      }
+
+      this.$emit(
+        "updateCollected",
+        item.uniqueEntryId || item.name,
+        newCollected.join("")
+      );
+    },
+    isProvidable() {
+      const regex = new RegExp(String.fromCharCode(this.modalBodyIndex + 65));
+      return regex.test(this.collected);
     },
   },
 };
@@ -458,5 +559,11 @@ export default {
   margin-top: -4px;
   pointer-events: none;
   user-select: none;
+}
+
+.stock-count {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
 }
 </style>

@@ -103,6 +103,7 @@
               item.customize || item.bodyCustomize || item.patternCustomize
             "
             :isInWishlist="inWishlistFlags[i]"
+            :stock="stockCounts[i]"
             @click="onChangeCheck(index, i)"
           />
         </li>
@@ -118,6 +119,7 @@
               item.customize || item.bodyCustomize || item.patternCustomize
             "
             :isInWishlist="inWishlistFlags[0]"
+            :stock="stockCounts[0]"
             :length="item.variants ? item.variants.length : undefined"
             @click="onClickAllCheck(true)"
           />
@@ -131,7 +133,11 @@
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
-import { inWishlistFlags, toDisplayItemName } from "../utils/utils";
+import {
+  inWishlistFlags,
+  toDisplayItemName,
+  stockCounts,
+} from "../utils/utils";
 
 export default {
   name: "Item",
@@ -256,6 +262,9 @@ export default {
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
     },
+    stockCounts() {
+      return stockCounts(this.item, this.isShared);
+    },
     infoActiveMonths() {
       const item = this.item;
       if (!item.activeMonths) {
@@ -344,6 +353,8 @@ export default {
       if (!this.isShowDropdown && !this.isStatic) {
         if (this.isWishlistMode && i !== undefined) {
           this.updateWishlist(index, i);
+        } else if (this.stockCounts[index] > 1) {
+          this.$emit("showModal", this.item, index);
         } else {
           const currentValue = this.checks[index];
           const nextValue = currentValue === 2 ? 0 : currentValue + 1;

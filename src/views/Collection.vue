@@ -142,9 +142,15 @@
             :modalBodyIndex="modalBodyIndex"
             :modalPatternIndex="modalPatternIndex"
             :isShowWishlistButton="this.filter.viewMode !== 'list'"
+            :collected="
+              modalItem.uniqueEntryId
+                ? collected[modalItem.uniqueEntryId]
+                : collected[modalItem.name]
+            "
             @updateModalBodyIndex="modalBodyIndex = $event"
             @updateModalPatternIndex="modalPatternIndex = $event"
             @updateWishlist="onUpdateWishlist"
+            @updateCollected="onChangeItemCheck"
           />
         </div>
       </template>
@@ -282,6 +288,9 @@ export default {
     },
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
+    },
+    stocklist() {
+      return this.$store.getters.stocklist;
     },
     adFilterLength() {
       return Object.values(this.adFilters).filter((filter) => filter).length;

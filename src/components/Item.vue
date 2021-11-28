@@ -372,7 +372,7 @@ export default {
         if (this.isWishlistMode && i !== undefined) {
           this.updateWishlist(index, i);
         } else if (this.stockCounts[index] > 1) {
-          this.$emit("showModal", this.item, index);
+          this.$emit("showModal", this.item, parseInt(index, 10));
         } else {
           const currentValue = this.checks[index];
           const nextValue = currentValue === 2 ? 0 : currentValue + 1;

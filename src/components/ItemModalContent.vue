@@ -12,7 +12,13 @@
       v-if="isShowWishlistButton"
       style="text-align: center; margin-bottom: 1rem"
     >
-      <Button v-if="!isInWishlist" xs primary @click="onClickWishButton('add')">
+      <Button
+        v-if="!isInWishlist"
+        xs
+        primary
+        :disabled="!isCheckableVariant"
+        @click="onClickWishButton('add')"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="14"
@@ -51,7 +57,11 @@
       v-if="isShowStocklistButton"
       style="text-align: center; margin-bottom: 1rem"
     >
-      <Button sm @click="onClickChangeStock('remove')">
+      <Button
+        sm
+        :disabled="!isCheckableVariant"
+        @click="onClickChangeStock('remove')"
+      >
         <svg
           width="20"
           height="20"
@@ -65,8 +75,14 @@
           />
         </svg>
       </Button>
-      <span class="stock-count">配布可能な在庫:&nbsp;&nbsp;{{ stock }} </span>
-      <Button sm @click="onClickChangeStock('add')">
+      <span class="stock-count" :class="{ disabled: !isCheckableVariant }"
+        >配布可能な在庫:&nbsp;&nbsp;{{ stock }}
+      </span>
+      <Button
+        sm
+        :disabled="!isCheckableVariant"
+        @click="onClickChangeStock('add')"
+      >
         <svg
           width="20"
           height="20"
@@ -335,6 +351,12 @@ export default {
         (this.isProvidable() ? 1 : 0)
       );
     },
+    isCheckableVariant() {
+      const variantLength = this.modalItem.variants
+        ? this.modalItem.variants.length
+        : 1;
+      return this.modalBodyIndex < variantLength;
+    },
     materialImage() {
       return function (index) {
         return (
@@ -569,5 +591,9 @@ export default {
   display: inline-block;
   padding: 0.5rem 1rem;
   font-size: 14px;
+
+  &.disabled {
+    opacity: 0.4;
+  }
 }
 </style>

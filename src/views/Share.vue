@@ -117,7 +117,7 @@ import firebase from "../plugins/firebase";
 import {
   filterItems,
   totalLength,
-  collectedLength
+  collectedLength,
 } from "../utils/filterItems";
 import { navs, getNavText } from "../utils/navs";
 import { isAvailableFilter } from "../utils/filter";
@@ -258,6 +258,9 @@ export default {
     sharedWishlist() {
       return this.$store.getters.sharedWishlist;
     },
+    sharedStocklist() {
+      return this.$store.getters.sharedStocklist;
+    },
   },
   mounted() {
     this.loadOtherFirebaseData();
@@ -296,11 +299,18 @@ export default {
               "updateSharedShareCategories",
               data.shareCategories
             ) || [];
+
             const wishlistValue = data.wishlist || "";
             const wishlist = JSON.parse(
               LZString.decompressFromUTF16(wishlistValue)
             );
             self.$store.commit("updateSharedWishlist", wishlist);
+
+            const stocklistValue = data.stocklist || "";
+            const stocklist = JSON.parse(
+              LZString.decompressFromUTF16(stocklistValue)
+            );
+            self.$store.commit("updateSharedStocklist", stocklist);
             self.finishMounted(self.sharedShareCategories);
           } else {
             self.message =
@@ -506,7 +516,7 @@ export default {
 
 .nav-item {
   padding: 0.75rem 0.75rem;
-  margin: 0 .125rem;
+  margin: 0 0.125rem;
   font-size: 14px;
   font-weight: 700;
   color: rgba(#000, 0.9);

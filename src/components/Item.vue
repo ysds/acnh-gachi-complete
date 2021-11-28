@@ -13,6 +13,14 @@
           src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
           v-if="item.sourceSheet === 'Recipes'"
         />
+        <div
+          v-if="
+            stockCounts[0] > 1 && !(item.variants && item.variants.length > 1)
+          "
+          class="t-stock"
+        >
+          {{ stockCounts[0] }}
+        </div>
       </div>
       <div class="item-center">
         <div>{{ itemName }}</div>
@@ -51,14 +59,19 @@
               (item.variants.length > 1 || item.variants[0].request)
             "
           >
-            <CheckForList
+            <div
               v-for="(variant, index) in item.variants"
               :key="variant.uniqueEntryId"
-              :value="checks[index]"
-              :variant="variant"
-              :variants="item.variants"
-              @click="onChangeCheck(index)"
-            />
+              v-long-press="index"
+            >
+              <CheckForList
+                :value="checks[index]"
+                :variant="variant"
+                :variants="item.variants"
+                :stock="stockCounts[index]"
+                @click="onChangeCheck(index)"
+              />
+            </div>
             <span
               class="item-length"
               v-if="item.variants && item.variants.length > 1"
@@ -67,7 +80,12 @@
           </div>
         </template>
       </div>
-      <button type="button" class="item-check-btn" @click="onClickAllCheck">
+      <button
+        type="button"
+        class="item-check-btn"
+        @click="onClickAllCheck"
+        v-long-press
+      >
         <span
           class="item-check"
           :class="{
@@ -103,6 +121,7 @@
               item.customize || item.bodyCustomize || item.patternCustomize
             "
             :isInWishlist="inWishlistFlags[i]"
+            :stock="stockCounts[i]"
             @click="onChangeCheck(index, i)"
           />
         </li>
@@ -118,6 +137,7 @@
               item.customize || item.bodyCustomize || item.patternCustomize
             "
             :isInWishlist="inWishlistFlags[0]"
+            :stock="stockCounts[0]"
             :length="item.variants ? item.variants.length : undefined"
             @click="onClickAllCheck(true)"
           />
@@ -131,7 +151,11 @@
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
-import { inWishlistFlags, toDisplayItemName } from "../utils/utils";
+import {
+  inWishlistFlags,
+  toDisplayItemName,
+  stockCounts,
+} from "../utils/utils";
 
 export default {
   name: "Item",
@@ -256,6 +280,9 @@ export default {
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
     },
+    stockCounts() {
+      return stockCounts(this.item, this.isShared);
+    },
     infoActiveMonths() {
       const item = this.item;
       if (!item.activeMonths) {
@@ -344,6 +371,8 @@ export default {
       if (!this.isShowDropdown && !this.isStatic) {
         if (this.isWishlistMode && i !== undefined) {
           this.updateWishlist(index, i);
+        } else if (this.stockCounts[index] > 1) {
+          this.$emit("showModal", this.item, parseInt(index, 10));
         } else {
           const currentValue = this.checks[index];
           const nextValue = currentValue === 2 ? 0 : currentValue + 1;
@@ -354,8 +383,14 @@ export default {
     },
     onClickAllCheck(isTile2) {
       if (!this.isShowDropdown && !this.isStatic) {
+        let totalVariantsStockCount = 0;
+        this.stockCounts.forEach((count) => {
+          if (count) totalVariantsStockCount += count;
+        });
         if (this.isWishlistMode && isTile2 === true) {
           this.updateWishlist(0, 0, isTile2);
+        } else if (totalVariantsStockCount > 1) {
+          this.$emit("showModal", this.item, 0);
         } else {
           const nextState =
             this.allCheckState === 2 ? 0 : this.allCheckState + 1;
@@ -504,6 +539,23 @@ export default {
 .item-note {
   font-weight: 400;
   font-size: 10px;
+}
+
+.t-stock {
+  position: absolute;
+  right: 2px;
+  top: 14px;
+  height: 16px;
+  padding-right: 4px;
+  padding-left: 4px;
+  min-width: 16px;
+  margin-bottom: 0.2rem;
+  background-color: #4c8cda;
+  color: #fff;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17px;
 }
 
 // Tile

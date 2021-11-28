@@ -32,6 +32,9 @@ export default new Vuex.Store({
     wishlist: [],
     cloudWishlist: [],
     sharedWishlist: [],
+    stocklist: {},
+    cloudStocklist: {},
+    sharedStocklist: {},
   },
   mutations: {
     changeNav(state, nextNav) {
@@ -62,6 +65,9 @@ export default new Vuex.Store({
         array = makeCompatibleWishlist(array);
         state.wishlist = array;
       }
+    },
+    initStocklist(state, obj) {
+      if (obj) state.stocklist = obj;
     },
     updateLocalCollectedDataByItem(state, payload) {
       if (payload.itemCollectedData === "") {
@@ -143,6 +149,16 @@ export default new Vuex.Store({
         state.sharedWishlist = array;
       }
     },
+    updateStocklist(state, obj) {
+      if (obj) state.stocklist = obj;
+      localforage.setItem("stocklist", state.stocklist);
+    },
+    updateCloudStocklist(state, obj) {
+      if (obj) state.cloudStocklist = obj;
+    },
+    updateSharedStocklist(state, obj) {
+      if (obj) state.sharedStocklist = obj;
+    },
     isShowDropdown(state, isShow) {
       state.isShowDropdown = isShow;
     },
@@ -176,6 +192,32 @@ export default new Vuex.Store({
         state.localUpdateIndex++;
         localforage.setItem("updateIndex", state.localUpdateIndex);
       }
+    },
+    addStocklist(state, entryId) {
+      const stocklist = state.stocklist;
+      const stock = !stocklist[entryId] ? 2 : stocklist[entryId] + 1;
+      if (stock < 1000) {
+        Vue.set(state.stocklist, entryId, stock);
+        localforage.setItem("stocklist", stocklist);
+        state.localUpdateIndex++;
+        localforage.setItem("updateIndex", state.localUpdateIndex);
+      }
+    },
+    removeStocklist(state, entryId) {
+      const stocklist = state.stocklist;
+      const stock = stocklist[entryId];
+
+      if (!stock) return;
+
+      if (stock === 2) {
+        Vue.delete(state.stocklist, entryId);
+      } else {
+        Vue.set(state.stocklist, entryId, stock - 1);
+      }
+
+      localforage.setItem("stocklist", stocklist);
+      state.localUpdateIndex++;
+      localforage.setItem("updateIndex", state.localUpdateIndex);
     },
   },
   getters: {
@@ -244,6 +286,15 @@ export default new Vuex.Store({
     },
     sharedWishlist(state) {
       return state.sharedWishlist;
+    },
+    stocklist(state) {
+      return state.stocklist;
+    },
+    cloudStocklist(state) {
+      return state.cloudStocklist;
+    },
+    sharedStocklist(state) {
+      return state.sharedStocklist;
     },
   },
 });

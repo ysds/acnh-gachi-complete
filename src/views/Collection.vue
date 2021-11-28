@@ -142,9 +142,17 @@
             :modalBodyIndex="modalBodyIndex"
             :modalPatternIndex="modalPatternIndex"
             :isShowWishlistButton="this.filter.viewMode !== 'list'"
+            :isShowStocklistButton="true"
+            :collected="
+              modalItem.uniqueEntryId
+                ? collected[modalItem.uniqueEntryId]
+                : collected[modalItem.name]
+            "
+            :isCompactView="filter.viewMode === 'tile2'"
             @updateModalBodyIndex="modalBodyIndex = $event"
             @updateModalPatternIndex="modalPatternIndex = $event"
             @updateWishlist="onUpdateWishlist"
+            @updateCollected="onChangeItemCheck"
           />
         </div>
       </template>
@@ -282,6 +290,9 @@ export default {
     },
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
+    },
+    stocklist() {
+      return this.$store.getters.stocklist;
     },
     adFilterLength() {
       return Object.values(this.adFilters).filter((filter) => filter).length;

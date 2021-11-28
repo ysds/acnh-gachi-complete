@@ -59,6 +59,44 @@ export function isInWishlist(item, index) {
   return wishlist.includes(entryId);
 }
 
+export function stockCounts(item, isShared) {
+  let stocklist;
+  if (isShared) {
+    stocklist = store.getters.sharedStocklist;
+  } else {
+    stocklist = store.getters.stocklist;
+  }
+  const result = [];
+  const variants = item.variants;
+  const itemKey = item.uniqueEntryId || item.name;
+  const entryIds = [];
+
+  if (variants) {
+    const showVariants =
+      item.matchedVariants || "0123456789".split("").splice(0, variants.length);
+
+    for (let index of showVariants) {
+      entryIds.push(`${itemKey}_${index}`);
+    }
+  } else {
+    entryIds.push(itemKey);
+  }
+
+  for (let entryId of entryIds) {
+    result.push(stocklist[entryId]);
+  }
+
+  return result;
+}
+
+export function stockCount(item, index) {
+  const stocklist = store.getters.stocklist;
+  const itemKey = item.uniqueEntryId || item.name;
+  const entryId = item.variants ? `${itemKey}_${index}` : itemKey;
+
+  return stocklist[entryId] || 0;
+}
+
 const RENAME_MAP = {
   "paper bag": "paper-bag hood",
   "olive desert-tile wall": "olive Moroccan wall",
@@ -90,16 +128,19 @@ export function makeCompatibleCollection(collected) {
   });
 
   // ペットボトル飲料など一時的にバリエーションが多かったアイテムの対応
-  items.forEach(item => {
+  items.forEach((item) => {
     if (newCollected[item.name]) {
       const variantsLength = item.variants ? item.variants.length : 1;
       if (variantsLength > 1) {
         if (newCollected[item.name].length > variantsLength) {
-          newCollected[item.name] = newCollected[item.name].substring(0, variantsLength);
+          newCollected[item.name] = newCollected[item.name].substring(
+            0,
+            variantsLength
+          );
         }
       }
     }
-  })
+  });
 
   return newCollected;
 }

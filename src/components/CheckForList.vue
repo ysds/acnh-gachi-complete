@@ -16,16 +16,20 @@
     <template v-if="props.variant.request">
       {{ props.variant.request }}
     </template>
+    <div v-if="props.stock && props.stock > 1" class="t-stock">
+      {{ props.stock }}
+    </div>
   </button>
 </template>
 <script>
 export default {
   name: "CheckForList",
-  props: ["value", "variant", "variants"],
+  props: ["value", "variant", "variants", "stock"],
 };
 </script>
 <style lang="scss" scoped>
 .v {
+  display: inline-flex;
   padding: 2px 4px;
   margin-right: 0.25rem;
   margin-bottom: 0.125rem;
@@ -50,5 +54,19 @@ export default {
     background-color: #3790ff;
     color: #fff;
   }
+}
+
+.t-stock {
+  height: 16px;
+  padding-right: 4px;
+  padding-left: 4px;
+  min-width: 16px;
+  margin-left: 4px;
+  background-color: #1f75dd;
+  color: #fff;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17px;
 }
 </style>

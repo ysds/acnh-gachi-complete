@@ -148,6 +148,7 @@
                 ? collected[modalItem.uniqueEntryId]
                 : collected[modalItem.name]
             "
+            :isCompactView="filter.viewMode === 'tile2'"
             @updateModalBodyIndex="modalBodyIndex = $event"
             @updateModalPatternIndex="modalPatternIndex = $event"
             @updateWishlist="onUpdateWishlist"

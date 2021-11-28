@@ -298,6 +298,7 @@ export default {
       type: [String, Array],
       default: "",
     },
+    isCompactView: Boolean,
   },
   computed: {
     itemImage() {
@@ -436,36 +437,54 @@ export default {
       const item = this.modalItem;
       const searchStr = String.fromCharCode(this.modalBodyIndex + 65);
       const newStr = this.modalBodyIndex;
-      let newCollected = this.collected.split("");
+      let newCollected;
 
-      newCollected = newCollected.map((str) => {
-        return str === searchStr ? newStr : str;
-      });
+      if (this.isCompactView) {
+        const variantLength = this.modalItem.variants
+          ? this.modalItem.variants.length
+          : 1;
+        newCollected = "0123456789".substring(0, variantLength);
+      } else {
+        newCollected = this.collected.split("");
+        newCollected = newCollected.map((str) => {
+          return str === searchStr ? newStr : str;
+        });
+        newCollected = newCollected.join("");
+      }
 
       this.$emit(
         "updateCollected",
         item.uniqueEntryId || item.name,
-        newCollected.join("")
+        newCollected
       );
     },
     toProvidable() {
       const item = this.modalItem;
       const searchStr = this.modalBodyIndex;
       const newStr = String.fromCharCode(this.modalBodyIndex + 65);
-      let newCollected = this.collected.split("");
+      let newCollected;
 
-      if (newCollected.includes(searchStr)) {
-        newCollected = newCollected.map((str) => {
-          return str === searchStr ? newStr : str;
-        });
+      if (this.isCompactView) {
+        const variantLength = this.modalItem.variants
+          ? this.modalItem.variants.length
+          : 1;
+        newCollected = "ABCDEFGHIJ".substring(0, variantLength);
       } else {
-        newCollected.push(newStr);
+        newCollected = this.collected.split("");
+        if (newCollected.includes(searchStr)) {
+          newCollected = newCollected.map((str) => {
+            return str === searchStr ? newStr : str;
+          });
+        } else {
+          newCollected.push(newStr);
+        }
+        newCollected = newCollected.join("");
       }
 
       this.$emit(
         "updateCollected",
         item.uniqueEntryId || item.name,
-        newCollected.join("")
+        newCollected
       );
     },
     isProvidable() {

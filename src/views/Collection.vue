@@ -142,6 +142,7 @@
             :modalBodyIndex="modalBodyIndex"
             :modalPatternIndex="modalPatternIndex"
             :isShowWishlistButton="this.filter.viewMode !== 'list'"
+            :isShowStocklistButton="true"
             :collected="
               modalItem.uniqueEntryId
                 ? collected[modalItem.uniqueEntryId]

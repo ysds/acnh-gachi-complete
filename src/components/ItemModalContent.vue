@@ -48,7 +48,7 @@
       </Button>
     </div>
     <div
-      v-if="isShowWishlistButton"
+      v-if="isShowStocklistButton"
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button sm @click="onClickChangeStock('remove')">
@@ -271,6 +271,10 @@ export default {
     modalBodyIndex: Number,
     modalPatternIndex: Number,
     isShowWishlistButton: {
+      type: Boolean,
+      default: false,
+    },
+    isShowStocklistButton: {
       type: Boolean,
       default: false,
     },

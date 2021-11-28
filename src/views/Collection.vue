@@ -480,7 +480,6 @@ export default {
         newViewMode = "tile2";
       } else {
         newViewMode = "list";
-        this.$store.commit("updateWishlistMode", false);
       }
       if (this.filter.viewMode === newViewMode) return;
       this.filter = Object.assign({}, this.filter, { viewMode: newViewMode });

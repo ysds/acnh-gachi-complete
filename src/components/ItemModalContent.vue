@@ -396,9 +396,9 @@ export default {
         ? `${itemKey}_${this.modalBodyIndex}`
         : itemKey;
 
-      if (type === "add" && this.stock === 0) {
+      if (type === "add") {
         this.toProvidable();
-        return;
+        if (this.stock === 0) return;
       } else if (type === "remove" && this.stock === 1) {
         this.toCollected();
       }

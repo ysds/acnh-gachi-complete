@@ -276,13 +276,21 @@ export default {
       }
     },
     inWishlistFlags() {
-      return inWishlistFlags(this.item, this.isShared);
+      return inWishlistFlags(
+        this.item,
+        this.isShared,
+        this.filter.viewMode === "list"
+      );
     },
     isWishlistMode() {
       return this.$store.getters.isWishlistMode;
     },
     stockCounts() {
-      return stockCounts(this.item, this.isShared);
+      return stockCounts(
+        this.item,
+        this.isShared,
+        this.filter.viewMode === "list"
+      );
     },
     infoActiveMonths() {
       const item = this.item;

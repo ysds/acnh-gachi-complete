@@ -21,7 +21,7 @@ export function zen_han_conv(str) {
   return str;
 }
 
-export function inWishlistFlags(item, isShared) {
+export function inWishlistFlags(item, isShared, isListview) {
   let wishlist;
   if (isShared) {
     wishlist = store.getters.sharedWishlist;
@@ -34,8 +34,14 @@ export function inWishlistFlags(item, isShared) {
   const entryIds = [];
 
   if (variants) {
-    const showVariants =
-      item.matchedVariants || "0123456789".split("").splice(0, variants.length);
+    let showVariants;
+    if (isListview) {
+      showVariants = "0123456789".split("").splice(0, variants.length);
+    } else {
+      showVariants =
+        item.matchedVariants ||
+        "0123456789".split("").splice(0, variants.length);
+    }
 
     for (let index of showVariants) {
       entryIds.push(`${itemKey}_${index}`);
@@ -59,7 +65,7 @@ export function isInWishlist(item, index) {
   return wishlist.includes(entryId);
 }
 
-export function stockCounts(item, isShared) {
+export function stockCounts(item, isShared, isListview) {
   let stocklist;
   if (isShared) {
     stocklist = store.getters.sharedStocklist;
@@ -72,8 +78,14 @@ export function stockCounts(item, isShared) {
   const entryIds = [];
 
   if (variants) {
-    const showVariants =
-      item.matchedVariants || "0123456789".split("").splice(0, variants.length);
+    let showVariants;
+    if (isListview) {
+      showVariants = "0123456789".split("").splice(0, variants.length);
+    } else {
+      showVariants =
+        item.matchedVariants ||
+        "0123456789".split("").splice(0, variants.length);
+    }
 
     for (let index of showVariants) {
       entryIds.push(`${itemKey}_${index}`);

@@ -16,6 +16,7 @@
     <template v-if="props.variant.request">
       {{ props.variant.request }}
     </template>
+    <div v-if="props.isInWishlist" class="t-heart" />
     <div v-if="props.stock && props.stock > 1" class="t-stock">
       {{ props.stock }}
     </div>
@@ -24,7 +25,7 @@
 <script>
 export default {
   name: "CheckForList",
-  props: ["value", "variant", "variants", "stock"],
+  props: ["value", "variant", "variants", "stock", "isInWishlist"],
 };
 </script>
 <style lang="scss" scoped>
@@ -54,6 +55,14 @@ export default {
     background-color: #3790ff;
     color: #fff;
   }
+}
+
+.t-heart {
+  width: 12px;
+  height: 12px;
+  margin-top: 2px;
+  margin-left: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23eb486b'%3E%3Cpath d='M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z'/%3E%3C/svg%3E");
 }
 
 .t-stock {

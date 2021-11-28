@@ -9,7 +9,7 @@
       />
     </div>
     <div
-      v-if="isShowWishlistButton"
+      v-if="isShowExtraButton"
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button
@@ -54,7 +54,7 @@
       </Button>
     </div>
     <div
-      v-if="isShowStocklistButton"
+      v-if="isShowExtraButton"
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button
@@ -286,11 +286,7 @@ export default {
     modalItem: Object,
     modalBodyIndex: Number,
     modalPatternIndex: Number,
-    isShowWishlistButton: {
-      type: Boolean,
-      default: false,
-    },
-    isShowStocklistButton: {
+    isShowExtraButton: {
       type: Boolean,
       default: false,
     },

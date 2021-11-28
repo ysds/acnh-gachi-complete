@@ -13,14 +13,12 @@
           src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
           v-if="item.sourceSheet === 'Recipes'"
         />
-        <div
-          v-if="
-            stockCounts[0] > 1 && !(item.variants && item.variants.length > 1)
-          "
-          class="t-stock"
-        >
-          {{ stockCounts[0] }}
-        </div>
+        <template v-if="!(item.variants && item.variants.length > 1)">
+          <div v-if="stockCounts[0] > 1" class="t-stock">
+            {{ stockCounts[0] }}
+          </div>
+          <div v-if="inWishlistFlags[0]" class="t-heart" />
+        </template>
       </div>
       <div class="item-center">
         <div>{{ itemName }}</div>
@@ -69,6 +67,7 @@
                 :variant="variant"
                 :variants="item.variants"
                 :stock="stockCounts[index]"
+                :isInWishlist="inWishlistFlags[index]"
                 @click="onChangeCheck(index)"
               />
             </div>
@@ -539,6 +538,16 @@ export default {
 .item-note {
   font-weight: 400;
   font-size: 10px;
+}
+
+.t-heart {
+  position: absolute;
+  right: 4px;
+  top: 0px;
+  width: 12px;
+  height: 12px;
+  margin-bottom: 0.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23eb486b'%3E%3Cpath d='M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z'/%3E%3C/svg%3E");
 }
 
 .t-stock {

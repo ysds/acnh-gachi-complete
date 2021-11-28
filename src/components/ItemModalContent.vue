@@ -436,7 +436,7 @@ export default {
     toCollected() {
       const item = this.modalItem;
       const searchStr = String.fromCharCode(this.modalBodyIndex + 65);
-      const newStr = this.modalBodyIndex;
+      const newStr = this.modalBodyIndex.toString();
       let newCollected;
 
       if (this.isCompactView) {
@@ -460,7 +460,7 @@ export default {
     },
     toProvidable() {
       const item = this.modalItem;
-      const searchStr = this.modalBodyIndex;
+      const searchStr = this.modalBodyIndex.toString();
       const newStr = String.fromCharCode(this.modalBodyIndex + 65);
       let newCollected;
 
@@ -471,7 +471,10 @@ export default {
         newCollected = "ABCDEFGHIJ".substring(0, variantLength);
       } else {
         newCollected = this.collected.split("");
-        if (newCollected.includes(searchStr)) {
+
+        if (newCollected.includes(newStr)) {
+          return;
+        } else if (newCollected.includes(searchStr)) {
           newCollected = newCollected.map((str) => {
             return str === searchStr ? newStr : str;
           });

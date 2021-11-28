@@ -1,24 +1,26 @@
 <template>
   <li :class="filter.viewMode === 'list' ? 'item' : 'tile'">
     <template v-if="filter.viewMode === 'list'">
-      <div class="item-img-block" v-long-press>
-        <img v-lazy="itemImage" class="item-img" />
-        <img
-          class="item-img-remake"
-          src="../assets/remake.svg"
-          v-if="item.customize || item.bodyCustomize || item.patternCustomize"
-        />
-        <img
-          class="item-img-recipe"
-          src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
-          v-if="item.sourceSheet === 'Recipes'"
-        />
-        <template v-if="!(item.variants && item.variants.length > 1)">
-          <div v-if="stockCounts[0] > 1" class="t-stock">
-            {{ stockCounts[0] }}
-          </div>
-          <div v-if="inWishlistFlags[0]" class="t-heart" />
-        </template>
+      <div v-long-press>
+        <div class="item-img-block" @click="onClickListImage">
+          <img v-lazy="itemImage" class="item-img" />
+          <img
+            class="item-img-remake"
+            src="../assets/remake.svg"
+            v-if="item.customize || item.bodyCustomize || item.patternCustomize"
+          />
+          <img
+            class="item-img-recipe"
+            src="https://i0.wp.com/acnhcdn.com/latest/MenuIcon/PaperRecipe.png"
+            v-if="item.sourceSheet === 'Recipes'"
+          />
+          <template v-if="!(item.variants && item.variants.length > 1)">
+            <div v-if="stockCounts[0] > 1" class="t-stock">
+              {{ stockCounts[0] }}
+            </div>
+            <div v-if="inWishlistFlags[0]" class="t-heart" />
+          </template>
+        </div>
       </div>
       <div class="item-center">
         <div>{{ itemName }}</div>
@@ -68,7 +70,7 @@
                 :variants="item.variants"
                 :stock="stockCounts[index]"
                 :isInWishlist="inWishlistFlags[index]"
-                @click="onChangeCheck(index)"
+                @click="onChangeCheck(index, index)"
               />
             </div>
             <span
@@ -82,7 +84,7 @@
       <button
         type="button"
         class="item-check-btn"
-        @click="onClickAllCheck"
+        @click="onClickAllCheck('list')"
         v-long-press
       >
         <span
@@ -138,7 +140,7 @@
             :isInWishlist="inWishlistFlags[0]"
             :stock="stockCounts[0]"
             :length="item.variants ? item.variants.length : undefined"
-            @click="onClickAllCheck(true)"
+            @click="onClickAllCheck('tile2')"
           />
         </li>
       </ul>
@@ -366,6 +368,11 @@ export default {
       }
       this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
     },
+    onClickListImage() {
+      if (this.isWishlistMode) {
+        this.updateWishlist(0, 0);
+      }
+    },
     onChangeCheck(index, i) {
       if (!this.isShowDropdown && !this.isStatic) {
         if (this.isWishlistMode && i !== undefined) {
@@ -380,14 +387,14 @@ export default {
         }
       }
     },
-    onClickAllCheck(isTile2) {
+    onClickAllCheck(viewmode) {
       if (!this.isShowDropdown && !this.isStatic) {
         let totalVariantsStockCount = 0;
         this.stockCounts.forEach((count) => {
           if (count) totalVariantsStockCount += count;
         });
-        if (this.isWishlistMode && isTile2 === true) {
-          this.updateWishlist(0, 0, isTile2);
+        if (this.isWishlistMode) {
+          this.updateWishlist(0, 0, viewmode);
         } else if (totalVariantsStockCount > 1) {
           this.$emit("showModal", this.item, 0);
         } else {
@@ -402,11 +409,16 @@ export default {
         }
       }
     },
-    updateWishlist(index, i, isTile2) {
+    updateWishlist(index, i, viewmode) {
       const item = this.item;
       const itemKey = item.uniqueEntryId || item.name;
       const type = this.inWishlistFlags[i] ? "remove" : "add";
-      if (isTile2 && type === "remove" && item.variants) {
+      if (viewmode === "list" && item.variants) {
+        item.variants.forEach((variant, index) => {
+          const entryId = `${itemKey}_${index}`;
+          this.$store.commit(`${type}Wishlist`, entryId);
+        });
+      } else if (viewmode === "tile2" && type === "remove" && item.variants) {
         item.variants.forEach((variant, index) => {
           const entryId = `${itemKey}_${index}`;
           this.$store.commit("removeWishlist", entryId);

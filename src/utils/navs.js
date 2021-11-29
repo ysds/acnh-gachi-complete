@@ -336,6 +336,14 @@ const navs = [
           );
         },
       },
+      {
+        id: "other-unstoragable",
+        text: "その他（収納不可）",
+        alttext: "収納不可",
+        filter: function (item) {
+          return item.sourceSheet === "Un-Storagable";
+        },
+      },
     ],
   },
   {

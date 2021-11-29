@@ -2,9 +2,6 @@
     "Hazure01": "ハズレ",
     "Hazure02": "ハズレ",
     "Hazure03": "ハズレ",
-    "otoshidama": "おとしだま（ラッピング済）",
-    "sebaetdon": "ソルラルのおとしだま（ラッピング済）",
-    "lucky money": "しゅんせつのおとしだま（ラッピング済）",
     "bridge construction kit": "はしのこうじキット",
     "bridge marker kit": "はしよていちキット",
     "campsite construction kit": "キャンプサイトこうじキット",
@@ -29,12 +26,11 @@
     "egg message bottle": "たまごのメッセージボトル",
     "communicator": "つうしんそうち",
     "communicator part": "つうしんそうちのパーツ",
-    "What was this again?": "なんだっけ？",
     "delivery box": "はいたつボックス",
-    "present": "プレゼント",
     "message bottle": "メッセージボトル",
     "Wisp spirit piece": "ゆうたろうのたましい",
     "magic bag": "プレゼントぶくろ",
-    "worn axe": "こわれかけのオノ"
+    "worn axe": "こわれかけのオノ",
+    "present": "プレゼント"
   }
   

@@ -442,6 +442,7 @@ allItems.forEach((item) => {
         variant.genuine === undefined &&
         item.displayName !== "おとしもの" &&
         item.displayName !== "なんだっけ？" &&
+        item.displayName !== "おとどけもの" &&
         item.sourceSheet !== "Achievements"
       ) {
         console.log(`NoVariant: ${item.displayName} : ${variant.variation}`);
@@ -505,6 +506,16 @@ const removeItems = require("../data/item-data-custom/removeItems.json");
 allItems = allItems.filter(
   (item) => !(removeItems[item.name] && item.sourceSheet !== "Recipes")
 );
+
+// 一部特殊アイテムを「収納できない」に格納
+
+const unStoragableItems = require("../data/item-data-custom/unStoragableItems.json");
+allItems.forEach((item)=> {
+  if (unStoragableItems[item.name]) {
+    item.sourceSheet = "Un-Storagable"
+    item.displayName = unStoragableItems[item.name]
+  }
+})
 
 //
 // どのカテゴリにも属さないアイテムの抽出

@@ -131,7 +131,7 @@
       class="message"
       style="font-weight: 400; font-size: 12px"
     >
-      ゲーム内の収納の「そのほか」と一致させるために、ここには「道具・グッズ」も含まれています。「道具・グッズ」だけを見たい場合は「道具・グッズ」カテゴリを参照してください。
+      ゲーム内の収納の「そのほか」と一致させるために、ここには「道具・グッズ」も含まれ、「収納不可」は含まれていません。「道具・グッズ」だけを見たい場合は「道具・グッズ」カテゴリを参照してください。
     </div>
     <Modal :show="isShowModal" @close="isShowModal = false" closeButton>
       <template v-if="modalItem">

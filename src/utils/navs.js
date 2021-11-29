@@ -458,19 +458,10 @@ const navs = [
       {
         id: "special-saharah",
         text: "ローラン壁紙/床/ラグ",
-        subtext: "来訪ローラン",
+        subtext: "ローラン",
         order: 4,
         filter: function (item) {
-          return inSource(item, "Saharah$") && item.sourceSheet !== "Other";
-        },
-      },
-      {
-        id: "special-saharah-commune",
-        text: "新ローラン壁紙/床/ラグ",
-        subtext: "ローランの店",
-        order: 5,
-        filter: function (item) {
-          return inSource(item, "Saharah's Co-op");
+          return inSource(item, "Saharah") && item.sourceSheet !== "Other";
         },
       },
       {

@@ -626,10 +626,6 @@ allItems.forEach((item) => {
   delete item["song"];
   delete item["request"];
 
-  if (item.sourceSheet !== "Other") {
-    delete item["tag"];
-  }
-
   for (let i = 1; i < 7; i++) {
     delete item[`tier${i}`];
     delete item[`tier${i}Reward`];

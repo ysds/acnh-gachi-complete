@@ -1,0 +1,14 @@
+[
+  { "key": "Savory", "text": "フード" },
+  { "key": "Sweet", "text": "スイーツ" },
+  { "key": "Housewares", "text": "家具" },
+  { "key": "Miscellaneous", "text": "小物" },
+  { "key": "Wall-mounted", "text": "壁かけ" },
+  { "key": "Ceiling Decor", "text": "天井" },
+  { "key": "Equipment", "text": "ファッション" },
+  { "key": "Wallpaper", "text": "壁紙" },
+  { "key": "Floors", "text": "床板" },
+  { "key": "Rugs", "text": "ラグ" },
+  { "key": "Tools", "text": "道具" },
+  { "key": "Other", "text": "その他" }
+]

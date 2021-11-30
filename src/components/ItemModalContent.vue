@@ -235,6 +235,10 @@
       <div class="info-label info-source-note">タヌポイント</div>
       <div class="info-text">{{ modalItem.exchangePrice }}</div>
     </div>
+    <div class="info" v-if="modalItem.foodPower">
+      <div class="info-label info-other">フードパワー</div>
+      <div class="info-text">{{ modalItem.foodPower }}</div>
+    </div>
     <div class="info" v-if="modalItem.materialsJa">
       <div class="info-label info-other">素材</div>
       <div class="info-materials">

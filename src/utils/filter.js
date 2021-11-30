@@ -13,6 +13,7 @@ const typeFilters = [
       "music",
       "flowers",
       "photos",
+      "recipes",
     ],
   },
   {
@@ -41,7 +42,7 @@ const typeFilters = [
   },
   {
     id: "not-for-sale-diy",
-    label: "ひばいひん（DIY）",
+    label: "ひばいひん（DIY・料理）",
     show: ["housewares", "fashion", "tools", "walletc"],
     filter: function (item) {
       return item.catalog !== "For sale" && item.diy;
@@ -49,12 +50,20 @@ const typeFilters = [
   },
   {
     id: "not-for-sale-other",
-    label: "ひばいひん（DIYを除く）",
+    label: "ひばいひん（DIY・料理を除く）",
     show: ["housewares", "fashion", "tools", "walletc"],
     filter: function (item) {
       return (
         item.catalog !== "For sale" && !item.diy && item.catalog !== "Seasonal"
       );
+    },
+  },
+  {
+    id: "eatable",
+    label: "食べられる",
+    show: ["housewares"],
+    filter: function (item) {
+      return item.foodPower;
     },
   },
   {
@@ -228,6 +237,19 @@ seasonEvents.forEach((value, index) => {
         item.seasonEvent.includes(value) &&
         item.catalog === "For sale"
       );
+    },
+  });
+});
+
+const categories = require("../../data/translation-custom/categories.json");
+
+categories.forEach((category) => {
+  typeFilters.push({
+    id: `category-${category.key}`,
+    label: category.text,
+    show: ["recipes"],
+    filter: function (item) {
+      return item.category === category.key;
     },
   });
 });

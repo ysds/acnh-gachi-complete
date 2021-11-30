@@ -59,6 +59,13 @@ const navs = [
         },
       },
       {
+        id: "housewares-food",
+        text: "料理",
+        filter: function (item) {
+          return item.tag === "DishFood" || item.tag === "DishDrink";
+        },
+      },
+      {
         id: "housewares-nookmiles",
         text: "マイル家具",
         filter: function (item) {

@@ -76,7 +76,7 @@
         :collected="getCollected(item)"
         :filter="filter"
         :isStatic="true"
-        :isShared="true"
+        :isShared="isShared"
         :islandName="sharedIslandName"
         @showModal="onShowModal"
       />
@@ -172,6 +172,9 @@ export default {
     };
   },
   computed: {
+    isShared() {
+      return this.filter.collectedFilter !== "6";
+    },
     isOpenDrawer() {
       return this.$store.getters.isOpenDrawer;
     },
@@ -296,11 +299,19 @@ export default {
               "updateSharedShareCategories",
               data.shareCategories
             ) || [];
+
             const wishlistValue = data.wishlist || "";
             const wishlist = JSON.parse(
               LZString.decompressFromUTF16(wishlistValue)
             );
             self.$store.commit("updateSharedWishlist", wishlist);
+
+            const stocklistValue = data.stocklist || "";
+            const stocklist = JSON.parse(
+              LZString.decompressFromUTF16(stocklistValue)
+            );
+            self.$store.commit("updateSharedStocklist", stocklist);
+
             self.finishMounted(self.sharedShareCategories);
           } else {
             self.message =

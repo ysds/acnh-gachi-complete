@@ -1,5 +1,8 @@
 <template>
-  <li :class="filter.viewMode === 'list' ? 'item' : 'tile'">
+  <li
+    :class="filter.viewMode === 'list' ? 'item' : 'tile'"
+    :style="{ opacity: item.isHidden ? '0.4' : undefined }"
+  >
     <template v-if="filter.viewMode === 'list'">
       <div v-long-press>
         <div class="item-img-block" @click="onClickListImage">
@@ -382,39 +385,42 @@ export default {
       }
     },
     onChangeCheck(index, i) {
-      if (!this.isShowDropdown && !this.isStatic) {
-        if (this.isWishlistMode && i !== undefined) {
-          this.updateWishlist(index, i);
-        } else if (this.stockCounts[index] > 1) {
-          this.$emit("showModal", this.item, parseInt(index, 10));
-        } else {
-          const currentValue = this.checks[index];
-          const nextValue = currentValue === 2 ? 0 : currentValue + 1;
-          this.checks[index] = nextValue;
-          this.updateCollected();
-        }
+      if (this.isShowDropdown || this.isStatic || this.item.isHidden) {
+        return;
+      }
+
+      if (this.isWishlistMode && i !== undefined) {
+        this.updateWishlist(index, i);
+      } else if (this.stockCounts[index] > 1) {
+        this.$emit("showModal", this.item, parseInt(index, 10));
+      } else {
+        const currentValue = this.checks[index];
+        const nextValue = currentValue === 2 ? 0 : currentValue + 1;
+        this.checks[index] = nextValue;
+        this.updateCollected();
       }
     },
     onClickAllCheck(viewmode) {
-      if (!this.isShowDropdown && !this.isStatic) {
-        let totalVariantsStockCount = 0;
-        this.stockCounts.forEach((count) => {
-          if (count) totalVariantsStockCount += count;
+      if (this.isShowDropdown || this.isStatic || this.item.isHidden) {
+        return;
+      }
+
+      let totalVariantsStockCount = 0;
+      this.stockCounts.forEach((count) => {
+        if (count) totalVariantsStockCount += count;
+      });
+      if (this.isWishlistMode) {
+        this.updateWishlist(0, 0, viewmode);
+      } else if (totalVariantsStockCount > 1) {
+        this.$emit("showModal", this.item, 0);
+      } else {
+        const nextState = this.allCheckState === 2 ? 0 : this.allCheckState + 1;
+        let result = {};
+        Object.keys(this.checks).forEach((key) => {
+          result[key] = nextState;
         });
-        if (this.isWishlistMode) {
-          this.updateWishlist(0, 0, viewmode);
-        } else if (totalVariantsStockCount > 1) {
-          this.$emit("showModal", this.item, 0);
-        } else {
-          const nextState =
-            this.allCheckState === 2 ? 0 : this.allCheckState + 1;
-          let result = {};
-          Object.keys(this.checks).forEach((key) => {
-            result[key] = nextState;
-          });
-          this.checks = result;
-          this.updateCollected();
-        }
+        this.checks = result;
+        this.updateCollected();
       }
     },
     updateWishlist(index, i, viewmode) {

@@ -72,6 +72,11 @@ const providable2collected = function (text) {
   );
 };
 
+// コンプ率の計算対象アイテムの判定
+const filterOtherItem = function (item) {
+  return !item.isHidden;
+};
+
 export function filterItems(args) {
   let items = itemsJson;
   let {
@@ -216,6 +221,8 @@ export function filterItems(args) {
             }
           });
         });
+        // 隠しアイテムを隠す
+        items = items.filter((item) => !item.isHidden);
       }
 
       if (searchText !== "") {
@@ -236,10 +243,7 @@ export function filterItems(args) {
     }
   } else {
     if (filter) {
-      //
-      // V2
-      //
-
+      // バージョンフィルター
       if (filter.version && !nav.includes("version")) {
         if (filter.version === 2) {
           items = items.filter((item) => item.versionAdded === "2.0.0");
@@ -248,11 +252,11 @@ export function filterItems(args) {
         }
       }
 
-      //
       // 分類フィルター
-      //
-
       items = items.filter((item) => typeFilter(item, filter.typeFilter));
+
+      // 隠しアイテムを隠す
+      items = items.filter((item) => !item.isHidden);
     }
 
     //
@@ -381,7 +385,9 @@ export function totalLength(args) {
 }
 
 export function allTotalLength() {
-  return calcTotalLength(itemsJson);
+  const items = itemsJson.filter(filterOtherItem);
+
+  return calcTotalLength(items);
 }
 
 export function collectedLength(args) {
@@ -404,6 +410,7 @@ export function allCollectedLength(collected) {
     collected,
     filter: { collectedFilter: "3" },
   });
+  collectedItems = collectedItems.filter(filterOtherItem);
 
   return calcCollectedLength(collected, collectedItems);
 }

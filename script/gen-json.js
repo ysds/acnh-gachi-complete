@@ -499,23 +499,30 @@ allItems.forEach((item) => {
 });
 
 //
-// 特殊アイテムの削除
+// 特殊アイテムの処理
 //
+
+// 特殊アイテムの削除
 
 const removeItems = require("../data/item-data-custom/removeItems.json");
 allItems = allItems.filter(
   (item) => !(removeItems[item.name] && item.sourceSheet !== "Recipes")
 );
 
-// 一部特殊アイテムを「収納できない」に格納
-
+const hiddenItems = require("../data/item-data-custom/hiddenItems.json");
 const unStoragableItems = require("../data/item-data-custom/unStoragableItems.json");
-allItems.forEach((item)=> {
-  if (unStoragableItems[item.name]) {
-    item.sourceSheet = "Un-Storagable"
-    item.displayName = unStoragableItems[item.name]
+allItems.forEach((item) => {
+  // 特殊アイテムに不可視フラグ
+  if (hiddenItems[item.name]) {
+    item.isHidden = true;
   }
-})
+
+  //一部アイテムを「収納できない」に格納
+  if (unStoragableItems[item.name]) {
+    item.sourceSheet = "Un-Storagable";
+    item.displayName = unStoragableItems[item.name];
+  }
+});
 
 //
 // どのカテゴリにも属さないアイテムの抽出

@@ -126,9 +126,11 @@ const RENAME_MAP = {
   "Pit-y Party!": "Pit-y Party",
 };
 
+const hiddenItems = require("../../data/item-data-custom/hiddenItems.json");
+
 export function makeCompatibleCollection(collected) {
   const newCollected = Object.assign({}, collected);
-
+  // 名前が変更されたアイテムの対応
   Object.keys(RENAME_MAP).forEach((oldName) => {
     const newName = RENAME_MAP[oldName];
     if (newCollected[oldName]) {
@@ -137,6 +139,11 @@ export function makeCompatibleCollection(collected) {
       }
       delete newCollected[oldName];
     }
+  });
+
+  // 非表示アイテムのデータを削除
+  Object.keys(hiddenItems).forEach((itemName) => {
+    delete newCollected[itemName];
   });
 
   // ペットボトル飲料など一時的にバリエーションが多かったアイテムの対応
@@ -158,6 +165,7 @@ export function makeCompatibleCollection(collected) {
 }
 
 export function makeCompatibleWishlist(wishlist) {
+  // 名前が変更されたアイテムの対応
   let newWishlist = wishlist.map((wishdata) => {
     const wishdataArray = wishdata.split("_");
     const name = wishdataArray[0];
@@ -165,6 +173,14 @@ export function makeCompatibleWishlist(wishlist) {
     const newName = RENAME_MAP[name];
 
     return newName ? `${newName}_${variant}` : wishdata;
+  });
+
+  // 非表示アイテムのデータを削除
+  Object.keys(hiddenItems).forEach((itemName) => {
+    const regex = new RegExp(`(^${itemName})$|^${itemName}_`);
+    newWishlist = newWishlist.filter((wishdata) => {
+      return !regex.test(wishdata);
+    });
   });
 
   // ペットボトル飲料など一時的にバリエーションが多かったアイテムの対応

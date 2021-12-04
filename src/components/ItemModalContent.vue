@@ -8,8 +8,11 @@
         v-if="modalItem.sourceSheet === 'Recipes'"
       />
     </div>
+    <div v-if="modalItem.isHidden" class="info-hidden">
+      本アイテムはストーリやイベント進行などで一時的に入手するものであり、ガチコンプのコレクション管理の対象外です。
+    </div>
     <div
-      v-if="isShowExtraButton"
+      v-if="isShowExtraButton && !modalItem.isHidden"
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button
@@ -54,7 +57,7 @@
       </Button>
     </div>
     <div
-      v-if="isShowExtraButton"
+      v-if="isShowExtraButton && !modalItem.isHidden"
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button
@@ -617,5 +620,12 @@ export default {
   &.disabled {
     opacity: 0.4;
   }
+}
+
+.info-hidden {
+  color: #ff3333;
+  font-size: 14px;
+  margin: 1rem;
+  text-align: center;
 }
 </style>

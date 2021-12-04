@@ -216,6 +216,8 @@ export function filterItems(args) {
             }
           });
         });
+        // 隠しアイテムを隠す
+        items = items.filter((item) => !item.isHidden);
       }
 
       if (searchText !== "") {
@@ -236,10 +238,7 @@ export function filterItems(args) {
     }
   } else {
     if (filter) {
-      //
-      // V2
-      //
-
+      // バージョンフィルター
       if (filter.version && !nav.includes("version")) {
         if (filter.version === 2) {
           items = items.filter((item) => item.versionAdded === "2.0.0");
@@ -248,11 +247,11 @@ export function filterItems(args) {
         }
       }
 
-      //
       // 分類フィルター
-      //
-
       items = items.filter((item) => typeFilter(item, filter.typeFilter));
+
+      // 隠しアイテムを隠す
+      items = items.filter((item) => !item.isHidden);
     }
 
     //

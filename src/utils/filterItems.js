@@ -72,6 +72,11 @@ const providable2collected = function (text) {
   );
 };
 
+// コンプ率の計算対象アイテムの判定
+const filterOtherItem = function (item) {
+  return !item.isHidden;
+};
+
 export function filterItems(args) {
   let items = itemsJson;
   let {
@@ -380,7 +385,9 @@ export function totalLength(args) {
 }
 
 export function allTotalLength() {
-  return calcTotalLength(itemsJson);
+  const items = itemsJson.filter(filterOtherItem);
+
+  return calcTotalLength(items);
 }
 
 export function collectedLength(args) {
@@ -403,6 +410,7 @@ export function allCollectedLength(collected) {
     collected,
     filter: { collectedFilter: "3" },
   });
+  collectedItems = collectedItems.filter(filterOtherItem);
 
   return calcCollectedLength(collected, collectedItems);
 }

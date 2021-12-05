@@ -888,9 +888,25 @@ const navs = [
     subnavs: [
       {
         id: "hhp-request",
-        text: "お仕事（別荘）",
+        text: "別荘",
         filter: function (item) {
           return item.sourceSheet === "Paradise Planning";
+        },
+      },
+      {
+        id: "hhp-vip",
+        text: "別荘（VIP）",
+        filter: function (item) {
+          return item.sourceSheet === "Paradise Planning VIP";
+        },
+      },
+      {
+        id: "hhp-bottles",
+        text: "メッセージボトル（ハピパラ・かっぺい離島）",
+        alttext: "メッセージボトル",
+        subtext: "ハピパラ・かっぺい離島",
+        filter: function (item) {
+          return inSource(item, "HHP island bottles");
         },
       },
       {
@@ -933,13 +949,6 @@ const navs = [
         text: "ナッティー",
         filter: function (item) {
           return inSource(item, "Wardell");
-        },
-      },
-      {
-        id: "hhp-bottles",
-        text: "メッセージボトル（ハピパラ・かっぺい離島）",
-        filter: function (item) {
-          return inSource(item, "HHP island bottles");
         },
       },
       {

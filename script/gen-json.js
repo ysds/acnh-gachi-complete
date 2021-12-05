@@ -12,7 +12,8 @@ let allItems = [].concat(
   require("../data/item-data/creatures.json"),
   require("../data/item-data/reactions.json"),
   require("../data/item-data/achievements.json"),
-  require("../data/item-data/request.json")
+  require("../data/item-data/request.json"),
+  require("../data/item-data-custom/request-vip.json")
 );
 
 const translation = {
@@ -31,6 +32,7 @@ const translation = {
   whereHow: require("../data/translation-custom/whereHow.json"),
   weather: require("../data/translation-custom/weather.json"),
   npcName: require("../data/translation-src/npc/STR_NNpcName.json"),
+  snpcName: require("../data/translation-src/npc/STR_SNpcName.json"),
   request: require("../data/translation-json/request.json"),
   fixData: require("../data/translation-custom/fix.json"),
 };
@@ -317,6 +319,8 @@ allItems.forEach((item) => {
     itemName = items[0].displayName;
   } else if (item.sourceSheet === "Paradise Planning") {
     itemName = translation.npcName[item.filename];
+  } else if (item.sourceSheet === "Paradise Planning VIP") {
+    itemName = item.displayName || translation.snpcName[item.filename];
   } else if (item.sourceSheet === "Reactions") {
     itemName = translation.reaction[item.iconFilename];
   } else if (item.sourceSheet === "Achievements") {
@@ -455,12 +459,22 @@ allItems.forEach((item) => {
   //
 
   // 画像に住民アイコン画像を設定
-  if (item.sourceSheet === "Paradise Planning") {
-    const variant = {
-      uniqueEntryId: 0,
-      image: customNpcImageData[item.name],
-      request: translation.request[item.request],
-    };
+  if (
+    item.sourceSheet === "Paradise Planning" ||
+    item.sourceSheet === "Paradise Planning VIP"
+  ) {
+    const variant =
+      item.sourceSheet === "Paradise Planning"
+        ? {
+            uniqueEntryId: 0,
+            image: customNpcImageData[item.name],
+            request: translation.request[item.request],
+          }
+        : {
+            uniqueEntryId: 0,
+            image: `NpcIcon/${item.filename}.png`,
+            request: "別荘のご提案",
+          };
     item.variants = [variant];
     // 追加バージョンを設定
     if (!item.versionAdded) {

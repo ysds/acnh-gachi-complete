@@ -56,7 +56,8 @@
     "STR_Remake_BodyParts.json": "variant-remake",
     "STR_Remake_FabricColor.json": "variant-remake",
     "STR_Remake_FabricParts.json": "variant-remake",
-    "STR_NNpcName.json": "npc"
+    "STR_NNpcName.json": "npc",
+    "STR_SNpcName.json": "npc"
   },
   "System_JPja.sarc.zs": {
     "NookMilage_List.json": ""

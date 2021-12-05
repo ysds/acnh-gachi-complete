@@ -155,6 +155,7 @@
 import CheckForList from "./CheckForList";
 import CheckForTile from "./CheckForTile";
 import stampUrls from "../mixins/stampUrls";
+import shareNpcImages from "../mixins/shareNpcImages";
 import {
   inWishlistFlags,
   toDisplayItemName,
@@ -167,7 +168,7 @@ export default {
     CheckForList,
     CheckForTile,
   },
-  mixins: [stampUrls],
+  mixins: [stampUrls, shareNpcImages],
   props: {
     collected: {
       type: [String, Array],
@@ -233,7 +234,9 @@ export default {
       if (variants) {
         variants.forEach((variant) => {
           let image = "";
-          if (variant.stampImage) {
+          if (this.item.shareImage) {
+            image = this.shareNpcImages[this.item.shareImage];
+          } else if (variant.stampImage) {
             image = this.stampUrls[variant.stampImage];
           } else {
             image =

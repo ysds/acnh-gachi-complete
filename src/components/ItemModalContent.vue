@@ -284,11 +284,12 @@
 <script>
 import Button from "../components/Button";
 import stampUrls from "../mixins/stampUrls";
+import shareNpcImages from "../mixins/shareNpcImages";
 import { isInWishlist, stockCount } from "../utils/utils";
 
 export default {
   components: { Button },
-  mixins: [stampUrls],
+  mixins: [stampUrls, shareNpcImages],
   props: {
     modalItem: Object,
     modalBodyIndex: Number,
@@ -308,7 +309,9 @@ export default {
       const variants = this.modalItem.variants;
       let image = "";
       if (variants) {
-        if (variants[0].stampImage) {
+        if (this.modalItem.shareImage) {
+          return this.shareNpcImages[this.modalItem.shareImage];
+        } else if (variants[0].stampImage) {
           return this.stampUrls[variants[this.modalBodyIndex].stampImage];
         } else {
           image =

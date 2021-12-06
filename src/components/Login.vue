@@ -39,6 +39,8 @@
 
       <LoginCollected />
 
+      <LoginSettings :settings="settings" @change="changeSettings" />
+
       <template v-if="isLogin && user">
         <LoginName :userName="userName" @change="saveName" />
         <LoginIslandName :islandName="islandName" @change="saveIslandName" />
@@ -77,6 +79,7 @@ import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
 import LoginCatalogScanner from "../components/LoginCatalogScanner";
+import LoginSettings from "../components/LoginSettings";
 
 const db = firebase.firestore();
 
@@ -92,6 +95,7 @@ export default {
     LoginImport,
     LoginCollected,
     LoginCatalogScanner,
+    LoginSettings,
   },
   computed: {
     user() {
@@ -105,6 +109,9 @@ export default {
     },
     isLogin() {
       return this.$store.getters.isLogin;
+    },
+    settings() {
+      return this.$store.getters.settings;
     },
   },
   methods: {
@@ -132,6 +139,9 @@ export default {
         islandName: newName,
       });
       this.$store.commit("updateIslandName", newName);
+    },
+    changeSettings(newValue) {
+      this.$store.commit("changeSettings", newValue);
     },
   },
 };

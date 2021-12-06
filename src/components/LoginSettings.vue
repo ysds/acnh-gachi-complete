@@ -1,7 +1,7 @@
 <template>
   <Card title="設定">
     <div class="switch">
-      <VSwitch :checked="settings.theme" @change="onChange('isDarkTheme', $event)">
+      <VSwitch :checked="settings.isDarkTheme" @change="onChange('isDarkTheme', $event)">
         ダークモード
       </VSwitch>
     </div>

@@ -46,8 +46,9 @@ const calcTotalLength = function (items) {
   return result;
 };
 
-const calcCollectedLength = function (collected, items) {
+const calcCollectedLength = function (collected, items, isProvidableOnly) {
   let result = 0;
+  const regex = isProvidableOnly ? /[A-J]/g : /[0-9A-J]/g;
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     if (item.uniqueEntryId) {
@@ -55,7 +56,7 @@ const calcCollectedLength = function (collected, items) {
     } else {
       let collectedData = collected[item.name] || "";
       collectedData = collectedData.substr(0, item.variants.length); // Fix for #34
-      const length = (collectedData.match(/[0-9A-J]/g) || []).length;
+      const length = (collectedData.match(regex) || []).length;
       result += length;
     }
   }
@@ -426,5 +427,5 @@ export function providableLength(args) {
     },
   });
 
-  return calcCollectedLength(collected, collectedItems);
+  return calcCollectedLength(collected, collectedItems, true);
 }

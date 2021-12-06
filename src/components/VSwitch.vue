@@ -51,12 +51,12 @@ export default {
 
 input[type="checkbox"],
 input[type="radio"] {
-  --active: #007bff;
-  --active-inner: #fff;
+  --active: var(--app-active);
+  --active-inner: var(--app-body-bg);
   --focus: 2px rgba(39, 94, 254, 0.3);
   --border: #bbc0d1;
-  --border-hover: #007bff;
-  --background: #fff;
+  --border-hover: var(--app-active);
+  --background: var(--app-body-bg);
   -webkit-appearance: none;
   -moz-appearance: none;
   flex-shrink: 0;
@@ -126,7 +126,7 @@ input[type="checkbox"] {
 
       ~ label {
         font-weight: bold;
-        color: #007bff;
+        color: var(--app-active);
       }
     }
   }

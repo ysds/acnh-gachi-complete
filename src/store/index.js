@@ -229,8 +229,10 @@ export default new Vuex.Store({
       const root = document.getElementsByTagName("html")[0];
       if (state.settings && state.settings.isDarkTheme) {
         root.classList.add("theme-dark");
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#222222');
       } else {
         root.classList.remove("theme-dark");
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#ffffff');
       }
     },
   },

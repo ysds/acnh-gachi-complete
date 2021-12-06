@@ -28,7 +28,7 @@ export default {
   max-height: 50vh;
   margin-top: 3px;
   padding: 0.375rem;
-  background-color: #fff;
+  background-color: var(--app-surface);
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   font-size: 14px;
@@ -47,7 +47,7 @@ export default {
     content: "";
     width: 100%;
     min-height: 0.375rem;
-    background-color: #fff;
+    background-color: var(--app-body-bg);
   }
 
   ::v-deep .dropdown-item:first-child {
@@ -55,7 +55,7 @@ export default {
     top: 0.375rem;
     z-index: 1;
     font-weight: 700;
-    color: #007bff;
+    color: var(--app-active);
   }
 }
 </style>

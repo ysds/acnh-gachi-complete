@@ -36,14 +36,14 @@ export default {
   padding: 0;
   border: 0;
   background-color: transparent;
-  color: #444;
+  color: var(--app-sub-text);
   text-align: left;
   font-size: 13px;
   font-weight: bold;
 
   &.active {
     .btnradio-indicator {
-      border: 7px solid #007bff;
+      border: 7px solid var(--app-active);
       background-color: transparent;
     }
   }
@@ -54,7 +54,7 @@ export default {
   flex-shrink: 0;
   height: 24px;
   width: 24px;
-  background-color: #eee;
+  background-color: var(--app-btn-gray);
   border-radius: 20px;
   margin-right: 4px;
 }

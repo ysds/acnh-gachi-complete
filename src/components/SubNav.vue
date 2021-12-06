@@ -85,7 +85,7 @@ export default {
 <style scoped lang="scss">
 .wrapper {
   display: flex;
-  background-color: #fff;
+  background-color: var(--app-body-bg);
 }
 
 .sticky {
@@ -119,7 +119,7 @@ export default {
   font-size: 15px;
   font-weight: 700;
   border-bottom: 3px solid transparent;
-  color: #333;
+  color: var(--app-btn-color);
 
   &.active {
     color: #42b983;

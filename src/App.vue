@@ -113,7 +113,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 
   &.isSearchMode {
     padding-top: 0;
@@ -128,7 +127,7 @@ export default {
   z-index: 1010;
   padding: 4px 8px;
   user-select: none;
-  background-color: #fff;
+  background-color: var(--app-body-bg);
   font-size: 15px;
   font-weight: bold;
 }

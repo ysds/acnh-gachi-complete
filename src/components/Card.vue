@@ -22,8 +22,8 @@ export default {
 .card {
   margin-bottom: 1rem;
   text-align: left;
-  background-color: #fff;
-  border: 1px solid #d6d6d6;
+  background-color: var(--app-surface);
+  border: 1px solid var(--app-border);
   border-radius: 8px;
 }
 
@@ -38,7 +38,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 0.2rem 1rem;
-  color: #fff;
+  color: var(--app-body-bg);
   font-weight: 700;
   background-color: #ec407a;
   border-radius: 4px;

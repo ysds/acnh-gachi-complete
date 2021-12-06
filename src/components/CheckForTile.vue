@@ -69,8 +69,8 @@ export default {
   vertical-align: top;
   border: 0;
   background-color: transparent;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid var(--app-body-bg);
+  border-bottom: 1px solid var(--app-body-bg);
   color: inherit;
   vertical-align: top;
   outline: 0;
@@ -87,11 +87,13 @@ export default {
   }
 
   &.t1 {
-    background-color: #b6ecd4;
+    background-color: var(--app-collected);
+    color: var(--app-body-bg);
   }
 
   &.t2 {
-    background-color: #a0cbff;
+    background-color: var(--app-providable);
+    color: var(--app-body-bg);
   }
 }
 
@@ -135,6 +137,7 @@ export default {
   right: 4px;
   pointer-events: none;
   user-select: none;
+  filter: var(--app-filter);
 }
 
 .t-img-recipe {
@@ -166,8 +169,8 @@ export default {
   padding-left: 4px;
   min-width: 16px;
   margin-bottom: 0.2rem;
-  background-color: #4c8cda;
-  color: #fff;
+  background-color: var(--app-stock);
+  color: var(--app-stock-color);
   border-radius: 99px;
   font-size: 12px;
   font-weight: 500;

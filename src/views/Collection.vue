@@ -614,7 +614,7 @@ export default {
 .items {
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: transparent;
 
   &.tiles {
     text-align: center;
@@ -633,7 +633,7 @@ export default {
   text-align: center;
   font-weight: 700;
   font-size: 1rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--app-sub-text);
 }
 
 .loading {

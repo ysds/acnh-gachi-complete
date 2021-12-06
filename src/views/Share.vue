@@ -447,7 +447,7 @@ export default {
   font-weight: 700;
   word-break: break-all;
   padding: 0 1rem;
-  color: #000;
+  color: var(--app-color);
 }
 
 .items {
@@ -490,7 +490,7 @@ export default {
   text-align: center;
   font-weight: 700;
   font-size: 14px;
-  background-color: #eee;
+  background-color: var(--app-btn-gray);
   padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -520,8 +520,8 @@ export default {
   margin: 0 .125rem;
   font-size: 14px;
   font-weight: 700;
-  color: rgba(#000, 0.9);
-  background-color: #eee;
+  color: var(--app-btn-color);
+  background-color: var(--app-btn-gray);
   border: 0;
   border-radius: 12px;
 

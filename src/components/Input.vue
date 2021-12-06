@@ -34,8 +34,10 @@ export default {
 input {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  border: 1px solid var(--app-border);
+  border-radius: 8px;
   appearance: none;
+  background-color: var(--app-body-bg);
+  color: var(--app-color);
 }
 </style>

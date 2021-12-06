@@ -43,7 +43,7 @@ export default {
   flex-wrap: wrap;
   font-size: 15px;
   font-weight: 700;
-  color: #555;
+  color: var(--app-sub-text);
   padding: 0.1rem 0.5rem;
 }
 

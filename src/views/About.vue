@@ -32,7 +32,7 @@
       <img
         class="img"
         src="../assets/remake.svg"
-        style="width: 26px; height: 26px; margin-top: -4px; margin-left: -4px"
+        style="width: 26px; height: 26px; margin-top: -4px; margin-left: -4px: filter: var(--app-filter);"
       />
       アイコンが表示されます。
     </p>
@@ -232,7 +232,7 @@
         <img src="../assets/Twitter_Logo_Blue.svg" width="60px" height="60px" />
       </a>
       <a href="https://github.com/ysds/acnh-gachi-complete">
-        <img src="../assets/GitHub-Mark-64px.png" width="40px" height="40px" />
+        <img src="../assets/GitHub-Mark-64px.png" width="40px" height="40px" style="filter: var(--app-filter);"/>
       </a>
     </div>
 

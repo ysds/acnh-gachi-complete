@@ -64,7 +64,7 @@ export default {
   padding: 3px 0.25rem 1px;
   margin-bottom: 0.25rem;
   border-radius: 6px;
-  background-color: #e6e6e6;
+  background-color: var(--app-btn-hover-bg);
   line-height: 1;
   font-size: 12px;
   overflow: hidden;

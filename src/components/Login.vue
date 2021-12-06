@@ -121,9 +121,18 @@ export default {
     logout() {
       syncData();
       Auth.logout();
-      this.$vlf.clear(() => {
-        window.location.reload();
-      });
+      this.$vlf
+        .removeItems([
+          "collected",
+          "wishlist",
+          "stocklist",
+          "updateIndex",
+          "islandName",
+          "filter",
+        ])
+        .then(() => {
+          window.location.reload();
+        });
     },
     close() {
       this.$emit("close");

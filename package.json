@@ -19,6 +19,7 @@
     "core-js": "^3.18.0",
     "firebase": "^7.22.1",
     "localforage": "^1.10.0",
+    "localforage-removeitems": "^1.4.0",
     "lodash": "^4.17.21",
     "lz-string": "^1.4.4",
     "natsort": "^2.0.3",

@@ -85,7 +85,7 @@ export default {
 .modal-container {
   flex-grow: 1;
   padding: 20px 15px;
-  background-color: #fff;
+  background-color: var(--app-body-bg);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;

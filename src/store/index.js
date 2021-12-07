@@ -35,6 +35,9 @@ export default new Vuex.Store({
     stocklist: {},
     cloudStocklist: {},
     sharedStocklist: {},
+    settings: {
+      isDarkTheme: false,
+    },
   },
   mutations: {
     changeNav(state, nextNav) {
@@ -219,6 +222,19 @@ export default new Vuex.Store({
       state.localUpdateIndex++;
       localforage.setItem("updateIndex", state.localUpdateIndex);
     },
+    changeSettings(state, payload) {
+      state.settings = payload;
+      localforage.setItem("settings", payload);
+
+      const root = document.getElementsByTagName("html")[0];
+      if (state.settings && state.settings.isDarkTheme) {
+        root.classList.add("theme-dark");
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#222222');
+      } else {
+        root.classList.remove("theme-dark");
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#ffffff');
+      }
+    },
   },
   getters: {
     activeNav(state) {
@@ -295,6 +311,9 @@ export default new Vuex.Store({
     },
     sharedStocklist(state) {
       return state.sharedStocklist;
+    },
+    settings(state) {
+      return state.settings;
     },
   },
 });

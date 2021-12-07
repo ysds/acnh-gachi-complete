@@ -31,8 +31,8 @@
               viewBox="0 0 50 50"
             >
               <path
-                fill="#fff"
-                stroke="#fff"
+                fill="var(--app-body-bg)"
+                stroke="var(--app-body-bg)"
                 stroke-width="4px"
                 d="M9.016
             40.837a1.001 1.001 0 001.415-.001l14.292-14.309 14.292 14.309a1 1 0
@@ -122,7 +122,7 @@ export default {
 .searchbox {
   position: relative;
   z-index: 1010;
-  background-color: #fff;
+  background-color: var(--app-body-bg);
 }
 
 .search {
@@ -136,7 +136,7 @@ export default {
   flex-grow: 1;
   padding-left: 0.5rem;
   pointer-events: auto;
-  background-color: #fff;
+  background-color: var(--app-body-bg);
 }
 
 .search-input-wrap {
@@ -145,7 +145,7 @@ export default {
   margin-right: 0.25rem;
   width: 100%;
   height: 40px;
-  border-bottom: 3px solid #007bff;
+  border-bottom: 3px solid var(--app-active);
 }
 
 .search-input {
@@ -161,6 +161,7 @@ export default {
   outline: none;
   font-size: 15px;
   font-weight: 700;
+  color: inherit;
 
   @media (min-width: 321px) {
     font-size: 18px;

@@ -36,9 +36,9 @@ export default {
   margin-bottom: 0.125rem;
   border: 0;
   border-radius: 5px;
-  background-color: #eee;
+  background-color: var(--app-btn-gray);
   font-size: 13px;
-  color: #444;
+  color: var(--app-color);
   user-select: none;
   transition: transform 0.1s, background-color 0.2s;
 
@@ -48,12 +48,12 @@ export default {
 
   &.v1 {
     background-color: #42b983;
-    color: #fff;
+    color: var(--app-body-bg);
   }
 
   &.v2 {
     background-color: #3790ff;
-    color: #fff;
+    color: var(--app-body-bg);
   }
 }
 
@@ -71,8 +71,8 @@ export default {
   padding-left: 4px;
   min-width: 16px;
   margin-left: 4px;
-  background-color: #1f75dd;
-  color: #fff;
+  background-color: var(--app-stock);
+  color: var(--app-stock-color);
   border-radius: 99px;
   font-size: 12px;
   font-weight: 500;

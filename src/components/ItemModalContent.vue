@@ -74,7 +74,7 @@
         >
           <path
             d="M2 10C2 9.44772 2.44772 9 3 9H17C17.5523 9 18 9.44772 18 10C18 10.5523 17.5523 11 17 11H3C2.44772 11 2 10.5523 2 10Z"
-            fill="#444444"
+            fill="var(--app-btn-color)"
           />
         </svg>
       </Button>
@@ -95,7 +95,7 @@
         >
           <path
             d="M11 3C11 2.44772 10.5523 2 10 2C9.44771 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44771 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44771 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9H11V3Z"
-            fill="#444444"
+            fill="var(--app-btn-color)"
           />
         </svg>
       </Button>
@@ -520,7 +520,7 @@ export default {
   padding: 0.2rem;
   width: 80px;
   border-radius: 4px;
-  color: #fff;
+  color: var(--app-body-bg);
   font-weight: 700;
   text-align: center;
 }
@@ -582,6 +582,7 @@ export default {
 
   &.active {
     background-color: #ffc79f;
+    color: #000;
   }
 }
 

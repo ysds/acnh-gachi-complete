@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Vlf from "vlf";
 import localforage from "localforage";
+import { extendPrototype } from 'localforage-removeitems';
+extendPrototype(localforage);
 import VueLazyload from "vue-lazyload";
 import VueAnalytics from "vue-analytics";
 import VueClipboard from "vue-clipboard2";

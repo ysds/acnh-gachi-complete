@@ -70,7 +70,7 @@ export default {
   width: 100%;
   height: 6px;
   border-radius: 6px;
-  background-color: #e6e6e6;
+  background-color: var(--app-btn-hover-bg);
   overflow: hidden;
 }
 

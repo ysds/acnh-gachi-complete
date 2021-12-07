@@ -82,9 +82,9 @@ export default {
 
 <style lang="scss" scoped>
 .btn {
-  --color: #444;
+  --color: var(--app-btn-color);
   --bg-color: transparent;
-  --hover-bg-color: rgba(0, 0, 0, 0.08);
+  --hover-bg: var(--app-btn-hover-bg);
   --height: 44px;
   display: inline-block;
   flex-shrink: 0;
@@ -106,7 +106,7 @@ export default {
 
   &.pressed,
   &.active {
-    background-color: var(--hover-bg-color);
+    background-color: var(--hover-bg);
   }
 
   &:hover,
@@ -120,7 +120,7 @@ export default {
   }
 
   &:focus-visible {
-    background-color: var(--hover-bg-color);
+    background-color: var(--hover-bg);
   }
 
   &:disabled {
@@ -135,28 +135,28 @@ export default {
 }
 
 .btn-primary {
-  --color: #007bff;
-  --hover-bg-color: #bddcfd;
+  --color: var(--app-active);
+  --hover-bg: var(--app-btn-hover-bg-light);
   font-weight: 700;
 }
 
 .btn-secondary {
-  --color: #007bff;
-  --hover-bg-color: #bddcfd;
+  --color: var(--app-active);
+  --hover-bg: var(--app-btn-hover-bg-light);
   font-weight: 400;
 }
 
 .btn-danger {
   --color: #fff;
   --bg-color: #eb486b !important;
-  --hover-bg-color: #eb486b;
+  --hover-bg: #eb486b;
   font-weight: 700;
 }
 
 .btn-cta {
-  --color: #007bff;
-  --bg-color: #ebf3fc;
-  --hover-bg-color: #bddcfd;
+  --color: var(--app-active);
+  --bg-color: var(--app-btn-cta);
+  --hover-bg: var(--app-btn-hover-bg-light);
   --height: 50px;
   width: 100%;
   max-width: 400px;
@@ -166,7 +166,7 @@ export default {
 }
 
 .btn-block {
-  --bg-color: #f3f3f3;
+  --bg-color: var(--app-btn-gray);
   --height: 50px;
   display: inline-flex;
   align-items: center;
@@ -180,7 +180,7 @@ export default {
 
 .btn-sm {
   --height: 34px;
-  --bg-color: #f6f6f6;
+  --bg-color: var(--app-btn-gray);
   font-size: 13px;
   margin-right: 2px;
   margin-left: 2px;
@@ -188,7 +188,7 @@ export default {
 
 .btn-xs {
   --height: 26px;
-  --bg-color: #f6f6f6;
+  --bg-color: var(--app-btn-gray);
   font-size: 13px;
   margin-right: 2px;
   margin-left: 2px;
@@ -197,10 +197,10 @@ export default {
 }
 
 .btn-form {
-  --color: #007bff;
+  --color: var(--app-active);
   --height: 38px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  --bg-color: var(--app-btn-gray);
   min-width: 90px;
 }
 

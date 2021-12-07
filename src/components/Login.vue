@@ -39,6 +39,8 @@
 
       <LoginCollected />
 
+      <LoginSettings :settings="settings" @change="changeSettings" />
+
       <template v-if="isLogin && user">
         <LoginName :userName="userName" @change="saveName" />
         <LoginIslandName :islandName="islandName" @change="saveIslandName" />
@@ -77,6 +79,7 @@ import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginCollected from "../components/LoginCollected";
 import LoginCatalogScanner from "../components/LoginCatalogScanner";
+import LoginSettings from "../components/LoginSettings";
 
 const db = firebase.firestore();
 
@@ -92,6 +95,7 @@ export default {
     LoginImport,
     LoginCollected,
     LoginCatalogScanner,
+    LoginSettings,
   },
   computed: {
     user() {
@@ -106,6 +110,9 @@ export default {
     isLogin() {
       return this.$store.getters.isLogin;
     },
+    settings() {
+      return this.$store.getters.settings;
+    },
   },
   methods: {
     login(provider) {
@@ -114,9 +121,18 @@ export default {
     logout() {
       syncData();
       Auth.logout();
-      this.$vlf.clear(() => {
-        window.location.reload();
-      });
+      this.$vlf
+        .removeItems([
+          "collected",
+          "wishlist",
+          "stocklist",
+          "updateIndex",
+          "islandName",
+          "filter",
+        ])
+        .then(() => {
+          window.location.reload();
+        });
     },
     close() {
       this.$emit("close");
@@ -133,6 +149,9 @@ export default {
       });
       this.$store.commit("updateIslandName", newName);
     },
+    changeSettings(newValue) {
+      this.$store.commit("changeSettings", newValue);
+    },
   },
 };
 </script>
@@ -144,7 +163,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--app-body-bg);
   overflow-y: auto;
   user-select: text;
 }

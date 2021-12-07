@@ -1,9 +1,63 @@
-*, body {
+:root {
+  --app-color: #222;
+  --app-body-bg: #fff;
+  --app-border: rgba(0, 0, 0, 0.16);
+  --app-sub-text: rgba(0, 0, 0, 0.65);
+  --app-surface: #fff;
+  --app-filter: none;
+
+  --app-btn-color: rgba(0, 0, 0, .7);
+  --app-btn-gray: rgba(0, 0, 0, 0.05);
+  --app-btn-gray2: rgba(0, 0, 0, 0.08);
+  --app-btn-cta: rgba(47, 141, 241, 0.1);
+  --app-btn-hover-bg: rgba(0, 0, 0, 0.08);
+  --app-btn-hover-bg-light: #bddcfd;
+  --app-check: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+
+  --app-active: #007bff;
+  --app-green: #42b983;
+  --app-collected: #b6ecd4;
+  --app-providable: #a0cbff;
+  --app-stock: #1f75dd;
+  --app-stock-color: #fff;
+  
+  &.theme-dark {
+    --app-color: #fff;
+    --app-body-bg: #222;
+    --app-border: rgba(255, 255, 255, 0.05);
+    --app-sub-text: rgba(255, 255, 255, 0.65);
+    --app-surface: #333;
+    --app-filter: invert(1);
+    
+    --app-btn-color: rgba(255, 255, 255, .7);
+    --app-btn-gray: rgba(255, 255, 255, 0.1);
+    --app-btn-gray2: rgba(255, 255, 255, 0.1);
+    --app-btn-hover-bg: rgba(255, 255, 255, 0.08);
+    --app-btn-hover-bg-light: #041e3a;
+    --app-check: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23222' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    
+    --app-active: #4ba2ff;
+    --app-collected: #278c5e;
+    --app-providable: #3c70b1;
+    --app-stock: #fff;
+    --app-stock-color: #1f75dd;
+  }
+}
+
+*,
+body {
   touch-action: manipulation;
 }
 
 body {
   overflow-x: hidden;
+  color: var(--app-color);
+  background-color: var(--app-body-bg);
+  min-height: 100vh;
+}
+
+a {
+  color: var(--app-active);
 }
 
 .tg {
@@ -13,16 +67,18 @@ body {
 }
 
 .tg-gr {
-  background-color: #b6ecd4;
+  background-color: var(--app-collected);
+  color: #000;
 }
 
 .tg-bl {
-  background-color: #a0cbff;
+  background-color: var(--app-providable);
+  color: #000;
 }
 
 .small {
   font-size: 13px;
-  color: #555;
+  color: var(--app-sub-text);
 }
 
 .d-flex {

@@ -73,7 +73,7 @@ export default {
   right: 0;
   left: 0;
   z-index: 1010;
-  background-color: #fff;
+  background-color: var(--app-body-bg);
 }
 
 .navs {
@@ -105,16 +105,16 @@ export default {
   font-size: 12px;
   font-weight: bold;
   text-decoration: none;
-  color: #444;
+  color: var(--app-btn-color);
   touch-action: manipulation;
-  background-color: #eee;
+  background-color: var(--app-btn-gray);
   border-radius: 12px;
 
   &.active {
-    color: #fff;
+    color: var(--app-body-bg);
 
     svg {
-      color: #fff;
+      color: var(--app-body-bg);
     }
   }
 

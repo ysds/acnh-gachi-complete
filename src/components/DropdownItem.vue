@@ -49,18 +49,18 @@ export default {
 .dropdown-item {
   position: relative;
   padding: 0.4rem 0.5rem;
-  background-color: #fff;
+  background-color: var(--app-surface);
   border: 0;
   border-radius: 8px;
   outline: 0;
   text-align: left;
   transition: background-color 0.15s;
   white-space: nowrap;
-  color: #333;
+  color: var(--app-color);
 
   &:active,
   &.pressed {
-    background-color: #e3e3e3;
+    background-color: var(--app-btn-hover-bg);
   }
 
   &.selectable {

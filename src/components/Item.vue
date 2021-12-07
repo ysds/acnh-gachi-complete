@@ -464,7 +464,7 @@ export default {
   min-height: 66px;
   padding: 0 0 0 0.75rem;
   margin: 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--app-btn-gray2);
   user-select: none;
 }
 
@@ -490,6 +490,7 @@ export default {
   right: 2px;
   pointer-events: none;
   user-select: none;
+  filter: var(--app-filter);
 }
 
 .item-img-recipe {
@@ -535,7 +536,7 @@ export default {
   background-color: transparent;
 
   &:focus .item-check {
-    box-shadow: 0 0 0 2px #000;
+    box-shadow: 0 0 0 2px #fff;
     border-color: transparent;
   }
 }
@@ -547,20 +548,19 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  background-color: var(--app-btn-gray2);
+  border: none;
   border-radius: 0.25em;
   appearance: none;
 
   &.item-check-1 {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    background-image: var(--app-check);
     background-color: #42b983;
-    border-color: transparent;
   }
 
   &.item-check-2 {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    background-image: var(--app-check);
     background-color: #3790ff;
-    border-color: transparent;
   }
 }
 
@@ -589,7 +589,7 @@ export default {
   min-width: 16px;
   margin-bottom: 0.2rem;
   background-color: #4c8cda;
-  color: #fff;
+  color: var(--app-body-bg);
   border-radius: 99px;
   font-size: 12px;
   font-weight: 500;
@@ -607,13 +607,13 @@ export default {
   padding-left: 0;
 
   ::v-deep .t:first-child .t {
-    border-left: 1px solid #fff;
+    border-left: 1px solid var(--app-body-bg);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
 
   ::v-deep .t:last-child .t {
-    border-right: 1px solid #fff;
+    border-right: 1px solid var(--app-body-bg);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }

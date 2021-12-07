@@ -121,11 +121,11 @@ export default {
 }
 
 .group:not(:last-child) {
-  border-bottom: 3px solid #ccc;
+  border-bottom: 3px solid var(--app-border);
 }
 
 .switch:not(:last-child) {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--app-btn-gray2);
 }
 
 .flat-btn {

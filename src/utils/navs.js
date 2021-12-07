@@ -609,10 +609,19 @@ const navs = [
         },
       },
       {
+        id: "season-daily",
+        text: "たぬきショッピング",
+        subtext: "スペシャル（日替わり）",
+        order: 2,
+        filter: function (item) {
+          return inSource(item, "Nook Shopping Daily Selection");
+        },
+      },
+      {
         id: "season-fish",
         text: "魚釣り大会",
         subtext: "1, 4, 7, 10月",
-        order: 2,
+        order: 3,
         filter: function (item) {
           return item.seasonEvent === "Fishing Tourney";
         },
@@ -621,7 +630,7 @@ const navs = [
         id: "season-bug",
         text: "虫取り大会",
         subtext: "6, 7, 8, 9月",
-        order: 3,
+        order: 4,
         filter: function (item) {
           return item.seasonEvent === "Bug-Off";
         },
@@ -630,7 +639,7 @@ const navs = [
         id: "season-fireworks",
         text: "花火大会",
         subtext: "8月",
-        order: 4,
+        order: 5,
         filter: function (item) {
           return item.seasonEvent === "Fireworks Show";
         },
@@ -639,7 +648,7 @@ const navs = [
         id: "season-festivale",
         text: "カーニバル",
         subtext: "2/1〜2/15",
-        order: 5,
+        order: 6,
         filter: function (item) {
           return (
             item.seasonEvent &&
@@ -653,7 +662,7 @@ const navs = [
         id: "season-spring",
         text: "はるのわかたけ",
         subtext: "2/25〜5/31",
-        order: 6,
+        order: 7,
         filter: function (item) {
           return (
             item.seasonEvent === "young spring bamboo" &&
@@ -666,7 +675,7 @@ const navs = [
         id: "season-shamrock",
         text: "シャムロックデー",
         subtext: "3/10〜3/17",
-        order: 7,
+        order: 8,
         filter: function (item) {
           return (
             item.seasonEvent &&
@@ -680,7 +689,7 @@ const navs = [
         id: "season-easter",
         text: "イースター",
         subtext: "3/28〜4/4",
-        order: 8,
+        order: 9,
         filter: function (item) {
           return (
             item.seasonEvent &&
@@ -694,7 +703,7 @@ const navs = [
         id: "season-sakura",
         text: "さくらのはなびら",
         subtext: "4/1〜4/10",
-        order: 9,
+        order: 10,
         filter: function (item) {
           return (
             item.seasonEvent === "cherry-blossom petals" &&
@@ -707,7 +716,7 @@ const navs = [
         id: "season-mayday",
         text: "メーデー",
         subtext: "4/29〜5/7",
-        order: 10,
+        order: 11,
         filter: function (item) {
           return (
             item.seasonEvent === "May Day" && item.sourceSheet !== "Tools/Goods"
@@ -718,7 +727,7 @@ const navs = [
         id: "season-museum",
         text: "国際ミュージアムデー",
         subtext: "5/18〜5/31",
-        order: 11,
+        order: 12,
         filter: function (item) {
           return item.seasonEvent === "International Museum Day";
         },
@@ -727,7 +736,7 @@ const navs = [
         id: "season-wedding",
         text: "ジューンブライド",
         subtext: "6/1〜6/30",
-        order: 12,
+        order: 13,
         filter: function (item) {
           return (
             item.seasonEvent === "Wedding Season" &&
@@ -740,7 +749,7 @@ const navs = [
         id: "season-summer",
         text: "なつのかいがら",
         subtext: "6/1〜8/31",
-        order: 13,
+        order: 14,
         filter: function (item) {
           return (
             item.seasonEvent === "summer shells" &&
@@ -753,7 +762,7 @@ const navs = [
         id: "season-fall",
         text: "どんぐり/まつぼっくり",
         subtext: "9/1〜12/10",
-        order: 14,
+        order: 15,
         filter: function (item) {
           return (
             item.seasonEvent === "acorns and pine cones" &&
@@ -766,7 +775,7 @@ const navs = [
         id: "season-halloween",
         text: "ハロウィン",
         subtext: "10/1〜10/31",
-        order: 15,
+        order: 16,
         filter: function (item) {
           return item.seasonEvent && item.seasonEvent.includes("Halloween");
         },
@@ -775,7 +784,7 @@ const navs = [
         id: "season-mushroom",
         text: "キノコ",
         subtext: "11/1〜11/30",
-        order: 16,
+        order: 17,
         filter: function (item) {
           return (
             item.seasonEvent === "mushrooms" &&
@@ -788,7 +797,7 @@ const navs = [
         id: "season-maple",
         text: "もみじのはっぱ",
         subtext: "11/16～11/25",
-        order: 17,
+        order: 18,
         filter: function (item) {
           return (
             item.seasonEvent === "maple leaves" &&
@@ -801,7 +810,7 @@ const navs = [
         id: "season-turkey",
         text: "サンクスギビングデー",
         subtext: "11/26～11/30",
-        order: 18,
+        order: 19,
         filter: function (item) {
           return item.seasonEvent && item.seasonEvent.includes("Turkey Day");
         },
@@ -810,7 +819,7 @@ const navs = [
         id: "season-toy",
         text: "クリスマス",
         subtext: "12/1～12/25",
-        order: 19,
+        order: 20,
         filter: function (item) {
           return (
             item.seasonEvent &&
@@ -824,7 +833,7 @@ const navs = [
         id: "season-winter",
         text: "ゆきのけっしょう",
         subtext: "12/11〜2/24",
-        order: 20,
+        order: 21,
         filter: function (item) {
           return (
             item.seasonEvent === "snowflakes" &&
@@ -837,7 +846,7 @@ const navs = [
         id: "season-festive",
         text: "オーナメント",
         subtext: "12/15〜1/6",
-        order: 21,
+        order: 22,
         filter: function (item) {
           return (
             item.seasonEvent === "ornaments" &&
@@ -850,7 +859,7 @@ const navs = [
         id: "season-countdown",
         text: "カウントダウン",
         subtext: "12/31",
-        order: 22,
+        order: 23,
         filter: function (item) {
           return item.seasonEvent === "Countdown";
         },
@@ -858,7 +867,7 @@ const navs = [
       {
         id: "season-birthday",
         text: "誕生日",
-        order: 23,
+        order: 24,
         filter: function (item) {
           return item.seasonEvent === "Birthday";
         },
@@ -866,7 +875,7 @@ const navs = [
       {
         id: "season-mother",
         text: "ははシリーズ",
-        order: 24,
+        order: 25,
         filter: function (item) {
           return item.source && item.source.includes("Mom");
         },

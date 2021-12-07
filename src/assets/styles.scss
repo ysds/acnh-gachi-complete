@@ -53,6 +53,7 @@ body {
   overflow-x: hidden;
   color: var(--app-color);
   background-color: var(--app-body-bg);
+  min-height: 100vh;
 }
 
 a {
@@ -67,12 +68,12 @@ a {
 
 .tg-gr {
   background-color: var(--app-collected);
-  color: var(--app-body-bg);
+  color: #000;
 }
 
 .tg-bl {
   background-color: var(--app-providable);
-  color: var(--app-body-bg);
+  color: #000;
 }
 
 .small {

@@ -88,12 +88,12 @@ export default {
 
   &.t1 {
     background-color: var(--app-collected);
-    color: var(--app-body-bg);
+    color: #000;
   }
 
   &.t2 {
     background-color: var(--app-providable);
-    color: var(--app-body-bg);
+    color: #000;
   }
 }
 

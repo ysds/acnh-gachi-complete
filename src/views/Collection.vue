@@ -4,7 +4,7 @@
     :class="{ isSearchMode: isSearchMode, isWishlistMode: isWishlistMode }"
   >
     <div class="view-btn-wrapper" v-show="!isSearchMode && !isOpenDrawer">
-      <Button @click="isOpenLogin = true">
+      <Button @click="openLogin(true)">
         <template v-if="isLogin">
           <img :src="user.photoURL" alt="Avatar" class="avatar" />
         </template>
@@ -165,7 +165,7 @@
     </div>
     <portal-target name="shareModal"></portal-target>
     <portal-target name="batchModal"></portal-target>
-    <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
+    <Login v-if="isOpenLogin" @close="openLogin(false)" />
   </div>
 </template>
 
@@ -591,6 +591,10 @@ export default {
         this.filter.typeFilter = "all";
         this.$vlf.setItem("filter", this.filter);
       }
+    },
+    openLogin(isOpenLogin) {
+      this.isOpenLogin = isOpenLogin;
+      document.body.style.overflowY = isOpenLogin ? "hidden" : null;
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="share">
     <div class="view-btn-wrapper" v-show="!isOpenDrawer">
-      <Button @click="isOpenLogin = true">
+      <Button @click="openLogin(true)">
         <template v-if="isLogin">
           <img :src="myUser.photoURL" alt="Avatar" class="avatar" />
         </template>
@@ -11,7 +11,11 @@
     <h1 v-if="!isShares" class="heading" :key="navText">
       {{ navText }}
     </h1>
-    <h1 v-else-if="sharedShareCategories.length === 0" class="heading" key="all">
+    <h1
+      v-else-if="sharedShareCategories.length === 0"
+      class="heading"
+      key="all"
+    >
       全取得状況
     </h1>
     <div v-else class="nav-wrapper" key="shares">
@@ -107,7 +111,7 @@
         </div>
       </template>
     </Modal>
-    <Login v-if="isOpenLogin" @close="isOpenLogin = false" />
+    <Login v-if="isOpenLogin" @close="openLogin(false)" />
   </div>
 </template>
 
@@ -117,7 +121,7 @@ import firebase from "../plugins/firebase";
 import {
   filterItems,
   totalLength,
-  collectedLength
+  collectedLength,
 } from "../utils/filterItems";
 import { navs, getNavText } from "../utils/navs";
 import { isAvailableFilter } from "../utils/filter";
@@ -414,6 +418,10 @@ export default {
       this.queueItems.splice(0, count);
       this.isLoadComplete = true;
     },
+    openLogin(isOpenLogin) {
+      this.isOpenLogin = isOpenLogin;
+      document.body.style.overflowY = isOpenLogin ? "hidden" : null;
+    },
   },
 };
 </script>
@@ -517,7 +525,7 @@ export default {
 
 .nav-item {
   padding: 0.75rem 0.75rem;
-  margin: 0 .125rem;
+  margin: 0 0.125rem;
   font-size: 14px;
   font-weight: 700;
   color: var(--app-btn-color);

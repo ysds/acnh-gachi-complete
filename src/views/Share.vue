@@ -268,6 +268,7 @@ export default {
   },
   mounted() {
     this.loadOtherFirebaseData();
+    this.$store.commit("isShareView", true);
 
     // シェアページを直接開いたときは同期処理を実行しないが、
     // ブラウザナビゲーションなどシェアダイアログを通らないケースを考慮

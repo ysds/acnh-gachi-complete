@@ -35,6 +35,9 @@
               Twitter に投稿する
             </Button>
           </div>
+          <div class="note" v-if="isFullMode">
+            ※フルコンプモードでのみ表示されるカラバリは、相手の画面には表示されず、自動生成されるツイート文の取得数などの計算には含まれません。
+          </div>
         </div>
       </Modal>
     </portal>
@@ -83,6 +86,9 @@ export default {
     wishlist() {
       return this.$store.getters.wishlist;
     },
+    isFullMode() {
+      return this.$store.getters.settings.isFullMode;
+    }
   },
   methods: {
     showShareModal() {
@@ -99,16 +105,19 @@ export default {
       const _totalLength = totalLength({
         nav: this.activeNav,
         typeFilter: "all",
+        isForceLess: true,
       });
       const _collectedLength = collectedLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
         typeFilter: "all",
+        isForceLess: true,
       });
       const _providableLength = providableLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
         typeFilter: "all",
+        isForceLess: true,
       });
       this.tweetString = `あつ森ガチコンプ『${this.navText}』チェッカー`;
       if (this.activeNav === "exchange") {
@@ -146,5 +155,10 @@ export default {
 
 .bi-reply {
   transform: scale(-1, 1);
+}
+
+.note {
+  font-size: 12px;
+  margin: 1rem;
 }
 </style>

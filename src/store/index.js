@@ -37,7 +37,9 @@ export default new Vuex.Store({
     sharedStocklist: {},
     settings: {
       isDarkTheme: false,
+      isFullMode: true,
     },
+    isShareView: false,
   },
   mutations: {
     changeNav(state, nextNav) {
@@ -229,11 +231,18 @@ export default new Vuex.Store({
       const root = document.getElementsByTagName("html")[0];
       if (state.settings && state.settings.isDarkTheme) {
         root.classList.add("theme-dark");
-        document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#222222');
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", "#222222");
       } else {
         root.classList.remove("theme-dark");
-        document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#ffffff');
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", "#ffffff");
       }
+    },
+    isShareView(state, payload) {
+      state.isShareView = payload;
     },
   },
   getters: {
@@ -314,6 +323,9 @@ export default new Vuex.Store({
     },
     settings(state) {
       return state.settings;
+    },
+    isShareView(state) {
+      return state.isShareView;
     },
   },
 });

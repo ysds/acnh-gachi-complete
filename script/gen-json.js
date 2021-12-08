@@ -160,7 +160,7 @@ allItems.forEach((item) => {
     if (!translation.variantBodyTitle[item.variants[0].internalId]) {
       console.log(`NoCustomizeVariantTitle: ${item.name}`);
     }
-    item.variants.length = 1;
+    item.fullMode = true;
   }
 
   // Photos の 日本語リメイク名配列を追加とリメイクバリエーションの削除 (customizeVariants)
@@ -228,7 +228,7 @@ allItems.forEach((item) => {
     if (item.variants[0].bodyCustomize) {
       item.bodyCustomize = true;
       if (item.diy || item.catalog === "For sale" || item.catalog === true) {
-        item.variants.length = 1;
+        item.fullMode = true;
       }
     }
   }

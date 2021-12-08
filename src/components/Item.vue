@@ -430,6 +430,11 @@ export default {
       const item = this.item;
       const itemKey = item.uniqueEntryId || item.name;
       const type = this.inWishlistFlags[i] ? "remove" : "add";
+
+      if (item.fullMode && i > 0) {
+        return;
+      }
+
       if (viewmode === "list" && item.variants) {
         item.variants.forEach((variant, index) => {
           const entryId = `${itemKey}_${index}`;

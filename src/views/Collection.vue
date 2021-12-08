@@ -80,7 +80,6 @@
         tiles: filter.viewMode === 'tile' || filter.viewMode === 'tile2',
       }"
       v-if="showItems && showItems.length > 0"
-      v-show="!isOpenLogin"
     >
       <Item
         v-for="item in showItems"
@@ -258,6 +257,9 @@ export default {
     islandName() {
       return this.$store.getters.islandName;
     },
+    isFullMode() {
+      return this.$store.getters.settings.isFullMode;
+    },
     modalItemName() {
       return toDisplayItemName(this.modalItem, this.islandName);
     },
@@ -319,8 +321,12 @@ export default {
         this.updateShowItems();
       }
     },
+    isFullMode() {
+      this.updateShowItems();
+    },
   },
   async mounted() {
+    this.$store.commit("isShareView", false);
     await this.initNavFilter();
     await this.initIslandName();
     await this.showBanner();

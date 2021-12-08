@@ -1,7 +1,19 @@
-import itemsJson from "../assets/items.json";
+import cloneDeep from "lodash/cloneDeep";
+
+import originalItemsJson from "../assets/items.json";
 import { navsFlat } from "./navs";
 import { typeFilter } from "./filter";
 import { hasIslandName, toDisplayItemName } from "./utils";
+import store from "../store";
+
+let fullItemsJson = cloneDeep(originalItemsJson);
+let lessItemsJson = cloneDeep(originalItemsJson);
+
+lessItemsJson.forEach((item) => {
+  if (item.fullMode) {
+    item.variants = item.variants.splice(0, 1);
+  }
+});
 
 const { sortItemsByName } = require("../../script/sort.js");
 
@@ -48,14 +60,20 @@ const calcTotalLength = function (items) {
 
 const calcCollectedLength = function (collected, items, isProvidableOnly) {
   let result = 0;
-  const regex = isProvidableOnly ? /[A-J]/g : /[0-9A-J]/g;
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     if (item.uniqueEntryId) {
       if (collected[item.uniqueEntryId]) result++;
     } else {
+      const vlength = item.variants.length;
+      const pPattern = "ABCDEFGHIJ".substr(0, vlength);
+      const cPattern = "0123456789".substr(0, vlength);
+      const regex = isProvidableOnly
+        ? new RegExp(`[${pPattern}]`, "g")
+        : new RegExp(`[${pPattern + cPattern}]`, "g");
+
       let collectedData = collected[item.name] || "";
-      collectedData = collectedData.substr(0, item.variants.length); // Fix for #34
+      collectedData = collectedData.substr(0, vlength); // Fix for #34
       const length = (collectedData.match(regex) || []).length;
       result += length;
     }
@@ -79,7 +97,6 @@ const filterOtherItem = function (item) {
 };
 
 export function filterItems(args) {
-  let items = itemsJson;
   let {
     collected = {},
     myCollected = {},
@@ -91,7 +108,14 @@ export function filterItems(args) {
     islandName,
     updateMatchedVariants = false,
     wishlist = [],
+    isForceLess = false,
   } = args;
+
+  let isFullMode = store.getters.settings.isFullMode;
+  let isShareView = store.getters.isShareView;
+
+  let items =
+    !isForceLess && !isShareView && isFullMode ? fullItemsJson : lessItemsJson;
 
   //
   // 取得フィルター
@@ -373,26 +397,31 @@ export function filterItems(args) {
 }
 
 export function totalLength(args) {
-  const { nav, typeFilter, version } = args;
+  const { nav, typeFilter, version, isForceLess } = args;
   const items = filterItems({
     nav,
     filter: {
       typeFilter: typeFilter,
       version: version,
     },
+    isForceLess,
   });
 
   return calcTotalLength(items);
 }
 
 export function allTotalLength() {
-  const items = itemsJson.filter(filterOtherItem);
+  let isFullMode = store.getters.settings.isFullMode;
+  let isShareView = store.getters.isShareView;
+
+  let items = isShareView || !isFullMode ? lessItemsJson : fullItemsJson;
+  items = items.filter(filterOtherItem);
 
   return calcTotalLength(items);
 }
 
 export function collectedLength(args) {
-  const { collected, nav, typeFilter, version } = args;
+  const { collected, nav, typeFilter, version, isForceLess } = args;
   const collectedItems = filterItems({
     collected,
     nav,
@@ -401,6 +430,7 @@ export function collectedLength(args) {
       collectedFilter: "3",
       version: version,
     },
+    isForceLess,
   });
 
   return calcCollectedLength(collected, collectedItems);
@@ -417,7 +447,7 @@ export function allCollectedLength(collected) {
 }
 
 export function providableLength(args) {
-  const { collected, nav, typeFilter } = args;
+  const { collected, nav, typeFilter, isForceLess } = args;
   const collectedItems = filterItems({
     collected,
     nav,
@@ -425,6 +455,7 @@ export function providableLength(args) {
       typeFilter: typeFilter,
       collectedFilter: "2",
     },
+    isForceLess,
   });
 
   return calcCollectedLength(collected, collectedItems, true);

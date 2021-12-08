@@ -88,19 +88,25 @@ export default {
     },
     async loadLocalStorageData() {
       const self = this;
-      let [collected, updateIndex, wishlist, stocklist, settings] = await Promise.all([
-        self.$vlf.getItem("collected"),
-        self.$vlf.getItem("updateIndex"),
-        self.$vlf.getItem("wishlist"),
-        self.$vlf.getItem("stocklist"),
-        self.$vlf.getItem("settings"),
-      ]);
+      let [collected, updateIndex, wishlist, stocklist, settings] =
+        await Promise.all([
+          self.$vlf.getItem("collected"),
+          self.$vlf.getItem("updateIndex"),
+          self.$vlf.getItem("wishlist"),
+          self.$vlf.getItem("stocklist"),
+          self.$vlf.getItem("settings"),
+        ]);
       collected = collected || {};
       updateIndex = updateIndex || 0;
+      self.$store.commit(
+        "changeSettings",
+        settings || {
+          isFullMode: false,
+        }
+      );
       self.$store.commit("initLocalCollectedData", { collected, updateIndex });
       self.$store.commit("initWishlist", wishlist);
       self.$store.commit("initStocklist", stocklist);
-      self.$store.commit("changeSettings", settings || {});
       return self.localCollected;
     },
   },

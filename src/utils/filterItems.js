@@ -126,6 +126,32 @@ export function filterItems(args) {
   let items =
     !isForceLess && !isShareView && isFullMode ? fullItemsJson : lessItemsJson;
 
+  if (partnerlist.length > 0) {
+    // ハウスシェア済みの住民を除外する
+    items = items.filter((item) => !partnerlist.includes(item.name));
+    // ハウスシェアアイテムを追加
+    items = items.concat();
+    for (let i = 0; i < partnerlist.length / 2; i++) {
+      const req1 = hhpRequestJson[partnerlist[i * 2]];
+      const req2 = hhpRequestJson[partnerlist[i * 2 + 1]];
+      items.push({
+        sourceSheet: "Paradise Planning",
+        name: partnerlist[i] + ";" + partnerlist[i + 1],
+        displayName: req1.displayName + "&" + req2.displayName,
+        versionAdded: "2.0.0",
+        houseShare: true,
+        variants: [
+          {
+            uniqueEntryId: 0,
+            image1: req1.variants[0].image,
+            image2: req2.variants[0].image,
+            request: "ハウスシェアのご提案",
+          },
+        ],
+      });
+    }
+  }
+
   //
   // 取得フィルター
   //
@@ -233,35 +259,6 @@ export function filterItems(args) {
         item.matchedVariants = undefined;
       }
     });
-  }
-
-  // ハウスシェア済みの住民を除外する
-  if (partnerlist.length > 0) {
-    items = items.filter((item) => !partnerlist.includes(item.name));
-  }
-
-  // ハウスシェアアイテムを追加
-  if (partnerlist.length > 0) {
-    items = items.concat();
-    for (let i = 0; i < partnerlist.length / 2; i++) {
-      const req1 = hhpRequestJson[partnerlist[i * 2]];
-      const req2 = hhpRequestJson[partnerlist[i * 2 + 1]];
-      items.push({
-        sourceSheet: "Paradise Planning",
-        name: partnerlist[i] + ";" + partnerlist[i + 1],
-        displayName: req1.displayName + "&" + req2.displayName,
-        versionAdded: "2.0.0",
-        houseShare: true,
-        variants: [
-          {
-            uniqueEntryId: 0,
-            image1: req1.variants[0].image,
-            image2: req2.variants[0].image,
-            request: "ハウスシェアのご提案",
-          },
-        ],
-      });
-    }
   }
 
   //

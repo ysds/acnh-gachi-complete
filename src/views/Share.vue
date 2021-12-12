@@ -249,7 +249,7 @@ export default {
         nav: this.nav,
         typeFilter: this.filter.typeFilter,
         version: this.filter.version,
-        partnerlist: this.partnerlist,
+        partnerlist: this.sharedPartnerlist,
       });
     },
     collectedLength() {
@@ -258,7 +258,7 @@ export default {
         nav: this.nav,
         typeFilter: this.filter.typeFilter,
         version: this.filter.version,
-        partnerlist: this.partnerlist,
+        partnerlist: this.sharedPartnerlist,
       });
     },
     isDoneSyncCloudFirstTime() {

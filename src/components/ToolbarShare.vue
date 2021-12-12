@@ -87,7 +87,7 @@ export default {
       return this.$store.getters.wishlist;
     },
     partnerlist() {
-      return this.$store.getters.settings.partnerlist;
+      return this.$store.getters.partnerlist;
     },
     isFullMode() {
       return this.$store.getters.settings.isFullMode;

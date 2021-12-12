@@ -339,7 +339,7 @@ const navs = [
           return (
             item.sourceSheet === "Other" &&
             (item.tag === "Etc" ||
-              item.name.match(/(vine|gyroid fragment|glowing moss)$/g))
+              item.name.match(/(vine|gyroid fragment|glowing moss|fossil)$/g))
           );
         },
       },

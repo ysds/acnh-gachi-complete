@@ -6,20 +6,16 @@
     <template v-if="filter.viewMode === 'list'">
       <div v-long-press>
         <div class="item-img-block" @click="onClickListImage">
-          <img
-            v-lazy="itemImage"
-            class="item-img"
-            v-if="item.sourceSheet !== 'Paradise Planning House Share'"
-          />
+          <img v-lazy="itemImage" class="item-img" v-if="!item.houseShare" />
           <img
             v-lazy="houseShareImage1"
             class="item-img-house-share"
-            v-if="item.sourceSheet === 'Paradise Planning House Share'"
+            v-if="item.houseShare"
           />
           <img
             v-lazy="houseShareImage2"
             class="item-img-house-share"
-            v-if="item.sourceSheet === 'Paradise Planning House Share'"
+            v-if="item.houseShare"
           />
           <img
             class="item-img-remake"
@@ -271,14 +267,14 @@ export default {
       return images;
     },
     houseShareImage1() {
-      if (this.item.sourceSheet === "Paradise Planning House Share") {
+      if (this.item.houseShare) {
         return `https://acnhcdn.com/latest/${this.item.variants[0].image1}`;
       } else {
         return "";
       }
     },
     houseShareImage2() {
-      if (this.item.sourceSheet === "Paradise Planning House Share") {
+      if (this.item.houseShare) {
         return `https://acnhcdn.com/latest/${this.item.variants[0].image2}`;
       } else {
         return "";

@@ -70,11 +70,7 @@ const calcCollectedLength = function (collected, items, isProvidableOnly) {
   let result = 0;
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
-    if (item.sourceSheet === "Paradise Planning House Share") {
-      if (!isProvidableOnly) {
-        result++;
-      }
-    } else if (item.uniqueEntryId) {
+    if (item.uniqueEntryId) {
       if (collected[item.uniqueEntryId]) result++;
     } else {
       const vlength = item.variants.length;
@@ -239,6 +235,35 @@ export function filterItems(args) {
     });
   }
 
+  // ハウスシェア済みの住民を除外する
+  if (partnerlist.length > 0) {
+    items = items.filter((item) => !partnerlist.includes(item.name));
+  }
+
+  // ハウスシェアアイテムを追加
+  if (partnerlist.length > 0) {
+    items = items.concat();
+    for (let i = 0; i < partnerlist.length / 2; i++) {
+      const req1 = hhpRequestJson[partnerlist[i * 2]];
+      const req2 = hhpRequestJson[partnerlist[i * 2 + 1]];
+      items.push({
+        sourceSheet: "Paradise Planning",
+        name: partnerlist[i] + ";" + partnerlist[i + 1],
+        displayName: req1.displayName + "&" + req2.displayName,
+        versionAdded: "2.0.0",
+        houseShare: true,
+        variants: [
+          {
+            uniqueEntryId: 0,
+            image1: req1.variants[0].image,
+            image2: req2.variants[0].image,
+            request: "ハウスシェアのご提案",
+          },
+        ],
+      });
+    }
+  }
+
   //
   // 検索
   //
@@ -272,45 +297,17 @@ export function filterItems(args) {
         });
       }
 
-      // 島名を含む場合は名前順でソート
-      if (islandName && items.some((item) => hasIslandName(item))) {
+      // 「島名を含む」or「ハウスシェアあり」の場合は名前順でソート
+      if (
+        (islandName && items.some((item) => hasIslandName(item))) ||
+        items.some((item) => item.houseShare)
+      ) {
         sortItemsByName(items, (itemName, item) => {
           return replaceIslandName(itemName, item, islandName);
         });
       }
     }
   } else {
-    // 単身別荘カテゴリと全アイテム（全体コンプ率）はハウスシェア済みの住民を除外する
-    if (
-      (nav === "hhp-request" || nav === undefined) &&
-      partnerlist.length > 0
-    ) {
-      items = items.filter((item) => !partnerlist.includes(item.name));
-    }
-
-    // ハウスシェアカテゴリと全アイテム（全体コンプ率）にハウスシェアアイテムを追加
-    if ((nav === "hhp-share" || nav === undefined) && partnerlist.length > 0) {
-      items = items.concat();
-      for (let i = 0; i < partnerlist.length / 2; i++) {
-        const req1 = hhpRequestJson[partnerlist[i * 2]];
-        const req2 = hhpRequestJson[partnerlist[i * 2 + 1]];
-        items.push({
-          sourceSheet: "Paradise Planning House Share",
-          name: partnerlist[i] + ";" + partnerlist[i + 1],
-          displayName: req1.displayName + "&" + req2.displayName,
-          versionAdded: "2.0.0",
-          variants: [
-            {
-              uniqueEntryId: 0,
-              image1: req1.variants[0].image,
-              image2: req2.variants[0].image,
-              request: "ハウスシェアのご提案",
-            },
-          ],
-        });
-      }
-    }
-
     if (filter) {
       // バージョンフィルター
       if (filter.version && !nav.includes("version")) {
@@ -427,10 +424,13 @@ export function filterItems(args) {
     }
 
     //
-    // 名前順ソート(たぬきマイレージのみ)
+    // 名前順ソート(たぬきマイレージ/別荘)
     //
 
-    if (nav === "achievements" && filter.order === "name") {
+    if (
+      (nav === "achievements" && filter.order === "name") ||
+      nav === "hhp-request"
+    ) {
       sortItemsByName(items, (itemName, item) => {
         return replaceIslandName(itemName, item, islandName);
       });

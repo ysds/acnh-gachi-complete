@@ -22,22 +22,13 @@
           すべてのアイテム名をコピー
         </DropdownItem>
         <div class="dropdown-divider" />
-        <DropdownItem
-          @click="onClickBatchMenuItem('allCollected')"
-          v-if="activeNav !== 'hhp-share'"
-        >
+        <DropdownItem @click="onClickBatchMenuItem('allCollected')">
           すべて<span class="tg tg-gr">取得済</span>としてチェック
         </DropdownItem>
-        <DropdownItem
-          @click="onClickBatchMenuItem('allProvidable')"
-          v-if="activeNav !== 'hhp-share'"
-        >
+        <DropdownItem @click="onClickBatchMenuItem('allProvidable')">
           すべて<span class="tg tg-bl">配布可</span>としてチェック
         </DropdownItem>
-        <DropdownItem
-          @click="onClickBatchMenuItem('allUncheck')"
-          v-if="activeNav !== 'hhp-share'"
-        >
+        <DropdownItem @click="onClickBatchMenuItem('allUncheck')">
           すべてのチェックを外す
         </DropdownItem>
       </DropdownMenu>

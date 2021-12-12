@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="modalItem.sourceSheet === 'Paradise Planning House Share'"
-      class="info-image-house-share"
-    >
+    <div v-if="modalItem.houseShare" class="info-image-house-share">
       <img :src="houseShareImage1" />
       <img :src="houseShareImage2" />
     </div>
@@ -23,7 +20,11 @@
       のときにのみ表示されるもので、欲しいもの管理や在庫管理はできません。
     </div>
     <div
-      v-if="isShowExtraButton && modalItem.sourceSheet === 'Paradise Planning'"
+      v-if="
+        isShowExtraButton &&
+        modalItem.sourceSheet === 'Paradise Planning' &&
+        !modalItem.houseShare
+      "
       class="info-house-share"
     >
       <Button sm @click="$emit('showFindPartnerModal')">
@@ -43,10 +44,7 @@
       </Button>
     </div>
     <div
-      v-if="
-        isShowExtraButton &&
-        modalItem.sourceSheet === 'Paradise Planning House Share'
-      "
+      v-if="isShowExtraButton && modalItem.houseShare"
       class="info-house-share"
     >
       <Button sm @click="$emit('cancelHouseShare')">
@@ -66,11 +64,7 @@
       </Button>
     </div>
     <div
-      v-if="
-        isShowExtraButton &&
-        !modalItem.isHidden &&
-        modalItem.sourceSheet !== 'Paradise Planning House Share'
-      "
+      v-if="isShowExtraButton && !modalItem.isHidden"
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button
@@ -115,11 +109,7 @@
       </Button>
     </div>
     <div
-      v-if="
-        isShowExtraButton &&
-        !modalItem.isHidden &&
-        modalItem.sourceSheet !== 'Paradise Planning House Share'
-      "
+      v-if="isShowExtraButton && !modalItem.isHidden"
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button

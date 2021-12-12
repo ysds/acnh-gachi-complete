@@ -90,7 +90,6 @@
             : collected[item.name]
         "
         :filter="filter"
-        :isStatic="item.sourceSheet === 'Paradise Planning House Share'"
         :isSearchMode="isSearchMode"
         :key="item.name + item.sourceSheet"
         :islandName="islandName"

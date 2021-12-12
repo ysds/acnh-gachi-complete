@@ -280,6 +280,37 @@ export function filterItems(args) {
       }
     }
   } else {
+    // 単身別荘カテゴリと全アイテム（全体コンプ率）はハウスシェア済みの住民を除外する
+    if (
+      (nav === "hhp-request" || nav === undefined) &&
+      partnerlist.length > 0
+    ) {
+      items = items.filter((item) => !partnerlist.includes(item.name));
+    }
+
+    // ハウスシェアカテゴリと全アイテム（全体コンプ率）にハウスシェアアイテムを追加
+    if ((nav === "hhp-share" || nav === undefined) && partnerlist.length > 0) {
+      items = items.concat();
+      for (let i = 0; i < partnerlist.length / 2; i++) {
+        const req1 = hhpRequestJson[partnerlist[i * 2]];
+        const req2 = hhpRequestJson[partnerlist[i * 2 + 1]];
+        items.push({
+          sourceSheet: "Paradise Planning House Share",
+          name: partnerlist[i] + ";" + partnerlist[i + 1],
+          displayName: req1.displayName + "&" + req2.displayName,
+          versionAdded: "2.0.0",
+          variants: [
+            {
+              uniqueEntryId: 0,
+              image1: req1.variants[0].image,
+              image2: req2.variants[0].image,
+              request: "ハウスシェアのご提案",
+            },
+          ],
+        });
+      }
+    }
+
     if (filter) {
       // バージョンフィルター
       if (filter.version && !nav.includes("version")) {
@@ -340,36 +371,6 @@ export function filterItems(args) {
 
         return true;
       });
-    }
-
-    if (
-      (nav === "hhp-request" || nav === undefined) &&
-      partnerlist.length > 0
-    ) {
-      // 別荘カテゴリはハウスシェア済みの住民を非表示にする
-      items = items.filter((item) => !partnerlist.includes(item.name));
-    }
-    if ((nav === "hhp-share" || nav === undefined) && partnerlist.length > 0) {
-      // ハウスシェアのアイテムを生成
-      items = items.concat();
-      for (let i = 0; i < partnerlist.length / 2; i++) {
-        const req1 = hhpRequestJson[partnerlist[i * 2]];
-        const req2 = hhpRequestJson[partnerlist[i * 2 + 1]];
-        items.push({
-          sourceSheet: "Paradise Planning House Share",
-          name: partnerlist[i] + ";" + partnerlist[i + 1],
-          displayName: req1.displayName + "&" + req2.displayName,
-          versionAdded: "2.0.0",
-          variants: [
-            {
-              uniqueEntryId: 0,
-              image1: req1.variants[0].image,
-              image2: req2.variants[0].image,
-              request: "ハウスシェアのご提案",
-            },
-          ],
-        });
-      }
     }
 
     //

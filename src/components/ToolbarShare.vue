@@ -86,9 +86,12 @@ export default {
     wishlist() {
       return this.$store.getters.wishlist;
     },
+    partnerlist() {
+      return this.$store.getters.settings.partnerlist;
+    },
     isFullMode() {
       return this.$store.getters.settings.isFullMode;
-    }
+    },
   },
   methods: {
     showShareModal() {
@@ -106,18 +109,21 @@ export default {
         nav: this.activeNav,
         typeFilter: "all",
         isForceLess: true,
+        partnerlist: this.partnerlist,
       });
       const _collectedLength = collectedLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
         typeFilter: "all",
         isForceLess: true,
+        partnerlist: this.partnerlist,
       });
       const _providableLength = providableLength({
         collected: Object.assign({}, this.collected),
         nav: this.activeNav,
         typeFilter: "all",
         isForceLess: true,
+        partnerlist: this.partnerlist,
       });
       this.tweetString = `あつ森ガチコンプ『${this.navText}』チェッカー`;
       if (this.activeNav === "exchange") {

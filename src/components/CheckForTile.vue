@@ -8,7 +8,21 @@
     <div class="t-name">
       {{ props.name }}
     </div>
-    <img class="t-img" v-lazy="props.image" />
+    <img
+      class="t-img"
+      v-lazy="props.image"
+      v-if="!props.houseShareImage1 && !props.houseShareImage2"
+    />
+    <img
+      class="t-img-house-share"
+      v-lazy="props.houseShareImage1"
+      v-if="props.houseShareImage1"
+    />
+    <img
+      class="t-img-house-share"
+      v-lazy="props.houseShareImage2"
+      v-if="props.houseShareImage2"
+    />
     <img
       class="t-img-remake"
       src="../assets/remake.svg"
@@ -47,6 +61,8 @@ export default {
   props: [
     "name",
     "image",
+    "houseShareImage1",
+    "houseShareImage2",
     "value",
     "variant",
     "variants",
@@ -124,6 +140,18 @@ export default {
   margin-top: -3px;
   width: 50px;
   height: 50px;
+  object-fit: contain;
+  vertical-align: top;
+  pointer-events: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.t-img-house-share {
+  margin-top: 9px;
+  margin-bottom: 12px;
+  width: 25px;
+  height: 25px;
   object-fit: contain;
   vertical-align: top;
   pointer-events: none;

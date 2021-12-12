@@ -1,6 +1,13 @@
 <template>
   <div>
-    <div v-if="itemImage" class="info-image">
+    <div
+      v-if="modalItem.sourceSheet === 'Paradise Planning House Share'"
+      class="info-image-house-share"
+    >
+      <img :src="houseShareImage1" />
+      <img :src="houseShareImage2" />
+    </div>
+    <div v-else-if="itemImage" class="info-image">
       <img :src="itemImage" class="info-image-img" />
       <img
         class="info-image-recipe"
@@ -12,10 +19,58 @@
       本アイテムはストーリやイベント進行などで一時的に入手するものであり、ガチコンプのコレクション管理の対象外です。
     </div>
     <div v-if="modalItem.fullMode && modalBodyIndex > 0" class="info-hidden">
-      本カラバリはフルコンプモードが ON のときにのみ表示されるもので、欲しいもの管理や在庫管理はできません。
+      本カラバリはフルコンプモードが ON
+      のときにのみ表示されるもので、欲しいもの管理や在庫管理はできません。
     </div>
     <div
-      v-if="isShowExtraButton && !modalItem.isHidden"
+      v-if="isShowExtraButton && modalItem.sourceSheet === 'Paradise Planning'"
+      class="info-house-share"
+    >
+      <Button sm @click="$emit('showFindPartnerModal')">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11 3C11 2.44772 10.5523 2 10 2C9.44771 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44771 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44771 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44771 17.5523 9 17 9H11V3Z"
+            fill="var(--app-btn-color)"
+          />
+        </svg>
+        ハウスシェアパートナーを追加
+      </Button>
+    </div>
+    <div
+      v-if="
+        isShowExtraButton &&
+        modalItem.sourceSheet === 'Paradise Planning House Share'
+      "
+      class="info-house-share"
+    >
+      <Button sm @click="$emit('cancelHouseShare')">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 10C2 9.44772 2.44772 9 3 9H17C17.5523 9 18 9.44772 18 10C18 10.5523 17.5523 11 17 11H3C2.44772 11 2 10.5523 2 10Z"
+            fill="var(--app-btn-color)"
+          />
+        </svg>
+        ハウスシェアを解消
+      </Button>
+    </div>
+    <div
+      v-if="
+        isShowExtraButton &&
+        !modalItem.isHidden &&
+        modalItem.sourceSheet !== 'Paradise Planning House Share'
+      "
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button
@@ -60,7 +115,11 @@
       </Button>
     </div>
     <div
-      v-if="isShowExtraButton && !modalItem.isHidden"
+      v-if="
+        isShowExtraButton &&
+        !modalItem.isHidden &&
+        modalItem.sourceSheet !== 'Paradise Planning House Share'
+      "
       style="text-align: center; margin-bottom: 1rem"
     >
       <Button
@@ -349,6 +408,12 @@ export default {
       }
       return "https://acnhcdn.com/latest/" + image;
     },
+    houseShareImage1() {
+      return `https://acnhcdn.com/latest/${this.modalItem.variants[0].image1}`;
+    },
+    houseShareImage2() {
+      return `https://acnhcdn.com/latest/${this.modalItem.variants[0].image2}`;
+    },
     isInWishlist() {
       return isInWishlist(this.modalItem, this.modalBodyIndex);
     },
@@ -622,6 +687,16 @@ export default {
   user-select: none;
 }
 
+.info-image-house-share {
+  margin: -1rem auto 20px;
+  text-align: center;
+}
+
+.info-image-house-share img {
+  width: 96px;
+  height: 96px;
+}
+
 .stock-count {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -637,5 +712,10 @@ export default {
   font-size: 14px;
   margin: 1rem;
   text-align: center;
+}
+
+.info-house-share {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 </style>

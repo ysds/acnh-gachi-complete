@@ -35,6 +35,9 @@ export default new Vuex.Store({
     stocklist: {},
     cloudStocklist: {},
     sharedStocklist: {},
+    partnerlist: [],
+    cloudPartnerlist: [],
+    sharedPartnerlist: [],
     settings: {
       isDarkTheme: false,
       isFullMode: true,
@@ -73,6 +76,9 @@ export default new Vuex.Store({
     },
     initStocklist(state, obj) {
       if (obj) state.stocklist = obj;
+    },
+    initPartnerlist(state, obj) {
+      if (obj) state.partnerlist = obj;
     },
     updateLocalCollectedDataByItem(state, payload) {
       if (payload.itemCollectedData === "") {
@@ -164,6 +170,16 @@ export default new Vuex.Store({
     updateSharedStocklist(state, obj) {
       if (obj) state.sharedStocklist = obj;
     },
+    updatePartnerlist(state, obj) {
+      if (obj) state.partnerlist = obj;
+      localforage.setItem("partnerlist", state.partnerlist);
+    },
+    updateCloudPartnerlist(state, obj) {
+      if (obj) state.cloudPartnerlist = obj;
+    },
+    updateSharedPartnerlist(state, obj) {
+      if (obj) state.sharedPartnerlist = obj;
+    },
     isShowDropdown(state, isShow) {
       state.isShowDropdown = isShow;
     },
@@ -223,6 +239,28 @@ export default new Vuex.Store({
       localforage.setItem("stocklist", stocklist);
       state.localUpdateIndex++;
       localforage.setItem("updateIndex", state.localUpdateIndex);
+    },
+    addPartnerlist(state, payload) {
+      const entryId1 = payload.entryId1;
+      const entryId2 = payload.entryId2;
+      const partnerlist = state.partnerlist;
+      if (!partnerlist.includes(entryId1) && !partnerlist.includes(entryId2)) {
+        partnerlist.push(entryId1);
+        partnerlist.push(entryId2);
+        localforage.setItem("partnerlist", partnerlist);
+        state.localUpdateIndex++;
+        localforage.setItem("updateIndex", state.localUpdateIndex);
+      }
+    },
+    removePartnerlist(state, entryId) {
+      const partnerlist = state.partnerlist;
+      const index = partnerlist.indexOf(entryId);
+      if (index !== -1) {
+        partnerlist.splice(index, 2);
+        localforage.setItem("partnerlist", partnerlist);
+        state.localUpdateIndex++;
+        localforage.setItem("updateIndex", state.localUpdateIndex);
+      }
     },
     changeSettings(state, payload) {
       state.settings = payload;
@@ -320,6 +358,15 @@ export default new Vuex.Store({
     },
     sharedStocklist(state) {
       return state.sharedStocklist;
+    },
+    partnerlist(state) {
+      return state.partnerlist;
+    },
+    cloudPartnerlist(state) {
+      return state.cloudPartnerlist;
+    },
+    sharedPartnerlist(state) {
+      return state.sharedPartnerlist;
     },
     settings(state) {
       return state.settings;

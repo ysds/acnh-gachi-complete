@@ -903,6 +903,13 @@ const navs = [
         },
       },
       {
+        id: "hhp-share",
+        text: "別荘（ハウスシェア）",
+        filter: function (item) {
+          return item.sourceSheet === "Paradise Planning House Share";
+        },
+      },
+      {
         id: "hhp-vip",
         text: "別荘（VIP）",
         filter: function (item) {

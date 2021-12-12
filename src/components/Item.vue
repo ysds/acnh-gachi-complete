@@ -6,7 +6,21 @@
     <template v-if="filter.viewMode === 'list'">
       <div v-long-press>
         <div class="item-img-block" @click="onClickListImage">
-          <img v-lazy="itemImage" class="item-img" />
+          <img
+            v-lazy="itemImage"
+            class="item-img"
+            v-if="item.sourceSheet !== 'Paradise Planning House Share'"
+          />
+          <img
+            v-lazy="houseShareImage1"
+            class="item-img-house-share"
+            v-if="item.sourceSheet === 'Paradise Planning House Share'"
+          />
+          <img
+            v-lazy="houseShareImage2"
+            class="item-img-house-share"
+            v-if="item.sourceSheet === 'Paradise Planning House Share'"
+          />
           <img
             class="item-img-remake"
             src="../assets/remake.svg"
@@ -89,6 +103,7 @@
         class="item-check-btn"
         @click="onClickAllCheck('list')"
         v-long-press
+        v-if="!isStatic"
       >
         <span
           class="item-check"
@@ -118,6 +133,8 @@
           <CheckForTile
             :name="i === 0 ? itemName : ''"
             :image="variantImages[index]"
+            :houseShareImage1="houseShareImage1"
+            :houseShareImage2="houseShareImage2"
             :value="checks[index]"
             :variant="item.variants[index]"
             :variants="item.variants"
@@ -253,6 +270,20 @@ export default {
       }
       return images;
     },
+    houseShareImage1() {
+      if (this.item.sourceSheet === "Paradise Planning House Share") {
+        return `https://acnhcdn.com/latest/${this.item.variants[0].image1}`;
+      } else {
+        return "";
+      }
+    },
+    houseShareImage2() {
+      if (this.item.sourceSheet === "Paradise Planning House Share") {
+        return `https://acnhcdn.com/latest/${this.item.variants[0].image2}`;
+      } else {
+        return "";
+      }
+    },
     allCheckState() {
       const checks = Object.values(this.checks);
       let count2 = 0;
@@ -383,7 +414,7 @@ export default {
       this.$emit("change", this.item.uniqueEntryId || this.item.name, result);
     },
     onClickListImage() {
-      if (this.isWishlistMode) {
+      if (this.isWishlistMode && !this.isStatic) {
         this.updateWishlist(0, 0);
       }
     },
@@ -484,6 +515,16 @@ export default {
   height: 40px;
   object-fit: contain;
   margin-right: 0.5rem;
+  vertical-align: top;
+  pointer-events: none;
+  user-select: none;
+}
+
+.item-img-house-share {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
   vertical-align: top;
   pointer-events: none;
   user-select: none;

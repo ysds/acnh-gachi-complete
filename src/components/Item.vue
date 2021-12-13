@@ -95,7 +95,6 @@
         class="item-check-btn"
         @click="onClickAllCheck('list')"
         v-long-press
-        v-if="!isStatic"
       >
         <span
           class="item-check"

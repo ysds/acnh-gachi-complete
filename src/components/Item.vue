@@ -6,17 +6,13 @@
     <template v-if="filter.viewMode === 'list'">
       <div v-long-press>
         <div class="item-img-block" @click="onClickListImage">
-          <img v-lazy="itemImage" class="item-img" v-if="!item.houseShare" />
-          <img
-            v-lazy="houseShareImage1"
-            class="item-img-house-share"
-            v-if="item.houseShare"
-          />
-          <img
-            v-lazy="houseShareImage2"
-            class="item-img-house-share"
-            v-if="item.houseShare"
-          />
+          <template v-if="!item.houseShare">
+            <img v-lazy="itemImage" class="item-img" />
+          </template>
+          <template v-else>
+            <img v-lazy="houseShareImage1" class="item-img-house-share" />
+            <img v-lazy="houseShareImage2" class="item-img-house-share" />
+          </template>
           <img
             class="item-img-remake"
             src="../assets/remake.svg"

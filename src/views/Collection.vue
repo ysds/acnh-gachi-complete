@@ -152,7 +152,7 @@
             @updateWishlist="onUpdateWishlist"
             @updateCollected="onChangeItemCheck"
             @showFindPartnerModal="onShowFindPartnerModal"
-            @cancelHouseShare="onCancelHouseShare"
+            @removePartner="onRemovePartner"
           />
         </div>
       </template>
@@ -169,7 +169,7 @@
             :modalItem="modalItem"
             :partnerlist="partnerlist"
             ref="findPartnerModal"
-            @decidePartner="onDecidePartner"
+            @addPartner="onAddPartner"
           />
         </div>
       </template>
@@ -550,12 +550,12 @@ export default {
       this.$refs.findPartnerModal.updateShowItems();
       this.isShowFindPartnerModal = true;
     },
-    onCancelHouseShare: function () {
+    onRemovePartner: function () {
       this.$store.commit("removePartnerlist", this.modalItem.name);
       this.updateShowItems();
       this.isShowModal = false;
     },
-    onDecidePartner: function (partnerItem) {
+    onAddPartner: function (partnerItem) {
       const entryId1 = this.modalItem.name;
       const entryId2 = partnerItem.name;
       this.$store.commit("addPartnerlist", { entryId1, entryId2 });

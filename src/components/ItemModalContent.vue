@@ -47,7 +47,7 @@
       v-if="isShowExtraButton && modalItem.houseShare"
       class="info-house-share"
     >
-      <Button sm @click="$emit('cancelHouseShare')">
+      <Button sm @click="$emit('removePartner')">
         <svg
           width="20"
           height="20"

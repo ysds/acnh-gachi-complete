@@ -23,7 +23,7 @@
     <Button
       cta
       :disabled="!isEnableButton"
-      @click="$emit('decidePartner', candidateItem)"
+      @click="$emit('addPartner', candidateItem)"
       >決定</Button
     >
     <div class="candidates">

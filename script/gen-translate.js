@@ -46,7 +46,7 @@ const fs = require("fs");
     })();
     contentJson[key] = v.replace(
       // eslint-disable-next-line no-control-regex
-      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6\u30FC]+/g,
       ""
     );
   }
@@ -71,7 +71,7 @@ const fs = require("fs");
     })();
     contentJson[key] = v.replace(
       // eslint-disable-next-line no-control-regex
-      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6\u30FC]+/g,
       ""
     );
   }
@@ -99,7 +99,7 @@ const fs = require("fs");
     })();
     const value = v.replace(
       // eslint-disable-next-line no-control-regex
-      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6\u30FC]+/g,
       ""
     );
 
@@ -129,7 +129,7 @@ const fs = require("fs");
     })();
     contentJson[key] = v.replace(
       // eslint-disable-next-line no-control-regex
-      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+      /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6\u30FC]+/g,
       ""
     );
   }
@@ -161,7 +161,7 @@ const fs = require("fs");
       })();
       contentJson[key] = v.replace(
         // eslint-disable-next-line no-control-regex
-        /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6]+/g,
+        /\u000e[\s\S]*?[\u3041-\u3093\u30A1-\u30F6\u30FC]+/g,
         ""
       );
     }

@@ -551,10 +551,7 @@ export default {
       this.isShowFindPartnerModal = true;
     },
     onCancelHouseShare: function () {
-      this.$store.commit(
-        "removePartnerlist",
-        this.modalItem.name.split(";")[0]
-      );
+      this.$store.commit("removePartnerlist", this.modalItem.name);
       this.updateShowItems();
       this.isShowModal = false;
     },

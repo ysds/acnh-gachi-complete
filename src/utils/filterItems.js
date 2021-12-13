@@ -136,7 +136,7 @@ export function filterItems(args) {
       const req2 = hhpRequestJson[partnerlist[i * 2 + 1]];
       items.push({
         sourceSheet: "Paradise Planning",
-        name: partnerlist[i] + ";" + partnerlist[i + 1],
+        name: partnerlist[i * 2],
         displayName: req1.displayName + "&" + req2.displayName,
         versionAdded: "2.0.0",
         houseShare: true,
@@ -148,6 +148,7 @@ export function filterItems(args) {
             request: "ハウスシェアのご提案",
           },
         ],
+        uniqueEntryId: req1.uniqueEntryId,
       });
     }
   }

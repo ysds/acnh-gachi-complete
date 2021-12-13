@@ -1,5 +1,9 @@
 <template>
-  <div v-if="modalItem.sourceSheet === 'Paradise Planning'">
+  <div
+    v-if="
+      modalItem.sourceSheet === 'Paradise Planning' && !modalItem.houseShare
+    "
+  >
     <div class="info-image">
       <div>
         <img

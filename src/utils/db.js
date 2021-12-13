@@ -16,6 +16,9 @@ let lastSyncWishlist;
 let localStocklist;
 let cloudStocklist;
 let lastSyncStocklist;
+let localPartnerlist;
+let cloudPartnerlist;
+let lastSyncPartnerlist;
 
 const initDataFromStore = function () {
   user = store.getters.user;
@@ -23,10 +26,12 @@ const initDataFromStore = function () {
   localUpdateIndex = store.getters.localUpdateIndex;
   localWishlist = store.getters.wishlist;
   localStocklist = store.getters.stocklist;
+  localPartnerlist = store.getters.partnerlist;
   cloudCollected = store.getters.cloudCollectedData;
   cloudUpdateIndex = store.getters.cloudUpdateIndex;
   cloudWishlist = store.getters.cloudWishlist;
   cloudStocklist = store.getters.cloudStocklist;
+  cloudPartnerlist = store.getters.cloudPartnerlist;
 };
 
 const updateCloudData = function () {
@@ -39,6 +44,7 @@ const updateCloudData = function () {
         collected: LZString.compressToUTF16(JSON.stringify(localCollected)),
         wishlist: LZString.compressToUTF16(JSON.stringify(localWishlist)),
         stocklist: LZString.compressToUTF16(JSON.stringify(localStocklist)),
+        partnerlist: LZString.compressToUTF16(JSON.stringify(localPartnerlist)),
         updateIndex,
       })
       .then(function () {})
@@ -49,6 +55,7 @@ const updateCloudData = function () {
     });
     store.commit("updateCloudWishlist", localWishlist);
     store.commit("updateCloudStocklist", localStocklist);
+    store.commit("updateCloudPartnerlist", localPartnerlist);
   }
 };
 
@@ -59,6 +66,7 @@ const updateLocalData = function () {
   });
   store.commit("updateWishlist", cloudWishlist);
   store.commit("updateStocklist", cloudStocklist);
+  store.commit("updatePartnerlist", cloudPartnerlist);
 };
 
 export function syncData() {
@@ -69,16 +77,19 @@ export function syncData() {
     // 最終同期データと異なる時のみ同期する。
     (!isEqual(localCollected, lastSyncCollected) ||
       !isEqual(localWishlist, lastSyncWishlist) ||
-      !isEqual(localStocklist, lastSyncStocklist))
+      !isEqual(localStocklist, lastSyncStocklist) ||
+      !isEqual(localPartnerlist, lastSyncPartnerlist))
   ) {
     lastSyncCollected = Object.assign({}, localCollected);
     lastSyncWishlist = localWishlist;
     lastSyncStocklist = localStocklist;
+    lastSyncPartnerlist = localPartnerlist;
     updateCloudData();
   } else if (localUpdateIndex < cloudUpdateIndex) {
     lastSyncCollected = Object.assign({}, cloudCollected);
     lastSyncWishlist = cloudWishlist;
     lastSyncStocklist = cloudStocklist;
+    lastSyncPartnerlist = cloudPartnerlist;
     updateLocalData();
   }
 }
@@ -110,6 +121,10 @@ export function loadFirebaseData() {
           const stocklist = JSON.parse(
             LZString.decompressFromUTF16(stocklistValue)
           );
+          const partnerlistValue = data.partnerlist || "";
+          const partnerlist = JSON.parse(
+            LZString.decompressFromUTF16(partnerlistValue)
+          );
 
           store.commit("initCloudCollectedData", {
             collected,
@@ -120,6 +135,7 @@ export function loadFirebaseData() {
           store.commit("updateShareCategories", shareCategories);
           store.commit("updateCloudWishlist", wishlist);
           store.commit("updateCloudStocklist", stocklist);
+          store.commit("updateCloudPartnerlist", partnerlist);
         } else {
           const userName = user.displayName || null;
           db.collection("users").doc(user.uid).set({

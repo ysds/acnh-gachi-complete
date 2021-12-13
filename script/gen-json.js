@@ -718,6 +718,28 @@ if (renamedItems.length > 0) {
 }
 
 //
+// HHPハウスシェアのアイテムデータ生成用に別荘情報を書き出しておく
+//
+const hhpRequestJson = {};
+allItems.forEach((item) => {
+  if (item.sourceSheet === "Paradise Planning") {
+    hhpRequestJson[item.name] = {
+      displayName: item.displayName,
+      variants: [
+        {
+          image: item.variants[0].image,
+        },
+      ],
+      uniqueEntryId: item.uniqueEntryId,
+    };
+  }
+});
+fs.writeFileSync(
+  "./src/assets/hhp-request.json",
+  JSON.stringify(hhpRequestJson, null, 2)
+);
+
+//
 // Write file
 //
 

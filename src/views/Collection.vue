@@ -151,6 +151,25 @@
             @updateModalPatternIndex="modalPatternIndex = $event"
             @updateWishlist="onUpdateWishlist"
             @updateCollected="onChangeItemCheck"
+            @showFindPartnerModal="onShowFindPartnerModal"
+            @removePartner="onRemovePartner"
+          />
+        </div>
+      </template>
+    </Modal>
+    <Modal
+      :show="isShowFindPartnerModal"
+      @close="isShowFindPartnerModal = false"
+      closeButton
+    >
+      <template v-if="modalItem">
+        <template slot="header">{{ modalItemName }}のパートナーを探す</template>
+        <div slot="body">
+          <FindPartnerModalContent
+            :modalItem="modalItem"
+            :partnerlist="partnerlist"
+            ref="findPartnerModal"
+            @addPartner="onAddPartner"
           />
         </div>
       </template>
@@ -191,6 +210,7 @@ import Item from "../components/Item.vue";
 import Modal from "../components/Modal.vue";
 import CollectedBar from "../components/CollectedBar.vue";
 import ItemModalContent from "../components/ItemModalContent.vue";
+import FindPartnerModalContent from "../components/FindPartnerModalContent.vue";
 
 export default {
   name: "Collection",
@@ -208,6 +228,7 @@ export default {
     Modal,
     CollectedBar,
     ItemModalContent,
+    FindPartnerModalContent,
   },
   data() {
     return {
@@ -227,6 +248,7 @@ export default {
       navs: navs,
       isOpenLogin: false,
       isShowModal: false,
+      isShowFindPartnerModal: false,
       modalItem: {},
       modalBodyIndex: 0,
       modalPatternIndex: 0,
@@ -271,6 +293,7 @@ export default {
           nav: this.activeNav,
           typeFilter: this.filter.typeFilter,
           version: this.filter.version,
+          partnerlist: this.partnerlist,
         });
       }
     },
@@ -283,6 +306,7 @@ export default {
           nav: this.activeNav,
           typeFilter: this.filter.typeFilter,
           version: this.filter.version,
+          partnerlist: this.partnerlist,
         });
       }
     },
@@ -294,6 +318,9 @@ export default {
     },
     stocklist() {
       return this.$store.getters.stocklist;
+    },
+    partnerlist() {
+      return this.$store.getters.partnerlist;
     },
     adFilterLength() {
       return Object.values(this.adFilters).filter((filter) => filter).length;
@@ -519,6 +546,23 @@ export default {
       this.modalItem = item;
       this.isShowModal = true;
     },
+    onShowFindPartnerModal: function () {
+      this.$refs.findPartnerModal.updateShowItems();
+      this.isShowFindPartnerModal = true;
+    },
+    onRemovePartner: function () {
+      this.$store.commit("removePartnerlist", this.modalItem.name);
+      this.updateShowItems();
+      this.isShowModal = false;
+    },
+    onAddPartner: function (partnerItem) {
+      const entryId1 = this.modalItem.name;
+      const entryId2 = partnerItem.name;
+      this.$store.commit("addPartnerlist", { entryId1, entryId2 });
+      this.isShowFindPartnerModal = false;
+      this.isShowModal = false;
+      this.updateShowItems();
+    },
     onUpdateWishlist() {
       if (this.activeNav === "exchange") {
         this.updateShowItems();
@@ -549,6 +593,7 @@ export default {
         islandName: this.islandName,
         updateMatchedVariants: true,
         wishlist: this.wishlist,
+        partnerlist: this.partnerlist,
       });
 
       this.showItems = [];

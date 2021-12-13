@@ -249,6 +249,7 @@ export default {
         nav: this.nav,
         typeFilter: this.filter.typeFilter,
         version: this.filter.version,
+        partnerlist: this.sharedPartnerlist,
       });
     },
     collectedLength() {
@@ -257,6 +258,7 @@ export default {
         nav: this.nav,
         typeFilter: this.filter.typeFilter,
         version: this.filter.version,
+        partnerlist: this.sharedPartnerlist,
       });
     },
     isDoneSyncCloudFirstTime() {
@@ -264,6 +266,9 @@ export default {
     },
     sharedWishlist() {
       return this.$store.getters.sharedWishlist;
+    },
+    sharedPartnerlist() {
+      return this.$store.getters.sharedPartnerlist;
     },
   },
   mounted() {
@@ -316,6 +321,12 @@ export default {
               LZString.decompressFromUTF16(stocklistValue)
             );
             self.$store.commit("updateSharedStocklist", stocklist);
+
+            const partnerlistValue = data.partnerlist || "";
+            const partnerlist = JSON.parse(
+              LZString.decompressFromUTF16(partnerlistValue)
+            );
+            self.$store.commit("updateSharedPartnerlist", partnerlist);
 
             self.finishMounted(self.sharedShareCategories);
           } else {
@@ -396,6 +407,7 @@ export default {
         islandName: this.sharedIslandName,
         updateMatchedVariants: true,
         wishlist: this.sharedWishlist,
+        partnerlist: this.sharedPartnerlist,
       });
 
       this.showItems = [];

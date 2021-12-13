@@ -88,13 +88,14 @@ export default {
     },
     async loadLocalStorageData() {
       const self = this;
-      let [collected, updateIndex, wishlist, stocklist, settings] =
+      let [collected, updateIndex, wishlist, stocklist, settings, partnerlist] =
         await Promise.all([
           self.$vlf.getItem("collected"),
           self.$vlf.getItem("updateIndex"),
           self.$vlf.getItem("wishlist"),
           self.$vlf.getItem("stocklist"),
           self.$vlf.getItem("settings"),
+          self.$vlf.getItem("partnerlist"),
         ]);
       collected = collected || {};
       updateIndex = updateIndex || 0;
@@ -107,6 +108,7 @@ export default {
       self.$store.commit("initLocalCollectedData", { collected, updateIndex });
       self.$store.commit("initWishlist", wishlist);
       self.$store.commit("initStocklist", stocklist);
+      self.$store.commit("initPartnerlist", partnerlist);
       return self.localCollected;
     },
   },

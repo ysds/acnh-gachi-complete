@@ -1,0 +1,3719 @@
+{
+  "Rory": {
+    "displayName": "アーサー",
+    "variants": [
+      {
+        "image": "NpcIcon/lon07.png"
+      }
+    ],
+    "uniqueEntryId": "JQKezN7gcLP6pzKFN"
+  },
+  "Billy": {
+    "displayName": "アーシンド",
+    "variants": [
+      {
+        "image": "NpcIcon/goa02.png"
+      }
+    ],
+    "uniqueEntryId": "aqaM8NCA9YhwhARuX"
+  },
+  "Diva": {
+    "displayName": "アイーダ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg18.png"
+      }
+    ],
+    "uniqueEntryId": "DysD7qcHWQDrsrkGz"
+  },
+  "Cleo": {
+    "displayName": "アイソトープ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs07.png"
+      }
+    ],
+    "uniqueEntryId": "wRFwbpPfrmZ7uHozu"
+  },
+  "Kody": {
+    "displayName": "アイダホ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr04.png"
+      }
+    ],
+    "uniqueEntryId": "uyQ8gyAXbtMg6DHbw"
+  },
+  "Hazel": {
+    "displayName": "アイリス",
+    "variants": [
+      {
+        "image": "NpcIcon/squ18.png"
+      }
+    ],
+    "uniqueEntryId": "PuMXt37cSZqMMB8hf"
+  },
+  "Agnes": {
+    "displayName": "アグネス",
+    "variants": [
+      {
+        "image": "NpcIcon/pig17.png"
+      }
+    ],
+    "uniqueEntryId": "pmmgTrYA9hvoj2v9b"
+  },
+  "Stella": {
+    "displayName": "アクリル",
+    "variants": [
+      {
+        "image": "NpcIcon/shp03.png"
+      }
+    ],
+    "uniqueEntryId": "kqd7ZkNncowvojRhk"
+  },
+  "Mathilda": {
+    "displayName": "アザラク",
+    "variants": [
+      {
+        "image": "NpcIcon/kgr01.png"
+      }
+    ],
+    "uniqueEntryId": "j8qaWugt5MXAwq547"
+  },
+  "Stinky": {
+    "displayName": "アセクサ",
+    "variants": [
+      {
+        "image": "NpcIcon/cat13.png"
+      }
+    ],
+    "uniqueEntryId": "rj9ydiuf7Wa62NWSd"
+  },
+  "Cheri": {
+    "displayName": "アセロラ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr10.png"
+      }
+    ],
+    "uniqueEntryId": "Sgf2E8agCqH8oMHM6"
+  },
+  "Weber": {
+    "displayName": "アチョット",
+    "variants": [
+      {
+        "image": "NpcIcon/duk11.png"
+      }
+    ],
+    "uniqueEntryId": "38PXtvdSqB6Q5ZFGC"
+  },
+  "Kitt": {
+    "displayName": "アップリケ",
+    "variants": [
+      {
+        "image": "NpcIcon/kgr00.png"
+      }
+    ],
+    "uniqueEntryId": "yWv6r9NtE8sxDFcvg"
+  },
+  "Apple": {
+    "displayName": "アップル",
+    "variants": [
+      {
+        "image": "NpcIcon/ham01.png"
+      }
+    ],
+    "uniqueEntryId": "7oT4ELYj2mZTZmojq"
+  },
+  "Melba": {
+    "displayName": "アデレード",
+    "variants": [
+      {
+        "image": "NpcIcon/kal02.png"
+      }
+    ],
+    "uniqueEntryId": "JuqPsR46J4ohh5scB"
+  },
+  "Tammy": {
+    "displayName": "アネッサ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr17.png"
+      }
+    ],
+    "uniqueEntryId": "88brcjhyKSkJQzPS9"
+  },
+  "Apollo": {
+    "displayName": "アポロ",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr00.png"
+      }
+    ],
+    "uniqueEntryId": "Y8wf9zd43wwsaZoGB"
+  },
+  "Cole": {
+    "displayName": "アマミン",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt18.png"
+      }
+    ],
+    "uniqueEntryId": "X75TjQrHiv9ouSeZp"
+  },
+  "Cesar": {
+    "displayName": "アラン",
+    "variants": [
+      {
+        "image": "NpcIcon/gor00.png"
+      }
+    ],
+    "uniqueEntryId": "RsKCh7pQx3xHuPoq2"
+  },
+  "Becky": {
+    "displayName": "アリア",
+    "variants": [
+      {
+        "image": "NpcIcon/chn09.png"
+      }
+    ],
+    "uniqueEntryId": "NaiPeMcL495svX6Jj"
+  },
+  "Gayle": {
+    "displayName": "アリゲッティ",
+    "variants": [
+      {
+        "image": "NpcIcon/crd07.png"
+      }
+    ],
+    "uniqueEntryId": "6CJK68bvJEwJrNgZx"
+  },
+  "Alfonso": {
+    "displayName": "アルベルト",
+    "variants": [
+      {
+        "image": "NpcIcon/crd00.png"
+      }
+    ],
+    "uniqueEntryId": "FGmWv7DJwEG8KkwpA"
+  },
+  "Anabelle": {
+    "displayName": "あるみ",
+    "variants": [
+      {
+        "image": "NpcIcon/ant03.png"
+      }
+    ],
+    "uniqueEntryId": "tZGHM5q3zHHkijodW"
+  },
+  "Bertha": {
+    "displayName": "あんこ",
+    "variants": [
+      {
+        "image": "NpcIcon/hip03.png"
+      }
+    ],
+    "uniqueEntryId": "EGbgiRfTnYf3SacLu"
+  },
+  "Colton": {
+    "displayName": "アンソニー",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs11.png"
+      }
+    ],
+    "uniqueEntryId": "6cDiXgKsouB2ALJAt"
+  },
+  "Anchovy": {
+    "displayName": "アンチョビ",
+    "variants": [
+      {
+        "image": "NpcIcon/brd02.png"
+      }
+    ],
+    "uniqueEntryId": "WqojcnSmCBynDZsCc"
+  },
+  "Amelia": {
+    "displayName": "アンデス",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr01.png"
+      }
+    ],
+    "uniqueEntryId": "uNCfPyf8AwJBLxrG8"
+  },
+  "Olaf": {
+    "displayName": "アントニオ",
+    "variants": [
+      {
+        "image": "NpcIcon/ant09.png"
+      }
+    ],
+    "uniqueEntryId": "iEGY65cM3tcBKsBHZ"
+  },
+  "Maelle": {
+    "displayName": "アンヌ",
+    "variants": [
+      {
+        "image": "NpcIcon/duk03.png"
+      }
+    ],
+    "uniqueEntryId": "yQXdqStF7wuvqfBZq"
+  },
+  "Norma": {
+    "displayName": "いさこ",
+    "variants": [
+      {
+        "image": "NpcIcon/cow06.png"
+      }
+    ],
+    "uniqueEntryId": "NoFDFfwnq2YHeucnf"
+  },
+  "Bella": {
+    "displayName": "イザベラ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus02.png"
+      }
+    ],
+    "uniqueEntryId": "RS6ARpyhSns8quian"
+  },
+  "Admiral": {
+    "displayName": "イッテツ",
+    "variants": [
+      {
+        "image": "NpcIcon/brd06.png"
+      }
+    ],
+    "uniqueEntryId": "2dKeMSMjBLekssvwo"
+  },
+  "Kevin": {
+    "displayName": "イノッチ",
+    "variants": [
+      {
+        "image": "NpcIcon/pig15.png"
+      }
+    ],
+    "uniqueEntryId": "oomP9WdQCuRcs3iqM"
+  },
+  "Vivian": {
+    "displayName": "ヴァネッサ",
+    "variants": [
+      {
+        "image": "NpcIcon/wol08.png"
+      }
+    ],
+    "uniqueEntryId": "J9WqvJuWXZkL5LDk9"
+  },
+  "Buck": {
+    "displayName": "ヴァヤシコフ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs00.png"
+      }
+    ],
+    "uniqueEntryId": "SKZkEyW49ywK9RGGw"
+  },
+  "Frita": {
+    "displayName": "ウェンディ",
+    "variants": [
+      {
+        "image": "NpcIcon/shp11.png"
+      }
+    ],
+    "uniqueEntryId": "6LwB7KMYP6yfyGJgY"
+  },
+  "Midge": {
+    "displayName": "うずまき",
+    "variants": [
+      {
+        "image": "NpcIcon/brd08.png"
+      }
+    ],
+    "uniqueEntryId": "mbKFPAhiE9cWRomMS"
+  },
+  "Violet": {
+    "displayName": "ウズメ",
+    "variants": [
+      {
+        "image": "NpcIcon/gor07.png"
+      }
+    ],
+    "uniqueEntryId": "bwpHcf6iacCsjwrFm"
+  },
+  "Tammi": {
+    "displayName": "エイプリル",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk03.png"
+      }
+    ],
+    "uniqueEntryId": "yRTGCqHLDcxsN4ZN7"
+  },
+  "Bitty": {
+    "displayName": "エーミー",
+    "variants": [
+      {
+        "image": "NpcIcon/hip05.png"
+      }
+    ],
+    "uniqueEntryId": "eM2Km3dKwxx9omzhv"
+  },
+  "Ellie": {
+    "displayName": "エクレア",
+    "variants": [
+      {
+        "image": "NpcIcon/elp07.png"
+      }
+    ],
+    "uniqueEntryId": "c9pRPoumPbutJfWgK"
+  },
+  "Jambette": {
+    "displayName": "エスメラルダ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg13.png"
+      }
+    ],
+    "uniqueEntryId": "rSPcyae7tMppLyyHz"
+  },
+  "Axel": {
+    "displayName": "エックスエル",
+    "variants": [
+      {
+        "image": "NpcIcon/elp06.png"
+      }
+    ],
+    "uniqueEntryId": "JQQw9wAvfzWMY2vj5"
+  },
+  "Simon": {
+    "displayName": "エテキチ",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk02.png"
+      }
+    ],
+    "uniqueEntryId": "NamKnhQ4GfC3hTX8T"
+  },
+  "Étoile": {
+    "displayName": "エトワール",
+    "variants": [
+      {
+        "image": "NpcIcon/shp14.png"
+      }
+    ],
+    "uniqueEntryId": "JskwtCkLs2vtnyToe"
+  },
+  "Eloise": {
+    "displayName": "エレフィン",
+    "variants": [
+      {
+        "image": "NpcIcon/elp03.png"
+      }
+    ],
+    "uniqueEntryId": "dmEBMsfvaXgi9dnZF"
+  },
+  "Aurora": {
+    "displayName": "オーロラ",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn00.png"
+      }
+    ],
+    "uniqueEntryId": "rtKKgZRA69D5Y2HF3"
+  },
+  "Papi": {
+    "displayName": "オカッピ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs12.png"
+      }
+    ],
+    "uniqueEntryId": "oLpLDgkGhg2uLpCqt"
+  },
+  "Octavian": {
+    "displayName": "おくたろう",
+    "variants": [
+      {
+        "image": "NpcIcon/ocp00.png"
+      }
+    ],
+    "uniqueEntryId": "K2bvnEpbdGdaudT6a"
+  },
+  "Renée": {
+    "displayName": "おさい",
+    "variants": [
+      {
+        "image": "NpcIcon/rhn08.png"
+      }
+    ],
+    "uniqueEntryId": "ynNxAxYem8qMCc4Ny"
+  },
+  "Lyman": {
+    "displayName": "オズモンド",
+    "variants": [
+      {
+        "image": "NpcIcon/kal09.png"
+      }
+    ],
+    "uniqueEntryId": "Kd2kP9r4XaQ4wWgPm"
+  },
+  "Opal": {
+    "displayName": "オパール",
+    "variants": [
+      {
+        "image": "NpcIcon/elp00.png"
+      }
+    ],
+    "uniqueEntryId": "6iuDK9k6PAoNeex2y"
+  },
+  "Harry": {
+    "displayName": "オリバー",
+    "variants": [
+      {
+        "image": "NpcIcon/hip08.png"
+      }
+    ],
+    "uniqueEntryId": "P2XxBxGHkF2tPuTtB"
+  },
+  "Olivia": {
+    "displayName": "オリビア",
+    "variants": [
+      {
+        "image": "NpcIcon/cat03.png"
+      }
+    ],
+    "uniqueEntryId": "PLbzhDBtirhoviAZD"
+  },
+  "Prince": {
+    "displayName": "カール",
+    "variants": [
+      {
+        "image": "NpcIcon/flg12.png"
+      }
+    ],
+    "uniqueEntryId": "HBPAZXiTTK7tpYBMG"
+  },
+  "Broffina": {
+    "displayName": "カサンドラ",
+    "variants": [
+      {
+        "image": "NpcIcon/chn12.png"
+      }
+    ],
+    "uniqueEntryId": "ebeEkHXANfvmnuwcH"
+  },
+  "Ricky": {
+    "displayName": "カジロウ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ10.png"
+      }
+    ],
+    "uniqueEntryId": "WnoA8C96BsybvhDYR"
+  },
+  "Ribbot": {
+    "displayName": "ガチャ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg01.png"
+      }
+    ],
+    "uniqueEntryId": "i4tLgfzjXyStX86qh"
+  },
+  "Raddle": {
+    "displayName": "カックン",
+    "variants": [
+      {
+        "image": "NpcIcon/flg15.png"
+      }
+    ],
+    "uniqueEntryId": "rNr49WXY4taGtk76N"
+  },
+  "Vladimir": {
+    "displayName": "ガビ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr06.png"
+      }
+    ],
+    "uniqueEntryId": "rdQ4gLxKbo4744oqn"
+  },
+  "Kabuki": {
+    "displayName": "かぶきち",
+    "variants": [
+      {
+        "image": "NpcIcon/cat09.png"
+      }
+    ],
+    "uniqueEntryId": "Ebsca5HHqLTeGB5Fm"
+  },
+  "Biff": {
+    "displayName": "ガブリエル",
+    "variants": [
+      {
+        "image": "NpcIcon/hip04.png"
+      }
+    ],
+    "uniqueEntryId": "2AoitAG3mnRKY6nxh"
+  },
+  "Wade": {
+    "displayName": "カマボコ",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn09.png"
+      }
+    ],
+    "uniqueEntryId": "5uTcMdt9xvMBBwHst"
+  },
+  "Molly": {
+    "displayName": "カモミ",
+    "variants": [
+      {
+        "image": "NpcIcon/duk16.png"
+      }
+    ],
+    "uniqueEntryId": "mKf9wDkt9CvAJRvoq"
+  },
+  "Nibbles": {
+    "displayName": "ガリガリ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ04.png"
+      }
+    ],
+    "uniqueEntryId": "BGEQzkfoPqaNy2MeW"
+  },
+  "Patty": {
+    "displayName": "カルピ",
+    "variants": [
+      {
+        "image": "NpcIcon/cow00.png"
+      }
+    ],
+    "uniqueEntryId": "gn2db6iaWZShhZgmJ"
+  },
+  "Curlos": {
+    "displayName": "カルロス",
+    "variants": [
+      {
+        "image": "NpcIcon/shp08.png"
+      }
+    ],
+    "uniqueEntryId": "pXC6bdZWA4Hvn6akE"
+  },
+  "Curt": {
+    "displayName": "ガンテツ",
+    "variants": [
+      {
+        "image": "NpcIcon/bea02.png"
+      }
+    ],
+    "uniqueEntryId": "gfsj6ckQgbggms3ir"
+  },
+  "Candi": {
+    "displayName": "かんゆ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus08.png"
+      }
+    ],
+    "uniqueEntryId": "LEYSGzsC46KMHoWR3"
+  },
+  "Walt": {
+    "displayName": "カンロク",
+    "variants": [
+      {
+        "image": "NpcIcon/kgr08.png"
+      }
+    ],
+    "uniqueEntryId": "GhPjeNLF7ccjLScYE"
+  },
+  "Cephalobot": {
+    "displayName": "ギーガー",
+    "variants": [
+      {
+        "image": "NpcIcon/ocp04.png"
+      }
+    ],
+    "uniqueEntryId": "LPM3KpQXiXyCkeqXF"
+  },
+  "Ed": {
+    "displayName": "キザノホマレ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs06.png"
+      }
+    ],
+    "uniqueEntryId": "MvueE9p4onasJycPX"
+  },
+  "Astrid": {
+    "displayName": "キッズ",
+    "variants": [
+      {
+        "image": "NpcIcon/kgr05.png"
+      }
+    ],
+    "uniqueEntryId": "TG2Dzv4dJEnZSHa7W"
+  },
+  "Kiki": {
+    "displayName": "キャビア",
+    "variants": [
+      {
+        "image": "NpcIcon/cat04.png"
+      }
+    ],
+    "uniqueEntryId": "A9L9f3mHDYZuGiqRa"
+  },
+  "Goldie": {
+    "displayName": "キャラメル",
+    "variants": [
+      {
+        "image": "NpcIcon/dog00.png"
+      }
+    ],
+    "uniqueEntryId": "qCZcmYdRMnHdDSN37"
+  },
+  "Caroline": {
+    "displayName": "キャロライン",
+    "variants": [
+      {
+        "image": "NpcIcon/squ06.png"
+      }
+    ],
+    "uniqueEntryId": "Jw8fFGbcauW6hBQqE"
+  },
+  "Megan": {
+    "displayName": "キャンディ",
+    "variants": [
+      {
+        "image": "NpcIcon/bea15.png"
+      }
+    ],
+    "uniqueEntryId": "jGwmdond5S39m4YzQ"
+  },
+  "Canberra": {
+    "displayName": "キャンベラ",
+    "variants": [
+      {
+        "image": "NpcIcon/kal08.png"
+      }
+    ],
+    "uniqueEntryId": "ALxvXwHZdeZDhkDMv"
+  },
+  "Knox": {
+    "displayName": "キンカク",
+    "variants": [
+      {
+        "image": "NpcIcon/chn11.png"
+      }
+    ],
+    "uniqueEntryId": "4u5nBuRyro8B8DQWZ"
+  },
+  "Sterling": {
+    "displayName": "ギンカク",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr07.png"
+      }
+    ],
+    "uniqueEntryId": "dkmSxy5jnNhf4ewD8"
+  },
+  "Elvis": {
+    "displayName": "キング",
+    "variants": [
+      {
+        "image": "NpcIcon/lon01.png"
+      }
+    ],
+    "uniqueEntryId": "Cqha2zjT9S49gKpqR"
+  },
+  "Pudge": {
+    "displayName": "きんぞう",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr03.png"
+      }
+    ],
+    "uniqueEntryId": "Y2EYN2rsrCMeNMvRm"
+  },
+  "Avery": {
+    "displayName": "クスケチャ",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr05.png"
+      }
+    ],
+    "uniqueEntryId": "EZjoQktRHTMPW4seQ"
+  },
+  "Hugh": {
+    "displayName": "クッチャネ",
+    "variants": [
+      {
+        "image": "NpcIcon/pig03.png"
+      }
+    ],
+    "uniqueEntryId": "CntttWnS8rRzHivQN"
+  },
+  "Klaus": {
+    "displayName": "クマロス",
+    "variants": [
+      {
+        "image": "NpcIcon/bea14.png"
+      }
+    ],
+    "uniqueEntryId": "vWBBA6RN6RufnfK5S"
+  },
+  "Poppy": {
+    "displayName": "グミ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ15.png"
+      }
+    ],
+    "uniqueEntryId": "iyR2upAi4MPnW8Fxz"
+  },
+  "Bud": {
+    "displayName": "グラさん",
+    "variants": [
+      {
+        "image": "NpcIcon/lon00.png"
+      }
+    ],
+    "uniqueEntryId": "CAbu6ug438Ahqerzu"
+  },
+  "Graham": {
+    "displayName": "グラハム",
+    "variants": [
+      {
+        "image": "NpcIcon/ham02.png"
+      }
+    ],
+    "uniqueEntryId": "ujTg8ER97ubncjrZs"
+  },
+  "Sheldon": {
+    "displayName": "クリス",
+    "variants": [
+      {
+        "image": "NpcIcon/squ16.png"
+      }
+    ],
+    "uniqueEntryId": "3yx7G7mbTezCYkdrY"
+  },
+  "Chrissy": {
+    "displayName": "クリスチーヌ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt13.png"
+      }
+    ],
+    "uniqueEntryId": "jjhrEddyQ4ivpffPj"
+  },
+  "Tank": {
+    "displayName": "くるぶし",
+    "variants": [
+      {
+        "image": "NpcIcon/rhn00.png"
+      }
+    ],
+    "uniqueEntryId": "pBRuPhfeGsYqCs9t5"
+  },
+  "Bluebear": {
+    "displayName": "グルミン",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr00.png"
+      }
+    ],
+    "uniqueEntryId": "L2vnJrbAznFmsNgza"
+  },
+  "Rasher": {
+    "displayName": "グレオ",
+    "variants": [
+      {
+        "image": "NpcIcon/pig02.png"
+      }
+    ],
+    "uniqueEntryId": "4redECYwZCT5Pd4Kd"
+  },
+  "Groucho": {
+    "displayName": "クロー",
+    "variants": [
+      {
+        "image": "NpcIcon/bea06.png"
+      }
+    ],
+    "uniqueEntryId": "4RJpvKFm4mDnTnWrk"
+  },
+  "Alli": {
+    "displayName": "クロコ",
+    "variants": [
+      {
+        "image": "NpcIcon/crd01.png"
+      }
+    ],
+    "uniqueEntryId": "CFdokXcvTP7nHNtYa"
+  },
+  "Ken": {
+    "displayName": "クロベエ",
+    "variants": [
+      {
+        "image": "NpcIcon/chn13.png"
+      }
+    ],
+    "uniqueEntryId": "fhNJv2Zte764oxE7p"
+  },
+  "Jeremiah": {
+    "displayName": "クワトロ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg07.png"
+      }
+    ],
+    "uniqueEntryId": "2qFeirzedephxFHP8"
+  },
+  "Phil": {
+    "displayName": "ケイン",
+    "variants": [
+      {
+        "image": "NpcIcon/ost07.png"
+      }
+    ],
+    "uniqueEntryId": "ACcDKf2kQLPnYuEYJ"
+  },
+  "Ketchup": {
+    "displayName": "ケチャップ",
+    "variants": [
+      {
+        "image": "NpcIcon/duk13.png"
+      }
+    ],
+    "uniqueEntryId": "H3oD9Tb6MEik95jkv"
+  },
+  "Dobie": {
+    "displayName": "けん",
+    "variants": [
+      {
+        "image": "NpcIcon/wol04.png"
+      }
+    ],
+    "uniqueEntryId": "dmqQR57gWKjLbwg6A"
+  },
+  "Genji": {
+    "displayName": "ゲンジ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt08.png"
+      }
+    ],
+    "uniqueEntryId": "kguZuXnPw7XYQ3B4d"
+  },
+  "Goose": {
+    "displayName": "ケンタ",
+    "variants": [
+      {
+        "image": "NpcIcon/chn00.png"
+      }
+    ],
+    "uniqueEntryId": "hyaGsYwk8bPHFAqKq"
+  },
+  "Frobert": {
+    "displayName": "コージィ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg02.png"
+      }
+    ],
+    "uniqueEntryId": "kAZ4B4HiNomyNXTmh"
+  },
+  "Snooty": {
+    "displayName": "こまち",
+    "variants": [
+      {
+        "image": "NpcIcon/ant06.png"
+      }
+    ],
+    "uniqueEntryId": "stoYJAuGq9Z9Dq9pX"
+  },
+  "Rowan": {
+    "displayName": "ゴメス",
+    "variants": [
+      {
+        "image": "NpcIcon/tig01.png"
+      }
+    ],
+    "uniqueEntryId": "2yovX2xAFFeg6Lzxc"
+  },
+  "Bianca": {
+    "displayName": "コユキ",
+    "variants": [
+      {
+        "image": "NpcIcon/tig06.png"
+      }
+    ],
+    "uniqueEntryId": "HiPrcZ7DtaCyukzfP"
+  },
+  "Rocco": {
+    "displayName": "ゴンザレス",
+    "variants": [
+      {
+        "image": "NpcIcon/hip00.png"
+      }
+    ],
+    "uniqueEntryId": "kruZ2cubAaRsEo5pM"
+  },
+  "Gonzo": {
+    "displayName": "ゴンゾー",
+    "variants": [
+      {
+        "image": "NpcIcon/kal04.png"
+      }
+    ],
+    "uniqueEntryId": "PLN9nM5WWq7Yu5xzu"
+  },
+  "Cyrano": {
+    "displayName": "さくらじま",
+    "variants": [
+      {
+        "image": "NpcIcon/ant00.png"
+      }
+    ],
+    "uniqueEntryId": "k8GhRiqiSF86NmJ4S"
+  },
+  "Flip": {
+    "displayName": "さすけ",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk06.png"
+      }
+    ],
+    "uniqueEntryId": "4BiGFBRMuRaQq6hQK"
+  },
+  "Merry": {
+    "displayName": "さっち",
+    "variants": [
+      {
+        "image": "NpcIcon/cat16.png"
+      }
+    ],
+    "uniqueEntryId": "n63ChLW25e5GsGaBF"
+  },
+  "Savannah": {
+    "displayName": "サバンナ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs02.png"
+      }
+    ],
+    "uniqueEntryId": "GFCsfM2wQ6WCoFjhT"
+  },
+  "Friga": {
+    "displayName": "サブリナ",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn04.png"
+      }
+    ],
+    "uniqueEntryId": "M3CcGwnDjLZtTq5cQ"
+  },
+  "Elmer": {
+    "displayName": "サブレ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs03.png"
+      }
+    ],
+    "uniqueEntryId": "kpNfgaN8GzdE4egQk"
+  },
+  "Wart Jr.": {
+    "displayName": "サム",
+    "variants": [
+      {
+        "image": "NpcIcon/flg05.png"
+      }
+    ],
+    "uniqueEntryId": "ryS2NMe6BHCW7mt3X"
+  },
+  "Bree": {
+    "displayName": "サラ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus03.png"
+      }
+    ],
+    "uniqueEntryId": "wLMYBx46rcgcBSB7L"
+  },
+  "Margie": {
+    "displayName": "サリー",
+    "variants": [
+      {
+        "image": "NpcIcon/elp04.png"
+      }
+    ],
+    "uniqueEntryId": "fWQnNdN8AxrQ8Pmbj"
+  },
+  "Monty": {
+    "displayName": "サルモンティ",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk04.png"
+      }
+    ],
+    "uniqueEntryId": "PJ4HAaLYHzFgRAdsh"
+  },
+  "Rex": {
+    "displayName": "サンデー",
+    "variants": [
+      {
+        "image": "NpcIcon/lon02.png"
+      }
+    ],
+    "uniqueEntryId": "8m3FFLjuJHFPrxZRA"
+  },
+  "O'Hare": {
+    "displayName": "サントス",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt15.png"
+      }
+    ],
+    "uniqueEntryId": "sAbzTg2dgwppvmFyJ"
+  },
+  "Jitters": {
+    "displayName": "ジーニョ",
+    "variants": [
+      {
+        "image": "NpcIcon/brd04.png"
+      }
+    ],
+    "uniqueEntryId": "prDpvgYtL2nn7odku"
+  },
+  "Monique": {
+    "displayName": "ジェーン",
+    "variants": [
+      {
+        "image": "NpcIcon/cat11.png"
+      }
+    ],
+    "uniqueEntryId": "Bb2fgPnDnJJFWtmpF"
+  },
+  "Fuchsia": {
+    "displayName": "ジェシカ",
+    "variants": [
+      {
+        "image": "NpcIcon/der06.png"
+      }
+    ],
+    "uniqueEntryId": "TLXWrSasDXyQEBprw"
+  },
+  "Shari": {
+    "displayName": "シェリー",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk07.png"
+      }
+    ],
+    "uniqueEntryId": "PC8gibosbSxgTyF6j"
+  },
+  "Quinn": {
+    "displayName": "シオン",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr10.png"
+      }
+    ],
+    "uniqueEntryId": "wfcbFECH6PyLKwJGX"
+  },
+  "Sydney": {
+    "displayName": "シドニー",
+    "variants": [
+      {
+        "image": "NpcIcon/kal03.png"
+      }
+    ],
+    "uniqueEntryId": "23Gmd2GdYSxAeXvfP"
+  },
+  "Blanche": {
+    "displayName": "しのぶ",
+    "variants": [
+      {
+        "image": "NpcIcon/ost08.png"
+      }
+    ],
+    "uniqueEntryId": "TkQCxRrsq6ZvXk2Ag"
+  },
+  "Fang": {
+    "displayName": "シベリア",
+    "variants": [
+      {
+        "image": "NpcIcon/wol06.png"
+      }
+    ],
+    "uniqueEntryId": "akg5oTXD9j5WW6rCq"
+  },
+  "Rodney": {
+    "displayName": "ジミー",
+    "variants": [
+      {
+        "image": "NpcIcon/ham03.png"
+      }
+    ],
+    "uniqueEntryId": "rpKg6Wf4Cah4CQGi3"
+  },
+  "Egbert": {
+    "displayName": "しもやけ",
+    "variants": [
+      {
+        "image": "NpcIcon/chn02.png"
+      }
+    ],
+    "uniqueEntryId": "qGhZmPsiEEj9cisXt"
+  },
+  "Jacob": {
+    "displayName": "ジャコテン",
+    "variants": [
+      {
+        "image": "NpcIcon/brd11.png"
+      }
+    ],
+    "uniqueEntryId": "RTCBLHNZ4wQKY4qLp"
+  },
+  "Pekoe": {
+    "displayName": "ジャスミン",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr14.png"
+      }
+    ],
+    "uniqueEntryId": "kW48TLHtEcA9amxoo"
+  },
+  "Raymond": {
+    "displayName": "ジャック",
+    "variants": [
+      {
+        "image": "NpcIcon/cat23.png"
+      }
+    ],
+    "uniqueEntryId": "CbZfAkwGBGwH9hjjy"
+  },
+  "Rod": {
+    "displayName": "ジャン",
+    "variants": [
+      {
+        "image": "NpcIcon/mus05.png"
+      }
+    ],
+    "uniqueEntryId": "jao6WwxyaKPFyr4fv"
+  },
+  "Soleil": {
+    "displayName": "シャンティ",
+    "variants": [
+      {
+        "image": "NpcIcon/ham04.png"
+      }
+    ],
+    "uniqueEntryId": "gjyCyoWgwscYehZfw"
+  },
+  "Frett": {
+    "displayName": "シャンペン",
+    "variants": [
+      {
+        "image": "NpcIcon/dog11.png"
+      }
+    ],
+    "uniqueEntryId": "W224PZMqRtyHSP9fR"
+  },
+  "Roscoe": {
+    "displayName": "シュバルツ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs04.png"
+      }
+    ],
+    "uniqueEntryId": "xnsbMtxgFJL6F28Tq"
+  },
+  "Pietro": {
+    "displayName": "ジュペッティ",
+    "variants": [
+      {
+        "image": "NpcIcon/shp13.png"
+      }
+    ],
+    "uniqueEntryId": "kgzb3XaJHYEKtG2vL"
+  },
+  "Julia": {
+    "displayName": "ジュリア",
+    "variants": [
+      {
+        "image": "NpcIcon/ost05.png"
+      }
+    ],
+    "uniqueEntryId": "wgEW4t8mFfHAb9L2F"
+  },
+  "Julian": {
+    "displayName": "ジュリー",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs13.png"
+      }
+    ],
+    "uniqueEntryId": "piQLLjNtZjHa3JN6e"
+  },
+  "Marshal": {
+    "displayName": "ジュン",
+    "variants": [
+      {
+        "image": "NpcIcon/squ17.png"
+      }
+    ],
+    "uniqueEntryId": "rdMr8DdDNu92F27Es"
+  },
+  "Boomer": {
+    "displayName": "ショーイ",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn10.png"
+      }
+    ],
+    "uniqueEntryId": "X7Kyza5aGcLwBPqfS"
+  },
+  "Kitty": {
+    "displayName": "ショコラ",
+    "variants": [
+      {
+        "image": "NpcIcon/cat14.png"
+      }
+    ],
+    "uniqueEntryId": "K2bMhoCi2TkEeQWZ8"
+  },
+  "Jacques": {
+    "displayName": "ジョッキー",
+    "variants": [
+      {
+        "image": "NpcIcon/brd16.png"
+      }
+    ],
+    "uniqueEntryId": "Aj26BCyo47sxPZP5Q"
+  },
+  "Butch": {
+    "displayName": "ジョン",
+    "variants": [
+      {
+        "image": "NpcIcon/dog01.png"
+      }
+    ],
+    "uniqueEntryId": "QRpdAGwj2rbg7utoi"
+  },
+  "Blaire": {
+    "displayName": "シルエット",
+    "variants": [
+      {
+        "image": "NpcIcon/squ01.png"
+      }
+    ],
+    "uniqueEntryId": "N3XSoBF5jZFB2cJBu"
+  },
+  "Sylvia": {
+    "displayName": "シルビア",
+    "variants": [
+      {
+        "image": "NpcIcon/kgr06.png"
+      }
+    ],
+    "uniqueEntryId": "YMNsB9hJH57tGXba9"
+  },
+  "Annalise": {
+    "displayName": "シルブプレ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs09.png"
+      }
+    ],
+    "uniqueEntryId": "qZbyAvebHd3WLrmj7"
+  },
+  "Moe": {
+    "displayName": "ジンペイ",
+    "variants": [
+      {
+        "image": "NpcIcon/cat08.png"
+      }
+    ],
+    "uniqueEntryId": "JfyfcZzX3CsM7MiLr"
+  },
+  "Spike": {
+    "displayName": "スクワット",
+    "variants": [
+      {
+        "image": "NpcIcon/rhn02.png"
+      }
+    ],
+    "uniqueEntryId": "dy9BixKMQjGjyKq3c"
+  },
+  "Huck": {
+    "displayName": "ストロー",
+    "variants": [
+      {
+        "image": "NpcIcon/flg11.png"
+      }
+    ],
+    "uniqueEntryId": "XDhzY3EGS8KJWz3hG"
+  },
+  "Hans": {
+    "displayName": "スナイル",
+    "variants": [
+      {
+        "image": "NpcIcon/gor10.png"
+      }
+    ],
+    "uniqueEntryId": "2CZNXaXhmWsiZ3nxr"
+  },
+  "Static": {
+    "displayName": "スパーク",
+    "variants": [
+      {
+        "image": "NpcIcon/squ08.png"
+      }
+    ],
+    "uniqueEntryId": "DKt5SSexyEFsDhEQL"
+  },
+  "Ione": {
+    "displayName": "スピカ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ21.png"
+      }
+    ],
+    "uniqueEntryId": "FowZRhsxLiRebtTJa"
+  },
+  "Nan": {
+    "displayName": "スミ",
+    "variants": [
+      {
+        "image": "NpcIcon/goa01.png"
+      }
+    ],
+    "uniqueEntryId": "p29qXdC3EfPaDkgcH"
+  },
+  "Mallary": {
+    "displayName": "スミモモ",
+    "variants": [
+      {
+        "image": "NpcIcon/duk06.png"
+      }
+    ],
+    "uniqueEntryId": "58v6qkKRhnPnq8TK4"
+  },
+  "Gloria": {
+    "displayName": "スワンソン",
+    "variants": [
+      {
+        "image": "NpcIcon/duk15.png"
+      }
+    ],
+    "uniqueEntryId": "9L6S3L5jgkyZTSCv5"
+  },
+  "Pierce": {
+    "displayName": "セバスチャン",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr02.png"
+      }
+    ],
+    "uniqueEntryId": "vAwybRnbA775tMbcH"
+  },
+  "Angus": {
+    "displayName": "セルバンテス",
+    "variants": [
+      {
+        "image": "NpcIcon/bul00.png"
+      }
+    ],
+    "uniqueEntryId": "Z4eWe596LeHee4oSJ"
+  },
+  "Victoria": {
+    "displayName": "セントアロー",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs01.png"
+      }
+    ],
+    "uniqueEntryId": "s6ykDh5SvaohBzTFc"
+  },
+  "Ike": {
+    "displayName": "ダイク",
+    "variants": [
+      {
+        "image": "NpcIcon/bea11.png"
+      }
+    ],
+    "uniqueEntryId": "N5aQ4zYFLEAwm5B8h"
+  },
+  "Croque": {
+    "displayName": "タイシ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg17.png"
+      }
+    ],
+    "uniqueEntryId": "vpRFwWLQMo6pLRMtD"
+  },
+  "Teddy": {
+    "displayName": "たいへいた",
+    "variants": [
+      {
+        "image": "NpcIcon/bea00.png"
+      }
+    ],
+    "uniqueEntryId": "SJYEtqWL2WERC58az"
+  },
+  "Queenie": {
+    "displayName": "タキュ",
+    "variants": [
+      {
+        "image": "NpcIcon/ost00.png"
+      }
+    ],
+    "uniqueEntryId": "R4gWKJWmGco3SngH4"
+  },
+  "Bam": {
+    "displayName": "タケル",
+    "variants": [
+      {
+        "image": "NpcIcon/der01.png"
+      }
+    ],
+    "uniqueEntryId": "YXK7DqndZJvNtKcYQ"
+  },
+  "Zucker": {
+    "displayName": "タコヤ",
+    "variants": [
+      {
+        "image": "NpcIcon/ocp02.png"
+      }
+    ],
+    "uniqueEntryId": "Atv9TnMkPv4NAjPAG"
+  },
+  "Marina": {
+    "displayName": "タコリーナ",
+    "variants": [
+      {
+        "image": "NpcIcon/ocp01.png"
+      }
+    ],
+    "uniqueEntryId": "jbwSRDvGfh6ZsPEN7"
+  },
+  "Drago": {
+    "displayName": "タツオ",
+    "variants": [
+      {
+        "image": "NpcIcon/crd08.png"
+      }
+    ],
+    "uniqueEntryId": "JRxNg9xysfKJ9r3Ci"
+  },
+  "Quillson": {
+    "displayName": "タックン",
+    "variants": [
+      {
+        "image": "NpcIcon/duk17.png"
+      }
+    ],
+    "uniqueEntryId": "XRBcdTnzAMwd8AAmd"
+  },
+  "Purrl": {
+    "displayName": "たま",
+    "variants": [
+      {
+        "image": "NpcIcon/cat07.png"
+      }
+    ],
+    "uniqueEntryId": "7dwxypT6Dhak2Zrgh"
+  },
+  "Gala": {
+    "displayName": "ためこ",
+    "variants": [
+      {
+        "image": "NpcIcon/pig13.png"
+      }
+    ],
+    "uniqueEntryId": "2YQSs2vo7756NmkLE"
+  },
+  "Al": {
+    "displayName": "たもつ",
+    "variants": [
+      {
+        "image": "NpcIcon/gor08.png"
+      }
+    ],
+    "uniqueEntryId": "XKm6cmQjf4eFAHMRT"
+  },
+  "Boris": {
+    "displayName": "ダリー",
+    "variants": [
+      {
+        "image": "NpcIcon/pig09.png"
+      }
+    ],
+    "uniqueEntryId": "92wbLjWTPBrXzzDyq"
+  },
+  "Hopper": {
+    "displayName": "ダルマン",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn03.png"
+      }
+    ],
+    "uniqueEntryId": "rm3Mr2xMa2FuNzQpN"
+  },
+  "Pinky": {
+    "displayName": "タンタン",
+    "variants": [
+      {
+        "image": "NpcIcon/bea01.png"
+      }
+    ],
+    "uniqueEntryId": "8XnDkhqM5TQggetA5"
+  },
+  "Peewee": {
+    "displayName": "ダンベル",
+    "variants": [
+      {
+        "image": "NpcIcon/gor01.png"
+      }
+    ],
+    "uniqueEntryId": "cBRQpn28HprGtCCwj"
+  },
+  "Tad": {
+    "displayName": "タンボ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg09.png"
+      }
+    ],
+    "uniqueEntryId": "CRwPsF4RYLDQJTKca"
+  },
+  "Chadder": {
+    "displayName": "チーズ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus18.png"
+      }
+    ],
+    "uniqueEntryId": "sMSpT7BHMW4MLGvYu"
+  },
+  "Chief": {
+    "displayName": "チーフ",
+    "variants": [
+      {
+        "image": "NpcIcon/wol00.png"
+      }
+    ],
+    "uniqueEntryId": "EkZdchfkqYdzRFt9L"
+  },
+  "Peggy": {
+    "displayName": "ちえり",
+    "variants": [
+      {
+        "image": "NpcIcon/pig11.png"
+      }
+    ],
+    "uniqueEntryId": "i2hrL5LXSEK5koRmF"
+  },
+  "Chelsea": {
+    "displayName": "チェルシー",
+    "variants": [
+      {
+        "image": "NpcIcon/der10.png"
+      }
+    ],
+    "uniqueEntryId": "FFQKjo9BwCxCcaD7F"
+  },
+  "Nana": {
+    "displayName": "チッチ",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk01.png"
+      }
+    ],
+    "uniqueEntryId": "4QX5cX2EtSr7zxEus"
+  },
+  "Gladys": {
+    "displayName": "ちとせ",
+    "variants": [
+      {
+        "image": "NpcIcon/ost01.png"
+      }
+    ],
+    "uniqueEntryId": "rPAvxfMrDJwTCHwoq"
+  },
+  "Charlise": {
+    "displayName": "チャーミー",
+    "variants": [
+      {
+        "image": "NpcIcon/bea12.png"
+      }
+    ],
+    "uniqueEntryId": "tTDJgQDjdYDTqyW7j"
+  },
+  "Chow": {
+    "displayName": "チャウヤン",
+    "variants": [
+      {
+        "image": "NpcIcon/bea03.png"
+      }
+    ],
+    "uniqueEntryId": "6uFKsTTZN7yNZac8K"
+  },
+  "Bubbles": {
+    "displayName": "チャコ",
+    "variants": [
+      {
+        "image": "NpcIcon/hip02.png"
+      }
+    ],
+    "uniqueEntryId": "QJZz56d9zjmeydnLe"
+  },
+  "Rudy": {
+    "displayName": "チャス",
+    "variants": [
+      {
+        "image": "NpcIcon/cat20.png"
+      }
+    ],
+    "uniqueEntryId": "RanhGEqzuBgLgmxfe"
+  },
+  "Dom": {
+    "displayName": "ちゃちゃまる",
+    "variants": [
+      {
+        "image": "NpcIcon/shp15.png"
+      }
+    ],
+    "uniqueEntryId": "BqfFNSjPdyQ45Jjux"
+  },
+  "Erik": {
+    "displayName": "チャック",
+    "variants": [
+      {
+        "image": "NpcIcon/der09.png"
+      }
+    ],
+    "uniqueEntryId": "Y7eW7S6XRu2ScHaie"
+  },
+  "Mac": {
+    "displayName": "チャンプ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog14.png"
+      }
+    ],
+    "uniqueEntryId": "EnjagehsThrhkMbyh"
+  },
+  "Penelope": {
+    "displayName": "チューこ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus17.png"
+      }
+    ],
+    "uniqueEntryId": "FHnCLZE3uAiuTjsMR"
+  },
+  "Sparro": {
+    "displayName": "ちゅんのすけ",
+    "variants": [
+      {
+        "image": "NpcIcon/brd18.png"
+      }
+    ],
+    "uniqueEntryId": "7K6axD2ubsWkiL8Ry"
+  },
+  "Katt": {
+    "displayName": "ちょい",
+    "variants": [
+      {
+        "image": "NpcIcon/cat21.png"
+      }
+    ],
+    "uniqueEntryId": "B22QBxtH43yrxGuPA"
+  },
+  "Puddles": {
+    "displayName": "チョキ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg06.png"
+      }
+    ],
+    "uniqueEntryId": "aj2EaHKh88Hr6yN3r"
+  },
+  "Carmen": {
+    "displayName": "チョコ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt16.png"
+      }
+    ],
+    "uniqueEntryId": "uDki4x56jWLybSwea"
+  },
+  "Rolf": {
+    "displayName": "チョモラン",
+    "variants": [
+      {
+        "image": "NpcIcon/tig00.png"
+      }
+    ],
+    "uniqueEntryId": "Nt7MBjpWSk2qs2vWS"
+  },
+  "Rizzo": {
+    "displayName": "ちょろきち",
+    "variants": [
+      {
+        "image": "NpcIcon/mus09.png"
+      }
+    ],
+    "uniqueEntryId": "iHmy7Zukpf9QmCzeu"
+  },
+  "Timbra": {
+    "displayName": "つかさ",
+    "variants": [
+      {
+        "image": "NpcIcon/shp10.png"
+      }
+    ],
+    "uniqueEntryId": "A9gPYETpdGS4YT8At"
+  },
+  "Jay": {
+    "displayName": "ツバクロ",
+    "variants": [
+      {
+        "image": "NpcIcon/brd00.png"
+      }
+    ],
+    "uniqueEntryId": "bHsrFxFnX6WxpP8Ja"
+  },
+  "Freya": {
+    "displayName": "ツンドラ",
+    "variants": [
+      {
+        "image": "NpcIcon/wol05.png"
+      }
+    ],
+    "uniqueEntryId": "kGa7Dxjd8Gg5jgECt"
+  },
+  "Leopold": {
+    "displayName": "ティーチャー",
+    "variants": [
+      {
+        "image": "NpcIcon/lon04.png"
+      }
+    ],
+    "uniqueEntryId": "oyXz7swcHaLXRnpDK"
+  },
+  "Tia": {
+    "displayName": "ティーナ",
+    "variants": [
+      {
+        "image": "NpcIcon/elp10.png"
+      }
+    ],
+    "uniqueEntryId": "AKMNwkK9AY9kE8yc8"
+  },
+  "Hippeux": {
+    "displayName": "ディビッド",
+    "variants": [
+      {
+        "image": "NpcIcon/hip09.png"
+      }
+    ],
+    "uniqueEntryId": "xddtc933FxiKTAv5d"
+  },
+  "Celia": {
+    "displayName": "ティファニー",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr09.png"
+      }
+    ],
+    "uniqueEntryId": "BCqHxW94yDmeqhTYd"
+  },
+  "Clyde": {
+    "displayName": "デースケ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs10.png"
+      }
+    ],
+    "uniqueEntryId": "FvsY5zGnHHfR5ja7z"
+  },
+  "Rio": {
+    "displayName": "デジャネイロ",
+    "variants": [
+      {
+        "image": "NpcIcon/ost04.png"
+      }
+    ],
+    "uniqueEntryId": "RqN863Bwizvdt5uAY"
+  },
+  "Coach": {
+    "displayName": "テッチャン",
+    "variants": [
+      {
+        "image": "NpcIcon/bul07.png"
+      }
+    ],
+    "uniqueEntryId": "WLjkz6D9ErKKMXFQd"
+  },
+  "Deli": {
+    "displayName": "デリー",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk08.png"
+      }
+    ],
+    "uniqueEntryId": "DLq5r9B4ZHQcXyf78"
+  },
+  "Tiansheng": {
+    "displayName": "テンシン",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk09.png"
+      }
+    ],
+    "uniqueEntryId": "4sASssc9uwe4jn9oE"
+  },
+  "Cranston": {
+    "displayName": "トキオ",
+    "variants": [
+      {
+        "image": "NpcIcon/ost06.png"
+      }
+    ],
+    "uniqueEntryId": "w7MBjBDk9yknbgx7s"
+  },
+  "Drift": {
+    "displayName": "ドク",
+    "variants": [
+      {
+        "image": "NpcIcon/flg04.png"
+      }
+    ],
+    "uniqueEntryId": "T3ygpjBu8ymgAcs7W"
+  },
+  "Clay": {
+    "displayName": "どぐろう",
+    "variants": [
+      {
+        "image": "NpcIcon/ham05.png"
+      }
+    ],
+    "uniqueEntryId": "QumyH9Hsk33b5Yzrs"
+  },
+  "Peaches": {
+    "displayName": "ドサコ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs08.png"
+      }
+    ],
+    "uniqueEntryId": "PHHw7w4BtW4GzXnmY"
+  },
+  "Toby": {
+    "displayName": "トビー",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt20.png"
+      }
+    ],
+    "uniqueEntryId": "Fgo9GvsvRJ5HAN6tR"
+  },
+  "Doc": {
+    "displayName": "トビオ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt10.png"
+      }
+    ],
+    "uniqueEntryId": "LjPxGjpwqmFcxfx8R"
+  },
+  "Bones": {
+    "displayName": "トミ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog04.png"
+      }
+    ],
+    "uniqueEntryId": "zjNDkzxJrKkyMTFMp"
+  },
+  "Ava": {
+    "displayName": "ドミグラ",
+    "variants": [
+      {
+        "image": "NpcIcon/chn05.png"
+      }
+    ],
+    "uniqueEntryId": "rPfTeqciNCmuNkXCx"
+  },
+  "Lopez": {
+    "displayName": "トムソン",
+    "variants": [
+      {
+        "image": "NpcIcon/der05.png"
+      }
+    ],
+    "uniqueEntryId": "W4LYsy5XNbr98E4Ht"
+  },
+  "Dora": {
+    "displayName": "とめ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus00.png"
+      }
+    ],
+    "uniqueEntryId": "PLJTq7jdQtoahX7zf"
+  },
+  "Tabby": {
+    "displayName": "トラこ",
+    "variants": [
+      {
+        "image": "NpcIcon/cat12.png"
+      }
+    ],
+    "uniqueEntryId": "SgmPxSwrcmQZhTkpm"
+  },
+  "Fauna": {
+    "displayName": "ドレミ",
+    "variants": [
+      {
+        "image": "NpcIcon/der00.png"
+      }
+    ],
+    "uniqueEntryId": "GuwzomGDdrLnno6YZ"
+  },
+  "Baabara": {
+    "displayName": "トロワ",
+    "variants": [
+      {
+        "image": "NpcIcon/shp01.png"
+      }
+    ],
+    "uniqueEntryId": "DXCnwKEB9vBc8rxDA"
+  },
+  "Ozzie": {
+    "displayName": "ドングリ",
+    "variants": [
+      {
+        "image": "NpcIcon/kal05.png"
+      }
+    ],
+    "uniqueEntryId": "LmBC7hyebnRnKgGvB"
+  },
+  "Truffles": {
+    "displayName": "トンコ",
+    "variants": [
+      {
+        "image": "NpcIcon/pig01.png"
+      }
+    ],
+    "uniqueEntryId": "J37hEjFcJ3HiB55Do"
+  },
+  "Marlo": {
+    "displayName": "ドンチャン",
+    "variants": [
+      {
+        "image": "NpcIcon/ham09.png"
+      }
+    ],
+    "uniqueEntryId": "rWdm669JrgctfCPYR"
+  },
+  "Chops": {
+    "displayName": "トンファン",
+    "variants": [
+      {
+        "image": "NpcIcon/pig14.png"
+      }
+    ],
+    "uniqueEntryId": "eq4XPWH66a8Bo6Kyx"
+  },
+  "Ankha": {
+    "displayName": "ナイル",
+    "variants": [
+      {
+        "image": "NpcIcon/cat19.png"
+      }
+    ],
+    "uniqueEntryId": "6wRGp6SxfJPajDH9r"
+  },
+  "Tasha": {
+    "displayName": "ナターシャ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ13.png"
+      }
+    ],
+    "uniqueEntryId": "eJXJsKLwYLsGqN6Wf"
+  },
+  "Diana": {
+    "displayName": "ナタリー",
+    "variants": [
+      {
+        "image": "NpcIcon/der08.png"
+      }
+    ],
+    "uniqueEntryId": "Jkpfn3BqqGqCQqfhf"
+  },
+  "Pate": {
+    "displayName": "ナッキー",
+    "variants": [
+      {
+        "image": "NpcIcon/duk02.png"
+      }
+    ],
+    "uniqueEntryId": "4P63GegiXiKTjW545"
+  },
+  "Deirdre": {
+    "displayName": "ナディア",
+    "variants": [
+      {
+        "image": "NpcIcon/der04.png"
+      }
+    ],
+    "uniqueEntryId": "umWwEwbNBHMD6EnTy"
+  },
+  "Bob": {
+    "displayName": "ニコバン",
+    "variants": [
+      {
+        "image": "NpcIcon/cat00.png"
+      }
+    ],
+    "uniqueEntryId": "ugWBnjZGL2F7FMfM5"
+  },
+  "Barold": {
+    "displayName": "ニッシー",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr16.png"
+      }
+    ],
+    "uniqueEntryId": "Rc9QRDQE3Mmweeibp"
+  },
+  "Ursala": {
+    "displayName": "ネーヤ",
+    "variants": [
+      {
+        "image": "NpcIcon/bea08.png"
+      }
+    ],
+    "uniqueEntryId": "ZeMj2CX5uLBeYdjh2"
+  },
+  "Zell": {
+    "displayName": "ネルソン",
+    "variants": [
+      {
+        "image": "NpcIcon/der02.png"
+      }
+    ],
+    "uniqueEntryId": "gMFtbx4rgQT3vbCzF"
+  },
+  "Chabwick": {
+    "displayName": "のぶお",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn07.png"
+      }
+    ],
+    "uniqueEntryId": "BYQjEwaCESbv4zRBn"
+  },
+  "Murphy": {
+    "displayName": "のりお",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr07.png"
+      }
+    ],
+    "uniqueEntryId": "PozPYspfWfdygDmzz"
+  },
+  "Pompom": {
+    "displayName": "のりっぺ",
+    "variants": [
+      {
+        "image": "NpcIcon/duk05.png"
+      }
+    ],
+    "uniqueEntryId": "NbbJpFSZ2uMe5KeHN"
+  },
+  "Iggly": {
+    "displayName": "のりまき",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn11.png"
+      }
+    ],
+    "uniqueEntryId": "8kkNv44PrBuFe2acc"
+  },
+  "Vic": {
+    "displayName": "ノルマン",
+    "variants": [
+      {
+        "image": "NpcIcon/bul08.png"
+      }
+    ],
+    "uniqueEntryId": "sQk2rucTdwgJtL4QC"
+  },
+  "Robin": {
+    "displayName": "パーチク",
+    "variants": [
+      {
+        "image": "NpcIcon/brd01.png"
+      }
+    ],
+    "uniqueEntryId": "2qnLK6uCXQSDH8HvP"
+  },
+  "Pashmina": {
+    "displayName": "バーバラ",
+    "variants": [
+      {
+        "image": "NpcIcon/goa08.png"
+      }
+    ],
+    "uniqueEntryId": "SAQZxthbKzQ6CEYgo"
+  },
+  "Sly": {
+    "displayName": "ハイド",
+    "variants": [
+      {
+        "image": "NpcIcon/crd06.png"
+      }
+    ],
+    "uniqueEntryId": "f55rcQQJQnokniso2"
+  },
+  "Paolo": {
+    "displayName": "パオロ",
+    "variants": [
+      {
+        "image": "NpcIcon/elp05.png"
+      }
+    ],
+    "uniqueEntryId": "XeMHxpwMPc3RhRyrX"
+  },
+  "Cobb": {
+    "displayName": "ハカセ",
+    "variants": [
+      {
+        "image": "NpcIcon/pig08.png"
+      }
+    ],
+    "uniqueEntryId": "z35A4jAGhHNs8bQ8Q"
+  },
+  "Tucker": {
+    "displayName": "はじめ",
+    "variants": [
+      {
+        "image": "NpcIcon/elp09.png"
+      }
+    ],
+    "uniqueEntryId": "ePkDG4iiNL7dsqngD"
+  },
+  "Tiffany": {
+    "displayName": "バズレー",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt07.png"
+      }
+    ],
+    "uniqueEntryId": "otqHh7Giw4CCMHRak"
+  },
+  "Cally": {
+    "displayName": "パセリ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ11.png"
+      }
+    ],
+    "uniqueEntryId": "cXt4wvZzxC3keDHv9"
+  },
+  "Plucky": {
+    "displayName": "パタヤ",
+    "variants": [
+      {
+        "image": "NpcIcon/chn10.png"
+      }
+    ],
+    "uniqueEntryId": "iDN5SGoRDwLfsKiT5"
+  },
+  "Benjamin": {
+    "displayName": "ハチ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog16.png"
+      }
+    ],
+    "uniqueEntryId": "roSuxCiaWXbhimrh6"
+  },
+  "Nate": {
+    "displayName": "バッカス",
+    "variants": [
+      {
+        "image": "NpcIcon/bea05.png"
+      }
+    ],
+    "uniqueEntryId": "TJvKepD3BR5FwwEj8"
+  },
+  "Stitches": {
+    "displayName": "パッチ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr05.png"
+      }
+    ],
+    "uniqueEntryId": "4aRSBwo8zf7Pq3HwQ"
+  },
+  "Merengue": {
+    "displayName": "パティ",
+    "variants": [
+      {
+        "image": "NpcIcon/rhn07.png"
+      }
+    ],
+    "uniqueEntryId": "CF3ArBBPvLNQaeuBD"
+  },
+  "Pango": {
+    "displayName": "パトラ",
+    "variants": [
+      {
+        "image": "NpcIcon/ant02.png"
+      }
+    ],
+    "uniqueEntryId": "w6oB6HHW3TEs3Jx93"
+  },
+  "Naomi": {
+    "displayName": "ハナコ",
+    "variants": [
+      {
+        "image": "NpcIcon/cow07.png"
+      }
+    ],
+    "uniqueEntryId": "d3JP3k5PgGa7CJNWK"
+  },
+  "Daisy": {
+    "displayName": "バニラ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog07.png"
+      }
+    ],
+    "uniqueEntryId": "4YZhFXPDAfBi6Wcte"
+  },
+  "Curly": {
+    "displayName": "ハムカツ",
+    "variants": [
+      {
+        "image": "NpcIcon/pig00.png"
+      }
+    ],
+    "uniqueEntryId": "iW6RqhWMfxevCNNsd"
+  },
+  "Hamphrey": {
+    "displayName": "ハムジ",
+    "variants": [
+      {
+        "image": "NpcIcon/ham07.png"
+      }
+    ],
+    "uniqueEntryId": "exo4mM6CWbsFQbyRP"
+  },
+  "Hamlet": {
+    "displayName": "ハムスケ",
+    "variants": [
+      {
+        "image": "NpcIcon/ham00.png"
+      }
+    ],
+    "uniqueEntryId": "WuaPgyaSR3AgMAwZv"
+  },
+  "Tybalt": {
+    "displayName": "ハリマオ",
+    "variants": [
+      {
+        "image": "NpcIcon/tig02.png"
+      }
+    ],
+    "uniqueEntryId": "bswpS6LrNYNe4jbgE"
+  },
+  "Frank": {
+    "displayName": "ハルク",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr06.png"
+      }
+    ],
+    "uniqueEntryId": "YfPzEMXKJ4sj7yJhM"
+  },
+  "Cousteau": {
+    "displayName": "ハルマキ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg10.png"
+      }
+    ],
+    "uniqueEntryId": "Xa4bkbJoqrjGnEqqs"
+  },
+  "Cyd": {
+    "displayName": "パンクス",
+    "variants": [
+      {
+        "image": "NpcIcon/elp12.png"
+      }
+    ],
+    "uniqueEntryId": "CdPW57iEPsGxsfJHu"
+  },
+  "Chester": {
+    "displayName": "パンタ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr15.png"
+      }
+    ],
+    "uniqueEntryId": "HxQchHaxryQH29rCj"
+  },
+  "Tom": {
+    "displayName": "バンタム",
+    "variants": [
+      {
+        "image": "NpcIcon/cat15.png"
+      }
+    ],
+    "uniqueEntryId": "2NoPQdWZz9JeRTT92"
+  },
+  "Cherry": {
+    "displayName": "ハンナ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog17.png"
+      }
+    ],
+    "uniqueEntryId": "WaerEZbTCMtZG2Ldv"
+  },
+  "Whitney": {
+    "displayName": "ビアンカ",
+    "variants": [
+      {
+        "image": "NpcIcon/wol03.png"
+      }
+    ],
+    "uniqueEntryId": "E3TZTG86GtXsf26hW"
+  },
+  "Samson": {
+    "displayName": "ピース",
+    "variants": [
+      {
+        "image": "NpcIcon/mus04.png"
+      }
+    ],
+    "uniqueEntryId": "raSepCzRsGcENRE74"
+  },
+  "Bill": {
+    "displayName": "ピータン",
+    "variants": [
+      {
+        "image": "NpcIcon/duk00.png"
+      }
+    ],
+    "uniqueEntryId": "SqYkARXeP3jqLwCGj"
+  },
+  "Twiggy": {
+    "displayName": "ピーチク",
+    "variants": [
+      {
+        "image": "NpcIcon/brd03.png"
+      }
+    ],
+    "uniqueEntryId": "pX8CCk9gkjZrjYcxA"
+  },
+  "Zoe": {
+    "displayName": "ビーフン",
+    "variants": [
+      {
+        "image": "NpcIcon/ant05.png"
+      }
+    ],
+    "uniqueEntryId": "cJJKMsWMwHg6JEmTC"
+  },
+  "Cube": {
+    "displayName": "ビス",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn02.png"
+      }
+    ],
+    "uniqueEntryId": "b3gRQPvWnDudNK3mD"
+  },
+  "Olive": {
+    "displayName": "ピッコロ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr09.png"
+      }
+    ],
+    "uniqueEntryId": "vBy7Kfbxg7ueAG5du"
+  },
+  "Velma": {
+    "displayName": "ピティエ",
+    "variants": [
+      {
+        "image": "NpcIcon/goa06.png"
+      }
+    ],
+    "uniqueEntryId": "pxtYo7rMZz5pjg4Yr"
+  },
+  "Buzz": {
+    "displayName": "ひでよし",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr03.png"
+      }
+    ],
+    "uniqueEntryId": "sFmrmu8EC2yf6RPwK"
+  },
+  "Claude": {
+    "displayName": "ビネガー",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt11.png"
+      }
+    ],
+    "uniqueEntryId": "DCr5fESwFHJeMzHwX"
+  },
+  "Phoebe": {
+    "displayName": "ヒノコ",
+    "variants": [
+      {
+        "image": "NpcIcon/ost10.png"
+      }
+    ],
+    "uniqueEntryId": "EDW7tSEkZbaJcZpZ7"
+  },
+  "Tangy": {
+    "displayName": "ヒャクパー",
+    "variants": [
+      {
+        "image": "NpcIcon/cat05.png"
+      }
+    ],
+    "uniqueEntryId": "63gYqJBGEM5Wa6xoL"
+  },
+  "Dizzy": {
+    "displayName": "ヒュージ",
+    "variants": [
+      {
+        "image": "NpcIcon/elp01.png"
+      }
+    ],
+    "uniqueEntryId": "ypDBYtcWBCxauQHot"
+  },
+  "Leonardo": {
+    "displayName": "ヒョウタ",
+    "variants": [
+      {
+        "image": "NpcIcon/tig04.png"
+      }
+    ],
+    "uniqueEntryId": "ZJZ4KpcknXqkFtrRK"
+  },
+  "Gruff": {
+    "displayName": "ビリー",
+    "variants": [
+      {
+        "image": "NpcIcon/goa04.png"
+      }
+    ],
+    "uniqueEntryId": "pbEQP3QL2ZfrSAfTk"
+  },
+  "Roswell": {
+    "displayName": "ピロンコン",
+    "variants": [
+      {
+        "image": "NpcIcon/crd05.png"
+      }
+    ],
+    "uniqueEntryId": "t92YuctX5fPEHdSS5"
+  },
+  "Moose": {
+    "displayName": "ピン",
+    "variants": [
+      {
+        "image": "NpcIcon/mus14.png"
+      }
+    ],
+    "uniqueEntryId": "H2mFNq9gPZarqhM7s"
+  },
+  "Punchy": {
+    "displayName": "ビンタ",
+    "variants": [
+      {
+        "image": "NpcIcon/cat06.png"
+      }
+    ],
+    "uniqueEntryId": "StoNkWweD6HzkRLdf"
+  },
+  "Chai": {
+    "displayName": "フィーカ",
+    "variants": [
+      {
+        "image": "NpcIcon/elp11.png"
+      }
+    ],
+    "uniqueEntryId": "sHtdrCKghXnhSPmQQ"
+  },
+  "Rosie": {
+    "displayName": "ブーケ",
+    "variants": [
+      {
+        "image": "NpcIcon/cat02.png"
+      }
+    ],
+    "uniqueEntryId": "Jwr3XB7gLBBGtmwjf"
+  },
+  "Hopkins": {
+    "displayName": "プースケ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt14.png"
+      }
+    ],
+    "uniqueEntryId": "B6gJGAjb8KRBnFHC8"
+  },
+  "Ace": {
+    "displayName": "フェザー",
+    "variants": [
+      {
+        "image": "NpcIcon/brd09.png"
+      }
+    ],
+    "uniqueEntryId": "yrzvoz4kNmqN8N2pX"
+  },
+  "Drake": {
+    "displayName": "フォアグラ",
+    "variants": [
+      {
+        "image": "NpcIcon/duk09.png"
+      }
+    ],
+    "uniqueEntryId": "seyQHnvvFgzsMr5FR"
+  },
+  "Greta": {
+    "displayName": "ふくこ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus16.png"
+      }
+    ],
+    "uniqueEntryId": "8ENWNpQY5DKdqvnN8"
+  },
+  "Peck": {
+    "displayName": "ふみたろう",
+    "variants": [
+      {
+        "image": "NpcIcon/brd17.png"
+      }
+    ],
+    "uniqueEntryId": "2n8yzvYm5ZsiKWSXa"
+  },
+  "Sprinkle": {
+    "displayName": "フラッペ",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn14.png"
+      }
+    ],
+    "uniqueEntryId": "p6vobY55BNm4igtN3"
+  },
+  "Flora": {
+    "displayName": "フララ",
+    "variants": [
+      {
+        "image": "NpcIcon/ost09.png"
+      }
+    ],
+    "uniqueEntryId": "3m4vZx6b4ZXZKZeNB"
+  },
+  "Keaton": {
+    "displayName": "フランク",
+    "variants": [
+      {
+        "image": "NpcIcon/pbr08.png"
+      }
+    ],
+    "uniqueEntryId": "oJnXS7LyEREhHQkvn"
+  },
+  "Francine": {
+    "displayName": "フランソワ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt12.png"
+      }
+    ],
+    "uniqueEntryId": "fBw44GoogBBekx9dz"
+  },
+  "Pancetti": {
+    "displayName": "ブリトニー",
+    "variants": [
+      {
+        "image": "NpcIcon/pig16.png"
+      }
+    ],
+    "uniqueEntryId": "giMy73Jk6mwg7nx47"
+  },
+  "Muffy": {
+    "displayName": "フリル",
+    "variants": [
+      {
+        "image": "NpcIcon/shp12.png"
+      }
+    ],
+    "uniqueEntryId": "L54eyHr7c9mLQaEgj"
+  },
+  "Bruce": {
+    "displayName": "ブルース",
+    "variants": [
+      {
+        "image": "NpcIcon/der03.png"
+      }
+    ],
+    "uniqueEntryId": "8w9ChaCFdqwkHdJEP"
+  },
+  "Camofrog": {
+    "displayName": "フルメタル",
+    "variants": [
+      {
+        "image": "NpcIcon/flg03.png"
+      }
+    ],
+    "uniqueEntryId": "gyx8WPcXHTfZoCfWN"
+  },
+  "Portia": {
+    "displayName": "ブレンダ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog05.png"
+      }
+    ],
+    "uniqueEntryId": "W8vYHH7YaYWjfyfAN"
+  },
+  "Broccolo": {
+    "displayName": "ブロッコリー",
+    "variants": [
+      {
+        "image": "NpcIcon/mus12.png"
+      }
+    ],
+    "uniqueEntryId": "BATfmGjK6kexkApsa"
+  },
+  "Lobo": {
+    "displayName": "ブンジロウ",
+    "variants": [
+      {
+        "image": "NpcIcon/wol01.png"
+      }
+    ],
+    "uniqueEntryId": "EprKMvYCQ9RBNtpH6"
+  },
+  "Beardo": {
+    "displayName": "ベアード",
+    "variants": [
+      {
+        "image": "NpcIcon/bea13.png"
+      }
+    ],
+    "uniqueEntryId": "vN4D9a5ByRa6iLtqP"
+  },
+  "Bea": {
+    "displayName": "ベーグル",
+    "variants": [
+      {
+        "image": "NpcIcon/dog10.png"
+      }
+    ],
+    "uniqueEntryId": "a7dzp2z38vcEe3NCv"
+  },
+  "Beau": {
+    "displayName": "ペーター",
+    "variants": [
+      {
+        "image": "NpcIcon/der07.png"
+      }
+    ],
+    "uniqueEntryId": "fJ2tqbbwYHtYXkHdB"
+  },
+  "Benedict": {
+    "displayName": "ぺしみち",
+    "variants": [
+      {
+        "image": "NpcIcon/chn01.png"
+      }
+    ],
+    "uniqueEntryId": "EYYoHK4N6NawnNrkm"
+  },
+  "Gabi": {
+    "displayName": "ペチカ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt05.png"
+      }
+    ],
+    "uniqueEntryId": "jgDqTXvEATd7KqmAT"
+  },
+  "Azalea": {
+    "displayName": "ペチュニア",
+    "variants": [
+      {
+        "image": "NpcIcon/rhn05.png"
+      }
+    ],
+    "uniqueEntryId": "CjxnjsY9FMa7na87i"
+  },
+  "Cookie": {
+    "displayName": "ペリーヌ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog08.png"
+      }
+    ],
+    "uniqueEntryId": "Jo7dJL3onwsvCTz34"
+  },
+  "Sprocket": {
+    "displayName": "ヘルツ",
+    "variants": [
+      {
+        "image": "NpcIcon/ost03.png"
+      }
+    ],
+    "uniqueEntryId": "5TGivYWywLHgjyW2a"
+  },
+  "Walker": {
+    "displayName": "ベン",
+    "variants": [
+      {
+        "image": "NpcIcon/dog06.png"
+      }
+    ],
+    "uniqueEntryId": "tsous9pG9djcBsqna"
+  },
+  "Roald": {
+    "displayName": "ペンタ",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn01.png"
+      }
+    ],
+    "uniqueEntryId": "RonNmeKEk5nrqgRmC"
+  },
+  "Henry": {
+    "displayName": "ヘンリー",
+    "variants": [
+      {
+        "image": "NpcIcon/flg19.png"
+      }
+    ],
+    "uniqueEntryId": "rB6NjwwuFYs5geprF"
+  },
+  "Boyd": {
+    "displayName": "ボイド",
+    "variants": [
+      {
+        "image": "NpcIcon/gor05.png"
+      }
+    ],
+    "uniqueEntryId": "SQvzRaZumKQr9LSRk"
+  },
+  "Boots": {
+    "displayName": "ホウサク",
+    "variants": [
+      {
+        "image": "NpcIcon/crd02.png"
+      }
+    ],
+    "uniqueEntryId": "xKMfRD7TQB4RTi5yA"
+  },
+  "Spork": {
+    "displayName": "ポーク",
+    "variants": [
+      {
+        "image": "NpcIcon/pig05.png"
+      }
+    ],
+    "uniqueEntryId": "rvEgccvS2AsTGkJ2C"
+  },
+  "Gwen": {
+    "displayName": "ポーラ",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn05.png"
+      }
+    ],
+    "uniqueEntryId": "9sG2otnhuz65vXot7"
+  },
+  "Puck": {
+    "displayName": "ホッケー",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn06.png"
+      }
+    ],
+    "uniqueEntryId": "Svn5pGKotHDnZsGJC"
+  },
+  "Shep": {
+    "displayName": "ボブ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog18.png"
+      }
+    ],
+    "uniqueEntryId": "PaePA3DBWL7rfriKF"
+  },
+  "T-Bone": {
+    "displayName": "ボルシチ",
+    "variants": [
+      {
+        "image": "NpcIcon/bul05.png"
+      }
+    ],
+    "uniqueEntryId": "rko5XhGG2KgghM2q5"
+  },
+  "Tex": {
+    "displayName": "ボルト",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn12.png"
+      }
+    ],
+    "uniqueEntryId": "dPLwq6G5gBb5TirPG"
+  },
+  "Derwin": {
+    "displayName": "ボン",
+    "variants": [
+      {
+        "image": "NpcIcon/duk08.png"
+      }
+    ],
+    "uniqueEntryId": "zRnruwsnCoDhLA7sX"
+  },
+  "Poncho": {
+    "displayName": "ポンチョ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr02.png"
+      }
+    ],
+    "uniqueEntryId": "2c8m3jfoHW4kuTmE2"
+  },
+  "Maggie": {
+    "displayName": "マーガレット",
+    "variants": [
+      {
+        "image": "NpcIcon/pig10.png"
+      }
+    ],
+    "uniqueEntryId": "K8MuMTPNMntBQaZDk"
+  },
+  "Dotty": {
+    "displayName": "マーサ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt01.png"
+      }
+    ],
+    "uniqueEntryId": "cHbZ8nKJqJYtdiATo"
+  },
+  "Faith": {
+    "displayName": "マーチ",
+    "variants": [
+      {
+        "image": "NpcIcon/kal07.png"
+      }
+    ],
+    "uniqueEntryId": "bDctabSMGCqrR58Xo"
+  },
+  "Marty": {
+    "displayName": "マーティー",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr18.png"
+      }
+    ],
+    "uniqueEntryId": "FLu7jYGuJuzsJpXJF"
+  },
+  "Mitzi": {
+    "displayName": "マール",
+    "variants": [
+      {
+        "image": "NpcIcon/cat01.png"
+      }
+    ],
+    "uniqueEntryId": "NkyPShmZcKT7YseyY"
+  },
+  "Rooney": {
+    "displayName": "マイク",
+    "variants": [
+      {
+        "image": "NpcIcon/kgr09.png"
+      }
+    ],
+    "uniqueEntryId": "qGNfortGCMxYWvCH3"
+  },
+  "Tipper": {
+    "displayName": "まきば",
+    "variants": [
+      {
+        "image": "NpcIcon/cow01.png"
+      }
+    ],
+    "uniqueEntryId": "tnNmdhEhB82skh9kW"
+  },
+  "Winnie": {
+    "displayName": "マキバスター",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs05.png"
+      }
+    ],
+    "uniqueEntryId": "HGKajwDYA5Y5nKPA4"
+  },
+  "Freckles": {
+    "displayName": "マグロ",
+    "variants": [
+      {
+        "image": "NpcIcon/duk07.png"
+      }
+    ],
+    "uniqueEntryId": "KczgwJQzeoHuxxbPc"
+  },
+  "Antonio": {
+    "displayName": "マコト",
+    "variants": [
+      {
+        "image": "NpcIcon/ant01.png"
+      }
+    ],
+    "uniqueEntryId": "LxWj8HeeKh3JzshQ8"
+  },
+  "Lucha": {
+    "displayName": "マスカラス",
+    "variants": [
+      {
+        "image": "NpcIcon/brd15.png"
+      }
+    ],
+    "uniqueEntryId": "kLJ72wRFukeENkEPv"
+  },
+  "Louie": {
+    "displayName": "マッスル",
+    "variants": [
+      {
+        "image": "NpcIcon/gor04.png"
+      }
+    ],
+    "uniqueEntryId": "E3z8We2FXYoidEGMp"
+  },
+  "Carrie": {
+    "displayName": "マミィ",
+    "variants": [
+      {
+        "image": "NpcIcon/kgr02.png"
+      }
+    ],
+    "uniqueEntryId": "sDqb7RoqaPt3BTvw3"
+  },
+  "Scoot": {
+    "displayName": "マモル",
+    "variants": [
+      {
+        "image": "NpcIcon/duk10.png"
+      }
+    ],
+    "uniqueEntryId": "CLJjGiWtdvyyJ4wqG"
+  },
+  "Marcie": {
+    "displayName": "マリア",
+    "variants": [
+      {
+        "image": "NpcIcon/kgr10.png"
+      }
+    ],
+    "uniqueEntryId": "HnJ2B3bzt8Hr3Na92"
+  },
+  "Willow": {
+    "displayName": "マリー",
+    "variants": [
+      {
+        "image": "NpcIcon/shp07.png"
+      }
+    ],
+    "uniqueEntryId": "gEkaen2nE6pGz6rJa"
+  },
+  "Deena": {
+    "displayName": "まりも",
+    "variants": [
+      {
+        "image": "NpcIcon/duk04.png"
+      }
+    ],
+    "uniqueEntryId": "jaurfh74P7gpyPzzM"
+  },
+  "Claudia": {
+    "displayName": "マリリン",
+    "variants": [
+      {
+        "image": "NpcIcon/tig05.png"
+      }
+    ],
+    "uniqueEntryId": "9sjQJAGbwbKrzqioG"
+  },
+  "Bettina": {
+    "displayName": "マルコ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus15.png"
+      }
+    ],
+    "uniqueEntryId": "vkPggJbra7w89b957"
+  },
+  "Maddie": {
+    "displayName": "マロン",
+    "variants": [
+      {
+        "image": "NpcIcon/dog09.png"
+      }
+    ],
+    "uniqueEntryId": "JnMPRY3JYaaZvSGfC"
+  },
+  "Boone": {
+    "displayName": "まんたろう",
+    "variants": [
+      {
+        "image": "NpcIcon/gor02.png"
+      }
+    ],
+    "uniqueEntryId": "sGGgyBkTZR6GEmZ67"
+  },
+  "Felicity": {
+    "displayName": "みかっち",
+    "variants": [
+      {
+        "image": "NpcIcon/cat17.png"
+      }
+    ],
+    "uniqueEntryId": "w77hzJo9ikj8gixEo"
+  },
+  "Judy": {
+    "displayName": "みすず",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr19.png"
+      }
+    ],
+    "uniqueEntryId": "bazeTCPrFvCyji2Py"
+  },
+  "Wendy": {
+    "displayName": "みぞれ",
+    "variants": [
+      {
+        "image": "NpcIcon/shp09.png"
+      }
+    ],
+    "uniqueEntryId": "WjvYevWSatWSyW2Ci"
+  },
+  "Hornsby": {
+    "displayName": "みつお",
+    "variants": [
+      {
+        "image": "NpcIcon/rhn04.png"
+      }
+    ],
+    "uniqueEntryId": "bCzw2qqQAdAYDpcun"
+  },
+  "Sasha": {
+    "displayName": "ミッチェル",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt21.png"
+      }
+    ],
+    "uniqueEntryId": "pEpHbufqqv6heh29Q"
+  },
+  "Bonbon": {
+    "displayName": "ミミィ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt17.png"
+      }
+    ],
+    "uniqueEntryId": "TkHrSN37TTJ5AzgWk"
+  },
+  "Annalisa": {
+    "displayName": "みやび",
+    "variants": [
+      {
+        "image": "NpcIcon/ant08.png"
+      }
+    ],
+    "uniqueEntryId": "XcxQtkSie55wSzF8z"
+  },
+  "Mira": {
+    "displayName": "ミラコ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt19.png"
+      }
+    ],
+    "uniqueEntryId": "yoecuHTQ8Pk8L3yKb"
+  },
+  "Miranda": {
+    "displayName": "ミランダ",
+    "variants": [
+      {
+        "image": "NpcIcon/duk12.png"
+      }
+    ],
+    "uniqueEntryId": "STmjigfPKwSFmagTT"
+  },
+  "Mint": {
+    "displayName": "ミント",
+    "variants": [
+      {
+        "image": "NpcIcon/squ09.png"
+      }
+    ],
+    "uniqueEntryId": "gbLDJbrsYgfr4CS6c"
+  },
+  "Grizzly": {
+    "displayName": "ムー",
+    "variants": [
+      {
+        "image": "NpcIcon/bea09.png"
+      }
+    ],
+    "uniqueEntryId": "NYicvB3ftKr7yRBMC"
+  },
+  "June": {
+    "displayName": "メイ",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr13.png"
+      }
+    ],
+    "uniqueEntryId": "TzCk9sPjd6Ry6L6kj"
+  },
+  "Maple": {
+    "displayName": "メープル",
+    "variants": [
+      {
+        "image": "NpcIcon/cbr01.png"
+      }
+    ],
+    "uniqueEntryId": "CbsHsA2dfGtwtSTLE"
+  },
+  "Vesta": {
+    "displayName": "メリヤス",
+    "variants": [
+      {
+        "image": "NpcIcon/shp00.png"
+      }
+    ],
+    "uniqueEntryId": "ervPQnErrAaMQtr9u"
+  },
+  "Alice": {
+    "displayName": "メルボルン",
+    "variants": [
+      {
+        "image": "NpcIcon/kal01.png"
+      }
+    ],
+    "uniqueEntryId": "c4W8pxksmH6WCyrYa"
+  },
+  "Stu": {
+    "displayName": "モーリス",
+    "variants": [
+      {
+        "image": "NpcIcon/bul03.png"
+      }
+    ],
+    "uniqueEntryId": "EeAT7euwKA3e3KnfA"
+  },
+  "Gaston": {
+    "displayName": "モサキチ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt04.png"
+      }
+    ],
+    "uniqueEntryId": "7GszMFsKZbddGLGwR"
+  },
+  "Audie": {
+    "displayName": "モニカ",
+    "variants": [
+      {
+        "image": "NpcIcon/wol12.png"
+      }
+    ],
+    "uniqueEntryId": "cSKm2Fi3PzF8k56DR"
+  },
+  "Eunice": {
+    "displayName": "モヘア",
+    "variants": [
+      {
+        "image": "NpcIcon/shp02.png"
+      }
+    ],
+    "uniqueEntryId": "kHQbLJKfuMHBzzPNf"
+  },
+  "Peanut": {
+    "displayName": "ももこ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ00.png"
+      }
+    ],
+    "uniqueEntryId": "AmxWytNw47M82BDpu"
+  },
+  "Snake": {
+    "displayName": "モモチ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt03.png"
+      }
+    ],
+    "uniqueEntryId": "AmmkQzrz9p8Lyydbm"
+  },
+  "Elise": {
+    "displayName": "モンこ",
+    "variants": [
+      {
+        "image": "NpcIcon/mnk05.png"
+      }
+    ],
+    "uniqueEntryId": "mA8duPkB7W2Yhdnyh"
+  },
+  "Marcel": {
+    "displayName": "もんじゃ",
+    "variants": [
+      {
+        "image": "NpcIcon/dog15.png"
+      }
+    ],
+    "uniqueEntryId": "SMptBWsaFP28uz5KP"
+  },
+  "Sylvana": {
+    "displayName": "もんぺ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ14.png"
+      }
+    ],
+    "uniqueEntryId": "fcdBhwYZbGzqFxGPY"
+  },
+  "Kidd": {
+    "displayName": "やさお",
+    "variants": [
+      {
+        "image": "NpcIcon/goa07.png"
+      }
+    ],
+    "uniqueEntryId": "9zcpZBLzLKue378A9"
+  },
+  "Del": {
+    "displayName": "ヤマト",
+    "variants": [
+      {
+        "image": "NpcIcon/crd04.png"
+      }
+    ],
+    "uniqueEntryId": "v7P7ZQMrnMFFrykKk"
+  },
+  "Coco": {
+    "displayName": "やよい",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt02.png"
+      }
+    ],
+    "uniqueEntryId": "Bix2R7GqQshS4CLeh"
+  },
+  "Yuka": {
+    "displayName": "ユーカリ",
+    "variants": [
+      {
+        "image": "NpcIcon/kal00.png"
+      }
+    ],
+    "uniqueEntryId": "QcooZ7b62XANRXvAt"
+  },
+  "Chevre": {
+    "displayName": "ユキ",
+    "variants": [
+      {
+        "image": "NpcIcon/goa00.png"
+      }
+    ],
+    "uniqueEntryId": "A43t7ndhJAscgR3J5"
+  },
+  "Flurry": {
+    "displayName": "ゆきみ",
+    "variants": [
+      {
+        "image": "NpcIcon/ham06.png"
+      }
+    ],
+    "uniqueEntryId": "RnciH2Qbf9m9osgL9"
+  },
+  "Rhonda": {
+    "displayName": "ユメコ",
+    "variants": [
+      {
+        "image": "NpcIcon/rhn01.png"
+      }
+    ],
+    "uniqueEntryId": "ZvN5Fc5hqfdkBHRMB"
+  },
+  "Shino": {
+    "displayName": "よしの",
+    "variants": [
+      {
+        "image": "NpcIcon/der11.png"
+      }
+    ],
+    "uniqueEntryId": "568bT9EN9E8LoMzYa"
+  },
+  "Lionel": {
+    "displayName": "ライオネル",
+    "variants": [
+      {
+        "image": "NpcIcon/lon08.png"
+      }
+    ],
+    "uniqueEntryId": "f5R85JfTwrxMEL6w9"
+  },
+  "Anicotti": {
+    "displayName": "ラザニア",
+    "variants": [
+      {
+        "image": "NpcIcon/mus10.png"
+      }
+    ],
+    "uniqueEntryId": "9wPh9G7JTX4cz6msS"
+  },
+  "Lucky": {
+    "displayName": "ラッキー",
+    "variants": [
+      {
+        "image": "NpcIcon/dog02.png"
+      }
+    ],
+    "uniqueEntryId": "9YdEbp99baEyQGH8D"
+  },
+  "Limberg": {
+    "displayName": "らっきょ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus01.png"
+      }
+    ],
+    "uniqueEntryId": "2LtqiPk3dijrMTarY"
+  },
+  "Cashmere": {
+    "displayName": "ラムール",
+    "variants": [
+      {
+        "image": "NpcIcon/shp04.png"
+      }
+    ],
+    "uniqueEntryId": "T8ZE2K7mgcxRpnssK"
+  },
+  "Lolly": {
+    "displayName": "ラムネ",
+    "variants": [
+      {
+        "image": "NpcIcon/cat18.png"
+      }
+    ],
+    "uniqueEntryId": "E53XCabMM7cPSmhdr"
+  },
+  "Sally": {
+    "displayName": "ララミー",
+    "variants": [
+      {
+        "image": "NpcIcon/squ07.png"
+      }
+    ],
+    "uniqueEntryId": "kJ3Y5Br2CNGvCGNGY"
+  },
+  "Sandy": {
+    "displayName": "ラン",
+    "variants": [
+      {
+        "image": "NpcIcon/ost02.png"
+      }
+    ],
+    "uniqueEntryId": "XDmAZGuz56PHTgaww"
+  },
+  "Reneigh": {
+    "displayName": "リアーナ",
+    "variants": [
+      {
+        "image": "NpcIcon/hrs16.png"
+      }
+    ],
+    "uniqueEntryId": "tosmgT2KQNi8QJbY4"
+  },
+  "Petri": {
+    "displayName": "リカ",
+    "variants": [
+      {
+        "image": "NpcIcon/mus19.png"
+      }
+    ],
+    "uniqueEntryId": "mEoxopbzZ5znjSQrW"
+  },
+  "Kyle": {
+    "displayName": "リカルド",
+    "variants": [
+      {
+        "image": "NpcIcon/wol10.png"
+      }
+    ],
+    "uniqueEntryId": "yhtsLWwajZBDs6aNM"
+  },
+  "Joey": {
+    "displayName": "リチャード",
+    "variants": [
+      {
+        "image": "NpcIcon/duk01.png"
+      }
+    ],
+    "uniqueEntryId": "rBKcNzM3viKwRa8ob"
+  },
+  "Filbert": {
+    "displayName": "リッキー",
+    "variants": [
+      {
+        "image": "NpcIcon/squ02.png"
+      }
+    ],
+    "uniqueEntryId": "pTiarRQ5kj2Xi2EW6"
+  },
+  "Mott": {
+    "displayName": "リック",
+    "variants": [
+      {
+        "image": "NpcIcon/lon06.png"
+      }
+    ],
+    "uniqueEntryId": "8REDcRw8uPBmQFEcz"
+  },
+  "Rilla": {
+    "displayName": "リラ",
+    "variants": [
+      {
+        "image": "NpcIcon/gor11.png"
+      }
+    ],
+    "uniqueEntryId": "5PbLLsLR3ZhcTK4qx"
+  },
+  "Bunnie": {
+    "displayName": "リリアン",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt00.png"
+      }
+    ],
+    "uniqueEntryId": "KXdZyrFkuyW9i44Pc"
+  },
+  "Skye": {
+    "displayName": "リリィ",
+    "variants": [
+      {
+        "image": "NpcIcon/wol09.png"
+      }
+    ],
+    "uniqueEntryId": "Z5sfN8meKdSbjwJEn"
+  },
+  "Gigi": {
+    "displayName": "リンダ",
+    "variants": [
+      {
+        "image": "NpcIcon/flg16.png"
+      }
+    ],
+    "uniqueEntryId": "rmhCRYreq8tK6gRn7"
+  },
+  "Lucy": {
+    "displayName": "ルーシー",
+    "variants": [
+      {
+        "image": "NpcIcon/pig04.png"
+      }
+    ],
+    "uniqueEntryId": "uLjCJBhjKgNcNYJpM"
+  },
+  "Bangle": {
+    "displayName": "ルーズ",
+    "variants": [
+      {
+        "image": "NpcIcon/tig03.png"
+      }
+    ],
+    "uniqueEntryId": "eEJgGpgSw6v3kSBfB"
+  },
+  "Ruby": {
+    "displayName": "ルナ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt09.png"
+      }
+    ],
+    "uniqueEntryId": "pXeMF6zj4cX86ARQW"
+  },
+  "Piper": {
+    "displayName": "レイコ",
+    "variants": [
+      {
+        "image": "NpcIcon/brd05.png"
+      }
+    ],
+    "uniqueEntryId": "ZRe7t2zHwKYAuxrFu"
+  },
+  "Paula": {
+    "displayName": "レイチェル",
+    "variants": [
+      {
+        "image": "NpcIcon/bea10.png"
+      }
+    ],
+    "uniqueEntryId": "DkiG2LtpjaZbGfSsp"
+  },
+  "Lily": {
+    "displayName": "レイニー",
+    "variants": [
+      {
+        "image": "NpcIcon/flg00.png"
+      }
+    ],
+    "uniqueEntryId": "jrcjBNAjjp2ESoiNE"
+  },
+  "Flo": {
+    "displayName": "レイラ",
+    "variants": [
+      {
+        "image": "NpcIcon/pgn13.png"
+      }
+    ],
+    "uniqueEntryId": "cgqCe7y6v4qzoSc3t"
+  },
+  "Pecan": {
+    "displayName": "レベッカ",
+    "variants": [
+      {
+        "image": "NpcIcon/squ03.png"
+      }
+    ],
+    "uniqueEntryId": "NmZTeXqyHGGTuH2nR"
+  },
+  "Sherb": {
+    "displayName": "レム",
+    "variants": [
+      {
+        "image": "NpcIcon/goa09.png"
+      }
+    ],
+    "uniqueEntryId": "xbgewTts3u79Gw9eo"
+  },
+  "Tutu": {
+    "displayName": "れんにゅう",
+    "variants": [
+      {
+        "image": "NpcIcon/bea07.png"
+      }
+    ],
+    "uniqueEntryId": "eSrgafRA7smCHg32Z"
+  },
+  "Eugene": {
+    "displayName": "ロッキー",
+    "variants": [
+      {
+        "image": "NpcIcon/kal10.png"
+      }
+    ],
+    "uniqueEntryId": "LtsBFJXC7rDupeTuL"
+  },
+  "Pippy": {
+    "displayName": "ロッタ",
+    "variants": [
+      {
+        "image": "NpcIcon/rbt06.png"
+      }
+    ],
+    "uniqueEntryId": "EPWSCBh2jcMiAcax9"
+  },
+  "Rodeo": {
+    "displayName": "ロデオ",
+    "variants": [
+      {
+        "image": "NpcIcon/bul01.png"
+      }
+    ],
+    "uniqueEntryId": "tziayGr3xzrAG99Qt"
+  },
+  "Biskit": {
+    "displayName": "ロビン",
+    "variants": [
+      {
+        "image": "NpcIcon/dog03.png"
+      }
+    ],
+    "uniqueEntryId": "KLJvGznS3nxRtWkmJ"
+  },
+  "Wolfgang": {
+    "displayName": "ロボ",
+    "variants": [
+      {
+        "image": "NpcIcon/wol02.png"
+      }
+    ],
+    "uniqueEntryId": "BJxQD95LCPj2hjio6"
+  },
+  "Kid Cat": {
+    "displayName": "１ごう",
+    "variants": [
+      {
+        "image": "NpcIcon/cat10.png"
+      }
+    ],
+    "uniqueEntryId": "iEFKF9otNR5KHsami"
+  },
+  "Agent S": {
+    "displayName": "２ごう",
+    "variants": [
+      {
+        "image": "NpcIcon/squ05.png"
+      }
+    ],
+    "uniqueEntryId": "EN7dGxBHogyTYD4pS"
+  },
+  "Big Top": {
+    "displayName": "３ごう",
+    "variants": [
+      {
+        "image": "NpcIcon/elp02.png"
+      }
+    ],
+    "uniqueEntryId": "X2p5y3LuaGykt5dMd"
+  },
+  "Rocket": {
+    "displayName": "４ごう",
+    "variants": [
+      {
+        "image": "NpcIcon/gor09.png"
+      }
+    ],
+    "uniqueEntryId": "qh5R9wCrheY6cZZx4"
+  }
+}

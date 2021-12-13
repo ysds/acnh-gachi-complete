@@ -1,6 +1,7 @@
 import cloneDeep from "lodash/cloneDeep";
 
 import originalItemsJson from "../assets/items.json";
+import hhpRequestJson from "../assets/hhp-request.json";
 import { navsFlat } from "./navs";
 import { typeFilter } from "./filter";
 import { hasIslandName, toDisplayItemName } from "./utils";
@@ -109,6 +110,7 @@ export function filterItems(args) {
     updateMatchedVariants = false,
     wishlist = [],
     isForceLess = false,
+    partnerlist = [],
   } = args;
 
   let isFullMode = store.getters.settings.isFullMode;
@@ -116,6 +118,33 @@ export function filterItems(args) {
 
   let items =
     !isForceLess && !isShareView && isFullMode ? fullItemsJson : lessItemsJson;
+
+  if (partnerlist.length > 0) {
+    // ハウスシェア済みの住民を除外する
+    items = items.filter((item) => !partnerlist.includes(item.name));
+    // ハウスシェアアイテムを追加
+    items = items.concat();
+    for (let i = 0; i < partnerlist.length / 2; i++) {
+      const req1 = hhpRequestJson[partnerlist[i * 2]];
+      const req2 = hhpRequestJson[partnerlist[i * 2 + 1]];
+      items.push({
+        sourceSheet: "Paradise Planning",
+        name: partnerlist[i * 2],
+        displayName: req1.displayName + "&" + req2.displayName,
+        versionAdded: "2.0.0",
+        houseShare: true,
+        variants: [
+          {
+            uniqueEntryId: 0,
+            image1: req1.variants[0].image,
+            image2: req2.variants[0].image,
+            request: "ハウスシェアのご提案",
+          },
+        ],
+        uniqueEntryId: req1.uniqueEntryId,
+      });
+    }
+  }
 
   //
   // 取得フィルター
@@ -259,8 +288,11 @@ export function filterItems(args) {
         });
       }
 
-      // 島名を含む場合は名前順でソート
-      if (islandName && items.some((item) => hasIslandName(item))) {
+      // 「島名を含む」or「ハウスシェアあり」の場合は名前順でソート
+      if (
+        (islandName && items.some((item) => hasIslandName(item))) ||
+        items.some((item) => item.houseShare)
+      ) {
         sortItemsByName(items, (itemName, item) => {
           return replaceIslandName(itemName, item, islandName);
         });
@@ -383,10 +415,13 @@ export function filterItems(args) {
     }
 
     //
-    // 名前順ソート(たぬきマイレージのみ)
+    // 名前順ソート(たぬきマイレージ/別荘)
     //
 
-    if (nav === "achievements" && filter.order === "name") {
+    if (
+      (nav === "achievements" && filter.order === "name") ||
+      nav === "hhp-request"
+    ) {
       sortItemsByName(items, (itemName, item) => {
         return replaceIslandName(itemName, item, islandName);
       });
@@ -396,8 +431,25 @@ export function filterItems(args) {
   return items;
 }
 
+export function filterPartnerCandidates(selfItem, partnerlist) {
+  let items = lessItemsJson;
+  items = items.filter((item) => {
+    if (item.sourceSheet !== "Paradise Planning") {
+      return false;
+    }
+    if (item.name === selfItem.name) {
+      return false;
+    }
+    if (partnerlist.includes(item.name)) {
+      return false;
+    }
+    return true;
+  });
+  return items;
+}
+
 export function totalLength(args) {
-  const { nav, typeFilter, version, isForceLess } = args;
+  const { nav, typeFilter, version, isForceLess, partnerlist } = args;
   const items = filterItems({
     nav,
     filter: {
@@ -405,6 +457,7 @@ export function totalLength(args) {
       version: version,
     },
     isForceLess,
+    partnerlist,
   });
 
   return calcTotalLength(items);
@@ -413,15 +466,18 @@ export function totalLength(args) {
 export function allTotalLength() {
   let isFullMode = store.getters.settings.isFullMode;
   let isShareView = store.getters.isShareView;
+  let partnerlist = store.getters.partnerlist;
 
   let items = isShareView || !isFullMode ? lessItemsJson : fullItemsJson;
   items = items.filter(filterOtherItem);
 
-  return calcTotalLength(items);
+  // ハウスシェア分を補正
+  return calcTotalLength(items) - partnerlist.length / 2;
 }
 
 export function collectedLength(args) {
-  const { collected, nav, typeFilter, version, isForceLess } = args;
+  const { collected, nav, typeFilter, version, isForceLess, partnerlist } =
+    args;
   const collectedItems = filterItems({
     collected,
     nav,
@@ -431,15 +487,17 @@ export function collectedLength(args) {
       version: version,
     },
     isForceLess,
+    partnerlist: partnerlist,
   });
 
   return calcCollectedLength(collected, collectedItems);
 }
 
-export function allCollectedLength(collected) {
+export function allCollectedLength(collected, partnerlist) {
   let collectedItems = filterItems({
     collected,
     filter: { collectedFilter: "3" },
+    partnerlist: partnerlist,
   });
   collectedItems = collectedItems.filter(filterOtherItem);
 
@@ -447,7 +505,7 @@ export function allCollectedLength(collected) {
 }
 
 export function providableLength(args) {
-  const { collected, nav, typeFilter, isForceLess } = args;
+  const { collected, nav, typeFilter, isForceLess, partnerlist } = args;
   const collectedItems = filterItems({
     collected,
     nav,
@@ -456,6 +514,7 @@ export function providableLength(args) {
       collectedFilter: "2",
     },
     isForceLess,
+    partnerlist,
   });
 
   return calcCollectedLength(collected, collectedItems, true);

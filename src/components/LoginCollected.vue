@@ -70,6 +70,9 @@ export default {
     collected() {
       return this.$store.getters.localCollectedData;
     },
+    partnerlist() {
+      return this.$store.getters.partnerlist;
+    },
     navs() {
       return navs.filter((nav) => {
         return nav.id !== "exchange" && nav.id.indexOf("separator");
@@ -83,7 +86,10 @@ export default {
         this.totalLengths = this.getLengths();
         this.collectedLengths = this.getLengths(true);
         this.allTotalLength = allTotalLength();
-        this.allCollectedLength = allCollectedLength(this.collected);
+        this.allCollectedLength = allCollectedLength(
+          this.collected,
+          this.partnerlist
+        );
         this.isLoadComplete = true;
         this.isGetting = false;
       }, 0);
@@ -96,13 +102,21 @@ export default {
         if (subnavs) {
           subnavs.forEach((subnav) => {
             result[subnav.id] = isCollected
-              ? collectedLength({ nav: subnav.id, collected })
-              : totalLength({ nav: subnav.id });
+              ? collectedLength({
+                  nav: subnav.id,
+                  collected,
+                  partnerlist: this.partnerlist,
+                })
+              : totalLength({ nav: subnav.id, partnerlist: this.partnerlist });
           });
         } else {
           result[nav.id] = isCollected
-            ? collectedLength({ nav: nav.id, collected })
-            : totalLength({ nav: nav.id });
+            ? collectedLength({
+                nav: nav.id,
+                collected,
+                partnerlist: this.partnerlist,
+              })
+            : totalLength({ nav: nav.id, partnerlist: this.partnerlist });
         }
       });
       return result;

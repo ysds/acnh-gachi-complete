@@ -8,21 +8,13 @@
     <div class="t-name">
       {{ props.name }}
     </div>
-    <img
-      class="t-img"
-      v-lazy="props.image"
-      v-if="!props.houseShareImage1 && !props.houseShareImage2"
-    />
-    <img
-      class="t-img-house-share"
-      v-lazy="props.houseShareImage1"
-      v-if="props.houseShareImage1"
-    />
-    <img
-      class="t-img-house-share"
-      v-lazy="props.houseShareImage2"
-      v-if="props.houseShareImage2"
-    />
+    <template v-if="!props.houseShareImage1 && !props.houseShareImage2">
+      <img class="t-img" v-lazy="props.image"
+    /></template>
+    <template v-else>
+      <img class="t-img-house-share" v-lazy="props.houseShareImage1" />
+      <img class="t-img-house-share" v-lazy="props.houseShareImage2" />
+    </template>
     <img
       class="t-img-remake"
       src="../assets/remake.svg"

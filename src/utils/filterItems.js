@@ -1,6 +1,7 @@
 import cloneDeep from "lodash/cloneDeep";
 
 import originalItemsJson from "../assets/items.json";
+import hhpRequestJson from "../assets/hhp-request.json";
 import { navsFlat } from "./navs";
 import { typeFilter } from "./filter";
 import { hasIslandName, toDisplayItemName } from "./utils";
@@ -8,18 +9,10 @@ import store from "../store";
 
 let fullItemsJson = cloneDeep(originalItemsJson);
 let lessItemsJson = cloneDeep(originalItemsJson);
-let hhpRequestJson = {};
 
 lessItemsJson.forEach((item) => {
   if (item.fullMode) {
     item.variants = item.variants.splice(0, 1);
-  }
-});
-
-// ハウスシェアのデータ構築用に別荘情報だけ抽出しておく
-lessItemsJson.forEach((item) => {
-  if (item.sourceSheet === "Paradise Planning") {
-    hhpRequestJson[item.name] = item;
   }
 });
 

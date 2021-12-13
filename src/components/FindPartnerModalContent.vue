@@ -122,20 +122,24 @@ export default {
 <style lang="scss" scoped>
 .info-image {
   margin: -1rem auto 0;
-  display: table;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-image div {
-  display: table-cell;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 96px;
   height: 96px;
-  text-align: center;
   font-size: 32px;
   border-radius: 0.25em;
 }
 
 .info-image-no-candidates {
-  background-color: #eee;
+  background-color: var(--app-btn-gray2);
+  color: var(--app-sub-text);
 }
 
 .info-image-have-candidate {
@@ -151,6 +155,14 @@ export default {
   height: 300px;
   overflow-y: scroll;
   margin-top: 1rem;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-bottom: -40px;
+
+  @media (min-width: 321px) {
+    margin-right: -24px;
+    margin-left: -24px;
+  }
 }
 
 .items {

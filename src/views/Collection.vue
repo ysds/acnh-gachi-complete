@@ -162,7 +162,13 @@
       @close="isShowFindPartnerModal = false"
       closeButton
     >
-      <template v-if="modalItem">
+      <template
+        v-if="
+          modalItem &&
+          modalItem.sourceSheet == 'Paradise Planning' &&
+          !modalItem.houseShare
+        "
+      >
         <template slot="header">{{ modalItemName }}のパートナーを探す</template>
         <div slot="body">
           <FindPartnerModalContent
@@ -547,7 +553,7 @@ export default {
       this.isShowModal = true;
     },
     onShowFindPartnerModal: function () {
-      this.$refs.findPartnerModal.updateShowItems();
+      this.$refs.findPartnerModal.updateShowItems("");
       this.isShowFindPartnerModal = true;
     },
     onRemovePartner: function () {

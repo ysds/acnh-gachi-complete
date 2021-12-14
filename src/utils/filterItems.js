@@ -431,7 +431,8 @@ export function filterItems(args) {
   return items;
 }
 
-export function filterPartnerCandidates(selfItem, partnerlist) {
+export function filterPartnerCandidates(selfItem, partnerlist, searchText) {
+  const normalizedSearchText = normalizeText(searchText);
   let items = lessItemsJson;
   items = items.filter((item) => {
     if (item.sourceSheet !== "Paradise Planning") {
@@ -441,6 +442,12 @@ export function filterPartnerCandidates(selfItem, partnerlist) {
       return false;
     }
     if (partnerlist.includes(item.name)) {
+      return false;
+    }
+    if (
+      normalizedSearchText &&
+      normalizeText(item.displayName).indexOf(normalizedSearchText) < 0
+    ) {
       return false;
     }
     return true;

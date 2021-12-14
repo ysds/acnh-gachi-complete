@@ -6,7 +6,9 @@
     <template v-if="filter.viewMode === 'list'">
       <div v-long-press>
         <div class="item-img-block" @click="onClickListImage">
-          <template v-if="!item.houseShare">
+          <template
+            v-if="!item.houseShare || item.sourceSheet !== 'Paradise Planning'"
+          >
             <img v-lazy="itemImage" class="item-img" />
           </template>
           <template v-else>
@@ -262,14 +264,20 @@ export default {
       return images;
     },
     houseShareImage1() {
-      if (this.item.houseShare) {
+      if (
+        this.item.houseShare &&
+        this.item.sourceSheet === "Paradise Planning"
+      ) {
         return `https://acnhcdn.com/latest/${this.item.variants[0].image1}`;
       } else {
         return "";
       }
     },
     houseShareImage2() {
-      if (this.item.houseShare) {
+      if (
+        this.item.houseShare &&
+        this.item.sourceSheet === "Paradise Planning"
+      ) {
         return `https://acnhcdn.com/latest/${this.item.variants[0].image2}`;
       } else {
         return "";

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div v-if="modalItem.houseShare" class="info-image-house-share">
+    <div
+      v-if="
+        modalItem.houseShare && modalItem.sourceSheet === 'Paradise Planning'
+      "
+      class="info-image-house-share"
+    >
       <img :src="houseShareImage1" />
       <img :src="houseShareImage2" />
     </div>
@@ -44,7 +49,11 @@
       </Button>
     </div>
     <div
-      v-if="isShowExtraButton && modalItem.houseShare"
+      v-if="
+        isShowExtraButton &&
+        modalItem.houseShare &&
+        modalItem.sourceSheet === 'Paradise Planning'
+      "
       class="info-house-share"
     >
       <Button sm @click="$emit('removePartner')">

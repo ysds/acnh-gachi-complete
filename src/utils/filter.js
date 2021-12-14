@@ -14,6 +14,8 @@ const typeFilters = [
       "flowers",
       "photos",
       "recipes",
+      "hhp-request",
+      "hhp-vip",
     ],
   },
   {
@@ -206,6 +208,22 @@ const typeFilters = [
     show: ["photos"],
     filter: function (item) {
       return !item.personality;
+    },
+  },
+  {
+    id: "hhp-house-single",
+    label: "シングル",
+    show: ["hhp-request", "hhp-vip"],
+    filter: function (item) {
+      return !item.houseShare;
+    },
+  },
+  {
+    id: "hhp-house-share",
+    label: "ハウスシェア",
+    show: ["hhp-request", "hhp-vip"],
+    filter: function (item) {
+      return item.houseShare;
     },
   },
 ];

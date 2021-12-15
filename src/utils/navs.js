@@ -3,6 +3,12 @@ const inSource = (item, sources) => {
   return item.source && item.source.join(",").match(regex);
 };
 
+const isUniform = (item) => {
+  return (
+    inSource(item, "HHP Office") && item.seasonEvent === "Happy Home Paradise"
+  );
+};
+
 const navs = [
   {
     id: "housewares",
@@ -87,8 +93,10 @@ const navs = [
         text: "すべてのファッション",
         alttext: "すべて",
         filter: function (item) {
-          return item.sourceSheet.match(
-            /Tops|Bottoms|Dress-Up|Headwear|Accessories|Socks|Shoes|Bags|Umbrellas|Clothing Other/g
+          return (
+            item.sourceSheet.match(
+              /Tops|Bottoms|Dress-Up|Headwear|Accessories|Socks|Shoes|Bags|Umbrellas|Clothing Other/g
+            ) && !isUniform(item)
           );
         },
       },
@@ -96,7 +104,7 @@ const navs = [
         id: "fashion-tops",
         text: "トップス",
         filter: function (item) {
-          return item.sourceSheet === "Tops";
+          return item.sourceSheet === "Tops" && !isUniform(item);
         },
       },
       {
@@ -110,7 +118,7 @@ const navs = [
         id: "fashion-dress",
         text: "ワンピース",
         filter: function (item) {
-          return item.sourceSheet === "Dress-Up";
+          return item.sourceSheet === "Dress-Up" && !isUniform(item);
         },
       },
       {
@@ -922,7 +930,7 @@ const navs = [
         id: "hhp-office",
         text: "タクミライフ",
         filter: function (item) {
-          return inSource(item, "HHP Office");
+          return inSource(item, "HHP Office") && !isUniform(item);
         },
       },
       {
@@ -965,6 +973,13 @@ const navs = [
         text: "とたけけフェス",
         filter: function (item) {
           return inSource(item, "DJ KK concert");
+        },
+      },
+      {
+        id: "hhp-uniform",
+        text: "制服",
+        filter: function (item) {
+          return isUniform(item);
         },
       },
     ],

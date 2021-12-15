@@ -23,7 +23,8 @@
     "sourceSheet": "Paradise Planning VIP",
     "name": "C.J.&Flick",
     "displayName": "ジャスティン&レックス",
-    "shareImage": "beyChy"
+    "shareImage": "beyChy",
+    "houseShare": true
   },
   {
     "sourceSheet": "Paradise Planning VIP",
@@ -44,7 +45,8 @@
     "sourceSheet": "Paradise Planning VIP",
     "name": "Daisy Mae&Joan",
     "displayName": "カブリバ&ウリ",
-    "shareImage": "bocBoa"
+    "shareImage": "bocBoa",
+    "houseShare": true
   },
   {
     "sourceSheet": "Paradise Planning VIP",
@@ -110,7 +112,8 @@
     "sourceSheet": "Paradise Planning VIP",
     "name": "Kapp'n&Leilani&Leila&Grams",
     "displayName": "かっぺいファミリー",
-    "shareImage": "kppKpmKpsKpg"
+    "shareImage": "kppKpmKpsKpg",
+    "houseShare": true
   },
   {
     "sourceSheet": "Paradise Planning VIP",
@@ -201,7 +204,8 @@
     "sourceSheet": "Paradise Planning VIP",
     "name": "Reese&Cyrus",
     "displayName": "カイゾー&リサ",
-    "shareImage": "alwAlp"
+    "shareImage": "alwAlp",
+    "houseShare": true
   },
   {
     "sourceSheet": "Paradise Planning VIP",
@@ -217,7 +221,8 @@
     "sourceSheet": "Paradise Planning VIP",
     "name": "Sable&Label&Mabel",
     "displayName": "エイブルシスターズ",
-    "shareImage": "hgsHgcHgh"
+    "shareImage": "hgsHgcHgh",
+    "houseShare": true
   },
   {
     "sourceSheet": "Paradise Planning VIP",
@@ -238,7 +243,8 @@
     "sourceSheet": "Paradise Planning VIP",
     "name": "Tommy&Timmy",
     "displayName": "つぶきち&まめきち",
-    "shareImage": "rctRcm"
+    "shareImage": "rctRcm",
+    "houseShare": true
   },
   {
     "sourceSheet": "Paradise Planning VIP",
@@ -258,7 +264,6 @@
   {
     "sourceSheet": "Paradise Planning VIP",
     "name": "Wisp",
-    "displayName": "ゆうたろう",
     "filename": "gstA"
   },
   {

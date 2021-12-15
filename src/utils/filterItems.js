@@ -291,7 +291,9 @@ export function filterItems(args) {
       // 「島名を含む」or「ハウスシェアあり」の場合は名前順でソート
       if (
         (islandName && items.some((item) => hasIslandName(item))) ||
-        items.some((item) => item.houseShare)
+        items.some(
+          (item) => item.houseShare && item.sourceSheet === "Paradise Planning"
+        )
       ) {
         sortItemsByName(items, (itemName, item) => {
           return replaceIslandName(itemName, item, islandName);

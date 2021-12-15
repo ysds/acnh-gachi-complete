@@ -30,7 +30,7 @@
         :searchText="searchText"
         :isSearchMode="isSearchMode"
         @close="onClickSearchBtn"
-        @input="onInputSearchBox"
+        @input="onInputSearchText"
         @changeAdFilter="onChangeAdFilter"
       />
     </div>
@@ -174,6 +174,7 @@
           <FindPartnerModalContent
             :modalItem="modalItem"
             :partnerlist="partnerlist"
+            :isSearchMode="isShowFindPartnerModal"
             ref="findPartnerModal"
             @addPartner="onAddPartner"
           />
@@ -538,7 +539,7 @@ export default {
       this.$store.commit("isSearchMode", !this.isSearchMode);
       this.updateShowItems();
     },
-    onInputSearchBox: function (text) {
+    onInputSearchText: function (text) {
       this.searchText = text;
       this.updateShowItems();
     },
@@ -553,7 +554,6 @@ export default {
       this.isShowModal = true;
     },
     onShowFindPartnerModal: function () {
-      this.$refs.findPartnerModal.updateShowItems("");
       this.isShowFindPartnerModal = true;
     },
     onRemovePartner: function () {

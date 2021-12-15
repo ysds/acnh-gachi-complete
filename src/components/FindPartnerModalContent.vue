@@ -27,43 +27,12 @@
       >決定</Button
     >
     <div class="search">
-      <div class="search-input-wrap">
-        <form class="search-form" autocomplete="off" @submit.prevent>
-          <input
-            type="text"
-            class="search-input"
-            :value="searchText"
-            @input="onSearchInput"
-            placeholder="名前で検索"
-            ref="input"
-          />
-        </form>
-        <Button
-          class="search-clear"
-          @click="onClickClearButton"
-          v-show="searchText !== ''"
-        >
-          <span class="clear">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="12"
-              viewBox="0 0 50 50"
-            >
-              <path
-                fill="var(--app-body-bg)"
-                stroke="var(--app-body-bg)"
-                stroke-width="4px"
-                d="M9.016
-            40.837a1.001 1.001 0 001.415-.001l14.292-14.309 14.292 14.309a1 1 0
-            001.416-1.413L26.153 25.129 40.43 10.836a1 1 0 10-1.415-1.413L24.722
-            23.732 10.43 9.423a1 1 0 10-1.415 1.413l14.276 14.293L9.015 39.423a1 1
-            0 00.001 1.414z"
-              />
-            </svg>
-          </span>
-        </Button>
-      </div>
+      <SearchInput
+        :searchText="searchText"
+        :isSearchMode="isSearchMode"
+        :placeholder="'名前で探す'"
+        @input="updateShowItems"
+      />
     </div>
     <div class="candidates">
       <ul class="items">
@@ -90,12 +59,14 @@
 
 <script>
 import Button from "../components/Button";
+import SearchInput from "../components/SearchInput.vue";
 import PartnerCandidate from "../components/PartnerCandidate";
 import { filterPartnerCandidates } from "../utils/filterItems.js";
 
 export default {
-  components: { Button, PartnerCandidate },
+  components: { Button, SearchInput, PartnerCandidate },
   props: {
+    isSearchMode: Boolean,
     modalItem: Object,
     partnerlist: Array,
   },
@@ -118,24 +89,6 @@ export default {
     },
   },
   methods: {
-    onClickClearButton: function () {
-      // Use fakeinput for workaround iOS issue
-      // https://bugs.webkit.org/show_bug.cgi?id=215736
-      const fakeInput = document.createElement("input");
-      fakeInput.setAttribute("type", "text");
-      fakeInput.style.position = "absolute";
-      fakeInput.style.opacity = 0;
-      fakeInput.style.height = 0;
-      fakeInput.style.fontSize = "16px";
-      document.body.prepend(fakeInput);
-      fakeInput.focus();
-
-      setTimeout(() => {
-        this.$refs.input.focus();
-        this.updateShowItems("");
-        fakeInput.remove();
-      }, 100);
-    },
     updateShowItems(searchText) {
       this.searchText = searchText;
       this.isLoadComplete = false;
@@ -174,11 +127,6 @@ export default {
       } else {
         this.candidateItem = item;
         this.isEnableButton = true;
-      }
-    },
-    onSearchInput: function (event) {
-      if (this.searchText !== event.target.value) {
-        this.updateShowItems(event.target.value);
       }
     },
   },

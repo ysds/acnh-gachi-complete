@@ -20,7 +20,7 @@
     <div v-if="modalItem.isHidden" class="info-hidden">
       本アイテムはストーリやイベント進行などで一時的に入手するものであり、ガチコンプのコレクション管理の対象外です。
     </div>
-    <div v-if="modalItem.fullMode && modalBodyIndex > 0" class="info-hidden">
+    <div v-if="isFullMode && modalItem.fullMode && modalBodyIndex > 0" class="info-hidden">
       本カラバリはフルコンプモードが ON
       のときにのみ表示されるもので、欲しいもの管理や在庫管理はできません。
     </div>
@@ -434,6 +434,9 @@ export default {
         !(this.modalItem.fullMode && this.modalBodyIndex > 0)
       );
     },
+    isFullMode() {
+      return this.$store.getters.settings.isFullMode;
+    },
     materialImage() {
       return function (index) {
         return (
@@ -708,7 +711,7 @@ export default {
 
 .info-hidden {
   color: #ff3333;
-  font-size: 14px;
+  font-size: 12px;
   margin: 1rem;
   text-align: center;
 }

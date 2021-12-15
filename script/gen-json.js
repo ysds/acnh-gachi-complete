@@ -551,7 +551,8 @@ Object.values(navsFlat).forEach((nav) => {
     (!nav.id.match(/special|season|nookpoints|hhp|versions/) &&
       nav.filter !== undefined) ||
     nav.id === "hhp-request" ||
-    nav.id === "hhp-vip"
+    nav.id === "hhp-vip" ||
+    nav.id === "hhp-uniform"
   ) {
     uncategorizedItems = uncategorizedItems.filter((item) => {
       return !nav.filter(item);

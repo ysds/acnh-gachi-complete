@@ -57,8 +57,6 @@ export default {
       type: String,
       default: "",
     },
-    change: Function,
-    input: Function,
     placeholder: String,
   },
   watch: {

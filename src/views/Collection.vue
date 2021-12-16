@@ -175,7 +175,6 @@
             :modalItem="modalItem"
             :partnerlist="partnerlist"
             :isSearchMode="isShowFindPartnerModal"
-            ref="findPartnerModal"
             @addPartner="onAddPartner"
           />
         </div>

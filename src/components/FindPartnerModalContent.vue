@@ -26,6 +26,14 @@
       @click="$emit('addPartner', candidateItem)"
       >決定</Button
     >
+    <div class="search">
+      <SearchInput
+        :searchText="searchText"
+        :isSearchMode="isSearchMode"
+        :placeholder="'名前で探す'"
+        @input="updateShowItems"
+      />
+    </div>
     <div class="candidates">
       <ul class="items">
         <PartnerCandidate
@@ -43,6 +51,7 @@
         @infinite="loadMore"
       >
         <div slot="no-more"></div>
+        <div slot="no-results" class="message">見つかりませんでした。</div>
       </infinite-loading>
     </div>
   </div>
@@ -50,12 +59,14 @@
 
 <script>
 import Button from "../components/Button";
+import SearchInput from "../components/SearchInput.vue";
 import PartnerCandidate from "../components/PartnerCandidate";
 import { filterPartnerCandidates } from "../utils/filterItems.js";
 
 export default {
-  components: { Button, PartnerCandidate },
+  components: { Button, SearchInput, PartnerCandidate },
   props: {
+    isSearchMode: Boolean,
     modalItem: Object,
     partnerlist: Array,
   },
@@ -67,6 +78,7 @@ export default {
       isLoadComplete: null,
       isEnableButton: false,
       candidateItem: null,
+      searchText: "",
     };
   },
   computed: {
@@ -77,13 +89,15 @@ export default {
     },
   },
   methods: {
-    updateShowItems() {
+    updateShowItems(searchText) {
+      this.searchText = searchText;
       this.isLoadComplete = false;
       this.isEnableButton = false;
       this.candidateItem = null;
       this.resultItems = filterPartnerCandidates(
         this.modalItem,
-        this.partnerlist
+        this.partnerlist,
+        this.searchText
       );
       this.showItems = [];
       this.renderStartDate = new Date().getTime();
@@ -151,10 +165,17 @@ export default {
   height: 100%;
 }
 
+.search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
 .candidates {
   height: 300px;
   overflow-y: scroll;
-  margin-top: 1rem;
+  margin-top: 0;
   margin-right: -15px;
   margin-left: -15px;
   margin-bottom: -40px;
@@ -163,6 +184,15 @@ export default {
     margin-right: -24px;
     margin-left: -24px;
   }
+}
+
+.message {
+  margin-top: 3rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--app-sub-text);
 }
 
 .items {

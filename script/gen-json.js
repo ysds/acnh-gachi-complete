@@ -501,24 +501,6 @@ allItems.forEach((item) => {
   }
 
   //
-  // やぶれたはくいの sourceNotesJa を追加
-  //
-
-  if (item.name === "ripped doctor's coat") {
-    item.sourceNotesJa =
-      "現在、「パープルネクタイ」のカラバリは入手できないようです。";
-  }
-
-  //
-  // よごれたタンクトップの sourceNotesJa を追加
-  //
-
-  if (item.name === "dirty tank top") {
-    item.sourceNotesJa =
-      "現在、「ブラック」、「オリーブ」、「ライトブラウン」のカラバリは入手できないようです。";
-  }
-
-  //
   // Remove keys
   //
 

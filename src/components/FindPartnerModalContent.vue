@@ -172,59 +172,6 @@ export default {
   margin-bottom: 6px;
 }
 
-.search-form {
-  flex-grow: 1;
-  padding-left: 0.5rem;
-  pointer-events: auto;
-  background-color: var(--app-body-bg);
-}
-
-.search-input-wrap {
-  display: flex;
-  align-items: center;
-  margin-right: 0.25rem;
-  width: 100%;
-  height: 40px;
-  border-bottom: 3px solid var(--app-active);
-}
-
-.search-input {
-  width: 100%;
-  height: 34px;
-  margin-top: 2px;
-  appearance: none;
-  padding-right: 0;
-  padding-left: 0;
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  outline: none;
-  font-size: 15px;
-  font-weight: 700;
-  color: inherit;
-
-  @media (min-width: 321px) {
-    font-size: 18px;
-  }
-}
-
-.search-clear {
-  margin-left: 0.5rem;
-  height: 32px;
-  min-width: 32px;
-  line-height: 32px;
-}
-
-.clear {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  background-color: #ccc;
-  border-radius: 50%;
-}
-
 .candidates {
   height: 300px;
   overflow-y: scroll;

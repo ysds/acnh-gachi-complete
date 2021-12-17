@@ -305,9 +305,14 @@ export function filterItems(args) {
       // バージョンフィルター
       if (filter.version && !nav.includes("version")) {
         if (filter.version === 2) {
-          items = items.filter((item) => item.versionAdded === "2.0.0");
+          items = items.filter(
+            (item) => item.versionAdded && item.versionAdded.match(/^2\.0\./)
+          );
         } else if (filter.version === 1) {
-          items = items.filter((item) => item.versionAdded !== "2.0.0");
+          items = items.filter(
+            (item) =>
+              item.versionAdded && item.versionAdded.match(/^(?!2\.0\.)/)
+          );
         }
       }
 

@@ -124,6 +124,8 @@ const RENAME_MAP = {
   "Coral Nook Inc. aloha shirt": "coral Nook Inc. aloha shirt",
   "Shrubbery Hububbery": "Shrubbery Hubbubbery",
   "Pit-y Party!": "Pit-y Party",
+  "tee with silicon bib": "tee with silicone bib",
+  "fish and chips": "fish-and-chips",
 };
 
 const hiddenItems = require("../../data/item-data-custom/hiddenItems.json");

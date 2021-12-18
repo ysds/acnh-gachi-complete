@@ -25,13 +25,14 @@ npm run build
 1. [ACNH Item Spreadsheet (JSON format)](https://github.com/acdb-team/google-sheets-to-json) リポジトリをクローンし、セットアップにしたがって最新のデータを取得する
 2. 取得した最新データで `data/item-data` フォルダー内の各 JSON ファイルを上書きする
 
-### 2. 住民情報の取得
+### 2. マイニングデータの取得
 
-1. 写真カテゴリ用の住民情報（性格・誕生日）を [ACNH Data](https://gitlab.com/AeonSake/acnh-data) の [BCSV_JSON](https://gitlab.com/AeonSake/acnh-data/-/tree/master/BCSV/JSON) から取得する
-2. 対象は以下の2ファイル
-* ノーマル住民 `NmlNpcParam.bcsv.json`
-* SP住民 `SpNpcParam.bcsv.json`
-3. 取得した最新データで `data/npc-data` フォルダー内の各 JSON ファイルを上書きする
+1. アイテムパラメータ情報/住民情報（性格・誕生日）を [ACNH Data](https://gitlab.com/AeonSake/acnh-data) の [BCSV_JSON](https://gitlab.com/AeonSake/acnh-data/-/tree/master/BCSV/JSON) から取得する
+2. 対象は以下の3ファイル
+* アイテムパラメータ情報 `ItemParam.bcsv.json`
+* 住民情報：ノーマル住民 `NmlNpcParam.bcsv.json`
+* 住民情報：SP住民 `SpNpcParam.bcsv.json`
+3. 取得した最新データで `data/bcsv-data` フォルダー内の各 JSON ファイルを上書きする
 
 
 ### 3. 翻訳情報の取得

@@ -43,7 +43,7 @@
           v-else-if="filter.order === 'id'"
           @click="onClickOrderButton('name')"
         >
-          実機順
+          {{ idOrderLabel }}
         </Button>
       </template>
     </div>
@@ -148,7 +148,7 @@
         v-else-if="filter.order === 'id'"
         @click="onClickOrderButton('name')"
       >
-        実機順
+        {{ idOrderLabel }}
       </Button>
     </template>
   </div>
@@ -205,8 +205,17 @@ export default {
         this.activeNav === "reactions" ||
         this.activeNav === "housewares-nookmiles" ||
         this.activeNav === "achievements" ||
-        this.activeNav === "recipes"
+        this.activeNav === "recipes" ||
+        this.activeNav === "photos" ||
+        this.activeNav === "posters"
       );
+    },
+    idOrderLabel() {
+      if (this.activeNav === "photos" || this.activeNav === "posters") {
+        return "種類順";
+      } else {
+        return "実機順";
+      }
     },
   },
   methods: {

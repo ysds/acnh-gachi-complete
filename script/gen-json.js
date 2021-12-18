@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { array_move, numberWithCommas } = require("./utils.js");
-const { sortItemsByName } = require("./sort.js");
+const { sortItemsByName, itemNameCompare } = require("./sort.js");
 
 //
 // Load Json
@@ -85,12 +85,21 @@ allItems.forEach((item) => {
   materialsDict[item.name] = { internalId: internalId, image: image };
 });
 
+// アイテムパラメータ辞書
+const itemParamDict = {};
+require("../data/bcsv-data/ItemParam.bcsv.json").forEach((item) => {
+  itemParamDict[item.UniqueId] = {
+    itemUiFurnitureCategory: item.ItemUiFurnitureCategory,
+    groupNumber: parseInt(item.GroupNumber, 10),
+  };
+});
+
 // 写真に追加する住民データ辞書
 const npcDict = {};
 []
   .concat(
-    require("../data/npc-data/NmlNpcParam.bcsv.json"),
-    require("../data/npc-data/SpNpcParam.bcsv.json")
+    require("../data/bcsv-data/NmlNpcParam.bcsv.json"),
+    require("../data/bcsv-data/SpNpcParam.bcsv.json")
   )
   .forEach((npc) => {
     // 性格（ノーマル住民のみ）
@@ -138,6 +147,21 @@ const npcDict = {};
 //
 
 allItems.forEach((item) => {
+  //
+  // 「種類順」ソート用のアイテムパラメータを追加
+  //
+  if (item.sourceSheet === "Photos" || item.sourceSheet === "Posters") {
+    let itemParam = null;
+    if (item.variants && item.variants.length > 0) {
+      itemParam = itemParamDict[item.variants[0].internalId];
+    }
+    if (!itemParam) {
+      console.log(`NoItemParam: ${item.name}`);
+    } else {
+      Object.assign(item, itemParam);
+    }
+  }
+
   //
   // リメイクバリエーションの整理
   //
@@ -513,6 +537,44 @@ allItems.forEach((item) => {
 });
 
 //
+// 種類順ソートキー（num）の生成
+// ※実機の種類順とアイテムパラメータの設定値を突き合わせて調査した生成ルール
+// ・groupNumberは同一のitemUiFurnitureCategory内での連番が設定されている
+// ・groupNumberが同じ場合は名前順
+//
+const numMap = {};
+allItems.sort((a, b) => {
+  if (a.itemUiFurnitureCategory && b.itemUiFurnitureCategory) {
+    const ca = a.itemUiFurnitureCategory;
+    const cb = b.itemUiFurnitureCategory;
+    if (ca > cb) {
+      return 1;
+    } else if (ca < cb) {
+      return -1;
+    } else {
+      const ga = a.groupNumber;
+      const gb = b.groupNumber;
+      if (ga > gb) {
+        return 1;
+      } else if (ga < gb) {
+        return -1;
+      } else {
+        return itemNameCompare()(a, b);
+      }
+    }
+  } else {
+    return 0;
+  }
+});
+allItems.forEach((item) => {
+  if (item.itemUiFurnitureCategory) {
+    const num = numMap[item.itemUiFurnitureCategory] || 0;
+    item.num = num + 1;
+    numMap[item.itemUiFurnitureCategory] = item.num;
+  }
+});
+
+//
 // 特殊アイテムの処理
 //
 
@@ -648,6 +710,8 @@ allItems.forEach((item) => {
   delete item["thoughtBubble"];
   delete item["song"];
   delete item["request"];
+  delete item["itemUiFurnitureCategory"];
+  delete item["groupNumber"];
 
   for (let i = 1; i < 7; i++) {
     delete item[`tier${i}`];

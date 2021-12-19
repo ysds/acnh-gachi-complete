@@ -369,15 +369,18 @@ export function filterItems(args) {
     }
 
     //
-    // 実機順ソート
+    // 実機順/種類順ソート
     //
 
     if (nav && filter.order === "id") {
-      // いきもの、リアクション、たぬきマイレージ
+      // 実機順：いきもの、リアクション、たぬきマイレージ
+      // 種類順：写真、ポスター
       if (
         nav.indexOf("creatures") > -1 ||
         nav === "reactions" ||
-        nav === "achievements"
+        nav === "achievements" ||
+        nav === "photos" ||
+        nav === "posters"
       ) {
         items.sort(function (itemA, itemB) {
           const ca = itemA.num;

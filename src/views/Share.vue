@@ -360,6 +360,9 @@ export default {
       } else {
         this.message = "データは非公開です。";
       }
+      if (this.nav === "photos" || this.nav === "posters") {
+        this.filter.order = "name";
+      }
       this.isLoaded = true;
       this.updateShowItems();
     },

@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vlf from "vlf";
 import localforage from "localforage";
-import { extendPrototype } from 'localforage-removeitems';
+import { extendPrototype } from "localforage-removeitems";
 extendPrototype(localforage);
 import VueLazyload from "vue-lazyload";
 import VueAnalytics from "vue-analytics";
@@ -17,6 +17,9 @@ import router from "./router";
 import store from "./store";
 import Auth from "./utils/auth";
 Auth.init();
+
+import ItemLengthWorker from "worker-loader!./workers/item_length_worker";
+Vue.prototype.$worker = new ItemLengthWorker();
 
 Vue.config.productionTip = false;
 Vue.use(Vlf, localforage);

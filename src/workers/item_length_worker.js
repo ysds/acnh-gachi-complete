@@ -11,6 +11,7 @@ addEventListener("message", (e) => {
 
   /* 全体のTotalLength */
   postMessage({
+    requestId: data.requestId,
     allTotalLength: allTotalLength({
       isFullMode: data.isFullMode,
       partnerlist: data.partnerlist,
@@ -19,6 +20,7 @@ addEventListener("message", (e) => {
 
   /* 全体のCollectedLength */
   postMessage({
+    requestId: data.requestId,
     allCollectedLength: allCollectedLength({
       collected: data.collected,
       isFullMode: data.isFullMode,
@@ -67,17 +69,17 @@ addEventListener("message", (e) => {
       }
       /* nav単位で送信すると特にAndroidでCollectedLengthの更新遅延が発生する。そのため、ある程度まとめて送信する。 */
       if (Object.keys(navsLengths).length >= 10) {
-        postMessage({ navsLengths: navsLengths });
+        postMessage({ requestId: data.requestId, navsLengths: navsLengths });
         navsLengths = {};
       }
     });
 
   /* nav別の未送信分を送信 */
   if (Object.keys(navsLengths).length > 0) {
-    postMessage({ navLengths: navsLengths });
+    postMessage({ requestId: data.requestId, navLengths: navsLengths });
   }
 
-  return postMessage({ complete: true });
+  return postMessage({ requestId: data.requestId, complete: true });
 });
 
 export default {};

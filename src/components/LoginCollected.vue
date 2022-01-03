@@ -82,6 +82,7 @@ export default {
       this.totalLengths = this.initLengths();
       this.collectedLengths = Object.assign({}, this.totalLengths);
 
+      const requestId = new Date().getTime();
       const workerResult = {
         collectedLengths: [],
         complete: false,
@@ -152,7 +153,10 @@ export default {
       /* TotalLengthとCollectedLengthはUIスレッドの負荷を下げるために別スレッド（WebWorker）で計算する */
       this.$worker.onmessage = (e) => {
         const { data } = e;
-        if (data.allTotalLength !== undefined) {
+        if (data.requestId != requestId) {
+          // Worker処理が多重起動した場合の対策として、リクエストIDが不一致なら無視する
+          return;
+        } else if (data.allTotalLength !== undefined) {
           this.isLoadComplete = true;
           this.allTotalLength = data.allTotalLength;
         } else if (data.allCollectedLength !== undefined) {
@@ -172,6 +176,7 @@ export default {
         }
       };
       this.$worker.postMessage({
+        requestId: requestId,
         collected: this.collected,
         isFullMode: this.isFullMode,
         partnerlist: this.partnerlist,

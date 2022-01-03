@@ -249,6 +249,7 @@ export default {
         nav: this.nav,
         typeFilter: this.filter.typeFilter,
         version: this.filter.version,
+        isShareView: true,
         partnerlist: this.sharedPartnerlist,
       });
     },
@@ -258,6 +259,7 @@ export default {
         nav: this.nav,
         typeFilter: this.filter.typeFilter,
         version: this.filter.version,
+        isShareView: true,
         partnerlist: this.sharedPartnerlist,
       });
     },
@@ -410,6 +412,7 @@ export default {
         islandName: this.sharedIslandName,
         updateMatchedVariants: true,
         wishlist: this.sharedWishlist,
+        isShareView: true,
         partnerlist: this.sharedPartnerlist,
       });
 

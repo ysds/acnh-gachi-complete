@@ -109,6 +109,7 @@ export default {
         nav: this.activeNav,
         typeFilter: "all",
         isForceLess: true,
+        isFullMode: this.isFullMode,
         partnerlist: this.partnerlist,
       });
       const _collectedLength = collectedLength({
@@ -116,6 +117,7 @@ export default {
         nav: this.activeNav,
         typeFilter: "all",
         isForceLess: true,
+        isFullMode: this.isFullMode,
         partnerlist: this.partnerlist,
       });
       const _providableLength = providableLength({
@@ -123,6 +125,7 @@ export default {
         nav: this.activeNav,
         typeFilter: "all",
         isForceLess: true,
+        isFullMode: this.isFullMode,
         partnerlist: this.partnerlist,
       });
       this.tweetString = `あつ森ガチコンプ『${this.navText}』チェッカー`;

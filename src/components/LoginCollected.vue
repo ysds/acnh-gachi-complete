@@ -143,7 +143,9 @@ export default {
         );
         if (update) {
           fps = 1000 / ((performance.now() - start) / ++frame);
-          requestAnimationFrame(updateCollected);
+          this.$emit("change", requestAnimationFrame(updateCollected));
+        } else {
+          this.$emit("change", 0);
         }
       };
 

@@ -37,7 +37,7 @@
         </Button>
       </div>
 
-      <LoginCollected />
+      <LoginCollected @change="setUpdateCollectedId" />
 
       <LoginSettings :settings="settings" @change="changeSettings" />
 
@@ -85,6 +85,11 @@ const db = firebase.firestore();
 
 export default {
   name: "Login",
+  data() {
+    return {
+      updateCollectedId: 0,
+    };
+  },
   components: {
     CloseButton,
     Button,
@@ -135,6 +140,10 @@ export default {
         });
     },
     close() {
+      if (this.updateCollectedId) {
+        // コンプ率更新AnimationFrameをキャンセルする
+        cancelAnimationFrame(this.updateCollectedId);
+      }
       this.$emit("close");
     },
     saveName(newName) {
@@ -151,6 +160,9 @@ export default {
     },
     changeSettings(newValue) {
       this.$store.commit("changeSettings", newValue);
+    },
+    setUpdateCollectedId(id) {
+      this.updateCollectedId = id;
     },
   },
 };

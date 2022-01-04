@@ -6,8 +6,18 @@ import {
 } from "../utils/filterItems";
 import { navs } from "../utils/navs";
 
+// 中断指示フラグ
+let abort = false;
+
 addEventListener("message", (e) => {
   const { data } = e;
+
+  if (data.abort) {
+    abort = true;
+    return;
+  } else {
+    abort = false;
+  }
 
   /* 全体のTotalLength */
   postMessage({
@@ -18,6 +28,9 @@ addEventListener("message", (e) => {
     }),
   });
 
+  /* 中断指示チェック */
+  if (abort) return;
+
   /* 全体のCollectedLength */
   postMessage({
     requestId: data.requestId,
@@ -27,6 +40,9 @@ addEventListener("message", (e) => {
       partnerlist: data.partnerlist,
     }),
   });
+
+  /* 中断指示チェック */
+  if (abort) return;
 
   /* nav別のTotalLengthとCollectedLength */
   let navsLengths = {};
@@ -52,6 +68,8 @@ addEventListener("message", (e) => {
             }),
           ];
         });
+        /* 中断指示チェック */
+        if (abort) return;
       } else {
         navsLengths[nav.id] = [
           totalLength({
@@ -67,6 +85,8 @@ addEventListener("message", (e) => {
           }),
         ];
       }
+      /* 中断指示チェック */
+      if (abort) return;
       /* nav単位で送信すると特にAndroidでCollectedLengthの更新遅延が発生する。そのため、ある程度まとめて送信する。 */
       if (Object.keys(navsLengths).length >= 10) {
         postMessage({ requestId: data.requestId, navsLengths: navsLengths });

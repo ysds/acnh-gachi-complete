@@ -89,7 +89,7 @@ export default {
       };
 
       // CollectedLength更新完了までの目安時間（ミリ秒）
-      const MSEC = 500;
+      const MSEC = 800;
       // LoginCollectedBarに渡すCollectedLengthの小数点以下精度
       const PREC = 1000;
 
@@ -142,11 +142,9 @@ export default {
             }
           }
         );
-        if (update) {
+        if (this.isGetting && update) {
           fps = 1000 / ((performance.now() - start) / ++frame);
-          this.$emit("change", requestAnimationFrame(updateCollected));
-        } else {
-          this.$emit("change", 0);
+          requestAnimationFrame(updateCollected);
         }
       };
 
@@ -195,6 +193,12 @@ export default {
         }
       });
       return result;
+    },
+    abortUpdateCollected() {
+      this.isGetting = false;
+      this.$worker.postMessage({
+        abort: true,
+      });
     },
   },
 };

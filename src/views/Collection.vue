@@ -299,6 +299,7 @@ export default {
           nav: this.activeNav,
           typeFilter: this.filter.typeFilter,
           version: this.filter.version,
+          isFullMode: this.isFullMode,
           partnerlist: this.partnerlist,
         });
       }
@@ -312,6 +313,7 @@ export default {
           nav: this.activeNav,
           typeFilter: this.filter.typeFilter,
           version: this.filter.version,
+          isFullMode: this.isFullMode,
           partnerlist: this.partnerlist,
         });
       }
@@ -598,6 +600,7 @@ export default {
         islandName: this.islandName,
         updateMatchedVariants: true,
         wishlist: this.wishlist,
+        isFullMode: this.isFullMode,
         partnerlist: this.partnerlist,
       });
 

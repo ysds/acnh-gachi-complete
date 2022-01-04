@@ -5,7 +5,6 @@ import hhpRequestJson from "../assets/hhp-request.json";
 import { navsFlat } from "./navs";
 import { typeFilter } from "./filter";
 import { hasIslandName, toDisplayItemName } from "./utils";
-import store from "../store";
 
 let fullItemsJson = cloneDeep(originalItemsJson);
 let lessItemsJson = cloneDeep(originalItemsJson);
@@ -110,11 +109,10 @@ export function filterItems(args) {
     updateMatchedVariants = false,
     wishlist = [],
     isForceLess = false,
+    isFullMode = false,
+    isShareView = false,
     partnerlist = [],
   } = args;
-
-  let isFullMode = store.getters.settings.isFullMode;
-  let isShareView = store.getters.isShareView;
 
   let items =
     !isForceLess && !isShareView && isFullMode ? fullItemsJson : lessItemsJson;
@@ -466,7 +464,15 @@ export function filterPartnerCandidates(selfItem, partnerlist, searchText) {
 }
 
 export function totalLength(args) {
-  const { nav, typeFilter, version, isForceLess, partnerlist } = args;
+  const {
+    nav,
+    typeFilter,
+    version,
+    isForceLess,
+    isFullMode,
+    isShareView,
+    partnerlist,
+  } = args;
   const items = filterItems({
     nav,
     filter: {
@@ -474,16 +480,16 @@ export function totalLength(args) {
       version: version,
     },
     isForceLess,
+    isFullMode,
+    isShareView,
     partnerlist,
   });
 
   return calcTotalLength(items);
 }
 
-export function allTotalLength() {
-  let isFullMode = store.getters.settings.isFullMode;
-  let isShareView = store.getters.isShareView;
-  let partnerlist = store.getters.partnerlist;
+export function allTotalLength(args) {
+  const { isFullMode, isShareView, partnerlist } = args;
 
   let items = isShareView || !isFullMode ? lessItemsJson : fullItemsJson;
   items = items.filter(filterOtherItem);
@@ -493,8 +499,16 @@ export function allTotalLength() {
 }
 
 export function collectedLength(args) {
-  const { collected, nav, typeFilter, version, isForceLess, partnerlist } =
-    args;
+  const {
+    collected,
+    nav,
+    typeFilter,
+    version,
+    isForceLess,
+    isFullMode,
+    isShareView,
+    partnerlist,
+  } = args;
   const collectedItems = filterItems({
     collected,
     nav,
@@ -504,17 +518,22 @@ export function collectedLength(args) {
       version: version,
     },
     isForceLess,
-    partnerlist: partnerlist,
+    isFullMode,
+    isShareView,
+    partnerlist,
   });
 
   return calcCollectedLength(collected, collectedItems);
 }
 
-export function allCollectedLength(collected, partnerlist) {
+export function allCollectedLength(args) {
+  const { collected, isFullMode, isShareView, partnerlist } = args;
   let collectedItems = filterItems({
     collected,
     filter: { collectedFilter: "3" },
-    partnerlist: partnerlist,
+    isFullMode,
+    isShareView,
+    partnerlist,
   });
   collectedItems = collectedItems.filter(filterOtherItem);
 
@@ -522,7 +541,15 @@ export function allCollectedLength(collected, partnerlist) {
 }
 
 export function providableLength(args) {
-  const { collected, nav, typeFilter, isForceLess, partnerlist } = args;
+  const {
+    collected,
+    nav,
+    typeFilter,
+    isForceLess,
+    isFullMode,
+    isShareView,
+    partnerlist,
+  } = args;
   const collectedItems = filterItems({
     collected,
     nav,
@@ -531,6 +558,8 @@ export function providableLength(args) {
       collectedFilter: "2",
     },
     isForceLess,
+    isFullMode,
+    isShareView,
     partnerlist,
   });
 

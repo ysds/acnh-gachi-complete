@@ -37,7 +37,7 @@
         </Button>
       </div>
 
-      <LoginCollected />
+      <LoginCollected ref="loginCollected" />
 
       <LoginSettings :settings="settings" @change="changeSettings" />
 
@@ -135,6 +135,8 @@ export default {
         });
     },
     close() {
+      // コンプ率更新を中断
+      this.$refs.loginCollected.abortUpdateCollected();
       this.$emit("close");
     },
     saveName(newName) {

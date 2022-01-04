@@ -39,12 +39,6 @@
 </template>
 
 <script>
-import {
-  totalLength,
-  collectedLength,
-  allTotalLength,
-  allCollectedLength,
-} from "../utils/filterItems";
 import { navs } from "../utils/navs";
 import Card from "./Card";
 import LoginCollectedBar from "./LoginCollectedBar";
@@ -57,8 +51,8 @@ export default {
       isLoadComplete: null,
       totalLengths: null,
       collectedLengths: null,
-      allTotalLength: null,
-      allCollectedLength: null,
+      allTotalLength: undefined,
+      allCollectedLength: undefined,
     };
   },
   components: {
@@ -69,6 +63,9 @@ export default {
   computed: {
     collected() {
       return this.$store.getters.localCollectedData;
+    },
+    isFullMode() {
+      return this.$store.getters.settings.isFullMode;
     },
     partnerlist() {
       return this.$store.getters.partnerlist;
@@ -82,44 +79,126 @@ export default {
   methods: {
     startGetLength() {
       this.isGetting = true;
-      setTimeout(() => {
-        this.totalLengths = this.getLengths();
-        this.collectedLengths = this.getLengths(true);
-        this.allTotalLength = allTotalLength();
-        this.allCollectedLength = allCollectedLength(
-          this.collected,
-          this.partnerlist
+      this.totalLengths = this.initLengths();
+      this.collectedLengths = Object.assign({}, this.totalLengths);
+
+      const requestId = new Date().getTime();
+      const workerResult = {
+        collectedLengths: [],
+        complete: false,
+      };
+
+      // CollectedLength更新完了までの目安時間（ミリ秒）
+      const MSEC = 800;
+      // LoginCollectedBarに渡すCollectedLengthの小数点以下精度
+      const PREC = 1000;
+
+      let start = 0;
+      let frame = 0;
+      let fps = 60;
+      let currentCollectedLengths = {};
+      const updateCollected = () => {
+        let update = !workerResult.complete;
+        if (workerResult.allCollectedLength >= 0) {
+          const newCollectedLength = Math.min(
+            Math.ceil(
+              (this.allCollectedLength +
+                workerResult.allCollectedLength / fps / (MSEC / 1000)) *
+                PREC
+            ) / PREC,
+            workerResult.allCollectedLength
+          );
+          if (newCollectedLength > this.allCollectedLength) {
+            this.allCollectedLength = newCollectedLength;
+            update = true;
+          } else {
+            delete workerResult["allCollectedLength"];
+          }
+        }
+        Object.entries(workerResult.collectedLengths).forEach(
+          ([id, length]) => {
+            const newCollectedLength = Math.min(
+              Math.ceil(
+                (currentCollectedLengths[id] + length / fps / (MSEC / 1000)) *
+                  PREC
+              ) / PREC,
+              length
+            );
+            if (newCollectedLength > currentCollectedLengths[id]) {
+              if (
+                (newCollectedLength - this.collectedLengths[id]) / length >=
+                0.02
+              ) {
+                // 更新頻度を下げるため、2%以上の変動がある場合のみ更新
+                this.collectedLengths[id] = newCollectedLength;
+              }
+              currentCollectedLengths[id] = newCollectedLength;
+              update = true;
+            } else {
+              if (newCollectedLength > this.collectedLengths[id]) {
+                this.collectedLengths[id] = newCollectedLength;
+              }
+              delete workerResult.collectedLengths[id];
+            }
+          }
         );
-        this.isLoadComplete = true;
-        this.isGetting = false;
-      }, 0);
+        if (this.isGetting && update) {
+          fps = 1000 / ((performance.now() - start) / ++frame);
+          requestAnimationFrame(updateCollected);
+        }
+      };
+
+      /* TotalLengthとCollectedLengthはUIスレッドの負荷を下げるために別スレッド（WebWorker）で計算する */
+      this.$worker.onmessage = (e) => {
+        const { data } = e;
+        if (data.requestId != requestId) {
+          // Worker処理が多重起動した場合の対策として、リクエストIDが不一致なら無視する
+          return;
+        } else if (data.allTotalLength !== undefined) {
+          this.isLoadComplete = true;
+          this.allTotalLength = data.allTotalLength;
+        } else if (data.allCollectedLength !== undefined) {
+          this.allCollectedLength = 0;
+          workerResult.allCollectedLength = data.allCollectedLength;
+          start = performance.now();
+          requestAnimationFrame(updateCollected);
+        } else if (data.navsLengths) {
+          Object.entries(data.navsLengths).forEach(([id, lengths]) => {
+            this.totalLengths[id] = lengths[0];
+            this.collectedLengths[id] = 0;
+            currentCollectedLengths[id] = 0;
+            workerResult.collectedLengths[id] = lengths[1];
+          });
+        } else if (data.complete) {
+          workerResult.complete = true;
+        }
+      };
+      this.$worker.postMessage({
+        requestId: requestId,
+        collected: this.collected,
+        isFullMode: this.isFullMode,
+        partnerlist: this.partnerlist,
+      });
     },
-    getLengths(isCollected) {
+    initLengths() {
       const result = {};
       this.navs.forEach((nav) => {
         const subnavs = nav.subnavs;
-        const collected = this.collected;
         if (subnavs) {
           subnavs.forEach((subnav) => {
-            result[subnav.id] = isCollected
-              ? collectedLength({
-                  nav: subnav.id,
-                  collected,
-                  partnerlist: this.partnerlist,
-                })
-              : totalLength({ nav: subnav.id, partnerlist: this.partnerlist });
+            result[subnav.id] = undefined;
           });
         } else {
-          result[nav.id] = isCollected
-            ? collectedLength({
-                nav: nav.id,
-                collected,
-                partnerlist: this.partnerlist,
-              })
-            : totalLength({ nav: nav.id, partnerlist: this.partnerlist });
+          result[nav.id] = undefined;
         }
       });
       return result;
+    },
+    abortUpdateCollected() {
+      this.isGetting = false;
+      this.$worker.postMessage({
+        abort: true,
+      });
     },
   },
 };

@@ -4,8 +4,8 @@
       <div class="left">
         {{ props.text }}
       </div>
-      <div class="right">
-        {{ props.value }} /
+      <div class="right" v-if="props.totalValue > 0">
+        {{ Math.round(props.value) }} /
         {{ props.totalValue }}
         ({{ $options.percentage(props.value, props.totalValue) }})
       </div>
@@ -32,11 +32,17 @@
 import { percentage } from "../utils/utils";
 
 export default {
-  prop: {
-    text: "",
-    value: 0,
-    totalValue: 0,
-    isAll: false,
+  props: {
+    text: String,
+    value: {
+      type: Number,
+      default: 0,
+    },
+    totalValue: {
+      type: Number,
+      default: 0,
+    },
+    isAll: Boolean,
   },
   percentage,
   isComplete(value, totalValue) {

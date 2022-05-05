@@ -252,7 +252,12 @@ allItems.forEach((item) => {
     if (item.variants[0].bodyCustomize) {
       item.bodyCustomize = true;
       if (item.diy || item.catalog === "For sale" || item.catalog === true) {
-        item.fullMode = true;
+        if (
+          item.variants[0].source &&
+          !item.variants[0].source.includes("Nook Shopping Daily Selection")
+        ) {
+          item.fullMode = true;
+        }
       }
     }
   }

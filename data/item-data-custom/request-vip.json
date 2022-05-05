@@ -11,6 +11,11 @@
   },
   {
     "sourceSheet": "Paradise Planning VIP",
+    "name": "Copper",
+    "filename": "dga"
+  },
+  {
+    "sourceSheet": "Paradise Planning VIP",
     "name": "Booker",
     "filename": "dgb"
   },
@@ -35,11 +40,6 @@
     "sourceSheet": "Paradise Planning VIP",
     "name": "Chip",
     "filename": "bev"
-  },
-  {
-    "sourceSheet": "Paradise Planning VIP",
-    "name": "Copper",
-    "filename": "dga"
   },
   {
     "sourceSheet": "Paradise Planning VIP",

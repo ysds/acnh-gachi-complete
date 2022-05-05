@@ -33,6 +33,7 @@ const normalizeText = function (string) {
   let result = string;
   result = kata2Hira(result);
   result = hankaku2Zenkaku(result);
+  result = result.toLowerCase();
   return result;
 };
 

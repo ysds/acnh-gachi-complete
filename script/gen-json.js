@@ -259,6 +259,8 @@ allItems.forEach((item) => {
           item.fullMode = true;
         }
       }
+    } else if (item.sourceSheet === "Fencing") {
+      item.fullMode = true;
     }
   }
 

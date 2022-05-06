@@ -55,6 +55,7 @@
 
       <LoginCatalogScanner />
       <LoginImport />
+      <LoginImportFromId />
 
       <template v-if="isLogin && user">
         <Button block @click="logout"> ログアウト </Button>
@@ -77,6 +78,7 @@ import LoginName from "../components/LoginName";
 import LoginIslandName from "../components/LoginIslandName";
 import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
+import LoginImportFromId from "../components/LoginImportFromId";
 import LoginCollected from "../components/LoginCollected";
 import LoginCatalogScanner from "../components/LoginCatalogScanner";
 import LoginSettings from "../components/LoginSettings";
@@ -93,6 +95,7 @@ export default {
     LoginIslandName,
     LoginShare,
     LoginImport,
+    LoginImportFromId,
     LoginCollected,
     LoginCatalogScanner,
     LoginSettings,

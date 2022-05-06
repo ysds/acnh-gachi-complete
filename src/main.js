@@ -5,6 +5,7 @@ import { extendPrototype } from "localforage-removeitems";
 extendPrototype(localforage);
 import VueLazyload from "vue-lazyload";
 import VueAnalytics from "vue-analytics";
+import VueGtag from "vue-gtag";
 import VueClipboard from "vue-clipboard2";
 import InfiniteLoading from "vue-infinite-loading";
 import PortalVue from "portal-vue";
@@ -29,6 +30,13 @@ Vue.use(VueAnalytics, {
   id: "UA-173561585-1",
   router,
 });
+Vue.use(
+  VueGtag,
+  {
+    config: { id: "G-2WC3P15NQ9" },
+  },
+  router
+);
 Vue.use(InfiniteLoading);
 Vue.use(PortalVue);
 

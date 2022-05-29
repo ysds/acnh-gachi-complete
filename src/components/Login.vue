@@ -62,6 +62,11 @@
         <p class="small mt-4">
           ログアウトするとブラウザに保存されているデータはクリアされます。再度ログインすることで、クラウドからデータを復元できます。
         </p>
+        <LoginDeleteAccount
+          :userName="userName"
+          :user="user"
+          :logout="logout"
+        />
       </template>
     </div>
   </div>
@@ -82,6 +87,7 @@ import LoginImportFromId from "../components/LoginImportFromId";
 import LoginCollected from "../components/LoginCollected";
 import LoginCatalogScanner from "../components/LoginCatalogScanner";
 import LoginSettings from "../components/LoginSettings";
+import LoginDeleteAccount from "../components/LoginDeleteAccount";
 
 const db = firebase.firestore();
 
@@ -99,6 +105,7 @@ export default {
     LoginCollected,
     LoginCatalogScanner,
     LoginSettings,
+    LoginDeleteAccount,
   },
   computed: {
     user() {

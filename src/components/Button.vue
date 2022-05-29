@@ -9,6 +9,7 @@
       'btn-primary': primary,
       'btn-secondary': secondary,
       'btn-danger': danger,
+      'btn-danger-text': dangerText,
       'btn-cta': cta,
       'btn-block': block,
       'btn-sm': sm,
@@ -48,6 +49,7 @@ export default {
     primary: Boolean,
     secondary: Boolean,
     danger: Boolean,
+    dangerText: Boolean,
     cta: Boolean,
     block: Boolean,
     active: Boolean,
@@ -149,7 +151,13 @@ export default {
 .btn-danger {
   --color: #fff;
   --bg-color: #eb486b !important;
-  --hover-bg: #eb486b;
+  --hover-bg: #020202;
+  font-weight: 700;
+}
+
+.btn-danger-text {
+  --color: #eb486b;
+  --bg-color: transparent;
   font-weight: 700;
 }
 

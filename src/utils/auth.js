@@ -31,4 +31,18 @@ export default {
     store.commit("authStateChange", {});
     store.commit("loginStateChange", false);
   },
+  delete() {
+    const user = firebase.auth().currentUser;
+    user
+      .delete()
+      .then(() => {
+        // User deleted.
+      })
+      .catch(() => {
+        // An error ocurred
+        // ...
+      });
+    store.commit("authStateChange", {});
+    store.commit("loginStateChange", false);
+  },
 };

@@ -24,7 +24,7 @@ export default {
       providerName === "google"
         ? new firebase.auth.GoogleAuthProvider()
         : new firebase.auth.TwitterAuthProvider();
-    firebase.auth().signInWithRedirect(provider);
+    firebase.auth().signInWithPopup(provider);
   },
   logout() {
     firebase.auth().signOut();

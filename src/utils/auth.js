@@ -19,12 +19,12 @@ export default {
       store.commit("loginStateChange", user.uid ? true : false);
     });
   },
-  login(providerName) {
+  login(providerName, callback) {
     const provider =
       providerName === "google"
         ? new firebase.auth.GoogleAuthProvider()
         : new firebase.auth.TwitterAuthProvider();
-    firebase.auth().signInWithPopup(provider);
+    firebase.auth().signInWithPopup(provider).then(callback);
   },
   logout() {
     firebase.auth().signOut();

@@ -126,7 +126,9 @@ export default {
   },
   methods: {
     login(provider) {
-      Auth.login(provider);
+      Auth.login(provider, () => {
+        this.$emit("close");
+      });
     },
     logout() {
       syncData();

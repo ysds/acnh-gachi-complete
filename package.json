@@ -37,10 +37,10 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "^4.5.0",
+    "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-router": "^4.5.0",
-    "@vue/cli-service": "^4.5.0",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^4.5.0",
@@ -55,7 +55,7 @@
     "prettier-eslint": "^11.0.0",
     "sarc-extractor": "^1.0.3",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "^13.2.0",
     "vue-analytics": "^5.22.1",
     "vue-template-compiler": "^2.6.11",
     "worker-loader": "^3.0.8"

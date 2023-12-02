@@ -26,15 +26,14 @@
           />
           Google でログイン
         </Button>
-        <Button block @click="login('twitter')">
-          <img
-            src="../assets/Twitter_Logo_Blue.svg"
-            width="40px"
-            height="40px"
-            style="margin-right: 0.5rem"
-          />
-          Twitter でログイン
-        </Button>
+        <p style="font-size: 12px; margin-block: 2rem">
+          ※ Twitter でログインは 2023 年 6 月頃、Twitter API
+          の変更により使用できなくなりました。<br />Twitter
+          ログインでガチコンプを使用されていた方は、Google
+          ログインに切り替えた後で、 ご自身のガチコンプ ID
+          がお分かりの場合はデータをインポートすることができます。
+          詳しくは下部の「他のアカウントからインポート」をご覧ください。
+        </p>
       </div>
 
       <LoginCollected ref="loginCollected" />

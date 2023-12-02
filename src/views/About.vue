@@ -2,18 +2,6 @@
   <div class="about">
     <h1>あつ森ガチコンプの使い方</h1>
     <h2>最新情報</h2>
-    <div class="timeline">
-      <Timeline
-        id="dmnmd55"
-        sourceType="profile"
-        :options="{
-          width: '400',
-          tweetLimit: '1',
-          chrome: 'noheader nofooter',
-          lang: 'ja',
-        }"
-      />
-    </div>
     <a href="https://twitter.com/dmnmd55" class="follow-button"
       ><img src="../assets/Twitter_Logo_WhiteOnImage.svg" /> 開発者の Twitter
       を見る</a
@@ -63,7 +51,7 @@
       ガチコンプのデータはご使用のブラウザに保存されます。ブラウザのキャッシュをクリアするとデータが消えますのでご注意ください。
     </p>
     <p>
-      Twitter アカウントまたは Google アカウントを使用してガチコンプにログインすると、データが自動的にクラウドに保存され、シェア機能が使えるようになります。最新のデータをクラウドに保存、ダウンロードするにはページを再読み込みする必要があります。クラウドとの同期はリアルタイムで行っているわけではないため、複数のブラウザやデバイスで同時に操作すると意図通りに同期されない可能性があります。
+      Google アカウントを使用してガチコンプにログインすると、データが自動的にクラウドに保存され、シェア機能が使えるようになります。最新のデータをクラウドに保存、ダウンロードするにはページを再読み込みする必要があります。クラウドとの同期はリアルタイムで行っているわけではないため、複数のブラウザやデバイスで同時に操作すると意図通りに同期されない可能性があります。
     </p>
     <h2>シェア機能</h2>
     <svg
@@ -252,13 +240,11 @@
 </template>
 
 <script>
-import { Timeline } from "vue-tweet-embed";
 import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
 
 export default {
   components: {
-    Timeline,
     Login,
     Button,
   },
@@ -370,7 +356,6 @@ p {
   display: inline-flex;
   align-items: center;
   padding: 0.3rem 0.75rem;
-  margin-top: 2rem;
   background-color: #1b95e0;
   color: #fff;
   border-radius: 8px;

@@ -53,7 +53,6 @@
         </Card>
       </template>
 
-      <LoginCatalogScanner />
       <LoginImport />
       <LoginImportFromId />
 
@@ -85,7 +84,6 @@ import LoginShare from "../components/LoginShare";
 import LoginImport from "../components/LoginImport";
 import LoginImportFromId from "../components/LoginImportFromId";
 import LoginCollected from "../components/LoginCollected";
-import LoginCatalogScanner from "../components/LoginCatalogScanner";
 import LoginSettings from "../components/LoginSettings";
 import LoginDeleteAccount from "../components/LoginDeleteAccount";
 
@@ -103,7 +101,6 @@ export default {
     LoginImport,
     LoginImportFromId,
     LoginCollected,
-    LoginCatalogScanner,
     LoginSettings,
     LoginDeleteAccount,
   },

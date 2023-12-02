@@ -1,7 +1,6 @@
 import firebase from "@firebase/app";
 import "@firebase/auth";
 import "firebase/firestore";
-import "firebase/functions";
 
 var config = {
   apiKey: "AIzaSyD-N7qRjygk28zMZ2JSAxROBg_MV8dwe9s",

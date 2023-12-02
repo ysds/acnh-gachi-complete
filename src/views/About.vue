@@ -58,20 +58,6 @@
     <p>
       同じアイテムが別のカテゴリで表示されることがありますが、それぞれのチェック状態は同期しています。
     </p>
-    <h2>チェック状態のインポート</h2>
-    <p>
-      ゲーム動画を撮影して取得状態をインポートすることができます。実際の操作は
-      <Button sm primary @click="isOpenLogin = true">設定画面</Button>
-      で行っていただけます。
-    </p>
-    <Tweet
-      id="1420979604353798145"
-      :options="{
-        width: '400',
-        align: 'center',
-        lang: 'ja',
-      }"
-    />
     <h2>ログインとデータ保存</h2>
     <p>
       ガチコンプのデータはご使用のブラウザに保存されます。ブラウザのキャッシュをクリアするとデータが消えますのでご注意ください。
@@ -266,14 +252,13 @@
 </template>
 
 <script>
-import { Timeline, Tweet } from "vue-tweet-embed";
+import { Timeline } from "vue-tweet-embed";
 import Login from "../components/Login.vue";
 import Button from "../components/Button.vue";
 
 export default {
   components: {
     Timeline,
-    Tweet,
     Login,
     Button,
   },

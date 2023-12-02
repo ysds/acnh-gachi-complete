@@ -53,7 +53,6 @@
         </Card>
       </template>
 
-      <LoginImport />
       <LoginImportFromId />
 
       <template v-if="isLogin && user">
@@ -81,7 +80,6 @@ import Card from "../components/Card";
 import LoginName from "../components/LoginName";
 import LoginIslandName from "../components/LoginIslandName";
 import LoginShare from "../components/LoginShare";
-import LoginImport from "../components/LoginImport";
 import LoginImportFromId from "../components/LoginImportFromId";
 import LoginCollected from "../components/LoginCollected";
 import LoginSettings from "../components/LoginSettings";
@@ -98,7 +96,6 @@ export default {
     LoginName,
     LoginIslandName,
     LoginShare,
-    LoginImport,
     LoginImportFromId,
     LoginCollected,
     LoginSettings,

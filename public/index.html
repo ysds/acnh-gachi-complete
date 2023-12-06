@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta name="description" content="あつ森のアイテムの取得状況を管理・共有できるウェブアプリ。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta
+      name="description"
+      content="あつ森のアイテムの取得状況を管理・共有できるウェブアプリ。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-    <meta property="og:title" content="【あつ森ガチコンプ】アイテムの取得状況を管理・共有できるウェブアプリ">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ysds.github.io/acnh-gachi-complete/">
-    <meta property="og:image" content="">
+    <meta
+      property="og:title"
+      content="【あつ森ガチコンプ】アイテムの取得状況を管理・共有できるウェブアプリ"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ysds.github.io/acnh-gachi-complete/"
+    />
+    <meta property="og:image" content="" />
 
-    <meta name="twitter:title" content="【あつ森ガチコンプ】アイテムの取得状況を管理・共有できるウェブアプリ">
-    <meta name="twitter:description" content="あつ森のアイテムの取得状況を管理・共有できるウェブアプリ。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。">
-    <meta name="twitter:image" content="https://ysds.github.io/acnh-gachi-complete/apple-touch-icon.png">
-    <meta name="twitter:card" content="summary">
+    <meta
+      name="twitter:title"
+      content="【あつ森ガチコンプ】アイテムの取得状況を管理・共有できるウェブアプリ"
+    />
+    <meta
+      name="twitter:description"
+      content="あつ森のアイテムの取得状況を管理・共有できるウェブアプリ。カタログの一覧だけでなく、来訪者やシーズンイベントなどでも絞り込むことができるため、周回にも活用いただけます。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://ysds.github.io/acnh-gachi-complete/apple-touch-icon.png"
+    />
+    <meta name="twitter:card" content="summary" />
 
-    <link rel="apple-touch-icon" sizes="76x76" href="<%= BASE_URL %>apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<%= BASE_URL %>favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%= BASE_URL %>favicon-16x16.png">
-    <link rel="manifest" href="<%= BASE_URL %>site.webmanifest">
-    <link rel="mask-icon" href="<%= BASE_URL %>safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="<%= BASE_URL %>apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="<%= BASE_URL %>favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="<%= BASE_URL %>favicon-16x16.png"
+    />
+    <link rel="manifest" href="<%= BASE_URL %>site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="<%= BASE_URL %>safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <meta name="theme-color" content="#ffffff" />
     <script data-spa="true">
       // Single Page Apps for GitHub Pages
       // MIT License
@@ -35,44 +71,65 @@
       // When the single page app is loaded further down in this file,
       // the correct url will be waiting in the browser's history for
       // the single page app to route accordingly.
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
           );
         }
-      }(window.location))
+      })(window.location);
     </script>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
     </noscript>
     <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@0/dist/ua-parser.min.js"></script>
     <script>
       var parser = new UAParser();
-      var result = parser.getResult()
+      var result = parser.getResult();
       if (result.browser.name === "IE" || result.engine.name === "EdgeHTML") {
         var app = document.getElementById("message");
-        app.innerHTML = "あつ森ガチコンプはご利用のブラウザには対応していません。Chrome または Safari をご利用ください。"
-      } 
+        app.innerHTML =
+          "あつ森ガチコンプはご利用のブラウザには対応していません。Chrome または Safari をご利用ください。";
+      }
     </script>
     <script>
-    const hash = window.location.hash;
-    if (hash.indexOf("#/share/") === 0) {
-      const params = hash.split("/");
-      console.log(params);
-      const uid = params[2];
-      const category = params[3];
-      window.location = "share2/" + category + "/?uid=" + uid;
-    }
+      const hash = window.location.hash;
+      if (hash.indexOf("#/share/") === 0) {
+        const params = hash.split("/");
+        console.log(params);
+        const uid = params[2];
+        const category = params[3];
+        window.location = "share2/" + category + "/?uid=" + uid;
+      }
     </script>
     <div id="app"></div>
     <div id="message" class="app-message"></div>
     <!-- built files will be auto injected -->
-    <script data-ad-client="ca-pub-4967035126929813" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script
+      data-ad-client="ca-pub-4967035126929813"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
     <script src="<%= BASE_URL %>long-press-event.min.js"></script>
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
   </body>
 </html>

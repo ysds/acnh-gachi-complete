@@ -51,7 +51,7 @@
           </p>
         </Card>
       </template>
-
+      <LoginCatalogScanner />
       <LoginImportFromId />
 
       <template v-if="isLogin && user">
@@ -81,6 +81,7 @@ import LoginIslandName from "../components/LoginIslandName";
 import LoginShare from "../components/LoginShare";
 import LoginImportFromId from "../components/LoginImportFromId";
 import LoginCollected from "../components/LoginCollected";
+import LoginCatalogScanner from "../components/LoginCatalogScanner";
 import LoginSettings from "../components/LoginSettings";
 import LoginDeleteAccount from "../components/LoginDeleteAccount";
 
@@ -97,6 +98,7 @@ export default {
     LoginShare,
     LoginImportFromId,
     LoginCollected,
+    LoginCatalogScanner,
     LoginSettings,
     LoginDeleteAccount,
   },

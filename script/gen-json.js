@@ -373,6 +373,10 @@ allItems.forEach((item) => {
     console.log(`NoName: ${item.name}`);
   }
 
+  if (item.displayName) {
+    item.displayName = item.displayName.replace(//g, "®");
+  }
+
   // Source
   if (item.source) {
     item.sourceJa = [];
@@ -820,6 +824,7 @@ allItems = JSON.stringify(allItems, null, 2);
 allItems = allItems.replace(/https:\/\/acnhcdn.com\/latest\//g, "");
 allItems = allItems.replace(/https:\/\/acnhcdn.com\/1.2.0\//g, "");
 allItems = allItems.replace(/https:\/\/acnhapi.com\/latest\//g, "");
+allItems = allItems.replace(/https:\/\/nh-cdn.catalogue.ac\//g, "");
 
 fs.writeFileSync("./src/assets/items.json", allItems);
 

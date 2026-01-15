@@ -7,7 +7,7 @@
     <div class="info-image">
       <div>
         <img
-          :src="'https://acnhcdn.com/latest/' + modalItem.variants[0].image"
+          :src="'https://nh-cdn.catalogue.ac/' + modalItem.variants[0].image"
         />
       </div>
       <div
@@ -84,7 +84,7 @@ export default {
   computed: {
     candidateImage() {
       return this.candidateItem
-        ? "https://acnhcdn.com/latest/" + this.candidateItem.variants[0].image
+        ? "https://nh-cdn.catalogue.ac/" + this.candidateItem.variants[0].image
         : "";
     },
   },

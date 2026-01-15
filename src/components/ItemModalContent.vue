@@ -405,13 +405,13 @@ export default {
       } else {
         return "";
       }
-      return "https://acnhcdn.com/latest/" + image;
+      return "https://nh-cdn.catalogue.ac/" + image;
     },
     houseShareImage1() {
-      return `https://acnhcdn.com/latest/${this.modalItem.variants[0].image1}`;
+      return `https://nh-cdn.catalogue.ac/${this.modalItem.variants[0].image1}`;
     },
     houseShareImage2() {
-      return `https://acnhcdn.com/latest/${this.modalItem.variants[0].image2}`;
+      return `https://nh-cdn.catalogue.ac/${this.modalItem.variants[0].image2}`;
     },
     isInWishlist() {
       return isInWishlist(this.modalItem, this.modalBodyIndex);
@@ -440,7 +440,7 @@ export default {
     materialImage() {
       return function (index) {
         return (
-          "https://acnhcdn.com/latest/" +
+          "https://nh-cdn.catalogue.ac/" +
           this.modalItem.materialsJa[index].image
         );
       };

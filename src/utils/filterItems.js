@@ -305,12 +305,12 @@ export function filterItems(args) {
       if (filter.version && !nav.includes("version")) {
         if (filter.version === 2) {
           items = items.filter(
-            (item) => item.versionAdded && item.versionAdded.match(/^2\.0\./)
+            (item) => item.versionAdded && item.versionAdded.match(/^3\.0\./)
           );
         } else if (filter.version === 1) {
           items = items.filter(
             (item) =>
-              item.versionAdded && item.versionAdded.match(/^(?!2\.0\.)/)
+              item.versionAdded && item.versionAdded.match(/^(?!3\.0\.)/)
           );
         }
       }

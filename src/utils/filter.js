@@ -1,4 +1,4 @@
-import seasonEventData from "../../data/translation-custom/seasonEvent.json";
+// import seasonEventData from "../../data/translation-custom/seasonEvent.json";
 
 const typeFilters = [
   {
@@ -228,36 +228,36 @@ const typeFilters = [
   },
 ];
 
-const seasonEvents = [
-  "Spring shopping",
-  "Summer shopping",
-  "Fall shopping",
-  "Winter shopping",
-  "Setsubun (Able Sisters)",
-  "Festivale (ready days); Festivale",
-  "Shamrock Day (Able Sisters)",
-  "Prom (Able Sisters)",
-  "Wedding Season (Able Sisters)",
-  "Fireworks Show",
-  "Halloween (ready days); Halloween",
-  "Festive shopping",
-  "Toy Day (ready days phase 2); Toy Day; Toy Day (day after)",
-];
+// const seasonEvents = [
+//   "Spring shopping",
+//   "Summer shopping",
+//   "Fall shopping",
+//   "Winter shopping",
+//   "Setsubun (Able Sisters)",
+//   "Festivale (ready days); Festivale",
+//   "Shamrock Day (Able Sisters)",
+//   "Prom (Able Sisters)",
+//   "Wedding Season (Able Sisters)",
+//   "Fireworks Show",
+//   "Halloween (ready days); Halloween",
+//   "Festive shopping",
+//   "Toy Day (ready days phase 2); Toy Day; Toy Day (day after)",
+// ];
 
-seasonEvents.forEach((value, index) => {
-  typeFilters.push({
-    id: `fashion-${index}`,
-    label: seasonEventData[value].text || value,
-    show: ["fashion"],
-    filter: function (item) {
-      return (
-        item.seasonEvent &&
-        item.seasonEvent.includes(value) &&
-        item.catalog === "For sale"
-      );
-    },
-  });
-});
+// seasonEvents.forEach((value, index) => {
+//   typeFilters.push({
+//     id: `fashion-${index}`,
+//     label: seasonEventData[value]?.text || value,
+//     show: ["fashion"],
+//     filter: function (item) {
+//       return (
+//         item.seasonEvent &&
+//         item.seasonEvent.includes(value) &&
+//         item.catalog === "For sale"
+//       );
+//     },
+//   });
+// });
 
 const categories = require("../../data/translation-custom/categories.json");
 

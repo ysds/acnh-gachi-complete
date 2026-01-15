@@ -11,29 +11,13 @@
     "text": "3/21〜4/19（おひつじ座の時期）",
     "order": "3_03210419"
   },
-  "Big Game Celebration (1)": {
-    "text": "1/15〜2/15（ビッグゲーム）",
-    "order": "3_01150215"
-  },
-  "Big Game Celebration (2)": {
-    "text": "1/15〜2/15（ビッグゲーム）",
-    "order": "3_01150215"
-  },
   "Birthday": {
     "text": "プレイヤーの誕生日",
     "order": "5_"
   },
-  "Bug-Off": {
-    "text": "6, 7, 8, 9月の第4土曜日（虫取り大会）",
-    "order": "1_2"
-  },
   "Bunny Day": {
     "text": "4/17（イースター当日）",
     "order": "3_04170417"
-  },
-  "Bunny Day (ready days); Bunny Day": {
-    "text": "4/10〜4/17（イースター準備期間と当日）",
-    "order": "3_04100417"
   },
   "Cancer": {
     "text": "6/22〜7/22（かに座の時期）",
@@ -83,37 +67,13 @@
     "text": "5/25〜6/3（端午節）",
     "order": "3_06050614"
   },
-  "Fall shopping": {
-    "text": "9/1〜11/30:北半球, 3/1〜5/31:南半球（秋）",
-    "order": "2_09011130"
-  },
   "Father's Day": {
-    "text": "6/1〜6/30（父の日）",
-    "order": "3_06010630"
-  },
-  "Father's Day (2)": {
     "text": "6/1〜6/30（父の日）",
     "order": "3_06010630"
   },
   "Festivale": {
     "text": "2/28（カーニバル当日）",
     "order": "3_02280228"
-  },
-  "Festivale (ready days); Festivale": {
-    "text": "2/1〜2/27（カーニバル）",
-    "order": "3_02010227"
-  },
-  "Festive shopping": {
-    "text": "12/1〜12/25（フェスティバル）",
-    "order": "3_12011225"
-  },
-  "Fireworks Show": {
-    "text": "8月毎週日曜日（花火大会）",
-    "order": "1_3"
-  },
-  "Fishing Tourney": {
-    "text": "1, 4, 7, 10月の第2土曜日（魚釣り大会）",
-    "order": "1_1"
   },
   "Gemini": {
     "text": "5/21〜6/21（ふたご座の時期）",
@@ -130,14 +90,6 @@
   "Halloween": {
     "text": "10/31（ハロウィン当日）",
     "order": "3_10311031"
-  },
-  "Halloween (ready days)": {
-    "text": "10/1〜10/30（ハロウィン準備期間）",
-    "order": "3_10011030"
-  },
-  "Halloween (ready days); Halloween": {
-    "text": "10/1〜10/31（ハロウィン）",
-    "order": "3_10011031"
   },
   "Happy Home Paradise": {
     "text": ""
@@ -170,10 +122,6 @@
     "text": "9/23〜10/23（てんびん座の時期）",
     "order": "3_09231023"
   },
-  "Lunar New Year": {
-    "text": "1/30〜2/6（旧正月）",
-    "order": "3_01300206"
-  },
   "Marine Day": {
     "text": "7/9〜7/18（海の日）",
     "order": "3_07080722"
@@ -183,14 +131,6 @@
     "order": "3_04290507"
   },
   "Moon-Viewing Day": {
-    "text": "9/12〜9/21（お月見）",
-    "order": "3_09120921"
-  },
-  "Moon-Viewing Day (2)": {
-    "text": "9/12〜9/21（お月見）",
-    "order": "3_09120921"
-  },
-  "Moon-Viewing Day (3)": {
     "text": "9/12〜9/21（お月見）",
     "order": "3_09120921"
   },
@@ -205,30 +145,6 @@
   "Nature Day": {
     "text": "4/23〜5/4（アースデー）",
     "order": "3_04230504"
-  },
-  "Nature Day (Nook Shopping)": {
-    "text": "4/15〜4/22（アースデー:ショッピング）",
-    "order": "3_04150422"
-  },
-  "New Year's Day": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
-  },
-  "New Year's Day (Asia)": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
-  },
-  "New Year's Day (Korea)": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
-  },
-  "New Year's Day (World)": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
-  },
-  "New Year's Eve (Russia)": {
-    "text": "12/22〜12/31（大晦日）",
-    "order": "3_12221231"
   },
   "New Year's Eve": {
     "text": "12/22〜12/31（大晦日）",
@@ -245,18 +161,6 @@
   "Pisces": {
     "text": "2/19〜3/20（うお座の時期）",
     "order": "3_02190320"
-  },
-  "Prom (1)": {
-    "text": "4/1～4/30（プロム）",
-    "order": "3_04010430"
-  },
-  "Prom (2)": {
-    "text": "4/1～4/30（プロム）",
-    "order": "3_04010430"
-  },
-  "Prom (Able Sisters)": {
-    "text": "4/1～4/30（プロム）",
-    "order": "3_04010430"
   },
   "Sagittarius": {
     "text": "11/23〜12/21（いて座の時期）",
@@ -282,33 +186,9 @@
     "text": "3/10〜3/17（シャムロックデー）",
     "order": "3_03100317"
   },
-  "Shamrock Day (Able Sisters)": {
-    "text": "3/10〜3/17（シャムロックデー）",
-    "order": "3_03100317"
-  },
   "Shichi-Go-San": {
     "text": "11/11〜11/20（七五三）",
     "order": "3_11111120"
-  },
-  "Shōgatsu (1)": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
-  },
-  "Shōgatsu (2)": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
-  },
-  "Shōgatsu (3)": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
-  },
-  "Shōgatsu (4)": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
-  },
-  "Shōgatsu (5)": {
-    "text": "12/22〜1/5（正月）",
-    "order": "3_12220105"
   },
   "Silvester": {
     "text": "12/22〜12/31（大晦日）",
@@ -317,29 +197,6 @@
   "Singmogil": {
     "text": "4/1〜4/10（植木の日）",
     "order": "3_04010410"
-  },
-  "Spring shopping": {
-    "text": "3/1〜5/31:北半球, 9/1〜11/30:南半球（春）",
-    "order": "2_03010531"
-  },
-  "Summer Solstice (northern hemisphere) (2)": {
-    "text": "6/15〜6/21:北半球, 12/15〜12/21:南半球（夏至）",
-    "order": "2_06150621"
-  },
-  "Summer Solstice (northern hemisphere); Summer Solstice (southern hemisphere)": {
-    "text": "6/15〜6/21:北半球, 12/15〜12/21:南半球（夏至）",
-    "order": "2_06150621"
-  },
-  "Summer shopping": {
-    "text": "6/1〜8/31:北半球, 12/1〜2/29:南半球（夏）",
-    "order": "2_06010831"
-  },
-  "Summer shopping; Fireworks Show": {
-    "text": "8月毎週日曜日（花火大会）、または 6/1〜8/31:北半球, 12/1〜2/29:南半球（夏）",
-    "order": "1_4"
-  },
-  "Super Mario Bros.": {
-    "text": ""
   },
   "Tanabata": {
     "text": "7/1〜7/7（七夕）",
@@ -361,25 +218,9 @@
     "text": "12/25（クリスマスイブ翌日）",
     "order": "3_12251225"
   },
-  "Toy Day (ready days phase 1); Toy Day (ready days phase 2); Toy Day; Toy Day (day after)": {
-    "text": "12/1〜12/25（クリスマス）",
-    "order": "3_12011225"
-  },
-  "Toy Day (ready days phase 2); Toy Day": {
-    "text": "12/15〜12/24（クリスマス後半）",
-    "order": "3_12151224"
-  },
-  "Toy Day (ready days phase 2); Toy Day; Toy Day (day after)": {
-    "text": "12/15〜12/25（クリスマス後半〜イブ翌日）",
-    "order": "3_12151225"
-  },
   "Turkey Day": {
     "text": "11/25（サンクスギビングデー当日）",
     "order": "3_11261126"
-  },
-  "Turkey Day; Turkey Day (shopping days)": {
-    "text": "11/26〜11/30（サンクスギビングデー）",
-    "order": "3_11261130"
   },
   "Valentine's Day (Nook Shopping)": {
     "text": "2/1〜2/14（バレンタインデー）",
@@ -392,38 +233,6 @@
   "Wedding Season": {
     "text": "6/1〜6/30（ジューンブライド）",
     "order": "3_06010630"
-  },
-  "Wedding Season (Able Sisters)": {
-    "text": "6/1〜6/30（ジューンブライド）",
-    "order": "3_06010630"
-  },
-  "Wedding Season (Nook Shopping 1)": {
-    "text": "6/1〜6/30（ジューンブライド）",
-    "order": "3_06010630"
-  },
-  "Wedding Season (Nook Shopping 2)": {
-    "text": "6/1〜6/30（ジューンブライド）",
-    "order": "3_06010630"
-  },
-  "Winter Solstice (northern hemisphere) (2)": {
-    "text": "12/15〜12/21:北半球, 6/15〜6/21:南半球（冬至）",
-    "order": "2_12151221"
-  },
-  "Winter Solstice (northern hemisphere) (3)": {
-    "text": "12/15〜12/21:北半球, 6/15〜6/21:南半球（冬至）",
-    "order": "2_12151221"
-  },
-  "Winter Solstice (northern hemisphere); Winter Solstice (southern hemisphere)": {
-    "text": "12/15〜12/21:北半球, 6/15〜6/21:南半球（冬至）",
-    "order": "2_12151221"
-  },
-  "Winter Solstice (southern hemisphere); Winter Solstice (northern hemisphere)": {
-    "text": "12/15〜12/21:北半球, 6/15〜6/21:南半球（冬至）",
-    "order": "2_12151221"
-  },
-  "Winter shopping": {
-    "text": "12/1〜2/29:北半球, 6/1〜8/31:南半球（冬）",
-    "order": "2_12010229"
   },
   "acorns and pine cones": {
     "text": "9/1〜12/10:北半球, 3/1〜6/10:南半球（どんぐり/まつぼっくり）",
@@ -460,5 +269,51 @@
   "π Day": {
     "text": "3/1〜3/14（πの日）",
     "order": "3_03010314"
-  }
+  },
+  "New Year's Day (2021)": "",
+  "New Year's Day (2022)": "",
+  "Fishing Tourney (Spring); Fishing Tourney (Summer); Fishing Tourney (Fall); Fishing Tourney (Winter)": "",
+  "Bug-Off (1); Bug-Off (2); Bug-Off (3); Bug-Off (4)": "",
+  "Winter Solstice": "",
+  "Summer (shopping)": "",
+  "Bunny Day (days before); Bunny Day": "",
+  "Festivale (days before); Festivale": "",
+  "Winter (shopping)": "",
+  "Shōgatsu": "",
+  "Toy Day (weeks before); Toy Day (days before); Toy Day; Toy Day (day after)": "",
+  "Summer Solstice": "",
+  "Wedding Season (Nook Shopping)": "",
+  "Halloween (days before); Halloween": "",
+  "Turkey Day; Turkey Day (days after)": "",
+  "Ōmisoka": "",
+  "New Year's Day (Nook Shopping)": "",
+  "New Year's Day (Year of the Pig)": "",
+  "New Year's Day (Year of the Dog)": "",
+  "New Year's Day (Year of the Dragon)": "",
+  "New Year's Day (Year of the Horse)": "",
+  "New Year's Day (Year of the Monkey)": "",
+  "New Year's Day (Year of the Ox)": "",
+  "New Year's Day (Year of the Rabbit)": "",
+  "New Year's Day (Year of the Rat)": "",
+  "New Year's Day (Year of the Rooster)": "",
+  "New Year's Day (Year of the Sheep)": "",
+  "New Year's Day (Year of the Snake)": "",
+  "New Year's Day (Year of the Tiger)": "",
+  "Toy Day (days before); Toy Day": "",
+  "Halloween (days before)": "",
+  "Lunar New Year (Nook Shopping)": "",
+  "Prom": "",
+  "Big Game Celebration": "",
+  "Fireworks Show (1); Fireworks Show (2); Fireworks Show (3); Fireworks Show (4); Fireworks Show (5)": "",
+  "Toy Day (days before); Toy Day; Toy Day (day after)": "",
+  "Summer (shopping); Fireworks Show (1); Fireworks Show (2); Fireworks Show (3); Fireworks Show (4); Fireworks Show (5)": "",
+  "Spring (shopping)": "",
+  "Fall (shopping)": "",
+  "hydrangea": "",
+  "holly": "",
+  "tea olive": "",
+  "azalea": "",
+  "camellia": "",
+  "plumeria": "",
+  "hibiscus": ""
 }

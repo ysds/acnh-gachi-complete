@@ -530,5 +530,26 @@
     "tier3Icon": "communication",
     "tier4Icon": "communication",
     "tier5Icon": "communication"
+  },
+  "110": {
+    "tier1Icon": "hotel",
+    "tier2Icon": "hotel",
+    "tier3Icon": "hotel",
+    "tier4Icon": "hotel",
+    "tier5Icon": "hotel"
+  },
+  "111": {
+    "tier1Icon": "hotel",
+    "tier2Icon": "hotel",
+    "tier3Icon": "hotel",
+    "tier4Icon": "hotel",
+    "tier5Icon": "hotel"
+  },
+  "112": {
+    "tier1Icon": "hotel",
+    "tier2Icon": "hotel",
+    "tier3Icon": "hotel",
+    "tier4Icon": "hotel",
+    "tier5Icon": "hotel"
   }
 }

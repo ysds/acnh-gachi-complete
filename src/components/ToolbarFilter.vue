@@ -6,8 +6,8 @@
         @click="onClickVersion()"
         v-if="activeNav && !activeNav.includes('version')"
       >
-        <template v-if="filter.version === 1">V1のみ</template>
-        <template v-else-if="filter.version === 2">V2のみ</template>
+        <template v-if="filter.version === 1">V1&V2</template>
+        <template v-else-if="filter.version === 2">V3のみ</template>
         <template v-else>バージョン</template>
       </Button>
       <span v-show="typeFilterItems.length > 0">

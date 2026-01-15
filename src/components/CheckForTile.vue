@@ -9,8 +9,8 @@
       {{ props.name }}
     </div>
     <template v-if="!props.houseShareImage1 && !props.houseShareImage2">
-      <img class="t-img" v-lazy="props.image"
-    /></template>
+      <img class="t-img" v-lazy="props.image" />
+    </template>
     <template v-else>
       <img class="t-img-house-share" v-lazy="props.houseShareImage1" />
       <img class="t-img-house-share" v-lazy="props.houseShareImage2" />

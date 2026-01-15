@@ -990,6 +990,13 @@ const navs = [
     class: "nav-item-special",
     subnavs: [
       {
+        id: "versions-300",
+        text: "3.0.0",
+        filter: function (item) {
+          return item.versionAdded === "3.0.0";
+        },
+      },
+      {
         id: "versions-204",
         text: "2.0.4",
         filter: function (item) {

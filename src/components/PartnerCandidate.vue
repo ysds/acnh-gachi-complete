@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     itemImage() {
-      return `https://acnhcdn.com/latest/${this.item.variants[0].image}`;
+      return `https://nh-cdn.catalogue.ac/${this.item.variants[0].image}`;
     },
     isShowDropdown() {
       return this.$store.getters.isShowDropdown;

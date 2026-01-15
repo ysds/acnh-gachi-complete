@@ -39,6 +39,7 @@ const shrubberyHubbery = require("@/assets/stamp/stamp-shrubbery-hubbery.png");
 const smartphone = require("@/assets/stamp/stamp-smartphone.png");
 const cooking = require("@/assets/stamp/stamp-cooking.png");
 const vegetable = require("@/assets/stamp/stamp-vegetable.png");
+const hotel = require("@/assets/stamp/stamp-hotel.png");
 
 export default {
   data() {
@@ -85,6 +86,7 @@ export default {
         smartphone,
         cooking,
         vegetable,
+        hotel,
       },
     };
   },

@@ -229,9 +229,9 @@ export default {
           item.sourceSheet === "Recipes" ||
           item.sourceSheet === "Reactions"
         ) {
-          return `https://acnhcdn.com/latest/${item.image}`;
+          return `https://nh-cdn.catalogue.ac/${item.image}`;
         } else if (item.iconImage) {
-          return `https://acnhcdn.com/latest/${item.iconImage}`;
+          return `https://nh-cdn.catalogue.ac/${item.iconImage}`;
         }
       }
       return "";
@@ -253,7 +253,7 @@ export default {
               variant.albumImage ||
               variant.inventoryImage;
             if (image !== "") {
-              image = `https://acnhcdn.com/latest/${image}`;
+              image = `https://nh-cdn.catalogue.ac/${image}`;
             }
           }
           images.push(image);
@@ -263,14 +263,14 @@ export default {
     },
     houseShareImage1() {
       if (this.isHouseShare) {
-        return `https://acnhcdn.com/latest/${this.item.variants[0].image1}`;
+        return `https://nh-cdn.catalogue.ac/${this.item.variants[0].image1}`;
       } else {
         return "";
       }
     },
     houseShareImage2() {
       if (this.isHouseShare) {
-        return `https://acnhcdn.com/latest/${this.item.variants[0].image2}`;
+        return `https://nh-cdn.catalogue.ac/${this.item.variants[0].image2}`;
       } else {
         return "";
       }
